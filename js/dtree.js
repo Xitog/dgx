@@ -47,6 +47,7 @@ function dTree(objName) {
         inOrder         : false
     }
     this.icon = {
+        // New icons
         root        : 'https://xitog.github.io/dgx/img/dtree/base.gif',
         folder      : 'https://xitog.github.io/dgx/img/dtree/folder.gif',
         folderOpen  : 'https://xitog.github.io/dgx/img/dtree/folderopen.gif',
