@@ -3,26 +3,144 @@
     <title>Outils</title>
     <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="StyleSheet" href="css/dtree.css" type="text/css" />
     <script type="text/javascript" src="js/dtree.js"></script>
+    <style>
+    h1 {
+        font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        color: #666;
+    }
+    body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    a {
+        font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        color: #666;
+    }
+    div.bandeau {
+        border: 1px solid #666;
+        width: 99%;
+        padding-left: 0.5em;
+        padding-top: 0.1em;
+        padding-bottom: 0.1em;
+        margin-left: 0.1em;
+        margin-right: 0.1em;
+    }
+    div.bandeau p {
+        margin: 0;
+    }
+    </style>
   </head>
   <body>
     <h1>Outils</h1>
+    <div class="bandeau">
+      <p><a href="index.html">Retour index</a> | <a href="javascript: d.openAll();">open all</a> | <a href="javascript: d.closeAll();">close all</a></p>
+    </div>
     <div>
-      <a href="javascript: d.openAll();">open all</a> | <a href="javascript: d.closeAll();">close all</a>&nbsp;&nbsp;
       <script type="text/javascript">
-        <!--
-        d = new dTree('d');
-        d.config.inOrder = true;
-        //d.icon.root = 'img/icons/home.png';
-        // id parent label link ? ? icon1 icon2
-        d.add(0, -1, 'Outils');
-        d.add(1, 0, 'Programmation');
-        d.add(2, 1, '<b>Python</b>');
-        d.add(3, 1, '<b>C</b>');
-        d.add(4, 1, '<b>Lua</b>');
-        d.add(5, 1, '<b>Ruby</b>');
-        document.write(d);
-        //-->
+<!--
+var description = `
+C
+    Pelles C
+    Bonjour
+Lua
+    Au revoir
+Magic
+    Blob
+        Tobacco
+    Zorba
+End
+JavaScript
+    Bibliothèque
+        GUI
+            Destroydrop Tree [http://destroydrop.com/javascripts/tree/]
+`
+
+var ID_COUNT = -1;
+function GET_ID() {
+    ID_COUNT += 1;
+    return ID_COUNT;
+}
+
+// Data node
+function xnode(idn, parent, level, content) {
+    var node = new Object();
+    node.idn = idn;
+    node.parent = parent;
+    node.level = level;
+    node.content = content;
+    node.children = [];
+    return node;
+}
+
+// Get lines of description and filter
+var lines = description.split("\n");
+var cleaned_lines = [];
+for (let line of lines) {
+    if (line.length > 0) {
+        cleaned_lines.push(line);
+    }
+}
+var lines = cleaned_lines;
+
+// Read
+function read(node, nb, lines) {
+    if (nb >= lines.length) {
+        return nb;
+    }
+    var i = nb;
+    while (i < lines.length) {
+        line = lines[i];
+        var cpt_spaces = 0;
+        for (let c of line) {
+            if (c == ' ') {
+                cpt_spaces += 1;
+            } else {
+                break;
+            }
+        }
+        var cpt_tabs = cpt_spaces / 4;
+        if (node.level < cpt_tabs) {
+            // Children
+            content = line.trim();
+            new_node = xnode(GET_ID(), node, cpt_tabs, content);
+            node.children.push(new_node);
+            i = read(new_node, i + 1, lines);
+        } else {
+            // Children of one its predecessors
+            break;
+        }
+    }
+    return i;
+}
+
+var tree = xnode(GET_ID(), -1, -1, 'Outils');
+read(tree, 0, lines);
+
+// Tree make
+var d = new dTree('d');
+d.config.inOrder = true;
+
+function create_tree(tree) {
+    if (tree.parent == -1) {
+        base = -1;
+    } else {
+        base = tree.parent.idn;
+    }
+    //alert(tree.idn + ' ' + base + ' ' + tree.content);
+    // id parent label link ? ? icon1 icon2
+    d.add(tree.idn, base, tree.content);
+    for (let child of tree.children) {
+        create_tree(child);
+    }
+}
+create_tree(tree);
+document.write(d);
+//-->
       </script>
     </div>
   </body>
