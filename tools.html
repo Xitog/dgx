@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>Outils</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="js/dtree.js"></script>
+  </head>
+  <body>
+    <h1>Outils</h1>
+    <div>
+      <a href="javascript: d.openAll();">open all</a> | <a href="javascript: d.closeAll();">close all</a>&nbsp;&nbsp;
+      <script type="text/javascript">
+        <!--
+        d = new dTree('d');
+        d.config.inOrder = true;
+        //d.icon.root = 'img/icons/home.png';
+        // id parent label link ? ? icon1 icon2
+        d.add(0, -1, 'Outils', '', '', '', '', '');
+        d.add(1, 0, 'Programmation', '', '', '', '', '');
+        d.add(2, 1, '<b>Python</b>', '', '', '', '', '');
+        document.write(d);
+        //-->
+      </script>
+    </div>
+  </body>
+</html>
