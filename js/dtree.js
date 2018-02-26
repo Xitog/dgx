@@ -47,20 +47,20 @@ function dTree(objName) {
         inOrder         : false
     }
     this.icon = {
-        root        : 'img/dtree/base.gif',
-        folder      : 'img/dtree/folder.gif',
-        folderOpen  : 'img/dtree/folderopen.gif',
-        node        : 'img/dtree/page.gif',
-        empty       : 'img/dtree/empty.gif',
-        line        : 'img/dtree/line.gif',
-        join        : 'img/dtree/join.gif',
-        joinBottom  : 'img/dtree/joinbottom.gif',
-        plus        : 'img/dtree/plus.gif',
-        plusBottom  : 'img/dtree/plusbottom.gif',
-        minus       : 'img/dtree/minus.gif',
-        minusBottom : 'img/dtree/minusbottom.gif',
-        nlPlus      : 'img/dtree/nolines_plus.gif',
-        nlMinus     : 'img/dtree/nolines_minus.gif'
+        root        : 'https://xitog.github.io/dgx/img/dtree/base.gif',
+        folder      : 'https://xitog.github.io/dgx/img/dtree/folder.gif',
+        folderOpen  : 'https://xitog.github.io/dgx/img/dtree/folderopen.gif',
+        node        : 'https://xitog.github.io/dgx/img/dtree/page.gif',
+        empty       : 'https://xitog.github.io/dgx/img/dtree/empty.gif',
+        line        : 'https://xitog.github.io/dgx/img/dtree/line.gif',
+        join        : 'https://xitog.github.io/dgx/img/dtree/join.gif',
+        joinBottom  : 'https://xitog.github.io/dgx/img/dtree/joinbottom.gif',
+        plus        : 'https://xitog.github.io/dgx/img/dtree/plus.gif',
+        plusBottom  : 'https://xitog.github.io/dgx/img/dtree/plusbottom.gif',
+        minus       : 'https://xitog.github.io/dgx/img/dtree/minus.gif',
+        minusBottom : 'https://xitog.github.io/dgx/img/dtree/minusbottom.gif',
+        nlPlus      : 'https://xitog.github.io/dgx/img/dtree/nolines_plus.gif',
+        nlMinus     : 'https://xitog.github.io/dgx/img/dtree/nolines_minus.gif'
     };
     this.obj = objName;
     this.aNodes = [];
