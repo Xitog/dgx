@@ -1,0 +1,45 @@
+<html>
+  <title>Lua</title>
+  <meta charset="utf-8">
+<head>
+</head>
+<body>
+<h1>Introduction</h1>
+<h2>Description</h2>
+<p>Lua est un langage de script, gratuit, concis et simple :</p>
+<ul>
+  <li>Concis car le langage est assez petit aussi bien dans son nombre de mots-clés que les concepts qu'il met en jeu. Il n'y a par exemple qu'un type de données structurées, les tables, alors que de Python utilisent des tuples, des sets, des listes, des dictionnaires. L'orientation objet n'est pas supportée par des mots-clés dans le langage, il faut la reprogrammer à la main mais Lua offre des facilités pour développer les capacités du langage.</li>
+  <li>Simple car Lua a une syntaxe assez standard et très permissive : on peut appeler une fonction sans respecter le nombre de paramètres demandés, on peut simplement concaténer deux expressions à la suite, il n'y pas de système de typage des variables.</li>
+</ul>
+<p>La version majeure actuelle (au 28/02/2018) est la version 5 et est disponible selon les termes de la licence MIT.</p>
+<h2>Historique et influences</h2>
+<p>Lua a été développé au Brésil à partir de 1993 par Roberto Ierusalimschy, Waldemar Celes et Luiz Henrique de Figueiredo au sein du groupe de recherche <i>Computer Graphics Technology Group</i> (<a href="https://www.tecgraf.puc-rio.br/">TeCGraf</a><sup>[pt, en]</sup>), de l'université pontificale catholique de Rio de Janeiro avec l'aide du géant industriel <a href="http://www.petrobras.com.br/en/">Petrobras</a><sup>[en]</sup>.</p>
+<p>Sa syntaxe emprunte au langage Modula, un langage développé dans les années 70 en Suisse par Niklaus Wirth, le créateur de Pascal. Elle présente des similarités avec le langage de script Ruby (sans la partie orientée objet).</p>
+<p>Lua signifie lune en portugais et se prononce dans cette langue "loua".</p>
+<h2>Désavantages</h2>
+<p>Le revers des deux traits principaux est que Lua a des manques ou des difficultés qui n'existent pas dans des langages plus complets :</p>
+<ul>
+  <li>L'absence de mécanisme d'orientation objet de base par exemple,</li>
+  <li>La difficulté à connaître la longueur d'une liste et s'assurer de sa continuité,</li>
+  <li>Le danger de pouvoir concaténer deux expressions à la suite, sans avoir besoin de séparateurs : 3+5 2 est valide en Lua !</li>
+</ul>
+<h2>Utilisations</h2>
+<p>Lua peut être utilisé de deux façons :</p>
+<ul>
+  <li>Via l'interpréteur en tant qu'API C embarqué dans une <b>application hôte</b>. il permet de piloter celle-ci via des scripts en utilisant les fonctions supplémentaires qu'elle met à leur disposition et les bibliothèques Lua. Sa concision fait qu'il ne prend pas trop de place dans l'application hôte. On parle alors de <b>langage d'extension</b> (<i>extension language</i>) ou <b>embarqué</b> (<i>embedded</i>).</li>
+  <li>Via l'interpréteur en tant qu'application, appelé <b>lua</b>, on ne peut alors utiliser que les bibliothèques en Lua mais celles-ci sont nombreuses. On parle alors d'utilisation en tant que <b>langage principal</b> (<i>stand alone</i>). On peut utiliser ce dernier pour exécuter d'un coup des scripts Lua ou en mode interactif via une boucle REPL (<i>read-eval-print-loop</i>) en entrant au fur et à mesure des instructions qui sont exécutées au fur et à mesure qu'elles sont entrées dans l'interpréteur. L'interpréteur est programmé en C.</li>
+</ul>
+<p>L'interpréteur n'interprète pas directement le script mais le compile en bytecode et envoi celui-ci à la machine virtuelle Lua.</p>
+<p>Lua est utilisée de façon embarquée dans de nombreux applications, en particulier des jeux vidéo. On peut citer le lecteur multimédia VLC et le jeu World of Warcraft.</p>
+<h2>Ressources</h2>
+<ul>
+  <li><a href="https://www.lua.org/pil/">Programming in Lua</a>, le "PIL", est un livre d'introduction Lua avec de nombreux exemples. La première édition est gratuitement disponible en ligne mais ne correspond plus à la version actuelle du langage.</li>
+  <li>Le <a href="https://www.lua.org/">site officiel</a> contient tout ce qu'il faut pour débuter : une distribution standard avec notamment l'interpréteur officiel et la bibliothèque standard.</li>
+  <li>Le <a href="http://lua-users.org/">site des utilisateurs de Lua</a> contient de nombreux exemples et recettes.</li>
+  <li>Le <a href="https://luarocks.org/">site des bibliothèques Lua</a> et du système de gestion de celles-ci.</li>
+  <li>La <a href="https://en.wikipedia.org/wiki/Lua_(programming_language)">page Wikipedia</a> sur Lua.</li>
+  <li><a href="https://love2d.org/">Löve</a>, une application qui embarque Lua et propose de nombreuses fonctions pour programmer des jeux.</li>
+  <li><a href="https://www.zazzle.com/Lua_Store">Boutique officielle</a> pour supporter Lua via l'achat de goodies.</li>
+</ul>
+</body>
+</html>
