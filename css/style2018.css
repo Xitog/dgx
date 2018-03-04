@@ -36,5 +36,14 @@ h1.title {
   color: blue;
 }
 ol {
-    list-style-type:upper-roman;
+  list-style-type:upper-roman;
+}
+table {
+  border-collapse: collapse;
+}
+table.show, table.show th, table.show td {
+  border: 1px solid black;
+}
+table.show td {
+  text-align: center;
 }
