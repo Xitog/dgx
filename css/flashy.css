@@ -1,0 +1,203 @@
+﻿/* === Specific === */
+
+/* body */
+
+body {
+}
+
+/* div */
+
+div.block {
+    margin-left: 10px;
+    border-left: 3px solid #EEEEEE;
+    padding-left: 3px;
+}  
+div.code, pre.code {
+    background-color: #F9F9F9; /* #efefef; */
+    border: 1px solid #AAA;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top : 2px;
+    padding-bottom : 2px;
+    font-family: "Consolas"; 
+    color: black;
+    font-size: 16px;
+}
+
+blockquote {
+    background-color: #efefef;
+}
+
+/* paragraph */
+
+p {
+    font-size: 16px;
+    color: black;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    font-family: "Palatino Linotype";
+}
+
+p a {
+    color: #6714cc;
+    font-size: 16px;
+    text-decoration: underline;
+    font-family: "Palatino Linotype";
+}
+/* Retour */
+
+p.back {
+    text-align: center;
+}
+
+/* titres */
+
+h2 {
+    color: #14cc67;
+    font-family: "Palatino Linotype";
+    font-size: 22px;
+    border-bottom: 1px solid #14cc67;
+    font-weight: bold;
+    margin-top: 18px;
+    margin-bottom: 18px;
+}
+
+h3 {
+    color: #6714cc;
+    font-family: "Palatino Linotype";
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 18px;
+    margin-bottom: 18px;
+}
+
+h4 {
+    color: #cc6714;
+    font-family: "Palatino Linotype";
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+/* table */
+
+table {
+    border: 1px solid #AAA;
+    border-collapse: collapse; 
+    border-spacing: 0;
+    width: 100%;
+    font-family: "Palatino Linotype";
+}
+th {
+    border-bottom: 1px solid #AAA;
+    text-align: center;
+    font-size: 16px;
+}
+tr:nth-child(odd) {
+    background: #DDDDDD;
+}
+table.def td:nth-child(1) {
+    font-family: "Consolas";
+    width: 30%;
+}
+table.fun td:nth-child(1) {
+    font-family: "Consolas";
+    width: 30%;
+}
+table.fun td:nth-child(2) {
+    font-family: "Consolas";
+    width: 15%
+}
+td {
+    color: black;
+    font-size: 16px;
+}
+
+/* span */
+
+span.code {
+    background-color: #F9F9F9; /* #efefef; */
+    border: 1px solid #AAA;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top : 2px;
+    padding-bottom : 2px;
+    font-family: "Consolas";
+}
+
+h2 span.titlecode {
+    font-family: "Consolas";
+    background-color: transparent;
+    border: none;
+    color: #AAA;
+}
+
+/* text elements */
+/* on utilise b et i uniquement pour le code, strong et em sinon */
+strong {
+    color: #1479cc;
+}
+b {
+    color: #1479cc;
+    font-family: "Consolas";
+    font-size: 16px;
+}
+b.green {
+    color: #55AA55;
+}
+b.blue {
+    color: #9999CC;
+}
+b.orange {
+    color: #FF6600;
+}
+i {
+    color: #AAA;
+    font-size: 16px;
+}
+u {
+    color: #cc141d;
+    font-family: "Consolas";
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Menu */
+
+ol.menu { 
+    counter-reset: item 
+}
+ol.menu li { 
+    display: block 
+}
+ol.menu li:before { 
+    content: counters(item, ".") " "; 
+    counter-increment: item ;
+    font-size: 14px;
+}
+ol.menu a {
+    color: #6714cc;
+    font-size: 16px;
+    font-family: "Palatino Linotype";
+}
+
+/* Lists */
+
+ul.normale {
+    font-family: "Palatino Linotype";
+    font-size: 16px;
+    color: black;
+}
+
+ul.normale a {
+    color: #6714cc;
+    font-size: 16px;
+    text-decoration: underline;
+}  
+
+/* Spécifiques */
+
+#intro {
+    style="text-align:justify";
+}

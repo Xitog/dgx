@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<html lang="fr">
+﻿   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Méthodologie d'Histoire</title>
+    <link rel="icon" href="http://damien.gouteux.free.fr/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="http://damien.gouteux.free.fr/img/favicon.ico" type="image/x-icon" />
+    <link href="http://damien.gouteux.free.fr/css/simplex.bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="http://damien.gouteux.free.fr/css/palatino.css" rel="styleSheet" type="text/css">
+    <style type="text/css">
+    </style>
+  </head>
+ <body>
+    <div id="main" class="container">
+    
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+             <a class="navbar-brand" href="#">Menu</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li id="Accueil"><a href="http://damien.gouteux.free.fr/index.html">Accueil</a></li>
+              <li id="Blog"><a href="#blog" onclick="view_one_entry(0);">Blog</a></li>
+              <li class="dropdown">
+                <a id="Langues" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Langues <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                <li class="dropdown-header">Français</li>
+                  <li><a href="http://damien.gouteux.free.fr/francais/fiche_api_fr.html">Sons du français</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Italien</li>
+                  <li><a href="http://damien.gouteux.free.fr/italien/beatrice.html">Beatrice : grammaire</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/italien/jeux.html">Jeux</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Informatique" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Informatique <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Python</li>
+                  <li><a href="http://damien.gouteux.free.fr/python/aide_python.html">Aide-mémoire</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Ruby</li>
+                  <li><a href="http://damien.gouteux.free.fr/ruby/guide_ruby.html">Guide</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/ruby/aide_ruby.html">Aide-mémoire</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Lua</li>
+                  <li><a href="http://damien.gouteux.free.fr/lua/aide_lua.html">Aide-mémoire</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Selene <i>(mon langage)</i></li>
+                  <li><a href="http://damien.gouteux.free.fr/selene/guide_selene">Guide</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Modélisation</li>
+                  <li><a href="#" class="dead">Tutoriel sur XCore</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/model/json.html">Fiche sur JSON</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Histoire" href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-expanded="false">Histoire <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Méthode</li>
+                  <li><a href="http://damien.gouteux.free.fr/histoire/methode.html" class="active">Généralités</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/histoire/bibliographie.html">Bibliographie</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Aide-mémoires</li>
+                  <li><a href="http://damien.gouteux.free.fr/histoire/france19eme.html">France au XIXe</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Jeux" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Jeux <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Terres sauvages <i>(mon jdr)</i></li>
+                  <li><a href="#" class="dead">Règles de jeu de rôles</a></li>
+                  <li><a href="#" class="dead">Univers de jeu</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Livres dont VOUS êtes le héros</li>
+                  <li><a href="http://damien.gouteux.free.fr/jeux/doc_talisman.html">Le Compagnon du Talisman</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Jeux vidéo</li>
+                  <li><a href="#" class="dead">Guide des STR</a></li>
+                  <li><a href="#" class="dead">Projet de STR</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Autres" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Autres <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Collections</li>
+                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#prenoms">Prénoms</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#langages">Langages</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#favoris_artistiques">Favoris artistiques</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+    
+    <!--
+      <div class="jumbotron">
+        <h1 id="titreHaut">Méthodologie d'Histoire</h1>
+        <hr>
+        <p id="texteHaut" class="n">Une fiche de méthodologie pour les épreuves universitaires d'Histoire.</p>
+        <p id="signature" class="sign">Damien Gouteux,<br> mis à jour le 30 avril 2017,<br>créé le ???.</p>  
+      </div>
+    -->  
+  
+      <div id="content" class="palatino">
+      
+        <h1>Méthodologie d'Histoire</h1>
+        <h2>I. Commentaire historique de document</h2>
+        <ul>
+          <li><p>Pas une dissertation illustrée par des citations du texte !</p></li>
+          <li><p>Pas de paraphrase du texte. Il faut expliquer !</p></li>
+        </ul>
+        <dl>
+          <dt>Base</dt><dd><p>on part du texte (et on se limite à celui-ci)</p></dd>
+          <dt>C'est</dt><dd><p>éclaire le doc en y ajoutant nos connaissances</p></dd>
+          <dt>CàD</dt><dd>
+            <ul>
+              <li><p>expliquer <i>(expliciter les allusions rapport texte-évènements)</i></p></li>
+              <li><p>interpréter <i>(comment il le dit et pourquoi et ce qu'il ne dit pas)</i></p></li>
+              <li><p>critiquer en montrant l'intérêt du texte</p></li>
+            </ul>
+          </dd>
+        </dl>
+        
+        <h3>I.A. Méthode / Travail préparatoire</h3>
+        <ol>
+          <li><p><u>Lire et relire</u></p></li>
+          <li><p><u>Élucider</u> les allusions, le vocabulaire, définir son contexte<br/>
+            auteur, destinataire, évènement.<br/>
+            Attention : possiblement 2 contextes si texte pas contemporain :<br/>
+            celui des évènements relatés et celui d'écriture.</p></li>
+          <li><p><u>Analyse externe et interne</u> (organisation du texte) <br/>
+            que dit-il ? quoi ? comment ? pourquoi ? but ? (= centres d'intérêts)</p></li>
+          <li><p><u>Formuler</u> la problématique</p></li>
+          <li><p><u>Élaborer</u> le plan</p></li>
+        </ol>
+
+        <h3>I.B. Introduction</h3>
+        <ol>
+          <li><p><u>Présentation du doc</u> (quoi ? type - pourquoi ? but - quand ? date)</p></li>
+          <li><p><u>Présentation de l'auteur</u> (qui ?)</p></li>
+          <li><p><u>Présentation du contexte / Délimiter</u> (voir des 2 : écritures / évnts relatés)</p></li>
+          <li><p>Explication de <u>l'enjeu historique</u> (contexte)<br/>
+            <u>Pts essentiels soulevés</u> par le texte -> <u>Problématique</u> (intérêt du doc)</p></li>
+          <li><p><u>Plan</u> (regroupement des pts par thème)</p></li>
+        </ol>
+
+        <h3>I.C. Dév</h3>
+        <ul>
+          <li><p><u>annoncer</u> | <u>citer</u> | <u>expliquer</u> | <u>commenter</u> | <u>conclure</u></p></li>
+          <li><p><u>au moins 1 citation par paragraphe</u></p></li>
+          <li><p>mêmes consiques que pour la dissertation</p></li>
+        </ul>    
+
+        <h3>I.D. Conclusion</h3>
+        <p>Ne pas la bâcler !</p>
+        <ol>
+          <li><p>Bilan synthétique répondant à la pb<br/>
+            <i>(ex : exposer la pb suivie, rassembler les enseignements du texte) (sans répéter la pb) (pas obliger de tout résumer)</i></p></li>
+          <li><p>Mise en perspective et ouverture intelligente<br/>
+            <i>(dépasser ces enseignements en indiquant la portée, la valeur du texte)
+            (ouverture sans faux suspense)
+            (conséquences, sujets voisins)</i></p></li>
+        </ol>
+        <p>Pas de nouveaux éléments !</p>
+    
+        <h3>I.E. Plan alternatif pour l'introduction</h3>
+        <ol>
+          <li><p>Qui ? auteur</p></li>
+          <li><p>Quoi ? document (nature, date, but)</p></li>
+          <li><p>Pourqui ? destinataires</p></li>
+          <li><p>Contexte général (seulement ce qui est utile pour le texte)</p></li>
+          <li><p>Problématique</p></li>
+          <li><p>Plan</p></li>
+        </ol>
+
+        <h3>I.F. Plan</h3>
+        <p>Commentaire composé ou commentaire linéaire (déconseillé).</p>
+        <p>Pour le commentaire, si le texte suit déjà un ordre logique, on peut suivre le texte (plan chronologique, logique), sinon plan dialectique ou thématique de la forme : T1, T2, Approche critique (silences, contradictions, limites du texte).</p>
+        <p>Type de plan :
+          <ul>
+            <li>chronologique(voir les césures = rupture et les périodes cohérentes) si pas de césure mais constance on choisira plutôt le :</li>
+            <li>thématique
+              <ol>
+                <li>plan bilan : 1 phénomène : bilan économique, militaire, ...</li>
+                <li>plan explicatif : 1 phénomène : causes, moyens, conséquences/résultats</li>
+                <li>plan dialectique : 1 question : thèse, antithèse, résolution et dépassement</li>
+              </ol>
+            </li>
+          </ul>
+        </p>
+        <p>Titres d'ouvrage en italique sur l'ordinateur et soulignés sur papier.</p>
+
+        <!-- -------------------------------------------------------------------------------------------------------- -->
+
+        <h2>II. Disseration</h2>
+        <ul>
+          <li><p>Pas d'énumération !</p></li>
+          <li><p>Pas des questions de cours, de récitation !</p></li>
+          <li><p>Être précis (dans le vocabulaire et les idées)</p></li>
+          <li><p>Bien rédiger, éviter les parenthèses, ne pas citer ses sources</p></li>
+          <li><p>Ne pas tout rédiger au brouillon mais relire</p></li>
+        </ul>
+        <dl>
+          <dt>Base</dt><dd><p>le sujet</p></dd>
+          <dt>C'est</dt><dd><p>raisonnement pour résoudre un problème historique via une argumentation.</p></dd>
+          <dt>Càd</dt><dd><p>arguments expliqués et illustrés dans un ordre logique et cohérent, du plus simple au plus complexe.</p></dd>
+        </dl>
+
+        <h3>II.A. Méthode / Travail préparatoire</h3>
+        <ol>    
+          <li><p><u>Analyser</u> les mots du sujet dont les mots de liaison, les pluriels</p></li>
+          <li><p><u>Délimiter</u> (les notions, géographiquement, temporellement)</p></li>
+          <li><p><u>Mobiliser</u> les connaissances précises : idées, arguments</p></li>
+          <li><p><u>Structurer</u> : hiérarchiser, sélectionner, axes de réflexion, plannifier -> formuler un plan (2 ou 3 parties)</p></li>
+          <li><p><u>Élaborer</u> la problématique : trouver le pourquoi le sujet se pose ? (pb / paradoxe / enjeux)</p></li>
+        </ol>    
+        <p>Il peut y avoir un va et vient entre le 4 et le 5</p>
+
+        <h3>II.B. Introduction</h3>
+        <ol>
+          <li><p>Entonnoir (on ramène à notre sujet via phrase d'accroche)</p></li>
+          <li><p>Définition des termes du sujet (définition littéralle, par l'image laissée, par opposition)<br/>
+            <i>Ex : Gaulois = origine, zone de peuplement : Gaule</i></p></li>
+          <li><p>Délimiter le sujet (notions + limites)</p></li>
+          <li><p>Problématique : question soulevée par le sujet (différent du sujet), axe reliant toutes les parties<br/>
+            <i>Ex : Pourquoi ?</i></p></li>
+          <li><p>Plan</li>
+        </ol>
+
+        <h3>II.C. Dév</h3>
+        <ul>
+          <li><p>3 parties structurées<br/>
+            mini intro<br/>
+            mini conclu (ce qui a été dit)<br/>
+            mini transition (ce qui reste à faire)</p></li>
+          <li><p>1 idée par argument développé par paragraphe, illustré par un exemple</p></li>
+          <li><p>10-15 lignes par paragraphe. Pas de titre !</p></li>
+          <li><p>Sauter des lignes entre les parties</p></li>
+        </ul>
+
+        <h3>II.D. Conclusion</h3>
+        <p>Ne pas la bâcler !</p>
+        <ol>
+          <li><p>Bilan synthétique répondant à la pb<br/>
+            <i>(ex : exposer la pb suivie, rassembler les enseignements du texte) (sans répéter la pb)</i></p></li>
+          <li><p>Mise en perspective et ouverture intelligente<br/>
+            <i>(dépasser ces enseignements en indiquant la portée, la valeur du texte)
+            (ouverture sans faux suspense)
+            (conséquences, sujets voisins)</i></p></li>
+        </ol>
+        <p>Pas de nouveaux éléments !</p>
+        <p>Pas de téléologie ! (interpréter un évènement passé en fonction de ce qui viendra après)</p>
+        <p>Mais mise en perspective par rapport aux autres pays, au caractère exceptionnel ou banal, changement décisif ou prolongation ou amplification de qqchose de plus ancien ?</p>
+
+      </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    
+  </body>
+</html>

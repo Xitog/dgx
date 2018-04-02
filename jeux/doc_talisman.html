@@ -1,0 +1,1290 @@
+﻿<!DOCTYPE html>
+<html>
+<html lang="fr">
+﻿   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Le Compagnon du Talisman</title>
+    <link rel="icon" href="http://damien.gouteux.free.fr/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="http://damien.gouteux.free.fr/img/favicon.ico" type="image/x-icon" />
+    <link href="http://damien.gouteux.free.fr/css/simplex.bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="http://damien.gouteux.free.fr/css/palatino.css" rel="styleSheet" type="text/css">
+    <style type="text/css">
+      #content.palatino h2 { border-bottom: 1px solid #CEC498; margin-top: 60px; }
+      #content.palatino table.tab { font-family: Palatino; font-size: 14px; }
+      #content.palatino table.tab tbody tr:nth-child(odd) { background-color: #E4E4E4; } 
+      #content.palatino table.tab tbody tr:nth-child(2n) { background-color: #FFFFFF; }
+      #content.palatino span.p { color: green; background-color: #99cc99; border: 1px solid green; padding-right: 4px; padding-left: 4px; }
+      #content.palatino span.c { color: orange; background-color: #ffedcc; border: 1px solid orange; padding-right: 4px; padding-left: 4px; }
+      #content.palatino span.a { color: #551A8B; background-color: #ccbadc; border: 1px solid #551A8B; padding-right: 4px; padding-left: 4px; }
+      #content.palatino span.l { color: grey; background-color: #d8d8d8; border: 1px solid grey; padding-right: 4px; padding-left: 4px; }
+    </style>
+  </head>
+ <body>
+    <div id="main" class="container">
+    
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+             <a class="navbar-brand" href="#">Menu</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li id="Accueil"><a href="http://damien.gouteux.free.fr/index.html">Accueil</a></li>
+              <li id="Blog"><a href="#blog" onclick="view_one_entry(0);">Blog</a></li>
+              <li class="dropdown">
+                <a id="Langues" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Langues <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                <li class="dropdown-header">Français</li>
+                  <li><a href="http://damien.gouteux.free.fr/francais/fiche_api_fr.html">Sons du français</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Italien</li>
+                  <li><a href="http://damien.gouteux.free.fr/italien/beatrice.html">Beatrice : grammaire</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/italien/jeux.html">Jeux</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Informatique" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Informatique <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Python</li>
+                  <li><a href="http://damien.gouteux.free.fr/python/aide_python.html">Aide-mémoire</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Ruby</li>
+                  <li><a href="http://damien.gouteux.free.fr/ruby/guide_ruby.html">Guide</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/ruby/aide_ruby.html">Aide-mémoire</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Lua</li>
+                  <li><a href="http://damien.gouteux.free.fr/lua/aide_lua.html">Aide-mémoire</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Selene <i>(mon langage)</i></li>
+                  <li><a href="http://damien.gouteux.free.fr/selene/guide_selene">Guide</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Modélisation</li>
+                  <li><a href="#" class="dead">Tutoriel sur XCore</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/model/json.html">Fiche sur JSON</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Histoire" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Histoire <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Méthode</li>
+                  <li><a href="http://damien.gouteux.free.fr/histoire/methode.html">Généralités</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/histoire/bibliographie.html">Bibliographie</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Aide-mémoires</li>
+                  <li><a href="http://damien.gouteux.free.fr/histoire/france19eme.html">France au XIXe</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Jeux" href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-expanded="false">Jeux <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Terres sauvages <i>(mon jdr)</i></li>
+                  <li><a href="#" class="dead">Règles de jeu de rôles</a></li>
+                  <li><a href="#" class="dead">Univers de jeu</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Livres dont VOUS êtes le héros</li>
+                  <li><a href="http://damien.gouteux.free.fr/jeux/doc_talisman.html" class="active">Le Compagnon du Talisman</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Jeux vidéo</li>
+                  <li><a href="#" class="dead">Guide des STR</a></li>
+                  <li><a href="#" class="dead">Projet de STR</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Autres" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Autres <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Collections</li>
+                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#prenoms">Prénoms</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#langages">Langages</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#favoris_artistiques">Favoris artistiques</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+    
+    <!--
+      <div class="jumbotron">
+        <h1 id="titreHaut">Méthodologie d'Histoire</h1>
+        <hr>
+        <p id="texteHaut" class="n">Une fiche de méthodologie pour les épreuves universitaires d'Histoire.</p>
+        <p id="signature" class="sign">Damien Gouteux,<br> mis à jour le 30 avril 2017,<br>créé le ???.</p>  
+      </div>
+    -->  
+  
+      <div id="content" class="palatino">
+      
+<h1>Le Compagnon du Talisman</h1>
+<p><em>Damien Gouteux</em>, 2015</p>
+<h2 id="sommaire">Sommaire</h2>
+<ul>
+	<li><a href="#lex">Mentions légales</a></li>
+	<li><a href="#livre">I. Le Livre</a>
+	<ul>
+		<li>A. <a href="#livre_desc">Description</a></li>
+		<li>B. <a href="#livre_dess">Dessins</a>
+		<ul>
+			<li><a href="#pleinepage">Dessins pleine page</a></li>
+			<li><a href="#intermediaires">Dessins intermédiaires</a></li>
+		</ul></li>
+	</ul></li>
+	<li><a href="#jeu">II. Le Jeu</a>
+	<ul>
+		<li>A. <a href="#jeu_perso">Description des personnages</a>
+		<ul>
+			<li><a href="#jeu_equip">Équipement de base</a></li>
+			<li><a href="#jeu_classes">Classes</a></li>
+			<li><a href="#jeu_races">Races</a></li>
+		</ul></li>
+		<li>B. <a href="#jeu_combats">Résolution des combats</a></li>
+		<li>C. <a href="#jeu_touslescombats">Tous les combats</a></li>
+	</ul></li>
+	<li><a href="#monde">III. Le monde d&#8217;Orbus</a>
+	<ul>
+		<li>A. <a href="#creatures">Créatures</a></li>
+		<li>B. <a href="#lieux">Lieux</a>
+		<ul>
+            <li>Jardin des Dieux</li>
+			<li>Griseguilde
+			<ul>
+				<li>Auberge du Dragon Rouge</li>
+				<li>Temple de Kyrinla la Cruelle</li>
+				<li>Temple de La Mère de Toutes Choses</li>
+			</ul></li>
+			<li>Les Abysses</li>
+			<li>La Lande
+			<ul>
+				<li>Le Bocage Sacré</li>
+			</ul></li>
+			<li>Mont de l‘Étoile</li>
+			<li>Cité des Runes de la Malédiction</li>
+			<li>Serakub</li>
+			<li>Les Tours de l’Augure</li>
+		</ul></li>
+		<li>C. <a href="#personnages">Personnages</a>
+		<ul>
+			<li>Alambic</li>
+			<li>Apothécus</li>
+			<li>Les Croisés</li>
+			<li>Essedéhaif</li>
+			<li>Fauconna</li>
+			<li>Lillantha</li>
+			<li>Les Maîtres de la Tradition de Serakub</li>
+			<li>Mortophile</li>
+			<li>Le Roi Sans Chair</li>
+			<li>Somnus</li>
+			<li>Tyutchev et Cassandra, Thaum</li>
+			<li>Wodeman, Crinière de Neige</li>
+		</ul></li>
+		<li>D. <a href="#artefacts">Artefacts</a>
+		<ul>
+			<li><a href="#amulette">Amulette de Corne de Licorne</a></li>
+			<li><a href="#anneaup1">Anneau +1 <span class="caps">HAB</span></a></li>
+			<li><a href="#anneauregen">Anneau de Régénération</a></li>
+			<li><a href="#cotte">Cotte de mailles magiques</a></li>
+			<li><a href="#ecailles">Écailles de Dragon</a></li>
+			<li><a href="#elixir">Élixir de vie</a></li>
+			<li><a href="#fetiche">Fétiche maudit d&#8217;impolitesse majeure</a></li>
+			<li><a href="#gomme">Gomme d&#8217;Ambre</a></li>
+			<li><a href="#lance">Lance Fléau des Dragons</a></li>
+			<li><a href="#livregriseguilde">Livre de Griseguilde Revisitée</a></li>
+			<li><a href="#livreinfortune">Livre de l&#8217;infortune</a></li>
+			<li><a href="#onguent">Onguent de Peau d&#8216;écorce</a></li>
+			<li><a href="#parchemin">Parchemin de la douleur</a></li>
+			<li><a href="#pierre">Pierre de Fortune/Chance</a></li>
+			<li><a href="#plume">Plume de Rock</a></li>
+			<li><a href="#pommedor">Pomme d&#8217;or</a></li>
+			<li><a href="#rosedejade">Rose de jade</a></li>
+			<li><a href="#saintepee">Sainte Épée</a></li>
+			<li><a href="#seve">Sève de Saule</a></li>
+			<li><a href="#vapeurs">Vapeurs de vélocité</a></li>
+		</ul></li>
+	</ul></li>
+</ul>
+<ul>
+	<li><a href="#annexes">Annexes</a>
+	<ul>
+		<li>1. <a href="#historique">Historique</a></li>
+	</ul></li>
+</ul>
+<h2 id="lex">Mentions légales</h2>
+<p><strong>Tous les droits de l&#8216;édition française sont détenus par les Éditions Gallimard</strong>. Ce compagnon n&#8217;est en aucun cas un remplacement de l&#8216;œuvre originale mais se propose d&#8217;aider les joueurs dans leur quête et de prolonger le plaisir de se plonger dans ce <em>Livre dont on est le héros</em>.</p>
+<p><strong>Le Compagnon du  Talisman</strong> est protégé par le droit d&#8217;auteur. La reproduction de tout ou partie en est interdite sur tout support. Ce droit s&#8217;applique également à la carte qui l&#8217;accompagne.</p>
+<p>Pour toute suggestion, remarque ou erreur repérée, vous pouvez me contacter à damien <span class="caps">POINT</span> gouteux <span class="caps">AROBASE</span> gmail <span class="caps">POINT</span> com.</p>
+<h2 id="livre">I. Le livre</h2>
+<h3 id="livre_desc">I.A Description</h3>
+<p style="text-align:justify"><em>Le Talisman de la Mort</em> (ou <em>Talisman of Death</em> en anglais) fait parti des <em>Livres dont on est le héros</em>, où on navigue de chapitre en chapitre numérotés suivant nos choix. Il a été écrit par Jamie Thomson et Mark Smith, illustré par Bob Harvey, et édité en 1985. Il comporte 400 chapitres numérotés. Le <em>Compagnon du Talisman</em> a été réalisé à partir d&#8217;une édition française imprimée le 16 janvier 1986.</p>
+<p>Ce guide a été fait avec <a href="http://txstyle.org/">Textile</a> et <a href="http://vue.tufts.edu/"><span class="caps">VUE</span></a>.</p>
+<p>Le <ins>plan complet et exhaustif</ins> du livre se trouve ici : <a href="Talisman_big.png">La Carte du Compagnon du Talisman</a>.</p>
+<p>Lorsqu&#8217;il est fait référence à un numéro de chapitre, on le note ainsi <sup>400</sup> pour le chapitre 400.</p>
+<p>Dans <em>Le Talisman de la Mort</em>, vous êtes un humain <em>"normal"</em> projeté dans le monde d'Orbus. Là, vous êtes reconnu comme le Champion du Destin, et on vous demande de faire en sorte que le Talisman de la Mort ne tombe pas entre les mains de ses serviteurs, car Elle anéantirait alors toute vie en ce monde.</p>
+<p>Webographie de ce livre :</p>
+<ul>
+	<li><a href="http://www.bibliotheque-des-aventuriers.com/serie/defis_fantastiques/11_talisman_mort.htm">Dans <em>La bibliothèque des aventuriers</em></a></li>
+	<li><a href="http://planete-ldvelh.com/page/defi11.html">Sur <em>Planète <span class="caps">LDVELH</span></em></a></li>
+	<li><a href="http://www.la-taverne-des-aventuriers.com/t2602-11-le-talisman-de-la-mort">Dans <em>La Taverne des aventuriers</em></a></li>
+	<li><a href="http://www.gallimard-jeunesse.fr/Catalogue/GALLIMARD-JEUNESSE/Un-Livre-dont-vous-etes-le-Heros/Defis-Fantastiques-nouvelle-presentation/Le-Talisman-de-la-Mort">Dans le catalogue de l&#8216;éditeur, <em>Gallimard</em></a></li>
+</ul>
+<h3 id="livre_dess">I.B Dessins</h3>
+<p>Les dessins cités ci-dessous sont de <a href="http://fr.wikipedia.org/wiki/Bob_Harvey_%28illustrateur%29">Bob Harvey</a>, tandis que la couverture est de <a href="http://en.wikipedia.org/wiki/Peter_Andrew_Jones">Peter Jones</a>.</p>
+<h4 id="pleinepage">I.A.1 Dessins pleine page</h4>
+<table class="tab">
+	<tr>
+		<th>Chapitre </th>
+		<th>Description </th>
+	</tr>
+	<tr>
+		<td>  39 </td>
+		<td> Elfe noir pointant du doigt </td>
+	</tr>
+	<tr>
+		<td>  52 </td>
+		<td> Druide <span class="p">Wodeman</span>, Gardien du Bocage Sacré et la louve <span class="p">Crinière de Neige</span> </td>
+	</tr>
+	<tr>
+		<td>  78 </td>
+		<td> Grande Prêtresse de Kyrinla la Cruelle, Commandante du Guet, <span class="p">Fauconna</span>, riant </td>
+	</tr>
+	<tr>
+		<td>  91 </td>
+		<td> <span class="c">Chevalier de la Mort</span> </td>
+	</tr>
+	<tr>
+		<td> 104 </td>
+		<td> Figure encapuchonnée, <span class="c">Laquais de la Mort</span> </td>
+	</tr>
+	<tr>
+		<td> 117 </td>
+		<td> Prêtresse de La Mère de Toutes Choses, <span class="p">Lillantha</span> </td>
+	</tr>
+	<tr>
+		<td> 130 </td>
+		<td> Squelette avec corbillard, <span class="c">Émissaire de la Mort</span> </td>
+	</tr>
+	<tr>
+		<td> 169 </td>
+		<td> Voleuse <span class="p">Cassandra</span> assise </td>
+	</tr>
+	<tr>
+		<td> 195 </td>
+		<td> <span class="c">Démon de glace</span> </td>
+	</tr>
+	<tr>
+		<td> 222 </td>
+		<td> Grande Prêtresse de Kyrinla la Cruelle, Commandante du Guet, <span class="p">Fauconna</span>, levant le poing </td>
+	</tr>
+	<tr>
+		<td> 261 </td>
+		<td> <span class="c">Moine de la Mante Écarlate</span> et carriole </td>
+	</tr>
+	<tr>
+		<td> 274 </td>
+		<td> <span class="c">Goule</span> du cimetière </td>
+	</tr>
+	<tr>
+		<td> 300 </td>
+		<td> Esprit de <span class="p">Fauconna</span>, drapé au bord d&#8217;une falaise </td>
+	</tr>
+	<tr>
+		<td> 313 </td>
+		<td> <span class="c">Griffon</span> </td>
+	</tr>
+	<tr>
+		<td> 339 </td>
+		<td> Maléfique <span class="c">Idole-Avatar de Damolh</span>, fils du Dieu Néant, Bouche du Vide </td>
+	</tr>
+	<tr>
+		<td> 352 </td>
+		<td> <span class="c">Momie</span> dans son sarcophage </td>
+	</tr>
+	<tr>
+		<td> 365 </td>
+		<td> Chef des <span class="c">Hommes Pourceaux</span> </td>
+	</tr>
+	<tr>
+		<td> 378 </td>
+		<td> <span class="c">Dragon rouge</span> dormant sur son trésor </td>
+	</tr>
+</table>
+<h4 id="intermediaires">I.A.2 Dessins intermédiaires</h4>
+<table class="tab">
+	<tr>
+		<th>Chapitre </th>
+		<th>Description </th>
+	</tr>
+	<tr>
+		<td>   2 </td>
+		<td> Corbeau tenant un os </td>
+	</tr>
+	<tr>
+		<td>  10 </td>
+		<td> Corbeau tenant un os </td>
+	</tr>
+	<tr>
+		<td>  21 </td>
+		<td> Épée et fléau </td>
+	</tr>
+	<tr>
+		<td>  28 </td>
+		<td> Tête de squelette et hache, verticales (!) </td>
+	</tr>
+	<tr>
+		<td>  32 </td>
+		<td> Corbeau tenant un os </td>
+	</tr>
+	<tr>
+		<td>  44 </td>
+		<td> Trois sales types </td>
+	</tr>
+	<tr>
+		<td>  59 </td>
+		<td> Corbeau tenant un os </td>
+	</tr>
+	<tr>
+		<td>  63 </td>
+		<td> Main griffue tenant un talisman </td>
+	</tr>
+	<tr>
+		<td>  64 </td>
+		<td> Corbeau tenant un os</td>
+	</tr>
+	<tr>
+		<td>  68 </td>
+		<td> Épée et fléau </td>
+	</tr>
+	<tr>
+		<td>  77 </td>
+		<td> Corbeau tenant un os</td>
+	</tr>
+	<tr>
+		<td>  90 </td>
+		<td> Tête de squelette et hache, verticales (!) </td>
+	</tr>
+	<tr>
+		<td> 107 </td>
+		<td> Trois sales types </td>
+	</tr>
+	<tr>
+		<td> 114 </td>
+		<td> Corbeau tenant un os </td>
+	</tr>
+	<tr>
+		<td> 137 </td>
+		<td> Corbeau tenant un os </td>
+	</tr>
+	<tr>
+		<td> 141 </td>
+		<td> Corbeau tenant un os </td>
+	</tr>
+	<tr>
+		<td> 146 </td>
+		<td> Main griffue tenant un talisman </td>
+	</tr>
+	<tr>
+		<td> 147 </td>
+		<td> Corbeau tenant un os </td>
+	</tr>
+	<tr>
+		<td> 150 </td>
+		<td> Corbeau tenant un os </td>
+	</tr>
+	<tr>
+		<td> 158 </td>
+		<td> Main griffue tenant un talisman </td>
+	</tr>
+	<tr>
+		<td> 166 </td>
+		<td> Tête de squelette et hache, verticales (!) </td>
+	</tr>
+	<tr>
+		<td> 213 </td>
+		<td> Main griffue tenant un talisman </td>
+	</tr>
+	<tr>
+		<td> 216 </td>
+		<td> Corbeau tenant un os </td>
+	</tr>
+	<tr>
+		<td> 218 </td>
+		<td> Corbeau tenant un os </td>
+	</tr>
+	<tr>
+		<td> 220 </td>
+		<td> Trois sales types </td>
+	</tr>
+	<tr>
+		<td> 238 </td>
+		<td> Épée et fléau </td>
+	</tr>
+	<tr>
+		<td> 247 </td>
+		<td> Corbeau tenant un os </td>
+	</tr>
+	<tr>
+		<td> 254 </td>
+		<td> Épée et fléau </td>
+	</tr>
+	<tr>
+		<td> 264 </td>
+		<td> Corbeau tenant un os </td>
+	</tr>
+	<tr>
+		<td> 265 </td>
+		<td> Trois sales types </td>
+	</tr>
+	<tr>
+		<td> 267 </td>
+		<td> Épée et fléau </td>
+	</tr>
+	<tr>
+		<td> 269 </td>
+		<td> Corbeau tenant un os </td>
+	</tr>
+	<tr>
+		<td> 276 </td>
+		<td> Corbeau tenant un os </td>
+	</tr>
+	<tr>
+		<td> 300 </td>
+		<td> Trois sales types (grand) </td>
+	</tr>
+	<tr>
+		<td> 302 </td>
+		<td> Main griffue tenant un talisman </td>
+	</tr>
+	<tr>
+		<td> 311 </td>
+		<td> Épée et fléau </td>
+	</tr>
+	<tr>
+		<td> 327 </td>
+		<td> Tête de squelette et hache, verticales (!) </td>
+	</tr>
+	<tr>
+		<td> 331 </td>
+		<td> Épée et fléau (avec rotation) </td>
+	</tr>
+	<tr>
+		<td> 335 </td>
+		<td> Corbeau tenant un os </td>
+	</tr>
+	<tr>
+		<td> 345 </td>
+		<td> Corbeau tenant un os </td>
+	</tr>
+	<tr>
+		<td> 348 </td>
+		<td> Main griffue tenant un talisman </td>
+	</tr>
+	<tr>
+		<td> 354 </td>
+		<td> Tête de squelette et hache, verticales (!) </td>
+	</tr>
+	<tr>
+		<td> 373 </td>
+		<td> Épée et fléau (nouvelle rotation) </td>
+	</tr>
+	<tr>
+		<td> 375 </td>
+		<td> Corbeau tenant un os </td>
+	</tr>
+	<tr>
+		<td> 376 </td>
+		<td> Trois sales types </td>
+	</tr>
+	<tr>
+		<td> 392 </td>
+		<td> Main griffue tenant un talisman (grand) </td>
+	</tr>
+	<tr>
+		<td> 393 </td>
+		<td> Corbeau tenant un os </td>
+	</tr>
+</table>
+<p style="text-align:center"><a href="#sommaire">Retour sommaire</a></p>
+<h2 id="jeu">II. Le jeu</h2>
+<h3 id="jeu_perso">II.A Description des personnages</h3>
+<table class="tab">
+	<tr>
+		<th>Caractéristique </th>
+		<th>Score initial/max </th>
+		<th>Abbrv. </th>
+		<th>Desc. </th>
+	</tr>
+	<tr>
+		<td> Habilité </td>
+		<td> D6 +  6 </td>
+		<td> <span class="caps">HAB</span> </td>
+		<td> Adresse au combat </td>
+	</tr>
+	<tr>
+		<td> Endurance </td>
+		<td> 2D6 + 12 </td>
+		<td> <span class="caps">END</span> </td>
+		<td> Force, résistance et point de vie </td>
+	</tr>
+	<tr>
+		<td> Chance </td>
+		<td> D6 +  6 </td>
+		<td> <span class="caps">CHA</span> </td>
+		<td> Chance </td>
+	</tr>
+</table>
+<p><span id="jeu_equip"><ins>Équipement de base</ins></span></p>
+<ul>
+	<li>Provisions pour 10 repas. Repas possible seulement si proposé par le livre. 1 repas = +4 <span class="caps">END</span>.</li>
+	<li>Épée, armure de cuir, sac à dos.</li>
+	<li>Une bouteille à choisir parmi (buvable à tout moment, 2 mesures par bouteille):
+	<ul>
+		<li>Potion d&#8217;adresse (rétablit <span class="caps">HAB</span>)</li>
+		<li>Potion de vigueur (rétablit <span class="caps">END</span>)</li>
+		<li>Potion de bonne fortune (rétablit <span class="caps">CHA</span> et +1 : c&#8217;est un des rares cas où l&#8217;on peut dépasser le score initial)</li>
+	</ul></li>
+	<li>Silex, mèche d&#8217;amadou, 5 torches</li>
+</ul>
+<p><span id="jeu_classes"><ins>Classes</ins></span></p>
+<p>Le système de jeu n&#8217;utilise pas de <em>classes</em>, néanmoins dans les Abysses, les classes de <em>Paladin</em>, <em>Sorcier</em>, <em>Prêtre</em> sont évoquées.</p>
+<p><span id="jeu_races"><ins>Races</ins></span></p>
+<p>Le joueur ne peut-être qu&#8217;humain, mais d&#8217;autres races sont évoquées dans le jeu : <em>Ogre</em>, <em>Troll</em>, <em>Elfe noir</em>, <em>Orque</em> ainsi que les mystérieux <em><span class="c">Changeur de Formes</span></em> <sup>98</sup>.</p>
+<h3 id="jeu_combats">II.B Résolution des combats</h3>
+<p>Un combat se déroule en plusieurs <span class="caps">ASSAUT</span>. À chaque assaut, on calcule la Force d&#8217;Attaque (FA) du joueur et celle de la créature attaquée en additionnant l’habilité du joueur à 2D6 et celle de la créature à 2D6 également. On retiendra donc que pour calculer une Force d&#8217;Attaque, il suffit de faire :</p>
+<blockquote>
+<p>Force d&#8217;Attaque = 2D6 + <span class="caps">HAB</span></p>
+</blockquote>
+<p>Puis on compare les deux Forces d&#8217;Attaque, celle du joueur et celle de la créature :</p>
+<ul>
+	<li>Si Joueur &gt; Créature alors -2 <span class="caps">END</span>* à la créature (-4 si chanceux, -1 si malchanceux).</li>
+	<li>Si Joueur &lt; Créature alors -2 <span class="caps">END</span>* au joueur (-3 si malchanceux, -1 si chanceux).</li>
+	<li>Si Joueur = Créature alors il ne passe rien.</li>
+</ul>
+<p>Si la créature à une <span class="caps">END</span> qui est égale à 0 à la fin d&#8217;un assaut, elle meurt et le joueur est vainqueur et peut continuer son chemin.<br />
+Si le joueur à une <span class="caps">END</span> qui égale à 0 à la fin d&#8217;un assaut, il meurt et son aventure se termine ici.</p>
+<ul>
+	<li>Si le jeu propose au joueur de fuir =&gt; -2 <span class="caps">END</span>* &#8220;en fuyant&#8221;</li>
+	<li>Si X créatures : on en choisit 1 et 1 seule qu&#8217;on combat. Les autres, si J.FA &gt; C.FA, on ne fait rien.</li>
+</ul>
+<p>On peut tenter sa chance à chaque * et en cas de sollicitation du livre :<br />
+2D6 &lt;= <span class="caps">CHA</span> =&gt; chanceux<br />
+2D6 &gt; <span class="caps">CHA</span> =&gt; malchanceux<br />
+Chaque tentative fait -1 <span class="caps">CHA</span> après la tentative.<br />
+En attaque ou défense, cela peut transformer le coup en blessure grave ou écorchure.</p>
+<h3 id="jeu_touslescombats">II.C Tous les combats</h3>
+<table class="tab">
+	<tr>
+		<th>Chapitre </th>
+		<th>Nom </th>
+		<th>Habilité</th>
+		<th>Endurance </th>
+		<th>Spécial </th>
+		<th>Dessin </th>
+	</tr>
+	<tr>
+		<td> 4 </td>
+		<td> Tricératops </td>
+		<td> 8 </td>
+		<td> 30 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 10 </td>
+		<td> Dragon Rouge </td>
+		<td> 12 </td>
+		<td> 20 </td>
+		<td> </td>
+		<td> 378 </td>
+	</tr>
+	<tr>
+		<td> 11 </td>
+		<td> Barman<br />Coupeur de gorges </td>
+		<td> 7<br />8 </td>
+		<td> 8<br />9 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 25 </td>
+		<td> Tyrannosaure </td>
+		<td> 11 </td>
+		<td> 18 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 31 </td>
+		<td> Fauconna </td>
+		<td> 9 </td>
+		<td> 6 </td>
+		<td> </td>
+		<td> 78, 222 </td>
+	</tr>
+	<tr>
+		<td> 36 </td>
+		<td> Saule Bizarre </td>
+		<td> 8 </td>
+		<td> 20 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 50 </td>
+		<td> Fauconna </td>
+		<td> 12 </td>
+		<td> 14 </td>
+		<td> </td>
+		<td> 78, 222 </td>
+	</tr>
+	<tr>
+		<td> 51 </td>
+		<td> Dragon Rouge </td>
+		<td> 12 </td>
+		<td> 20 </td>
+		<td> </td>
+		<td> 378 </td>
+	</tr>
+	<tr>
+		<td> 59 </td>
+		<td> Fauconna (blessée) </td>
+		<td> 12 </td>
+		<td> 6 </td>
+		<td> </td>
+		<td> 78, 222 </td>
+	</tr>
+	<tr>
+		<td> 66 </td>
+		<td> Premier Voleur<br />Deuxième Voleur </td>
+		<td> 6<br />5 </td>
+		<td> 7<br />6 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 76 </td>
+		<td> Fauconna </td>
+		<td> 12 </td>
+		<td> 14 </td>
+		<td> </td>
+		<td> 78, 222 </td>
+	</tr>
+	<tr>
+		<td> 81 </td>
+		<td> Laquais de la Mort </td>
+		<td> 7 </td>
+		<td> 7 </td>
+		<td> -1 <span class="caps">HAB</span> par coups qu&#8217;il porte </td>
+		<td> 104 </td>
+	</tr>
+	<tr>
+		<td> 86 </td>
+		<td> Ptéradon </td>
+		<td> 7 </td>
+		<td> 15 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 87 </td>
+		<td> Fauconna </td>
+		<td> 12 </td>
+		<td> 14 </td>
+		<td> </td>
+		<td> 78, 222 </td>
+	</tr>
+	<tr>
+		<td> 91 </td>
+		<td> Chevalier de la Mort </td>
+		<td> 10 </td>
+		<td> 15 </td>
+		<td> </td>
+		<td> 91 </td>
+	</tr>
+	<tr>
+		<td> 96 </td>
+		<td> Laquais de la Mort </td>
+		<td> 7 </td>
+		<td> 5 </td>
+		<td> -1 <span class="caps">HAB</span> par coups qu&#8217;il porte </td>
+		<td> 104 </td>
+	</tr>
+	<tr>
+		<td> 107 </td>
+		<td> Ogre </td>
+		<td> 8 </td>
+		<td> 10 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 116 </td>
+		<td> Esprit de Fauconna </td>
+		<td> 10 </td>
+		<td> 12 </td>
+		<td> </td>
+		<td> 300 </td>
+	</tr>
+	<tr>
+		<td> 126 </td>
+		<td> Elfe Noir </td>
+		<td> 8 </td>
+		<td> 8 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 140 </td>
+		<td> Gardienne du Temple </td>
+		<td> 7 </td>
+		<td> 8 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 144 </td>
+		<td> Crâne Volant </td>
+		<td> 7 </td>
+		<td> 6 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 167 </td>
+		<td> Homme au poignard<br />Le Balafré<br />Coupeur de gorges </td>
+		<td> 6<br />7<br />7 </td>
+		<td> 6<br />9<br />8 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 189 </td>
+		<td> Vivisect </td>
+		<td> 8 </td>
+		<td> 12 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 195 </td>
+		<td> Démon de Glace </td>
+		<td> 8 </td>
+		<td> 10 </td>
+		<td> </td>
+		<td> 195 </td>
+	</tr>
+	<tr>
+		<td> 201 </td>
+		<td> Vivisect </td>
+		<td> 8 </td>
+		<td> 12 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 208 </td>
+		<td> Poursuivant Invisible (esprit de la Mort) </td>
+		<td> 9 </td>
+		<td> 8 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 210 </td>
+		<td> Tyutchev<br />Cassandra  </td>
+		<td> 10<br />9 </td>
+		<td> 12<br />10 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 219 </td>
+		<td> Spectre </td>
+		<td> 9 </td>
+		<td> 10 </td>
+		<td> -1 <span class="caps">HAB</span> par coups qu&#8217;il porte </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 220 </td>
+		<td> Émissaire de la Mort </td>
+		<td> 8 </td>
+		<td> 6 </td>
+		<td> -1 <span class="caps">HAB</span> par coups qu&#8217;il porte </td>
+		<td> 130 </td>
+	</tr>
+	<tr>
+		<td> 223 </td>
+		<td> Cassandra </td>
+		<td> 9 </td>
+		<td> 10 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 230 </td>
+		<td> Pieuvre de Vase </td>
+		<td> 8 </td>
+		<td> 9 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 232 </td>
+		<td> Louve blanche </td>
+		<td> 8 </td>
+		<td> 9 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 234 </td>
+		<td> Gardienne du Temple </td>
+		<td> 6 </td>
+		<td> 8 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 245 </td>
+		<td> Premier Voleur<br />Second Voleur </td>
+		<td> 6<br />7 </td>
+		<td> 7<br />6 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 265 </td>
+		<td> Tyutchev </td>
+		<td> 10 </td>
+		<td> 12 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 220 </td>
+		<td> Émissaire de la Mort (pris par surprise) </td>
+		<td> 8 </td>
+		<td> 4 </td>
+		<td> -1 <span class="caps">HAB</span> par coups qu&#8217;il porte </td>
+		<td> 130 </td>
+	</tr>
+	<tr>
+		<td> 274 </td>
+		<td> Goule </td>
+		<td> 7 </td>
+		<td> 8 </td>
+		<td> </td>
+		<td> 274 </td>
+	</tr>
+	<tr>
+		<td> 282 </td>
+		<td> Premier Orque<br />Deuxième Orque<br />Chef Orque </td>
+		<td> 5<br />5<br />7 </td>
+		<td> 6<br />4<br />7 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 286 </td>
+		<td> Premier Voleur<br />Deuxième Voleur </td>
+		<td> 6<br />5 </td>
+		<td> 7<br />6 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 288 </td>
+		<td> Moine de la Mante Écarlate </td>
+		<td> 9 </td>
+		<td> 8 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 297 </td>
+		<td> Poursuivant Invisible (esprit de la Mort) </td>
+		<td> 9 </td>
+		<td> 8 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 311 </td>
+		<td> Moine de la Mante Écarlate </td>
+		<td> 9 </td>
+		<td> 8 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 313 </td>
+		<td> Griffon </td>
+		<td> 8 </td>
+		<td> 14 </td>
+		<td> </td>
+		<td> 313 </td>
+	</tr>
+	<tr>
+		<td> 319 </td>
+		<td> Saule Bizarre </td>
+		<td> 8 </td>
+		<td> 12 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 342 </td>
+		<td> Tyutchev </td>
+		<td> 10 </td>
+		<td> 12 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 348 </td>
+		<td> Poursuivant Invisible (esprit de la Mort, recouvert de poussière) </td>
+		<td> 7 </td>
+		<td> 8 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 362 </td>
+		<td> Cheftaine<br />Elvira  </td>
+		<td> 8<br />6 </td>
+		<td> 10<br />8 </td>
+		<td>  Assomme si sa Force d&#8217;Attaque est &gt;= 10 </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 364 </td>
+		<td> Premier Voleur<br />Deuxième Voleur </td>
+		<td> 6<br />5 </td>
+		<td> 7<br />6 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 368 </td>
+		<td> Tyutchev<br />Cassandra </td>
+		<td> 10<br />9 </td>
+		<td> 12<br />10 </td>
+		<td> Cassandra a une Épée du froid qui inflige 3 blessures au lieu de 2. </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 387 </td>
+		<td> Momie </td>
+		<td> 9 </td>
+		<td> 10 </td>
+		<td> </td>
+		<td> 352 </td>
+	</tr>
+	<tr>
+		<td> 395 </td>
+		<td> Momie </td>
+		<td> 8 </td>
+		<td> 10 </td>
+		<td> </td>
+		<td> 352 </td>
+	</tr>
+</table>
+<p style="text-align:center"><a href="#sommaire">Retour sommaire</a></p>
+<h2 id="monde">III. Le monde d&#8217;Orbus</h2>
+<h3 id="creatures">III.A Créatures</h3>
+<p><ins>Les envoyés de la Mort</ins></p>
+<p>La Mort a de nombreux sbires qui feront tout pour récupérer le précieux Talisman.</p>
+<table class="tab">
+	<tr>
+		<th>Chapitre </th>
+		<th>Nom </th>
+		<th>Habilité</th>
+		<th>Endurance </th>
+		<th>Spécial </th>
+		<th>Dessin </th>
+	</tr>
+	<tr>
+		<td> 81 </td>
+		<td> Laquais de la Mort </td>
+		<td> 7 </td>
+		<td> 7 </td>
+		<td> -1 <span class="caps">HAB</span> par coups qu&#8217;il porte </td>
+		<td> 104 </td>
+	</tr>
+	<tr>
+		<td> 91 </td>
+		<td> Chevalier de la Mort </td>
+		<td> 10 </td>
+		<td> 15 </td>
+		<td> </td>
+		<td> 91 </td>
+	</tr>
+	<tr>
+		<td> 96 </td>
+		<td> Laquais de la Mort </td>
+		<td> 7 </td>
+		<td> 5 </td>
+		<td> -1 <span class="caps">HAB</span> par coups qu&#8217;il porte </td>
+		<td> 104 </td>
+	</tr>
+	<tr>
+		<td> 208 </td>
+		<td> Poursuivant Invisible (esprit de la Mort) </td>
+		<td> 9 </td>
+		<td> 8 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 219 </td>
+		<td> Spectre </td>
+		<td> 9 </td>
+		<td> 10 </td>
+		<td> -1 <span class="caps">HAB</span> par coups qu&#8217;il porte </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 220 </td>
+		<td> Émissaire de la Mort </td>
+		<td> 8 </td>
+		<td> 6 </td>
+		<td> -1 <span class="caps">HAB</span> par coups qu&#8217;il porte </td>
+		<td> 130 </td>
+	</tr>
+	<tr>
+		<td> 220 </td>
+		<td> Émissaire de la Mort (pris par surprise) </td>
+		<td> 8 </td>
+		<td> 4 </td>
+		<td> -1 <span class="caps">HAB</span> par coups qu&#8217;il porte </td>
+		<td> 130 </td>
+	</tr>
+	<tr>
+		<td> 297 </td>
+		<td> Poursuivant Invisible (esprit de la Mort) </td>
+		<td> 9 </td>
+		<td> 8 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 348 </td>
+		<td> Poursuivant Invisible (esprit de la Mort, recouvert de poussière) </td>
+		<td> 7 </td>
+		<td> 8 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+</table>
+<h3 id="lieux">III.B Lieux</h3>
+<p><ins>Lieux où l&#8217;action se passe</ins></p>
+<ul>
+    <li>Le joueur passe brièvement par le <span class="l">Jardin des Dieux</span> où on lui confie sa mission.</li>
+	<li>Majoritairement à <span class="l">Griseguilde</span> dont la première mention est à <sup>268</sup>. C&#8217;est la Cité du savoir avec de nombreux étudiants et savants.
+	<ul>
+		<li>Griseguilde est une ville qui contient l&#8217;<span class="l">Auberge du Dragon Rouge</span>, repère malfamé et louche de malandrins en tout genre.</li>
+		<li>Elle possède aussi de nombreux temples dont le <span class="l">Temple de Kyrinla la Cruelle</span> et le <span class="l">Temple de La Mère de Toutes Choses</span> ainsi que le <span class="l">Temple de la Mort</span>, un grand bâtiment de style gothique <sup>144</sup>. Elle dispose bien sûr d&#8217;un <span class="l">cimetière</span>.</li>
+		<li>Il y aussi l&#8217;<span class="l">Auberge de la Breloque d&#8217;Argent</span>.</li>
+		<li>On y entre par des portes, dont la <span class="l">Porte de Lande</span>.</li>
+		<li>Cachée au sein de la ville, il y a aussi <span class="l">La Guilde des Voleurs</span></li>
+		<li>La ville comporte bien sûr de nombreuses rues :
+		<ul>
+			<li>Rue du Magasin</li>
+			<li>Rue Dupont</li>
+			<li>Rue du Guet</li>
+			<li>Rue des Sept Péchés</li>
+			<li>Rue d&#8217;Argent</li>
+			<li>Allée du Commerce (bouche d&#8216;égout piégée menant à la Guilde des Voleurs)</li>
+			<li>Rue du Cordonnier</li>
+			<li>Rue du Marchand</li>
+			<li>Rue du Carrosse</li>
+			<li>Promenade du Bateleur</li>
+			<li>Rue du Charme (trou à charbon menant à la Guilde des Voleurs)</li>
+		</ul></li>
+	</ul></li>
+	<li>Le joueur débarque au début de l&#8217;aventure dans les <span class="l">Abysses</span>.</li>
+	<li>Entre les Abysses et Griseguilde, le joueur s&#8217;aventure dans les <span class="l">Landes</span>. Il y trouvera peut-être le <span class="l">Bocage Sacré</span> où réside <span class="p">Wodeman</span>.</li>
+	<li>Le joueur l&#8217;aventure finit sur le <span class="l">Mont de l&#8216;Étoile</span>.</li>
+</ul>
+<p><ins>Lieux seulement évoqués</ins></p>
+<ul>
+	<li>Cité des Runes de la Malédiction <sup>322, 100</sup> : lieu où a été forgé le Talisman de la Mort.</li>
+	<li>Serakub <sup>322</sup></li>
+	<li>Les Tours de l&#8217;Augure <sup>322</sup></li>
+</ul>
+<h3 id="personnages">III.C Personnages et organisations</h3>
+<p><strong>Alambic</strong> <sup>394</sup>, un alchimiste qui a sa boutique à Griseguilde. Ses articles sont &#8220;à surprises&#8221;.</p>
+<p><strong>Apothécus</strong>, on le rencontre au <sup>128</sup> et son nom est révélé au <sup>98</sup>. C&#8217;est un habitant de Griseguilde, un historien, qui s&#8217;avèrera un allié précieux. Il vous donne une <span class="a">rose de jade</span> et un <span class="a">anneau +1 <span class="caps">HAB</span></span>.</p>
+<p><strong>Les Croisés</strong> <sup>13</sup> : un groupe chargé par les <span class="o">Maîtres de la Tradition de Serakub</span> de récupérer le Talisman de la Mort dans les profondeurs de l&#8217;Abyme. Lorsque le joueur les rencontre, il n&#8217;en reste plus que quatre. Il est composé de <span class="p">la Dame de Mailles</span> et de trois hommes : un Paladin, un Sorcier, et un Prêtre.</p>
+<p><strong>Essedéhaif</strong> <sup>209</sup>, le Maître de la Guilde des Voleurs.</p>
+<p><strong>Fauconna</strong>, Grande Prêtresse de Kyrinla la Cruelle. Elle est un adversaire qui cherche à mettre la main sur le Talisman. Elle est également cheffe des Amazones et en cela Commandante du Guet. Le joueur la tue au cours de l&#8217;aventure, mais elle revient le hanter sous la forme d&#8217;un esprit.</p>
+<p>Les différents combats contre Fauconna : </p>
+<table class="tab">
+	<tr>
+		<th>Chapitre </th>
+		<th>Nom </th>
+		<th>Habilité</th>
+		<th>Endurance </th>
+		<th>Spécial </th>
+		<th>Dessin </th>
+	</tr>
+	<tr>
+		<td> 31 </td>
+		<td> Fauconna </td>
+		<td> 9 </td>
+		<td> 6 </td>
+		<td> </td>
+		<td> 78, 222 </td>
+	</tr>
+	<tr>
+		<td> 50 </td>
+		<td> Fauconna </td>
+		<td> 12 </td>
+		<td> 14 </td>
+		<td> </td>
+		<td> 78, 222 </td>
+	</tr>
+	<tr>
+		<td> 59 </td>
+		<td> Fauconna (blessée) </td>
+		<td> 12 </td>
+		<td> 6 </td>
+		<td> </td>
+		<td> 78, 222 </td>
+	</tr>
+	<tr>
+		<td> 76 </td>
+		<td> Fauconna </td>
+		<td> 12 </td>
+		<td> 14 </td>
+		<td> </td>
+		<td> 78, 222 </td>
+	</tr>
+	<tr>
+		<td> 87 </td>
+		<td> Fauconna </td>
+		<td> 12 </td>
+		<td> 14 </td>
+		<td> </td>
+		<td> 78, 222 </td>
+	</tr>
+</table>
+<p>On rencontre ensuite son esprit :</p>
+<table class="tab">
+	<tr>
+		<th>Chapitre </th>
+		<th>Nom </th>
+		<th>Habilité</th>
+		<th>Endurance </th>
+		<th>Spécial </th>
+		<th>Dessin </th>
+	</tr>
+	<tr>
+		<td> 116 </td>
+		<td> Esprit de Fauconna </td>
+		<td> 10 </td>
+		<td> 12 </td>
+		<td> </td>
+		<td> 300 </td>
+	</tr>
+</table>
+<p>Prêtresse de La Mère de Toutes Choses, <strong>Lillantha</strong> : l&#8217;opposé de Fauconna. Elle est amie avec <span class="p">Wodeman</span>.</p>
+<p>Les <strong>Maîtres de la Tradition de Serakub</strong> œuvrent pour le Bien.</p>
+<p><strong>Mortophile</strong> <sup>144</sup> (son nom signifie <em>qui aime la mort</em>) infirme adorateur de la Mort. Il habite dans une maison qui a un accès vers le temple de la Mort et vous attaque à l&#8217;aide de son familier, un Crâne Volant <sup>144</sup>.</p>
+<p>Le <strong>Roi Sans Chair</strong> <sup>100</sup> chef des Laquais de la Mort, il a mis en sécurité le Talisman dans les profondeurs de l&#8217;Abyme.</p>
+<p><strong>Somnus</strong> <sup>97</sup> est le Grand Prêtre du <span class="l">Temple de la Mort</span>.</p>
+<p><strong>Tyutchev et Cassandra</strong>, un duo de voleurs impitoyables qui cherchent à obtenir le Talisman. Ils sont accompagnés de <strong>Thaum</strong>, un mage, lors de leur seconde rencontre avec le joueur. Cassandra possède une <span class="o">Épée du froid</span> qui inflige 3 blessures au lieu de 2.</p>
+<table class="tab">
+	<tr>
+		<th>Chapitre </th>
+		<th>Nom </th>
+		<th>Habilité</th>
+		<th>Endurance </th>
+		<th>Spécial </th>
+		<th>Dessin </th>
+	</tr>
+	<tr>
+		<td> 210 </td>
+		<td> Tyutchev<br />Cassandra  </td>
+		<td> 10<br />9 </td>
+		<td> 12<br />10 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 223 </td>
+		<td> Cassandra </td>
+		<td> 9 </td>
+		<td> 10 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 265 </td>
+		<td> Tyutchev </td>
+		<td> 10 </td>
+		<td> 12 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 342 </td>
+		<td> Tyutchev </td>
+		<td> 10 </td>
+		<td> 12 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		<td> 368 </td>
+		<td> Tyutchev<br />Cassandra </td>
+		<td> 10<br />9 </td>
+		<td> 12<br />10 </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+</table>
+<p><strong>Wodeman</strong> Druide Gardien du <span class="l">Bocage Sacré</span> où il réside. Il a pour amie la louve blanche <strong>Crinière de Neige</strong>.</p>
+<h3 id="artefacts">III.D  Artefacts</h3>
+<p><span id="amulette"><strong>Amulette de Corne de Licorne</strong></span> : Obtenue au <sup>49</sup>. Utile au <sup>105</sup>, au <sup>87</sup> elle vous donne +2 <span class="caps">HAB</span> pour un combat seulement.</p>
+<p><span id="anneaup1"><strong>Anneau +1 <span class="caps">HAB</span></strong></span> <sup>98</sup> : donné par <span class="p">Apothécus</span>.</p>
+<p><span id="anneauregen"><strong>Anneau de Régénération</strong></span> dit <strong>Anneau de Fauconna</strong> <sup>54</sup> : +6 <span class="caps">END</span>. Perd tout pouvoir magique lorsque vous sortez du Temple et est volé pour le Moine au <sup>366</sup>.</p>
+<p><span id="cotte"><strong>Cotte de mailles magiques</strong></span> <sup>117</sup> : armure magique +1 <span class="caps">HAB</span> donnée par <span class="p">Lillantha</span>.</p>
+<p><span id="ecailles"><strong>Écailles de Dragon</strong></span> <sup>324</sup> : avec la <span class="a">Gomme d&#8217;Ambre</span> cela permet de constituer un bouclier magique contre le Dragon Rouge.</p>
+<p><span id="elixir"><strong>Élixir de vie</strong></span> <sup>372</sup> : vendu par <span class="p">Alambic</span> pour 12 pièces d&#8217;or. <span class="caps">END</span> = <span class="caps">END</span> initialie + 2.</p>
+<p><span id="fetiche"><strong>Fétiche maudit d&#8217;impolitesse majeure</strong></span> <sup>32</sup> : ce fétiche maudit fait prononcer des jurons et des paroles outrageantes à son porteur, malgré sa volonté !</p>
+<p><span id="gomme"><strong>Gomme d&#8217;Ambre</strong></span> <sup>110</sup> : permet de coller les écailles de dragon entre elles pour faire un bouclier magique. Donnée par le chef des <span class="c">Hommes Pourceaux</span>. <strong>Nécessaire pour finir le livre-jeu !</strong></p>
+<p><span id="lance"><strong>Lance Fléau des Dragons</strong></span> <sup>371, 395</sup> : arme magique conçue pour tuer les dragons. Sert aux <sup>34, 58</sup>.</p>
+<p><span id="livregriseguilde"><strong>Livre de Griseguilde Revisitée</strong></span> : livre fourmillant d&#8217;informations sur Griseguilde.</p>
+<p><span id="livreinfortune"><strong>Livre de l&#8217;infortune</strong></span> <sup>262</sup> : livre maudit qui fait perdre 1 <span class="caps">CHA</span> à tout lecteur.</p>
+<p><span id="onguent"><strong>Onguent de Peau d&#8216;écorce</strong></span> <sup>372</sup> : vendu par <span class="p">Alambic</span> pour 7 pièces d&#8217;or. -2 <span class="caps">END</span>.</p>
+<p><span id="parchemin"><strong>Parchemin de la douleur</strong></span> : Obtenu au <sup>176</sup>, il affaiblit sa cible. Utile au <sup>105</sup>.</p>
+<p><span id="pierre"><strong>Pierre de Fortune/Chance</strong></span> <sup>372</sup>: vendu par <span class="p">Alambic</span> pour 10 pièces d&#8217;or. +1 <span class="caps">CHA</span>.</p>
+<p><span id="plume"><strong>Plume de Rock</strong></span> <sup>84</sup> : plume magique de Rock permettant d’atterrir en douceur au <sup>227</sup>.</p>
+<p><span id="pommedor"><strong>Pomme d&#8217;or</strong></span> <sup>54</sup> : donnée par <span class="p">Wodeman</span>, elle permet de regagner +4 <span class="caps">END</span>.</p>
+<p><span id="rosedejade"><strong>Rose de jade</strong></span> <sup>98</sup> : symbole que vous donne <span class="p">Apothécus</span> pour vérifier qu&#8217;il s&#8217;agit bien de vous et pas d&#8217;un <span class="c">Changeur de Formes</span>.</p>
+<p><span id="saintepee"><strong>Sainte Épée</strong></span> <sup>193</sup>, <sup>62</sup> : épée magique +1 <span class="caps">HAB</span> donnée par l&#8217;esprit du Paladin.</p>
+<p><span id="seve"><strong>Sève de Saule</strong></span> <sup>161</sup> : redonne +4 <span class="caps">END</span>.</p>
+<p><span id="vapeurs"><strong>Vapeurs de vélocité</strong></span> <sup>372</sup> : vendu par <span class="p">Alambic</span> pour 10 pièces d&#8217;or. Utile au <sup>105</sup> mais elle s&#8217;avère une arnaque complète : il s&#8217;agit d&#8217;une fiole vide au <sup>76</sup>.</p>
+<p style="text-align:center"><a href="#sommaire">Retour sommaire</a></p>
+<h2 id="annexes">Annexes</h2>
+<h3 id="historique">1. Historique</h3>
+<ul>
+	<li>Première publication de ce guide : le <strong>20 janvier 2015</strong>.</li>
+</ul>
+<p style="text-align:center"><a href="#sommaire">Retour sommaire</a></p>
+
+      </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    
+  </body>
+</html>

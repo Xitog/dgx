@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Concerts classiques</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="Copyright" content="&copy; 2016, Damien Gouteux. All rights reserved.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="stylesheet" type="text/css" href="lib/appframework/icons.css" />
+    <link rel="stylesheet" type="text/css" href="lib/appframework/af.ui.css" />
+    <link rel="stylesheet" href="css/perso.css">
+    
+    <script type="text/javascript" charset="utf-8" src="lib/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/fastclick.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="lib/appframework/appframework.ui.min.js"></script>  
+    <script type="text/javascript" charset="utf-8" src="js/data.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/view.js"></script>
+    
+    <script text="javascript">
+        
+        var mainDate = new Date();
+        $.afui.useOSThemes=false;
+
+        // Wait for device API libraries to load
+        function onLoad() {
+            document.addEventListener("deviceready", onDeviceReady, false);
+        }
+        
+        // Device APIs are available
+        function onDeviceReady() {
+            intel.xdk.device.hideSplashScreen();
+            // Register the event listener
+            document.addEventListener("menubutton", onMenuKeyDown, false);
+        }
+            
+        // Handle the menu button
+        function onMenuKeyDown() {
+            // nothing
+        }
+        
+        $(function() {
+            FastClick.attach(document.body);
+        });
+        
+        $.afui.ready(
+            function(){
+                viewAllDates(mainDate, document, dates, months, works, org_disp);
+                viewAllComposers(document, dates, months, works, authors_abc);
+            }
+        );
+        
+        function refresh() {
+            viewAllDates(mainDate, document, dates, months, works, org_disp);
+            $.afui.clearHistory();
+        }
+        
+        function controlNextDate() {
+            mainDate.setMonth(mainDate.getMonth() + 1);
+            viewAllDates(mainDate, document, dates, months, works, org_disp);
+        }
+        
+        function controlPrevDate() {
+            mainDate.setMonth(mainDate.getMonth() - 1);
+            viewAllDates(mainDate, document, dates, months, works, org_disp);
+        }
+        
+        function controlComposer(composer) {
+            viewComposerDates(composer, document, dates, months, works, org_disp);
+        }
+        
+        function controlComposerList() {
+            viewAllComposers(document, dates, months, works, authors_abc);
+        }
+        
+    </script>
+    
+</head>
+
+<body onload="onLoad()">
+
+    <div class="view">
+        <!--<header>
+        
+        </header>-->
+        
+        <div class="headernew">
+            <h1>Concerts classiques</h1><!--<br> à Toulouse-->
+        </div>
+        
+        <div class="pages">
+
+            <div class="panel" data-title="Dates" id="tab1" data-selected="true">
+                <div id="main_list">
+                    
+                </div>
+            </div>
+
+            <div class="panel" data-title="Paramètres" id="tab2" >
+                <br>
+                <div class="input-group">
+                    Villes
+                    <input type="checkbox" name="par_city_bdx" id="par_city_bdx">  <label for="par_city_bdx">Bordeaux</label>
+                    <input type="checkbox" name="par_city_tlse" id="par_city_tlse" checked>  <label for="par_city_tlse">Toulouse</label>
+                </div>
+                <div class="input-group">
+                    Orchestres et troupes
+                    <input type="checkbox" name="par_orch_onct" id="par_orch_onct" checked>  <label for="par_orch_onct">ONCT</label>
+                    <input type="checkbox" name="par_orch_onba" id="par_orch_onba" checked>  <label for="par_orch_onba">ONBA</label>
+                    <input type="checkbox" name="par_trou_bc" id="par_trou_bc" checked>  <label for="par_trou_bc">Ballet du Capitole</label>
+                    <input type="checkbox" name="par_trou_tc" id="par_trou_tc" checked>  <label for="par_trou_tc">Théâtre du Capitole</label>
+                </div>
+                <div class="input-group">
+                    Types d'événement
+                    <input type="checkbox" name="par_type_concert" id="par_type_concert" checked>  <label for="par_type_concert">Concerts</label>
+                    <input type="checkbox" name="par_type_opera" id="par_type_opera" checked>  <label for="par_type_opera">Opéra</label>
+                    <input type="checkbox" name="par_type_ballet" id="par_type_ballet" checked>  <label for="par_type_ballet">Ballet</label>
+                </div>
+                <div class="input-group">
+                    Options
+                    <input type="checkbox" name="par_date_over" id="par_date_over" checked>  <label for="par_date_over">Dates passées</label>
+                </div>
+            </div>
+
+            <div class="panel" data-title="Compositeurs" id="tab3">
+                <ul id="compo_list" class="list">
+                </ul>
+                <div id="compo_div">
+                </div>
+            </div>
+
+            <div class="panel" data-title="A propos" id="tab4">
+                <!--<h1>Concerts Classiques</h1>-->
+                <!--<p>Application pour trouver facilement des concerts classiques dans votre ville ou de votre compositeur préféré. Elle couvre pour l'instant :</p>
+                <ol class="list inset">
+                        <li>A Toulouse :<ol class="list inset">
+                            <li>Orchestre National du Capitole de Toulouse</li>
+                            </ol>
+                        </li>
+                </ol>
+                <p>Et bien d'autres bientôt !</p>
+                <p>Fait avec Intel &copy; XDK, App framework et beaucoup d'amour <span class="icon heart"></span></p>-->
+                <br>
+                <div class="input-group">
+                    <p>Application et site web pour trouver facilement des concerts classiques.</p>
+                    <p>Vous pouvez chercher par mois de l'année ou par compositeurs.</p>
+                </div>
+                <div class="input-group">
+                    <p><b>Contenu actuel</b>
+                        <ul class="list inset">
+                            <li>ONCT saison 2015-2016</li>
+                            <li>ONCT saison 2016-2017</li>
+                            <li>ONCT saison 2017-2018</li>
+                            <li>ONBA saison 2015-2016</li>
+                            <li>Ballet du Capitole saison 2015-2016</li>
+                            <li>Ballet du Capitole saison 2017-2018 (partiellement)</li>
+                            <li>Théâtre du Capitole saison 2015-2016</li>
+                        </ul>
+                    </p>
+                </div>
+                <div class="input-group">
+                    <p>Fait avec Intel &copy; XDK, App framework et Notepad++.</p>
+                    <p>Damien Gouteux 2016-2017, version 20170710</p>
+                    <p>Made with &nbsp;<span class="icon heart"></span> in Occitania.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+            <a href="#tab1" class="icon calendar" onclick="refresh()">Dates</a>
+            <a href="#tab2" class="icon settings" onclick="$.afui.clearHistory()">Paramètres</a>
+            <a href="#tab3" class="icon heart" onclick="$.afui.clearHistory()">Compositeurs</a>
+            <a href="#tab4" class="icon info" onclick="$.afui.clearHistory()">A propos</a>
+        </footer>
+    </div>
+
+</body>
+
+</html>

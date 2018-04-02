@@ -1,0 +1,339 @@
+﻿<!DOCTYPE html>
+<html>
+<html lang="fr">
+﻿   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Verbes italiens</title>
+    <link rel="icon" href="http://damien.gouteux.free.fr/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="http://damien.gouteux.free.fr/img/favicon.ico" type="image/x-icon" />
+    <link href="http://damien.gouteux.free.fr/css/simplex.bootstrap.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+    #content {
+      font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    }
+    tr td:first-child, tr td:nth-child(2) {
+        text-align: center;
+    }
+    </style>
+  <script type="text/javascript">
+    var nb = 0;
+    var tentative = 0;
+    var found = false;
+    
+    function randInt(min, max) {
+        return Math.floor((Math.random() * max) + min);
+    }
+    
+    function doCheck() {
+        tentative += 1;
+        var guess = document.getElementById("guess1");
+        var answer = document.getElementById("answer1");
+        var info = document.getElementById("info");
+        var ok = false;
+        // Handling replacement
+        guess.value = guess.value.replace("o!", "ò");
+        guess.value = guess.value.replace("a!", "à");
+        var table = document.getElementById("answers");
+        var row;
+        if (nb == 1 && tentative == 1) {
+            row = table.insertRow(0);
+            var tcell1 = row.insertCell(0);
+            var tcell2 = row.insertCell(1);
+            var tcell3 = row.insertCell(2);
+            tcell1.innerHTML = "Question";
+            tcell2.innerHTML = "Tentative";
+            tcell3.innerHTML = "Résultat";
+        }
+        row = table.insertRow(1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        cell1.innerHTML = nb;
+        cell2.innerHTML = tentative;
+        if (guess.value == answer.value) {
+            //cell3.innerHTML = "Question ".concat(nb).concat(" Tentative ").concat(tentative).concat(" OK! ").concat(answer.value);
+            cell3.innerHTML = "Bonne réponse ! <b>".concat(answer.value).concat("</b>");
+            cell3.setAttribute("style", "color: green;");
+            cell2.setAttribute("style", "color: green;");
+            cell1.setAttribute("style", "color: green;");
+            found = true;
+        } else {
+            //cell3.innerHTML = "Question ".concat(nb).concat(" Tentative ").concat(tentative).concat(" KO! should be ").concat(answer.value);
+            var taken;
+            if (tentative > answer.value.length) {
+                taken = answer.value.length;
+            } else {
+                taken = tentative;
+            }
+            var indice = answer.value.substring(0, taken);
+            cell3.innerHTML = "Mauvaise réponse ! Indice : ".concat(indice);
+            cell3.setAttribute("style", "color: red;");
+            cell2.setAttribute("style", "color: red;");
+            cell1.setAttribute("style", "color: red;");
+        }
+    }
+    
+    function plusO() {
+        var guess = document.getElementById("guess1");
+        guess.value = guess.value.concat("ò");
+    }
+    
+    function plusA() {
+        var guess = document.getElementById("guess1");
+        guess.value = guess.value.concat("à");
+    }
+    
+    var idico = [
+        "amare",
+        "parlare",
+        "avere",
+        "fare",
+        "dare",
+        "andare",
+        "essere",
+        "studiare",
+    ];
+    
+    var itemps = [
+        [ "pres", "du présent"],
+        [ "imper", "de l'imparfait"],
+        [ "futur", "du futur"],
+    ];
+    
+    var dico = {
+        "amare" : {
+            "pres" : [ "amo", "ami", "ama", "amiamo", "amate", "amano"],
+            "imper" : [ "amavo", "amavi", "amava", "amavamo", "amavate", "amavano"],
+            "futur" : [ "amerò", "amerai", "amerà", "ameremo", "amerete", "ameranno"],
+            "pp" : [ "amato"],
+        },
+        "parlare" : {
+            "pres" : [ "parlo", "parli", "parla", "parliamo", "parlate", "parlano"],
+            "imper" : [ "parlavo", "parlavi", "parlava", "parlavamo", "parlavate", "parlavano"],
+            "futur" : [ "parlerò", "parlerai", "parlerà", "parleremo", "parlerete", "parleranno"],
+            "pp" : [ "parlato"],
+        },
+        "avere" : {
+            "pres" : [ "ho", "hai", "ha", "abbiamo", "avete", "hanno"],
+            "imper" : [ "avevo", "avevi", "aveva", "avevamo", "avevate", "avevano"],
+            "futur" : [ "avrò", "avrai", "avrà", "avremo", "avrete", "avranno"],
+            "pp" : [ "avuto"],
+        },
+        "fare" : { 
+            "pres" : [ "faccio", "fai", "fa", "facciamo", "fate", "fanno"],
+            "imper" : [ "facevo", "facevi", "faceva", "facevamo", "facevate", "facevano"],
+            "futur" : [ "farò", "farai", "farà", "faremo", "farete", "faranno"],
+            "pp" : [ "fatto"],
+        },
+        "dare" : {
+            "pres" : [ "do", "dai", "dà", "diamo", "date", "danno"],
+            "imper" : [ "davo", "davi", "dava", "davamo", "davate", "davano"],
+            "futur" : [ "darò", "darai", "darà", "daremo", "darete", "daranno"],
+            "pp" : [ "dato"],
+        },
+        "andare" : {
+            "pres" : [ "vado", "vai", "va", "andiamo", "andate", "vanno"],
+            "imper" : [ "andavo", "andavi", "andava", "andavamo", "andavate", "andavanno"],
+            "futur" : [ "andrò", "andrai", "andrà", "andremo", "andrete", "andranno"],
+            "pp" : [ "andato"],
+        },
+        "essere" : {
+            "pres" : [ "sono", "sei", "è", "siamo", "siete", "sono"],
+            "imper" : [ "ero", "eri", "era", "eravamo", "eravate", "erano"],
+            "futur" : [ "sarò", "sarai", "sarà", "saremo", "sarete", "saranno"],
+            "pp" : [ "stato"],
+        },
+        "studiare" : {
+            "pres" : [ "studio", "studi", "studia", "studiamo", "studiate", "studiano"],
+            "imper" : [ "studiavo", "studiavi", "studiava", "studiavamo", "studiavate", "studiavano"],
+            "futur" : [ "studierò", "studierai", "studierà", "studieremo", "studierete", "studieranno"],
+            "pp" : [ "studiato"],
+        },
+    };
+    
+    function choose() {
+        nb += 1;
+        tentative = 0;
+        
+        if (nb > 1 && !found) {
+            var answer = document.getElementById("answer1");
+            var table = document.getElementById("answers");
+            var row = table.insertRow(1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            cell1.innerHTML = nb;
+            cell2.innerHTML = 'X';
+            cell3.innerHTML = 'Abandon. La bonne réponse était : '.concat(answer.value).concat(".");
+            cell1.setAttribute("style", "color: grey;");
+            cell2.setAttribute("style", "color: grey;");
+            cell3.setAttribute("style", "color: grey;");
+        }
+        found = false;
+        
+        var guess = document.getElementById("guess1");
+        guess.value = '';
+        
+        var text = document.getElementById("text1");
+        
+        var verb = randInt(1, idico.length) - 1;
+        var forme = randInt(1, 6);
+        var temps = randInt(1, 3)- 1;
+        var p;
+        var s;
+        if (forme > 3) {
+            s = " du pluriel ";
+            p = forme - 3;
+        } else {
+            s = " du singulier ";
+            p = forme;
+        }
+        if (p == 1) {
+            p = " 1<sup>ère</sup>";
+        } else if (p == 2) {
+            p = " 2<sup>nd</sup>";
+        } else if (p == 3) {
+            p = " 3<sup>e</sup>";
+        }
+        text.innerHTML = "".concat(idico[verb]).concat(p).concat(" personne ").concat(s).concat(itemps[temps][1]);
+        
+        var answer = document.getElementById("answer1");
+        answer.setAttribute("value", dico[idico[verb]][itemps[temps][0]][forme-1]);
+    }
+    
+    window.onload = choose;
+  </script>
+  </head>
+ <body>
+    <div id="main" class="container">
+    
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+             <a class="navbar-brand" href="#">Menu</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li id="Accueil"><a href="http://damien.gouteux.free.fr/index.html">Accueil</a></li>
+              <li id="Blog"><a href="#blog" onclick="view_one_entry(0);">Blog</a></li>
+              <li class="dropdown">
+                <a id="Langues" href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-expanded="false">Langues <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                <li class="dropdown-header">Français</li>
+                  <li><a href="http://damien.gouteux.free.fr/francais/fiche_api_fr.html">Sons du français</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Italien</li>
+                  <li><a href="http://damien.gouteux.free.fr/italien/beatrice.html">Beatrice : grammaire</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/italien/jeux.html" class="active">Jeux</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Informatique" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Informatique <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Python</li>
+                  <li><a href="http://damien.gouteux.free.fr/python/aide_python.html">Aide-mémoire</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Ruby</li>
+                  <li><a href="http://damien.gouteux.free.fr/ruby/guide_ruby.html">Guide</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/ruby/aide_ruby.html">Aide-mémoire</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Lua</li>
+                  <li><a href="http://damien.gouteux.free.fr/lua/aide_lua.html">Aide-mémoire</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Selene <i>(mon langage)</i></li>
+                  <li><a href="http://damien.gouteux.free.fr/selene/guide_selene">Guide</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Modélisation</li>
+                  <li><a href="#" class="dead">Tutoriel sur XCore</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/model/json.html">Fiche sur JSON</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Histoire" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Histoire <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Méthode</li>
+                  <li><a href="http://damien.gouteux.free.fr/histoire/methode.html">Généralités</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/histoire/bibliographie.html">Bibliographie</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Aide-mémoires</li>
+                  <li><a href="http://damien.gouteux.free.fr/histoire/france19eme.html">France au XIXe</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Jeux" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Jeux <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Terres sauvages <i>(mon jdr)</i></li>
+                  <li><a href="#" class="dead">Règles de jeu de rôles</a></li>
+                  <li><a href="#" class="dead">Univers de jeu</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Livres dont VOUS êtes le héros</li>
+                  <li><a href="http://damien.gouteux.free.fr/jeux/doc_talisman.html">Le Compagnon du Talisman</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Jeux vidéo</li>
+                  <li><a href="#" class="dead">Guide des STR</a></li>
+                  <li><a href="#" class="dead">Projet de STR</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Autres" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Autres <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Collections</li>
+                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#prenoms">Prénoms</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#langages">Langages</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#favoris_artistiques">Favoris artistiques</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+    
+    <!--
+      <div class="jumbotron">
+        <h1 id="titreHaut">Méthodologie d'Histoire</h1>
+        <hr>
+        <p id="texteHaut" class="n">Une fiche de méthodologie pour les épreuves universitaires d'Histoire.</p>
+        <p id="signature" class="sign">Damien Gouteux,<br> mis à jour le 30 avril 2017,<br>créé le ???.</p>  
+      </div>
+    -->  
+  
+      <div id="content">
+
+<form onsubmit="doCheck(); return false;">
+  <fieldset>
+    <legend>Testez vos connaissances</legend>
+    <span id="text1"></span> : 
+    <input id="guess1" type="text" name="guess1" placeholder="taper votre réponse ici" size="50" autocomplete="off">
+    <input id="answer1" type="hidden" name="answer1" value=""> 
+    <input type="button" name="o", onclick="plusO()" value="ò"> 
+    <input type="button" name="o", onclick="plusA()" value="à"> 
+    <input type="button" name="check" onclick="doCheck()" value="ok"> 
+    <input type="button" name="check" onclick="choose()" value="nouveau"> <br>
+    <div id="info"></div>
+  </fieldset>
+</form>
+
+<fieldset>
+  <legend>Vos réponses</legend>
+  <table id="answers">
+    <tbody id="answersbody">
+    </tbody>
+  </table>
+</fieldset>
+
+      </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    
+  </body>
+</html>

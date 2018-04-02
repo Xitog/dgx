@@ -1,0 +1,134 @@
+div.headernew {
+    background: #0088d1;
+    border: none;
+    border-bottom: 1px solid #0088d1;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
+div.headernew h1 {
+    text-align: center;
+    width: 100%;
+    padding-top: 13px;
+    height: 44px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+div.date_nav {
+    text-align: center;
+    width: 100%;
+}
+
+span.date {
+    background-color: dodgerblue;
+    color: white;
+}
+
+span.month {
+    background-color: burlywood;
+    color: chocolate;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+span.year {
+    background-color: dodgerblue;
+    color: white;
+}
+
+span.author {
+    font-style: italic;
+}
+
+span.author_hightlighted {
+    font-style: italic;
+    color: red;
+}
+
+span.space_left {
+    margin-left: 1em;
+}
+
+span.space_right {
+    margin-right: 1em;
+}
+
+span.button_false {
+    color: dodgerblue;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    position: relative;
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 8px 0;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: top;
+    cursor: default;
+    border: 1px solid dodgerblue;
+    border-radius: 5px;
+    width: 120px;
+}
+
+.custom-counter {
+    margin-left: 0;
+    padding-right: 0;
+    list-style-type: none;
+}
+
+.custom-counter li.x {
+    counter-increment: step-counter;
+}
+
+.custom-counter li.x::before {
+    content: counter(step-counter);
+    margin-left: 0;
+    margin-right: 3px;
+    /*font-size: 80%;*/
+    background-color: rgb(200,200,200);
+    color: white;
+    font-weight: bold;
+    padding-left: 2px;
+    padding-right: 2px;
+    /*border-radius: 3px;*/
+}
+
+li.x {
+    text-color: black;
+}
+
+div.date_elem {
+    border-top: 1px solid dodgerblue;
+    text-color: black;
+}
+
+div.no_date {
+    border-top: 1px solid dodgerblue;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-color: black;
+}
+
+#main_list {
+    background: white;
+    text-color: black;
+    border-radius: 5px;
+    margin-top: 3px;
+    margin-bottom: 2px;
+    border: 1px solid rgb(204, 204, 204);
+}
+
+#compo_div {
+    background: white;
+    text-color: black;
+    border-radius: 5px;
+    margin-top: 3px;
+    margin-bottom: 2px;
+    border: 1px solid rgb(204, 204, 204);    
+}

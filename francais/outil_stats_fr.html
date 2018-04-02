@@ -1,0 +1,803 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Statistiques textuelles</title>
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        h1 {
+            font-family: "Lobster", cursive, monospace, "Consolas", "Century Gothic";
+            font-weight: 400;
+            font-size: 24px;
+            width: 100%;
+            color: #4087e4;
+            margin: auto;
+            margin-top: 5px;
+            text-align: center;
+        }
+        
+        a {
+            font-family: "Palatino Linotype";
+            font-size: 14px;
+            color: #CC6714;
+        }
+        
+        td.red {
+            background-color: #FF0000;
+        }
+        
+        td.orange {
+            background-color: #E04006;
+        }
+        
+        td.green {
+            background-color: #00FF00;
+        }
+        
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+
+        // Stats : textual statistics
+        // Copyright (C) 2013-2016 Damien Gouteux
+        
+        // This program is free software: you can redistribute it and/or modify
+        // it under the terms of the GNU General Public License as published by
+        // the Free Software Foundation, either version 3 of the License, or
+        // (at your option) any later version.
+        
+        // This program is distributed in the hope that it will be useful,
+        // but WITHOUT ANY WARRANTY; without even the implied warranty of
+        // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        // GNU General Public License for more details.
+
+        // You should have received a copy of the GNU General Public License
+        // along with this program.  If not, see <http://www.gnu.org/licenses/>.
+        
+        var BIG_WORD = 9;
+        var BIG_SENTENCE = 12;
+        var VERY_BIG_SENTENCE = 17;
+        var MOTS_WARNING = ["dis", "dit", "disons", "dites", "disent", "disais", "disait", "disions", "disiez", "disaient", "dîmes", "dîtes", "dirent", "dirai", "diras", "dira", "dirons", "direz", "diront", "dirais", "dirait", "dirions", "diriez", "diraient", "dise", "dises", "disse", "disses", "dît", "dissions", "dissiez","dissent", "disant", "dire", "fais", "fait", "faisons", "faites", "font", "faisais", "faisait", "faisions", "faisiez", "faisaient", "fis", "fit", "fîmes", "fîtes", "firent", "ferai", "feras", "fera", "ferons", "ferez", "feront", "ferais", "ferait", "ferions", "feriez", "feraient", "fasse", "fasses", "fassions", "fassiez", "fisse", "fisses", "fîts", "fissions", "fissiez", "fissent", "faire", "faisant"];
+        var MOTS_ERROR = ["personne", "gens", "on", "je"];
+        var MOTS_SIGNATURE = [];
+        var COLOR_WARNING = '#FF6103';
+        var COLOR_ERROR = '#FC1501';
+        var COLOR_OK = '#00FF00';
+        var ADVERBES = ["abondamment","absolument","abstraitement","abusivement","accessoirement","actuellement","admirablement","adorablement","adroitement","affablement","affectueusement","affirmativement","agilement","agréablement","aimablement","aisément","altrnativement","ambigument","ambitieusement","amèrement","amicalement","amoureusement","amplement","anciennement","annuellment","antérieurement","apparemment","arbitrairement","ardemment","artificiellement","assidûment","assurément","astucieuement","atrocement","attentivement","aucunement","audacieusement","austèrement","avantageusement","aveuglément","avidemet","banalement","bassement","bestialement","bonnement","bravement","brillamment","brusquement","brutalement","bruyamment","candidement","capricieusement","carrément","catégoriquement","cavalièrement","censément","cérémonieusement","certaineent","chaleureusement","charitablement","chèrement","chrétiennement","cinquièmement","civilement","clairement","clandestnement","collectivement","commodément","communément","comparativement","concurremment","conditionnellement","confidentielement","conformément","confortablement","confusément","congrûment","conjointement","consciencieusement","consciemment", "consécutivement","conséquemment","considérablement","constamment","constitutionnellement","continûment","continuellement","contradictoirement","convenablement","conventionnellement","copieusement","coquettement","cordialement","correctement","courageusement","couramment","craintivement","criminellement","crûment","cruellement","curieusement","dangereusement","décemment","décidément","décisivement","dédaigneusement","défensivement","définitivement","délibérément","délicatement","délicieusement","déloyalement","démesurément","dernièrement","désagréablement","désespérément","désordonnément","détermnément","détestablement","deuxièmement","diaboliquement","diagonalement","diamétralement","différemment","difficilement","diffusément","dignement","diligemment","directement","discrètement","disproportionnément","distinctement","distraitement","divinement","dixièmement","docilement","doublement","douloureusement","doucement","douzièmement","dramatiquement","dôement","dûment","durement","économiquement","effectivement","efficacement","effrontément","effroyablement","également","éogïstement","élégamment","éloquemment","éminemment","emphatiquement","ennuyeusement","énormément","éperdument","épouvantblement","équitablement","essentiellement","éternellement","étonnamment","étrangement","étroitement","évasivement","évenuellement","évidemment","exactement","excessivement","exclusivement","exécrablement","exemplairement","explicitement","epressément","exquisément","extérieurement","extraordinairement","extrêmement","fabuleusement","facilement","faiblement","fallacieusement","familièrement","fanatiquement","fastidieusement","fastueusement","fatalement","faussement","fervemment","fidèlement","fièrement","figurativement","figurément","finement","foncièrement","fondamentalement","forcément","formelement","formidablement","fortement","fortuitement","fougueusement","fraîchement","franchement","fraternellement","fraudleusement","frénétiquement","fréquemment","frivolement","froidement","furieusement","furtivement","gaiement","galamment","généralement","généreusement","glorieusement","goulûment","gracieusement","grammaticalement","gratuitement","gravement","grossièrement","habilement","habituellement","hardiment","harmonieusement","hâtivement","hautement","héréditairement","éoïquement","heureusement","hiérarchiquement","historiquement","honnêtement","honorablement","honteusement","horizontaleent","horriblement","hostilement","huitièmement","humainement","humblement","identiquement","illégalement","illicitement","illisiblement","illusoirement","immanquablement","immédiatement","immensément","immodérément","immuablement","imparfatement","impartialement","impatiemment","impérativement","imperceptiblement","impérieusement","impersonnellement","imperurbablement","impétueusement","impitoyablement","implicitement","importunément","imprudemment","incessamment","incidemmet","inclusivement","incommodément","incongrûment","inconsciemment","inconsidérément","incorrectement","incroyablement","ndécemment","indéfiniment","indépendamment","indéterminément","indifféremment","indirectement","indiscutablement","indisinctement","individuellement","indivisément","indûment","indubitablement","inébranlablement","inégalement","inéluctablemnt","inespérément","inévitablement","inexactement","inexorablement","inextricablement","infailliblement","infatigablement","inférieurement","infiniment","ingénieusement","ingénument","inlassablement","innocemment","innombrablement","inopinéent","inoubliablement","insatiablement","insidieusement","instamment","instantanément","insuffisamment","insupportablemet","intégralement","intelligemment","intelligiblement","intensément","intérieurement","interminablement","intrinsèquement","intuitivement","inutilement","invariablement","involontairement","ironiquement","irrégulièrement","irrémédiablement","irrésistiblement","irrésolument","irrévocablement","isolément","joliment","joyeusement","judiciairement","judicieusement","juridiquement","justement","laborieusement","lâchement","laconiquement","lamentablement","largement","latéralement","légalement","légitimement","lentement","libéralement","librement","licitement","lisiblement","littéralement","logiquement","longuement","longitudinalement","lourdement","loyalement","lucidement","luxueusement","machinalement","magistralement","magnifiquement","maigrement","majestueusement","maladivement","maladroitement","malaisément","malencontreusement","mlhabilement","malheureusement","malhonnêtement","malicieusement","manifestement","manuellement","maritalement","massivemnt","matériellement","maternellement","mathématiquement","mécaniquement","méchamment","médiocrement","mélancoliquement","mélodieusement","mentalement","merveilleusement","mesquinement","métaphoriquement","méthodiquement","mignonnement","miliairement","miraculeusement","misérablement","modérément","modestement","modiquement","momentanément","monstrueusement","oralement","mortellement","musicalement","mutuellement","mystérieusement","naïvement","nationalement","naturellement","nécessairement","négativement","négligemment","nerveusement","nettement","neuvièmement","noblement","nommément","nonchalament","normalement","nûment","nullement","numériquement","obliquement","obscurément","obstinément","occasionnellement","dieusement","offensivement","officiellement","officieusement","onzièmement","opiniâtrement","opportunément","ordinairemet","originairement","originellement","ostensiblement","outrageusement","ouvertement","pacifiquement","paisiblement","parillement","paresseusement","parfaitement","partialement","particulièrement","partiellement","passablement","passivement","passionnément","patiemment","pauvrement","péniblement","pensivement","périlleusement","périodiquement","pernicieusement","perpendiculairement","perpétuellement","personnellement","pertinemment","pesamment","petitement","peureusement","physquement","piteusement","pitoyablement","plaintivement","plaisamment","pleinement","poliment","politiquement","pompeusemet","ponctuellement","populairement","posément","positivement","postérieurement","pratiquement","préalablement","précédement","précieusement","précisément","préférablement","préliminairement","prématurément","premièrement","présentement","préomptueusement","primitivement","primordialement","principalement","probablement","prochainement","prodigieusement","proondément","profusément","progressivement","promptement","prophétiquement","proportionnément","proportionnellement","propement","proverbialement","provisoirement","prudemment","publiquement","pudiquement","puissamment","purement","quatorzièmment","quatrièmement","quinzièmement","quotidiennement","radicalement","raisonnablement","rapidement","rarement","récemmnt","réellement","régulièrement","relativement","religieusement","résolument","respectivement","respectueusement","révérncieusement","rêveusement","révolutionnairement","richement","ridiculement","rigidement","rigoureusement","risiblement","royalement","rudement","sagement","sainement","salutairement","satiriquement","sauvagement","savamment","savoureusement","scandaleusement","scientifiquement","scrupuleusement","sèchement","secrètement","seizièmement","sensément","sensiblement","sensuellement","sentimentalement","séparément","septièmement","sérieusement","servilement","seulement","sévèrement","simultanément","sincèrement","singulièrement","sixièmement","socialement","soigneusement","solennellement","solidairement","solidement","solitairement","sommairement","somptueusement","sordidement","sottement","soudainement","sournoisement","souverainement","spacieusement","spécialement","spécifiquement","spirituellement","splendidement","spontanément","stoïqement","strictement","stupidement","subitement","sublimement","subséquemment","substantiellement","subtilement","successvement","succinctement","suffisamment","superbement","superficiellement","supérieurement","superlativement","superstitiesement","suprêmement","sûrement","surabondamment","surnaturellement","symboliquement","symétriquement","synthétiquement","systématiquement","tacitement","tardivement","tellement","témérairement","temporairement","tendrement","terriblement","txtuellement","théoriquement","timidement","totalement","tragiquement","transversalement","treizièmement","triomphalement","tristement","trivialement","troisièmement","tumultueusement","tyranniquement","ultérieurement","unanimement","uniforméent","uniquement","universellement","usuellement","utilement","vaguement","vaillamment","vainement","valablement","valereusement","validement","vaniteusement","véhémentement","verbalement","véridiquement","véritablement","vertement","vertialement","vicieusement","victorieusement","vivement","vigilamment","vigoureusement","vilement","vilainement","violemment","virilement","virtuellement","visiblement","volontairement","voluptueusement","vraiment","vraisemblablement","vulgairement"];
+        
+        function main() {
+            var content = $("#txt_input").val();
+            if (content && typeof content === "string" && content.length > 0) {
+                stats(content);
+            } else {
+                alert("Il y a un problème avec votre texte, il n'a pas été analysé (les précédentes statistiques ont été conservées).");
+            }
+        }
+        
+        function is_us_letter(c) {
+            code = c.charCodeAt(0);
+            return ((code >= 65 && code <= 90) || (code >= 97 && code <= 122) || ["É", "é", "è", "ê", "ë", "ù", "À", "à", "Ç", "ç", "â", "ô", "î", "ï", "œ", "û", "ü"].indexOf(c) > -1);
+        }
+        
+        function is_number(c) {
+            code = c.charCodeAt(0);
+            return (code >= 48 && code <= 57);
+        }
+        
+        function is_white(c) {
+            return (c == " " || c == "\n" || c == "\t");
+        }
+        
+        function is_punctuation(c) {
+            return ([".", ",", ";", ":", "-", "(", ")", "’", "'", "?", "!", "«", "»", '"', "*", "–", "…", "[", "]", "/", "\"", "$", "€", "#", "%", "“", "”"].indexOf(c) > -1);
+        }
+        
+        // str : int
+        function sort(xwords) {
+            var w = []
+            var n = []
+            var base_wrd = "";
+            var base_num = 0;
+            var found = false;
+            while (w.length < size(xwords)) {
+                for (var key in xwords) {
+                    if (w.indexOf(key) == -1 && xwords[key] >= base_num) {
+                        base_wrd = key;
+                        base_num = xwords[key];
+                        found = true;
+                    }
+                }
+                if (found) {
+                    w.push(base_wrd);
+                    n.push(base_num);
+                    base_wrd = "";
+                    base_num = 0;
+                    found = false;
+                }
+            }
+            return [w, n];
+        }
+        
+        // http://stackoverflow.com/questions/5223/length-of-javascript-object-ie-associative-array
+        //Object.size = function(obj) {
+        //    var size = 0, key;
+        //    for (key in obj) {
+        //        if (obj.hasOwnProperty(key)) size++;
+        //    }
+        //    return size;
+        //};
+
+        function size(dic) {
+            var size = 0, key;
+            for (key in dic) {
+                if (dic.hasOwnProperty(key)) size++; //??? test encore???
+            }
+            return size;
+        }
+        
+        function stats(s) {
+            // Char count
+            var count_letter = 0;           // Nombre de lettres
+            var count_white = 0;            // Nombre d'espace blanc
+            var count_punctuation = 0;      // Nombre de signes de ponctuation
+            var count_number = 0;           // Nombre de chiffres
+            var count_other = 0;            // Nombre d'autres signes
+            var others = "";                // Les autres signes
+            var last_char = "";             // Dernier caractère lu
+            var accu_length_word = 0;       // Somme de toutes les longueurs de mots
+            var big_word = 0;               // Nombre de mots > BIG_WORD
+            // Block count
+            // Words
+            var count_word = 0;
+            var in_word = false;
+            var word = "";
+            var words = [];
+            var adverbes = [];
+            var adverbes_count = 0;
+            // Sentences
+            var last_word_number = 0;       // Dernier mot compté
+            var sentence_length = [];       // Longueur des phrases
+            var count_sentence = 0;         // Nombre de phrase
+            var big_sentence = 0;           // Nombre de phrase > BIG_SENTENCE
+            var very_big_sentence = 0;      // Nombre de phrase > VERY_BIG_SENTENCE
+            var accu_length_sentence = 0;   // Somme de toutes les longueurs de phrases
+            // Paragraph
+            var count_paragraph = 0;
+            var paragraph_length = [];
+            var last_sentence_number = 0;
+            var accu_length_paragraph = 0;
+            // Run
+            for (var i=0; i < s.length; i++) {
+                var c = s[i];
+                if (is_us_letter(c)) {
+                    count_letter += 1;
+                    if (!in_word) {
+                        in_word = true;
+                        word = c;
+                    } else {
+                        word += c;
+                    }
+                } else if (is_number(c)) {
+                    count_number += 1;
+                    if (in_word) {
+                        in_word = false;
+                        count_word += 1;
+                        words.push(word);
+                    }
+                } else if (is_white(c)) {
+                    count_white += 1;
+                    if (c == "\n") {
+                        if (in_word) {
+                            in_word = false;
+                            count_word += 1;
+                            words.push(word);
+                        }
+                        if ([".", "?", "!", "…", "\n"].indexOf(last_char) == -1) { // Si on a pas fermé d'un point le dernier paragraphe, il faut néanmoins compter une phrase. Sauf si c'est une suite de \n
+                            // Sentence
+                            count_sentence += 1;
+                            sentence_length.push(count_word - last_word_number);
+                            if (count_word - last_word_number > BIG_SENTENCE) {
+                                big_sentence += 1;
+                            }
+                            if (count_word - last_word_number > VERY_BIG_SENTENCE) {
+                                very_big_sentence += 1;
+                            }
+                            accu_length_sentence += count_word - last_word_number;
+                            last_word_number = count_word;
+                            // End Sentence
+                        }
+                        if(last_char != "\n") {
+                            // Paragraph
+                            count_paragraph += 1;
+                            paragraph_length.push(count_sentence - last_sentence_number);
+                            accu_length_paragraph += count_sentence - last_sentence_number;
+                            last_sentence_number = count_sentence;
+                            // End Paragraph
+                        }
+                    }
+                    if (in_word) {
+                        in_word = false;
+                        count_word += 1;
+                        words.push(word);
+                    }
+                } else if (is_punctuation(c)) {
+                    count_punctuation += 1;
+                    if (in_word) {
+                        in_word = false;
+                        count_word += 1;
+                        words.push(word);
+                    }
+                    if ((c == "." || c == "?" || c == "!" || c == "…") && ([".", "?", "!", "…"].indexOf(last_char) == -1)) {
+                        // Sentence
+                        count_sentence += 1;
+                        sentence_length.push(count_word - last_word_number);
+                        if (count_word - last_word_number > BIG_SENTENCE) {
+                            big_sentence += 1;
+                        }
+                        if (count_word - last_word_number > VERY_BIG_SENTENCE) {
+                            very_big_sentence += 1;
+                        }
+                        accu_length_sentence += count_word - last_word_number;
+                        last_word_number = count_word;
+                        // End Sentence
+                    }
+                } else {
+                    count_other += 1;
+                    others += c;
+                    if (in_word) {
+                        in_word = false;
+                        count_word += 1;
+                        words.push(word);
+                    }
+                }
+                last_char = c;
+            }
+            // Dernier mot
+            if (in_word) {
+                count_word += 1;
+                words.push(word);
+            }
+            // Dernier paragraph
+            if(last_char != "\n") {
+                // Paragraph
+                count_paragraph += 1;
+                paragraph_length.push(count_sentence - last_sentence_number);
+                accu_length_paragraph += count_sentence - last_sentence_number;
+                last_sentence_number = count_sentence;
+                // End Paragraph
+            }
+            
+            xwords = {};
+            var count_mot_error = 0;
+            var count_mot_warning = 0;
+            for (var i=0; i < words.length; i++) {
+                accu_length_word += words[i].length;
+                if (words[i].length >= BIG_WORD) {
+                    big_word += 1;
+                }
+                var adv = ADVERBES.indexOf(words[i]);
+                if (adv != -1) {
+                    adverbes_count += 1;
+                    adverbes.push(ADVERBES[adv]);
+                }
+                if (MOTS_ERROR.indexOf(words[i]) != -1) {
+                    count_mot_error += 1;
+                } else if (MOTS_WARNING.indexOf(words[i]) != -1) {
+                    count_mot_warning += 1;
+                }
+                if (words[i] in xwords) {
+                    xwords[words[i]] += 1;
+                } else {
+                    xwords[words[i]] = 1;
+                }
+            }
+            var rtable = sort(xwords); // Table qui a pour clé les mots et pour valeur leur fréquence. Triée.
+            
+            //alert("lettres = " + count_letter + ", ponctuation = " + count_punctuation + ", blanc = " + count_white + ", autres = " + count_other + "\n phrases = " + count_sentence + ", paragraphes = " + count_paragraph + "\n" + others);
+            
+            //-----------------------------------------------------------------
+            
+            // Get
+            //var chk_strict = $("#chk_strict").is(":checked"); //document.getElementById("chk_strict");
+            
+            var res_title = document.getElementById("res_title");
+            var res_table = document.getElementById("res_table");
+            
+            var title_mot_apercu = document.getElementById("title_mot_apercu");
+            var res_mot_apercu = document.getElementById("res_mot_apercu");
+            var com_mot_apercu = document.getElementById("com_mot_apercu");
+            
+            var title_phrase_apercu = document.getElementById("title_phrase_apercu");
+            var res_phrase_apercu = document.getElementById("res_phrase_apercu");
+            
+            var title_paragraph_apercu = document.getElementById("title_paragraph_apercu");
+            var res_paragraph_apercu = document.getElementById("res_paragraph_apercu");
+            
+            var title_text_apercu = document.getElementById("title_text_apercu");
+            var res_text_apercu = document.getElementById("res_text_apercu");
+            var com_text_apercu = document.getElementById("com_text_apercu");
+            
+            var title_signature = document.getElementById("title_signature");
+            var res_signature = document.getElementById("res_signature");
+            
+            var title_paragraph = document.getElementById("title_paragraph");
+            var res_paragraph = document.getElementById("res_paragraph");
+            
+            var title_phrase = document.getElementById("title_phrase");
+            var map_phrase = document.getElementById("map_phrase");
+            var res_phrase = document.getElementById("res_phrase");
+            
+            var title_mot = document.getElementById("title_mot");
+            var res_mot = document.getElementById("res_mot");
+            // Clear
+            res_title.innerHTML = '';
+            title_phrase.innerHTML = '';
+            title_mot.innerHTML = '';
+            com_mot_apercu.innerHTML = '';
+            title_signature.innerHTML = '';
+            res_signature.innerHTML = '';
+            while (res_table.rows.length > 0) {
+                res_table.deleteRow(0);
+            }
+            while (res_mot_apercu.rows.length > 0) {
+                res_mot_apercu.deleteRow(0);
+            }
+            while (res_phrase_apercu.rows.length > 0) {
+                res_phrase_apercu.deleteRow(0);
+            }
+            while (res_paragraph_apercu.rows.length > 0) {
+                res_paragraph_apercu.deleteRow(0);
+            }
+            while (res_text_apercu.rows.length > 0) {
+                res_text_apercu.deleteRow(0);
+            }
+            while (res_paragraph.rows.length > 0) {
+                res_paragraph.deleteRow(0);
+            }
+            while (map_phrase.rows.length > 0) {
+                map_phrase.deleteRow(0);
+            }
+            while (res_phrase.rows.length > 0) {
+                res_phrase.deleteRow(0);
+            }
+            while (res_mot.rows.length > 0) {
+                res_mot.deleteRow(0);
+            }
+            // Complete
+            //
+            res_title.innerHTML = '<br><u>Résultats caractères</u><br><br>';
+            
+            var row_head = res_table.insertRow(0);
+            var head0 = row_head.insertCell(0);
+            var head1 = row_head.insertCell(1);
+            head0.innerHTML = "<span style='color: #FFFFFF'><u>Caractéristique</u></span>";
+            head0.bgColor = '#CEC498';
+            head1.innerHTML = "<span style='color: #FFFFFF'><u>Comptage</u></span>";
+            head1.bgColor = '#CEC498';
+            
+            var row_letter = res_table.insertRow(1);
+            row_letter.bgColor = '#F6F6F6';
+            row_letter_label = row_letter.insertCell(0);
+            row_letter_label.innerHTML = "Lettres";
+            row_letter_value = row_letter.insertCell(1);
+            row_letter_value.innerHTML = count_letter;
+            
+            var row_ponctuation = res_table.insertRow(2);
+            row_ponctuation_label = row_ponctuation.insertCell(0);
+            row_ponctuation_label.innerHTML = "Ponctuation";
+            row_ponctuation_value = row_ponctuation.insertCell(1);
+            row_ponctuation_value.innerHTML = count_punctuation;
+            
+            var row_white = res_table.insertRow(3);
+            row_white.bgColor = '#F6F6F6';
+            row_white_label = row_white.insertCell(0);
+            row_white_label.innerHTML = "Blancs";
+            row_white_value = row_white.insertCell(1);
+            row_white_value.innerHTML = count_white;
+            
+            var row_other = res_table.insertRow(4);
+            row_other_label = row_other.insertCell(0);
+            row_other_label.innerHTML = "Autres";
+            row_other_value = row_other.insertCell(1);
+            row_other_value.innerHTML = count_other;
+            
+            var row_signes = res_table.insertRow(5);
+            row_signes.bgColor = '#F6F6F6';
+            row_signes_label = row_signes.insertCell(0);
+            row_signes_label.innerHTML = "Signes";
+            row_signes_value = row_signes.insertCell(1);
+            row_signes_value.innerHTML = count_other + count_white + count_punctuation + count_letter;
+            
+            var row_others_content = res_table.insertRow(6);
+            row_others_content_label = row_others_content.insertCell(0);
+            row_others_content_label.innerHTML = "Autres (contenu)";
+            row_others_content_value = row_others_content.insertCell(1);
+            row_others_content_value.innerHTML = others;
+            
+            // APERCU MOTS
+            //
+            title_mot_apercu.innerHTML = '<br><u>Résultats mots</u><br><br>';
+            
+            var row_head = res_mot_apercu.insertRow(0);
+            var head0 = row_head.insertCell(0);
+            var head1 = row_head.insertCell(1);
+            head0.innerHTML = "<span style='color: #FFFFFF'><u>Caractéristique</u></span>";
+            head0.bgColor = '#CEC498';
+            head1.innerHTML = "<span style='color: #FFFFFF'><u>Valeur</u></span>";
+            head1.bgColor = '#CEC498';
+            
+            var row_word = res_mot_apercu.insertRow(1);
+            row_word_label = row_word.insertCell(0);
+            row_word_label.innerHTML = "Mots";
+            row_word_value = row_word.insertCell(1);
+            row_word_value.innerHTML = count_word;
+
+            var row_word_diff = res_mot_apercu.insertRow(2);
+            row_word_diff.bgColor = '#F6F6F6';
+            row_word_label = row_word_diff.insertCell(0);
+            row_word_label.innerHTML = "Mots différents";
+            row_word_value = row_word_diff.insertCell(1);
+            row_word_value.innerHTML = size(xwords);
+            
+            var row_word_reu = res_mot_apercu.insertRow(3);
+            row_word_label = row_word_reu.insertCell(0);
+            row_word_label.innerHTML = "Réutilisation";
+            row_word_value = row_word_reu.insertCell(1);
+            row_word_value.innerHTML = ((1 - (size(xwords)/count_word))*100).toFixed(0) + "%";
+            
+            var label;
+            var value;
+            
+            var row_word_error = res_mot_apercu.insertRow(4);
+            row_word_error.bgColor = '#F6F6F6';
+            label = row_word_error.insertCell(0);
+            label.innerHTML = "Mots interdits";
+            value = row_word_error.insertCell(1);
+            value.innerHTML = count_mot_error;
+            if (count_mot_error > 0) {
+                value.bgColor = COLOR_ERROR;
+            } else {
+                value.bgColor = COLOR_OK;
+            }
+            
+            var row_word_warning = res_mot_apercu.insertRow(5);
+            label = row_word_warning.insertCell(0);
+            label.innerHTML = "Mots à éviter";
+            value = row_word_warning.insertCell(1);
+            value.innerHTML = count_mot_warning;
+            if (count_mot_warning > 0) {
+                value.bgColor = COLOR_WARNING;
+            } else {
+                value.bgColor = COLOR_OK;
+            }
+            
+            var row_word_length = res_mot_apercu.insertRow(6);
+            row_word_length.bgColor = '#F6F6F6';
+            label = row_word_length.insertCell(0);
+            label.innerHTML = "Longueur moyenne";
+            value = row_word_length.insertCell(1);
+            value.innerHTML = (accu_length_word / words.length).toFixed(2);
+            
+            var row_big_word = res_mot_apercu.insertRow(6);
+            label = row_big_word.insertCell(0);
+            label.innerHTML = "Mots > " + BIG_WORD + " lettres";
+            value = row_big_word.insertCell(1);
+            value.innerHTML = big_word + " (" + ((big_word/words.length)*100).toFixed(2) + "%)";
+            
+            var row_adverbe = res_mot_apercu.insertRow(7);
+            row_adverbe.bgColor = '#F6F6F6';
+            label = row_adverbe.insertCell(0);
+            label.innerHTML = "Adverbes";
+            value = row_adverbe.insertCell(1);
+            value.innerHTML = adverbes_count;
+            
+            com_mot_apercu.innerHTML = "Adverbes détectés : ";
+            for (var z = 0; z < adverbes.length; z++) {
+                com_mot_apercu.innerHTML += adverbes[z];
+                if (z < adverbes.length-1) {
+                    com_mot_apercu.innerHTML += ", ";
+                }
+            }
+            com_mot_apercu.innerHTML += ".";
+            
+            // APERCU PHRASES
+            //
+            title_phrase_apercu.innerHTML = '<br><u>Résultats phrases</u><br><br>';
+            
+            var row_head = res_phrase_apercu.insertRow(0);
+            var head0 = row_head.insertCell(0);
+            var head1 = row_head.insertCell(1);
+            head0.innerHTML = "<span style='color: #FFFFFF'><u>Caractéristique</u></span>";
+            head0.bgColor = '#CEC498';
+            head1.innerHTML = "<span style='color: #FFFFFF'><u>Valeur</u></span>";
+            head1.bgColor = '#CEC498';
+            
+            var row_sentence = res_phrase_apercu.insertRow(1);
+            label = row_sentence.insertCell(0);
+            label.innerHTML = "Phrases";
+            value = row_sentence.insertCell(1);
+            value.innerHTML = count_sentence;
+            
+            var row_big_sentence = res_phrase_apercu.insertRow(2);
+            row_big_sentence.bgColor = '#F6F6F6';
+            label = row_big_sentence.insertCell(0);
+            label.innerHTML = "Phrases >" + BIG_SENTENCE + " mots";
+            value = row_big_sentence.insertCell(1);
+            value.innerHTML = big_sentence + " (" + ((big_sentence/count_sentence)*100).toFixed(2) + "%)";
+            if (((big_sentence/count_sentence)*100) > 50) {
+                value.bgColor = COLOR_ERROR;
+            }
+            
+            var row_very_big_sentence = res_phrase_apercu.insertRow(3);
+            label = row_very_big_sentence.insertCell(0);
+            label.innerHTML = "Phrases >" + VERY_BIG_SENTENCE + " mots";
+            value = row_very_big_sentence.insertCell(1);
+            value.innerHTML = very_big_sentence + " (" + ((very_big_sentence/count_sentence)*100).toFixed(2) + "%)";
+            if (((very_big_sentence/count_sentence)*100) > 50) {
+                value.bgColor = COLOR_ERROR;
+            }
+            
+            var row_accu_length = res_phrase_apercu.insertRow(4);
+            row_accu_length.bgColor = '#F6F6F6';
+            label = row_accu_length.insertCell(0);
+            label.innerHTML = "Moyenne mots/phrase";
+            value = row_accu_length.insertCell(1);
+            value.innerHTML = (accu_length_sentence / count_sentence).toFixed(2);
+            if ((accu_length_sentence / count_sentence) <= BIG_SENTENCE) {
+                value.bgColor = COLOR_OK;
+            } else if ((accu_length_sentence / count_sentence) <= VERY_BIG_SENTENCE) {
+                value.bgColor = COLOR_WARNING;
+            } else if ((accu_length_sentence / count_sentence) > VERY_BIG_SENTENCE) {
+                value.bgColor = COLOR_ERROR;
+            }
+            
+            // APERCU PARAGRAPHES
+            //
+            title_paragraph_apercu.innerHTML = '<br><u>Résultats paragraphes</u><br><br>';
+            
+            var row_head = res_paragraph_apercu.insertRow(0);
+            var head0 = row_head.insertCell(0);
+            var head1 = row_head.insertCell(1);
+            head0.innerHTML = "<span style='color: #FFFFFF'><u>Caractéristique</u></span>";
+            head0.bgColor = '#CEC498';
+            head1.innerHTML = "<span style='color: #FFFFFF'><u>Valeur</u></span>";
+            head1.bgColor = '#CEC498';
+            
+            var row_paragraph = res_paragraph_apercu.insertRow(1);
+            row_paragraph_label = row_paragraph.insertCell(0);
+            row_paragraph_label.innerHTML = "Paragraphes";
+            row_paragraph_value = row_paragraph.insertCell(1);
+            row_paragraph_value.innerHTML = count_paragraph;
+            
+            var row_accu_length_par = res_paragraph_apercu.insertRow(2);
+            row_accu_length_label = row_accu_length_par.insertCell(0);
+            row_accu_length_label.innerHTML = "Moyenne phrases/paragraphe";
+            row_accu_length_value = row_accu_length_par.insertCell(1);
+            row_accu_length_value.innerHTML = (accu_length_paragraph / count_paragraph).toFixed(2);
+            
+            // APERCU TEXTE
+            //
+            title_text_apercu.innerHTML = '<br><u>Résultat texte</u><br><br>';
+            
+            var row_head = res_text_apercu.insertRow(0);
+            var head0 = row_head.insertCell(0);
+            var head1 = row_head.insertCell(1);
+            head0.innerHTML = "<span style='color: #FFFFFF'><u>Caractéristique</u></span>";
+            head0.bgColor = '#CEC498';
+            head1.innerHTML = "<span style='color: #FFFFFF'><u>Valeur</u></span>";
+            head1.bgColor = '#CEC498';
+            
+            var row_gunning = res_text_apercu.insertRow(1);
+            label = row_gunning.insertCell(0);
+            label.innerHTML = "Indice de Gunning";
+            value = row_gunning.insertCell(1);
+            var gunning = ((accu_length_sentence / count_sentence) + ((big_word / words.length)*100)) * 0.4
+            value.innerHTML = gunning.toFixed(2);
+            if (gunning <= 8) {
+                value.bgColor = COLOR_OK;
+            } else if (gunning < 12) {
+                value.bgColor = COLOR_WARNING;
+            } else {
+                value.bgColor = COLOR_ERROR;
+            }
+            
+            com_text_apercu.innerHTML = "L'indice de Gunning mesure la lisibilité de votre texte. La longueur moyenne des phrases et le nombre de mots d'une longueur de plus de " + BIG_WORD + " sont pris en compte. Entre 6 et 8, le texte est facile à lire, entre 12 et 15, difficile."
+            
+            // Signature
+            //
+            /*
+            title_signature.innerHTML = '<br><u>Présence signature</u><br>';
+            var a = false;
+            for (var i = words.length-1; i >= 0; i--) {
+                var a = MOTS_SIGNATURE.indexOf(words[i]);
+                if (a != -1) {
+                    break;
+                }
+            }
+            if (a === false || a == -1) {
+                res_signature.innerHTML = '<p><span style="color:red">Le logiciel n\'a pas réussi à détecter de signature.</span></p>';
+            } else {
+                res_signature.innerHTML += '<p>Signature détectée : <span style="color:blue">' + MOTS_SIGNATURE[a] + '</span></p>';
+            }
+            */
+            
+            // DETAILS PARAGRAPHES
+            //
+            title_paragraph.innerHTML = '<br><u>Analyse détaillée des paragraphes</u><br><br>';
+            
+            var row_head = res_paragraph.insertRow(0);
+            var head0 = row_head.insertCell(0);
+            var head1 = row_head.insertCell(1);
+            head0.innerHTML = "<span style='color: #FFFFFF'><u>Numéro de paragraphe</u></span>";
+            head0.bgColor = '#CEC498';
+            head1.innerHTML = "<span style='color: #FFFFFF'><u>Longueur en phrases</u></span>";
+            head1.bgColor = '#CEC498';
+            
+            for (var i = 0; i < count_paragraph; i++) {
+                var row = res_paragraph.insertRow(i+1);
+                var cell = row.insertCell(0);
+                cell.innerHTML = "Paragraphe n°" + (i+1);
+                cell = row.insertCell(1);
+                cell.innerHTML = paragraph_length[i];
+            }
+            
+            // DETAILS PHRASES
+            //
+            title_phrase.innerHTML = '<br><u>Analyse détaillée des phrases</u><br><br>';
+            
+            var last = 0;
+            for (var i = 0; i < count_paragraph; i++) {
+                var row = map_phrase.insertRow(i);
+                var cell = row.insertCell(0);
+                cell.innerHTML = "Paragraphe n°" + (i+1);
+                for (var j = 0; j < paragraph_length[i]; j++) {
+                    cell = row.insertCell(j+1);
+                    if (sentence_length[last + j] > BIG_SENTENCE) {
+                        if (sentence_length[last + j] > VERY_BIG_SENTENCE) {
+                            cell.bgColor = COLOR_ERROR;
+                        } else {
+                            cell.bgColor = COLOR_WARNING;
+                        }
+                    } else {
+                        cell.bgColor = COLOR_OK;
+                    }
+                    cell.innerHTML = "n°" + (last + j + 1) + " (" + sentence_length[last + j] + ")";
+                }
+                last += paragraph_length[i];
+            }
+            
+            var row_head = res_phrase.insertRow(0);
+            var head0 = row_head.insertCell(0);
+            var head1 = row_head.insertCell(1);
+            var head2 = row_head.insertCell(2);
+            head0.innerHTML = "<span style='color: #FFFFFF'><u>Numéro de phrase</u></span>";
+            head0.bgColor = '#CEC498';
+            head1.innerHTML = "<span style='color: #FFFFFF'><u>Longueur en mots</u></span>";
+            head1.bgColor = '#CEC498';
+            head2.innerHTML = "<span style='color: #FFFFFF'><u>Contenu</u></span>";
+            head2.bgColor = '#CEC498';
+            
+            var total = 0;
+            var last_sentence = 0;
+            for (var i = 0; i < sentence_length.length; i++) {
+                var row = res_phrase.insertRow(i+1);
+                var cell_num = row.insertCell(0);
+                cell_num.innerHTML = "phrase numéro " + (i+1);
+                var cell_count = row.insertCell(1);
+                cell_count.innerHTML = sentence_length[i];
+                var cell_content = row.insertCell(2);
+                var scontent = "";
+                for (var j = last_sentence; j < last_sentence+sentence_length[i]; j++) {
+                    scontent += words[j] + " ";
+                }
+                last_sentence = last_sentence+sentence_length[i];
+                cell_content.innerHTML = scontent;
+                // Coloration
+                if (sentence_length[i] > BIG_SENTENCE) {
+                    if (sentence_length[i] > VERY_BIG_SENTENCE) {
+                        row.bgColor = COLOR_ERROR;
+                    } else {
+                        row.bgColor = COLOR_WARNING;
+                    }
+                } else {
+                    if (i%2 == 0) {
+                        row.bgColor = '#F6F6F6';
+                    }
+                }
+                total += sentence_length[i];
+            }
+            var row_total = res_phrase.insertRow(sentence_length.length+1);
+            var cell_total_lbl = row_total.insertCell(0);
+            cell_total_lbl.innerHTML = "Moyenne de mots / phrase";
+            var cell_total_num = row_total.insertCell(1);
+            cell_total_num.innerHTML = (total / i).toFixed(2);
+            if (i%2 == 0) {
+                row_total.bgColor = '#F6F6F6';
+            }
+            
+            // DETAILS MOTS
+            //
+            title_mot.innerHTML = '<br><u>Analyses des mots</u><br><br>';
+            
+            var row_head = res_mot.insertRow(0);
+            var head0 = row_head.insertCell(0);
+            var head1 = row_head.insertCell(1);
+            head0.innerHTML = "<span style='color: #FFFFFF'><u>Mot</u></span>";
+            head0.bgColor = '#CEC498';
+            head1.innerHTML = "<span style='color: #FFFFFF'><u>Fréquence</u></span>";
+            head1.bgColor = '#CEC498';
+            
+            var total = 0;
+            for (var i = 0; i < rtable[0].length; i++) {
+                var row = res_mot.insertRow(i+1);
+                var cell_word = row.insertCell(0);
+                cell_word.innerHTML = rtable[0][i]; // key; mot
+                var cell_num = row.insertCell(1);
+                cell_num.innerHTML = rtable[1][i]; // xwords[key]; nb occurence
+                total += rtable[1][i]; //xwords[key];
+                if (MOTS_ERROR.indexOf(rtable[0][i]) != -1) {
+                    row.bgColor = COLOR_ERROR;
+                } else if (MOTS_WARNING.indexOf(rtable[0][i]) != -1) {
+                    row.bgColor = COLOR_WARNING;
+                } else if (i%2 == 0) {
+                    row.bgColor = '#F6F6F6';
+                }
+            }
+            var row_total = res_mot.insertRow(rtable[0].length+1);
+            var cell_total_lbl = row_total.insertCell(0);
+            cell_total_lbl.innerHTML = "Total";
+            var cell_total_num = row_total.insertCell(1);
+            cell_total_num.innerHTML = total;
+            if (i%2 == 0) {
+                row.bgColor = '#F6F6F6';
+            }
+                
+            //for (var key in xwords) {
+            //for (var i=0; i < words.length; i++)
+        }
+    </script>
+</head>
+<body width="100%" height="100%">
+    <center>
+        <h1>Statistiques textuelles</h1>
+        <textarea id="txt_input" rows="40" cols="80" placeholder="Entrer votre texte..."></textarea>
+        <br><br>
+        <button onclick="main()">Analyser</button>
+        <br>
+        <!--<form><input id="chk_strict" type="checkbox" checked="checked">strict</form>-->
+        <div id="result"></div>
+            <div id="res_title" class="title"></div>
+            <table id="res_table"></table>
+            
+            <div id="title_mot_apercu" class="title"></div>
+            <table id="res_mot_apercu"></table>
+            <p id="com_mot_apercu"></p>
+            
+            <div id="title_phrase_apercu" class="title"></div>
+            <table id="res_phrase_apercu"></table>
+            
+            <div id="title_paragraph_apercu" class="title"></div>
+            <table id="res_paragraph_apercu"></table>
+            
+            <div id="title_text_apercu" class="title"></div>
+            <table id="res_text_apercu"></table>
+            <p id="com_text_apercu"></p>
+            
+            <div id="title_signature" class="title"></div>
+            <div id="res_signature"></div>
+            
+            <div id="title_paragraph" class="title"></div>
+            <table id="res_paragraph"></table>
+            
+            <div id="title_phrase" class="title"></div>
+            <table id="map_phrase"></table>
+            <br><br>
+            <table id="res_phrase"></table>
+            
+            <div id="title_mot" class="title"></div>
+            <table id="res_mot"></table>
+        </div>
+        <br>
+        <p><a href="https://damiengouteux.wordpress.com/">Damien Gouteux 2013-2016</a></p>
+    </center>
+</body>
+</html>

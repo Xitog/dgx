@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+﻿  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aide-mémoire des sons du français</title>
+    <link rel="icon" href="http://damien.gouteux.free.fr/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="http://damien.gouteux.free.fr/img/favicon.ico" type="image/x-icon" />
+    <link href="http://damien.gouteux.free.fr/css/simplex.bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      td, th {
+        padding-right: 1em;
+        padding-left: 1em;
+      }
+      th {
+        text-align: center;
+      }
+      td { 
+        vertical-align: middle;
+      }
+      td.sep {
+        text-align: center;
+        font-weight: bold;
+        border-top: 1px solid #444444;
+        border-bottom: 1px solid #444444;
+        background: white;
+      }
+      tr:nth-child(even) {background: white}
+      tr:nth-child(odd) {background: #eeeeee}
+        
+      dl {
+        border: 1px solid #eeeeee;
+        border-radius: 10px;
+        background: white;
+        font-size: 12px;
+        padding: 4px;
+      }
+      dt {
+        font-weight: bold;
+        background: white;
+      }
+      dd {
+        margin-bottom: 10px;
+        background: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main" class="container">
+    
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+             <a class="navbar-brand" href="#">Menu</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li id="Accueil"><a href="http://damien.gouteux.free.fr/index.html">Accueil</a></li>
+              <li id="Blog"><a href="http://damien.gouteux.free.fr/index.html#blog" onclick="view_one_entry(0);">Blog</a></li>
+              <li class="dropdown">
+                <a id="Langues" href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-expanded="false">Langues <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Français</li>
+                  <li><a href="http://damien.gouteux.free.fr/francais/fiche_api_fr.html" class="active">Phonèmes du français</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Italien</li>
+                  <li><a href="http://damien.gouteux.free.fr/italien/beatrice.html">Beatrice : grammaire</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/italien/jeux.html">Jeux</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Informatique" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Informatique <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Python</li>
+                  <li><a href="http://damien.gouteux.free.fr/python/aide_python.html">Aide-mémoire</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Ruby</li>
+                  <li><a href="http://damien.gouteux.free.fr/ruby/guide_ruby.html">Guide</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/ruby/aide_ruby.html">Aide-mémoire</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Lua</li>
+                  <li><a href="http://damien.gouteux.free.fr/lua/aide_lua.html">Aide-mémoire</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Selene <i>(mon langage)</i></li>
+                  <li><a href="http://damien.gouteux.free.fr/selene/guide_selene.html">Guide</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Modélisation</li>
+                  <li><a href="http://damien.gouteux.free.fr/tutoriels/xcore.html" class="dead">Tutoriel sur XCore</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Histoire" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Histoire <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Méthode</li>
+                  <li><a href="http://damien.gouteux.free.fr/histoire/methode.html">Généralités</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/histoire/bibliographie.html">Bibliographie</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Aide-mémoires</li>
+                  <li><a href="http://damien.gouteux.free.fr/histoire/france19eme.html">France au XIXe</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Jeux" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Jeux <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Terres sauvages <i>(mon jdr)</i></li>
+                  <li><a href="http://damien.gouteux.free.fr/jeux/regles_jdr.html" class="dead">Règles de jeu de rôles</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/jeux/univers_jdr.html" class="dead">Univers de jeu</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Livres dont VOUS êtes le héros</li>
+                  <li><a href="http://damien.gouteux.free.fr/jeux/doc_talisman.html">Le Compagnon du Talisman</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Jeux vidéo</li>
+                  <li><a href="http://damien.gouteux.free.fr/jeux/guide_rts.html" class="dead">Guide des STR</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/jeux/projet_rts.html" class="dead">Projet de STR</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Autres" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Autres <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Collections</li>
+                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#prenoms">Prénoms</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#langages">Langages</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#favoris_artistiques">Favoris artistiques</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!-- nav-collapse -->
+        </div><!-- container-fluid -->
+      </nav> <!-- navbar navbar-default -->
+      
+    <!--
+      <div class="jumbotron">
+        <h1 id="titreHaut">Méthodologie d'Histoire</h1>
+        <hr>
+        <p id="texteHaut" class="n">Une fiche de méthodologie pour les épreuves universitaires d'Histoire.</p>
+        <p id="signature" class="sign">Damien Gouteux,<br> mis à jour le 30 avril 2017,<br>créé le ???.</p>  
+      </div>
+    -->  
+  
+      <div id="content">
+      
+      <h1 id="api_fr">Fiche des phonèmes du français</h1>
+      <p id="intro">Cette fiche expose les phonèmes du <b>français</b> et quelques unes de leurs graphies.</p>
+      <p>Création : le 4 avril 2017 | Dernière mise-à-jour : le 20 juin 2017 | Auteur : Damien Gouteux | Type : Fiche | Sujet : français, son, phone, phonème, phonétique</p>
+      
+      <h2 id="sommaire">Sommaire</h2>
+      <ul>
+        <li><a href="#def">Définitions</a></li>
+        <li><a href="#table">Table des 36+1 phonèmes</a></li>
+        <li><a href="#remarques">Remarques</a></li>
+        <li><a href="#prudence">Ne pas se tromper</a>
+        <li><a href="#distinguer">Distinguer</a>
+      </ul>
+      
+      <h2 id="def">Définitions</h2>
+      
+      <dl>
+        <dt id="graphie">Graphie ou Graphème</dt>
+        <dd>Représentation écrite d'un <a href="#phonème">phonème</a>. Un phonème peut avoir plusieurs graphèmes : /f/ peut s'écrire f ou ph en français. Un graphème peut correspondre à deux phonèmes : s peut correspondre à /s/ et /z/ par exemple, selon sa place dans le mot. Un graphème inclut également les consonnes muettes dans le cas d'un phonème voyelle. Ainsi /i/ peut avoir pour graphème : i comme dans pi, it comme dans salit, id comme dans nid...</dd>
+        <dt id="phonème">Phonème</dt>
+        <dd>Plus petite unité distinctive des sons rapportés à la compréhension d'une langue. S'écrit entre / / avec les symboles de l'alphabet phonétique international (API). N'a d'existence que par rapport au système des phonèmes d'une langue. La science qui les étudit est la phonologie.<br><u>Exemple canonique en français</u> : /ʁ/ qu'on entend dans rat. Le son [r] (un "r roulé") peut-être une réalisation du phonème /ʁ/, comme le son [ʁ] ("r standard" du français). Cela n'affecte pas la compréhension de la langue car aucun mot en français ne se distingue par une différence entre /ʁ/ et /r/ d'ailleurs /r/ n'est pas un phonème du français.</dd>
+        <dt id="son">Son ou Phone</dt>
+        <dd>Réalisation objective sonore d'un phonème. S'écrit entre [ ] avec les symboles de l'alphabet phonétique international (API). La science qui les étudit est la phonétique.</dd>
+        <dt id="syllabe">Syllabe</dt>
+        <dd>Groupe de sons <i>« prononcée en un accent et en un trait : d'une respiration »</i>, Guilhem Molinier, <i>Las leys d’Amors</i>, 1356. Elle est consituée d'une <b>attaque</b>, une ou plusieurs consonnes, qui est optionnelle, d'un <b>noyau</b>, une voyelle, et d'une <b>coda</b>, une ou plusieurs consonnes, qui est optionnelle elle aussi. Noyau et coda forme la <b>rime</b>.</dd>
+        <dt id="ouverte">Syllabe ouverte</dt>
+        <dd>Syllabe qui se finit par son noyau, elle ne possède pas de <i>coda</i> : ou /<b>u</b>/, mais /m<b>ɛ</b>/, chaton /ʃ<b>a</b>.t<b>ɔ̃</b>/ </dd>
+        <dt id="fermée">Syllabe fermée</dt>
+        <dd>Syllabe qui possède une <i>coda</i> : pair /pɛ<b>ʁ</b>/, dame /da<b>m</b>/</dd>
+      </dl>
+      
+      <table>
+        <thead><tr><th colspan="3">Rappels</th></tr></thead>
+        <tbody>
+          <tr><td class="sep">Objet</td><td class="sep">Science</td><td class="sep">Écriture</td></tr>
+          <tr><td>Phone ou son</td><td>Phonétique</td><td> / / </td></tr>
+          <tr><td>Phonème</td><td>Phonologie</td><td> [ ] </td></tr>
+        </tbody>
+      </table>
+      
+      <h2 id="table">Table des 36+1 phonèmes du français</h2>
+      
+      <p>Nous mettons le phonème /ŋ/ à part car il vient de l'emprunt à l'anglais de certains mots comme parki<i>ng</i>.</p>
+      
+      <table>
+        <thead>
+          <tr><th>Phonème (selon API)</th><th>Quelques graphies possibles</th><th>Exemples</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="sep" colspan="3">Les 17+1 consonnes du français</td></tr>
+          <tr><td>/b/</td><td>b</td><td>un <b>b</b>é<b>b</b>é</td></tr>
+          <tr><td>/d/</td><td>d</td><td>une <b>d</b>ame</td></tr>
+          <tr><td>/f/</td><td>f,<br>ph</td><td>une <b>f</b>emme,<br>une <b>ph</b>armacie</td></tr>
+          <tr><td>/g/</td><td>g (devant a, o, u),<br>gu</td><td>une <b>g</b>are,<br>un <b>gu</b>é</td></tr>
+          <tr><td>/ʒ/</td><td>j (parfois),<br>g (devant e, i, y)</td><td>une <b>j</b>arretière,<br>la <b>g</b>ym</td></tr>
+          <tr><td>/k/</td><td>c (devant a, o, u),<br>k,<br>q,<br>qu</td><td>un <b>c</b>afé,<br>un <b>k</b>oala,<br>une bur<b>q</b>a,<br>un <b>qu</b>ai</td></tr>
+          <tr><td>/l/</td><td>l</td><td>un <b>l</b>adre</td></tr>
+          <tr><td>/m/</td><td>m</td><td>une <b>m</b>ère</td></tr>
+          <tr><td>/n/</td><td>n</td><td>une <b>n</b>onne</td></tr>
+          <tr><td>/p/</td><td>p</td><td>un <b>p</b>ère</td></tr>
+          <tr><td>/ʁ/</td><td>r</td><td>un <b>r</b>êve</td></tr>
+          <tr><td>/s/</td><td>s (lorsqu'il n'est pas entouré de 2 voyelles),<br>c (devant e, i, y)</td><td>un <b>s</b>ac,<br>un <b>c</b>èdre</td></tr>
+          <tr><td>/t/</td><td>t</td><td>une <b>t</b>aie</td></tr>
+          <tr><td>/v/</td><td>v,<br>w</td><td>un <b>v</b>aguabond,<br>un <b>w</b>agon</td></tr>
+          <tr><td>/z/</td><td>s (entre 2 voyalles),<br>z</td><td>un ha<b>s</b>ard,<br>un <b>z</b>èbre</td></tr>
+          <tr><td>/ɲ/</td><td>gn</td><td>un a<b>gn</b>eau</td></tr>
+          <tr><td>/ŋ/</td><td>ng</td><td>un parki<b>ng</b></td></tr>
+          <tr><td>/ʃ/</td><td>ch</td><td>un <b>ch</b>at</td></tr>
+          <tr><td class="sep" colspan="3">Les 3 semi-voyelles/semi-consonnes du français</td></tr>
+          <tr><td>/j/</td><td>y,<br>i (parfois), ill</td><td>un <b>y</b>ack,<br>une v<b>i</b>e<b>ill</b>e</td></tr>
+          <tr><td>/w/</td><td>ou (parfois),<br>dans oi qui fait /wa/</td><td><b>ou</b>i,<br>n<b>oi</b>r</td></tr>
+          <tr><td>/ɥ/</td><td>u (parfois)</td><td>la n<b>u</b>it</td></tr>
+          <tr><td class="sep" colspan="3">Les 12 voyelles orales du français</td></tr>
+          <tr><td>/a/</td><td>a</td><td>une p<b>a</b>tte</td></tr>
+          <tr><td>/ɑ/</td><td>â</td><td>un ch<b>â</b>teau</td></tr>
+          <tr><td>/ə/</td><td>e</td><td>un ch<b>e</b>nil</td></tr>
+          <tr><td>/e/</td><td>é</td><td>l'<b>é</b>t<b>é</b></td></tr>
+          <tr><td>/ɛ/</td><td>è,<br>ê,<br>ë,<br>e,<br>ai<sup>1</sup></td><td>une <b>è</b>re,<br>un fr<b>ê</b>ne,<br>Rapha<b>ë</b>l,<br>Rapha<b>e</b>lle,<br>une p<b>ai</b>r, m<b>ai</b>s<sup>1</sup></td></tr>
+          <tr><td>/œ/</td><td>œu,<br>eu</td><td>un <b>œu</b>f,<br>la noirc<b>eu</b>r</td></tr>
+          <tr><td>/ø/</td><td>œu,<br>eu</td><td>un n<b>œu</b>d,<br><b>eu</b>x</td></tr>
+          <tr><td>/i/</td><td>i</td><td>un n<b>i</b>d</td></tr>
+          <tr><td>/o/</td><td>o,<br>ô,<br>au</td><td>un s<b>o</b>t,<br>un h<b>ô</b>te,<br>un s<b>au</b>t</td></tr>
+          <tr><td>/ɔ/</td><td>o</td><td>une h<b>o</b>tte</td></tr>
+          <tr><td>/y/</td><td>u</td><td>un m<b>u</b>r</td></tr>
+          <tr><td>/u/</td><td>ou</td><td>un c<b>ou</b></td></tr>
+          <tr><td class="sep" colspan="3">Les 4 voyelles nasales (~) du français</td></tr>
+          <tr><td>/ɑ̃/</td><td>an,<br>en</td><td>un <b>an</b>,<br>une d<b>en</b>t</td></tr>
+          <tr><td>/ɛ̃/</td><td>in</td><td>un br<b>in</b></td></tr>
+          <tr><td>/œ̃/</td><td>un</td><td>br<b>un</b></td></tr>
+          <tr><td>/ɔ̃/</td><td>on</td><td><b>on</b></td></tr>
+        </tbody>
+      </table>
+      
+      <h2 id="remarques">Remarques</h2>
+      
+      <ol>
+        <li>À Toulouse, la graphie "ai" se prononce /e/ dans les <a href="#ouverte">syllabes ouvertes</a> plutôt que /ε/ : mais /me/.</li>
+      </ol>
+      
+      <h2 id="prudence">Ne pas se tromper</h2>
+      
+      <ul>
+        <li>/y/ de "m<b>u</b>r" à ne pas confondre avec /j/ de "<b>y</b>ack"</li>
+        <li>/j/ de "<b>y</b>ack" à ne pas confondre avec /ʒ/ de "<b>j</b>eu"</li>
+        <li>/u/ de "<b>ou</b>" à ne pas confondre avec /y/ de "m<b>u</b>r"</li>
+      </ul>
+      
+      <h2 id="distinguer">Distinguer</h2>
+      
+      <ul>
+        <li>/ɑ/ de "ch<b>â</b>teau", "t<b>a</b>s", p<b>â</b>te et /a/ de p<b>a</b>tte, "c<b>a</b>r"</li>
+        <li>/ɛ̃/ de "br<b>in</b>" et /œ̃/ de "br<b>un</b>"</li>
+      </ul>
+      
+      </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,2143 @@
+﻿<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="grammaire, italienne, cours, langue, italie, grammaire italienne, cours de langue italienne, cours d'italien, damien gouteux">
+    <meta name="description" content="grammaire de base italienne de Damien Gouteux">
+
+    <link rel="shortcut icon" href="favicon.ico" >
+    <link rel="icon" type="image/gif" href="favicon.ico" >
+
+    <title>Beatrice</title>
+    
+    <link href="http://damien.gouteux.free.fr/css/simplex.bootstrap.css" rel="stylesheet">
+    <link href="http://damien.gouteux.free.fr/css/green.css" rel="stylesheet">
+    
+  </head>
+  <body>
+    <div id="main" class="container">
+
+<nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+             <a class="navbar-brand" href="#">Menu</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li id="Accueil"><a href="http://damien.gouteux.free.fr/index.html">Accueil</a></li>
+              <li id="Blog"><a href="#blog" onclick="view_one_entry(0);">Blog</a></li>
+              <li class="dropdown">
+                <a id="Langues" href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-expanded="false">Langues <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                <li class="dropdown-header">Français</li>
+                  <li><a href="http://damien.gouteux.free.fr/francais/fiche_api_fr.html">Sons du français</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Italien</li>
+                  <li><a href="http://damien.gouteux.free.fr/italien/beatrice.html" class="active">Beatrice : grammaire</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/italien/jeux.html">Jeux</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Informatique" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Informatique <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Python</li>
+                  <li><a href="http://damien.gouteux.free.fr/python/aide_python.html">Aide-mémoire</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Ruby</li>
+                  <li><a href="http://damien.gouteux.free.fr/ruby/guide_ruby.html">Guide</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/ruby/aide_ruby.html">Aide-mémoire</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Lua</li>
+                  <li><a href="http://damien.gouteux.free.fr/lua/aide_lua.html">Aide-mémoire</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Selene <i>(mon langage)</i></li>
+                  <li><a href="http://damien.gouteux.free.fr/selene/guide_selene">Guide</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Modélisation</li>
+                  <li><a href="#" class="dead">Tutoriel sur XCore</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/model/json.html">Fiche sur JSON</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Histoire" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Histoire <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Méthode</li>
+                  <li><a href="http://damien.gouteux.free.fr/histoire/methode.html">Généralités</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/histoire/bibliographie.html">Bibliographie</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Aide-mémoires</li>
+                  <li><a href="http://damien.gouteux.free.fr/histoire/france19eme.html">France au XIXe</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Jeux" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Jeux <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Terres sauvages <i>(mon jdr)</i></li>
+                  <li><a href="#" class="dead">Règles de jeu de rôles</a></li>
+                  <li><a href="#" class="dead">Univers de jeu</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Livres dont VOUS êtes le héros</li>
+                  <li><a href="http://damien.gouteux.free.fr/jeux/doc_talisman.html">Le Compagnon du Talisman</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Jeux vidéo</li>
+                  <li><a href="#" class="dead">Guide des STR</a></li>
+                  <li><a href="#" class="dead">Projet de STR</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Autres" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Autres <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Collections</li>
+                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#prenoms">Prénoms</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#langages">Langages</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#favoris_artistiques">Favoris artistiques</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+    
+      <div class="wrapper">
+        <header>
+          <h1>Beatrice</h1>
+          <p class="info">Mini Grammaire Italienne, Vocabulaire &amp; Conjugaisons<br>Damien Gouteux, 2011-2017. Version 1.1.6</p>
+        </header>
+        
+        <div class="menu">Accès rapide : <a href="#part1">Présentation</a> | <a href="#part2">Éléments</a> | <a href="#part3">Alchimie</a> | <a href="#part4">Vocabulaire</a> | <a href="#part5">Annexes</a> </div>
+
+<div class="content">
+
+
+
+<table class="inv">
+  <tr>
+    <td>
+    
+<h2>Avant-propos</h2>
+<p>Ce fichier se veut un "tout-en-un" pour l'italien. Vous y trouverez la grammaire essentielle, un vocabulaire thématique, ainsi qu'une liste de verbes avec leur conjugaison. J'espère avant tout qu'elle vous sera pratique et vous aidera à progresser dans la belle langue de Dante.</p>
+
+<p>Cette fiche a été faite dans un premier temps pour l'examen de fin d'année, que mon groupe et votre serviteur avions pour couronner notre découverte de l'italien. Au fil du temps, j'y ai ajouté des parties pour la rendre plus complète et utile. Bien que j'essaye de vérifier chacun de mes dires ainsi que mes exemples, l'erreur est humaine, et si vous trouviez dans ce document une coquille, je m'en excuse d'avance et vous remercie de me l'indiquer pour que je puisse la corriger gentiment.</p>
+
+<p>Vous pouvez me contacter à damien POINT gouteux AROBASE gmail POINT com, en remplaçant les mots en majuscule par le symbole correspondant. Bonne lecture et merci pour votre temps, la chose la plus précieuse de l'univers !</p>
+
+<p>Damien Gouteux, Toulouse, le 5 août 2011.</p>
+
+<p>P.S. : cette page ne contient pas de publicité, surfez tranquille ! Et elle est toujours en construction !</p>
+    </td>
+    <td align="right">
+      <a href="http://fr.wikipedia.org/wiki/Dante_Gabriel_Rossetti"><img src="http://upload.wikimedia.org/wikipedia/commons/9/94/Holygrail.jpg" width="300" height="481" alt="Damsel of the sanct grael, 1874"/></a>
+    </td>
+  </tr>
+</table>
+
+<h2 class="horstexte" id="sommaire">Sommaire</h2>
+
+<ol type="I">
+  <li><b>Première partie : Présentation de la langue</b>
+    <ol>
+      <li><a href="#prononciation">Prononciation</a></li>
+    </ol>
+    <br/>
+  </li>
+  <li><b>Deuxième partie : Les éléments de la langue</b>
+    <ol>
+      <li><a href="#noms">Noms</a>
+        <ol>
+          <li><a href="#cas_particuliers">Cas particuliers</a></li>
+          <li><a href="#invariabilite">Invariabilité</a></li>
+        </ol>
+      </li>
+      <li><a href="#adjectifs">Adjectifs qualificatifs</a>
+        <ol>
+          <li><a href="#comparatif">Comparatif</a></li>
+          <li><a href="#superlatif">Superlatif</a></li>
+        </ol>
+      </li>
+      <li><a href="#articles">Articles</a>
+        <ol type="1">
+          <li><a href="#articles_indef_def">Articles indéfinis et définis</a></li>
+          <li><a href="#articles_part">Articles partitifs</a></li>
+        </ol>
+      </li>
+      <li><a href="#pronoms">Pronoms</a>
+        <ol>
+          <li><a href="#pron_sujets">Pronoms sujets, réfléchis et COD/COI</a></li>
+          <li><a href="#pron_possessif">Pronoms possessifs</a></li>
+          <li><a href="#pron_demonstratif">Pronoms démonstratifs</a></li>
+          <li><a href="#pron_relatifs">Pronoms relatifs</a></li>
+        </ol>
+      </li>
+      <li><a href="#adverbes">Adverbes</a></li>
+      <li><a href="#adjectifs_non_qualificatifs">Adjectifs non qualificatifs</a>
+        <ol>
+          <li><a href="#adj_non_qual_possessifs">Possessifs</a></li>
+          <li><a href="#adj_non_qual_demonstratifs">Démonstratifs</a></li>
+        </ol>
+      </li>
+      <li><a href="#verbes">Verbes</a>
+        <ol>
+          <li><a href="#conj_groupes">Groupes</a></li>
+          <li><a href="#conj_temps">Temps de conjugaison</a></li>
+          <li><a href="#conj_present">Présent de l'indicatif (Presente)</a></li>
+          <li><a href="#conj_futur">Futur simple de l'indicatif (Futuro semplice)</a></li>
+          <li><a href="#conj_imparfait">Imparfait de l'indicatif (Imperfetto)</a></li>
+          <li><a href="#conj_part_passe">Participe passé (participio passato)</a></li>
+          <li><a href="#conj_passe_compose">Passé composé de l'indicatif ("proche" en italien) (Passato prossimo)</a></li>
+          <li><a href="#conj_subjonctif">Subjonctif</a></li>
+          <li><a href="#conj_conditionnel">Conditionnel</a></li>
+          <li><a href="#conj_imperatif">Impératif</a></li>
+          <li><a href="#conj_gerondif">Gérondif</a></li>
+          <li><a href="#conj_aux">Verbes auxiliaires</a></li>
+          <li><a href="#conj_irreguliers">Verbes irréguliers</a></li>
+         </ol>
+      </li>
+      <li><a href="#prepositions">Prépositions</a>
+        <ol>
+          <li><a href="#prep_simples">Les prépositions simples</a></li>
+          <li><a href="#prep_combinees">Prépositions combinées</a></li>
+          <li><a href="#prep_etendues">Les prépositions étendues</a></li>
+        </ol>
+      </li>
+      <li><a href="#conjonctions">Conjonctions</a></li>
+      <li><a href="#interjections">Interjections</a></li>
+    </ol>
+    <br/>
+  </li>
+  <li><b>Troisième partie : L'alchimie des éléments</b>
+    <ol>
+      <li><a href="#fonctions">Les fonctions</a></li>
+      <li><a href="#hypothese">L'hypothèse</a></li>
+      <li><a href="#negation">Exprimer la négation</a></li>
+      <li><a href="#condition">Exprimer la condition</a></li>
+    </ol>
+  <br/>
+  </li>
+  <li><b>Quatrième partie : <a id="sommaire_voc" href="#vocabulaire">Vocabulaire Thématique</a></b>
+    <ol>
+      <li><a href="#essentiels">Les essentiels</a>
+        <ol type="i">
+          <li><a href="#buon_bel">Buon et Bel</a></li>
+          <li><a href="#il_y_a">Dire il y a</a></li>
+          <li><a href="#c_est">Dire "c'est"</a></li>
+          <li><a href="#aimer">Dire "aimer"</a></li>
+          <li><a href="#faut">Dire la nécessité</a></li>
+          <li><a href="#temps">Dire le rapport au temps</a></li>
+        </ol>
+      </li>
+      <li><a href="#famille">La famille</a></li>
+      <li><a href="#nourrir">Se nourrir</a></li>
+      <li><a href="#saisons_temps">Les saisons et le temps (climat)</a></li>
+      <li><a href="#animaux">Les animaux</a></li>
+      <li><a href="#jours_mois">Les jours et les mois</a></li>
+      <li><a href="#corps">Le corps</a></li>
+      <li><a href="#maison">La maison</a></li>
+      <li><a href="#frequence">Exprimer la fréquence</a></li>
+      <li><a href="#liste_qualites">Qualités</a></li>
+      <li><a href="#expressions">Expressions</a></li>
+      <li><a href="#heure_date">Le temps (l'heure et la date)</a></li>
+      <li><a href="#liste_adverbes">Des adverbes</a></li>
+      <li><a href="#liste_conjonctions">Des conjonctions</a></li>
+      <li><a href="#deplacements">Se déplacer</a></li>
+      <li><a href="#voyager">Voyager</a></li>
+      <li><a href="#pays">Les pays</a></li>
+      <li><a href="#nombres">Les nombres</a></li>
+      <li><a href="#maths">Les mathématiques</a></li>
+      <li><a href="#liste_couleurs">Les couleurs</a></li>
+      <li><a href="#liste_verbes">Des verbes</a></li>
+    </ol>
+  <br/>
+  </li>
+  <li><b>Cinquième partie : Annexes</b>
+    <ol>
+      <li><a href="#ressources">Ressources</a></li>
+      <li><a href="#remerciements">Remerciements</a></li>
+      <li><a href="#historique">Historique</a></li>
+    </ol>
+  <br/>
+  </li>
+</ol>
+
+<div class="partie" id="part1">Première partie : présentation de la langue</div>
+
+<h2 class="horstexte" id="prononciation">Prononciation</h2>
+<a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<p>L'alphabet</p>
+
+<p>Il y a 21 lettres dans l'aphabet italien, plus 5 pour certains mots d'origine étrangère</p>
+
+<table>
+  <thead>
+    <tr><th>Lettre</th><th>Approximation</th><th>Transcription phonétique selon l'API*</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>a</td><td>"a"</td><td>a (<i>p<b>a</b>dre</i>)</td></tr>
+    <tr><td>b</td><td>"bi"</td><td>b (<i><b>b</b>anca</i>)</td></tr>
+    <tr><td>c</td><td>"tchi"</td><td>c (<i><b>ch</b>iesa</i>) ou &#x02A7; (<i><b>ci</b>ao</i>) ou k (<i><b>c</b>avolo</i>)</td></tr>
+    <tr><td>d</td><td>"di"</td><td>d (<i><b>d</b>unque</i>)</td></tr>
+    <tr><td>e</td><td>"è"</td><td>e (<i><b>e</b>dicola</i> ou &#x025B; (<i>c'<b>è</b></i>)</td></tr>
+    <tr><td>f</td><td>"éffé"</td><td>f (<i><b>f</b>atto</i>)</td></tr>
+    <tr><td>g</td><td>"dji"</td><td>&#x02A4; (<i><b>gi</b>ungla</i>) ou g (<i><b>g</b>atto</i>)ou &#x025F; (<i><b>gh</b>etto</i>)</td></tr>
+    <tr><td>h</td><td>"akka"</td><td>-</td></tr>
+    <tr><td>i</td><td>"i"</td><td>j (<i>ins<b>i</b>eme</i>) ou i (<i>pr<b>i</b>ma</i>)</td></tr>
+    <tr><td>l</td><td>"éllé"</td><td>l (<i>pa<b>l</b>a</i>)</td></tr>
+    <tr><td>m</td><td>"émmé"</td><td>m (<i>a<b>m</b>are</i>)</td></tr>
+    <tr><td>n</td><td>"énné"</td><td>n (<i>pu<b>n</b>to</i>)ou &#x0271; (<i>a<b>n</b>fibio)ou &#x014B; (<i>fa<b>n</b>go</i>)</td></tr>
+    <tr><td>o</td><td>"&ocirc;"</td><td>o (<i>poss<b>o</b></i>) ou &#x0254; (<i>p<b>o</b>sso</i>)</td></tr>
+    <tr><td>p</td><td>"pi"</td><td>p (<i><b>p</b>iano</i>)</td></tr>
+    <tr><td>q</td><td>"kou"</td><td>-</td></tr>
+    <tr><td>r</td><td>"érré"</td><td>r (<i>roulé : <b>R</b>oma</i>)</td></tr>
+    <tr><td>s</td><td>"éssé"</td><td>s (<i><b>s</b>ano</i>)ou z (<i>ro<b>s</b>a</i>)</td></tr>
+    <tr><td>t</td><td>"ti"</td><td>t (<i>al<b>t</b>o</i>)</td></tr>
+    <tr><td>u</td><td>"ou"</td><td>w (<i><b>u</b>omo</i>) ou u (<i><b>u</b>ltimo</i>)</td></tr>
+    <tr><td>v</td><td>"vou"</td><td>v (<i><b>v</b>ado</i>)</td></tr>
+    <tr><td>z</td><td>"zéta"</td><td>&#x02A6; (<i><b>z</b>ulù</i>) ou &#x02A3; (<i>mar<b>z</b>o</i>)</td></tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>API : <a class="intext" href="http://fr.wikipedia.org/wiki/Alphabet_phon%C3%A9tique_international">Alphabet phonétique international</a>, permet de transcrire tous les sons des différentes langues du monde.</li>
+  <li>Les voyelles accentuées devant des doubles consonnes sont une hérésie bien sûr mais sont là pour mieux transcrire le son et qu'il n'y ait pas d'ambivalence.</li>
+  <li>En italien, lorsque que deux consonnes identiques se suivent, <b>on prononce chacune !</b> Un peu comme le français le fait dans le prénom <i>Anna</i> : on commence par dire "anne" puis "na", prononçant ainsi les deux N.</li>
+  <li>Wiképédia fait <a class="intext" href="http://fr.wikipedia.org/wiki/Prononciation_de_l'italien">un tableau par rapport aux sons</a> très intéressant pour compléter celui-ci.</li>
+  <li>Les lettres en italien (<i>la lettera (sg), le lettere (pl)</i>) sont toutes du genre féminin (ex :<i>la a, la b</i>) au contraire du français (ex : <i>le a, le b</i>).
+</ul>
+
+<p>Lettres pour les mots d'origine étrangère</p>
+
+<table>
+  <thead>
+    <tr><th>Lettre</th><th>Approximation</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>j</td><td>"i lounga"</td></tr>
+    <tr><td>k</td><td>"kappa"</td></tr>
+    <tr><td>x</td><td>"iks"</td></tr>
+    <tr><td>w</td><td>"doppia vou"</td></tr>
+    <tr><td>y</td><td>"i greka/ipsilon"</td></tr>
+  </tbody>
+</table>
+
+<p>Pas de transcription phonétique, car la prononciation dépend de la langue d'origine du mot.</p>
+
+<p>Voyelles</p>
+
+<ul>
+  <li>a : comme en français</li>
+  <li>e : entre le "é" et le "è" français</li>
+  <li>i : comme en français</li>
+  <li>o : comme en français</li>
+  <li>u : comme le "ou" français</li>
+</ul>
+
+<p>Point important 1 : Il faut toujours bien prononcer distinctement les voyelles en italien.</p>
+<p>Point important 2 : Le i peut servir à faire le son /j/ entre deux voyelles (il faudrait un y en français). Ainsi <i>aiuto (à l'aide)</i> se prononce "ayouto".</p>
+<p>Point important 2 : L'italien n'a pas de voyelles nasalisées. Ainsi A+N se prononce distinctement et pas "an"  /ɑ~/ comme en français. De même pour O+N et U+N.</p>
+
+<p>Consonnes</p>
+
+<p>Les consonnes c et g ont deux modes de fonctionnement :</p>
+
+<ul>
+  <li>c devant a, o, u se prononce "k"</li>
+  <li>c devant i et e se prononce "tch"</li>
+</ul>
+
+<ul>
+<li>on peut "basculer" d'une prononciation à une autre avec h et i:</li>
+<li>un h entre le c et le i ou le e suivant fera se prononcer c comme "k" : che -&gt; "ké"</li>
+<li>un i entre le c et a, o ou u suivant fera se prononcer c comme "tch" : ciao -&gt; "tchao"</li>
+</ul>
+
+<ul>
+<li>g devant a, o, u se prononce "gu"</li>
+<li>g devant i et e se prononce "dj"</li>
+</ul>
+
+<ul>
+<li>on peut "basculer" d'une prononciation à une autre avec h et i :</li>
+<li>un h entre le g et le i ou le suivant fera se prononcer g comme "gu" : ghiro -&gt; "guiro" (un loir)</li>
+<li>un i entre le g et le a, o ou u suivant fera se prononcer g comme "dj" : giulietta -&gt; "djulietta"</li>
+</ul>
+
+<p>On notera également :</p>
+
+<ul>
+<li>gl se dit un "l mouillé" et se prononce comme tel.</li>
+<li>gn se dit un "n mouillé" et se prononce comme tel.</li>
+</ul>
+
+<ul>
+<li>sc devant a, o, u se prononce comme un "s" suivit d'un "k"</li>
+<li>sc devant i et e se prononce "ch"</li>
+</ul>
+
+<p>On nous vend l'italien comme une langue s'écrivant "comme elle se parle", mais il faut bien préciser comme elle se parle pour un italien ! En effet, de nombreuses consonnes sont parfois doublées et seul le fait de savoir prononcer parfaitement le mot pourra aider à bien l'écrire.</p>
+
+<div class="partie" id="part2">Deuxième partie : les éléments de la langue</div>
+
+<p>Dans cette partie, nous allons aborder les différentes <span class="index">classes</span>, appelées aussi catégories ou natures, des mots en italien. Il y en a 10 : les <a href="#noms">noms</a>, les <a href="#adjectifs">adjectifs qualificatifs</a>, les <a href="#articles">articles</a>, les <a href="#pronoms">pronoms</a>, les <a href="#adverbes">adverbes</a>, les <a href="#adjectifs_non_qualificatifs">adjectifs non qualificatifs</a>, les <a href="#verbes">verbes</a>, les <a href="#prepositions">prépositions</a>, les <a href="#conjonctions">conjonctions</a> et les <a href="#interjections">interjections</a>. Certaines grammaires fusionnent adjectifs qualificatifs et articles dans une seule classe appelée déterminants.</p>
+
+<p>Certains classes, comme les adverbes, les prépositions, les interjections et les conjonctions sont invariables. Les autres classes varient selon différents paramètres propres à chacune : genre (féminin ou masculin), nombre (singulier ou pluriel), personne (1ère, 2ème, 3ème et celle de politesse), temps, mode. On parlera alors de <span class="index">flexion</span>, c'est à dire fléchir selon la forme du mot selon ces paramètres, l'<a href="http://fr.wikipedia.org/wiki/Flexion_(linguistique)">article de Wikipédia</a> s'y rapportant est plutôt mignon.</p>
+
+<!-- TODO -->
+<p>En plus de leur classe, les mots dans une phrase ont une <span class="index">fonction</span>. On parlera par exemple de <i>sujet</i> ou de <i>complément d'objet</i> pour un nom. Pour l'instant, cette mini-grammaire n'aborde pas ce point, on pourra se reporter à défaut à ma mini-grammaire française, <a href="http://ran.alwaysdata.net/cristina/">Cristina</a>.</p>
+
+<h2 class="horstexte" id="noms">Noms</h2>
+<a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<p>Les noms italiens ont un genre, masculin ou féminin et un nombre, singulier ou pluriel. La plupart des noms masculins ont pour terminaison au singulier <b>o</b> et un pluriel en <b>i</b> et les noms féminins ont soit <b>a</b> au singulier et <b>e</b> au pluriel, soit <b>e</b> au singulier et <b>i</b> au pluriel. Le tableau suivant regroupe tous les cas possibles sauf les exceptions. Une note importante est que <u>tous les noms singuliers, sauf les féminins en <b>a</b>, font leur pluriel en <b>i</b></u>.</p>
+
+<table>
+  <thead>
+    <tr><td></td><th>Masculin</th><th colspan="2">Féminin</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>singulier</td><td><b>o</b>, e, a, i</td><td><b>a</b></td><td><b>e</b>, i</td></tr>
+    <tr><td>pluriel</td><td>i</td><td><b>e</b></td><td>i</td></tr>
+  </tbody>
+</table>
+
+<p>On peut le voir ainsi également : tous les noms finissant par <b>e</b> feront leur pluriel en <b>i</b>, féminins ou masculins. Un nom finissant par <b>a</b> fera son pluriel en <b>i</b> s'il est masculin et en <b>e</b> s'il est féminin. On remarquera aussi que certains mots féminins, très rares, finissent par <b>o</b> et font leur pluriel en <b>i</b> et qu'il existe aussi d'autres exceptions.</p>
+
+<p><u>Exemples</u></p>
+
+<ul>
+  <li>il ragazzo, i ragazzi <i>le garçon, les garçons</i></li>
+  <li>il cane, i cani <i>le chien, les chiens</i> (masculin en e au sg)</i></li>
+  <li>il problema, i problemi <i>le problème, les problèmes</i> (masculin en a au sg)</li>
+  <li>la donna <i>la femme</i></li>
+  <li>la tesi <i>la thèse</i> (féminin en i au sg)</li>
+  <li><u>exception</u> la mano, le mani <i>la main, les mains</i> (féminin en o au sg)</li>
+  <li><u>exception</u> l'uomo, gli uomini <i>l'homme, les hommes</i> (transformation du radical au pluriel)</li>
+</ul>
+
+<p>Un cas également est l'existence de noms changeant de genre au pluriel, notamment dans les noms décrivant des parties du corps. De plus, leur terminaison plurielle est originale puisqu'il s'agit de celle du singulier de leur nouveau genre ! Ainsi, l'uovo <i>(l'œuf)</i> devient au pluriel le uova <i>(les œufs )</i>.</p></p>
+
+<h3 id="cas_particuliers">Cas particuliers</h3>
+
+<p>Pluriel des mots masculins finissant par co et go : 
+	<ol>
+		<li>Si l'accent tonique tombe sur l'avant-dernière syllabe : en chi et ghi <i>(ex : gi<b>o</b>co -> gi<b>o</b>chi)</i>.</li>
+		<li>Si l'accent tombe sur l'antépénultième (avant-avant-dernière syllabe) : en ci et gi.<i>(ex : magn<b>i</b>fico -> magn<b>i</b>fici)</i>.</li>
+		<li>Mais attention aux exceptions aux deux règles : (1) <i>am<b>i</b>co -> am<b>i</b>ci, gr<b>e</b>co -> gr<b>e</b>ci, etc. et d'autre part (2) pr<b>o</b>fugo -> pr<b>o</b>fughi, etc.</i>
+	</ol>
+</p>
+
+<p>Pluriel des mots masculins finissant par io :
+	<ol>
+		<li>Si le i final porte l'accent tonique, le pluriel aura un autre i à la suite <i>(ex : z<b>i</b>o -> z<b>i</b>i)</i>.</li>
+		<li>Si le i final ne porte pas l'accent tonique, la marque du pluriel et le i final fusionne <i>(ex : <b>o</b>cchio -> <b>o</b>cchi)</i>.</li>
+	</ol>
+</p>
+
+<p>Pluriel des mots féminins finissant par ca et ga : en che et ghe pour maintenir le son dur ("k" ou "gu").</p>
+
+<p>Pluriel des mots féminins finissant par cia et gia :
+	<ol>
+		<li>Si cia ou gia est précédé d'une consonne <b>et</b> que le i ne porte pas l'accent tonique : ce ou ge.</li>
+		<li>Si cia ou gia est précédé d'une voyelle <b>et</b> que le i ne porte pas l'accent tonique : cie ou gie.</li>
+		<li>Si le i de la terminaison porte l'accent tonique : c<b>i</b>e ou g<b>i</b>e (le pluriel "garde" l'accent tonique).</li>
+	</ol>
+<p>
+
+<h3 id="invariabilite">Invariabilité</h3>
+
+<p>Les mots se terminant par un caractère accentué sont invariables, ainsi que les noms féminins terminés par <b>ie</b>, les noms monosyllabiques et les abbréviations. De même que les noms importés de langues étrangères et ceux finissant par une consonne. Au vu de toutes ces règles, on ne pourra que conseiller d'apprendre pour chaque le nom son singulier et son pluriel.</p>
+
+<p><u>Exemple</u></p>
+
+<ul>
+  <li>la città, le città <i>la ville, les villes</i></li>
+  <li>il bar, i bar <i>le bar, les bars</i></li>
+</ul>
+
+<h2 class="horstexte" id="adjectifs">Adjectifs qualificatifs</h2>
+<a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<p>Les adjectifs s'accordent en genre et en nombre avec le nom auquel ils se rapportent, qu'ils soient attributs ou épithètes ou apposés. Il existe deux grandes classes d'adjectifs : ceux ayant une forme différente au masculin et au féminin singulier, la première en <b>o</b>, la seconde en <b>a</b> et faisant leur pluriel en <b>i</b> et <b>e</b> respectivement, et la seconde classe qui a un masculin singulier identique au féminin singulier se terminant par <b>e</b> et faisant son pluriel en <b>i</b>.</p>
+
+<p><u>Exemples rotto <i>(cassé)</i> et forte <i>(fort)</i></u></p>
+
+<table>
+  <thead>
+    <tr><td></td><th>Masculin</th><th>Féminin</th><th>Masculin et Féminin</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>singulier</td><td>rotto</td><td>rotta</td><td>forte</td></tr>
+    <tr><td>pluriel</td><td>rotti</td><td>rotte</td><td>forti</td></tr>
+  </tbody>
+</table>
+
+<p>On remarque que molto <i>(beaucoup ou beaucoup de)</i>, troppo <i>(trop ou trop de)</i>, poco <i>(peu ou peu de)</i> peuvent s'utiliser aussi bien en tant qu'adverbes qu'en tant qu'adjectifs. Dans le second cas, ils s'accordent comme tout adjectif.</p>
+
+<h3 id="comparatif">Comparatif</h3>
+
+<p>Pour les adjectifs, les <span class="index">comparatifs de supériorité et d'égalité</span> s'expriment ainsi :</p>
+
+<table>
+  <thead>
+    <tr><th>Type</th><th colspan="2">Supériorité</th><th colspan="2">Infériorité</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>noms et pronoms (sans prépositions)</td><td><i>objet1</i> più <i>adj</i> <b>di</b> <i>objet2</i></td><td>plus ... que</td><td>objet1</i> meno <i>adj</i> <b>di</b> <i>objet2</i></td><td>moins ... que</td></tr>
+    <tr><td>noms et pronoms (avec prépositions), adjectifs, adverbes</td><td><i>objet1</i> più <i>adj</i> <b>che</b> <i>objet2</i></td><td>plus ... que</td><td>objet1</i> meno <i>adj</i> <b>che</b> <i>objet2</i></td><td>moins ... que</td></tr>
+  </tbody>
+</table>
+
+<p>Pour le <span class="index">comparatif d'égalité</span>, on le construira à l'aide de <b>tanto</b> <i>(aussi, autant)</i> adjectif <b>quanto</b> <i>(que)</i>, ou bien on peut utiliser à la place de <b>tanto</b>, <b>così</b>.</p>
+
+<h3 id="superlatif">Superlatif</h3>
+
+<p>Pour former le <span class="index">superlatif</span> utilise le suffixe <b>-issim[o,a,i,e]</b> selon le genre et le nombre.</p>
+
+<h2 id="articles">Articles</h2> <a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<p>Les articles en italiens varient en fonction du nombre et du genre du nom qu'il détermine et de la première lettre du mot qu'ils <b>précèdent</b>.</p>
+
+<h3 id="articles_indef_def">Les articles indéfinis et définis</h3>
+
+<table>
+  <thead>
+    <tr><th>Masculin</th><th>Indéfini</th><th>Indéfini pluriel</th><th>Défini</th><th>Défini pluriel</th></tr>
+  </thead>
+  <tbody>
+    <tr><th>Devant une consonne</th><td>un</td><td>dei</td><td>il</td><td>i</td></tr>
+    <tr><th>Devant une voyelle</th><td>un</td><td>degli</td><td>l'</td><td>gli</td></tr>
+    <tr><th>Devant un cas spécial</th><td>uno</td><td>degli</td><td>lo</td><td>gli</td></tr>
+  </tbody>
+</table>
+
+<p>Les cas spéciaux sont les mots commençant par :</p>
+
+<ul>
+    <li>S + CONS : Un s suivit d'une consonne,</li>
+    <li>X/Z/PS/PN/GN + VOY : Un x ou z ou ps ou pn ou gn suivit d'une voyelle,</li>
+    <li>/j/ + VOY : La semi-consonne /j/ suivit d'une voyelle (il s'agit du son "ye" comme dans <i>yeux</i> que peuvent faire y ou i (ou j plus rarement) suivit d'une voyelle comme dans yacht).</li>
+</ul>
+
+<table>
+  <thead>
+    <tr><th>Féminin</th><th>Indéfini</th><th>Indéfini pluriel</th><th>Défini</th><th>Défini pluriel</th></tr>
+  </thead>
+  <tbody>
+    <tr><th>Devant une consonne</th><td>una</td><td>delle</td><td>la</td><td>le</td></tr>
+    <tr><th>Devant une voyelle</th><td>un'</td><td>delle</td><td>l'</td><td>le</td></tr>
+  </tbody>
+</table>
+
+<ul>
+<li> Bien voir la différence entre <b>un'</b> indiquant toujours un féminin et <b>un</b> indiquant toujours un masculin. Lorsque la voyelle de l'article disparaît on parle d'<span class="index">élision</span>.</li>
+</ul>
+
+<h3 id="articles_part">L'article partitif</h3>
+
+<p>Il faut utiliser <span class="index">l'article partitif</span> devant un indénombrable (comme en français : du lait). Il se compose de la préposition <b>di</b> combinée avec l'article défini correspondant au genre et au nombre du mot auquel l'article se rapporte (comme en français : de + le => du).</p>
+
+<table>
+  <thead>
+    <tr><th>Combinaison</th><th>Résultat</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Di + il</td><td>del</td></tr>
+    <tr><td>Di + lo</td><td>dello</td></tr>
+    <tr><td>Di + l'</td><td>dell'</td></tr>
+    <tr><td>Di + la</td><td>della</td></tr>
+  </tbody>
+</table>
+
+<ul>
+<li> On emploie l'article partitif seulement dans les phrases affirmatives ou interrogatives (et pas les négatives donc).</li>
+<li> Il peut être omis comme ici : Bevo (del) vino (je bois [du] vin)</i>.</li>
+</ul>
+
+<h2 id="pronoms">Pronoms</h2> <a href="#sommaire"> <i>(retour sommaire)</i></a>
+
+<h3 id="pron_sujets">Pronoms sujets, réfléchis et COD/COI</h3>
+
+<table>
+  <thead>
+    <tr><td rowspan="2"></td><th rowspan="2">Pronoms sujets</th><th rowspan="2">Pronoms réfléchis</th><th colspan="2">Pronoms Compléments d'Objet</th></tr>
+    <tr><th>faibles</th><th>forts</th></tr>
+  </thead>
+  <tbody>
+    <tr><th colspan="5">sg</th></tr>
+    <tr><td>1ère</td><td>io (je)</td><td>mi (me)</td><td>mi (me)</td><td>me (moi)</td></tr>
+    <tr><td>2ème</td><td>tu (tu)</td><td>ti (te)</td><td>ti (te)</td><td>te (toi)</td></tr>
+    <tr><td>3ème masc</td><td>lui (il)</td><td>si (se)</td><td>lo/gli (le/lui)</td><td>lui (lui)</td></tr>
+    <tr><td>3ème fem</td><td>lei (elle)</td><td>si (se)</td><td>la/le (la/lui)</td><td>lei (elle)</td></tr>
+    <tr><th colspan="5">pl</th></tr>
+    <tr><td>1ère</td><td>noi</td><td>ci (nous)</td><td>ci (nous)</td><td>noi (nous)</td></tr>
+    <tr><td>2ème</td><td>voi</td><td>vi (vous)</td><td>vi (vous)</td><td>voi (vous)</td></tr>
+    <tr><td>3ème</td><td>loro (masc et mixte)</td><td>si (se)</td><td>li/gli, loro (les/leur)</td><td>loro (eux)</td></tr>
+    <tr><td>3ème</td><td>loro (fem)</td><td>si (se)</td><td>le/gli, loro (les/leur)</td><td>loro (elles)</td></tr>
+  </tbody>
+</table>
+
+<p>La difficulté des pronoms est que plusieurs choses s'entremêlent : le type de pronom (sujet, réfléchi, complément d'objet), sa force (faible ou fort), et le fait que le complémet d'objet soit direct <i>(lo, la, li, le)</i> ou indirect <i>(gli, le, gli ou loro)</i>. Il faut démêler chaque trait un à un. On notera que :</p>
+
+<ul>
+  <li>On peut omettre les pronoms sujets car la terminaison seule permet de savoir de qui on parle.</li>
+  <li>On mettra le pronom sujet en cas de quiproquo possible ou pour insister (<i>ex: Io credo... -> Moi, je crois...</i>).</li>
+  <li>La forme faible se place devant le verbe sauf loro, toujours après (<i>ex : <u>ti</u> amo. <u>ti</u> do un regalo.</i>).</li>
+  <li>La forme forte se place après le verbe ou une préposition pour insister ou lever une ambiguïté (<i>ex : ho un regalo per <u>te</u>.</i>).</li>
+  <li>La voyelle du pronom complément d'objet à la 3ème personne du singulier peut s'élider devant une voyelle ou un h muet.</li>
+  <li>On trouve parfois encore les anciens pronoms sujets dans les textes. Pour les personnes : lui -&gt; egli, lei -&gt; ella ; pour les animaux ou choses : esso, essa</li>
+</ul>
+
+<p>Il existe également les pronoms <b>ci</b> qui expriment un complément de lieu (<b>y</b> en français) et <b>ne</b> (<b>en</b> en français) pour exprimer une partie d'un tout. On notera qu'on retrouve ci dans la traduction de "il y a" en italien : <i>il y a un problème</i> -> c'è un problema, qu'on pourrait voir un peu comme "il y est un problème". Enfin, le pronom <b>on</b> se traduira par <b>si</b>. Le verbe sera à la troisième personne et s'accordera en nombre suivant le COD.</p>
+
+<h4>Expression de la politesse</h4>
+
+<p>L'italien possède aussi un moyen de traduire la politesse ou le respect lorsque l'on s'adresse à une personne, comme le fait le français avec le vouvoiement.</p>
+
+<p>La règle d'or est d'utiliser en italien la 3ème personne au féminin mais avec un L majuscule <i>(Lei)</i> au singulier lorsque l'on s'adresse à une personne, et la 3ème personne pluriel avec un L majuscule <i>(Loro)</i> lorsque l'on s'adresse à plusieurs. On utilisera les combinaisons suivantes au singulier et au pluriel :</p>
+
+<table>
+  <thead>
+	  <tr><th>Type pronom</th><th>Singulier</th><th>Pluriel</th></tr>
+  </thead>
+  <tbody>
+	  <tr><td>Pronom sujet</td><td>Lei</td><td>Loro</td></tr>
+	  <tr><td>Pronom réfléchi</td><td>Si</td><td>Si</td></tr>
+	  <tr><td>Pronom COD</td><td>La (faible), Lei (fort)</td><td><b>Le</b></td></tr>
+	  <tr><td>Pronom COI</td><td>Le (faible), Lei (fort)</td><td>Loro</td></tr>
+	  <tr><td>Pronom possessif</td><td>il Suo, la Sua, i Suoi, le Sue</td><td>il Loro, la Loro, i Loro, le Loro</td></tr>
+  </tbody>
+</table>
+
+<p>Lors d'un regroupage de plusieurs pronoms <i>(Glielo, Gliela, Glieli, Gliele)</i>, on met la majuscule au pronom regroupé.</p>
+
+<p>Si il y a un adjectif attribut ou un participe passé à accorder, il s'accorde avec le véritable genre de ou des personnes !</p>
+
+<p>Tutoyer : <i>dare del tu</i>. Vouvoyer : <i>dare del lei</i>.</p>
+
+<h4>Plusieurs pronoms dans la phrase</h4>
+
+<p>Lorsqu'il y a plusieurs pronoms non sujets dans une phrase, l'italien transforme les pronoms.</p>
+
+<p>Si il y a un pronom COD ainsi qu'un pronom COI ou réfléchi, le pronom COD est mis après et le pronom réfléchi ou COI change de forme : mi, ti, ci, vi, si deviennent me, te, ce, ve, se. <b>Gli</b> et <b>le</b> deviennent <b>glie</b> et se combinent avec le pronom COD : on aura les formes <b>glielo, gliela, glieli, gliele, gliene</b>.</p>
+
+<p>Exemple : <i>Je te le donne. -> <u>Te</u> <u>lo</u> do.</i> On remarque <i>lo</i> est le COD et est mis après <i>ti</i> devenu <i>te</i> qui est le complément d'attribution.</p>
+
+<p>Loro ne se regroupe jamais.</p>
+
+<h4>Fusion du pronom avec le verbe</h4>
+
+<p>A l'infinitif, le pronom réfléchi se colle à l'infinitif dont on supprime le e final : arrabbiarsi (se fâcher/se mettre en colère).</p>
+
+<p>De même pour le participe présent, le participe passé, le gérondif, et à l'impératif (sauf avec la 3ème personne de politesse).<p>
+
+<h3 id="pron_possessif">Pronoms possessifs</h3>
+
+<p>Les pronoms possessifs s'accordent en personne avec le possédant et en nombre et genre avec le possédé.</p>
+
+<table>
+<tbody><tr><td>possédant \ possédé</td><td>sg masc.</td><td>sg fém.</td><td>pl masc.</td><td>pl fém</td></tr>
+
+<tr><td colspan="5">sg</td></tr>
+<tr><td>1ère</td><td>il mio (le mien)</td><td>la mia (la mienne)</td><td>i miei (les miens)</td><td>le mie (les miennes)</td></tr>
+<tr><td>2ème</td><td>il tuo (le tien)</td><td>la tua (la tienne)</td><td>i tuei (les tiens)</td><td>le tue (les tiennes)</td></tr>
+<tr><td>3ème</td><td>il suo (le sien)</td><td>la sua (la sienne)</td><td>i suei (les siens)</td><td>le sue (les siennes)</td></tr>
+<tr><td colspan="5">pl</td></tr>
+<tr><td>1ère</td><td>il nostro (le nôtre)</td><td>la nostra (la nôtre)</td><td>i nostri (les nôtres)</td><td>le nostre (les nôtres)</td></tr>
+<tr><td>2ème</td><td>il vostro (le vôtre)</td><td>la vostra (la vôtre)</td><td>i vostri (les vôtres)</td><td>le vostre (les vôtres)</td></tr>
+<tr><td>3ème</td><td>il loro (le leur)</td><td>la loro (la leur)</td><td>i loro (les leurs)</td><td>le loro (les leurs)</td></tr>
+</tbody></table>
+
+<p>On se rappelera que loro est invariable.</p>
+
+<h3 id="pron_demonstratif">Pronoms démonstratifs</h3>
+
+<p>On utilisera <b>questo</b> (proximité spatiale ou temporelle) et <b>quello</b> (éloignement). Questo ne s'élident pas, et ils s'accordent tous deux selon les formes régulières, contrairement à leur utilisation en tant qu'adjectif. <i>Ex : questo è Mario -> celui-ci est Mario.</i></p>
+
+<h3 id="pron_relatifs">Pronoms relatifs</h3>
+
+<p>On utilisera <b>che</b> comme pronom relatif sujet <i>(qui)</i> ou complément d'objet direct <i>(que)</i>.</p>
+
+<p>Pour <i>lequel, laquelle, lesquels, lesquelles</i>, on utilisera <b>il quale, la quale, i quali, le quali</b>. Mais on pourra aussi utiliser le pronom relatif complément <b>cui</b>.</p>
+
+<p>Pour <i>dont</i>, on utilisera l'article défini selon <span class="index">l'antécédent</span>, et <b>cui</b>.</p>
+
+<h2 id="adverbes">Adverbes</h2> <a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<p>Les adverbes sont invariables.</p>
+
+<p>Les adverbes se forment généralement en prenant l'adjectif à sa forme féminine et en y rajoutant le suffixe -mente. <i>Ex : lenta (lente) -> lentamente (lentement) ou encore felice (heureuse) -> felicemente (heureusement).</i></p>
+
+<p>Généralement si l'adjectif à sa forme féminine se termine par -le ou -re précédé d'une voyelle, il perdra son e. Néanmoins, il existe au moins une exception à cette règle : <i>facile (facile) -> facilmente (facilement)</i>.</p>
+
+<p>Les mots molto (beaucoup), troppo (trop), poco (peu) peuvent s'utilliser aussi bien en tant qu'adjectifs ou bien en tant qu'adverbe. Dans ce dernier cas, ils sont bien sûr invariables.</p>
+
+<p>Principaux adverbes interrogatifs (9) :</p>
+
+<table>
+  <thead>
+    <tr><th>Italien</th><th>Français</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Quando</td><td>Quand</td></tr>
+    <tr><td>Da quando</td><td>Depuis quand</td></tr>
+    <tr><td>Quanto</td><td>Combien</td></tr>
+    <tr><td>Perché</td><td>Pourquoi</td></tr>
+    <tr><td>Dove</td><td>Où</td></tr>
+    <tr><td>Di dove</td><td>D'où</td></tr>
+    <tr><td>Da dove</td><td>D'où</td></tr>
+    <tr><td>Come</td><td>Comment</td></tr>
+    <tr><td>Come mai</td><td>Comment se fait-il que</td></tr>
+  </tbody>
+</table>
+
+<h2 id="adjectifs_non_qualificatifs">Adjectifs non qualificatifs</h2> <a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<h3 id="adj_non_qual_possessifs">Possessifs</h3>
+
+<p>Les formes de l'adjectifs possessifs sont les mêmes que celles des <a href="#pron_possessif">pronoms possessifs</a>.</p>
+
+<p> On met toujours l'article défini devant l'adjectif possessif (il mio amico = mon ami) contrairement au français, sauf si le possédé est un nom de membre de la famille au singulier.</p>
+
+<p> Cas spéciaux : a casa mia. Pas d'article défini, et l'adjectif possessif est après le possédé. Il existe d'autres cas comme celui-ci. Par exemple : amore mio = mon amour. Ou encore : Non è culpa mia = ce n'est pas ma faute.</p>
+
+<h3 id="adj_non_qual_demonstratifs">Démonstratifs</h3>
+
+<p>Il y en a deux : un pour la proximité (spatiale ou temporelle) -> questo. Et un pour l'éloignement (idem) -> quello. Les deux s'accordent avec le qualifié selon les formes habituelles pour questo (questo, questa, questi, queste) et selon les terminaisons de l'article défini pour quello (quel, quello, quella, quell', et au pluriel : quei, quegli, quelle).</p>
+
+<p>Questo et questa s'élident devant une voyelle. <i>Ex : quest'amico : cet ami</i>.</p>
+
+<h2 id="verbes">Verbes</h2> <a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<h3 id="conj_groupes">Groupes</h3>
+
+<p>Il y a trois groupes de verbe en italien, caractérisés par la terminaison de l'infinitif.</p>
+
+<table>
+	<thead>
+		<tr><th colspan="2">Numéro</th><th>Terminaison</th><th>Exemple</th><th>1ère pers. sg. ind. présent</th></tr>
+	</thead>
+	<tbody>
+		<tr><td colspan="2">1er</td><td>-are</td><td>amare</td><td>amo</td></tr>
+		<tr><td colspan="2">2ème</td><td>-ere</td><td>credere</td><td>credo</td></tr>
+		<tr><td>3ème</td><td>1ère famille</td><td>-ire</td><td>finire</td><td>fini<b>sc</b>o</td></tr>
+		<tr><td>3ème</td><td>2nde famille</td><td>-ire</td><td>partire</td><td>parto</td></tr>
+	</tbody>
+</table>
+
+<p>C'est le groupe numéro 2 qui contient tous les irréguliers.</p>
+
+<h3 id="conj_temps">Temps de conjugaison</h3>
+
+<p>On remarquera que l'italien tend à préserver la sonorité des verbes. Ainsi les verbes qui à l'infinitif ont un son dur (<i>-care</i> ou <i>-gare</i>) pour le maintenir avec des terminaisons commençant par e ou i requéront l'ajout d'un <b>h</b> avant la terminaison. Pour les verbes se terminant déjà par un son doux (<i>-ciare</i> ou <i>-giare</i>), si la terminaison commence par i, on ne le redoublera pas.</p>
+
+<h3 id="conj_present">Présent de l'indicatif (Presente)</h3>
+
+<ul>
+  <li>amare   -are +terminaison</li>
+  <li>credere -ere +terminaison</li>
+  <li>finire  -ire +terminaison</li>
+</ul>
+
+<p>Terminaisons du présent</p>
+
+<table>
+  <thead>
+	<tr><th>1er</th><th>2ème</th><th>3ème</th></tr>
+  </thead>
+  <tbody>
+    <tr><td colspan="3">o</td></tr>
+    <tr><td colspan="3">i</td></tr>
+    <tr><td>a</td><td colspan="2">e</td></tr>
+    <tr><td colspan="3">iamo</td></tr>
+    <tr><td>ate</td><td>ete</td><td>ite</td></tr>
+    <tr><td>ano</td><td colspan="2">ono</td></tr>
+  </tbody>
+</table>
+
+<p>Notons que certains verbes du 2ème groupe précèdent par la particule <b>isc</b> la terminaison aux 1ère, 2ème, 3ème personnes du singulier et à la 3ème personne du pluriel. </p>
+
+<table>
+  <thead>
+	<tr><th>amare (1er)</th><th>credere (2ème)</th><th>finire (3ème)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>am<span class="term">o</span></td><td>cred<span class="term">o</span></td><td>fin<b>isc</b><span class="term">o</span></td></tr>
+    <tr><td>am<span class="term">i</span></td><td>cred<span class="term">i</span></td><td>fin<b>isc</b><span class="term">i</span></td></tr>
+    <tr><td>am<span class="term">a</span></td><td>cred<span class="term">e</span></td><td>fin<b>isc</b><span class="term">e</span></td></tr>
+    <tr><td>am<span class="term">iamo</span></td><td>cred<span class="term">iamo</span></td><td>fin<span class="term">iamo</span></td></tr>
+    <tr><td>am<span class="term">ate</span></td><td>cred<span class="term">ete</span></td><td>fin<span class="term">ite</span></td></tr>
+    <tr><td>am<span class="term">ano</span></td><td>cred<span class="term">ono</span></td><td>fin<b>isc</b><span class="term">ono</span></td></tr>
+  </tbody>
+</table>
+
+<h3 id="conj_futur">Futur simple de l'indicatif (Futuro semplice)</h3>
+
+<ul>
+  <li>amare   -are +er +terminaison</li>
+  <li>credere -ere +er +terminaison</li>
+  <li>finire  -ire +ir +terminaison</li>
+</ul>
+
+<p>En fait, il s'agit de remplacer le e final de l'infinitif par la 
+terminaison qui convient, sauf pour le 1er groupe, où le a de <i>-are</i> 
+devient <b>e</b>.</p>
+
+<p>Terminaisons du futur</p>
+
+<table>
+  <thead>
+	<tr><th>Terminaisons</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>ò</td></tr>
+    <tr><td>ai</td></tr>
+    <tr><td>à</td></tr>
+    <tr><td><b>emo</b></td></tr>
+    <tr><td>ete</td></tr>
+    <tr><td>anno</td></tr>
+  </tbody>
+</table>
+
+<p>Notez l'accentuation sur la 1ère et la 3ème personne du singulier 
+ainsi que la terminaison en emo de la 1ère personne du pluriel.</p>
+
+<table>
+  <thead>
+	<tr><th>amare (1er)</th><th>credere (2ème)</th><th>finire (3ème)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>am<b>er</b><span class="term">ò</span></td><td>cred<b>er</b><span class="term">ò</span></td><td>fin<b>ir</b><span class="term"></span>ò</td></tr>
+    <tr><td>am<b>er</b><span class="term">ai</span></td><td>cred<b>er</b><span class="term">ai</span></td><td>fin<b>ir</b><span class="term">ai</span></td></tr></tr>
+    <tr><td>am<b>er</b><span class="term">à</span></td><td>cred<b>er</b><span class="term">à</span></td><td>fin<b>ir</b><span class="term">à</span></td></tr></tr>
+    <tr><td>am<b>er</b><span class="term">emo</span></td><td>cred<b>er</b><span class="term">emo</span></td><td>fin<b>ir</b><span class="term">emo</span></td></tr></tr>
+    <tr><td>am<b>er</b><span class="term">ete</span></td><td>cred<b>er</b><span class="term">ete</span></td><td>fin<b>ir</b><span class="term">ete</span></td></tr></tr>
+    <tr><td>am<b>er</b><span class="term">anno</span></td><td>cred<b>er</b><span class="term">anno</span></td><td>fin<b>ir</b><span class="term">anno</span></td></tr></tr>
+  </tbody>
+</table>
+
+<p>On notera que les deux compères <b>dare</b> et <b>stare</b> sont irréguliers au futur car il garde le <b>a</b>.</p>
+
+<h3 id="conj_imparfait">Imparfait de l'indicatif (Imperfetto)</h3>
+
+<ul>
+  <li>amare   -are +av +terminaison</li>
+  <li>credere -ere +ev +terminaison</li>
+  <li>finire  -ire +iv +terminaison</li>
+</ul>
+
+<p>Il s'agit cette fois de remplacer le <i>re</i> final de l'infinitif par <b>v</b>.</p>
+
+<p>Terminaisons de l'imparfait</p>
+
+<table>
+	<tr><th>Terminaisons</th></tr>
+  <tbody>
+    <tr><td>o</td></tr>
+    <tr><td>i</td></tr>
+    <tr><td>a</td></tr>
+    <tr><td>amo</td></tr>
+    <tr><td>ate</td></tr>
+    <tr><td>ano</td></tr>
+  </tbody>
+</table>
+
+<p>&nbsp;</p>
+
+<table>
+  <thead>
+	<tr><th>amare (1er)</th><th>credere (2ème)</th><th>finire (3ème)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>am<b>av</b><span class="term">o</span></td><td>cred<b>ev</b><span class="term">o</span></td><td>fin<b>iv</b><span class="term"></span>o</td></tr>
+    <tr><td>am<b>av</b><span class="term">i</span></td><td>cred<b>ev</b><span class="term">i</span></td><td>fin<b>iv</b><span class="term">i</span></td></tr></tr>
+    <tr><td>am<b>av</b><span class="term">a</span></td><td>cred<b>ev</b><span class="term">a</span></td><td>fin<b>iv</b><span class="term">a</span></td></tr></tr>
+    <tr><td>am<b>av</b><span class="term">amo</span></td><td>cred<b>ev</b><span class="term">amo</span></td><td>fin<b>iv</b><span class="term">amo</span></td></tr></tr>
+    <tr><td>am<b>av</b><span class="term">ate</span></td><td>cred<b>ev</b><span class="term">ate</span></td><td>fin<b>iv</b><span class="term">ate</span></td></tr></tr>
+    <tr><td>am<b>av</b><span class="term">ano</span></td><td>cred<b>ev</b><span class="term">ano</span></td><td>fin<b>iv</b><span class="term">ano</span></td></tr></tr>
+  </tbody>
+</table>
+
+<h3 id="conj_part_passe">Participe passé (participio passato)</h3>
+
+<ul>
+  <li>amare   -are +ato</li>
+  <li>credere -ere +uto</li>
+  <li>finire  -ire +ito</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<table>
+  <thead>
+	<tr><th>amare (1er)</th><th>credere (2ème)</th><th>finire (3ème)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>am<span class="term">ato</span></td><td>cred<span class="term">uto</span></td><td>fin<span class="term">ito</span></td></tr>
+  </tbody>
+</table>
+  
+<p>Dans les temps composés, il s'accorde selon les mêmes règles que le français :</p>
+
+<ul>
+  <li>On accorde toujours le participe passé avec le sujet quand il est utilisé avec l'auxiliaire être.</li>
+  <li>On accorde le participe passé avec le COD quand il est utilisé avec l'auxiliaire avoir <b>et</b> que le COD précède le verbe.</li>
+</ul>
+
+<h3 id="conj_passe_compose">Passé composé de l'indicatif ("proche" en italien) (Passato prossimo)</h3>
+
+<p>auxilaire + participe passé</p>
+
+<p>Choix de l'auxiliaire : le verbe être, les verbes d'état et de mouvement se conjuguent avec l'auxiliaire être ainsi que les verbes réfléchis. Dovere, volere, potere suivit d'un verbe au passé composé prennent l'auxiliaire du verbe qui les suit.</p>
+
+<h3 id="conj_subjonctif">Subjonctif</h3>
+
+<p>Au contraire de l'indicatif, mode des évènements établis, réels, le subjonctif traduit l'incertitude. Son emploi est proche de celui du français mais il est beaucoup plus utilisé en italien. Ainsi on l'emploie après un verbe exprimant la négation, la volonté, la nécessité, l'impossibilité, l'ignorance, l'opinion, la crainte, le doute, l'espoir, le souhait, l'impression, mais également pour le deuxième terme d'une comparaison ainsi qu'après certains conjonctions.</p> 
+
+<p>Exemples : a condition che +subj <i>(à condition que)</i>, benché +subj <i>(bien que)</i>, bisogna che +subj <i>(il faut que)</i>, perché +subj <i>(pour que)</i>.</p>
+
+<p>Il faut respecter la concordance des temps entre la principale et ses subordonnées :</p>
+
+<table>
+  <tr><td>Temps de la principale</td><td>Temps de la subordonné si action antérieure</td><td>Temps de la subordonnée si action postérieure ou simultanée</td></tr>
+  <tr><td>présent ou futur (indicatif)</td><td>subjonctif passé</td><td>subjonctif présent</td></tr>
+  <tr><td>passé simple, imparfait, passé composé ou plus-que-parfait (indicatif)</td><td>plus-que-parfait du subjonctif</td><td>(simultanée seulement) imparfait du subjonctif</td></tr>
+</table>
+
+<h4>Présent du subjonctif</h4>
+
+<p>Formation du subjonctif présent</p>
+
+<ul>
+  <li>amare   -are +terminaison</li>
+  <li>credere -ere +terminaison</li>
+  <li>finire  -ire +terminaison</li>
+</ul>
+
+<p>Terminaisons du subjonctif présent</p>
+
+<table>
+	<tr><th colspan="3">Terminaisons</th></tr>
+	<tr><th>1er groupe</th><th>2ème groupe</th><th>3ème groupe</th></tr>
+  <tbody>
+    <tr><td>i</td><td colspan="2">a</td></tr>
+    <tr><td>i</td><td colspan="2">a</td></tr>
+    <tr><td>i</td><td colspan="2">a</td></tr>
+    <tr><td colspan="3">iamo</td></tr>
+    <tr><td colspan="3">iate</td></tr>
+    <tr><td>ino</td><td colspan="2">ano</td></tr>
+  </tbody>
+</table>
+
+<p>Il <b>faut</b> préciser le pronom sujet au subjonctif pour différencier les 1ère, 2ème et 3ème personne du singulier.</p>
+
+<h4>Imparfait du subjonctif</h4>
+
+<p>Formation du subjonctif imparfait</p>
+
+<ul>
+  <li>amare   -are +terminaison</li>
+  <li>credere -ere +terminaison</li>
+  <li>finire  -ire +terminaison</li>
+</ul>
+
+<p>Terminaisons du subjonctif imparfait</p>
+
+<table>
+	<tr><th>Terminaisons</th></tr>
+  <tbody>
+    <tr><td>ssi</td></tr>
+    <tr><td>ssi</td></tr>
+    <tr><td>sse</td></tr>
+    <tr><td>ssimo</td></tr>
+    <tr><td>ste</td></tr>
+    <tr><td>ssero</td></tr>
+  </tbody>
+</table>
+
+<p>Les deux seuls verbes irréguliers du subjonctif imparfait sont <b>dare</b> (radical en <i>de-</i>) et <b>stare</b> (radical en <i>ste-</i>).</p>
+
+<h3 id="conj_conditionnel">Conditionnel</h3>
+
+<p>Le mode conditionnel traduit une action sous conditions. Il faut, comme pour le subjonctif, là aussi respecter la concordance des temps entre la principale et ses subordonnées :</p>
+
+<table>
+  <tbody>
+	<tr><th>Temps de la principale</th><th>Temps de la subordonné si action antérieure</th><th>Temps de la subordonnée si action postérieure ou simultanée</th></tr>
+	<tr><td>présent ou futur (indicatif)</td><td>conditonnel passé</td><td>conditionnel présent</td></tr>
+	<tr><td>passé simple, imparfait, passé composé ou plus-que-parfait (indicatif)</td><td>x</td><td>(postérieure seulement) conditionnel passé</td></tr>
+  </tbody>
+</table>
+
+<p>Formation du conditionnel présent</p>
+
+<ul>
+  <li>amare   -are +er +terminaison</li>
+  <li>credere -ere +er +terminaison</li>
+  <li>finire  -ire +ir +terminaison</li>
+</ul>
+
+<p>Comme le futur, le <i>a</i> du <i>-are</i> devient <b>e</b> pour la première conjugaison.</p>
+
+<p>Terminaisons du conditionnel présent</p>
+
+<table>
+	<tr><th>Terminaisons</th></tr>
+  <tbody>
+    <tr><td>ei</td></tr>
+    <tr><td>esti</td></tr>
+    <tr><td>ebbe</td></tr>
+    <tr><td>emmo</td></tr>
+    <tr><td>este</td></tr>
+    <tr><td>ebbero</td></tr>
+  </tbody>
+</table>
+
+<p>Exemples</p>
+
+<table>
+	<tr><th>1ère : parlare</th><th>2ème : credere</th><th>3ème : finire</th></tr>
+  <tbody>
+    <tr><td>parlerei</td><td>crederei</td><td>finirei</td></tr>
+    <tr><td>parleresti</td><td>crederesti</td><td>finiresti</td></tr>
+    <tr><td>parlerebbe</td><td>crederebbe</td><td>finirebbe</td></tr>
+    <tr><td>parleremmo</td><td>crederemmo</td><td>finiremmo</td></tr>
+    <tr><td>parlereste</td><td>credereste</td><td>finireste</td></tr>
+    <tr><td>parlerebbero</td><td>crederebbero</td><td>finirebbero</td></tr>
+  </tbody>
+</table>
+
+<h3 id="conj_imperatif">Impératif</h3>
+
+<p>Formation de l'impératif</p>
+
+<ul>
+  <li>amare   -are +terminaison</li>
+  <li>credere -ere +terminaison</li>
+  <li>finire  -ire +terminaison</li>
+</ul>
+
+<p>Terminaisons du conditionnel présent</p>
+
+<table>
+	<tr><th>Personne</th><th>1er groupe</th><th>2nd groupe</th><th>3ème groupe</th></tr>
+  <tbody>
+    <tr><th>2nde singulier</th><td>a</td><td colspan="2">i</td></tr>
+    <tr><th>2nde singulier,<br>forme de politesse</th><td>i</td><td colspan="2">a</td></tr>
+    <tr><th>1ère pluriel</th><td colspan="3">iamo</td></tr>
+    <tr><th>2nde pluriel</th><td>ate</td><td>ete</td><td>ite</td></tr>
+  </tbody>
+</table>
+
+<p>L'impératif est un mode <span class="index">défectif</span> : il n'y a pas toutes les personnes. On notera que l'impératif négatif qui exprime l'interdiction, utilise l'infinitif précédé de non.</p>
+
+<h3 id="conj_gerondif">Gérondif</h3>
+
+<p>Formation du gérondif</p>
+
+<ul>
+  <li>amare   -are +ando</li>
+  <li>credere -ere +endo</li>
+  <li>finire  -ire +<b>e</b>ndo</li>
+</ul>
+
+<h3 id="conj_aux">Verbes auxiliaires</h3>
+
+<h4>essere (être)</h4>
+
+<table>
+  <thead>
+	<tr><th>Présent</th><th>Futur</th><th>Imparfait</th><th>Conditionnel</th><th>Subjonctif</th><th>Impératif</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>sono</td><td>sarò</td><td>ero</td><td>sarei</td><td>che io sia</td><td>x</td></tr>
+    <tr><td>sei</td><td>sarai</td><td>eri</td><td>saresti</td><td>che tu sia</td><td>sii! / non essere!</td></tr>
+    <tr><td>è</td><td>sarà</td><td>era</td><td>sarebbe</td><td>che lui sia</td><td>(politesse : sia!)</td></tr>
+    <tr><td>siamo</td><td>saremo</td><td>eravamo</td><td>saremmo</td><td>che siamo</td><td>siamo!</td></tr>
+    <tr><td>siete</td><td>sarete</td><td>eravate</td><td>sareste</td><td>che siate</td><td>siate!</td></tr>
+    <tr><td>sono</td><td>saranno</td><td>erano</td><td>sarebbero</td><td>che siano</td><td>x</td></tr>
+  </tbody>
+</table>
+
+<p>Participe Passé : stato. Le verbe essere se conjugue avec l'auxilaire être en italien, contrairement au français : <b>sono</b> stato <i>(j'ai été)</i>.</p>
+
+<p>Gérondif : essendo.</p>
+
+<h4>avere (avoir)</h4>
+
+<table>
+  <tbody>
+    <tr><th>Présent</th><th>Futur</th><th>Imparfait</th><th>Conditionnel</th><th>Subjonctif</th><th>Impératif</th></tr>
+    <tr><td>ho</td><td>avrò</td><td>avevo</td><td>avrei</td><td>che io abbia</td><td>x</td></tr>
+    <tr><td>hai</td><td>avrai</td><td>avevi</td><td>avresti</td><td>che tu abbia</td><td>abbi! / non avere!</td></tr>
+    <tr><td>ha</td><td>avrà</td><td>aveva</td><td>avrebbe</td><td>che lei abbia</td><td>(politesse : abbia!)</td></tr>
+    <tr><td>abbiamo</td><td>avremo</td><td>avevamo</td><td>avremmo</td><td>che abbiamo</td><td>abbiamo!</td></tr>
+    <tr><td>avete</td><td>avrete</td><td>avevate</td><td>avreste</td><td>che abbiate</td><td>abbiate!</td></tr>
+    <tr><td>hanno</td><td>avranno</td><td>avevano</td><td>avrebbero</td><td>che abbiano</td><td>x</td></tr>
+  </tbody>
+</table>
+
+<p>Participe Passé : avuto.</p>
+
+<p>Gérondif : avendo.</p>
+
+<h3 id="conj_irreguliers">Verbes irréguliers</h3>
+
+<p>L'italien comporte de nombreux verbes irréguliers. Il faut malheureusement les apprendre.</p> 
+
+<p>On peut retenir néanmoins certaines familles. La première, c'est celle des verbes italiens se conjugant suivant leur racine latine. Connaître la racine latine permettra d'être moins surpris face à certaines formes du verbe à l'imparfait de l'indicatif, au subjonctif et au gérondif.</p>
+
+<table>
+  <thead>
+    <tr><th>Verbe italien</th><th>Verbe latin</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>bere</td><td>bevere</td></tr>
+    <tr><td>dire</td><td>dicere</td></tr>
+    <tr><td>fare</td><td>facere</td></tr>
+    <tr><td>proporre</td><td>proponere</td></tr>
+    <tr><td>tradurre</td><td>traducere</td></tr>
+  </tbody>
+</table>
+
+<p>Une seconde famille est celle contenant les verbes se terminant par <b>-durre</b> ou <b>-porre</b> ou <b>-trarre</b> qui sont irréguliers à l'infintif.</p>
+
+<p>On fera attention également à dare et stare qui sont très irréguliers, notamment au futur et au subjonctif.</p>
+
+<table>
+  <thead>
+    <tr><th>français</th><th>pouvoir</th><th>vouloir</th><th>devoir</th><th>faire</th><th>savoir</th></tr>
+  </thead>
+  <tbody>
+    <tr><th>infinitif</th><td>potere</td><td>volere</td><td>dovere</td><td>fare</td><td>sapere</td></tr>
+    <tr><th>présent</th><td>posso</td><td>voglio</td><td>devo</td><td>faccio</td><td>so</td></tr>
+    <tr><td></td><td>puoi</td><td>vuoi</td><td>devi</td><td>fai</td><td>sai</td></tr>
+    <tr><td></td><td>può</td><td>vuole</td><td>deve</td><td>fa</td><td>sa</td></tr>
+    <tr><td></td><td>possiamo</td><td>vogliamo</td><td>dobbiamo</td><td>facciamo</td><td>sappiamo</td></tr>
+    <tr><td></td><td>potete</td><td>volete</td><td>dovete</td><td>fate</td><td>sapete</td></tr>
+    <tr><td></td><td>possono</td><td>vogliono</td><td>devono</td><td>fanno</td><td>sanno</td></tr>
+    <tr><th>radical du futur</th><td>potr_</td><td>vorr_</td><td>dovr_</td><td>far_</td><td>sapr_</td></tr>
+    <tr><th>participe passé</th><td>potuto</td><td>voluto</td><td>dovuto</td><td>fatto</td><td>saputo</td></tr>
+  </tbody>
+</table>
+
+<h2 id="prepositions">Prépositions</h2>
+<a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<h3 id="prep_simples">Les prépositions simples</h3>
+
+<table>
+  <thead>
+    <tr><th colspan="2">Prépositions simples</th></tr>
+    <tr><th>Italien</th><th>Français</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>a</td><td>à</td></tr>
+    <tr><td>di</td><td>de (précision)</td></tr>
+    <tr><td>da</td><td>chez, depuis, de (provenance)</td></tr>
+    <tr><td>su</td><td>sur</td></tr>
+    <tr><td>in</td><td>dans, en</td></tr>
+    <tr><td>con</td><td>avec</td></tr>
+    <tr><td>per</td><td>pour</td></tr>
+    <tr><td>fra</td><td>entre</td></tr>
+    <tr><td>tra</td><td>entre</td></tr>
+  </tbody>
+</table>
+
+<p>On notera que l'italien utilise di pour indiquer la possession.</p>
+
+<h3 id="prep_combinees">Prépositions combinées</h3>
+
+<p>Les prépositions a, di, da, su, in et optionnellement con doivent se combiner avec l'article défini qui les suit. Autrefois <b>per</b> le faisait aussi, mais plus maintenant.</p>
+
+<table>
+  <thead>
+    <tr><th>Articles \ Prépositions</th><td>il</td><td>lo</td><td>l'</td><td>la</td><td>i</td><td>gli</td><td>le</td></tr>
+  </thead>
+  <tbody>
+    <tr><td>a</td><td>al</td><td>allo</td><td>all'</td><td>alla</td><td>ai</td><td>agli</td><td>alle</td></tr>
+    <tr><td>di</td><td><b>de</b>l</td><td>dello</td><td>dell'</td><td>della</td><td>dei</td><td>degli</td><td>delle</td></tr>
+    <tr><td>da</td><td>dal</td><td>dallo</td><td>dall'</td><td>dalla</td><td>dai</td><td>dagli</td><td>dalle</td></tr>
+    <tr><td>su</td><td>sul</td><td>sullo</td><td>sull'</td><td>sulla</td><td>sui</td><td>sugli</td><td>sulle</td></tr>
+    <tr><td>in</td><td><b>ne</b>l</td><td>nello</td><td>nell'</td><td>nella</td><td>nei</td><td>negli</td><td>nelle</td></tr>
+  </tbody>
+</table>
+
+<p>On remarque le changement de radical de di (en de-) et in (en nel-).</p>
+
+<h3 id="prep_etendues">Les prépositions étendues</h3>
+
+<ul>
+  <li>sopra : sur</li>
+  <li>sotto : sous</li>
+</ul>
+
+<h2 id="conjonctions">Conjonctions</h2>
+<a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<h2 id="interjections">interjections</h2>
+<a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<p>Les interjections sont invariables.</p>
+
+<div class="partie" id="part3">Troisième partie : Articulations des éléments</div>
+
+<h2 class="horstexte" id="fonctions">Les fonctions</h2>
+<a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<p>Je vais aborder ici juste les <span class="index">compléments circonstanciels (CC)</span> : un adverbe ou un <span class="index">groupe nominal prépositionnel (GNP)</span> peut avoir cette fonction. Pour les GNP, voici un tableau regroupant le type de CC et les prépositions associées :</p>
+
+<table>
+  <thead>
+    <tr><th>Type CC</th><th>Prépositions</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Lieu</td><td>a <i>(à)</i>, da (lieu où on va, par où on passe, d'où on vient),<br> fra (distance), per (lieu où on va), su (sur)</td></tr>
+    <tr><td>Moyen</td><td>a <i>(à)</i>, con <i>(avec)</i>, per <i>(par)</i></td></tr>
+    <tr><td>Accompagnement</td><td>con <i>(avec)</i>, </td></tr>
+    <tr><td>Temps</td><td>da <i>(depuis)</i>, di <i>(au)</i>, fra (distance : <i>dans</i>), per (durée : <i>pendant</i>)</td></tr>
+    <tr><td>Manière</td><td>in <i>(en)</i>, su <i>(sur)</i>, con <i>(avec)</i></i></td></tr>
+    <tr><td>Cause</td><td>per <i>(pour)</i></td></tr>
+    <tr><td>But</td><td>per <i>(pour)</i></td></tr>
+  </tbody>
+</table>
+
+<!-- opposition prix et mesures et privation -->
+
+<h2 id="hypothese">L'hypothèse</h2>
+<a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<p>On traduira <i>si</i> par <b>se</b>.</p>
+
+<table>
+  <thead>
+    <tr><th>Temps condition</th><th>Temps principal</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>indicatif présent</td><td>indicatif présent</td></tr>
+    <tr><td>indicatif futur</td><td>conditionnel présent</td></tr>
+    <tr><td>subjonctif imparfait</td><td>conditionnel présent ou passé</td></tr>
+  </tbody>
+</table>
+
+<h2 id="negation">La négation</h2>
+<a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<p>On utilisera l'adverbe "non" devant le verbe : non ho capito = je n'ai pas compris.</p>
+
+<p>On pourra également utiliser :
+<ul>
+  <li>non ... mai      : jamais</li>
+  <li>non ... niente   : rien</li>
+  <li>non ... nessuno  : personne</li>
+</ul>
+Le second élément se mettra entre l'auxilaire et le participe aux temps composés pour mai et après le verbe pour niente et nessuno. Mai, niente et nessuno peuvent également être placés avant le verbe, dans ce cas là, on n'emploiera pas non.
+</p>
+
+<h2 id="condition">La condition</h2> <a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<p>Si en italien se dit Se.</p>
+
+<p>Il faut respecter la concordance des temps :
+    <table>
+        <tr><td>Temps de la principale</td><td>Temps de la subordonnée</td></tr>
+	<tr><td>présent (indicatif)</td><td>présent (indicatif ou impératif)</td></tr>
+	<tr><td>futur</td><td>futur</td></tr>
+	<tr><td>conditionnel présent (fait présent ou futur)</td><td>imparfait du subjonctif (action simultanée) ou plus-que-parfait du subjonctif (action antérieure)</td></tr>
+	<tr><td>conditionnel passé (fait passé)</td><td>plus-que-parfait du subjonctif</td></tr>
+    </table>
+</p>
+
+<div class="partie" id="part4">Quatrième partie : Vocabulaire Thématique</div>
+
+<h2 class="horstexte" id="vocabulaire">Vocabulaire Thématique</h2> <a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<p><i>En tout, 268 termes pour l'instant.</i></p>
+
+<table>
+  <tr><th>Abbréviation</th><th>Signification</th></tr>
+  <tr><td>n</td><td>nom</td></tr>
+  <tr><td>f</td><td>féminin</td></tr>
+  <tr><td>m</td><td>masculin</td></tr>
+  <tr><td>i</td><td>invariable</td></tr>
+</table>
+
+<h3 id="essentiels">Les essentiels</h3> <a href="#sommaire_voc"><i>(retour vocabulaire)</i></a>
+
+<h4 id="buon_bel">Buono et bello</h4>
+
+<p>Devant le nom qu'il qualifie, bello se décline comme l'article défini. Ailleurs, il s'emploit comme un adjectif classique : bello, bella, belli, belle.</p>
+
+<p>Devant le nom qu'il qualifie, buono se décline comme l'article indéfini. Ailleurs, il s'emploit comme un adjectif classique : buono, buona, buoni, buone.</p>
+
+<table>
+	<tr><td>Il bell' uomo</td><td>Le bel homme</td>
+	    <td>i begli uomini</td><td>Les beaux hommes</td></tr>
+	<tr><td>Il bello studente</td><td>Le bel étudiant</td>
+	     <td>i begli studenti</td><td>Les beaux étudiants</td></tr>
+	<tr><td>Il bel ragazzo</td><td>Le beau garçon</td>
+	     <td>i bei ragazzi</td><td>Les beaux garçons</td></tr>
+	<tr><td>La bella ragazza</td><td>La belle fille</td>
+             <td>Le belle ragazze</td><td>Les belles filles</td></tr>
+	<tr><td>Un buon libro</td><td>Un bon livre</td>
+	    <td>Dei buoni libri</td><td>Des bons livres</td>
+	<tr><td>Un buon amico</td><td>Un bon ami</td>
+	    <td>Dei buoni amici</td><td>Des bons amis</td></tr>
+	<tr><td>Un buono studente</td><td>Un bon étudiant</td>
+	    <td>Dei buoni studente</td><td>Des bons étudiants</td></tr>
+	<tr><td>Una buona studentessa</td><td>Une bonne étudiante</td>
+	    <td>Delle buone studentesse</td><td>Des bonnes étudiantes</td></tr>
+</table>
+
+<p>Attention aussi à la différence de sens de buon selon sa place avant ou après le nom qu'il qualifie.<p>
+
+<table>
+	<tr><td>Un buon amico</td><td>Un bon ami</td></tr>
+	<tr><td>Un amico buono</td><td>Un ami gentil ("bon" dans le sens "être bon avec...")</td></tr>
+</table>
+
+<h4 id="il_y_a">Dire il y a</h4>
+
+<p>On peut utiliser le pronom <b>ci</b>.</p>
+
+<ul>
+  <li>ci sono +pl</li>
+  <li>c'è +sg</li>
+</ul>
+
+<p>Pour exprimer une durée <i>(il y a 2 ans)</i> on utilisera le verbe <b>fare</b> à la troisième personne du singulier : <i>ho scoperto la lingua italiana due anni fa. -> j'ai découvert l'italien il y a deux ans.</i></p>
+
+<h4 id="c_est">Dire "c'est"</h4>
+
+<p>On utilise directement le verbe être. è bello = C'est beau.</p>
+
+<h4 id="aimer">Dire "aimer"</h4>
+
+<p>On utilise le verbe plaire : piacere. <i>Mi piace... -> j'aime ... </i> ou <i> ... me plaît</i></p>
+
+<h4 id="faut">Dire la nécessité</h4>
+
+<p>On utilise un verbe. <b>Bisogna</b> <i>(il faut)</i> + verbe, <b>ci vuole</b> ou <b>vogliono</b> selon le genre de ce qu'il faut + nom.</p>
+
+<h4 id="temps">Dire le rapport au temps</h4>
+
+<p>Il est important de pouvoir exprimer le rapport avec le temps qu'entretien l'ennoncé. Voici un tableau qui résume les possibilités offertes par l'italien :</p>
+
+<table>
+  <thead>
+    <tr><th>Italien</th><th>Signification</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><i>durée</i> fa</td><td>il y a <i>durée</i></td></tr>
+    <tr><td>da <i>durée</i></td><td>depuis <i>durée</i></td></tr>
+    <tr><td>fra <i>durée</i></td><td>dans <i>durée</i></td></tr>
+    <tr><td>entro <i>durée</i></td><td>d'ici <i>durée</i></td></tr>
+  </tbody>
+</table>
+
+<p><b>fa</b> se place <i>après</i> la durée.</p>
+
+<p>Pour exprimer un futur très proche, on peut utiliser <b>stare per+infinitif</b>, qui est l'équivalent du français <i>aller +infinitif</i>. Pour un exprimer un passé proche, on peut utiliser <b>avere appena +pp</b>, qui est l'équivalent du français <i>venir juste de +infinitif</i>. Enfin, pour exprimer l'action en cours, on peut utiliser <b>state +gérondif</b>, ce que l'on exprimera en français par <i>être en train de +infinitif</i>.</p>
+
+<h3 id="famille">La famille</h3> <a href="#sommaire_voc"><i>(retour vocabulaire)</i></a>
+
+<p><i>21 termes.</i></p>
+
+<table>
+    <thead>
+        <tr><th>Italien</th><th>Français</th></tr>
+    </thead>
+  <tbody>
+    <tr><td>la famiglia (n. f.)</td><td>la famille (n. f.)</td></tr>
+    <tr><td>la madre (n. f.)</td><td>la mère (n. f.)</td></tr>
+    <tr><td>il padre (n. m.)</td><td>le père (n. m.)</td></tr>
+    <tr><td>la nonna (n. f.)</td><td>la grand-mère (n. f.)</td></tr>
+    <tr><td>il nonno (n. m.)</td><td>le grand-père (n. m.)</td></tr>
+    <tr><td>materno|materna (adj.q.)</td><td>maternel|maternelle</td></tr>
+    <tr><td>paterno|paterna (adj.q.)</td><td>paternel|paternelle</td></tr>
+    <tr><td>la sorella (n. f.)</td><td>la sœur (n. f.)</td></tr>
+    <tr><td>il fratello (n. m.)</td><td>le frère (n. m.)</td></tr>
+    <tr><td>maggiore (adj.q.)</td><td>grand (pour frère ou soeur)</td></tr>
+    <tr><td>minore (adj.q.)</td><td>petit (pour frère ou soeur)</td></tr>
+    <tr><td>gemello|gemella</td><td>jumeau|jumelle</td></tr>
+    <tr><td>il figlio (pl: figli) (n. m.)</td><td>le fils (au pluriel = enfants) (n. m.)</td></tr>
+    <tr><td>la figlia (n. f.)</td><td>la fille (n. f.)</td></tr>
+    <tr><td>il bambino (n. m.)</td><td>l'enfant n. mx.), le bébé (n. f.)</td></tr>
+    <tr><td>la bambina (n. f.)</td><td>l'enfant (n. mx.), le bébé (n. m.)</td></tr>
+    <tr><td>lo zio (pl: zii) (n. m.)</td><td>l'oncle (n. m.)</td></tr>
+    <tr><td>la zia (n. f.)</td><td>la tante (n. f.)</td></tr>
+    <tr><td>il cugino (n. m.)</td><td>le cousin (n. m.)</td></tr>
+    <tr><td>la cugina (n. f.)</td><td>la cousine (n. f.)</td></tr>
+    <tr><td>germano|germana (adj.q.)</td><td>germain|germaine</td></tr>
+  </tbody>
+</table>
+
+<h3 id="nourrir">Se nourrir</h3> <a href="#sommaire_voc"><i>(retour vocabulaire)</i></a>
+
+<p><i>25 terme.</i></p>
+
+<table>
+    <thead>
+        <tr><th>Italien</th><th>Français</th></tr>
+    </thead>
+  <tbody>
+    <tr><td>la bevanda/ la bibita</td><td>la boisson</td></tr>
+    <tr><td>calda|fredda</td><td>chaude|fraîche</td></tr>
+    <tr><td>cena</td><td>dîner</td></tr>
+    <tr><td>cena d'affari</td><td>dîner d'affaires</td></tr>
+    <tr><td>cena al lume di candela</td><td>dîner aux chandelles</td></tr>
+    <tr><td>pranzo</td><td>déjeuner ou repas</td></tr>
+    <tr><td>colazione</td><td>petit-déjeuner</td></tr>
+    <tr><td>pasto</td><td>repas</td></tr>
+    <tr><td>mangiare</td><td>manger</td></tr>
+    <tr><td>bere</td><td>boire</td></tr>
+    <tr><td>la birra</td><td>bière</td></tr>
+    <tr><td>il caffè</td><td>café</td></tr>
+    <tr><td>la cioccolata</td><td>chocolat</td></tr>
+    <tr><td>la limonata</td><td>citronnade</td></tr>
+    <tr><td>l'acqua minerale</td><td>naturale eau minérale</td></tr>
+    <tr><td>l'acqua liscia, gassata</td><td>eau plate, gazeuse</td></tr>
+    <tr><td>la spremuta di</td><td>fruit pressé</td></tr>
+    <tr><td>l'infuso / la tisana</td><td>infusion</td></tr>
+    <tr><td>il succo di frutta</td><td>jus de fruit</td></tr>
+    <tr><td>il latte</td><td>lait</td></tr>
+    <tr><td>la gassosa</td><td>limonade</td></tr>
+    <tr><td>l'aranciata</td><td>orangeade</td></tr>
+    <tr><td>il tè</td><td>thé</td></tr>
+    <tr><td>il vino</td><td>vin</td></tr>
+  </tbody>
+</table>
+
+<h3 id="saisons_temps">Les saisons et le temps (climat)</h3> <a href="#sommaire_voc"><i>(retour vocabulaire)</i></a>
+
+<p><i>4 termes.</i></p>
+
+<table>
+    <thead>
+        <tr><th>Italien</th><th>Français</th></tr>
+    </thead>
+  <tbody>
+    <tr><td>l'inverno <i>sm</i></td><td>l'hiver</td></tr>
+    <tr><td>l'estate <i>sf</i></td><td>l'été</td></tr>
+    <tr><td>la primavera <i>sf</i></td><td>le printemps</td></tr>
+    <tr><td>l'autunno <i>sm</i></td><td>l'automne</td></tr>
+  </tbody>
+</table>
+
+<h3 id="animaux">Les animaux</h3> <a href="#sommaire_voc"><i>(retour vocabulaire)</i></a>
+
+<p><i>25 termes.</i></p>
+
+<table>
+    <thead>
+        <tr><th>Italien</th><th>Français</th></tr>
+    </thead>
+<tbody>
+<tr><td>l'animale</td><td>animal</td></tr>
+<tr><td>l'agnello</td><td>agneau</td></tr>
+<tr><td>il bue</td><td>boeuf</td></tr>
+<tr><td>la pecora</td><td>brebis</td></tr>
+<tr><td>l'anatra</td><td>canard</td></tr>
+<tr><td>il gatto</td><td>chat</td></tr>
+<tr><td>il cavallo</td><td>cheval</td></tr>
+<tr><td>la capra</td><td>chèvre</td></tr>
+<tr><td>il cane</td><td>chien</td></tr>
+<tr><td>il porco / il maiale</td><td>cochon</td></tr>
+<tr><td>il gallo</td><td>coq</td></tr>
+<tr><td>lo scoiattolo</td><td>écureuil</td></tr>
+<tr><td>la rana</td><td>grenouille</td></tr>
+<tr><td>la vespa</td><td>guêpe</td></tr>
+<tr><td>l'insetto</td><td>insecte</td></tr>
+<tr><td>il coniglio</td><td>lapin</td></tr>
+<tr><td>la lucertola</td><td>lézard</td></tr>
+<tr><td>il lupo</td><td>loup</td></tr>
+<tr><td>la mosca</td><td>mouche</td></tr>
+<tr><td>la zanzara</td><td>moustique</td></tr>
+<tr><td>la pecora</td><td>mouton</td></tr>
+<tr><td>l'uccello</td><td>oiseau</td></tr>
+<tr><td>la farfalla</td><td>papillon</td></tr>
+<tr><td>La vacca (le vacche)</td><td>La vache</td></tr>
+<tr><td>La mucca (le mucche)</td><td>La vache</td></tr>
+</tbody>
+</table>
+
+<h3 id="jours_mois">Les jours et les mois</h3> <a href="#sommaire_voc"><i>(retour vocabulaire)</i></a>
+
+<p><i>7 termes.</i></p>
+
+<table>
+    <thead>
+        <tr><th>Italien</th><th>Français</th></tr>
+    </thead>
+  <tbody>
+    <tr><td>Lunedì</td><td>Lundi</td></tr>
+    <tr><td>Martedì</td><td>Mardi</td></tr>
+    <tr><td>Mercoledì</td><td>Mercredi</td></tr>
+    <tr><td>Giovedì</td><td>Jeudi</td></tr>
+    <tr><td>Venerdì</td><td>Vendredi</td></tr>
+    <tr><td>Sabato</td><td>Samedi</td></tr>
+    <tr><td>Domenica (le seul féminin)</td><td>Dimanche</td></tr>
+  </tbody>
+</table>
+
+<h3 id="corps">Le corps</h3> <a href="#sommaire_voc"><i>(retour vocabulaire)</i></a>
+
+<p><i>32 termes.</i></p>
+
+<table>
+  <thead>
+    <tr><th>Italien</th><th>Français</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>magro <span class="typ">adjectif</span></td><td>maigre, maigres</td></tr>
+    <tr><td>snello <span class="typ">adjectif</span></td><td>mince, minces</td></tr>
+    <tr><td>grosso <span class="typ">adjectif</span></td><td>gros, grosse, gros, grosses</td></tr>
+    <tr><td>il corpo <span class="typ">nom m.</span></td><td>le corps</td></tr>
+    <tr><td>la mano <span class="typ">nom f.</span></td><td>la main</td></tr>
+    <tr><td>il dito <span class="typ">nom m.</span></td><td>le doigt</td></tr>
+    <tr><td>la gamba <span class="typ">nom f.</span></td><td>la jambe</td></tr>
+    <tr><td>il piede <span class="typ">nom m.</span></td><td>le pied</td></tr>
+    <tr><td>il sesso <span class="typ">nom m.</span></td><td>le sexe</td></tr>
+    <tr><td>la lingua <span class="typ">nom f.</span></td><td>la langue</td></tr>
+    <tr><td>il dente <span class="typ">nom m.</span></td><td>la dent</td></tr>
+    <tr><td>l'orecchio <span class="typ">nom m.</span></td><td>l'oreille</td></tr>
+    <tr><td>il braccio <span class="typ">nom m.</span></td><td>le bras</td></tr>
+    <tr><td>il dorso <span class="typ">nom m.</span></td><td>le dos</td></tr>
+    <tr><td>la pelle <span class="typ">nom f.</span></td><td>la peau</td></tr>
+    <tr><td>la testa <span class="typ">nom f.</span></td><td>la tête</td></tr>
+    <tr><td>la bocca <span class="typ">nom f.</span></td><td>la bouche</td></tr>
+    <tr><td>l'occhio <span class="typ">nom m.</span></td><td>l'œil</td></tr>
+    <tr><td>il labbro <span class="typ">nom m.</span></td><td>la lèvre (pl : le labbra)</td></tr>
+    <tr><td>il naso <span class="typ">nom m.</span></td><td>le nez</td></tr>
+    <tr><td>il capello <span class="typ">nom m.</span></td><td>le cheveu</td></tr>
+    <tr><td>il cuore <span class="typ">nom m.</span></td><td>Le cœur</td></tr>
+    <tr><td>il pelo <span class="typ">nom m.</span></td><td>le poil</td></tr>
+    <tr><td>la carne <span class="typ">nom f.</span></td><td>la chair</td></tr>
+    <tr><td>l'osso <span class="typ">nom m.</span></td><td>le corps</td></tr>
+    <tr><td>il stomaco <span class="typ">nom m.</span></td><td>l'estomac</td></tr>
+    <tr><td>il sangue <span class="typ">nom m.</span></td><td>le sang</td></tr>
+    <tr><td>la vista <span class="typ">nom f.</span></td><td>la vue</td></tr>
+    <tr><td>l'udito <span class="typ">nom m.</span></td><td>l'ouïe</td></tr>
+    <tr><td>l'olfatto <span class="typ">nom m.</span></td><td>l'odorat</td></tr>
+    <tr><td>il tatto <span class="typ">nom m.</span></td><td>le toucher</td></tr>
+    <tr><td>il gusto <span class="typ">nom m.</span></td><td>le goût</td></tr>
+  </tbody>
+</table>          
+
+<h3 id="maison">La maison</h3> <a href="#sommaire_voc"><i>(retour vocabulaire)</i></a>
+
+<p><i>17 termes.</i></p>
+
+<table>
+  <thead>
+    <tr><th>Italien</th><th>Français</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>la casa <span class="typ">nom f.</span></td><td>la maison</td></tr>
+    <tr><td>la camera <span class="typ">nom f.</span></td><td>la chambre</td></tr>
+    <tr><td>la chiave <span class="typ">nom f.</span></td><td>la clef, la clé</td></tr>
+    <tr><td>la porta <span class="typ">nom f.</span></td><td>la porte</td></tr>
+    <tr><td>il giardino <span class="typ">nom m.</span></td><td>le jardin</td></tr>
+    <tr><td>il bicchiere <span class="typ">nom m.</span></td><td>le verre</td></tr>
+    <tr><td>la bottiglia <span class="typ">nom f.</span></td><td>la bouteille</td></tr>
+    <tr><td>il tappo <span class="typ">nom m.</span></td><td>le bouchon</td></tr>
+    <tr><td>la caraffa <span class="typ">nom f.</span></td><td>la carafe</td></tr>
+    <tr><td>la ciotola <span class="typ">nom f.</span></td><td>le bol</td></tr>
+    <tr><td>la tazza <span class="typ">nom f.</span></td><td>la tasse</td></tr>
+    <tr><td>il piatto <span class="typ">nom m.</span></td><td>l'assiette</td></tr>
+    <tr><td>il coltello <span class="typ">nom m.</span></td><td>le couteau</td></tr>
+    <tr><td>il cucchiaino <span class="typ">nom m.</span></td><td>la petite cuillère</td></tr>
+    <tr><td>il cucchiaio <span class="typ">nom m.</span></td><td>la cuillère</td></tr>
+    <tr><td>la forchetta <span class="typ">nom f.</span></td><td>la fourchette</td></tr>
+    <tr><td>il tavolo <span class="typ">nom m.</span></td><td>la table</td></tr>
+  </tbody>
+</table>
+
+<table>
+
+
+<h3 id="frequence">Exprimer la fréquence</h3> <a href="#sommaire_voc"><i>(retour vocabulaire)</i></a>
+
+
+<p><i>8 termes.</i></p>
+
+<table>
+    <thead>
+        <tr><th>Italien</th><th>Français</th></tr>
+    </thead>
+  <tbody>
+    <tr><td>Sempre</td><td>Toujours</td></tr>
+    <tr><td>Quasi Sempre</td><td>Presque tout le temps</td></tr>
+    <tr><td>Spesso</td><td>Souvent</td></tr>
+    <tr><td>Molte volte</td><td>Beaucoup de fois</td></tr>
+    <tr><td>A volte</td><td>Parfois</td></tr>
+    <tr><td>Raramente</td><td>Rarement</td></tr>
+    <tr><td>Quasi mai</td><td>Presque jamais</td></tr>
+    <tr><td>Mai</td><td>Jamais</td></tr>
+  </tbody>
+</table>
+
+<h3 id="liste_qualites">Qualités</h3> <a href="#sommaire_voc"><i>(retour vocabulaire)</i></a>
+
+<p><i>3 termes.</i></p>
+
+<table>
+    <thead>
+        <tr><th>Italien</th><th>Français</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>caldo/calda</td><td>chaud/chaude</td></tr>
+        <tr><td>caro/cara</td><td>cher/chère</td></tr>
+        <tr><td>giusto/giusta</td><td>juste</td></tr>
+    </tbody>
+</table>
+
+<h3 id="expressions">Expressions</h3> <a href="#sommaire_voc"><i>(retour vocabulaire)</i></a>
+
+<p><i>20 termes.</i></p>
+
+<table>
+    <thead>
+        <tr><th>Italien</th><th>Français</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>sono di fretta</td><td>je suis pressé</td></tr>
+        <tr><td>in fretta</td><td>en hâte</td></tr>
+        <tr><td>in un attimo</td><td>dans un instant</td></tr>
+        <tr><td>grazie</td><td>merci</td></tr>
+        <tr><td>grazie mille</td><td>mille merci</td></tr>
+        <tr><td>buongiorno</td><td>bonjour</td></tr>
+        <tr><td>arrivederci</td><td>au revoir</td></tr>
+        <tr><td>ciao</td><td>salut</td></tr>
+        <tr><td>per favore</td><td>s'il vous plaît</td></tr>
+        <tr><td>per cortesia</td><td>s'il vous plaît</td></tr>
+        <tr><td>Pronto ?</td><td>Allo ?</td></tr>
+        <tr><td>Pronto !</td><td>Allo !</td></tr>
+        <tr><td>a domani !</td><td>à demain !</td></tr>
+        <tr><td>Non lo so</td><td>je ne (le) sais pas</td></tr>
+        <tr><td>salute !</td><td>à tes souhaits !</td></tr>
+        <tr><td>Come ti chiami ?</td><td>Comment tu t'appelles ?</td></tr>
+        <tr><td>Come si chiama Lei ?</td><td>Comment vous appellez vous ?</td></tr>
+        <tr><td>Di dove sei ?</td><td>D'où es tu ?</td></tr>
+        <tr><td>Di dov'è Lei ?</td><td>D'où êtes vous ?</td></tr>
+        <tr><td>Dov'è ... ?</td><td>Où est ... ?</td></tr>
+    </tbody>
+</table>
+
+<h3 id="heure_date">Le temps (l'heure et la date)</h3> <a href="#sommaire_voc"><i>(retour vocabulaire)</i></a>
+
+<p><i>7 termes.</i></p>
+
+<table>
+    <thead>
+        <tr><th>Italien</th><th>Français</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>Che ore sono ? Che ora è</td><td>Quelle heure est-il ?</td></tr>
+        <tr><td>sono le sette...</td><td>Il est 7h</td></tr>
+        <tr><td>    meno dieci</td><td>moins dix</td></tr>
+        <tr><td>    e cinque</td><td>et 5</td></tr>
+        <tr><td>quarto,i</td><td>quart</td></tr>
+        <tr><td>e mezza</td><td>et demi</td></tr>
+        <tr><td>e tre quarti</td><td>trois quarts (en français, pas de "et")</td></tr>
+    </tbody>
+</table>
+
+<h3 id="liste_adverbes">Des adverbes</h3> <a href="#sommaire_voc"><i>(retour vocabulaire)</i></a>
+
+<p><i>5 termes.</i></p>
+
+<table>
+    <thead>
+        <tr><th>Italien</th><th>Français</th></tr>
+    </thead>
+  <tbody>
+    <tr><td>troppo</td><td>trop</td></tr>
+    <tr><td>anche</td><td>aussi</td></tr>
+    <tr><td>oggi</td><td>aujourd'hui</td></tr>
+    <tr><td>ieri</td><td>hier</td></tr>
+    <tr><td>domani</td><td>demain</td></tr>
+  </tbody>
+</table>
+
+<h3 id="liste_conjonctions">Des conjonctions</h3> <a href="#sommaire_voc"><i>(retour vocabulaire)</i></a>
+
+<p><i>5 termes.</i></p>
+
+<table>
+    <thead>
+        <tr><th>Italien</th><th>Français</th></tr>
+    </thead>
+  <tbody>
+    <tr><td>ma</td><td>mais</td></tr>
+    <tr><td>o</td><td>ou</td></tr>
+    <tr><td>e (ed)</td><td>et</td></tr>
+    <tr><td>dunque</td><td>donc</td></tr>
+    <tr><td>né</td><td>ni</td></tr>
+  </tbody>
+</table>
+
+<h3 id="voyager">Voyager</h3> <a href="#sommaire_voc"><i>(retour vocabulaire)</i></a>
+
+<p><i>6 termes.</i></p>
+
+<table>
+    <thead>
+        <tr><th>Italien</th><th>Français</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>l'aeroporto (nm)</td><td>aéroport</td></tr>
+        <tr><td>il bagaglio (nf)</td><td>bagage</td></tr>
+        <tr><td>la nave (nf)</td><td>bateau</td></tr>
+        <tr><td>l'autobus (nfi)</td><td>bus</td></tr>
+        <tr><td>la roulotte (nmfi)</td><td>caravane</td></tr>
+        <tr><td>la carta d'imbarco (nf)</td><td>carte d'embarquement</td></tr>
+    </tbody>
+</table>
+
+<h3 id="deplacements">Se déplacer</h3> <a href="#sommaire_voc"><i>(retour vocabulaire)</i></a>
+
+<p><i>4 termes.</i></p>
+
+<table>
+    <thead>
+        <tr><th>Italien</th><th>Français</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>a piedi</td><td>à pieds</td></tr>
+        <tr><td>in +nom</td><td>tous les autres</td></tr>
+        <tr><td>andare a+ville, in+état</td><td>aller à, au, en</td></tr>
+        <tr><td>venire da+lieu de provenance, a,in+lieu où l'on va</td><td>venir de ou venir à</td></tr>
+    </tbody>
+</table>
+
+<h3 id="pays">Les pays</h3> <a href="#sommaire_voc"><i>(retour vocabulaire)</i></a>
+
+<p><i>5 termes.</i></p>
+
+<table>
+    <thead>
+        <tr><th>Italien</th><th>Français</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>tedesco/tedesca</td><td>allemand/allemande</td></tr>
+        <tr><td>inglese</td><td>anglais/anglaise</td></tr>
+        <tr><td>francese</td><td>français/française</td></tr>
+        <tr><td>giapponese</td><td>japonais/japonaise</td></tr>
+        <tr><td>italiano/italiana</td><td>italien/italienne</td></tr>
+    </tbody>
+</table>
+
+<h3 id="nombres">Les nombres</h3> <a href="#sommaire_voc"><i>(retour vocabulaire)</i></a>
+
+<p><i>34 termes.</i></p>
+
+<table>
+    <thead>
+        <tr><th>Nombres</th><th>Nombres cardinaux</th><th>Nombres Ordinaux</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>0</td><td>zero</td><td>-</td></tr>
+        <tr><td>1</td><td>uno</td><td>primo</td></tr>
+        <tr><td>2</td><td>due</td><td>secondo</td></tr>
+        <tr><td>3</td><td>tre</td><td>terzo</td></tr>
+        <tr><td>4</td><td>quattro</td><td>quarto</td></tr>
+        <tr><td>5</td><td>cinque</td><td>quinto</td></tr>
+        <tr><td>6</td><td>sei</td><td>sesto</td></tr>
+        <tr><td>7</td><td>sette</td><td>settimo</td></tr>
+        <tr><td>8</td><td>otto</td><td>ottavo</td></tr>
+        <tr><td>9</td><td>nove</td><td>nono</td></tr>
+        <tr><td>10</td><td>dieci</td><td>decimo</td></tr>
+        <tr><td>11</td><td>undici</td><td>undicesimo</td></tr>
+        <tr><td>12</td><td>dodici</td><td>dodicesimo</td></tr>
+        <tr><td>13</td><td>tredici</td><td>tredicesimo</td></tr>
+        <tr><td>14</td><td>quattordici</td><td>quattordicesimo</td></tr>
+        <tr><td>15</td><td>quindici</td><td>quindicesimo</td></tr>
+        <tr><td>16</td><td>sedici</td><td>sedicesimo</td></tr>
+        <tr><td>17</td><td>diciassette</td><td>diciassettesimo</td></tr>
+        <tr><td>18</td><td>diciotto</td><td>diciottesimo</td></tr>
+        <tr><td>19</td><td>diciannove</td><td>diciannovesimo</td></tr>
+        <tr><td>20</td><td>venti</td><td>ventesimo</td></tr>
+        <tr><td>21</td><td>ventuno</td><td>ventunesimo</td></tr>
+        <tr><td>2_</td><td>venti_</td><td>venti+chiffre+(e)simo</td></tr>
+        <tr><td>30</td><td>trenta</td><td>trentesimo</td></tr>
+        <tr><td>31</td><td>trentuno</td><td>trentunesimo</td></tr>
+        <tr><td>3_</td><td>trenta_</td><td>trenta+chiffre+(e)simo</td></tr>
+        <tr><td>40</td><td>quaranta</td><td>quarantesimo</td></tr>
+        <tr><td>50</td><td>cinquanta</td><td>cinquantesimo</td></tr>
+        <tr><td>60</td><td>sessanta</td><td>sessantesimo</td></tr>
+        <tr><td>70</td><td>settanta</td><td>settantesimo</td></tr>
+        <tr><td>80</td><td>ottanta</td><td>ottantesimo</td></tr>
+        <tr><td>90</td><td>novanta</td><td>novantesimo</td></tr>
+        <tr><td>100</td><td>cento</td><td>centesimo</td></tr>
+        <tr><td>1000</td><td>mille</td><td>millesimo</td></tr>
+    </tbody>
+</table>
+
+<h3 id="maths">Les mathématiques</h3> <a href="#sommaire_voc"><i>(retour vocabulaire)</i></a>
+
+<p><i>11 termes.</i></p>
+
+<table>
+    <thead>
+        <tr><th>Formules</th><th>en italien</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>-x</td><td>meno x</td></tr>
+        <tr><td>x.y</td><td>x virgola y</td></tr>
+        <tr><td>1/2</td><td>un mezzo</td></tr>
+        <tr><td>2/3</td><td>due terzi</td></tr>
+        <tr><td>3/4</td><td>tre quarti</td></tr>
+        <tr><td>1/10</td><td>un decimo</td></tr>
+        <tr><td>1/100</td><td>un centesimo</td></tr>
+        <tr><td>x + y = z</td><td>x più y fa/uguale z</td></tr>
+        <tr><td>x - y = z</td><td>x meno y fa/uguale z</td></tr>
+        <tr><td>x * y = z</td><td>x per y fa/uguale z</td></tr>
+        <tr><td>x / y = z</td><td>x diviso y fa/uguale z</td></tr>
+    </tbody>
+</table>
+
+<h3 id="liste_couleurs">Les couleurs</h3> <a href="#sommaire_voc"><i>(retour vocabulaire)</i></a>
+
+<p><i>15 termes.</i></p>
+
+<table>
+    <thead>
+        <tr><th>Italien</th><th>Français</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>il colore</td><td>couleur</td></tr>
+        <tr><td>bianco, bianca</td><td>blanc, blanche</td></tr>
+        <tr><td>azzurro / celeste</td><td>bleu clair</td></tr>
+        <tr><td>blu</td><td>bleu foncé</td></tr>
+        <tr><td>grigio</td><td>gris</td></tr>
+        <tr><td>giallo</td><td>jaune</td></tr>
+        <tr><td>marrone (invariable)</td><td>marron</td></tr>
+        <tr><td>nero</td><td>noir</td></tr>
+        <tr><td>arancione</td><td>orange</td></tr>
+        <tr><td>rosa (invariable)</td><td>rose</td></tr>
+        <tr><td>rosso</td><td>rouge</td></tr>
+        <tr><td>verde</td><td>vert</td></tr>
+        <tr><td>viola (invariable)</td><td>violet</td></tr>
+        <tr><td>chiaro</td><td>clair</td></tr>
+        <tr><td>scuro</td><td>foncé</td></tr>
+    </tbody>
+</table>
+
+<h3 id="liste_verbes">Des verbes</h3> <a href="#sommaire_voc"><i>(retour vocabulaire)</i></a>
+
+<p>Une liste de 61 verbes irréguliers et/ou essentiels.</p>
+
+<table>
+  <thead>
+    <tr><th>Infinitif</th><th>Radical du futur</th><th>Participe passé</th><th>Français</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>amare</td><td>amer_</td><td>amato</td><td>aimer</td></tr>
+    <tr><td>andare</td><td>andr_</td><td>andato</td><td>aller</td></tr>
+    <tr><td>aprire</td><td>aprir_</td><td>aperto</td><td>ouvrir</td></tr>
+    <tr><td>aspettare</td><td>aspetter_</td><td>aspettato</td><td>attendre</td></tr>
+    <tr><td>avere</td><td>avr_</td><td>avuto</td><td>avoir</td></tr>
+    <tr><td>bere</td><td>bever_</td><td>bevuto</td><td>boire</td></tr>
+    <tr><td>cadere</td><td>cadr_</td><td>caduto</td><td>tomber</td></tr>
+    <tr><td>cambiare</td><td>cambier_</td><td>cambiato</td><td>changer</td></tr>
+    <tr><td>chiedere</td><td>chieder_</td><td>chiesto</td><td>demander</td></tr>
+    <tr><td>chiudere</td><td>chiuder_</td><td>chiuso</td><td>fermer</td></tr>
+    <tr><td>cominciare</td><td>comincier_</td><td>cominciato</td><td>commencer</td></tr>
+    <tr><td>comprare</td><td>comprer_</td><td>comprato</td><td>acheter</td></tr>
+    <tr><td>correre</td><td>correr_</td><td>corso</td><td>courir</td></tr>
+    <tr><td>cuocere</td><td>c(u)ocer_</td><td>cotto</td><td>cuire</td></tr>
+    <tr><td>dare</td><td>dar_</td><td>dato</td><td>donner</td></tr>
+    <tr><td>decidere</td><td>decider_</td><td>deciso</td><td>décider</td></tr>
+    <tr><td>dire</td><td>dir_</td><td>detto</td><td>dire</td></tr>
+    <tr><td>dovere</td><td>dovr_</td><td>dovuto</td><td>devoir</td></tr>
+    <tr><td>essere</td><td>sar_</td><td>stato</td><td>être</td></tr>
+    <tr><td>fare</td><td>far_</td><td>fatto</td><td>faire</td></tr>
+    <tr><td>finire</td><td>finir_</td><td>finito</td><td>finir</td></tr>
+    <tr><td>giungere</td><td>giunger_</td><td>giunto</td><td>arriver</td></tr>
+    <tr><td>invitare</td><td>inviter_</td><td>invitato</td><td>inviter</td></tr>
+    <tr><td>lavorare</td><td>laver_</td><td>lavorato</td><td>travailler</td></tr>
+    <tr><td>leggere</td><td>legger_</td><td>letto</td><td>lire</td></tr>
+    <tr><td>mancare</td><td>mancher_</td><td>mancato</td><td>manquer</td></tr>
+    <tr><td>mangiare</td><td>manger_</td><td>mangiato</td><td>manger</td></tr>
+    <tr><td>mettere</td><td>metter_</td><td>messo</td><td>mettre</td></tr>
+    <tr><td>morire</td><td>morr_</td><td>morto</td><td>mourir</td></tr>
+    <tr><td>muovere</td><td>mover_</td><td>mosso</td><td>bouger</td></tr>
+    <tr><td>nascere</td><td>nascer_</td><td>nato</td><td>naître</td></tr>
+    <tr><td>pensare</td><td>penser_</td><td>pensato</td><td>penser</td></tr>
+    <tr><td>perdere</td><td>perder_</td><td>perso, perduto</td><td>perdre</td></tr>
+    <tr><td>piacere</td><td>piacer_</td><td>piacuto</td><td>aimer (plaire)</td></tr>
+    <tr><td>porre</td><td>porr_</td><td>posto</td><td>poser, mettre</td></tr>
+    <tr><td>posare</td><td>poser_</td><td>posato</td><td>poser</td></tr>
+    <tr><td>potere</td><td>potr_</td><td>potuto</td><td>pouvoir</td></tr>
+    <tr><td>prendere</td><td>prender_</td><td>preso</td><td>prendre</td></tr>
+    <tr><td>proporre</td><td>proporr_</td><td>proposto</td><td>proposer</td></tr>
+    <tr><td>ridurre</td><td>ridurr_</td><td>ridotto</td><td>réduire</td></tr>
+    <tr><td>riempire</td><td>riempir_</td><td>riempito</td><td>remplir</td></tr>
+    <tr><td>rimanere</td><td>rimarr_</td><td>rimasto</td><td>rester</td></tr>
+    <tr><td>rispondere</td><td>risponder_</td><td>risposto</td><td>répondre</td></tr>
+    <tr><td>salire</td><td>salir_</td><td>salito</td><td>monter</td></tr>
+    <tr><td>sapere</td><td>sapr_</td><td>saputo</td><td>savoir</td></tr>
+    <tr><td>scegliere</td><td>sceglier_</td><td>scelto</td><td>choisir</td></tr>
+    <tr><td>sciogliere</td><td>scioglier_</td><td>sciolto</td><td>cesser, rompre</td></tr>
+    <tr><td>scrivere</td><td>scriver_</td><td>scritto</td><td>écrire</td></tr>
+    <tr><td>sedere</td><td>seder_</td><td>seduto</td><td>être assis</td></tr>
+    <tr><td>sentire</td><td>sentir_</td><td>sentito</td><td>sentir</td></tr>
+    <tr><td>servire</td><td>servir_</td><td>servito</td><td>servir</td></tr>
+    <tr><td>spedire</td><td>spedir_</td><td>spedito</td><td>envoyer</td></tr>
+    <tr><td>spegnere</td><td>spegner_</td><td>spento</td><td>éteindre</td></tr>
+    <tr><td>stare</td><td>star_</td><td>stato</td><td>être</td></tr>
+    <tr><td>studiare</td><td>studier_</td><td>studiato</td><td>étudier</td></tr>
+    <tr><td>tacere</td><td>tacer_</td><td>taciuto</td><td>se taire</td></tr>
+    <tr><td>temere</td><td>temer_</td><td>temuto</td><td>craindre</td></tr>
+    <tr><td>tenere</td><td>terr_</td><td>tenuto</td><td>tenir</td></tr>
+    <tr><td>togliere</td><td>toglier_</td><td>tolto</td><td>enlever</td></tr>
+    <tr><td>tirare</td><td>tirer_</td><td>tirato</td><td>tirer</td></tr>
+    <tr><td>uscire</td><td>uscir_</td><td>uscito</td><td>sortir</td></tr>
+    <tr><td>vedere</td><td>vedr_</td><td>visto</td><td>voir</td></tr>
+    <tr><td>venire</td><td>verr_</td><td>venuto</td><td>venir</td></tr>
+    <tr><td>vivere</td><td>vivr_</td><td>vissuto</td><td>vivre</td></tr>
+    <tr><td>volere</td><td>vorr_</td><td>voluto</td><td>vouloir</td></tr>
+  </tbody>
+</table>
+
+<div class="partie" id="part5">Cinquième partie : Annexes</div>
+
+<h2 class="horstexte" id="ressources">Ressources</h2> <a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<ul>
+  <li>Les cours de la <a href="http://www.ladante.fr/">Dante Alighieri</a> (association culturelle italienne) et de la faculté de Toulouse.</li>
+  <li>Ce très bon site de grammaire, <a href="http://www.edelo.net/italie/cours.htm">Edelo</a>.</li>
+  <li>Le Berlitz grammaire essentielle italien, très pratique avec son format "mini".</li>
+  <li>Ce <a href="http://www.italian-verbs.com/verbes-italiens.htm">conjugueur</a> et <a href="http://conjit.cactus2000.de/index.fr.php">celui-ci</a> sont très pratiques en cas de doute !</a> </li>
+  <li>Le Bescherelle italien.</li>
+  <li>Le Larousse italien (Dictionaire Mini).</li>
+  <li>Berlitz Italien Grammaire essentielle, Flexi Grammaire.</li>
+  <li><a href="http://fr.wikipedia.org/wiki/Grammaire_italienne">Wikipédia</a> a un excellent article sur la grammaire italienne.</li>
+  <li><a href="http://www.lexilogos.com/italien_langue_dictionnaires.htm">Lexilogos</a> possèdent de nombreux liens vers des ressources de qualité.</li>
+</ul>
+
+<h2 id="remerciements">Remerciements</h2>
+
+<p>Je remercie mes professeurs et les auteurs des différents sites et livres pour leur doctes explications. Si vous trouvez une erreur (ce qui est fort possible), n'hésitez pas à me la signaler par un email (si vous l'avez).</p>
+
+<p>Je tiens également à remercier les lecteurs qui m'ont aidé à améliorer ce site. Merci encore à vous !</p>
+
+<h2 id="historique">Historique</h2>
+
+<p>Historique des différentes versions :</p>
+
+<ul>
+  <li>Version 1.1.6
+    <ul>
+      <li>Corrections mineurs.</li>
+    </ul>
+  </li>
+  <li>Version 1.1.5
+    <ul>
+      <li>Travaillé dessus le 1er février 2016.</li>
+      <li>Correction du mot tedesca mal orthographié.</li>
+      <li>Réécriture de la règle pour l'accord du participe passé.</li>
+      <li>Génération d'un nouveau fichier PDF.</li>
+      <li>Ajout de 2016 dans le bandeau sous le titre.</li>
+    </ul>
+  </li>
+  <li>Version 1.1.4
+    <ul>
+      <li>Travaillé dessus le 26 juin 2015 après presque 3 ans d'absence.</li>
+      <li>Ajout des points importants : 
+        <ul>
+          <li>prononcer les voyelles distinctement,</li>
+          <li>le i entre deux voyelles peut faire le son /j/,</li>
+          <li>pas de voyelles nasalisés en italien.</li>
+        </ul>
+      </li>
+      <li>Ajout du cas spécial devant pn pour les articles.</li>
+      <li>Ré-explication du cas spécial pour les articles devant le son /j/.</li>
+    </ul>
+  <li>Version 1.1.3
+    <ul>
+      <li>Travaillé dessus le 29 Septembre 2012.</li>
+      <li>Ajout des tableaux des formes composées pour le présent, le futur et l'imparfait.</li>
+      <li>Ajout des adverbes interrogatifs.</li>
+      <li>Correction d'un bug sur le tableau des terminaisons du présent.</li>
+      <li>Nouveau style pour les terminaisons.</li>
+    </ul>
+  </li>
+  <li>Version 1.1.2
+    <ul>
+      <li>Correction d'une erreur au conditionnel : are devient er !</li>
+    </ul>
+  </li>
+  <li>Version 1.1.1
+    <ul>
+      <li>Travaillé dessus le mardi 24 avril.</li>
+      <li>Ajout Gérondif.</li>
+      <li>Ajout Impératif.</li>
+      <li>Ajout des terminaisons du conditionnel et du subjonctif.</li>
+      <li>Reformulation politesse.</li>
+      <li>Ajout expression du temps.</li>
+      <li>Plus d'exemples pour le subjonctif.</li>
+    </ul>
+  </li>
+  <li>Version 1.1.0
+    <ul>
+      <li>Travaillé dessus le samedi 21 avril (3h).</li>
+      <li>Vocabulaire : Maison amplifiée, Corps ajoutée.</li>
+      <li>Nombreuses corrections diverses, notamment dans Prononciation.</li>
+      <li>Séparation Noms et Adjectifs.</li>
+      <li>Ajout du Superlatif.</li>
+      <li>Ajout des Pronoms relatifs.</li>
+      <li>Ajout de l'hypothèse.</li>
+      <li>Mention des fonctions, avec tableau prépositions / CC.</li>
+      <li>Sous-titres pour adjectifs et noms.</li>
+      <li>Ajout d'Interjections et Conjonctions (vide).</li>
+      <li>Ajout du span "typ" (type de mot) et du span "index" (vocabulaire grammatical).</li>
+      <li>Correction de l'Avant-Propos.</li>
+    </ul>
+  </li>
+  <li>Version 1.0.0
+    <ul>
+      <li>Lancement le 8 mars 2012 (Journée de la Femme !).</li>
+      <li>Corrections légères sur les pronoms, ajouts d'exemples.</li>
+      <li>Ajout des en-têtes des tableaux.</li>
+    </ul>
+  </li>
+  <li>28 février 2012 : Version 0.7.4
+    <ul>
+      <li>Mise en page plus proche du style principal.</li>
+      <li>Correction du vin et du thé dans le voc.</li>
+      <li>Nouveau layout centré et non pleine page.</li>
+    </ul>
+  </li>
+  <li>10 novembre 2011 : Version 0.7.3
+    <ul>
+      <li>Ajout de l'imparfait</li>
+      <li>Ajout des auxiliaires à l'imparfait</li>
+    </ul>
+  </li>
+  <li>14 octobre 2011 : Version 0.7.2
+    <ul>
+      <li>Correction bug sur la couleur rouge</li>
+      <li>Correction bug sur l'hiver</li>
+      <li>Correction bug sur le dîner aux chandelles</li>
+      <li>Correction bugs divers sur les verbes</li>
+    </ul>
+  </li>
+  <li>27 septembre 2011 : Version 0.7.1
+    <ul>
+      <li>Rubrique de vocabulaire "voyager" ajoutée</li>
+      <li>6 termes ajoutés</li>
+      <li>Légende pour les qualifications du vocabulaire (nmfi)</li>
+    </ul>
+  </li>
+  <li>5 septembre 2011 (release) : Version 0.7
+    <ul>
+      <li>3 septembre 2011</li>
+      <li>Division en grandes parties.</li>
+      <li>Deux nouvelles images de Rossetti.</li>
+      <li>Nouvelle favicon.</li>
+      <li>Nouveau document à télécharger.</li>
+    </ul>
+  </li>
+  <li>31 août 2011 : Version 0.6.4
+    <ul>
+      <li>Ajout du vocabulaire "famille".</li>
+      <li>Ajout du vocabulaire "se nourrir".</li>
+      <li>Ajout du vocabulaire "les saisons et le temps (climat)".</li>
+      <li>Comptage des termes (208 pour l'instant).</li>
+    </ul>
+  </li>
+  <li>26 août 2011 : Version 0.6.3
+    <ul>
+        <li>Ajout du comparatif (supériorité, infériorité).</li>
+    </ul>
+  </li>
+  <li>25 août 2011 : Version 0.6.2
+    <ul>
+      <li>Ajout du subjonctif.</li>
+      <li>Ajout du conditionnel.</li>
+      <li>Ajout de l'expression de la condition.</li>
+      <li>Liste des verbes portée à 61 éléments.</li>
+      <li>Nouvelle rubrique "Mathématiques".</li>
+      <li>Ajout des nombres ordinaux dans le tableau des cardinaux.</li>
+      <li>Nouvelle ressource : conjugueur "Cactus".</li>
+    </ul>
+  </li>
+  <li>24 août 2011 : Version 0.6.1
+    <ul>
+      <li>Reformattage des ressources.</li>
+      <li>Rajout de détails pour la négation.</li>
+      <li>Rajout des règles des pronoms (regroupement).</li>
+      <li>Rajout des adjectifs non qualificatifs possessifs.</li>
+    </ul>
+  </li>
+  <li>23 août 2011 : Version 0.6
+    <ul>
+      <li>Rajout des détails des pronoms possessifs.</li>
+      <li>Rajout d'un paragraphe sur l'expression de la politesse en pronom.</li>
+      <li>Supprimé les ! dans les listes de notes (double emploi avec la puce).</li>
+      <li>Ajout des formes de pronoms compléments d'objet fort et de notes dessus.</li>
+      <li>Ajout de questo et quello en adjectifs non qualificatifs et pronoms.</li>
+      <li>Ajout de la nature grammaticale/catégorie "adjectifs non qualificatifs".</li>
+      <li>Ajout de molto, troppo, et poco en adverbes et adjectifs.</li>
+      <li>Ajout de la nature grammaticale/catégorie "adverbes".</li>
+    </ul>
+  </li>
+  <li>5 août 2011 : Version 0.5 (Objectif -> 1.0)
+    <ul>
+      <li>Ajout de liens vers tous les titres h3.</li>
+      <li>Ajout de l'avant-propos.</li>
+      <li>Ajout de Buono et Bello.</li>
+      <li>Ajout de la recommandation google.</li>
+      <li>Prise en compte de la fusion des deux projets : Grammaire + Vocabulauire.</li>
+    </ul>
+  </li>
+  <li>4 août 2011 : Version Beta 2
+    <ul>
+      <li>Ajout des prépositions combinées.</li>
+      <li>Réparation de l'oubli de "a".</li>
+      <li>Ajout de l'article partitif.</li>
+    </ul>
+  </li>
+  <li>1 août 2011 : Version Beta 1
+    <ul>
+      <li>Musclé la partie noms et adjectifs.</li>
+      <li>Séparation plus nette des différentes parties.</li>
+      <li>Correction de bugs de structure et de contenu (sur co et go) : attention à la simplification excessive !</li>
+      <li>Nouvelle ressource : Larousse Italien, Dictionnaire Mini.
+    </ul>
+  </li>
+  <li>25 juin 2011 : Version Alpha 3</li>
+  <li>13 mai 2011 : Version Alpha 2
+    <ul>
+      <li>Ajout pour les verbes réfléchis avec le verbe essere.</li>
+      <li>Ajout de Molte Volte (fréquence).</li>
+      <li>Ajout de dovere, potere, volere avec un verbe après.</li>
+      <li>Ajout de la règle pour les noms invariables.</li>
+      <li>Ajout de "Se Déplacer".</li>
+      <li>Rajout des formes de verbes (voc) et de verbes.</li>
+      <li>Correction des prépositions.</li>
+      <li>Nouvelle présentation du présent.</li>
+    </ul>
+  </li>
+  <li>12 mai 2011 : Version Alpha</li>
+</ul>
+
+<center>
+  <a href="#sommaire"><img src="http://upload.wikimedia.org/wikipedia/commons/5/5d/Die_Geliebte.jpg" width="526" height="600" alt="The Beloved (The Bride), 1865"/></a>
+  <p><i>Pour revenir au sommaire, cliquez sur l'image.</i><p>
+</center>
+
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+    </div> <!-- container -->
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> 
+  </body>
+</html>

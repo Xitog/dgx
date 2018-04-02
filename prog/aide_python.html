@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<html lang="fr">
+﻿   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aide-mémoire Python</title>
+    <link rel="icon" href="http://damien.gouteux.free.fr/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="http://damien.gouteux.free.fr/img/favicon.ico" type="image/x-icon" />
+    <link href="http://damien.gouteux.free.fr/css/simplex.bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="http://damien.gouteux.free.fr/css/flashy.css" rel="styleSheet" type="text/css">
+    <style type="text/css">
+    </style>
+  </head>
+ <body>
+    <div id="main" class="container">
+
+    <!--<style type="text/css">
+        #container .on  { display: block; }
+        #container .off { display: none; }
+        table.main      { border-width: 0px; border-color: #000000; border-style: solid; margin: auto; }
+        div.main        { font-family: arial;     font-size: 12px; color: gray; }
+        pre             { font-family: monospace; font-size: 12px; color: white; background: #00a0a0; }
+        a.current       { font-family: arial;     font-size: 14px; color: DarkSlateGray; text-decoration: none; font-weight: normal; }
+        a.current:hover { cursor: default; }
+        a.ghost         { font-family: arial;     font-size: 14px; color: DarkSlateGray; text-decoration: none; font-weight: normal; }
+        a.intext        { font-family: arial;     font-size: 12px; color: DarkSlateGray; text-decoration: none; font-weight: normal; }
+        a.ghost:hover   { color: White; text-decoration: underline; background: DarkSlateGray; }
+        a.intext:hover  { color: White; text-decoration: underline; background: DarkSlateGray; }
+        h1              { font-family: arial;     font-size: 16px; color: SeaGreen; }
+		h2              { font-family: arial;     font-size: 14px; color: SeaGreen; }
+        h3              { font-family: arial;     font-size: 14px; color: DarkSlateGray; }
+        h4              { font-family: arial;     font-size: 14px; color: DarkGray; }
+        body            { font-family: arial;     font-size: 14px; color: DarkSlateGray; }
+        table           { border: 1px solid DarkSlateGray;}
+        td, th          { border: 1px solid DarkSlateGray; text-align: center;}
+    </style>-->
+    
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+             <a class="navbar-brand" href="#">Menu</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li id="Accueil"><a href="http://damien.gouteux.free.fr/index.html">Accueil</a></li>
+              <li id="Blog"><a href="#blog" onclick="view_one_entry(0);">Blog</a></li>
+              <li class="dropdown">
+                <a id="Langues" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Langues <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                <li class="dropdown-header">Français</li>
+                  <li><a href="http://damien.gouteux.free.fr/francais/fiche_api_fr.html">Sons du français</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Italien</li>
+                  <li><a href="http://damien.gouteux.free.fr/italien/beatrice.html">Beatrice : grammaire</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/italien/jeux.html">Jeux</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Informatique" href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-expanded="false">Informatique <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Python</li>
+                  <li><a href="http://damien.gouteux.free.fr/python/aide_python.html" class="active">Aide-mémoire</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Ruby</li>
+                  <li><a href="http://damien.gouteux.free.fr/ruby/guide_ruby.html">Guide</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/ruby/aide_ruby.html">Aide-mémoire</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Lua</li>
+                  <li><a href="http://damien.gouteux.free.fr/lua/aide_lua.html">Aide-mémoire</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Selene <i>(mon langage)</i></li>
+                  <li><a href="http://damien.gouteux.free.fr/selene/guide_selene">Guide</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Modélisation</li>
+                  <li><a href="#" class="dead">Tutoriel sur XCore</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/model/json.html">Fiche sur JSON</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Histoire" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Histoire <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Méthode</li>
+                  <li><a href="http://damien.gouteux.free.fr/histoire/methode.html">Généralités</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/histoire/bibliographie.html">Bibliographie</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Aide-mémoires</li>
+                  <li><a href="http://damien.gouteux.free.fr/histoire/france19eme.html">France au XIXe</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Jeux" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Jeux <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Terres sauvages <i>(mon jdr)</i></li>
+                  <li><a href="#" class="dead">Règles de jeu de rôles</a></li>
+                  <li><a href="#" class="dead">Univers de jeu</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Livres dont VOUS êtes le héros</li>
+                  <li><a href="http://damien.gouteux.free.fr/jeux/doc_talisman.html">Le Compagnon du Talisman</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Jeux vidéo</li>
+                  <li><a href="#" class="dead">Guide des STR</a></li>
+                  <li><a href="#" class="dead">Projet de STR</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Autres" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Autres <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Collections</li>
+                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#prenoms">Prénoms</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#langages">Langages</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#favoris_artistiques">Favoris artistiques</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+      <div id="content">
+      
+        <h2 id="sommaire">Sommaire</h2>
+        <ol class="menu">
+          <li><a href="#bases">Bases</a>
+            <ol class="menu">
+              <li><a href="#bas_aff">Affichage</a></li>
+              <li><a href="#bas_key">Mots réservés</a></li>
+              <li><a href="#bas_com">Commentaires</a></li>
+            </ol>
+          </li>
+          <li><a href="#sites">Sites web</a>
+            <ol class="menu">
+              <li><a href="#sit_bib">Bibliothèques</a></li>
+              <li><a href="#sit_tools">Outils</a></li>
+            </ol>
+          </li>
+          <li><a href="#types">Types de base</a>
+            <ol class="menu">
+              <li><a href="#numbers">Nombres</a></li>
+              <li><a href="#strings">Chaînes de caractères</a></li>
+              <li><a href="#booleans">Booléens</a></li>
+              <li><a href="#nil">Valeur nil</a></li>
+              <li><a href="#table">Tables</a>
+                <ol class="menu">
+                  <li><a href="#table_def">Définition</a></li>
+                  <li><a href="#table_acc">Accès</a></li>
+                  <li><a href="#table_meta">Métatable</a></li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+          <li><a href="#operators">Opérateurs</a>
+            <ol class="menu">
+              <li><a href="#op_bin">Opérateurs binaires</a>
+                <ol class="menu">
+                  <li><a href="#ari">Opérateurs arithmétiques</a></li>
+                  <li><a href="#cmp">Opérateurs de comparaisons</a></li>
+                  <li><a href="#boo">Opérateurs booléens</a></li>
+                  <li><a href="#oth">Autres opérateurs</a></li>
+                </ol>
+              </li>
+              <li><a href="#op_una">Opérateurs unaires</a>
+                <ol class="menu">
+                  <li><a href="#ari">Opérateurs arithmétiques</a></li>
+                  <li><a href="#boo">Opérateurs booléens</a></li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+          <li><a href="#flux">Contrôle du flux</a>
+            <ol class="menu">
+              <li><a href="#seq">Séquence</a></li>
+              <li><a href="#cond">Conditions</a></li>
+              <li><a href="#loop">Répétitions</a></li>
+            </ol>
+          </li>
+          <li><a href="#functions">Fonctions</a>
+            <ol class="menu">
+              <li><a href="#def">Définition</a></li>
+              <li><a href="#call">Appel</a></li>
+              <li><a href="#closure">Closure</a></li>
+            </ol>
+          </li>
+          <li><a href="#spe">Gestion des exceptions</a>
+            <ol class="menu">
+              <li><a href="#exp">Appels protégés</a></li>
+            </ol>
+          </li>
+          <li><a href="#base">Fonctions de base</a>
+            <ol class="menu">
+              <li><a href="#lib_io">Sortie et entrée console</a></li>
+              <li><a href="#lib_numbers">Nombres</a></li>
+              <li><a href="#lib_strings">Chaînes de caractères</a></li>
+              <li><a href="#lib_tables">Tables</a></li>
+              <li><a href="#lib_file">Fichiers</a></li>
+            </ol>
+          </li>
+        </ol>
+      
+        <h2 id="bases">1. Bases</h2>
+      
+        <p>Date d'apparition du langage : 1990</p>
+        
+        <p>Créateur : Guido van Rossum (Pays-Bas).</p>
+        
+        <p>Ceci est un brouillon d’une éventuelle feuille de notes pour Python.</p>
+        
+        <h2 id="bases">2. Sites web</h2>
+        
+        <ul class="normale">
+            <li><a href="https://www.python.org/">Site officiel</a></li>
+            <li><a href="https://pypi.python.org/pypi">PYPI</a> dépôt de bibliothèques Python</a></li>
+            <li><a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">Dépôt non officiel de binaires pour Windows</a></li>
+            <li>Page française de <a href="https://fr.wikipedia.org/wiki/Python_(langage)">Wikipedia</a> sur Python</li>
+        </ul>
+        
+        <h2>2. Introduction à Python</h2>
+        
+        <ul>
+          <li>Typage Fort + Dynamique (duck/latent typing)</li>
+          <li>Interprété, Cross-platform</li>
+          <li>Implémentations : CPython (C), Jython (JVM), IronPython (.Net), PyPy (Python)</li>
+          <li>Sous-langages   :
+            <ul>
+		      <li>Stackless Python (sans pile C)</li>
+		      <li>RPython (sous ensemble de Python compilé pour PyPy)</li>
+		      <li>Pyrex[->Cython] (type C + Python)</li>
+		      <li>Extensions : .py, .pyc (bytecode), .pyx (Pyrex)</li>
+	        </ul>
+          </li>
+        </ul>
+  
+        <h2>II. Structures de contrôle en Python</h2>
+
+        <p>Il existe trois structures de contrôle fondamentales : séquence, sélection et itération.</p>
+
+        <p>En Python, l’instruction ‘nulle’ est « pass » et est obligatoire !</p>
+
+        <h3>Conditions</h3>
+
+        <pre class="code">
+<b>if</b> condition :
+  action
+<b>elif</b> condition :
+  action
+<b>else</b> :
+  action
+        </pre>
+
+        <h3>Boucles</h3>
+
+        <pre class="code">
+<b>for</b> var in</b> list :
+  action
+
+<b>while</b> condition :
+  action
+        </pre>
+
+        <p>Et voilà !</p>
+
+        <h2>III. Les littéraux en Python</h2>
+
+        <h3>1. Scalaires</h3>
+
+        <h4>A) Entiers</h4>
+
+        <p>Ils peuvent être définis selon trois formats : hexadécimal (en base 16) en précédant le nombre avec 0x ou 0X, octal (en base 8 ) en précédant le nombre d’un 0 et en base 10. Il faut donc faire bien attention à repérer si le littéral commence par un 0 ou pas pour ne pas confondre base octale et décimale. Les chiffres supplémentaires en base 16 sont représentés par les lettres A à F (indifféremment de la casse).</p>
+
+        <p>Exemple : 8 (base 10), 010 (8 en base octale), 0xA (10 en base hexadécimale).</p>
+
+        <p>Un entier sera convertit en long si besoin est de façon automatique. Le long permet de ne pas avoir de limite relative à la grandeur du nombre représenté – celle-ci est en effet illimité. Le suffixe « L » ou « l » permet de déclarer d’office un long, même si Python se charge complètement et d’une manière transparente de la conversion.</p>
+
+        <p>Exemple : 8L</p>
+
+        <p>Règles de grammaire associées :</p>
+        <pre class="code">
+digit ::=
+             "0"..."9"
+
+longinteger ::=
+             integer ("l" | "L")
+
+integer ::=
+             decimalinteger | octinteger | hexinteger
+
+decimalinteger ::=
+             nonzerodigit digit* | "0"
+
+octinteger ::=
+             "0" octdigit+
+
+hexinteger ::=
+             "0" ("x" | "X") hexdigit+
+
+nonzerodigit ::=
+             "1"..."9"
+
+octdigit ::=
+             "0"..."7"
+
+hexdigit ::=
+             digit | "a"..."f" | "A"..."F"
+
+        </pre>
+
+        <h4>B) Nombres réels</h4>
+
+        <p>Les nombres réels n’utilisent que la base décimale, est le « . » pour séparer la partie entière de la décimale. Le « . » est nécessaire, même sans partie décimale, pour différencier un entier ou un flottant. De même la partie entière, si elle est égale à 0, peut être omise. Un exposant peu être spécifié avec la lettre E (indifféremment de la casse).</p>
+
+        <p>Exemple : 3.4, 3., .3, 3.e20</p>
+
+        <p>Règles de grammaire associées :</p>
+        <pre class="code">
+floatnumber ::=
+             pointfloat | exponentfloat
+
+pointfloat ::=
+             [intpart] fraction | intpart "."
+
+exponentfloat ::=
+             (intpart | pointfloat)
+              exponent
+
+intpart ::=
+             digit+
+
+fraction ::=
+             "." digit+
+
+exponent ::=
+             ("e" | "E") ["+" | "-"] digit+
+
+        </pre>
+      
+        <h4>C) Nombres complexes</h4>
+
+        <p>Il suffit d’utiliser le suffixe J (casse indifférente) pour indiquer une partie imaginaire. L’addition d’une partie réelle et imaginaire permet d’exprimer un nombre complexe.</p>
+
+        <p>Exemples : 3+2j, 3-2j</p>
+
+        <p>Règles de grammaire associée :</p>
+        <pre class="code">
+imagnumber ::= (floatnumber | intpart) ("j" | "J")
+        </pre>
+
+        <h4>D) Booléens</h4>
+
+        <p>Il n’y a que deux valeurs.</p>
+
+        <p>Exemples : True, False</p>
+
+        <h4>E) Règles de grammaire associées aux littéraux</h4>
+        <pre class="code">
+atom ::=
+             identifier | literal | enclosure
+
+literal ::=
+             stringliteral | integer | longinteger
+                | floatnumber | imagnumber
+
+        </pre>
+
+        <h3>Séquences Immutables</h3>
+        <ul>
+          <li>str   ’Hello’ | « Hello »    immutable séquence de caractère</li>
+          <li>unicode  u’Hello’ | u »Hello »    immutable séquence de caractère</li>
+          <li>tuple  (4.0, ‘a’, ‘b’) | (3,)   immutable, on peut mixé les types</li>
+          <li>frozenset frozenset([4.0, 'a', True])  immutable, sans ordre, sans doublon</li>
+        </ul>
+
+        <h3>Séquences Mutables</h3>
+        <ul>
+          <li>list  [1, 'a', True]     mutable, on peut mixer les types</li>
+          <li>dict  {‘key1' : 1.0, ‘key2' : False} paire clé / valeur</li>
+          <li>set   set([4.0, 'a', True])   mutable, sans ordre, sans doublon</li>
+        </ul>
+
+        <h3>Autres</h3>
+        <ul>
+          <li>NoneType  None</li>
+        </ul>
+
+        <h2>IV. Fonctions</h2>
+        <pre class="code">
+def Nom ( arg1, arg2, ... ) :
+   action
+return var1, var2, ...
+        </pre>
+
+        <p>Si il n’y a pas de return, None est renvoyé. (!= Ruby)</p>
+      
+        <p>Même si il n’y pas d’arguments, les parenthères sont obligatoires, dans la définition et l’appel. (!= Ruby)</p>
+
+        <h2>V. Programmation Objet</h2>
+
+        <p>Classe & objets</p>
+        <pre class="code">
+class Nom(ClasseMère) :
+ action
+        </pre>
+
+        <p>Méthodes & instances</p>
+        <ul>
+          <li>Encapsulation</li>
+          <li>Polymorphisme</li>
+          <li>Héritage simple</li>
+          <li>Héritage multiple</li>
+        </ul>
+
+        <p>Propriétés</p>
+        <p>http://adam.gomaa.us/blog/2008/aug/11/the-python-property-builtin/</p>
+
+        <p>On peut faire des properties en Python, à la manière de Ruby :</p>
+        <pre class="code">
+class Pipo(object):
+	...
+    myProp = property(getter, setter, deleter, doc)
+        </pre>
+
+        <p>où chacun des éléments est une fonction. ActiveState a pondu un truc infâme pour éviter d’encombrer l’espace de nom de la classe des fonctions de getter/setter/etc. :</p>
+        <pre class="code">
+    def Property(func)
+      return property(**func())
+    class Person(object):
+      @Property
+      def name():
+          doc = "The person's name"
+          def fget(self):
+              return "%s %s" % (self.first_name, self.last_name)
+          def fset(self, name):
+              self.first_name, self.last_name = name.split()
+          def fdel(self):
+              del self.first_name
+              del self.last_name
+          return locals()
+        </pre>
+
+        <p>Abstract</p>
+
+        <p>http://docs.python.org/dev/library/abc.html#module-abc</p>
+
+        <h2>VI. Les Modules</h2>
+
+        <p>Principes</p>
+        <ul>
+          <li>Module re : expressions régulières</li>
+          <li>Module os,sys : services du systèmes d’exploitation</li>
+          <li>Module csv : traitement de fichiers structurés par séparateurs</li>
+        </ul>
+
+        <h2>VII. Python et le Web : Introduction à Zope</h2>
+        <ul>
+          <li>Architecture générale : mécanisme de publication</li>
+          <li>Interaction DHTML-Python : Exemples</li>
+          <li>Notes diverses</li>
+        </ul>
+
+        <p>Un bon « duck programmer » utilisera hasattr() plutôt que type() ou isinstance()
+      http://en.wikipedia.org/wiki/Category:Type_theory</p>
+
+      </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    
+  </body>
+</html>

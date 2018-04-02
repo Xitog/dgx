@@ -1,0 +1,41 @@
+        body            { font-family: "Palatino Linotype"; font-size: 14px; color: DarkSlateGray; background-color: #EFEFEF; }
+
+        a               { color: DarkGoldenRod; }
+        a:hover         { color: White; background-color: DarkGoldenRod; }
+        a.d, a.d:hover, a.d:active, a.d:focus, a.d:visited { 
+            border: none; outline: none; font-weight: bold; 
+            color: SeaGreen; background-color: white;
+            cursor: default; text-decoration: none; 
+        }
+                        
+        h1              { color: SeaGreen; font-size: 64px; font-weight: normal; margin: 0; padding-left: 7px; text-align: left; 
+                            text-shadow: 0.09em 0.09em 0.1em DarkGrey; }
+        h2              { font-size: 14px; color: SeaGreen; margin-top: 45px; }
+        h2.horstexte    { font-size: 14px; color: SeaGreen; margin-top: 25px; }
+        h3              { font-size: 14px; color: DarkSlateGray; }
+        h4              { font-size: 14px; color: DarkGray; }
+
+        table           { border: 1px solid DarkSlateGray; margin-left:auto; margin-right:auto;}
+        th              { border: 1px solid DarkSlateGray; background-color: SeaGreen; color: White; }
+        tr              { border: 1px solid DarkSlateGray; text-align: center;}
+        tr:nth-child(even) { background-color: rgb(210, 210, 210); }
+
+        table.inv       { border: none; width: 100%; text-align: left; }
+        table.inv tr    { border: none; text-align: left; }
+        table.inv td    { border: none; }
+
+        div.menu        { border-top: 1px solid SeaGreen; text-align: center; padding-top: 3px; padding-bottom: 3px; margin: 0; font-size: 15px; 
+                            border-bottom: 1px solid SeaGreen; }
+        div.partie      { border: 1px solid SeaGreen; text-align: left; font-size: 18px; color: SeaGreen; padding: 20px 10px 20px 10px; 
+                            margin-top: 20px;}
+        div.wrapper     { border: 1px solid SeaGreen; width: 80%; margin: auto; border-radius: 25px; padding: 0;
+                            -moz-border-radius: 25p; -webkit-border-radius: 25px; -o-border-radius: 25px; background-color: #FEFEFE; }
+        div.content     { margin: 0; padding: 0; padding-left: 5px; padding-right: 5px; }
+        
+        p.info          { color: #778899; font-family: consolas; text-align: right; width: 100%;}
+        
+        header          { padding-left: 3px; padding-right: 3px; }
+
+        span.index      { color: purple; text-decoration: underline; }
+        span.typ        { color: darkorange; }
+        span.term       { color: SeaGreen; }

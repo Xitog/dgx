@@ -1,0 +1,1987 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="ruby, langage, programmation, cours, damien gouteux">
+    <meta name="description" content="Documentation sur Ruby par Damien Gouteux">
+
+    <link rel="shortcut icon" href="favicon.ico" >
+    <link rel="icon" type="image/gif" href="favicon.ico" >
+
+    <link href="http://damien.gouteux.free.fr/css/simplex.bootstrap.css" rel="stylesheet" type="text/css">
+    
+    <title>Ruby</title>
+    
+    <style type="text/css">
+        body            { font-family: "Palatino Linotype"; font-size: 14px; color: DarkSlateGray; background-color: #EFEFEF; }
+
+        a               { color: DarkGoldenRod; }
+        a:hover         { color: White; background-color: DarkGoldenRod; }
+        
+        a.d, a.d:hover, a.d:active, a.d:focus, a.d:visited { border: none; outline: none; font-weight: bold; color: SeaGreen; background-color: white;
+                        cursor: default; text-decoration: none; }
+
+        h1              { color: SeaGreen; font-size: 64px; font-weight: normal; margin: 0; padding-left: 7px; text-align: left; 
+                            text-shadow: 0.09em 0.09em 0.1em DarkGrey; }
+        h2              { font-size: 14px; color: SeaGreen; margin-top: 45px; }
+        h2.horstexte    { font-size: 14px; color: SeaGreen; margin-top: 25px; }
+        h3              { font-size: 14px; color: DarkSlateGray; }
+        h4              { font-size: 14px; color: DarkGray; }
+
+        table           { border: 1px solid DarkSlateGray; margin-left:auto; margin-right:auto;}
+        th              { border: 1px solid DarkSlateGray; background-color: SeaGreen; color: White; }
+        tr              { border: 1px solid DarkSlateGray; text-align: center;}
+        tr:nth-child(even) { background-color: rgb(210, 210, 210); }
+
+        table.inv       { border: none; width: 100%; text-align: left; }
+        table.inv tr    { border: none; text-align: left; }
+        table.inv td    { border: none; }
+
+        div.menu        { border-top: 1px solid SeaGreen; text-align: center; padding-top: 3px; padding-bottom: 3px; margin: 0; font-size: 15px; 
+                            border-bottom: 1px solid SeaGreen; }
+        div.partie      { border: 1px solid SeaGreen; text-align: left; font-size: 18px; color: SeaGreen; padding: 20px 10px 20px 10px; 
+                            margin-top: 20px;}
+        div.wrapper     { border: 1px solid SeaGreen; width: 80%; margin: auto; border-radius: 25px; padding: 0;
+	                        -moz-border-radius: 25p; -webkit-border-radius: 25px; -o-border-radius: 25px; background-color: #FEFEFE; }
+        div.content     { margin: 0; padding: 0; padding-left: 5px; padding-right: 5px; }
+        
+        p.info          { color: #778899; font-family: consolas; text-align: right; width: 100%;}
+        
+        header          { padding-left: 3px; padding-right: 3px; }
+
+        p.code          { font-family: Consolas, monaco, monospace; background: #fcf6ea; padding-left: 6px; }
+        
+        span.code       { font-family: Consolas, monaco, monospace; }
+        span.s          { font-family: Consolas, monaco, monospace; color: brown; }
+        span.c          { font-family: Consolas, monaco, monospace; color: grey; font-style:italic; } 
+        span.k          { font-family: Consolas, monaco, monospace; color: orange; }
+        span.i          { font-family: Consolas, monaco, monospace; color: #550000; }
+        span.r          { font-family: Consolas, monaco, monospace; color: purple; }
+        
+        span.index      { color: purple; text-decoration: underline; }
+
+    </style>
+</head>
+<div id="main" class="container">
+    
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+             <a class="navbar-brand" href="#">Menu</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li id="Accueil"><a href="http://damien.gouteux.free.fr/index.html">Accueil</a></li>
+              <li id="Blog"><a href="#blog" onclick="view_one_entry(0);">Blog</a></li>
+              <li class="dropdown">
+                <a id="Langues" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Langues <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                <li class="dropdown-header">Français</li>
+                  <li><a href="http://damien.gouteux.free.fr/francais/fiche_api_fr.html">Sons du français</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Italien</li>
+                  <li><a href="http://damien.gouteux.free.fr/italien/beatrice.html">Beatrice : grammaire</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/italien/jeux.html">Jeux</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Informatique" href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-expanded="false">Informatique <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Python</li>
+                  <li><a href="http://damien.gouteux.free.fr/python/aide_python.html">Aide-mémoire</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Ruby</li>
+                  <li><a href="http://damien.gouteux.free.fr/ruby/guide_ruby.html" class="active">Guide</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/ruby/aide_ruby.html">Aide-mémoire</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Lua</li>
+                  <li><a href="http://damien.gouteux.free.fr/lua/aide_lua.html">Aide-mémoire</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Selene <i>(mon langage)</i></li>
+                  <li><a href="http://damien.gouteux.free.fr/selene/guide_selene">Guide</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Modélisation</li>
+                  <li><a href="#" class="dead">Tutoriel sur XCore</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/model/json.html">Fiche sur JSON</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Histoire" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Histoire <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Méthode</li>
+                  <li><a href="http://damien.gouteux.free.fr/histoire/methode.html">Généralités</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/histoire/bibliographie.html">Bibliographie</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Aide-mémoires</li>
+                  <li><a href="http://damien.gouteux.free.fr/histoire/france19eme.html">France au XIXe</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Jeux" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Jeux <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Terres sauvages <i>(mon jdr)</i></li>
+                  <li><a href="#" class="dead">Règles de jeu de rôles</a></li>
+                  <li><a href="#" class="dead">Univers de jeu</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Livres dont VOUS êtes le héros</li>
+                  <li><a href="http://damien.gouteux.free.fr/jeux/doc_talisman.html">Le Compagnon du Talisman</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Jeux vidéo</li>
+                  <li><a href="#" class="dead">Guide des STR</a></li>
+                  <li><a href="#" class="dead">Projet de STR</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Autres" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Autres <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Collections</li>
+                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#prenoms">Prénoms</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#langages">Langages</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#favoris_artistiques">Favoris artistiques</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+      
+<div class="wrapper">
+<header>
+    <h1>Ruby</h1>
+    <p class="info">Introduction au langage de programmation Ruby<br>Damien Gouteux, 2012. Version Alpha 05</p>
+</header>
+<div class="menu"><a href="http://ran.alwaysdata.net/">Ran</a> | <a href="http://ran.alwaysdata.net/beatrice/index.html">Beatrice</a> | <a href="http://ran.alwaysdata.net/cristina/index.html">Cristina</a> | <a class="d" href="http://ran.alwaysdata.net/ruby/index.html">Ruby</a></div>
+<div class="content">
+
+<h2 class="horstexte">Avant-propos</h2>
+
+<table class="inv">
+  <tr>
+    <td>
+    
+<p>Cette page est un condensé de notes sur le langage de programmation Ruby, découvert en 2006 par le livre "Ruby in a nutschell", écrit par Yukihiro Matsumoto (Matz) le créateur du langage.</p>
+
+<p>Ruby est un langage orienté objet de façon très poussé, agréable à utiliser et plus bien pourvu en bibliothèques. Venant du Japon, il a mis un peu de temps à percer dans le reste du monde avant le grand boom dû à sa bibliothèque phare pour développer rapidement des applications web : <i>Ruby On Rails</i> ou RoR. De nos jours, la fièvre sur RoR est un peu retombée, notamment car des bibliothèques pour d'autres langages ont copié ses apports. Il n'en reste pas moins que les qualités propres à Ruby sont toujours là, et si vous venez de C#, Java, Python ou PHP, pour votre culture informatique ou bien par simple curiosité, Ruby a de belles choses à offrir.</p>
+
+<p>Vous pouvez me contacter à damien POINT gouteux AROBASE gmail.com, en remplaçant les mots en majuscule par le symbole correspondant. Bonne lecture et merci pour votre temps, la chose la plus précieuse de l'univers.</p>
+
+<p>Damien Gouteux, Toulouse, le 7 avril 2012.</p>
+
+<p>P.S. : cette page ne contient pas de pubs, surfez tranquille !</p>
+
+    </td>
+    <td align="right">
+      <a href="http://fr.wikipedia.org/wiki/Rubis"><img src="http://upload.wikimedia.org/wikipedia/commons/0/0d/Ruby_cristal.jpg" width="300" height="481" alt="Cristal de Rubis"/></a>
+    </td>
+  </tr>
+</table>
+
+<h2 class="horstexte" id="sommaire">Sommaire</h2>
+
+<ol type="I">
+  <li>Introduction</li>
+  <li><b>Mise en route et rappels</b>
+    <ol>
+      <li><a href="#installation">Installation</a></li>
+      <li><a href="#organisation">Organisation d'un programme Ruby</a>
+        <ol type="i">
+          <li><a href="#commentaires">Commentaires</a></li>
+          <li><a href="#litteraux">Littéraux</a></li>
+          <li><a href="#variables">Variables</a></li>
+          <li><a href="#constantes">Constantes</a></li>
+          <li><a href="#symboles">Symboles</a></li>
+          <li><a href="#methodes">Méthodes</a></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li><b>Le langage Ruby</b>
+    <ol>
+      <li><a href="#types">Types de base</a>
+        <ol type="i">
+          <li><a href="#types1">Tableau résumé des types principaux</a></li>
+          <li><a href="#nil">La valeur nulle</a></li>
+          <li><a href="#num_string">Nombres et chaînes de caractères</a></li>
+          <li><a href="#bool">Booléens</a></li>
+          <li><a href="#list">Listes</a></li>
+          <li><a href="#dict">Dictionnaires</a></li>
+        </ol>
+      </li>
+      <li><a href="#operateurs">Opérateurs</a>
+        <ol type="i">
+          <li><a href="#priorites">Priorités</a></li>
+          <li><a href="#affectation">Affectation</a></li>
+          <li><a href="#conversion">Conversion</a></li>
+        </ol>
+      </li>
+      <li><a href="#flux">Contrôle de flux</a>
+        <ol type="i">
+          <li><a href="#sequence">Séquence</a></li>
+          <li><a href="#selection">Sélection</a></li>
+          <li><a href="#iteration">Itération</a></li>
+          <li><a href="#blocs">Blocs</a></li>
+        </ol>
+      </li>
+      <li><a href="#methodes2">Méthodes</a>
+        <ol type="i">
+          <li><a href="#appel">Appels de méthodes</a></li>
+          <li><a href="#definition">Définition de méthodes</a></li>
+          <li><a href="#parametres">Paramètres de méthodes</a></li>
+        </ol>
+      </li>
+      <li><a href="#oo">Classes et objets</a>
+        <ol type="i">
+          <li><a href="#oo1">Premiers pas dans l'orienté objet</a></li>
+          <li><a href="#methodes3">Les méthodes dans l'OO</a></li>
+          <li><a href="#heritage">L'héritage</a></li>
+          <li><a href="#encapsulation">L’encapsulation</a></li>
+        </ol>
+      </li>
+      <li><a href="#modules">Modularité</a></li>
+      <li><a href="#exceptions">Gestions des exceptions</a></li>
+    </ol>
+  </li>
+  <li><b>Les bibliothèques</b>
+    <ol>
+      <li><a href="#bib_noyau">Bibliothèque du noyau</a>
+        <ol type="i">
+            <li><a href="#object">Classe Object</a></li>
+            <li><a href="#int">Classes Fixnum et Bignum</a></li>
+            <li><a href="#float">Classe Float</a></li>
+            <li><a href="#string">Classe String</a></li>
+            <li><a href="#range">Classe Range</a></li>
+            <li><a href="#regex">Classe Regexp</a></li>
+        </ol>
+      </li>
+      <li><a href="#bib_standard">Bibliothèque standard</a></li>
+      <li><a href="#bib_external">Bibliothèques externes</a></li>
+    </ol>
+  </li>
+  <li><b>Annexes</b>
+    <ol>
+      <li><a href="#astuces">Astuces</a></li>
+      <li><a href="#biblio">Bibliographie</a></li>
+      <li><a href="#liens">Liens</a></li>
+      <li><a href="#resume">Résumé</a></li>
+      <li><a href="#index">Index</a></li>
+      <li><a href="#historique">Historique du document</a></li>
+    </ol>
+  </li>
+</ol>
+
+<h2 class="horstexte">Introduction</h2>
+
+<p><a href="http://fr.wikipedia.org/wiki/Ruby">Ruby</a> est un langage de script : interprété et de haut niveau. Il est orienté objet (TOUT est objet) et dispose d’une bibliothèque importante de classes prédéfinies. Il est disponible sous les termes de la licence GNU GPL et de la licence Ruby, et fonctionne sur la plupart des plates-formes du marché (notamment Mac OS X, Windows, Linux et Unix).</p>
+
+<p>Ruby a été créé au Japon par Yukihiro Matsumoto, connu sous le pseudonyme "Matz". Il commença à travailler dessus en 1993, et la première version sortit en 1995. Par tradition, les nouvelles versions du langage sortent aux environs de Noël (peut être parce que Matz est d'obédience chrétienne ?). La dernier version stable a été publiée le 30 octobre 2011, il s'agit de la 1.9.3. Le nom Ruby vient en référence à Perl, un langage de script plus vieux dont Ruby se veut le "successeur". Le livre de référence (en anglais), de Dave Thomas et Andrew Hunt, <i>Programming Ruby</i>, est surnommé le Pickaxe en référence à sa couverture (une pioche).</p>
+
+<p>En plus de Perl, Ruby est assez proche du langage Python. La motivation première pour la création de Ruby était d'apporter l'orienté objet aux langages de script, ce qu'aucun des deux langages ne faisaient à l'époque. Bien qu'au fil des ans, ces deux langages aient évolué pour permettre aux programmeurs l'accès à ce paradigme, Ruby est le seul à avoir été pensé dès le début dans cette optique. Cela lui donne une cohérence, une élégance et une puissance plus grande car il n'a pas à garder un encombrant héritage non-objet. La syntaxe quand à elle, a des parentés avec Eiffel et Ada, en en supprimant toutefois la complexité et la verbosité. Quand au paradigme objet en lui même, son implémentation se rapproche beaucoup du langage précurseur Smalltalk.</p>
+
+<p>L'interpréteur officiel de Ruby est écrit en C. D'autres interpréteurs existent, à destination de la JVM (JRuby), de la CLR (IronRuby), et de Parrot (Cardinal). Il existe également Rubinius, une machine virtuelle elle-même implémentée en Ruby, semblable au projet PyPY pour Python. Depuis le 1er janvier 2007, l'interpréteur officiel est basé sur le projet YARV, apportant un gain notable de performance, longtemps le talon d'Achille de Ruby.</p>
+
+<p>Ruby se présente sous la forme d'un interpréteur en ligne de commande, nommé irb, pour Interactive Ruby, permettant d'évaluer rapidement quelques lignes de code, ou bien d'un interpréteur nommé ruby, auquel on va passer le script, stocké dans un fichier avec l'extension <i>.rb</i>, à interpréter. Ruby est supporté par <a href="http://netbeans.org/features/ruby/index.html">Netbeans</a> et <a href="http://www.ibm.com/developerworks/opensource/library/os-rubyeclipse/">Eclipse</a>, ainsi que par un IDE dédié: <a href="http://www.jetbrains.com/ruby/">RubyMine</a>. De nombreux éditeurs de texte, comme <a href="http://notepad-plus-plus.org/fr/">Notepad++</a> sous windows, offre la coloration syntaxique des fichiers en Ruby.</p>
+
+<!------------------------------------------------ PREMIERE PARTIE ---------------------------------------------------->
+
+<div class="partie">Première partie : Mise en route et rappels</div>
+
+<!------------------------------------------------ I. INSTALLATION  --------------------------------------------------->
+
+<h2 id="installation">Installation</h2>
+<a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<p>Pour l'installer allez sur le site de <a href="http://www.ruby-lang.org/fr/"">Ruby</a>, rubrique <a href="http://www.ruby-lang.org/fr/downloads/">Téléchargements</a>. Il est préférable pour Windows de choisir le <a href="http://rubyinstaller.org/">RubyInstaller</a>, qui est un installateur facile d'usage et qui apporte, en sus de Ruby, de nombreuses bibliothèques intéressantes.</p>
+
+<p>Si votre système Linux le supporte, vous pouvez faire <span class="code">sudo apt-get install ruby</span>.</p>
+
+<p>Sur Mac OS X, il vaut mieux passer par le site <a href="http://www.macruby.org/">MacRuby</a> qui offre une très bonne implémentation de Ruby.</p>
+
+<p>Irb est une console Ruby où on peut taper directement du code Ruby qui est exécuté de manière directe et immédiate. Très pratique pour expérimenter rapidement, il suffit d'ouvrir une console (en appuyant simultanément sur les touches windows et R sous Windows, ou avec un terminal sous Linux et Mac OS) et de taper <span class="code">irb</span> dans celle-ci pour que l'interpréteur interactif se lance. Si vous avez des problèmes pour taper les caractères { et } qui ne s’affichent pas, au lieu de <span class="code">irb</span>, entrez <span class="code">irb --noreadline</span> pour résoudre ce problème.</p>
+
+<p>Vous pouvez également utiliser irb sur Internet, sans aucune installation sur votre machine à <a href="http://tryruby.org/levels/1/challenges/0">cette adresse</a>.</p>
+
+<p>Pour faire votre premier programme, ouvrez irb et faites :</p>
+
+<p class="code">
+    puts <span class="s">"Hello World!"</span> <span class="c"># Affiche Hello World!</span><br>
+</p>
+
+<p>Et voilà ! Vous êtes à présent un Nuby (un newbie en Ruby).</p>
+
+<h2 id="organisation">Organisation d'un programme Ruby</h2>
+<a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<p>En Ruby, le code d'un programme est une suite d'expressions. Une expression peut être un calcul simple comme <span class="code">5 + 2</span>, ou bien une instruction de sélection comme <span class="k">if</span> ou <span class="k">while</span>. Chaque expression est séparée par un retour à la ligne ou bien un point-virgule.</p>
+
+<p class="code">
+    puts <span class="s">"hello"</span><br>
+    puts <span class="s">"world!"</span><br>
+    <span class="c"># Est équivalent à :</span><br>
+    puts <span class="s">"hello"</span>; puts <span class="s">"world!"</span><br>
+</p>
+
+<p>Il est important de bien voir qu'en Ruby, toute instruction est une expression, c'est à dire est évaluée et à une valeur, même si cette valeur est nulle.</p>
+
+<p>Une autre forme d'expression possible est l'appel à une méthode avec des arguments. Le premier exemple montre cela : <span class="code">puts</span> est la méthode du noyau de Ruby qui affiche un objet, passé en argument, sur la sortie standard et saute à la ligne suivante. On peut entourer le paramètre de parenthèse. <span class="code">print</span> est une autre méthode qui fait la même chose mais sans passer à la ligne suivante. Toutes les expressions suivantes sont équivalentes, sachant que le caractère <b>\n</b> symbolise un saut de ligne.</p>
+
+<p class="code">
+    print <span class="s">"Hello World!\n"</span><br>
+    print (<span class="s">"Hello World!\n"</span>)<br>
+    puts <span class="s">"Hello World!"</span><br>
+    puts (<span class="s">"Hello World!"</span>)<br>
+</p>
+
+<p>Normalement, les expressions sont évaluées à les unes à la suite des autres, en partant de la première venant dans le fichier contenant le programme. Mais Ruby permet aussi de préciser un code à exécuter au début du programme avec les blocs <span class="k">BEGIN</span><span class="code"> {... }</span> et à la fin <span class="k">END</span><span class="code"> { ...}</span>.</p>
+
+<p>Le code suivant affichera Hello World! sur deux lignes :</p>
+
+<p class="code">
+    puts <span class="s">'World!'</span><br>
+    <span class="k">BEGIN</span> {<br>
+    &nbsp;&nbsp;puts <span class="s">'Hello'</span><br>
+    }<br>
+</p>
+
+<h3 id="commentaires">Commentaires</h3>
+
+<p>Un commentaire est une information laissée dans le code source par un programmeur. Un commentaire apporte une information utile qui aide à comprendre ce que fait le code ou pourquoi il le fait ainsi. Un commentaire commence par un <span class="c">#</span> et se poursuit jusqu'à la fin de la ligne.</p>
+
+<p class="code">
+    <span class="c"># commentaire jusqu'à la fin de la ligne</span><br>
+</p>
+
+<h3 id="litteraux">Littéraux</h3>
+
+<p>Un littéral est une valeur écrite "en dur" dans le code. Dans l'expression <span class="code">5 + 2</span>, 5 et 2 sont des valeurs entières écrites en dur, donc des littéraux. On peut ainsi écrire des types simples : nombres entiers <span class="i">5</span>, réels <span class="i">2.3</span> ; ou bien plus complexes : chaînes de caractères <span class="s">"hello"</span>, listes <span class="code">[ 1, 2, 3 ]</span>, etc.</p>
+
+<h3 id="variables">Variables</h3>
+
+<p>Une variable est un concept qui se décompose de deux éléments : un <span class="index">identificateur</span> et une <span class="index">valeur</span> que l'identificateur désigne. Voici deux exemples de déclaration de variables, <span class="code">nom</span> et <span class="code">chiffre</span>.</p>
+
+<p class="code">
+    nom = <span class="s">'bonjour'</span><br>
+    chiffre = <span class="i">5</span><br>
+</p>
+
+<p>Lorsque l'on déclare une variable, on doit spécifier sa valeur, via l'opérateur d'affectation. La première reçoit une valeur qui est la chaîne de caractère <span class="s">'bonjour'</span> et la seconde l'entier <span class="i">5</span>. La valeur de la variable est toujours typée, on peut accéder à son type en utilisant la méthode <span class="code">class</span> (on voit ici une nouvelle manière d'appeler une méthode, en l'associant à un objet via l'opérateur <b>.</b>).</p>
+
+<p class="code">
+    puts nom.class &nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># Affiche String, c'est à dire une chaîne de caractère</span><br>
+    puts chiffre.class <span class="c"># Affiche Fixnum, c'est à dire un entier</span><br>
+</p>
+
+<p>Au cours de l'exécution du programme, une variable peut changer de valeur, à nouveau en utilisant l'opérateur d'affectation. L'identificateur désignera alors la nouvelle valeur qui peut être d'un type différent que la précédente valeur.</p>
+
+<p class="code">
+    nom = 5 &nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># La variable nom contient un entier</span><br>
+    nom = 'abc' <span class="c"># La variable nom contient à présent une chaîne</span><br>
+</p>
+
+<p>En Ruby, tous les éléments manipulés sont des objets. Les littéraux <span class="i">5</span> et <span class="s">'bonjour'</span> sont des objets, ainsi que les variables <span class="code">nom</span> et <span class="code">chiffre</span>. Voici un exemple utilisant l'affectation entre deux variables (et non d'un plus l'affectation d'un littéral à une variable) :</p>
+
+<p class="code">
+    a = <span class="i">5</span><br>
+    b = a<br>
+    a = <span class="i">7</span><br>
+    puts a <span class="c"># Affiche 7</span><br>
+    puts b <span class="c"># Affiche 5</span><br>
+</p>
+
+<p>Nous avons ici deux variables, <span class="code">a</span> et <span class="code">b</span>. <span class="code">a</span> référence la valeur 5. Puis <span class="code">a</span> et affecté à <span class="code">b</span>. <span class="code">a</span> et <span class="code">b</span> désigne donc la même valeur à ce moment là, <span class="i">5</span>. Puis on assigne à la variable <span class="code">a</span> une nouvelle valeur, <span class="i">7</span>. Que désignera <span class="code">b</span> dans ce cas ? Et bien toujours <span class="code">5</span> ! Il faut penser l'opérateur d'affectation comme la création d'un lien entre l'identificateur et la valeur, qui change donc le contenu de la variable, et bien voir que deux variables peuvent partager la même valeur. Voici un autre exemple :</p>
+
+<p class="code">
+    a = <span class="s">"abc"</span><br>
+    b = a<br>
+    a.capitalize!<br>
+    puts a <span class="c"># Affiche Abc</span><br>
+    puts b <span class="c"># Affiche Abc</span><br>
+</p>
+
+<p>Ici, <span class="code">b = a</span> effectue la copie de la référence, c'est à dire que b et a désigne le même objet, <span class="s">"abc"</span>. On modifie l'objet via l'appel de la méthode <span class="code">capitalize!</span> en passant par l'identificateur a. Mais b désignant le même objet, donc quand on cherche à afficher la valeur de b, on a exactement la même que celle de a, celle qui a été modifiée par l'appel de la méthode.</p>
+
+<p>On remarquera qui si une variable peut se trouver à gauche ou à droite de l'opérateur d'affectation <b>=</b>, un littéral ne peut être qu'à droite.</p>
+
+<p>Pour savoir si une variable est définie, on utilisera la méthode <span class="code">defined?</span> avec la variable en argument.</p>
+
+<p class="code">
+    a = 5 <br>
+    defined? a <span class="c"># Retourne "local-variable".</span><br>
+    defined? b <span class="c"># Retourne la valeur nulle, nil</span><br>
+</p>
+
+<p>Les variables ont une <span class="index">portée</span> et une <span class="index">visibilité</span>. La portée est jusqu'où dans le code la variable vivra avant d'être détruite, alors que la visibilité est sa capacité à être vue. Voici un exemple concret utilisant la définition d'une méthode :</p>
+
+<p class="code">
+    b = 22
+    <span class="k">def</span> hello<br>
+    &nbsp;&nbsp;<span class="c">Ici b n'est pas visible !</span><br>
+    &nbsp;&nbsp;a = 5<br>
+    <span class="k">end</span><br>
+    hello &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># On exécute la méthode hello</span><br>
+    defined? a <span class="c"># Retourne nil : a n'est pas défini ici</span><br>
+</p>
+
+<p>Le code de la méthode hello définit une variable a. Sa portée et sa visibilité sont limitées à la méthode elle-même. Une fois celle-ci exécutée, la variable a est détruite. On parle de contexte d'évaluation : c'est à dire dans le contexte de la fonction hello, <span class="code">a</span> est définie et a pour valeur 5, alors qu'ailleurs, elle n'existe pas. Chaque fonction, chaque bloc et chaque boucle a un contexte spécifique en Ruby, c'est à dire que les variables définies à l'intérieur ne seront pas connues du reste du programme.</p>
+
+<p>Il existe des variables, appelées variables globales, qui peuvent être vues depuis n'importe où dans le code et qui ne seront détruire qu'à la fin du programme. Les variables globales commencent par un <b>$</b> et retournent <span class="k">nil</span> si on essaye d'y accéder avant de les avoir initialiser (alors que pour les variables  normales, cela soulève une erreur). Plusieurs sont prédéfinies et accessibles et on peut déclarer les nôtres mais il ne faut pas en abuser :</p>
+
+<p class="code">
+    $0 <span class="c"># Retourne le nom du script lancé ou "irb" si on l'utilise</span><br>
+    <br>
+    $b = <span class="i">22</span><br>
+    <span class="k">def</span> hello<br>
+    &nbsp;&nbsp;<span class="c">Ici $b est visible car globale !</span><br>
+    &nbsp;&nbsp;a = $b<br>
+    <span class="k">end</span><br>
+    hello &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># On exécute la méthode hello</span><br>
+</p>
+
+<p>Par convention, on écrit les noms de variables en minuscules, et si le nom est composé de plusieurs mots, on les sépare par des soulignés ou tirets bas (<b>_</b>).</p>
+
+<h3 id="constantes">Constantes</h3>
+
+<p>Une constante est une variable spéciale dont le lien entre son identificateur et la valeur ne peut changer. C'est à dire une fois le lien formé, il ne doit pas être défait. En Ruby, une constante est indiquée par le premier caractère de son identificateur en majuscule. L'identificateur peut être entièrement en majuscule pour faciliter son repérage dans le code. Tenter de changer une constante aboutira à un avertissement en Ruby, mais le changement sera tout de même effectué.</p>
+
+<p class="code">
+    A = <span class="s">"abc"</span><br>
+    A = <span class="s">"def"</span> <span class="c"># Déclenche un avertissement.</span><br>
+</p>
+
+<p>Il y a trois conceptions de la constance possibles : la première, c'est la constance du lien identificateur-valeur, c'est cette conception que Ruby implémente. La seconde c'est la constance de la valeur elle-même : c'est l'impossibilité de changer la valeur. En Ruby, on peut changer la valeur d'une constante.</p>
+
+<p class="code">
+    A = <span class="s">"abc"</span><br>
+    A.capitalize! <span class="c"># La valeur de A est maintenant Abc.</span><br>
+</p>
+
+<p>Pour avoir cette constance de valeur, on utilisera la méthode <span class="code">freeze</span>. Une fois gelée, la valeur ne pourra plus être modifiée.</p>
+
+<p class="code">
+    A = <span class="s">"abc"</span><br>
+    A.freeze<br>
+    A.capitalize! <span class="c"># Impossible ! Cela déclenche une erreur.</span><br>
+</p>
+
+<p>Une dernière forme de constance est la constance de type. C'est à dire qu'un identificateur donné ne peut référencer que des valeurs de même type. En Ruby, c'est le lien identificateur-valeur qui est constant, donc la constance de type est achevée dans ce sens. Les variables, elles, peuvent successivement prendre n'importe quelle valeur de n'importe quelle type.</p>
+
+<p class="code">
+    a = <span class="s">"abc"</span><br>
+    a.class <span class="c"># Retourne String</span><br>
+    a = <span class="i">5</span><br>
+    a.class <span class="c"># Retourne Fixnum</span><br>
+</p>
+
+<p>Pour savoir de quel type est une variable ou une constante, on peut passer par la méthode <span class="code">class</span> que nous avons vu précédemment, qui retourne son type, ou bien la méthode <span class="code">instance_of?</span> qui renvoit vrai si la variable est du type passé en paramètre.</p>
+
+<p class="code">
+    a = <span class="s">"abc"</span><br>
+    a.instance_of? String <span class="c"># Retourne true</span><br>
+    a = <span class="i">5</span><br>
+    a.instance_of? Fixnum <span class="c"># Retourne Fixnum</span><br>
+</p>
+
+<p>Les constantes ont une visibilité globale par défaut, il ne faut donc pas mettre de <b>$</b> au début d'une constante.</p>
+
+<h3 id="symboles">Symboles</h3>
+
+<p>Le symbole est un moyen de considérer l'identificateur seul, sans la valeur qui lui est attaché.</p>
+
+<p class="code">
+    :a.class <span class="c"># Retourne Symbol</span>
+</p>
+
+<h3 id="methodes">Méthodes</h3>
+
+<p>Une méthode (ou fonction, ou sous-programme) est une partie de code qui n'est pas exécuté de suite, mais peut être exécuté à n'importe quel moment en exécutant la méthode, on parle alors d'appel de la méthode. Pour utiliser une méthode, il y a donc deux phases : la définition de celle-ci, puis son appel. Reprenons l'exemple précédent :</p>
+
+<p class="code">
+    <span class="k">def</span> hello<br>
+    &nbsp;&nbsp;a = <span class="i">5</span><br>
+    <span class="k">end</span><br>
+    hello <span class="c"># On exécute la méthode hello</span><br>
+    defined? a <span class="c"># Retourne nil : a n'est pas défini ici.</span><br>
+</p>
+
+<p>Cette méthode s'appelle <span class="code">hello</span>. Lorsque elle est appelée, son code est exécuté un résultat est toujours renvoyé. Ici, ce sera le résultat de la dernière expression évaluée, qui est <span class="code">a = </span><span class="i">5</span>, donc 5.</p>
+
+<p>Une méthode est en fait, comme les constantes, un genre de variable particulier. On a bien un identificateur, <span class="code">hello</span>, et sa valeur qui est le code.</p>
+
+<p>On peut créer un alias pour une méthode, c'est à dire un deuxième identificateur qui renverra à la même valeur.</p>
+
+<p class="code">
+    <span class="k">alias</span> :bonjour :hello<br>
+    bonjour <span class="c"># On exécute la méthode hello via l'identificateur bonjour</span><br>
+</p>
+
+<p>On a vu également un autre moyen d'appeler une méthode : la syntaxe <span class="code">objet.méthode(paramètres)</span>. On dit que le message <span class="code">méthode</span> est passé l'objet. En fait, ce moyen est le seul. Lorsque nous appelons dans notre programme directement une méthode sans préciser l'objet, le message sera envoyé à un objet par défaut, auquel on peut accéder par la variable <span class="code">self</span>.</p>
+
+<p class="code">
+    self.class <span class="c"># Retourne Object</span><br>
+    <br>
+    <span class="k">def</span> hello<br>
+    &nbsp;&nbsp;puts <span class="s">"hello"</span><br>
+    <span class="k">end</span><br>
+    <br>
+    hello &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># Affiche "hello"</span><br>
+    self.hello <span class="c"># Affiche "hello"</span><br>
+</p>
+
+<p>Les deux dernières lignes sont donc équivalentes. Chaque objet peut donc répondre à un certains nombres de messages propre à lui-même ou à son type. Voici quelques exemples :</p>
+
+<p class="code">
+    4.next &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># Retourne 5</span><br>
+    <span class="s">"hello "</span>.concat(<span class="s">"world"</span>) <span class="c"># Retourne "hello world"</span><br>
+    
+</p>
+
+<p>Par convention, le nom d'une méthode est toujours en minuscule. S'il comporte plusieurs mots, on les sépare par un souligné ou tiret bas (<b>_</b>). Si une méthode retourne un résultat de type booléen (vrai ou faux), on terminera son nom par un point d'intérrogation. Si la méthode modifie l'objet sur lequel elle est appelée, on terminera son nom par un point d'exclamation. Exemples : <span class="code">instance_of?, capitalize!</span>.</p>
+
+<p>Il est donc important de connaître les différents types de Ruby, et les différentes méthodes dont-ils disposent.</p>
+
+<!-------------------------------------- SECONDE PARTIE : RUBY ---------------------------------------->
+
+<!---------------------------------------- I. Types de base ------------------------------------------->
+
+<h2 class="horstexte" id="types">Types de base</h2>
+<a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<h3 id="types1">Tableau résumé des types principaux</h3>
+
+<table>
+  <thead>
+    <tr><th>Type</th><th>Nom en Ruby</th><th>Mode de copie</th><th>Exemples</th></tr>
+  </thead>
+  <tr><td>Entier</td><td>Fixnum, Bignum</td><td>Valeur</td><td>1 010 (8 en octal) 0x10 (16 en hexa)<br>0b10 (2 en binaire) 124_345 (ignoré)</td></tr>
+  <tr><td>Réel</td><td>Float</td><td>Valeur</td><td>1.2 1e10</td></tr>
+  <tr><td>Booléens</td><td>TrueClass<br>FalseClass</td><td>Valeur</td><td><span class="k">true<br>false</span></td></tr>
+  <tr><td>Chaîne de caractères</td><td>String</td><td>Référence</td><td>"youpi"<br>'youpi'<br>%s(youpi)</td></tr>
+  <tr><td>Liste</td><td>Array</td><td>Référence</td><td>[1, 2, 3]<br>%w(1 2 3)</td></tr>
+  <tr><td>Dictionnaire</td><td>Hash</td><td>Référence</td><td>{'a' => 65}</td></tr>
+  <tr><td>Interval</td><td>Range</td><td>Référence</td><td>1..2 (inclusif)<br>1...3 (exclusif)</td></tr>
+  <tr><td>Symbole</td><td>Symbol</td><td>Référence</td><td>:a</td></tr>
+  <tr><td>Valeur nulle</td><td>NilClass</td><td>Référence</td><td><span class="k">nil</span></td></tr>
+</table>
+
+<h3 id="nil">La valeur nulle</h3>
+
+<p>Il existe en Ruby une valeur nulle, <span class="k">nil</span>. On peut tester si une variable a pour valeur <span class="k">nil</span> avec la méthode <span class="code">nil?</span></p>
+
+<p class="code">
+    a = <span class="k">nil</span><br>
+    a.nil? <span class="c"># Retourne vrai</span><br>
+</p>
+
+<h3 id="num_string">Nombres et chaînes de caractères</h3>
+
+<p>Voici un exemple d'utilisation dans le code, on va affecter à 4 variables les constantes littérales suivantes :</p>
+
+<p class="code">
+    un_reel = <span class="i">3.14</span><br>
+    un_entier = <span class="i">5</span><br>
+    une_chaine = <span class="s">"bonjour monsieur O'Reilly\n"</span><br>
+    une_autre_chaine = <span class="s">'bonjour le "monde"'</span><br>
+</p>
+
+<p>On remarque que les chaînes de caractère peuvent s'écrire entre guillemet simple ou double, ou encore avec la construction <span class="code">%s(...)</span>. Cela permet d'utiliser le guillemet simple dans une chaîne délimitée par des guillements doubles et inversement. Seule une chaîne délimitée par des guillemets doubles interprétra les <span class="index" id="car_echap">caractères d'échappement</span>. Ainsi <b>\n</b> sera remplacé par un saut à la ligne.</p>
+
+<p>Tout obéit au paradigme objet dans Ruby. Ainsi on peut directement appeler une méthode sur un littéral, c'est à dire utiliser la forme <span class="code">objet<b>.</b>méthode</span> :</p>
+<p class="code">
+    <span class="i">5<span>.to_s &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># Retourne une chaîne représentant le nombre 5</span><br>
+    <span class="s">"bonjour"</span>.upcase &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># Retourne une chaîne avec toutes les lettres en majuscule</span><br>
+    <span class="s">"bonjour"</span>.include?(<span class="s">'bon'</span>) &nbsp;&nbsp;<span class="c"># Renvoie vrai, car la chaîne bonjour contient bon</span><br>
+    <span class="s">"hello world"</span>.length	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># Renvoie 11</span><br>
+    <span class="s">"hello world"</span>.index(<span class="s">"h"</span>) &nbsp;&nbsp;&nbsp;<span class="c"># Renvoie la position du caractère h : 0</span><br>
+    <span class="i">-4</span>.abs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># Renvoie la valeur absolue de -4 : 4</span><br>
+</p>
+
+<p>true, false, nil, __LINE__, __FILE__ sont appelés <span class="index" id="pseudo_var">pseudo variable</span> et sont inassignables : c'est à dire que comme les constantes littérales, elles ne peuvent apparaître à gauche d'une affectation.</p>
+
+<p>On fera bien attention que <span class="i">99.</span> n'est pas un réel valide en Ruby. En effet, avec la possibilité d'appeler une méthode sur un objet, Ruby ne sera pas interpréter cette notation. Il faut à chaque que l'on veut écrire un réel ainsi, mettre une décimale : <span class="i">99.0</span>.</p>
+
+<h3 id="bool">Booléens</h3>
+
+<p>Le type booléen dispose de deux valeurs : vrai, <span class="code">true</span>, et faux, <span class="code">false</span>.</p>
+
+<p>En Ruby, les valeurs <span class="code">false</span> et <span class="code">nil</span> sont fausses. Tout le reste est vrai, <u>même la valeur 0</u>.</p>
+
+<p>On peut utiliser les opérateurs booléens suivants : <span class="k">and</span>, <span class="k">or</span>, <span class="k">not</span>. Les deux premiers sont des opérateurs binaires, le dernier est unaire. Voici les <a href="http://fr.wikipedia.org/wiki/Table_de_v%C3%A9rit%C3%A9">tables de vérité</a> de ces différents opérateurs :</p>
+
+<table>
+  <tr><th>valeur a</th><th>valeur b</th><th>a and b</th><th>a or b</th><th>not a</th></tr>
+  <tr><td>false</td><td>false</td><td>false</td><td>false</td><td>true</td></tr>
+  <tr><td>false</td><td>true</td><td>false</td><td>true</td><td>true</td></tr>
+  <tr><td>true</td><td>false</td><td>false</td><td>true</td><td>false</td></tr>
+  <tr><td>true</td><td>true</td><td>true</td><td>true</td><td>false</td></tr>
+</table>
+
+<h3 id="list">Listes</h3>
+
+<p>Appelées aussi tableaux. L'expression <span class="code">%w(1 2 3)</span> permet de créer un tableau sans [] mais attention, chaque élément sera une chaîne de caractère. Ainsi : <span class="code">%w(1 2 3)</span> est équivalent à <span class="code">["1", "2", "3"]</span> et pas <span class="code">[1, 2, 3]</span> !</p>
+
+<p>On peut mixer les types de données au sein d'une même liste. Ainsi une liste peut contenir en même temps un entier, une chaîne, un booléen, etc. Chaque élément a une position, numérotée de 0 pour la première à la longueur de la liste-1 pour la dernière. Pour accéder à un élément donné, on utilise l'opérateur <b>[]</b> avec l'indice de sa position. Si l'indice donné ne correspond à aucun élément, la valeur nulle, <span class="k">nil</span> est retournée.</p>
+
+<p class="code">
+    vide = [] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># Liste vide</span><br>
+    vide2 = Array.new &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># Autre moyen pour avoir une liste vide</span><br>
+    liste = [<span class="i">1</span>, <span class="i">2</span>, <span class="s">'bonjour'</span>]<br>
+    liste[<span class="i">0</span>] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># Retourne 1</span><br>
+    liste.last &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># Retourne 'bonjour'</span><br>
+    liste[<span class="i">1</span>] = <span class="i">3</span> <span class="c">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Le tableau contient à présent : 1, 3, 'bonjour'</span><br>
+    liste.length &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># Retourne 3</span><br>
+    liste.push(<span class="s">'au revoir'</span>) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># Ajoute à la fin du tableau 'au revoir'</span><br>
+    autre = %w{ chien chat serpent } <span class="c"># Crée la liste ["chient", "chat", "serpent"]</span><br>
+</p>
+
+<h3 id="dict">Dictionnaire</h3>
+
+<p>Appelées aussi tableaux associatifs ou <a href="http://fr.wikipedia.org/wiki/Table_de_hachage">table de hachage</a>. Un dictionnaire associe une clé à une valeur. La clé et la valeur peuvent être de n'importe quel type.</p>
+
+<p class="code">
+    vide = {}<br>
+    dico = { <span class="s">'France'</span> => <span class="s">'Paris'</span>, <span class="s">'Allemagne'</span> => <span class="s">'Berlin'</span>, <span class="s">'Italie'</span> => <span class="s">'Rome'</span> }<br>
+    puts dico[<span class="s">'France'</span>] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># Affiche Paris</span><br>
+    dico[<span class="s">'Espagne'</span>] = <span class="s">'Madrid'</span> <span class="c"># Ajoute une nouvelle paire clé/valeur.</span><br>
+    dico.length &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># Retourne 4</span><br>
+    dico.values &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># Retourne la liste des valeurs ['Paris', 'Berlin', 'Rome', 'Madrid']</span><br>
+    dico.keys &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># De même pour les clés ['France', 'Allemagne', 'Italie', 'Espagne']</span><br>
+    dico[<span class="s">'Palombie'</span>] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># La valeur nulle (nil) est retournée si la clé n'existe pas</span><br>
+    vide2 = Hash.new(<span class="i">0</span>) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># Si la clé n'existe pas, 0 sera retourné (nil par défaut)</span><br>
+</p>
+
+<!------------------------------------------------ Opérateurs ---------------------------------------------------->
+
+<h2 class="horstexte" id="operateurs">Opérateurs</h2>
+<a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<p>Il y a en tout 25 opérateurs. On peut les classifier ainsi :
+  <ul>
+    <li>Les 6 opérateurs arithmétiques : +, -, /, *, % (modulo), ** (puissance)</li>
+    <li>Les 5 opérateurs binaires : &amp;, |, ^, &lt;&lt;, &gt;&gt;</li>
+    <li>Les 7 opérateurs d’affectation : =, +=, -=, /=, *=, %=, **=</li>
+    <li>Les 5 opérateurs de comparaison : &lt;, &lt;=, &gt;, &gt;=, ==, !=, &lt;=&gt;</li>
+    <li>Les 3 opérateurs booléens : <span class="k">and</span>, <span class="k">or</span>, <span class="k">not</span> ou <span class="code">&amp;&amp;, ||, !</span></li>
+  </ul>
+</p>
+
+<p>Les opérateurs booléens ne renvoient pas vrai ou faux mais la dernière valeur évaluée. On rappelera que tout ce qui n'est pas égal à <span class="k">nil</span> ou <span class="k">false</span> est considéré comme vrai.</p>
+
+<p>L'opérateur &lt;=&gt; renvoie 0 si les deux valeurs sont égales, -1 si la valeur de gauche est inférieure à celle de droite, et 1 si la valeur de gauche est supérieure à celle de droite. L'opérateur == peut aussi s'effectuer à l'aide des méthodes <span class="code">eql?</span> et <span class="code">equal?</span> mais nous verrons plus loin qu'il est possible de différencier leur comportement.</p> 
+
+<p>Les opérateurs sont en fait des appels de méthodes déguisées. Lorsque l'on fait <span class="code">a + b</span>, derrière Ruby exécute la méthode <span class="code">+</span> de l'objet <span class="code">a</span> en lui passant en argument <span class="code">b</span>.</p>
+
+<p>On peut combiner les opérateurs d'arithmétiques avec l'opérateur d'affectation <b>=</b>. On parlera alors d'opérateurs raccourcis :</p>
+<p class="code">
+    i = i – <span class="i">1</span> <span class="c"># Est équivalent à :</span><br>
+    i -= <span class="i">1</span><br>
+    i = i * <span class="i">2</span> <span class="c"># Est équivalent à :</span><br>
+    i *= <span class="i">2</span><br>
+</p>
+
+<p>Il n'y a pas d'opérateurs de pré et post décrémentation (++ et --) en Ruby !</p>
+
+<p>L'utilisation d'un opérateur avec des arguments invalides peut générer une erreur : si l'on fait <span class="i">5</span><span class="code"> / </span><span class="i">0</span> on obtiendra alors une <span class="code">ZeroDivisionError</span>.</p>
+
+<h3 id="priorites">Priorités</h3>
+
+<p>Les opérateurs ont chacun un ordre de priorité. En effet, dans l'expression <span class="i">5</span><span class="code"> + </span><span class="i">2.5</span><span class="code"> * </span><span class="i">2</span>, il est important que l'opérateur <b>*</b> de multiplication s'exécute avant celui d'addition. Le tableau suivant présente les opérateurs par ordre de priorité, de la plus élevée à la plus faible :</p>
+
+<table>
+  <tr><th>Opérateurs</th></tr>
+  <tr><td>::</td></tr>
+  <tr><td>[]</td></tr>
+  <tr><td>**</td></tr>
+  <tr><td>-(unaire)  +(unaire)  !  ~</td></tr>
+  <tr><td>*  /  %</td></tr>
+  <tr><td>+  -</td></tr>
+  <tr><td>&lt;&lt;  &gt;&gt;</td></tr>
+  <tr><td>&amp;</td></tr>
+  <tr><td>|  ^</td></tr>
+  <tr><td>&gt;  &gt;=  &lt;  &lt;=</td></tr>
+  <tr><td>&amp;=&amp; ==  === !=  =~  !~</td></tr>
+  <tr><td>&amp;&amp;</td></tr>
+  <tr><td>||</td></tr>
+  <tr><td>.. ...</td></tr>
+  <tr><td>= += -= *= /= %=</td></tr>
+  <tr><td>not</td></tr>
+  <tr><td>and or</td></tr>
+</table>
+
+<p>On remarquera que si <span class="k">and</span> et <span class="k">or</span> ont la même priorité, ce n'est pas le cas de <span class="code">&amp;&amp;</span> et <span class="code">||</span> qui ont chacun une priorité différente et qu'elles sont différentes de celle pour  <span class="k">and</span> et <span class="k">or</span>!</p>
+
+<p class="code">
+    a = <span class="i">100</span><br>
+    b = <span class="i">200</span><br>
+    a = <span class="i">3</span> &amp;&amp; b = <span class="i">5</span><br>
+    <span class="c"># a est égal à 5 et b aussi !!!</span><br>
+    a = <span class="i">100</span><br>
+    b = <span class="i">200</span><br>
+    a = <span class="i">3</span> <span class="k">and</span> b = <span class="i">5</span><br>
+    <span class="c"># a est égal à 3 et b est égal à 5</span><br>
+</p>
+
+<p>L'opérateur <span class="k">or</span> (ou <span class="code">||</span>) est paresseux : dès qu'il rencontre une variable à vrai, il arrête d'évaluer ses paramètres.</p>
+
+<p class="code">
+    r = 2 or (a=3) <span class="c"># r égal à 2 et l'affectation de 3 à a n'est pas effectuée !</span><br>
+</p>
+
+<h3 id="affectation">Affectation</h3>
+
+<p>L'opérateur d'affectation consiste à lier un identificateur à une valeur. Elle présente plusieurs formers :</p>
+
+<p class="code">
+    a = <span class="i">5</span><br>
+    a, b = <span class="i">5</span>, <span class="i">6</span><br>
+</p>
+
+<p>Dans la dernière ligne, a est associé à la valeur 5 et b à 6. Si il y a plus d'identificateurs à droite que de valeurs à gauche, les derniers recevront la valeur nulle, <span class="k">nil</span>.</p>
+
+<p>On peut utiliser cela aussi pour les tableaux :</p>
+
+<p class="code">
+    a = [<span class="i">1</span>, <span class="i">2</span>, <span class="i">3</span>]<br>
+    a[<span class="i">0</span>], a[<span class="i">1</span>], a[<span class="i">2</span>] = <span class="s">'a'</span>, <span class="s">'b'</span>, <span class="s">'c'</span><br>
+</p>
+
+<p>Si le tableau comporte plus d'élément qu'il y a de variables à gauche de l'affectation, on peut mettre une étoile devant le dernier identificateur de la liste pour préciser qu'il prend tout le reste du tableau.</p>
+
+<p class="code">
+    a, b = [<span class="i">1</span>, <span class="i">2</span>, <span class="i">3</span>]<br>
+    puts b <span class="c"># Affiche 2</span><br>
+    a, *b = [<span class="i">1</span>, <span class="i">2</span>, <span class="i">3</span>]<br>
+    puts b <span class="c"># Affiche [2, 3]</span><br>
+</p>
+
+<p>On peut également faire des listes d'initialisation, en séparant chaque affectation par une virgule, mais attention, avec cette construction, la première variable recevra un tableau de toutes valeurs affectées suivantes :</p>
+
+<p class="code">
+    a = <span class="i">1</span>, b = <span class="i">2</span>, c = <span class="i">3</span>, d = <span class="i">4</span><br>
+    <span class="c"># a vaut [1, 2, 3, 4] !</span>
+</p>
+
+<h3 id="conversion">Conversion</h3>
+
+<p>L'opération de conversion, connue aussi sous le nom de transtypage, ou casting en anglais, consiste à  transformer une valeur d'un type donné en une valeur correspondante dans un autre type. Ruby utilise des méthodes pour effectuer cela :</p>
+
+<ul>
+  <li>to_s : méthode pour obtenir une chaîne</li>
+  <li>to_i : méthode pour obtenir un entier d'un flottant ou d'une chaîne</li>
+  <li>to_f : méthode pour obtenir un flottant d'un entier ou d'une chaîne</li>
+</ul>
+
+<p class="code">
+    <span class="s">"5"</span>.to_i + <span class="i">5</span> <span class="c"># On obtient 10</span><br>
+</p>
+
+<!------------------------------------------ Contrôle de flux ----------------------------------------------->
+
+<h2 class="horstexte" id="flux">Contrôle de flux</h2>
+<a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<p>Le flux est la suite d'instructions exécutées par l'interpréteur Ruby. Normalement, l'exécution est séquentielle, mais nous allons voir qu'elle peut être aussi sélectif et itératif.</p>
+
+<h3 id="sequence">Séquence</h3>
+<p class="code">
+    instruction-1 <span class="c"># nouvelle ligne</span><br>
+    instruction-2<br>
+    instruction-3 <b>;</b> instruction-4<br>
+</p>
+
+<p>Au contraire de nombreux langages, le <span class="code">';'</span> n'est pas un opérateur de terminaison d'une instruction mais de séparation de deux instructions successives.</p>
+
+<p>On peut réunir les instructions en un morceau de code entouré de <span class="k">begin</span> et <span class="k">end</span>.</p>
+
+<p class="code">
+    <span class="k">begin</span><br>
+    &nbsp;&nbsp;actions<br>
+    <span class="k">end</span><br>
+</p>
+
+<h3 id="selection">Sélection</h3>
+
+<h4>If et unless</h4>
+
+<p>La sélection est l'acte d'exécuter une instruction si et seulement une condition est réunie. On distingue deux structures pour la sélection : le <span class="k">if</span> qui exécute l'instruction ou les instructions suivantes si la condition est vraie, et le <span class="k">unless</span>, que l'on peut traduire par <i>à moins que, sauf si</i>, qui exécutera le ou les instructions suivantes si la condition est fausse.</p>
+
+<p>Les éléments entre crochets et en italique sont optionnels. L'étoile indique que l'élément est répétable. Les éléments entre accolades et en italique séparés par | indique un choix obligatoire entre plusieurs possibilités.</p>
+
+<p class="code">
+    <span class="k">if</span> condition { <i><span class="k">then</span> | \n | ;</i> }<br>
+    &nbsp;&nbsp;instructions<br>
+    [ <i><span class="k" >elsif</span> condition { <span class="k">then</span> | \n | ; }<br>
+    &nbsp;&nbsp;instructions</i> ]*<br>
+    [ <i><span class="k">else</span><br>
+    &nbsp;&nbsp;instructions</i> ]<br>
+    <span class="k">end</span><br>
+    <br>
+    <span class="k">unless </span>condition { <i><span class="k">then</span> | \n | ;</i> }<br>
+    &nbsp;&nbsp;instructions<br>
+    [ <i><span class="k">else</span><br>
+    &nbsp;&nbsp;instructions</i> ]<br>
+    <span class="k">end</span><br>
+</p>
+
+<p>Une autre forme est de mettre la sélection après l'expression que l'on veut garder par la condition.</p>
+
+<p class="code">
+    action <span class="k">if</span> condition<br>
+    action <span class="k">unless</span> condition<br>
+</p>
+
+<p>Si la condtion de <span class="k">if</span> est une expression régulière seule, alors elle sera évaluée sur la variable globale $_. On notera aussi qu'il n'y a pas besoin d'entourer les conditions par des parenthèses, comme dans de nombreux langages.</p>
+
+<p class="code">
+    mon_nombre = <span class="i">5</span><br>
+    <span class="k">if</span> mon_nombre == <span class="i">5</span><br>
+    &nbsp;&nbsp;puts <span class="s">"mon nombre vaut 5"</span><br>
+    <span class="k">elsif</span> mon_nombre == <span class="i">4</span><br>
+    &nbsp;&nbsp;puts <span class="s">"mon nombre vaut 4"</span><br>
+    <span class="k">else</span><br>
+    &nbsp;&nbsp;puts <span class="s">"mon nombre ne vaut pas ni 5 ni 4"</span><br>
+    <span class="k">end</span><br>
+    <span class="c"># Affiche "mon_nombre vaut 5"</span><br>
+    <br>
+    puts <span class="s">"hello"</span> <span class="k">if</span> mon_nombre == <span class="i">5</span><br>
+    <span class="c"># Affiche "hello"</span><br>
+</p>
+
+<h4>Case</h4>
+
+<p>L'instruction <span class="k">case</span> propose un choix entre plusieurs valeurs. Les instructions correspondantes à la valeur de l'expression testée seront exécutées (et contrairement à d'autres langages, seulement celles-ci).</p>
+
+<p class="code">
+    <span class="k">case</span> expression<br>
+    &nbsp;&nbsp;<span class="k">when</span> expression [ <i>, expression</i> ]* { <span class="k">then</span> | \n | ; }<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;instructions<br>
+    &nbsp;&nbsp;[ <i><span class="k">when</span> expression { <span class="k">then</span> | \n | ; }<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;instructions </i>]*<br>
+    &nbsp;&nbsp;[ <i><span class="k">else</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;instructions </i>]<br>
+    <span class="k">end</span><br>
+</p>
+
+<p>Si la valeur qui figure dans la clause <span class="k">when</span> est une classe, Ruby fera automatiquement un appel à la fonction <span class="code">instance_of?</span> sur l'expression testée en passant en paramètre la classe.</p>
+
+<p>Si la valeur qui figure dans la clause <span class="k">when</span> est une expression régulière, Ruby fera automatiquement appel à la fonction <span class="code">match</span> avec en paramètre l'expression testée. On pourra accéder au résultat retourné avec la méthode <span class="code">Regexp.last_match</span>.</p>
+
+<h4>Opérateur ternaire</h4>
+
+<p>Enfin, il existe une dernière façon de procéder à une sélection : c'est d'utiliser l'opérateur ternaire <b>?</b>. Il prend trois arguments : une condition à évaluer, une valeur à retourner si la condition est vraie, et une valeur à retourner si elle est fausse.</p>
+
+<p class="code">
+    a = true ? "vraie" : "fausse"<br>
+    puts a <span class="c"># Affiche "vraie"</span><br>
+</p>
+
+<h3 id="iteration">Itération</h3>
+
+<h4>For et while</h4>
+
+<p>L'itération est le fait d'exécuter plusieurs fois la même instruction au sein d'une boucle. Généralement, la boucle est gardée par une condition qui est réévaluée à chaque nouvelle itération de la boucle. Il existe deux principales constructions pour faire des boucles en Ruby : <span class="k">for</span> et <span class="k">while</span>. La première parcours une itération en affectant une valeur, et la seconde est une simple boucle gardée par une condition. Il existe aussi <span class="k">until</span> qui à la différence de <span class="k">while</span>, qui exécute la boucle tant que la condition est vraie, exécutera la boucle tant que sa condition sera fausse.</p>
+
+<p class="code">
+    <span class="k">for</span> variable <span class="k">in</span> liste_de_valeurs { <i><span class="k">do</span> | \n | ; </i>}<br>
+    &nbsp;&nbsp;instructions<br>
+    <span class="k">end</span><br>
+    <br>
+    <span class="k">while</span> condition { <i><span class="k">do</span> | \n | ; </i>}<br>
+    &nbsp;&nbsp;instructions<br>
+    [ <i><span class="k">else</span><br>
+    &nbsp;&nbsp;instructions ]</i><br>
+    <span class="k">end</span><br>
+    <br>
+    <span class="k">until</span> condition { <i><span class="k">do</span> | \n | ; </i>}<br>
+    &nbsp;&nbsp;instructions<br>
+    <span class="k">end</span><br>
+</p>
+
+<p>Comme pour la sélection, une autre possibilité est de mettre la construction itérative après l'expression que l'on veut exécuter plusieurs fois. Dans ce cas, l'instruction est évaluée une première fois, puis la condition de la boucle est vérifiée.</p>
+
+<p class="code">
+    instructions <span class="k">while</span> condition<br>
+    instructions <span class="k">until</span> condition<br>
+</p>
+
+<p>A l'intérieur d'une boucle, l'instruction <span class="k">break</span> permet de casser la boucle et d'en sortir immédiatement. L'instruction <span class="k">next</span> permet elle de passer à l'itération suivante, sans exécuter les instructions restantes de la boucle. Le mot-clé <span class="k">redo</span> permet de recommencer l'itération actuelle, sans réévaluer la condition de la boucle. Enfin, le mot-clé <span class="k">retry</span> permet de recommencer complètement une itération, à son initialisation.</p>
+
+<h4>Loop</h4>
+
+<p>La méthode <span class="code">loop</span> permet d'itérer sur un bloc de code, sans paramètre.</p>
+
+<p class="code">
+    a = 10<br>
+    <span class="k">loop</span> {<br>
+    &nbsp;&nbsp;puts a<br>
+    &nbsp;&nbsp;a = a -1<br>
+    &nbsp;&nbsp;<span class="k">break if</span> a == 5<br>
+    <span class="k">end</span><br>
+</p>
+
+<h3 id="blocs">Blocs</h3>
+
+<p>D'autres constructions, à l'aide de la méthode <span class="code">times</span> par exemple, permettent de faire des boucles. On utilisera alors les blocs. Un bloc est délimité par <span class="k">do</span> et <span class="k">end</span> ou bien <b>{</b> et <b>}</b>. Il peut avoir des paramètres, que l'on mettra au tout début du bloc, encadrés par <b>| ... |</b>. Un bloc fonctionne comme un morceau de code que l'on passe en paramètre d'une méthode.</p>
+
+<p class="code">
+    <span class="k">do&nbsp;</span><br>
+    &nbsp;&nbsp;|paramètres|<br>
+    &nbsp;&nbsp;instructions<br>
+    <span class="k">end</span><br>
+    <br>
+    {<br>
+    &nbsp;&nbsp;|paramètres|<br>
+    &nbsp;&nbsp;instructions<br>
+    }<br>
+</p>
+
+<h4>Exemples</h4>
+
+<p class="code">
+    <span class="i">2</span>.times <span class="k">do</span><br>
+    &nbsp;&nbsp;puts <span class="s">'bonjour !'</span><br>
+    <span class="k">end</span><br>
+    <span class="c"># Affiche deux fois "bonjour!"</span><br>
+    <br>    
+    <span class="k">for</span> x <span class="k">in</span> <span class="i">1</span>..<span class="i">3</span> <span class="k">do</span><br>
+    &nbsp;&nbsp;puts x<br>
+    <span class="k">end</span><br>
+    <span class="c"># Affiche  1, 2, et 3 sur trois lignes.</span><br>
+    <br>
+    (<span class="i">1</span>..<span class="i">3</span>).each <span class="k">do</span><br>
+    &nbsp;&nbsp;|x|<br>
+    &nbsp;&nbsp;puts x<br>
+    <span class="k">end</span><br>
+    <span class="c"># Affiche  1, 2, et 3 sur trois lignes.</span><br>
+    <br>
+    mon_dic = {<span class="s">'a'</span> => <span class="i">1</span>, <span class="s">'b'</span> => <span class="i">2</span>}<br>
+    <span class="k">for</span> key, value <span class="k">in</span> mon_dic<br>
+    &nbsp;&nbsp;puts key, value<br>
+    <span class="k">end</span><br>
+    <span class="c"># Affiche a 1, b 2, à chaque fois sur deux lignes.</span><br>
+    <br>
+    b = <span class="i">3</span>.times {<br>
+    &nbsp;&nbsp;puts <span class="s">'hello'</span><br>
+    }<br>
+    <span class="c"># Affiche 'hello' trois fois.</span><br>
+    <br>
+    cpt = 0
+    puts (cpt+=<span class="i">1</span>) <span class="k">while</span> cpt < <span class="i">5</span><br>
+    <span class="c"># Affiche 1, 2, 3, 4, 5 sur cinq lignes.</span><br>
+</p>
+
+<p>Certaines méthodes, comme <span class="code">each, collect, detect</span> sont des itérateurs : elles vont itérer parmi toutes les valeurs de l'objet sur lequel elles sont appelées.</p>
+
+<p class="code">
+    [<span class="s">'a'</span>, <span class="s">'b'</span>, <span class="s">'c'</span>].each { |x| puts x }<br>
+    <span class="c"># Affiche 'a', 'b', 'c' sur trois lignes.</span><br>
+    <br>
+    [<span class="s">'a'</span>, <span class="s">'b'</span>, <span class="s">'c'</span>].collect { |word| word.capitalize }<br>
+    <span class="c"># Retourne une nouvelle liste ['A', 'B', 'C']</span><br>
+    <br>
+    [<span class="s">'a'</span>, <span class="s">'b'</span>, <span class="s">'c'</span>].detect { |element| element == <span class="s">'a'</span>}<br>
+    <span class="c"># Retourne 'a'</span><br>
+</p>
+
+<p>Un dernier usage des blocs est la construction avec <span class="k">catch</span> et <span class="k">throw</span>. On passe un bloc à un catch étiquetté avec un identificateur qui pourra être quitté à n'importe quel moment via l'appel à <span class="k">throw</span> avec l'étiquette correspondante.</p>
+
+<p class="code">
+    <span class="k">catch</span> :etiquette {<br>
+    &nbsp;&nbsp;a = <span class="i">10</span><br>
+    &nbsp;&nbsp;<span class="k">while</span> a > <span class="i">0</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;puts a<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;a = a - <span class="i">1</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="k">throw</span> :etiquette if a == <span class="i">5</span><br>
+    &nbsp;&nbsp;<span class="k">end</span><br>
+    }<br>
+</p>
+
+<p>Un bloc peut être stocké dans un objet <span class="code">Proc</span>. Dans ce cas là, il agit comme une fonction anonyme.</p>
+
+<p class="code">
+    p = Proc.new <span class="k">do</span> |a, b|<br>
+    &nbsp;&nbsp;a + b<br>
+    <span class="k">end</span><br>
+    p.call(2,3) <span class="c"># Retourne 5</span><br>
+</p>
+
+<!------------------------------------------------ Méthodes ---------------------------------------------------->
+
+<h2 class="horstexte" id="methodes2">Méthodes</h2>
+<a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<p>Une méthode, appelée aussi fonction, sous-programme ou procédure, est un morceau de code que l'on peut exécuter plusieurs fois, via un appel. L'appel ce fait via l'intermédiaire d'un identifiant, le nom de la méthode. On peut spécifier des paramètres formels pour une méthode, qui seront remplacés, au moment de l'appel, par des paramètres réels (ou effectifs) qui peuvent être différent à chaque appel.</p>
+
+<h3 id="appel">Appels de méthodes</h3>
+
+<p>On doit entourer les paramètres réels seulement si cela pose un problème de compréhension à l'interpréteur. Sinon on peut les omettre. S'il n'y a pas de paramètres, on peut se passer également de parenthèses. Les différents paramètres sont séparés par une virgule. On utilisera dans les exemples la méthode <span class="code">add</span> qui réalise une simple addition de deux paramètres, et la méthode assert_equal vérifiant l'égalité de ses deux paramètres, que nous spécifierons dans le paragraphe suivant.</p>
+
+<p class="code">
+    nom (paramètres réels)<br>
+    <br>
+    puts <span class="s">'bonjour'</span><br>
+    puts (<span class="s">'bonjour'</span>)<br>
+    <br>
+    number = 5<br>
+    assert_equal (<span class="i">5</span>, number)<br>
+    <br>
+    add(2 ,3) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># Retourne 5</span><br>
+    add 2, 3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># Retourne 5</span><br>
+    add 2, add(3, 4) <span class="c"># Retourne 9</span><br>
+</p>
+
+<p>Le nombre de paramètres réels doit correspondre exactement au nombre de paramètres formels définis, sinon une erreur <span class="code">ArgumentError</span> est générée, sauf si une valeur par défaut a été spécifiée pour le paramètre formel. Dans ce dernier cas, le paramètre prendra comme valeur sa valeur par défaut.</p>
+
+<p>En Ruby, l'appel de fonction se fait par passage de messages : le nom de la méthode est un message et l'objet est le receveur de ce message. Si le receveur n'est pas spécifié, l'objet <span class="code">main</span> est utilisé (main est de type <span class="code">Object</span>).</p>
+
+<p>En Ruby, on peut toujours passer un bloc à une méthode comme ultime paramètre. Ce bloc peut être appelé à l'intérieur de la fonction à l'aide du mot clé <span class="k">yield</span> suivit du nombre de paramètres nécessaires à l'exécution du bloc, séparés par des virgules.</p>
+
+<p class="code">
+    <span class="k">def</span> say_hello(name)<br>
+    &nbsp;&nbsp;yield name<br>
+    <span class="k">end</span><br>
+    <br>
+    say_hello(<span class="s">"john"</span>) <span class="k">do</span> |s|<br>
+    &nbsp;&nbsp;puts <span class="s">"hello #{s}"</span><br>
+    <span class="k">end</span><br>
+    <span class="c"># Affiche "hello john"</span><br>
+    say_hello(<span class="s">"martin"</span>) { |s|<br>
+    &nbsp;&nbsp;puts <span class="s">"bonjour #{s}"</span><br>
+    }<br>
+    <span class="c"># Affiche "bonjour martin"</span><br>
+    say_hello(<span class="s">"aude"</span>)<br>
+    <span class="c"># Erreur LocalJumpError car il n'y a pas de bloc donné !</span>
+</p>
+
+<h3 id="definition">Définition de méthodes</h3>
+
+<h4>Syntaxe</h4>
+<p class="code">
+    <span class="k">def</span> identifiant(paramètres formels)<br>
+    &nbsp;&nbsp;instructions<br>
+    <span class="k">end</span><br>
+</p>
+
+<h4>Exemple</h4>
+<p class="code">
+    <span class="k">def</span> assert_equal(expected, actual)<br>
+    &nbsp;&nbsp;<span class="k">if</span> expected != actual<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;puts <span class="s">"failed"</span><br>
+    &nbsp;&nbsp;<span class="k">end</span><br>
+    <span class="k">end</span><br>
+    <br>
+    <span class="k">def</span> add(a, b)<br>
+    &nbsp;&nbsp;<span class="k">return</span> a+b<br>
+    <span class="k">end</span><br>
+</p>
+
+<p>L'instruction <span class="k">return</span> indique que la méthode se termine et renvoit la valeur suivant le mot-clé. Si aucune valeur n'est spécifiée, la valeur nulle est renvoyée. Les méthodes retournent toujours une valeur, et si aucune n'est spécifiée, c'est celle de la dernière expression exécutée dans la méthode qui sera retournée.</p>
+
+<p class="code">
+    <span class="k">def</span> five<br>
+    &nbsp;&nbsp;<span class="i">5</span> <span class="c"># C'est équivalent à return 5</span><br>
+    <span class="k">end</span><br>
+    puts five<br>
+</p>
+
+<h3 id="parametres">Paramètres de méthodes</h3>
+
+<p>Les différents paramètres sont séparés par des virgules. Si il n’y pas de paramètres (), les parenthèses sont optionnelles aussi bien pour l'appel de la méthode que sa définition.</p>
+
+<p class="code">
+    <span class="k">def</span> pipo()<br>
+    &nbsp;&nbsp;puts <span class="s">'pipo'</span><br>
+    <span class="k">end</span><br>
+    pipo() <span class="c"># Affiche "pipo"</span><br>
+    <span class="c"># Equivaut à :</span><br>
+    <span class="k">def</span> pipo<br>
+    &nbsp;&nbsp;puts <span class="s">'pipo'</span><br>
+    <span class="k">end</span><br>
+    pipo &nbsp;&nbsp;<span class="c"># Affiche "pipo"</span><br>
+</p>
+
+<p>Néanmoins, mon conseil est de toujours mettre des parenthèes. En effet, si on déclare une fonction du même nom qu’une variable, et que on ne met pas de parenthèses, Ruby préférera croire que c’est la variable plutôt qu’un appel à une fonction !</p>
+
+<p class="code">
+    <span class="k">def&nbsp;</span>pipo()<br>
+    &nbsp;&nbsp;puts <span class="s">'pipo'</span><br>
+    <span class="k">end</span><br>
+    pipo &nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># Affiche "pipo"</span><br>
+    pipo = <span class="i">3</span> <span class="c"># Déclaration d'une variable entière égale à 3</span><br>
+    pipo &nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># Affiche 3 : Ruby choisit la variable !</span><br>
+    pipo() &nbsp;&nbsp;<span class="c"># Affiche "pipo" : L'identificateur pipo correspond toujours à une méthode aussi !</span><br>
+</p>
+
+<p>Il y a deux moyens de passer un paramètre : par position ou par nom. On peut mixer les deux, mais les paramètres par position doivent toujours venir en premier et ne peuvent plus être utilisés dès qu'il y a un paramètre par nom qui est passé.</p>
+
+<p class="code">
+    <span class="k">def</span> add3(a, b, c)<br>
+    &nbsp;&nbsp;<span class="k">return</span> a+b+c<br>
+    <span class="k">end</span><br>
+    <br>
+    add3(2, c=3, b=5) <span class="c"># Retourne 10</span><br>
+</p>
+
+<p>On peut aussi définir des valeurs par défaut pour les paramètres.</p>
+
+<p class="code">
+    <span class="k">def</span> add3(a=1, b=2, c=2)<br>
+    &nbsp;&nbsp;<span class="k">return</span> a+b+c<br>
+    <span class="k">end</span><br>
+    <br>
+    add3(0) <span class="c"># Retourne 4. a est mis à 0.</span><br>
+</p>
+
+<p>Il existe également des paramètres spéciaux, qui doivent être mis à la fin des paramètres formels dans la définition de la fonction. Il ne peut y en avoir qu'un de chaque type, et l'ordre doit être respecté. Le premier type est symbolisé par le préfixe <b>*</b> et contiendra tous les paramètres supplémentaires passés à la fonction dans une liste. Le second type est préfixé par <b>**</b> et contidendra tous les paramètres supplémentaires passés par nom dans un dictionnaire où le nom sera utilisé comme clé. Enfin le dernier type est préfixé par <b>&amp;</b> et permet de convertir le bloc passé à la méthode en object <span class="code">Proc</span>. Ces trois paramètres sont toujours optionnels et seront égaux à <span class="k">nil</span> s'ils ne sont pas renseignés.</p>
+
+<p class="code">
+    <span class="k">def</span> make_something_on_list(*liste, &amp;action)<br>
+    &nbsp;&nbsp;<span class="k">for</span> i <span class="k">in</span> liste <span class="k">do</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;yield i <span class="c"># ou : action.call(i)</span><br>
+    &nbsp;&nbsp;<span class="k">end</span><br>
+    <span class="k">end</span><br>
+    <br>
+    make_something_on_list(1, 2, 3) do |i| puts i end <span class="c"># Affiche 1, 2, 3 sur trois lignes.</span><br>
+</p>
+
+<p>Lorsque l'on exécute un appel d'une méthode, celle-ci doit être définie à ce moment de l'exécution. Mais on peut la mentionner avant dans le corps d'autres méthodes, tant que celles-ci ne sont pas appelées.</p>
+
+<p>On peut annuler la définition d'une méthode avec le mot clé <span class="k">undef</span>.
+
+<p class="code">
+    <span class="k">undef</span> :make_something_on_list<br>
+</p>
+
+<p>On peut faire des méthodes enchâssées, c'est à dire des définitions de méthode dans une méthode.</p>
+
+<h4>Exemples</h4>
+
+<p class="code">
+    <span class="k">def</span> sayHello(name)<br>
+    &nbsp;result = <span class="s">"Hello, "</span> + name<br>
+	&nbsp;return result<br>
+    <span class="k">end</span><br>
+    <br>
+    puts sayHello(<span class="s">"Elyane"</span>)<br>
+    puts (sayHello(<span class="s">"Marianne"</span>))<br>
+    puts (sayHello <span class="s">"Josianne"</span>) <span class="c"># Ruby conseille de mettre des parenthèses.</span><br>
+    puts sayHello <span class="s">"Ariane"</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># De même.</span><br>
+</p>
+
+<!------------------------------------------ Classes et objets ------------------------------------------------>
+
+<h2 class="horstexte" id="oo">Classes et objets</h2>
+<a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<p>Nous avons vu que tout était objet dans Ruby. Et que chaque objet a un type. Le type est une définition abstraite, et les objets sont ses exemples concrets. Par exemple, vous pouvez avoir un type <span class="code">Voiture</span> et ses objets : la voiture de Paul et la voiture du Charlotte. Au niveau du type, on a défini qu'une voiture avait une couleur. Et au niveau des objets, on précisera la valeur de cette couleur : verte pour Paul et bleue pour Charlotte. Ces objets particuliers sont appelés <span class="index">instances</span> de la classe <span class="code">Voiture</span>. Cette conception des choses, Classe/Instances, s'appelle l'orienté objet ou OO. On parlera de programmation orienté objet, ou POO.</p>
+
+<h3 id="oo1">Premiers pas dans l'orienté objet</h3>
+
+<p>L'orienté objet implique donc deux étapes : la définition de classes, et la création d'instances de ces classes. Commençons par définir une classe, nous allons voir dans un premier temps la syntaxe complète, puis différents exemples pour l'illustrer :</p>
+
+<p class="code">
+    <span class="k">class</span> Identifier &lt; SuperClasse<br>
+    &nbsp;&nbsp;instructions<br>
+    <span class="k">end</span><br>
+    <br>
+    <span class="k">class</span> Voiture<br>
+    &nbsp;&nbsp;<span class="k">def</span> initialize(c)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;@couleur = c<br>
+    &nbsp;&nbsp;<span class="k">end</span><br>
+    <span class="k">end</span>
+</p>
+
+<p>On a défini ici la classe Voiture par une structure qui commence par le mot clé <span class="k">class</span> suivit du nom que l'on veut donner à la classe et se termine par <span class="k">end</span>. Le nom de la classe doit commencer par une majuscule, indiquant ainsi la constance entre l'identificateur et la classe qu'il désigne. Entre, on définit la méthode <span class="code">initialize</span>. Il faut bien voir que ce qu'on définit là, si cela appartient à la classe et à ses futures instances, ne pourra être exécuté qu'au niveau des instances de classe. On remarque aussi une variable préfixée par <b>@</b>. Ce préfixe indique que c'est une variable d'instance, qui a comme portée la durée de vie de l'instance à laquelle elle appartient et est visible dans toutes ses méthodes. Une classe peut se voir comme constituer de deux parties : une partie statique qui est un regroupement de variables (ici <span class="code">@couleur</span>), appelées aussi attributs dans ce cas là, et d'une partie dynamique, les méthodes (ici <span class="code">initialize</span>). A chaque fois, on définit cela au niveau de la classe, mais c'est au niveau de l'instance que cela prend son sens.</p>
+
+<p>Pour créer une instance, opération que l'on appelle l'<span class="index">instanciation</span>, on fera :</p>
+
+<p class="code">
+    voiture_de_paul = Voiture.new(<span class="s">"verte"</span>)<br>
+    voiture_de_charlotte = Voiture.new(<span class="s">"bleue"</span>)<br>
+</p>
+
+<p>On appelle la méthode new de la classe Voiture, qui va créer une instance, et appeler dessus la méthode initialize en lui passant ses paramètres, ici une chaîne représentant la couleur de la voiture. La méthode initialize est automatiquement appelée par new, et elle est appelée un <span class="index">constructeur</span>. Elle permet d'initialiser l'instance.</p>
+
+<p>On peut bien sûr avoir plus d'une méthode dans une classe. Ajoutons la méthode <span class="code">rouler</span> à notre classe : </p>
+
+<p class="code">
+    <span class="k">class</span> Voiture<br>
+    &nbsp;&nbsp;<span class="k">def&nbsp;</span>rouler()<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;puts <span class="s">'je roule'</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="k">end</span><br>
+    <span class="k">end</span><br>
+</p>
+
+<p>Pour ajouter une méthode à une classe, il suffit de réouvrir la structure <span class="k">class</span> et d'y écrire au milieu la ou les méthodes à ajouter. La méthode rouler que l'on ajoute ne prend pas d’arguments comme l'indique les parenthèses qui suivent le nom de la méthode et sont donc optionnelles. Au contraire de la méthode <span class="code">initialize</span>, qui est une méthode spéciale automatiquement appelée lors de la création d’une nouvelle instance, nous devons appeler explicitement <span class="code">rouler</span>.
+
+<p class="code">
+    voiture_de_sam = Voiture.new(<span class="s">"noire"</span>)<br>
+    voiture_de_sam.rouler <span class="c"># Appel de la méthode rouler qui affiche "je roule"</span>
+</p>
+
+<p>Et maintenant, on veut ajouter un nouvel attribut à la classe <span class="code">Voiture</span>. On veut que chaque voiture est une marque. Il nous faut donc redéfinir la méthode <span class="code">initialize</span>.</p>
+
+<p class="code">
+    <span class="k">class</span> Voiture<br>
+    &nbsp;&nbsp;<span class="k">def</span> initialize(c, m)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;@couleur = c<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;@marque = m<br>
+    &nbsp;&nbsp;<span class="k">end</span><br>
+    <span class="k">end</span><br>
+</p>
+
+<p>Les instances précédentes n'ont pas d'attribut <span class="code">@marque</span> puisqu'elles ont été créées avant. Il faut donc les créer à nouveau avec les marques 'Lyon' et 'CNX' :</p>
+
+<p class="code">
+    voiture_de_paul = Voiture.new(<span class="s">"verte"</span>, <span class="s">'Lyon'</span>)<br>
+    voiture_de_charlotte = Voiture.new(<span class="s">"bleue"</span>, <span class="s">'CNX'</span>)<br>
+</p>
+
+<p>La méthode <span class="code">new</span> de la classe Voiture va créer deux nouvelles instances et appelera la nouvelle fonction initialize pour ces deux objets en leur passant ses paramètres. Pour voir si tout c’est bien passé, vous pouvez faire un appel à la méthode inspect :</p>
+
+<p class="code">
+    voiture_de_paul.inspect <span class="c"># Affiche @couleur="verte" @marque="Lyon"</span><br>
+</p>
+
+<h3 id="methodes3">Les méthodes dans l'OO</h3>
+
+<p>Une méthode en Ruby appartient à un objet et ce déclare avec la syntaxe suivante :</p>
+<p class="code">
+    <span class="k">def&nbsp;</span>nom_methode(paramètres)<br>
+    &nbsp;&nbsp;code<br>
+    <span class="k">end</span><br>
+</p>
+
+<p>Nous avons vu jusqu'à présent seulement des méthodes d'instance définies à l'intérieur d'une classe. Mais on peut aussi définir une méthode pour la classe elle-même, ou bien pour une instance particulière.</p>
+
+<h4>Méthode d'instance</h4>
+
+<p>La définition de la méthode se fait dans la classe de l’objet. Ces méthodes sont appelées méthodes d’instances.</p>
+
+<p class="code">
+    <span class="k">class</span> Voiture<br>
+    &nbsp;&nbsp;<span class="k">def</span> rouler()<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;puts <span class="s">'je roule en #{@marque}'</span><br>
+    &nbsp;&nbsp;<span class="k">end</span><br>
+    <span class="k">end</span><br>
+    <br>
+    v = Voiture.new(<span class="s">"blanche"</span>, <span class="s">"CNX"</span>)<br>
+    v.rouler <span class="c"># Affiche "je roule en CNX"<br>
+</p>
+
+<p>On peut remarquer au passage un moyen simple pour inclure une variable dans une chaîne : la syntaxe <span class="code">#{code}</span> permet cela.</p>
+
+<h4>Méthode de classe</h4>
+
+<p>On peut définir une méthode pour la classe elle-même. Il suffit de faire précéder son nom par le nom de la classe suivit d'un point dans sa définition. Ces méthodes sont appelées méthodes de classe.</p>
+
+<p class="code">
+    <span class="k">class</span> Voiture<br>
+    &nbsp;&nbsp;<span class="k">def</span> Voiture.affiche_nom_classe()<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;puts <span class="s">'Voiture'</span><br>
+    &nbsp;&nbsp;<span class="k">end</span><br>
+    <span class="k">end</span><br>
+    <br>
+    Voiture.affiche_nom_classe() <span class="c"># Affiche "Voiture"</span><br>
+</p>
+
+<p>Contrairement à d'autres langages, on ne peut appeler une méthode de classe que sur la classe elle-même et pas une instance de celle-ci.</p>
+
+<h4>Méthode singleton</h4>
+
+<p>Une méthode singleton est une méthode définie pour une seule instance. On fait précéder son nom par l'identificateur de l'objet concerné sous la forme <span class="code">identificateur.nom_methode</span>. Une méthode définie pour un objet particulier s’appelle une méthode singleton.</p>
+
+<p class="code">
+    v1 = Voiture.new('rouge', 'CNX')<br>
+    <span class="k">def</span> v1.rouler_vite()<br>
+    &nbsp;&nbsp;puts <span class="s">'je roule vite'</span><br>
+    <span class="k">end</span><br>
+    v1.rouler_vite() <span class="c">#&nbsp;Affiche&nbsp;:&nbsp;je&nbsp;roule&nbsp;vite</span><br>
+    <br>
+    v2 = Voiture.new('violette', 'Lyon')<br>
+    v2.rouler_vite() <span class="c"># Erreur! rouler_vite n'est pas définie pour v2 mais seulement pour v1 !</span><br>
+</p>
+
+<p>On peut aussi définir une méthode singleton par la construction suivante :</p>
+
+<p class="code">
+    aa = <span class="s">"hello"</span><br>
+    <span class="k">class</span>&lt;&lt; aa<br>
+    &nbsp;&nbsp;<span class="k">def</span> to_s<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="s">"The value is '#{self}'"</span><br>
+    &nbsp;&nbsp;<span class="k">end</span><br>
+    <span class="k">end</span><br>
+    puts aa.to_s<br>
+</p>
+
+<p>On remarquera que quand on définit une méthode hors d'une classe, celle-ci est définie comme méthode singleton de l'objet main. On a une équivalence ici entre <span class="k">def</span><span class="code"> nom_methode</span> et <span class="k">def</span><span class="code"> self.nom_methode</span>. Mais celui-ci a un comportement particulier, car ces méthodes, contrairement aux méthodes singletons classiques, seront rattachées à la classe <span class="k">Object</span> et donc à toutes les  instances de cette classe <b>(même celles créées avant !)</b>, rendant ces méthodes appelables depuis le contexte de tous les objets.</p>
+
+<h3 id="heritage">L’héritage</h3>
+
+<p>Un des avantages de l'orienté objet est la capacité de réutiliser du code et de pouvoir écrire des traitements génériques pour des éléments spécialisés. Je m'explique : prenons un avion, une voiture et un bateau. On peut faire trois classes différentes, réciproquement <span class="code">Avion</span>, <span class="code">Voiture</span> et <span class="code">Bateau</span>. Mais voilà, on peut considérer que ces trois classes, sont toutes les trois des véhicules et factoriser leurs méthodes et attributs communs dans une nouvelle classe, la classe <span class="code">Véhicule</span>. Puis on va faire <span class="index">hériter</span> les trois classes de <span class="code">Véhicule</span>. C'est à dire qu'elles recevront les méthodes et attributs de cette classe-là, en plus de tous ceux qu'elles pourront définir dans leur propre définition.</p>
+
+<p class="code">
+    <span class="k">class</span> Véhicule<br>
+    &nbsp;&nbsp;<span class="k">def</span> aller_a(lieu)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;puts <span class="s">"j'avance vers #{lieu}"</span><br>
+    &nbsp;&nbsp;<span class="k">end</span><br>
+    <span class="k">end</span><br>
+    <br>
+    <span class="k">class</span> Avion &lt; Véhicule<br>
+    &nbsp;&nbsp;<span class="k">def</span> aller_a(lieu)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;puts <span class="s">"je vole vers #{lieu}"</span><br>
+    &nbsp;&nbsp;<span class="k">end</span><br>
+    <span class="k">end</span><br>
+    <br>
+    <span class="k">class</span> Voiture &lt; Véhicule<br>
+    &nbsp;&nbsp;<span class="k">def</span> aller_a(lieu)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;puts <span class="s">"je roule vers #{lieu}"</span><br>
+    &nbsp;&nbsp;<span class="k">end</span><br>
+    <span class="k">end</span><br>
+    <br>
+    liste = [ Voiture.new, Avion.new ]<br>
+    lieu = <span class="s">"Paris"</span><br>
+    <span class="k">for</span> v <span class="k">in</span> liste <span class="k">do</span><br>
+    &nbsp;&nbsp;v.aller_a(lieu)<br>
+    <span class="k">end</span><br>
+</p>
+
+<p>Vous avez l'exemple typique de l'avantage que confère l'orienté objet : la liste comporte des éléments de type <span class="code">Voiture</span> et <span class="code">Avion</span> mais nous savons que les deux héritent de Véhicule, donc répondrons à la méthode <span class="code">aller_a</span> même si le code pour chacune est différente ! On a ainsi un processus générique qui permet d'avoir en même temps des traitements spécialisés ! <span class="code">Véhicule</span> sera la super classe, ou classe-mère, et <span class="code">Voiture</span> et <span class="code">Avion</span> seront les deux sous-classes ou classes-filles. Le fait de rédéfinir une méthode dans une sous-classe s'appelle la redéfinition.</p>
+
+<h3 id="encapsulation">L’encapsulation</h3>
+
+<p>L'encapsulation est un principe important de l'orienté objet. Cela consiste à masquer des méthodes ou des attributs de nos objets pour limiter leur utilisation. Par exemple, quand leur utilisation ne regarde pas l’utilisateur de la classe mais seulement le concepteur, il peut être utile de protéger des variables internes des utilisateurs de la classe. Ainsi, on divise la classe en deux parties : une, publique, qui sera connue des utilisateurs et devra être maintenue au fil des versions, et une autre, privée, qui pourra être changée en profondeur si besoin est par son concepteur.</p>
+
+<h4>Encapsulation des méthodes</h4>
+
+<p>Lors de la définition d’une classe, vous pouvez définir le niveau d’encapsulation de chaque méthode. Ainsi, le niveau d’encapsulation par défaut est <span class="code">public</span>. Cela définit qu’une méthode f défini pour un objet de la classe C pourra être appelée depuis n’importe où. Le niveau <span class="code">protected</span> indique que la méthode ne pourra être appelée qu’à l’intérieur du code de la classe ou de une de ses classes filles. Le niveau <span class="code">private</span> enfin, indique la méthode ne pourra être appelée qu’à l’intérieur du code de la classe, sans indiquer de récepteur. La syntaxe est la suivante :</p>
+
+<p class="code">
+    public <i>[:symbol]</i><br>
+    protected <i>[:symbol]</i><br>
+    private <i>[:symbol]</i><br>
+</p>
+
+<p>Si les symboles sont omis, toutes les méthodes suivantes seront déclarées à ce niveau d’encapsulation.</p>
+
+<h4>Encapsulation des attributs</h4>
+
+<p>En Ruby, tout attribut d’instance est par définition encapsulé au niveau privé. Pour déclarer que l’on peut y accéder en lecture il faut définir une méthode d’accès en lecture grâce à la syntaxe :</p>
+
+<p class="code">
+    attr_reader :symbol<i>[,:symbol]*</i><br>
+</p>
+
+<p>Pour déclarer qu’un attribut peut être aussi en écriture, il suffit de déclarer une méthode d’accès (ou accesseurs) en écriture :</p>
+
+<p class="code">
+    attr_writer :symbol<i>[,:symbol]*</i><br>
+</p>
+
+<p>Pour déclarer un accesseur dans les deux sens (lecture et écriture) on peut faire :</p>
+
+<p class="code">
+    attr_accessor :symbol<i>[,:symbol]*</i><br>
+</p>
+
+<p>Voici une définition rapide d'une classe Personne avec les méthodes auxquelles les instances doivent répondre et ses attributs. Les éléments privés sont marqués d'un <b>-</b> et les éléments publics d'un <b>+</b> :</p>
+
+<p class="code">
+    Personne <span class="c"># Nom de la classe</span><br>
+    &nbsp;&nbsp;-age<br>
+    &nbsp;&nbsp;-nom<br>
+    &nbsp;&nbsp;+SePrésenter()<br>
+    &nbsp;&nbsp;+FêterAnniversaire()<br>
+    &nbsp;&nbsp;+getAge()<br>
+</p>
+
+<p>Et voici la définition de la classe correspondante en Ruby :</p>
+
+<p class="code">
+    <span class="k">class</span> Personne<br>
+    <br>
+    &nbsp;&nbsp;<span class="k">def</span> initialize(n, a)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;@nom = n<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;@âge = a<br>
+    &nbsp;&nbsp;<span class="k">end</span><br>
+    <br>
+    &nbsp;&nbsp;<span class="k">def</span> SePrésenter()<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;puts <span class="s">"je m'appelle #{@nom} et j'ai #{@âge} ans"</span><br>
+    &nbsp;&nbsp;<span class="k">end</span><br>
+    <br>
+    &nbsp;&nbsp;<span class="k">def</span> FêterAnniversaire()<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;@âge += <span class="i">1</span><br>
+    &nbsp;&nbsp;<span class="k">end</span><br>
+    <br>
+    &nbsp;&nbsp;attr_reader</span> :âge, :nom<br>
+    <br>
+    <span class="k">end</span><br>
+</p>
+
+<p>L'avantage de cette conception, est que l'on protège notre variable nom et notre variable âge. N'importe qui peut les lire, mais pour les modifier, il faudra toujours passer par les méthodes définies ici.</p>
+
+<h4>Utilisation :</h4>
+
+<p class="code">
+    bob = Personne.new(<span class="s">"Bob"</span>, <span class="i">27</span>)<br>
+    puts bob.age &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># Affiche 27</span><br>
+    bob.FêterAnniversaire()<br>
+    puts bob.age &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c"># Affiche 28</span><br>
+    bob.SePrésenter() <span class="c"># Affiche "je m'appelle Bob et j'ai 28 ans"</span><br>
+</p>
+
+<p>Et voilà !</p>
+
+<!------------------------------------------ HIC SUNT DRACONES ------------------------------------------------>
+
+<h2 class="horstexte" id="modules">Modularité</h2>
+<a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<p class="code">
+&nbsp;<span class="k">module&nbsp;</span>Identifier<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;instructions<br>
+&nbsp;<span class="k">end</span><br>
+</p>
+<p># When you include a module, Ruby creates an anonymous proxy class that references that module, and inserts that proxy as the direct superclass of the class that  did the including. The proxy class contains references to the instance variables and methods of the module. This is important: the same module may be included in many different classes, and will appear in many different inheritance chains. However, thanks to the proxy class, there is still only one underlying module: change a method definition in that module, and it will change in all classes that include that module, both past and future. </p>
+<p class="code">
+&nbsp;puts<br>
+&nbsp;puts</span>&nbsp;<span class="s">"Mix<span class="</span>k<span class="s">">in&nbsp;</span>and&nbsp;modules"</span><br>
+&nbsp;<span class="k">module&nbsp;</span>HelloMod<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">def&nbsp;</span>hello<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s">"Hello!"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">end</span><br>
+&nbsp;<span class="k">end</span><br>
+&nbsp;<span class="k">class&nbsp;</span>C<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">include&nbsp;</span>HelloMod<br>
+&nbsp;<span class="k">end</span><br>
+&nbsp;c&nbsp;=&nbsp;C.new<br>
+&nbsp;puts</span>&nbsp;c.hello<br>
+&nbsp;<span class="k">module&nbsp;</span>HelloMod<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">def&nbsp;</span>hello<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="s">"zorbix"</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">end</span><br>
+&nbsp;<span class="k">end</span><br>
+&nbsp;puts</span>&nbsp;c.hello<br>
+</p>
+<p>Extending objects</p>
+<p class="code">
+&nbsp;<span class="k">module&nbsp;</span>Laetitia<br>
+	<span class="k">def&nbsp;</span>hello<br>
+		<span class="s">"hey&nbsp;!"</span>&nbsp;<br>
+	<span class="k">end</span><br>
+&nbsp;<span class="k">end</span><br>
+&nbsp;cc&nbsp;=&nbsp;<span class="s">"Grouchy"</span><br>
+&nbsp;cc.ext<span class="k">end</span>&nbsp;Laetitia<br>
+&nbsp;puts</span>&nbsp;cc.hello<br>
+&nbsp;<span class="k">class&nbsp;</span>Lae&nbsp;<br>
+	<span class="k">include&nbsp;</span>Laetitia	<span class="c">#&nbsp;ajoute&nbsp;comme&nbsp;méthode&nbsp;d'instance</span><br>
+&nbsp;	ext<span class="k">end</span>&nbsp;Laetitia		<span class="c">#&nbsp;appel&nbsp;à&nbsp;object#ext<span class="k">end</span>,&nbsp;donc&nbsp;self.ext<span class="k">end</span>&nbsp;avec&nbsp;self&nbsp;=&nbsp;Lae&nbsp;(la&nbsp;classe)&nbsp;donc&nbsp;méthode&nbsp;de&nbsp;classe</span><br>
+&nbsp;<span class="k">end</span><br>
+&nbsp;lae&nbsp;=&nbsp;Lae.new<br>
+&nbsp;puts</span>&nbsp;lae.hello<br>
+&nbsp;puts</span>&nbsp;Lae.hello<br>
+</p>
+
+<h2 class="horstexte" id="exceptions">Gestion des exceptions</h2>
+<a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<p class="code">
+&nbsp;<span class="k">begin</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;instructions<br>
+&nbsp;rescue&nbsp;Exception<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;instructions&nbsp;en&nbsp;cas&nbsp;d'erreur<br>
+&nbsp;ensure<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;instructions&nbsp;toujours&nbsp;exécutées&nbsp;à&nbsp;la&nbsp;fin<br>
+&nbsp;<span class="k">end</span><br>
+</p>
+<p>retry</p>
+
+<h2 class="horstexte" id="astuces">Astuces</h2>
+<a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<p>Intervertir la valeur de deux variables sans passer par une variable intermédiaire :</p>
+
+<p class="code">
+    a, b = <span class="i">1</span>, <span class="i">5</span><br>
+    <span class="c"># Au lieu de faire :</span><br>
+    c = a<br>
+    a = b<br>
+    b = c<br>
+    <span class="c"># On fait plus simplement ça :</span><br>
+    a, b = b, a<br>
+</p>
+
+<p>Pour obtenir un nombre au hasard :</p>
+
+<p class="code">
+    i = rand(max) &nbsp;<span class="c"># Obtient à un nombre de 0 à max-1</span><br>
+    d6 = rand(6)+1 <span class="c"># Simule un lancé de dé</span><br>
+</p>
+
+<h3>Appel de bibliothèque</h3>
+<p class="code">
+&nbsp;<span class="k">require&nbsp;</span><span class="s">'ma_bibliothèque'</span><br>
+</p>
+<p>Ruby cherchera alors le fichier ma_bibliothèque.rb ou .so dans les dossiers spécifiés par loadpath ainsi que le répertoire courant. On peut changer le loadpath en faisant : $LOAD_PATH &lt;&lt; 'c:/mon_dossier/'</p>
+<p class="code">
+&nbsp;<span class="k">require&nbsp;</span><span class="s">'gosu'</span><br>
+</p>
+<p>Va chercher la librairie gosu.dll. Toutes les éléments sont importées via l'espace de nom Gosu dans l'espace courant.</p>
+<p>Gosu::xxx</p>
+<p>Si on veut directement importer les éléments de Gosu dans l'espace de nom courant faire :</p>
+<p>include Gosu</p>
+<h3>Expression régulière</h3>
+<p class="code">
+&nbsp;regexp&nbsp;=~&nbsp;string<br>
+</p>
+<p>Compare une expression à une chaîne, retourne un nombre (l'emplacement du début de la partie associée) si il y a association. Sinon nil. </p>
+
+<p class="code">
+&nbsp;text&nbsp;=&nbsp;<span class="s">"La&nbsp;lune&nbsp;est&nbsp;une&nbsp;dure&nbsp;maîtresse&nbsp;-&nbsp;Pour&nbsp;qui&nbsp;sonne&nbsp;le&nbsp;glas&nbsp;-&nbsp;Heart&nbsp;of&nbsp;Darkness"</span><br>
+&nbsp;<span class="k">if&nbsp;</span>/lune|glas/&nbsp;=~&nbsp;text&nbsp;<span class="k">then&nbsp;</span>puts</span>&nbsp;<span class="s">"glaslune&nbsp;!"</span>&nbsp;<span class="k">end</span><br>
+&nbsp;text.sub!(/lune/,&nbsp;<span class="s">'moon&nbsp;of&nbsp;mars'</span>)&nbsp;<span class="c">#&nbsp;<span class="i">1</span>ère&nbsp;occurence</span><br>
+&nbsp;text.gsub!(/of/,&nbsp;<span class="s">'de'</span>)&nbsp;<span class="c">#&nbsp;toutes&nbsp;les&nbsp;occurences</span><br>
+&nbsp;puts</span>&nbsp;text<br>
+</p>
+<h3>Substitution d'expression</h3>
+<p class="code">
+&nbsp;name&nbsp;=&nbsp;<span class="s">"Adrien"</span><br>
+&nbsp;puts</span>&nbsp;<span class="s">"Mon&nbsp;nom&nbsp;est&nbsp;<span class="c">#{name}"</span></span><br>
+&nbsp;puts</span>&nbsp;<span class="s">"<span class="i">4</span>+<span class="i">4</span>&nbsp;=&nbsp;<span class="c">#{<span class="i">4</span>+<span class="i">4</span>}"</span></span><br>
+</p>
+
+<h2 class="horstexte" id="bibliotheques">Bibliothèques</h2>
+<a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<p>Connaître le langage n'est que la moitié de l'affaire. En effet, il est important de connaître les bibliothèques offertes pour pouvoir utiliser dans sa pleine puissance Ruby, et surtout ne pas recoder quelque chose qui a déjà été codé, souvent en mieux ! Il y a trois niveaux de bibliothèque : la bibliothèque du noyau concerne les méthodes offertes par les types de base de Ruby. La bibliothèque standard est incluse dans chaque distribution de Ruby, mais nécessite d'employer des <span class="code">require</span> pour faire appel aux parties souhaitées. Enfin, les bibliothèques externes doivent être au préalable téléchargées et installées sur la machine avant de pouvoir être utilisées depuis Ruby.</p>
+
+<h3 id="bib_noyau">Bibliothèque du noyau</h3>
+
+<h4 id="object">Classe Object</h4>
+
+<p>Ces méthodes sont communes à tous les objets Ruby.</p>
+
+<h5>Méthodes</h5>
+
+<dl>
+    <dt>nil?</dt>
+    <dd>Renvoie vrai si l'objet est égal à la valeur nulle.</dd>
+</dl>
+
+<h5>Opérateurs</h5>
+
+<dl>
+    <dt>=~</dt>
+    <dd>Cette opérateur est défini au niveau d'objet mais sert surtout, une fois redéfini, aux expressions régulières.</dd>
+</dl>
+
+<h4 id="int">Classes Fixnum et Bignum</h4>
+
+<p>Les deux classes héritent de <span class="code">Integer</span> qui hérite de <span class="code">Numeric</span>.</p>
+
+<h5>Littéraux</h5>
+
+<p class="code">
+    <span class="c"># 8 en base décimale, binaire, héxadécimale et octale :</span><br>
+    <span class="i">8</span><br>
+    <span class="i">0b1000</span><br>
+    <span class="i">0x08</span><br>
+    <span class="i">010</span><br>
+</p>
+
+<h5>Méthodes</h5>
+
+<dl>
+    <dt><span class="code">abs</span></dt>
+    <dd>Renvoie la valeur absolue du nombre.</dd>
+    <dt><span class="code">between?(min, max)</span></dt>
+    <dd>Renvoie vrai si nombre est compris entre min et max inclus.</dd>
+    <dt><span class="code">chr</span></dt>
+    <dd>Renvoie la chaîne du caractère correspond au nombre.</dd>
+    <dt><span class="code">downto(min) bloc/1</span></dt>
+    <dd>Fait une itération du nombre à min en passant en argument la valeur courante au bloc en paramètre.</dd>
+    <dt><span class="code">to_f</span></dt>
+    <dd>Transforme l'entier en flottant. Si on essaye de convertir un Bignum en flottant, le flottant peut être trop petit pour le contenir, et prendra comme valeur l'infini.</dd>
+    <dt><span class="code">next</span></dt>
+    <dd>Renvoie nombre+1 (équivalent à <span class="code">succ</span>).</dd>
+    <dt><span class="code">size</span></dt>
+    <dd>Renvoie le nombre d'octets nécessaire pour stocker en mémoire ce nombre.</dd>
+    <dt><span class="code">step(limite, step) bloc/1</span></dt>
+    <dd>Fait une itération du nombre à limite en ajoutant step à chaque fois et en passant la valeur courante au bloc.</dd>
+    <dt><span class="code">succ</span></dt>
+    <dd>Renvoie nombre+1 (équivalent à <span class="code">next</span>).</dd>
+    <dt><span class="code">times bloc/0-1</span></dt>
+    <dd>Fait n itération de 0 à nombre-1 en appelant le bloc avec l'index.</dd>
+    <dt><span class="code">to_s(<i>base</i>)</span></dt>
+    <dd>Convertit le nombre en une chaîne dans la base donnée, 10 par défaut.</dd>
+    <dt><span class="code">upto(max) bloc/1</span></dt>
+    <dd>Fait une itération du nombre à max en passant en argument la valeur courante au bloc en paramètre.</dd>
+    <dt><span class="code">zero?</span></dt>
+    <dd>Renvoie vrai si nombre est égal à 0.</dd>
+</dl>
+
+<h5>Opérateurs</h5>
+
+<dl>
+    <dt><span class="code">[index]</span></dt>
+    <dd>Renvoie le bit à l'emplacement d'index.</dd>
+    <dt><span class="code">Arithmétiques : + - * / ** %</span></dt>
+    <dd>Opérateurs arithmétiques classiques. La division de deux entiers produit toujours un entier.</dd>
+    <dt><span class="code">Binaires : &amp; (et) | (ou) ^ (ou exclusif) ~ (inversion des bits)</span></dt>
+    <dd>Opérateurs binaires classiques.</dd>
+    <dt><span class="code">De décalage : &lt;&lt; (à gauche) &gt;&gt; (à droite)</span></dt>
+    <dd>Opérateurs de décalage (décale en ajoutant des 0).</dd>
+    <dd><span class="code">De comparaison : &lt; &lt;= &gt; &gt;= == != &lt;=&gt;</span></dd>
+    <dd>Renvoie vrai ou faux, sauf &lt;=&gt; qui renvoie 0 (égaux), -1 (gauche &lt; droite), +1 (gauche &gt; droite).</dd>
+</dl>
+
+<h4 id="float">Classe Float</h4>
+
+<p>Cette classe hérite de <span class="code">Numeric</span>.</p>
+
+<h5>Littéraux</h5>
+
+<p class="code">
+    <span class="c"># 0.5 dans deux notations différentes :</span><br>
+    <span class="i">0.5</span><br>
+    <span class="i">5e-1</span><br>
+</p>
+
+<h5>Méthodes</h5>
+
+<dl>
+    <dt><span class="code">floor</span></dt>
+    <dd>Arrondit le nombre à l'inférieur.</dd>
+    <dt><span class="code">ceil</span></dt>
+    <dd>Arrondit le nombre au supérieur.</dd>
+    <dt><span class="code">round</span></dt>
+    <dd>Arrondit le nombre à l'inférieur si partie décimale &lt; 0.5, à l'inférieur si &gt;= 0.5.</dd>
+    <dt><span class="code">infinite?</span></dt>
+    <dd>Renvoie 1 si le nombre a pour valeur infini positive, -1 si infini négatif et nil si le nombre est fini.</dd>
+    <dt><span class="code">finite?</span></dt>
+    <dd>Renvoie vrai si le nombre a une valeur finie, faux sinon.</dd>
+    <dt><span class="code">nan?</span></dt>
+    <dd>Renvoie vrai si le nombre n'en est pas un (suite à une opération).</dd>
+    <dt><span class="code">floor</span></dt>
+    <dd>Arrondit le nombre à l'inférieur.</dd>
+    <dt><span class="code">to_s</span></dt>
+    <dd>Transforme le nombre en chaîne de caractère après avoir fait un arrondit à l'inférieur dessus.</dd>
+    <dt><span class="code">to_i</span></dt>
+    <dd>Transforme le nombre en entier en troncant sa partie décimale.</dd>
+</dl>
+
+<h5>Opérateurs</h5>
+
+<h4 id="string">Classe String</h4>
+
+<p>Ruby utilise, pour stocker en mémoire les chaînes, un octet par caractère.</p>
+
+<h5>Littéraux</h5>
+
+<p class="code">
+    <span class="s">"hello"</span><br>
+    <span class="s">'hello'</span><br>
+    %q{hello} <span class="c"># Est équivalent à des guillemets simples.</span><br>
+    %Q{hello} <span class="c"># Est équivalent à des guillemets doubles.</span><br>
+    <span class="s">"hello<br>
+    world!"</span> &nbsp;&nbsp;<span class="c"># Chaîne sur plusieurs lignes (possible avec guillemets doubles).<br>
+</p>
+
+<p>Les chaînes entourées de guillement simple ne sont pas interprétées : les caractères spéciaux sont considérés comme des caractères normaux.</p>
+
+<h5>Méthodes</h5>
+
+<dl>
+    <dt><span class="code">concat(str)</span></dt>
+    <dd>Retourne une nouvelle chaîne issue de la concaténation des deux.</dd>
+    <dt><span class="code">to_i</span></dt>
+    <dd>Essaye de convertir la chaîne en un entier. Renvoie 0 sinon.</dd>
+    <dt><span class="code">to_f</span></dt>
+    <dd>Essaye de convertir la chaîne en un flottant. Renvoie 0.0 sinon.</dd>
+</dl>
+
+<h5>Opérateurs</h5>
+
+<dl>
+    <dt><span class="code">+</span></dt>
+    <dd>Retourne une nouvelle chaîne issue de la concaténation des deux (comme <span class="code">concat</span>).</dd>
+</dl>
+
+<h5>Spécial</h5>
+
+<dl>
+    <dt><span class="code">?lettre</span></dt>
+    <dd>Permet d'obtenir la chaîne correspondante à la lettre.</dd>
+    <dt><span class="code">"#{code}"</span></dt>
+    <dd>Exécute le code puis le convertit en chaîne et l'insert dans la chaîne.</dd>
+    <dt><span class="code">\n</span></dt>
+    <dd>Dans une chaîne interprétée (guillement double) cela représente un retour à la ligne et un saut à la prochaine ligne.</dd>
+    <dt><span class="code">\t</span></dt>
+    <dd>Dans une chaîne interprétée (guillement double) cela représente une tabulation.</dd>
+    <dt><span class="code">\xCODE</span></dt>
+    <dd>Dans une chaîne interprétée (guillement double) cela représente un caractère unicode. CODE doit être en hexadécimal.</dd>
+    <dt><span class="code">\\</span></dt>
+    <dd>Dans une chaîne interprétée (guillement double) cela permet d'avoir le caractère \.</dd>
+</dl>
+
+<h4 id="range">Classe Range</h4>
+
+<h4 id="regex">Classe Regexp</h4>
+
+<h5>Littéraux</h5>
+
+<p>Un littéral d'expression régulière peut être immédiatement suivi d'option. Un option permet d'altérer le comportement de l'expression régulière. L'option <b>i</b> permet d'ignorer la différence entre majuscules et minuscules. L'option <b>m</b> permet de parcourir du texte sur plusieurs lignes. L'option <b>x</b> ignore les espaces et autres caractères blancs dans la définition de l'expression. L'option <b>o</b> ne fait évaluer les blocs de Ruby à l'intérieur de la définition de l'expression qu'une fois.</p>
+
+<p class="code">
+    <span class="c"># Expression régulière pour détecter une année (2005 ou 05)</span><br>
+    <span class="r">/\d{4}|\d{2}/</span><br>
+    <span class="r">%r{\d{4}|\d{2}</span><br>
+    a = <span class="r">/\d{4}|\d{2}/</span><br>
+    a.match(<span class="s">"2005"</span>)<br>
+    <span class="c"># Retourne un objet MatchData</span><br>
+    a.match(<span class="s">"2005"</span>)[<span class="i">0</span>]</span><br>
+    <span class="c"># Retourne "2005"</span><br>
+    a.match(<span class="s">"hello"</span>)<br>
+    <span class="c"># Retourne nil</span><br>
+    <br>
+    <span class="c"># Expression régulière pour décomposer le prénom et le nom (M. Martin Pons)</span><br>
+    t = <span class="r">/(M|Mme|Mlle)\. (\w+) (\w+)/</span><br>
+    r = t.match(<span class="s">"M. Martin Pons"</span>)<br>
+    puts t[<span class="i">0</span>] <span class="c"># Affiche "M. Martin Pons"</span><br>
+    puts t[<span class="i">1</span>] <span class="c"># Affiche "M"</span><br>
+    puts t[<span class="i">2</span>] <span class="c"># Affiche "Martin"</span><br>
+    puts t[<span class="i">3</span>] <span class="c"># Affiche "Pons"</span><br>
+</p>
+
+<p>Dans la dernière expression, les parenthèses sont très importantes car elles forment des groupes. Si l'expression est détectée dans la chaîne que l'on passe en paramètre à la méthode <span class="code">match</span>, le résultat sera à la fois l'intégralité de ce qui est reconnu mais aussi divisé en autant de groupes qu'il y a de groupes parenthésés, 3 ici. Le premier correspondra à M ou Mme ou Mlle, le second au prénom, et le troisième au nom. On peut accéder à chaque partie avec l'opérateur <span class="code">[ ]</span> sur l'objet MatchData. Du fait que l'intégralité occupe toujours la position d'indice 0, les groupes seront accessibles de par les indices 1 à 3 ici. On peut également y accéder avec les variables globales $1, $2, etc.</p>
+
+<h5>Méthodes</h5>
+
+<dl>
+    <dt><span class="code">Regexp.new(pattern <i>, [options]</i>)</span></dt>
+    <dd>Construit une nouvelle expression régulière.</dd>
+    <dt><span class="code">Regexp.last_match(indice)</span></dt>
+    <dd>Retourne le résultat du dernier appel de match sur une instance de la classe.</dd>
+    <dt><span class="code">match(chaîne)</span></dt>
+    <dd>Essaye de détecter l'expression régulière dans la chaîne. Renvoie la valeur nulle si elle ne la trouve pas, sinon renvoie un objet <span class="code">MatchData</span>.</dd>
+</dl>
+
+<h5>Opérateurs</h5>
+
+<dl>
+    <dt><span class="code">=~</span></dt>
+    <dd>Effectue un match sur la chaîne passée en paramètre. C'est équivalent à la méthode <span class="code">match</span></dd>
+</dl>
+
+<h5>Spécial</h5>
+
+<p>Le langage des regex est un langage spécifique de domaine (DSL en anglais) : c'est à dire un langage propre au domain des expressions régulières. Il utilise plusieurs caractères avec un sens bien particulier :</p>
+
+<dl>
+    <dt><span class="code">^</span></dt>
+    <dd>Début de chaîne ou ligne (à gauche)</dd>
+    <dt><span class="code">$</span></dt>
+    <dd>Fin de chaîne ou ligne (à droite)</dd>
+    <dt><span class="code">[abc]</span></dt>
+    <dd>Un élément de ce groupe de caractères (a, b ou c ici)</dd>
+    <dt><span class="code">[^abc]</span></dt>
+    <dd>Tout sauf un élément de ce groupe de caractères (a, b ou c ici)</dd>
+    <dt><span class="code">[a-z]</span></dt>
+    <dd>Un élément de ce groupe de caractères (de a à z ici)</dd>
+    <dt><span class="code">[^a-z]</span></dt>
+    <dd>Tout sauf un élément de ce groupe de caractères (de a à z ici)</dd>
+    <dt><span class="code">|</span></dt>
+    <dd>Opérateur ou</dd>
+    <dt><span class="code">( )</span></dt>
+    <dd>Permet de regrouper des éléments</dd>
+    <dt><span class="code">+</span></dt>
+    <dd>Permet de spécifier que l'élément précédent doit apparaître 1 fois ou plus</dd>
+    <dt><span class="code">*</span></dt>
+    <dd>Permet de spécifier que l'élément précédent est optionnel mais peut être répété plusieurs fois</dd>
+    <dt><span class="code">?</span></dt>
+    <dd>Permet de spécifier que l'élément précédent est optionnel</dd>
+    <dt><span class="code">{i}</span></dt>
+    <dd>Permet de spécifier que l'élément précédent doit apparaître i fois.</dd>
+    <dt><span class="code">{i, j}</span></dt>
+    <dd>Permet de spécifier que l'élément précédent doit apparaître au moins i fois et peut apparaître jusqu'à i fois.</dd>
+    <dt><span class="code">\s</span></dt>
+    <dd>Correspond aux caractères blancs : espace, tabulation, nouvelle ligne, etc.</dd>
+    <dt><span class="code">\S</span></dt>
+    <dd>Correspond à tous sauf aux caractères blancs : espace, tabulation, nouvelle ligne, etc.</dd>
+    <dt><span class="code">\d</span></dt>
+    <dd>Correspond à un chiffre, de 0 à 9</dd>
+    <dt><span class="code">\D</span></dt>
+    <dd>Correspond à tout sauf à un chiffre, de 0 à 9</dd>
+    <dt><span class="code">\h</span></dt>
+    <dd>Correspond à un chiffre hexadécimal, de 0 à 9 puis de A ou a à F ou f.</dd>
+    <dt><span class="code">\H</span></dt>
+    <dd>Correspond à tout sauf à un chiffre hexadécimal.</dd>
+    <dt><span class="code">\w</span></dt>
+    <dd>Correspond à n'importe quel caractère pouvant appraître dans un mot</dd>
+    <dt><span class="code">\W</span></dt>
+    <dd>Correspond à tout sauf à n'importe quel caractère pouvant appraître dans un mot</dd>
+    <dt><span class="code">.</span></dt>
+    <dd>Correspond à n'importe quel caractère sauf une nouvelle ligne (sauf si l'option <b>m</b> est activée)</dd>
+    <dt><span class="code">\</span></dt>
+    <dd>Permet d'échapper un caractère spécial. Par exemple, si vous voulez détecter un point (.) vous devez faire : <span class="code">\.</span> sinon il sera interprété comme le caractère spécial <span class="code">.</span> qui signifie n'importe quel caractère.</dd>
+    <dt><span class="code">#{code}</span></dt>
+    <dd>Permet d'intégrer du code Ruby dans l'expression d'une regex.</dd>
+</dl>
+
+<h3 id="bib_standard">Bibliothèque standard</h3>
+
+<h3 id="bib_external">Bibliothèques externes</h3>
+
+<p>On peut trouver de nombreuses bibliothèques externes sur le site de la <a href="http://raa.ruby-lang.org/">Ruby Application Archive</a> ou RAA qui les liste. RAA est un peu comme CPAN, Pear et Pecl pour le langage Perl ou PyPI, the Python Package Index pour le langage Python. Il existe aussi Ruby Forge qui héberge de nombreux projets en Ruby dont des bibliothèques.</p>
+
+<h4>Watir</h4>
+
+<p><a href="http://wiki.openqa.org/display/WTR/Example+Test+Case">Watir</a> est une bibliothèque créée pour tester les applications web. Elle se charge de dialoguer avec un navigateur internet, pour permettre d'automatiser son comportement en vue de tester une application web (simulation de clic sur un bouton, de remplissage de formulaire).Il fonctionne avec les principaux navigateurs. Des versions pour .Net (Watin) et Java (Watij) existent aussi.</p>
+
+<p class="code">
+    <span class="k">require</span> <span class="s">"watir"</span><br>
+    test_site = <span class="s">"http://www.google.com"</span><br>
+    ie = Watir::IE.new<br>
+    ie.goto test_site<br>
+    ie.text_field(:name, <span class="s">"q"</span>).set <span class="s">"pickaxe"</span><br>
+    ie.button(:name, <span class="s">"btnG"</span>).click<br>
+    ie.text.include? <span class="s">"Programming Ruby"</span><br>
+</p>
+
+<h4>Gosu</h4>
+
+<p><a href="http://www.libgosu.org/">Gosu</a> est une bibliothèque multimédia (sons, images, périphériques d'entrée tels que la souris et le clavier) qui permet notamment de faire des jeux en 2D avec Ruby. La classe principale de notre application devra hériter de la classe <span class="code">Window</span> de Gosu.</p>
+
+<p class="code">
+    <span class="k">class</span> MaFenetre &lt; Gosu::Window<br>
+    <br>
+    &nbsp;&nbsp;<span class="k">def</span> initialize<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;super(largeur, hauteur, booléen)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;self.caption = <span class="s">"Titre"</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;initialisation<br>
+    &nbsp;&nbsp;<span class="k">end</span><br>
+    <br>
+    &nbsp;&nbsp;<span class="k">def&nbsp;</span>update<br>
+    &nbsp;&nbsp;<span class="k">end</span><br>
+    <br>
+    &nbsp;&nbsp;<span class="k">def&nbsp;</span>draw<br>
+    &nbsp;&nbsp;<span class="k">end</span><br>
+    <br>
+    &nbsp;&nbsp;<span class="k">def&nbsp;</span>button_down(id)<br>
+    &nbsp;&nbsp;<span class="k">end</span><br>
+    <br>
+    <span class="k">end</span><br>
+    <br>
+    f = MaFenetre.new<br>
+    f.show<br>
+</p>
+
+<p>Gosu::Button::xxx</p>
+<p>Enumération de tous les boutons possibles.</p>
+
+<h2 class="horstexte" id="biblio">Bibliographie</h2>
+<a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<ul>
+  <li><a href="http://www.abrillant.com/">Alexandre Brillant</a>, Ruby, les fondamentaux du langage, ENI éditions, collection Ressources Informatiques, 2008, France.</li>
+  <li>Yukihiro Matsumoto, Eric Jacoboni (trad.), Ruby In A Nutshell, O'Reilly éditions, 2002, France.</li>
+</ul>
+
+<h2 class="horstexte" id="liens">Liens</h2>
+<a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<ul>
+    <li><a href="http://wiki.openqa.org/display/WTR/Ruby+Cheat+Sheet"> Aide mémoire de Watir sur Ruby</a></li>
+    <li><a href="http://code.google.com/p/gosu-fr/wiki/TutorielRubyGosu">Tutoriel sur Gosu</a></li>
+    <li><a href="http://www.rubyfrance.org/">Association RubyFrance</a></li>
+    <li><a href="http://www.rubycentral.org/">Association RubyCentral</a></li>
+    <li><a href="http://fr.wikipedia.org/wiki/Ruby">Ruby</a> : sur Wikipédia en français</a></li>
+    <li><a href="http://en.wikipedia.org/wiki/Ruby_(programming_language)">Ruby</a> : sur Wikipédia en anglais</li>
+    <li><a class="intext" href="http://www.ruby-doc.org/">Ruby-doc</a> : toute la documentation Ruby</li>
+    <li><a href="http://www.ruby-doc.org/docs/ruby-doc-bundle/Manual/man-1.4/syntax.html">Manuel de Ruby 1.4</a></li>
+    <li><a href="http://tryruby.org/levels/1/challenges/0">Try Ruby</a> : essayer Ruby dans votre navigateur</li>
+    <li><a href="http://www.rubyist.net/~slagell/ruby/">Un cours complet sur Ruby en anglais</a></li>
+</ul>
+
+<h2 class="horstexte" id="resume">Résumé</h2>
+<a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<h2 class="horstexte" id="index">Index</h2>
+<a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<dl>
+  <dt>affectation par copie de la valeur 
+    <dd>aff_copie_valeur
+  <dt>affectation par copie de la référence
+    <dd>aff_copie_ref
+  <dt>caractères d'échappement
+    <dd>car_echap
+  <dt>pseudo variable
+    <dd>pseudo_var
+</dl>
+
+<h2 class="horstexte" id="historique">Historique du document</h2>
+<a href="#sommaire"><i>(retour sommaire)</i></a>
+
+<ul>
+  <li>Vieilles versions et notes
+    <ul>
+      <li>Découverte de Ruby par la lecture de <i>Ruby in a nutshell</i>.</li>
+      <li>5 feuilles papiers non transposées sur machine du 12 octobre <b>2005</b>.</li>
+      <li>1 feuille papier transposée sur machine du 1er mai 2006.</li>
+      <li>Petit fichier intégré du vendredi 26 mars 2010.</li>
+      <li>Fichier de transposition et d'intégration de Gdoc du 29 avril 2011.</li>
+    </ul>
+  </li>
+  <li>Samedi 7 Avril
+    <ul>
+      <li>Version Alpha 01.</li>
+      <li>Mise en ligne sur ran.</li>
+    </ul>
+  </li>
+  <li>Dimanche 8 Avril
+    <ul>
+       <li>Version Alpha 02.</li>
+       <li>première partie OK.</li>
+    </ul>
+  </li>
+  <li>Mercredi 11 Avril
+    <ul>
+      <li>Version Alpha 03.</li>
+      <li>division en grandes parties.</li>
+      <li>seconde partie - les opérateurs OK.</li>
+    </ul>
+  </li>
+  <li>Jeudi 12 Avril
+    <ul>
+      <li>Version Alpha 04.</li>
+      <li>ajout référence Ruby in a nutshell.</li>
+      <li>seconde partie - contrôle du flux OK.</li>
+      <li>seconde partie - méthodes OK.</li>
+    </ul>
+  </li>
+  <li>Lundi 16 Avril
+    <ul>
+      <li>Version Alpha 05 (corrections de Vendredi, Dimanche, Lundi).</li>
+      <li>seconde partie - classes et objets OK.</li>
+      <li>Fixnum, Bignum, Float et Regex dans la bibliothèque noyau OK.</li>
+    </ul>
+  </li>
+</ul>
+
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,103 @@
+﻿{
+    "name" : "Langages",
+    "type" : "datafly_schema",
+    "version" : 1.0,
+    "enum_definition" : {
+        "target:string" : [
+            "CLR", "JVM", "ASM", "VMx", "Interpreter", "toLua", "toJS"
+        ],
+        "family:string" : [
+            "{}", "tab", "end"
+        ],
+        "popularity:string" : [
+            "populaire", "restreint", "confidentiel", "crépusculaire"
+        ],
+        "paradigm:string" : [
+            "orienté-object", "procédural", "fonctionnel"
+        ]
+    },
+    "table_definition" : {
+        "langages" : {
+            "name" : "string",
+            "target" : "enum:target",
+            "family" : "enum:family",
+            "site" : "url",
+            "popularity" : "enum:popularity",
+            "organization" : "string",
+            "paradigm" : "enum:paradigm",
+            "creation" : "date:YYYY"
+        }
+    },
+    "table_content" : {
+        "langages" : [
+            ["ActionScript fam{}"],
+            ["Ada toASM"],
+            ["Amber toJS http://www.amber-lang.net/"],
+            ["Bash script"],
+            ["Boo famTab toIL http://boo-lang.org/"],
+            ["C fam{} toASM"],
+            ["C++ fam{} toASM"],
+            ["C# fam{} toIL"],
+            ["Cω fam{} toIL https://msdn.microsoft.com/en-us/library/ms974195.aspx"],
+            ["Cayenne"],
+            ["Ceylon fam{} toBC https://ceylon-lang.org/"],
+            ["Ciao https://ciao-lang.org/"],
+            ["Clean"],
+            ["Clojure toBC https://clojure.org/"],
+            ["Cobol"],
+            ["CoffeeScript toJS"],
+            ["D fam{} toASM https://dlang.org/"],
+            ["Dart"],
+            ["Delphi"],
+            ["Dylan"],
+            ["E fam{} http://erights.org/"],
+            ["ECMAScript standard"],
+            ["Elixir famEnd toEVM http://elixir-lang.org/"],
+            ["Elm toJS"],
+            ["Erlang https://www.erlang.org/"],
+            ["Euphoria script toC http://openeuphoria.org/ "],
+            ["Falcon famEnd http://falconpl.org/"],
+            ["Fantom fam{} toIL toBC toJS http://fantom.org/ exFan"],
+            ["Fortran"],
+            ["Free_Pascal  http://www.freepascal.org/"],
+            ["Genie famTab toC https://wiki.gnome.org/Projects/Genie"],
+            ["Go fam{} toASM https://golang.org/"],
+            ["Gofer"],
+            ["Gosu fam{} toBC exGScript, http://gosu-lang.github.io/"],
+            ["Groovy toBC http://groovy-lang.org/"],
+            ["Haskell"],
+            ["Io"],
+            ["Ioke toBC"],
+            ["Java fam{} toBC http://www.oracle.com/technetwork/java/index.html"],
+            ["JavaScript script"],
+            ["JScript deprecated"],
+            ["Jython famTab script toBC http://www.jython.org/"],
+            ["Kotlin fam{} toBC toJS http://kotlinlang.org/"],
+            ["Lisp standard"],
+            ["Logo standard"],
+            ["Lua famEnd script https://www.lua.org/"],
+            ["Mirah famEnd toBC exDuby http://www.mirah.org/"],
+            ["Miranda http://miranda.org.uk/"],
+            ["MoonScript toLua https://moonscript.org/"],
+            ["Nim exNimrod https://nim-lang.org/"],
+            ["Objective-C"],
+            ["Pascal toASM standard"],
+            ["Perl fam{} https://www.perl.org/"],
+            ["Pike fam{} script https://pike.lysator.liu.se/"],
+            ["PHP fam{}"],
+            ["Python famTab script https://www.python.org/"],
+            ["Ruby famEnd script https://www.ruby-lang.org/"],
+            ["Rust fam{} toASM https://www.rust-lang.org/"],
+            ["Scala fam{} toBC https://www.scala-lang.org/"],
+            ["Scheme"],
+            ["Self"],
+            ["Simula standard"],
+            ["Squeak"],
+            ["Squirrel fam{} http://www.squirrel-lang.org/"],
+            ["Smalltalk standard"],
+            ["Swift http://www.apple.com/fr/swift/"],
+            ["TypeScript toJS https://www.typescriptlang.org/"],
+            ["Vala fam{} toC https://wiki.gnome.org/Projects/Vala"]
+        ]
+    }
+}

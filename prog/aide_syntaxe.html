@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="fr">
+﻿   <head>
+    <meta charset="utf-8">
+    <title>Aide-mémoire langages</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <link rel="icon" href="http://damien.gouteux.free.fr/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="http://damien.gouteux.free.fr/img/favicon.ico" type="image/x-icon" />
+    <link href="http://damien.gouteux.free.fr/css/simplex.bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+        table.x {
+            border-collapse: collapse;
+            font-family: consolas;
+            border: 1px solid #777777;
+            color: black;
+        }
+        table.x col {
+            width: 22%
+        }
+        table.x col:nth-of-type(1) {
+            width: 12%;
+        }
+        table.x th {
+            text-align: center;
+            font-size: 18px;
+            padding-left: 2em;
+            padding-right: 2em;
+        }
+        /* Clearest color is first for td. ths have tje darkest color. */
+        table.x th:nth-child(1) {
+            background-color: #d4d4d4;
+        }
+        table.x th:nth-child(2) {
+            background-color: #7fbf7f;
+        }
+        table.x th:nth-child(3) {
+            background-color: #ea8a8a;
+        }
+        table.x th:nth-child(4) {
+            background-color: #a4afff;
+        }
+        table.x th:nth-child(5) {
+            background-color: #b9bdd4;
+        }
+        table.x td {
+            padding: 2px;
+        }
+        /* Body */
+        /* Fonctionnalité */
+            table.x tr:nth-of-type(odd) td:nth-child(1) {
+            background-color: white;
+        } 
+        table.x tr:nth-of-type(even) td:nth-child(1) {
+            background-color: #d4d4d4;
+        }
+        /* Green for Python */
+        table.x tr:nth-of-type(odd) td:nth-child(2) {
+            background-color: #cce5cc;
+        }
+        table.x tr:nth-of-type(even) td:nth-child(2) {
+            background-color: #7fbf7f;
+        }
+        /* Red for Ruby */
+        table.x tr:nth-of-type(odd) td:nth-child(3) {
+            background-color: #f2b6b6;
+        }
+        table.x tr:nth-of-type(even) td:nth-child(3) {
+            background-color: #ea8a8a; /* #e56d6d; */
+        }
+        /* Blue for JavaScript */
+        table.x tr:nth-of-type(odd) td:nth-child(4) {
+            background-color: #e6e9fa; /* #adb8f0; */
+        }
+        table.x tr:nth-of-type(even) td:nth-child(4) {
+            background-color: #a4afff; /* #7e8eff; #bcc4f2; #5c72e1; */
+        }
+        /* White and grey for Lua */
+        table.x tr:nth-of-type(odd) td:nth-child(5) {
+            background-color: eeeef4; /* #e3e4ed; */
+        }
+        table.x tr:nth-of-type(even) td:nth-child(5) {
+            background-color: #b9bdd4;
+        }
+        /* syntaxic coloration */
+        /* keyword */
+        table.x td b {
+            color: purple;
+            /*font-weight: normal;*/
+        }
+        /* comment */
+        table.x td u {
+            color: #d700ff;
+            text-decoration: none;
+            font-style: italic;
+        }
+        /* string */
+        table.x td i {
+            color: green;
+            font-style: normal;
+        }
+        /* special function */
+        table.x td s {
+            color: #707aaa;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        table.x td strong {
+            font-size: 14px;
+        }
+    </style>
+  </head>
+  <body>
+<div id="main" class="container">
+    
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+             <a class="navbar-brand" href="#">Menu</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li id="Accueil"><a href="http://damien.gouteux.free.fr/index.html">Accueil</a></li>
+              <li id="Blog"><a href="#blog" onclick="view_one_entry(0);">Blog</a></li>
+              <li class="dropdown">
+                <a id="Langues" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Langues <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                <li class="dropdown-header">Français</li>
+                  <li><a href="http://damien.gouteux.free.fr/francais/fiche_api_fr.html">Fiche sur les phonèmes du français</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/francais/outil_stats_fr.html">Outil d'analyse textuelle</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Italien</li>
+                  <li><a href="./italien/beatrice.html">Beatrice : grammaire</a></li>
+                  <li><a href="./italien/jeux.html">Jeux</a></li>
+                  <!--
+                  <li><a href="http://ran.alwaysdata.net/index.py?content=langues">Linguistique</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Italien</li>
+                  <li><a href="http://ran.alwaysdata.net/beatrice/beatrice3.html">Italien <i>mobile</i></a></li>
+                  <li class="divider"></li>
+                  <li><a href="http://ran.alwaysdata.net/cristina/index.html">Français</a></li>
+                  <li class="divider"></li>
+                  <li><a href="http://ran.alwaysdata.net/invoque/">Vocabulaire</a></li>
+                  -->
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Informatique" href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-expanded="false">Informatique <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Programmation</li>
+                  <li><a href="http://damien.gouteux.free.fr/prog/aide_syntaxe.html" class="active">Syntaxes comparées</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/prog/python/aide_python.html">Aide-mémoire Python</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/prog/guide_ruby.html">Guide Ruby</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/prog/aide_ruby.html">Aide-mémoire Ruby</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/prog/aide_lua.html">Aide-mémoire Lua</a></li>
+                  <!--<li><a href="http://damien.gouteux.free.fr/prog/guide_selene">Aide-mémoire XXX</a></li>-->
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Modélisation</li>
+                  <!--<li><a href="#" class="dead">Tutoriel sur XCore</a></li>-->
+                  <li><a href="http://damien.gouteux.free.fr/model/json.html">Fiche sur JSON</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Histoire" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Histoire <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Méthode</li>
+                  <li><a href="http://damien.gouteux.free.fr/histoire/methode.html">Généralités</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/histoire/bibliographie.html">Bibliographie</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Aide-mémoires</li>
+                  <li><a href="http://damien.gouteux.free.fr/histoire/france19eme.html">France au XIXe</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Jeux" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Jeux <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <!--<li class="dropdown-header">Terres sauvages <i>(mon jdr)</i></li>
+                  <li><a href="#" class="dead">Règles de jeu de rôles</a></li>
+                  <li><a href="#" class="dead">Univers de jeu</a></li>
+                  <li class="divider"></li>-->
+                  <li class="dropdown-header">Livres dont VOUS êtes le héros</li>
+                  <li><a href="./jeux/doc_talisman.html">Le Compagnon du Talisman</a></li>
+                  <!--<li class="divider"></li>
+                  <li class="dropdown-header">Jeux vidéo</li>
+                  <li><a href="#" class="dead">Guide des STR</a></li>
+                  <li><a href="#" class="dead">Projet de STR</a></li>-->
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Autres" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Autres <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Musique</li>
+                  <li><a href="http://damien.gouteux.free.fr/concerts_classiques/index.html">Concerts classiques</a></li>
+                  <li class="dropdown-header">Collections</li>
+                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#prenoms">Prénoms</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#langages">Langages</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#favoris_artistiques">Favoris artistiques</a></li>
+                  <!--
+                  <li><a href="http://ran.alwaysdata.net/citations/dicocit.rb">Citations</a></li>
+                  <li><a href="http://ran.alwaysdata.net/ijba/">Divers</a></li>
+                  <li><a href="http://ran.alwaysdata.net/liens.html">Liens</a></li>
+                  -->
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+      
+      <div id="pageContent">
+        <h1>Comparaison de la syntaxe de plusieurs langages de programmation</h1>
+        <p>Cette page est inspirée par la démarche de <a href="http://rigaux.org/language-study/syntax-across-languages.html">Pascal Rigaux</a> qui a produit un document bien plus complet portant sur bien plus de langages. Il existe aussi le site <a href="http://hyperpolyglot.org/">Hyperpolyglot</a> qui comparent la syntaxe de différents langages. De mon côté, je vais me concentrer sur les 4 langages que j'utilise le plus souvent :</p>
+        <ol>
+          <li>Python</li>
+          <li>Ruby</li>
+          <li>Lua</li>
+          <li>JavaScript</li>
+          <!--<li>Java</li>
+          <li>C</li>-->
+        </ol>
+        <p>Mon but est de faire un aide-mémoire pour savoir comment la fonctionnalité X marche avec le langage Y, de repérer les différences de comportement et enfin de produire une syntaxe pour un petit langage personnel.</p>
+        <p><u>Attention</u> : parfois, sous une syntaxe proche se cache parfois une gestion ou une conception complètement différente d'une fonctionnalité. Quand c'est le cas, nous essayerons de le préciser brièvement.</p>
+        <table class="x">
+          <col/>
+          <col/>
+          <col/>
+          <col/>
+          <col/>
+          <thead>
+            <tr><th>Fonctionnalité</th><th>Python</th><th>Ruby</th><th>Lua</th><th>JavaScript</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="7" align="center" bgcolor="#EFEFEF">
+                <strong>Généralités</strong>
+              </td>
+            </tr>
+            <tr>
+              <td>Site officiel</td>
+              <!-- Python -->
+              <td></td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td><a href="https://www.lua.org">https://www.lua.org</a></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <td>Notes<br>personnelles</td>
+              <!-- Python -->
+              <td></td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td><a href="http://damien.gouteux.free.fr/lua/aide_lua.html">Aide-mémoire</a></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>Naissance</td>
+              <!-- Python -->
+              <td></td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td>1993</td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>Découverte<br>personnelle</td>
+              <!-- Python -->
+              <td>2005</td>
+              <!-- Ruby -->
+              <td>2005</td>
+              <!-- Lua -->
+              <td></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>Numéro de<br>version utilisée</td>
+              <!-- Python -->
+              <td>3.6</td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>Implémentations<br>(gras = utilisée)</td>
+              <!-- Python -->
+              <td>
+                <ul>
+                  <li><strong><a href="https://en.wikipedia.org/wiki/CPython">CPython</a></strong> (bytecode interpreter written in C)</li>
+                  <li><a href="https://en.wikipedia.org/wiki/Jython">Jython</a> (to jvm bytecode, written in java)</li>
+                  <li><a href="https://en.wikipedia.org/wiki/IronPython">IronPython</a> (to clr bytcode written in C#)</li>
+                  <li><a href="https://en.wikipedia.org/wiki/PyPy">PyPy</a> (interpreter written in Python)</li>
+                  <li><a href="https://en.wikipedia.org/wiki/Cython">Cython</a> (compiler to C then machine code, written in Python)</li>
+                  <li><strike><a href="https://en.wikipedia.org/wiki/Pyrex_(programming_language)">Pyrex</a> (older Cython)</strike></li>
+                  <li><a href="https://en.wikipedia.org/wiki/Shed_Skin">Shed Skin</a>(compiler to C++ then machine code, written in C++)</li>
+                  <li>Stackless</li>
+                  <li><strike>Unladen Swallow</strike></li>
+                  <li><strike><a href="https://en.wikipedia.org/wiki/Psyco">Psyco</a></strike></li>
+                </ul>
+              </td>
+              <!-- Ruby -->
+              <td>
+                <ul>
+                  <li><strike><a href="https://en.wikipedia.org/wiki/Ruby_MRI">MRI</a> (interpreter written in C)</strike></li>
+                  <li><strong><a href="https://en.wikipedia.org/wiki/YARV">YARV/KRI</a></strong> (bytecode interpreter written in C)</li>
+                  <li><a href="https://en.wikipedia.org/wiki/JRuby">JRuby</a> (interpreter written in java)</li>
+                  <li><strike><a href="https://en.wikipedia.org/wiki/IronRuby">IronRuby</a> (to clr bytecode written in C#)</strike></li>
+                  <li><a href="https://en.wikipedia.org/wiki/Rubinius">Rubinius</a> (interpreter written in Ruby)</li>
+                  <li><a href="http://code.macournoyer.com/tinyrb/">Tiny RB</a></li>
+                </ul>
+              </td>
+              <!-- Lua -->
+              <td></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>Outil REPL<br>(invite)</td>
+              <!-- Python -->
+              <td>python (&gt;&gt;&gt;)</td>
+              <!-- Ruby -->
+              <td>irb</td>
+              <!-- Lua -->
+              <td>lua (&gt;)</td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>Manager de<br>bibliothèques</td>
+              <!-- Python -->
+              <td></td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td><a href="https://luarocks.org/">LuaRocks</a></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr> 
+            <tr>
+              <td>IDE</td>
+              <!-- Python -->
+              <td></td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td><a href="https://studio.zerobrane.com/">ZeroBrane</a></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td colspan="7" align="center" bgcolor="#EFEFEF">
+                <strong>Éléments de base</strong>
+              </td>
+            </tr>
+            <tr>
+              <td>Commentaire<br>monoligne</td>
+              <td># comment</td>
+              <td># comment</td>
+              <td>-- comment</td>
+              <td>// comment</td>
+            </tr>
+            <tr>
+              <td>Commentaire<br>multiligne</td>
+              <!-- Python -->
+              <td></td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td>--[[<br>&nbsp;&nbsp;comment<br>]]<br>Tips: use --]] to close to easily switch<br>between commenting/<br>uncommenting.</td>
+              <!-- JavaScript -->
+              <td>/*<br>&nbsp;&nbsp;comment<br>*/</td>
+            </tr>
+            <tr>
+              <td>Bloc</td>
+              <!-- Python -->
+              <td></td>
+              <!-- Ruby -->
+              <td><b>begin</b> ... <b>end</b></td>
+              <!-- Lua -->
+              <td><b>do</b> ... <b>end</b></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>Référence</td>
+              <!-- Python -->
+              <td><i>id</i> = <i>expression</i></td>
+              <!-- Ruby -->
+              <td><i>id</i> = <i>expression</i></td>
+              <!-- Lua -->
+              <td><i>id</i> = <i>expression</i></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>Quitter script</td>
+              <!-- Python -->
+              <td>exit()</td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td>os.exit()</td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td colspan="7" align="center" bgcolor="#EFEFEF">
+                <strong>Contrôle du flux</strong>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="7" align="center" bgcolor="#EFEFEF">
+                <strong>Sélection</strong>
+              </td>
+            </tr>
+            <tr>
+              <td>Sélection<br>conditionnelle<br>simple</td>
+              <!-- Python -->
+              <td><b>if</b> <i>condition</i>:<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<i>actions</i><br>
+              <b>elif</b> <i>condition</i>:<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<i>actions</i><br>
+              <b>else</b>:<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<i>actions</i></td>
+              <!-- Ruby -->
+              <td><b>if</b> <i>condition</i> <b>then</b> | <b>\n</b><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<i>actions</i><br>
+              <b>else</b><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<i>actions</i><br>
+              <b>end</b></td>
+              </td>
+              <!-- Lua -->
+              <td><b>if</b> <i>condition</i> <b>then</b><br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<i>actions</i><br>
+                  [ <b>elseif</b> condition <b>then</b><br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<i>actions</i> ] *<br>
+                  [ <b>else</b><br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<i>actions</i> ] ?<br>
+              <b>end</b>
+              </td>
+              <!-- JavaScript -->
+              <td><b>if</b> (<i>condition</i>) {<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<i>actions</i><br>
+              } <b>else if</b> (condition) {<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<i>actions</i><br>
+              } <b>else</b> {<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<i>actions</i><br>
+              }</td>
+            </tr>
+            <tr>
+              <td>Post-sélection<br>conditionnelle</td>
+              <!-- Python -->
+              <td></td>
+              <!-- Ruby -->
+              <td><i>action</i> <b>if</b> <i>condition</i></td>
+              <!-- Lua -->
+              <td></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td colspan="7" align="center" bgcolor="#EFEFEF">
+                <strong>Répétition</strong>
+              </td>
+            </tr>
+            <tr>
+              <td>Boucle pré-<br>conditionnelle</td>
+              <!-- Python -->
+              <td><b>while</b> <i>condition</i>:<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<i>actions</i></td>
+              <!-- Ruby -->
+              <td><b>while</b> <i>condition</i> <b>do</b> | <b>\n</b><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<i>actions</i><br>
+              <b>end</b></td>
+              <!-- Lua -->
+              <td><b>while</b> <i>condition</i> <b>do</b><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<i>actions</i><br>
+              <b>end</b></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>Boucle post-<br>conditionnelle</td>
+              <!-- Python -->
+              <td></td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td><b>repeat</b><br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<i>actions</i><br>
+                  <b>until</b> <i>condition</i>
+              </td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>Boucle sur<br>intervalle</td>
+              <!-- Python -->
+              <td></td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td><b>for</b> <i>id</i> = <i>début</i>, <i>fin</i> [ , <i>pas</i> ] <b>do</b><br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<i>actions</i><br>
+                  <b>end</b>
+              </td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>Boucle sur<br>liste</td>
+              <!-- Python -->
+              <td></td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td><b>for</b> <i>indice</i>, <i>valeur</i> <b>in</b> ipairs(<i>table</i>) <b>do</b><br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<i>actions</i><br>
+                  <b>end</b>
+              </td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>Boucle sur<br>dictionnaire</td>
+              <!-- Python -->
+              <td></td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td><b>for</b> <i>clé</i>, <i>valeur</i> <b>in</b> pairs(<i>table</i>) <b>do</b><br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<i>actions</i><br>
+                  <b>end</b>
+              </td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>Quitter une<br>boucle</td>
+              <!-- Python -->
+              <td></td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td><b>break</b></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>Aller à l'itération<br>suivante</td>
+              <!-- Python -->
+              <td></td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td><i>rien</i></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td colspan="7" align="center" bgcolor="#EFEFEF">
+                <strong>Types de données</strong>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="7" align="center" bgcolor="#EFEFEF">
+                <strong>Chaînes de caractères</strong>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="7" align="center" bgcolor="#EFEFEF">
+                <strong>Nombres</strong>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="7" align="center" bgcolor="#EFEFEF">
+                <strong>Booléens</strong>
+              </td>
+            </tr>
+            <tr>
+              <td>Littéraux</td>
+              <!-- Python -->
+              <td><b>True</b> <b>False</b></td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td><b>true</b> <b>false</b></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>Valeurs<br>considérées<br>comme<br>fausses</td>
+              <!-- Python -->
+              <td><b>False</b></td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td><b>false</b> <b>nil</b></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td colspan="7" align="center" bgcolor="#EFEFEF">
+                <strong>Composition</strong>
+              </td>
+            </tr>
+            <tr>
+              <td>Tuples</td>
+              <!-- Python -->
+              <td>(elem1, elem2, ...)<br>
+              (elem1,)</td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+              <td>Listes</td>
+              <!-- Python -->
+              <td>[elem1, elem2, ...]</td>
+              <!-- Ruby -->
+              <td>[elem1, elem2, ...]</td>
+              <!-- Lua -->
+              <td>{elem1, elem2, ...}</td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            </tr>
+              <td>Dictionnaires</td>
+              <!-- Python -->
+              <td>Littéral : {key1: val1, key2: val2, ...}<br>
+              Accès : id[key]</td>
+              <!-- Ruby -->
+              <td>Littéral : {key1 => val1, key2 => val2, ...}<br>
+              Accès : id[key]</td>
+              <!-- Lua -->
+              <td>Littéral : {key1 = elem1, key1 = elem2, ...}<br>
+              identifiers are allowed as keys<br>
+              Accès : id[key] id.key</td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td colspan="7" align="center" bgcolor="#EFEFEF">
+                <strong>Opérateurs</strong>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="7" align="center" bgcolor="#EFEFEF">
+                <strong>Mathématiques</strong>
+              </td>
+            </tr>
+            <tr>
+              <td>Mathématiques</td>
+              <!-- Python -->
+              <td>+ - / * %</td>
+              <!-- Ruby -->
+              <td>+ - / * %</td>
+              <!-- Lua -->
+              <td>+ - / * %</td>
+              <!-- JavaScript -->
+              <td>+ - / * %</td>
+            </tr>
+            <tr>
+              <td>Divisions</td>
+              <!-- Python -->
+              <td>/ : division<br>
+              // : division entière</td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td>/ : division<br>
+              <s>math.floor</s>(a / b) : <br>division entière</td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>Puissance</td>
+              <!-- Python -->
+              <td>**</td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td>^<br><s>math.pow</s>(i, power)</td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td colspan="7" align="center" bgcolor="#EFEFEF">
+                <strong>Comparaison</strong>
+              </td>
+            </tr>
+            <tr>
+              <td>Comparaison</td>
+              <!-- Python -->
+              <td>&lt; &lt;= == != &gt;= &gt;</td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td>&lt; &lt;= == ~= &gt;= &gt;</td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>Booléen</td>
+              <!-- Python -->
+              <td><b>and</b> <b>or</b> <b>not</b></td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td><b>and</b> <b>or</b> <b>not</b></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>Affectation</td>
+              <!-- Python -->
+              <td>=</td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>Affectation combinée</td>
+              <!-- Python -->
+              <td>+= -= /= *=</td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>Concaténation de chaînes</td>
+              <!-- Python -->
+              <td>+</td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td>..</td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td colspan="7" align="center" bgcolor="#EFEFEF">
+                <strong>Sous-programmes (fonctions et procédures)</strong>
+              </td>
+            </tr>
+            <tr>
+              <td>Déclaration</td>
+              <!-- Python -->
+              <td><b>def</b> name(par1 [: typ1], ... ) [ -> retyp]:<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;actions</td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td colspan="7" align="center" bgcolor="#EFEFEF">
+                <strong>Modules</strong>
+              </td>
+            </tr>
+            <tr>
+              <td>Imports</td>
+              <!-- Python -->
+              <td><b>import</b> name<br>
+              <b>import</b> name1 <b>as</b> name2<br>
+              <b>from</b> name <b>import</b> elem1, ...<br>
+              <b>from</b> name <b>import</b> *
+              </td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td colspan="7" align="center" bgcolor="#EFEFEF">
+                <strong>Bibliothèques de base</strong>
+              </td>
+            </tr>
+            <tr>
+              <td>Is it defined?</td>
+              <td><u># instance attribute or method:</u><br>
+                <s>hasattr</s>(obj, <i>'name'</i>)<br>
+                <u># local variable or function:</u><br>
+                <i>'name'</i> <b>in</b> <s>locals</s>()<br>
+                <u># global variable or function:</u><br>
+                <i>'name'</i> <b>in</b> <s>globals</s>()<br>
+              </td>
+              <td>
+              </td>
+              <td>
+              </td>
+              <td>
+              </td>
+            </tr>
+            <tr>
+              <td>Intervalles</td>
+              <!-- Python -->
+              <td>range(max_non_inclu)<br>
+              range(min, max_non_inclu)
+              </td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>Get/change<br>working dir</td>
+              <!-- Python -->
+              <td><b>import</b> os<br>
+              os.getcwd()<br>
+              os.chdir(path)</td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>Lister<br>répertoire</td>
+              <!-- Python -->
+              <td><b>import</b> os<br>os.listdir(<i>path</i>)</td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>Test si un<br>fichier existe<br>et est un répertoire</td>
+              <!-- Python -->
+              <td><b>import</b> os.path<br>
+              os.path.isfile(<i>path</i>)<br>
+              os.path.isdir(<i>path</i>)</td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>Obtenir<br>extension</td>
+              <!-- Python -->
+              <td><b>import</b> os.path<br>os.path.splitext(<i>path</i>)<br>(Attention : '.log' => '.log', '')</td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>JSON Writing</td>
+              <!-- Python -->
+              <td><b>import</b> json<br>
+                f = open(<i>'pipo.json'</i>, <i>'w'</i>)<br>
+                data = { <i>'a'</i> : <i>'abcd'</i>, <i>'b'</i> : 5, <i>'c'</i> : True}<br>
+                json.dump(data, f, indent=<i>"    "</i>)<br>
+                f.close()<br>
+              </td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>JSON Reading</td>
+              <!-- Python -->
+              <td><b>import</b> json<br>
+                f = open(<i>'pipo.json'</i>)<br>
+                data = json.load(f)<br>
+                f.close()<br>
+              </td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>XML Writing</td>
+              <!-- Python -->
+              <td><b>import</b> xml.etree.ElementTree as ET<br>
+                e = ET.Element(<i>'tag'</i>)<br>
+                e.set(<i>'attr1'</i>, <i>'5'</i>)<br>
+                e.attrib[<i>'attr2'</i>] = <i>'6'</i><br>
+                ET.dump(e)<br>
+                ET.ElementTree(e).write(<i>'pipo.xml'</i>)<br>
+              </td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>XML Reading</td>
+              <!-- Python -->
+              <td><b>import</b> xml.etree.ElementTree as ET<br>
+                tree = ET.parse(<i>'pipo.xml'</i>)<br>
+                root = tree.getroot()<br>
+                elem = ET.fromstring(<i>'<tag attr1="5" attr2="6"/>'</i>)<br>
+                elem.tag <u># string of the tag</u><br>
+                elem.attrib <u># dict of attributes</u><br>
+              </td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td colspan="7" align="center" bgcolor="#EFEFEF">
+                <strong>Bibliothèques externes</strong>
+              </td>
+            </tr>
+            <tr>
+              <td>Générales</td>
+              <!-- Python -->
+              <td></td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td>
+                <ul>
+                  <li><a href="http://stevedonovan.github.io/Penlight/api/index.html">Penlight</a></li>
+                </ul>
+              </td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>GUI</td>
+              <!-- Python -->
+              <td></td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td>
+                <ul>
+                  <li><a href="http://webserver2.tecgraf.puc-rio.br/iup/">IUP</a></li>
+                </ul>
+              </td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>Parsing</td>
+              <!-- Python -->
+              <td></td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td>
+                <ul>
+                  <li><a href="http://www.inf.puc-rio.br/~roberto/lpeg/">lpeg</a></li>
+                </ul>
+              </td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+            <tr>
+              <td colspan="7" align="center" bgcolor="#EFEFEF">
+                <strong>Template</strong>
+              </td>
+            </tr>
+            <tr>
+              <td>Fonctionnalités</td>
+              <!-- Python -->
+              <td></td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td></td>
+              <!-- JavaScript -->
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div style="width: 50%; margin: auto; text-align: center; margin-top: 10px; margin-bottom: 5px;">2005 ❤ 2017</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  </body>
+</html>

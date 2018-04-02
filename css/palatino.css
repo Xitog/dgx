@@ -1,0 +1,234 @@
+
+#content.palatino {
+    font-family: "Palatino Linotype", "Palatino", "Georgia";
+}
+#content.palatino h1 {
+    font-size: 22px;
+    font-weight: bold;
+    font-style: normal;
+    color: #929497;
+    line-height: 27px;
+    margin-top: 10px;
+    font-family: "Palatino Linotype", "Palatino", "Georgia";
+}
+#content.palatino h2 {
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    color: #CEC498;
+    font-family: "Palatino Linotype", "Palatino", "Georgia";
+}
+#content.palatino h3 {
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    color: #98a2ce;
+    font-family: "Palatino Linotype", "Palatino", "Georgia";
+}
+#content.palatino p {
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    color: #111111;
+}
+#content.palatino p.first:first-letter
+        {
+    font-size:18;
+    font-weight: bold;
+    color: #CEC498;  
+}
+#content.palatino ul li {
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    color: #111111;
+}
+#content.palatino pre.code {
+    background-color: #F9F9F9;
+    border: 1px solid #AAAAAA;
+    padding: 2px;
+    font-family: "Consolas";
+}
+#content.palatino p.code {
+    background-color: #F9F9F9;
+    border: 1px solid #AAAAAA;
+    padding: 2px;
+    font-family: "Consolas";
+}
+#content.palatino span.code, #content.palatino span.morphlex, #content.palatino span.morphgram {
+    font-family: "Consolas";
+font-style: normal;
+font-size: 12px;
+background-color: #F9F9F9;
+padding-left: 2px;
+padding-right: 2px;
+}
+#content.palatino span.code {
+    border: 1px solid #AAAAAA;
+}
+#content.palatino span.morphlex {
+    border: 1px solid #9999CC;
+    color: #9999CC;
+}
+#content.palatino span.morphgram {
+    border: 1px solid #55AA55;
+    color: #55AA55;
+}
+#content.palatino span.t {
+    border-bottom: 1px solid #AAAAAA;
+}
+#content.palatino span.green_under {
+    color: #55AA55;
+    text-decoration: underline;
+}
+#content.palatino span.green {
+    color: #55AA55;
+}
+#content.palatino span.blue_under {
+    color: #9999CC;
+    text-decoration: underline;
+}
+#content.palatino span.blue {
+    color: #9999CC;
+}
+#content.palatino div.block {
+    margin-left: 10px;
+    border-left: 1px solid #EEEEEE;
+    padding-left: 3px;
+}
+#content.palatino b.green {
+    color: #55AA55;
+}
+#content.palatino b.blue {
+    color: #9999CC;
+}
+#content.palatino b.orange {
+    color: #FF6600;
+
+}
+#content.palatino a {
+    font-family: "Palatino Linotype", "Palatino", "Georgia";
+    color: #CC6714; #929497;
+}
+#content.palatino a.red {
+    color: #CC9999;
+}
+#content.palatino a.blue {
+    color: #9999CC;
+}
+#content.palatino a.green {
+    color: #55AA55;
+}
+#content.palatino table.tab a {
+    font-family:    "Lucida Grande","Verdana","Arial","Helvetica","sans-serif";
+    font-size:      12px;
+    line-height:    1.6em;
+}
+
+/* :link :visited :hover */
+
+#content.palatino table#menu {
+    border-collapse: collapse;
+    border: 1px solid #929497;
+    font-family: "Palatino";
+}
+#content.palatino table#menu td.cat {
+    background-color: #E9E4D2;
+    border-bottom: 1px dotted #929497;
+    color: #929497;
+}
+#content.palatino table#menu td.cat:before {
+    content: "» ";
+}
+#content.palatino table#menu td.cat:hover {
+    background-color: #929497;
+    color: White;
+    cursor: hand;
+}
+#content.palatino table#menu td.cat a {
+    text-decoration: none;
+    color: inherit;
+}
+#content.palatino table#menu td.sub {
+    background-color: #FAF5E3;
+    border-bottom: 1px dotted #929497;
+    color: #929497;
+}
+#content.palatino table#menu td.sub:before {
+    content: "\233D \0020";
+}
+#content.palatino table#menu td.sub:hover {
+    background-color: #929497;
+    color: White;
+    cursor: hand;
+}
+#content.palatino table#menu td.sub a {
+    text-decoration: none;
+    color: inherit;
+}
+#content.palatino table#menu td#spe {
+    background-color: #CEC498;
+    color: #FFFFFF;
+    font-size: 60px;
+    font-family: "Palatino";
+    border-bottom: 1px solid #929497;
+    text-align: center;
+}
+#content.palatino table.tab {
+    font-family:    Lucida Grande,Verdana,Arial,Helvetica,sans-serif;
+    font-size:      12px;
+    line-height:    1.6em;
+}
+#content.palatino table.tab thead th {
+    background-color: #CEC498;
+    color: white;
+}
+#content.palatino table.tab tbody tr:nth-child(odd) { 
+    background-color: #F5F5F5; 
+}
+#content.palatino table.tab tbody tr:nth-child(2n) { 
+    background-color: #FFFFFF;
+} 
+
+#content.palatino p.line {
+    border-bottom: 1px dashed #CEC398;
+    color: #FF8000;
+    font-family: "Consolas";
+}
+
+#content.palatino div.bordered {
+    border: 1px solid #929497;
+}
+
+#content.palatino p.centered {
+    border-top: 1px solid #929497;
+    border-bottom: 1px solid #929497;
+    text-align: center;
+}
+
+#content.palatino table.tbordered {
+    font-family:    Lucida Grande,Verdana,Arial,Helvetica,sans-serif;
+    font-size:      12px;
+    line-height:    1.6em;
+    border-collapse:collapse;
+}
+#content.palatino table.tbordered thead th {
+    background-color: #CEC498;
+    color: white;
+}
+#content.palatino table.tbordered tbody tr:nth-child(odd) { 
+    background-color: #F5F5F5; 
+}
+#content.palatino table.tbordered tbody tr:nth-child(2n) { 
+    background-color: #FFFFFF;
+}
+#content.palatino table.tbordered, table.tbordered th, table.tbordered tr, table.tbordered td {
+    border: 1px solid black;
+}
+
+#content.palatino .center
+        {
+    margin-left:auto;
+    margin-right:auto;
+    width:70%;
+}

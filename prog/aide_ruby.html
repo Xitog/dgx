@@ -1,0 +1,2111 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Aide-mémoire Ruby</title>
+    <meta name="description" content="Un aide-mémoire pour le langage de programmation Ruby"/>
+    <link rel="icon" href="http://damien.gouteux.free.fr/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="http://damien.gouteux.free.fr/img/favicon.ico" type="image/x-icon" />
+    <link href="http://damien.gouteux.free.fr/css/simplex.bootstrap.css" rel="stylesheet">
+    <link href="http://damien.gouteux.free.fr/css/flashy.css" rel="stylesheet">
+    <style type="text/css"></style>
+  </head>
+  <body>
+    <div id="main" class="container">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+             <a class="navbar-brand" href="#">Menu</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li id="Accueil"><a href="http://damien.gouteux.free.fr/index.html">Accueil</a></li>
+              <li id="Blog"><a href="http://damien.gouteux.free.fr/index.html#blog" onclick="view_one_entry(0);">Blog</a></li>
+              <li class="dropdown">
+                <a id="Langues" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Langues <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Français</li>
+                  <li><a href="http://damien.gouteux.free.fr/francais/fiche_api_fr.html">Sons du français</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Italien</li>
+                  <li><a href="http://damien.gouteux.free.fr/italien/beatrice.html">Beatrice : grammaire</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/italien/jeux.html">Jeux</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Informatique" href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-expanded="false">Informatique <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Python</li>
+                  <li><a href="http://damien.gouteux.free.fr/python/aide_python.html">Aide-mémoire</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Ruby</li>
+                  <li><a href="http://damien.gouteux.free.fr/ruby/guide_ruby.html">Guide</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/ruby/aide_ruby.html" class="active" >Aide-mémoire</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Lua</li>
+                  <li><a href="http://damien.gouteux.free.fr/lua/aide_lua.html">Aide-mémoire</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Selene <i>(mon langage)</i></li>
+                  <li><a href="http://damien.gouteux.free.fr/selene/guide_selene.html">Guide</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Modélisation</li>
+                  <li><a href="http://damien.gouteux.free.fr/tutoriels/xcore.html" class="dead">Tutoriel sur XCore</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Histoire" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Histoire <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Méthode</li>
+                  <li><a href="http://damien.gouteux.free.fr/histoire/methode.html">Généralités</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/histoire/bibliographie.html">Bibliographie</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Aide-mémoires</li>
+                  <li><a href="http://damien.gouteux.free.fr/histoire/france19eme.html">France au XIXe</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Jeux" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Jeux <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Terres sauvages <i>(mon jdr)</i></li>
+                  <li><a href="#" class="dead">Règles de jeu de rôles</a></li>
+                  <li><a href="#" class="dead">Univers de jeu</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Livres dont VOUS êtes le héros</li>
+                  <li><a href="http://damien.gouteux.free.fr/jeux/doc_talisman.html">Le Compagnon du Talisman</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Jeux vidéo</li>
+                  <li><a href="http://damien.gouteux.free.fr/jeux/guide_rts.html" class="dead">Guide des STR</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/jeux/projet_rts.html" class="dead">Projet de STR</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Autres" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Autres <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Collections</li>
+                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#prenoms">Prénoms</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#langages">Langages</a></li>
+                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#favoris_artistiques">Favoris artistiques</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!-- nav-collapse -->
+        </div><!-- container-fluid -->
+      </nav> <!-- navbar navbar-default -->
+      
+      <div class="jumbotron">
+        <h1>Aide-mémoire Ruby</h1>
+        <hr>
+        <p>Une fiche synthétique sur le langage de programmation Ruby pour <strong>rafraîchir sa mémoire</strong> ou <strong>découvrir ce langage si vous connaissez déjà un langage similaire</strong> comme Python, Perl ou PHP.
+        <p>Elle aborde toutes les connaissances de base du langage, ainsi que l'essentiel de sa bibliothèque intégrée (Core API) mais pas sa bibliothèque standard, ni des bibliothèques populaires comme Ruby On Rails.</p>
+        <p>Cette fiche <strong>n'est pas recommandée pour quelqu'un souhaitant découvrir la programmation</strong> et ses principaux concepts. Pour cela, mieux vaut se tourner vers une véritable introduction à la programmation.</p>
+        <p class="sign">Damien Gouteux,<br> mis à jour le 21 avril 2017,<br>créé le 10 mars 2015.</p>
+      </div>
+
+        <h2 id="sommaire">Sommaire</h2>
+        <ol class="menu">
+          <li><a href="#bases">Bases</a>
+            <ol class="menu">
+              <li><a href="#bas_aff">Affichage</a></li>
+              <li><a href="#bas_key">Mots réservés</a></li>
+              <li><a href="#bas_com">Commentaires</a></li>
+              <li><a href="#bas_beg">BEGIN et END</a></li>
+            </ol>
+          </li>
+          <li><a href="#sites">Autres ressources</a></li>
+          <li><a href="#variables">Variables, constantes et globales</a>
+            <ol class="menu">
+              <li><a href="#var_var">Variables</a></li>
+              <li><a href="#var_con">Constantes</a></li>
+              <li><a href="#var_glo">Globales</a></li>
+              <li><a href="#var_ins">Variables d'instance</a></li>
+              <li><a href="#var_cls">Variables de classe</a></li>
+              <li><a href="#var_psd">Pseudo-variables</a></li>
+            </ol>
+          </li>
+          <li><a href="#int_float">Entiers et Réels (Fixnum | Bignum, Float)</a>
+            <ol class="menu">
+              <li><a href="#int">Entiers</a></li>
+              <li><a href="#float">Réels</a></li>
+            </ol>
+          </li>
+          <li><a href="#string">Chaînes de caractères (String)</a></li>
+          <li><a href="#bool_range_nil">Booléens, intervalles et type vide (TrueClass | FalseClass, Range, NilClass)</a>
+            <ol class="menu">
+              <li><a href="#bool">Booléens</a></li>
+              <li><a href="#range">Intervalles</a></li>
+              <li><a href="#void">Type "vide"</a></li>
+            </ol>
+          </li>
+          <li><a href="#list">Listes (Array)</a>
+            <ol class="menu">
+              <li><a href="#list_create">Création</a></li>
+              <li><a href="#list_read">Fonctions d'accès</a></li>
+              <li><a href="#list_update">Fonctions d'affectation et d'insertion</a></li>
+              <li><a href="#list_delete">Fonctions de suppression</a></li>
+              <li><a href="#list_test">Fonctions de tests et d'information</a></li>
+              <li><a href="#list_others">Autres fonctions principales</a></li>
+            </ol>
+          </li>
+          <li><a href="#dict">Dictionnaires (Hash)</a>
+            <ol class="menu">
+              <li><a href="#dict_create">Création</a></li>
+              <li><a href="#dict_read">Fonctions d'accès</a></li>
+              <li><a href="#dict_update">Fonctions d'affectation et d'insertion</a></li>
+              <li><a href="#dict_delete">Fonctions de suppression</a></li>
+              <li><a href="#dict_test">Fonctions de tests et d'information</a></li>
+              <li><a href="#dict_others">Autres fonctions principales</a></li>
+            </ol>
+          </li>
+          <li><a href="#op">Opérateurs</a>
+            <ol class="menu">
+              <li><a href="#op_bin">Opérateurs binaires</a></li>
+              <li><a href="#op_una">Opérateurs unaires</a></li>
+              <li><a href="#op_ter">Opérateur ternaire</a></li>
+              <li><a href="#op_precedence">Précédence des opérateurs</a></li>
+              <li><a href="#op_redef">Redéfinition d'opérateur</a></li>
+            </ol>
+          </li>
+          <li><a href="#flux">Contrôle du flux</a>
+            <ol class="menu">
+              <li><a href="#seq">Séquence</a></li>
+              <li><a href="#cond">Conditions</a></li>
+              <li><a href="#loop">Répétitions</a></li>
+            </ol>
+          </li>
+          <li><a href="#elem_fun">Fonctions</a>
+            <ol class="menu">
+              <li><a href="#fun_def">Définition d'une fonction</a></li>
+              <li><a href="#fun_cal">Appel d'une fonction</a></li>
+              <li><a href="#fun_ret">Retour d'une fonction</a></li>
+              <li><a href="#fun_aka">Alias d'une fonction (et d'une variable globale)</a></li>
+              <li><a href="#fun_und">Suppression de la définition d'une fonction</a></li>
+            </ol>
+          </li>
+          <li><a href="#elem_class">Classes et objets</a>
+            <ol class="menu">
+              <li><a href="#oo_intro">L'orientée objet</a></li>
+              <li><a href="#oo_class_create">Création d'une classe</a></li>
+              <li><a href="#oo_instance">Création d'une instance</a></li>
+              <li><a href="#oo_overriding">Redéfinition d'une méthode  d'instance</a></li>                
+              <li><a href="#oo_class_method">Méthodes et variables de classe</a></li>
+              <li><a href="#oo_class_update">Modifier la définition d'une classe</a></li>
+              <li><a href="#oo_encapsulation">Encapsulation en Ruby</a></li>
+              <li><a href="#oo_self">Le mot-clé self</a></li>
+              <li><a href="#oo_super">Le mot-clé super</a></li>
+              <li><a href="#oo_mutators">Les méthodes d'actualisation (mutators)</a></li>
+              <li><a href="#oo_objet">Type objet</a></li>
+            </ol>
+          </li>
+          <li><a href="#elem_mod">Modules et fichiers</a>
+            <ol class="menu">
+              <li><a href="#mod_mod">Définition d'un module</a></li>
+              <li><a href="#mod_mod">Inclusion des éléments d'un module</a></li>
+              <li><a href="#mod_req">Code réparti sur plusieurs fichiers</a></li>
+            </ol>
+          </li>
+          <li><a href="#spe">Gestion des exceptions</a>
+            <ol class="menu">
+              <li><a href="#exp">Exceptions</a></li>
+              <li><a href="#exp_type">Type d'exceptions</a></li>
+              <li><a href="#exp_throw">Catch et throw</a></li>
+            </ol>
+          </li>
+          <li><a href="#utiles">Utiles</a></li>
+        </ol>
+
+        <h2 id="bases">1. Bases</h2>
+        
+        <p>Date d'apparition du langage : 1995</p>
+        <p>Créateur : Yukihiro "Matz" Matsumoto (Japon)</p>
+        <p>Version actuelle à la date d'écriture : 2.2.3 (2015)</p>
+        <p>Extension d'un fichier Ruby : <span class="code">rb</span></p>
+        <p>Exécuter mon_fichier.rb : <span class="code"><b>ruby</b> </i>mon_fichier.rb</i></span></p>
+        <p>Première ligne d'un fichier sous Linux : <span class="code">#!/usr/bin/ruby</span></p>
+        <p>Accéder à la console interactive : <span class="code"><b>irb</b></span></p>
+        <p>IRb signifie <i>Interactive Ruby</i>.</p>
+
+        <h3 id="bas_aff">Affichage</h3>
+        <p>Affichage sur la sortie standard (console) : <span class="code">puts</span>
+        <p>Le programme le plus simple en Ruby : <span class="code">puts "Hello World!"</span></p>
+        <p>Interprétation de code dans une chaîne : <span class="code"> puts "#{a+1}"</span></p>
+
+        <h3 id="bas_key">Mots réservés</h3>
+        <p>Mots réservés (39) : BEGIN, END, alias, and, begin, break, case, class, def, defined?, do, else, elsif, end, ensure, false, for, if, in, module, next, nil, not, or, redo, rescue, retry, return, self, super, then, true, undef, unless, until, when, while, __FILE__, __LINE__</p>
+        
+        <h3 id="bas_com">Commentaires</h3>
+        <p>Commentaires en Ruby : <span class="code"><i># mon commentaire jusqu'à la fin de la ligne</i></span></p>
+        <p>Commentaires sur plusieurs lignes : 
+        <div class="code">
+            <b>=begin</b><br>
+            <i>&nbsp;&nbsp;vos lignes</i><br>
+            <b>=end</b>
+        </div>
+        
+        <h3 id="bas_beg">BEGIN et END</h3>
+        <p>Déclarer un bloc de code exécuté avant l'exécution du programme : <span class="code"><b>BEGIN</b> { <i>code</i> }</span></p>
+        <p>Déclarer un bloc de code exécuté après l'exécution du programme : <span class="code"><b>END</b> { <i>code</i> }</span></p>
+        
+        <p class="back"><a href="#sommaire">Retour sommaire</a></p>
+        
+        <h2 id="sites">2. Autres ressources</h2> 
+        <ul class="normale">
+          <li>Site officiel du langage : <a href="https://www.ruby-lang.org">https://www.ruby-lang.org</a></li>
+          <li>Site de la documentation : <a href="http://ruby-doc.org/">http://ruby-doc.org/</a></li>
+          <li>Installer Ruby sur Windows : <a href="http://rubyinstaller.org/">http://rubyinstaller.org/</a></li>
+          <li>Télécharger le code source de Ruby : <a href="https://www.ruby-lang.org/fr/downloads/">https://www.ruby-lang.org/fr/downloads/</a></li>
+          <li>Liste des bibliothèques disponibles : <a href="https://www.ruby-toolbox.com/">https://www.ruby-toolbox.com/</a></li>
+          <li>Fiche Wikipédia française : <a href="http://fr.wikipedia.org/wiki/Ruby">http://fr.wikipedia.org/wiki/Ruby</a></li>
+          <li>Fiche Wikipédia anglaise : <a href="http://en.wikipedia.org/wiki/Ruby_%28programming_language%29">http://en.wikipedia.org/wiki/Ruby_%28programming_language%29</a></li>
+          <li>Console Ruby en ligne : <a href="http://tryruby.org">http://tryruby.org</a></li>
+          <li>Une autre console Ruby en ligne : <a href="https://repl.it/languages/ruby">https://repl.it/languages/ruby</a></li>
+          <li>Le "Pickaxe", livre de référence sur Ruby : <a href="http://ruby-doc.com/docs/ProgrammingRuby/">Programming Ruby</a></li>
+          <li>Livre sur Wikibooks : <a href="https://en.wikibooks.org/wiki/Ruby_Programming">https://en.wikibooks.org/wiki/Ruby_Programming</a></li>
+          <li>Site de tutoriels : <a href="http://www.tutorialspoint.com/ruby/">http://www.tutorialspoint.com/ruby/</a></li>
+          <li>Ruby Inside, actualités et tutoriels (jusqu'à 2014): <a href="http://www.rubyinside.com/">http://www.rubyinside.com/</a></li>
+          <li>Ruby On Rails (RoR), le framework qui a fait connaître Ruby : <a href="http://rubyonrails.org/">http://rubyonrails.org/</a></li>
+          <li>Site communautaire français autour de RoR : <a href="http://www.railsfrance.org/">http://www.railsfrance.org/</a></li>
+          <li>Site communautaire français autour de Ruby (mort) : <a href="http://www.rubyfrance.org/">http://www.rubyfrance.org/</a></li>
+          <li>Ruby Quicktips, des bouts de code utile : <a href="http://rubyquicktips.com/">http://rubyquicktips.com/</a></li>
+        </ul>
+        <p class="back"><a href="#sommaire">Retour sommaire</a></p>
+
+        <h2 id="variables">3. Variables, constantes et globales</h2>
+
+        <h3 id="var_var">Variables</h3>
+        <p>Déclaration d'une variable locale : <span class="code">mon_identifiant = expression</span></p>
+        <p>Les caractères autorisés pour constituer mon_identifiant sont les chiffres, les lettres et le caractère souligné _.</p>
+        <p>Un identifiant <strong>NE PEUT PAS</strong> commencer par un chiffre néanmoins.</p>
+        <p>Un identifiant <strong>NE PEUT PAS</strong> être un des mots réservés.</p>
+        <p>Une variable ne durera que jusqu'à la fin de son bloc où elle définit (classe, fonction, module, begin/end {}.</p>
+
+        <h3 id="var_con">Constantes</h3>
+        <p>Déclaration d'une constante : <span class="code">Mon_identifiant = expression</span></p>
+        <p>En Ruby, une constante commence par une majuscule et <strong>EST</strong> modifiable mais un message d'avertissement sera généré : <br>
+        <p><span class="code">warning: already initialized constant Mon_identifiant</span></p>
+        <p><span class="code">warning: previous definition of Mon_identifiant was here</span></p>
+        <p>Les noms de classe en Ruby doivent être des constantes (et donc commencer par une majuscule).</p>
+        <p>La constance en Ruby est une constance de <strong>référence</strong>. Mon_identifiant réfèrera toujours le même objet. Mais cet objet peut-être changé lui. Pour geler l'état d'un objet, il faut utiliser sa méthode <span class="code">freeze</span>.
+
+        <h3 id="var_glo">Globales</h3>
+        <p>Déclaration d'une variable globale (elle sera accessible partout) : <span class="code">$mon_identifiant = expression</span></p>
+
+        <h3 id="var_ins">Variables d'instance</h3>
+        <p>Une variable d'instance commence par le signe @ : <span class="code">@a</span></p>
+        <p>Elles se déclarent dans le corps des méthodes.</p>
+
+        <h3 id="var_cls">Variables de classe</h3>
+        <p>Une variable d'instance commence par le signe @@ : <span class="code">@@a</span></p>
+        <p>Elle se déclarent dans le corps de la classe.</p>
+
+        <h3 id="var_psd">Pseudo-variables</h3>
+        <p>Ce sont des variables fondamentales utilisées par Ruby que l'on ne peut assigner à nouveau :</p>
+        <p>Les booléens <span class="code"><b>true</b></span> et <span class="code"><b>false</b></span>.</p>
+        <p>La "valeur vide" : <span class="code"><b>nil</b></span>.</p>
+        <p>Une référence vers l'objet courant : <span class="code"><b>self</b></span>.</p>
+        <p>Le nom du fichier courant : <span class="code"><b>__FILE__</b></span>.</p>
+        <p>Le numéro de la ligne courante : <span class="code"><b>__LINE__</b></span>.</p>
+
+        <p class="back"><a href="#sommaire">Retour sommaire</a></p>
+
+        <!-- ---------------------------------------------------------------- -->
+        <h2 id="int_float">4. Entiers et réels <span class="titlecode">(Fixnum | Bignum, Float)</span></h2>
+        <!-- ---------------------------------------------------------------- -->
+        
+        <p>Pour chaque type, on présentera son nom et les formes possibles pour ses littéraux. On complétera par une liste de leurs principales méthodes.</p>
+
+        <h3 id="int">Entiers</h3>
+        <table class="def">
+        <tbody>
+            <tr>
+                <th>Nom </th>
+                <th>Littéral </th>
+            </tr>
+            <tr>
+                <td> Fixnum, Bignum </td>
+                <td> 0b1 (binaire)<br>07 (octal)<br>0xf (hexadécimal)<br>10 (décimal)<br>1_000 (1000 en format plus lisible)</td>
+            </tr>
+        </tbody>
+        </table>
+        <p>Ruby transforme automatiquement un Fixnum en Bignum quand c'est nécessaire.</p>
+
+        <h3 id="float">Réels</h3>
+        <table class="def">
+        <tbody>
+            <tr>
+                <th>Nom </th>
+                <th>Littéral </th>
+            </tr>
+            <tr>
+                <td> Float </td>
+                <td> 1000.0<br>1E3<br>1.0e8<br> </td>
+            </tr>
+        </tbody>
+        </table>
+        <p>Listes des fonctions principales :</p>
+        <table class="fun">
+        <tbody>
+            <tr>
+                <th>Fonction </th>
+                <th>Type retourné </th>
+                <th>Description </th>
+            </tr>
+            <tr>
+                <td> f.floor<br>f.truncate </td>
+                <td> Fixnum | Bignum </td>
+                <td> entier inférieur immédiat (troncation) </td>
+            </tr>
+            <tr>
+                <td> f.ceil </td>
+                <td> Fixnum | Bignum </td>
+                <td> entier supérieur immédiat </td>
+            </tr>
+            <tr>
+                <td> f.round </td>
+                <td> Fixnum | Bignum </td>
+                <td> arrondi </td>
+            </tr>
+            <tr>
+                <td> f.to_s </td>
+                <td> String </td>
+                <td> représentation en chaîne de caractère </td>
+        </tbody>
+        </table>
+        
+        <!-- ---------------------------------------------------------------- -->
+        <h2 id="string">5. Chaînes de caractères <span class="titlecode">(String)</span></h2>
+        <!-- ---------------------------------------------------------------- -->
+        
+        <table class="def">
+        <tbody>
+            <tr>
+                <th>Nom </th>
+                <th>Littéral </th>
+            </tr>
+            <tr>
+                <td> String </td>
+                <td> "abcde"<br>'abcde' </td>
+            </tr>
+        </tbody>
+        </table>
+        <p>Les chaînes avec des guillemets doubles interprètent les caractères spéciaux précédés d'un antislash. Les chaînes avec les guillemets simples n'interprètent que les caractères spéciaux <span class="code">\'</span> et <span class="code">\\</span>, produisant ' et \ respectivement. Le caractère spécial le plus utilisé est <span class="code">\n</span> pour faire une nouvelle ligne.</p>
+        <p>On peut insérer du code dans n'importe quel chaîne en utilisant <span class="code">#{<i>code</i>}</span>, il sera exécuté une fois à la création de l'objet.</p>
+        <p>Listes des fonctions principales :</p>
+        <table class="def">
+        <tbody>
+            <tr>
+                <th>Fonction </th>
+                <th>Description </th>
+            </tr>
+            <tr>
+                <td> to_s </td>
+                <td> produit une chaîne </td>
+            </tr>
+            <tr>
+                <td> equal? </td>
+                <td> égalité entre deux chaînes </td>
+            </tr>
+            <tr>
+                <td> size </td>
+                <td> longueur de la chaîne </td>
+            </tr>
+            <tr>
+                <td> + </td>
+                <td> concaténation de 2 chaînes </td>
+            </tr>
+            <tr>
+                <td> * </td>
+                <td> duplique n fois </td>
+            </tr>
+            <tr>
+                <td> upcase </td>
+                <td> mise en majuscule </td>
+            </tr>
+            <tr>
+                <td> downcase </td>
+                <td> mise en minuscule </td>
+            </tr>
+            <tr>
+                <td> s[i] </td>
+                <td> accès au caractère à l'index i </td>
+            </tr>
+            <tr>
+                <td> s[n..m] </td>
+                <td> extrait une sous-chaîne </td>
+            </tr>
+            <tr>
+                <td> s[n, longueur] </td>
+                <td> extrait une sous-chaîne </td>
+            </tr>
+            <tr>
+                <td> index(s) </td>
+                <td> cherche l'index d'une sous-chaîne </td>
+            </tr>
+            <tr>
+                <td> rindex(s) </td>
+                <td> cherche l'index d'une sous-chaîne en partant de la fin </td>
+            </tr>
+        </tbody>
+        </table>
+
+        <!-- ---------------------------------------------------------------- -->
+        <h2 id="bool_range_nil">6. Booléens, intervalles et type vide <span class="titlecode">(TrueClass | FalseClass, Range, NilClass)</span></h2>
+        <!-- ---------------------------------------------------------------- -->
+        
+        <h3 id="bool">Booléens</h3>
+        <table class="def">
+        <tbody>
+            <tr>
+                <th>Classe </th>
+                <th>Littéral </th>
+            </tr>
+            <tr>
+                <td> FalseClass </td>
+                <td> <b>false</b> </td>
+            </tr>
+            <tr>
+                <td> TrueClass </td>
+                <td> <b>true</b> </td>
+            </tr>
+        </tbody>
+        </table>
+        <ul class="normale">
+            <li>Dans les tests, toutes les valeurs autres que <b>false</b> et <b>nil</b> sont vraies (dont <b>0</b>).</li>
+        </ul>
+        
+        <h3 id="range">Intervalles</h3>
+        <table class="def">
+        <tbody>
+            <tr>
+                <th>Nom </th>
+                <th>Littéral </th>
+            </tr>
+            <tr>
+                <td> Range </td>
+                <td> a..b <br> a...b </td>
+            </tr>
+        </tbody>
+        </table>
+        <p>Cela produit un intervalle comprenant les valeurs entières de a à b.</p>
+        <p>En utilisant trois points, la valeur b est exclue.</p>
+
+        <h3 id="void">Type "vide"</h3>
+        <p>Il représente l'absence de référence. Une variable qui est égale à <span class="code">nil</span> ne référence rien.</p>
+        <table class="def">
+        <tbody>
+            <tr>
+                <th>Classe </th>
+                <th>Littéral </th>
+            </tr>
+            <tr>
+                <td> NilClass </td>
+                <td> <b>nil</b> </td>
+            </tr>
+        </tbody>
+        </table>
+        
+        <p class="back"><a href="#sommaire">Retour sommaire</a></p>
+        
+        <!-- ---------------------------------------------------------------- -->
+        <h2 id="list">7. Listes <span class="titlecode">(Array)</span></h2>
+        <!-- ---------------------------------------------------------------- -->
+        
+        <h3 id="list_create">Création</h3>
+        
+        <p>Le premier élément d'une liste en Ruby a 0 pour indice.</p>
+        <p>Le dernier élément d'une liste en Ruby à n-1 pour indice, où n est le nombre d'élément de la liste.</p>
+        <p>Un indice négatif signifie que l'on part de la fin : -1 désigne le dernier élément dans ce cas et -n, le premier élément de la liste, où n est le nombre d'élément de la liste.</p>
+        <table class="def">
+        <tbody>
+            <tr>
+                <th>Nom </th>
+                <th>Littéral </th>
+            </tr>
+            <tr>
+                <td> Array </td>
+                <td> [ 1, 2, 3] <br> 1, 2, 3 <br> %w(abc def) </td>
+            </tr>
+        </tbody>
+        </table>
+        <p>La méthode de classe <span class="code">new</span> permet de créer une nouvelle liste :</p>
+        <div class="code">
+            liste1 = Array.new <i># liste1 aura 0 élément</i><br>
+            liste2 = Array.new(5) <i># liste2 aura 5 éléments nil</i><br>
+            liste3 = Array.new(3, "a") <i># liste3 aura 3 éléments "a"</i><br>
+            liste4 = Array.[]("a", "b", "c") <i># liste4 aura 3 éléments</i><br>
+            liste5 = Array["a", "b", "c"] <i># liste5 aura 3 éléments</i><br>
+            liste6 = Array(0..2) <i># liste6 aura 3 éléments : 0, 1, 2</i><br>
+            <i># liste7 aura 4 éléments égaux à 0, 3, 6, 9. i est l'indice qui sera donné en paramètre au bloc :</i><br>
+            liste7 = Array.new(4) { |i| i = i * 3 }<br> 
+        </div>
+        <p>La classe <span class="code">Array</span> inclut le module <span class="code">Enumerable</span></p>
+        
+        <h3 id="list_read">Fonctions d'accès</h3>
+        
+        <table class="fun">
+        <tbody>
+            <tr>
+                <th>Fonction </th>
+                <th>Type retourné </th>
+                <th>Description </th>
+            </tr>
+            <tr>
+                <td> a[i], a.slice(i), a.at(i)</td>
+                <td> selon valeur </td>
+                <td> accès à la valeur à l'indice i. Si l'indice ne correspond à aucun élément, <b>nil</b> est retourné. </td>
+            </tr>
+            <tr>
+                <td> a.fetch(i) </td>
+                <td> selon valeur </td>
+                <td> accès à l'objet référencé par l'indice i. Si l'indice n'est pas valide, une exception de type IndexError est levée </td>
+            </tr>
+            <tr>
+                <td> a.fetch(i, v) </td>
+                <td> selon valeur </td>
+                <td> accès à l'objet référencé par l'indice i. Si l'indice n'est pas valide, v est retournée </td>
+            </tr>
+            <tr>
+                <td> a.fetch(i) { |i| actions } </td>
+                <td> selon valeur </td>
+                <td> accès à l'objet référencé par l'indice i. Si l'indice n'est pas valide, le résultat du bloc, auquel est passé l'indice en paramètre, est retourné </td>
+            </tr>
+            
+            <tr>
+                <td> a[-1] </td>
+                <td> selon valeur </td>
+                <td> accès au dernier élément. Si l'indice ne correspond à aucun élément, nil est retourné. </td>
+            </tr>
+            <tr>
+                <td> a.first </td>
+                <td> selon valeur </td>
+                <td> retourne le premier élément de la liste a ou nil si la liste est vide </td>
+            </tr>
+            <tr>
+                <td> a.first(n) </td>
+                <td> selon valeur </td>
+                <td> retourne les n premiers éléments de la liste a </td>
+            </tr>
+            <tr>
+                <td> a.last </td>
+                <td> selon valeur </td>
+                <td> retourne le dernier élément de la liste a ou nil si la liste est vide </td>
+            </tr>
+            <tr>
+                <td> a.first(n) </td>
+                <td> selon valeur </td>
+                <td> retourne les n derniers éléments de la liste a </td>
+            </tr>
+            <tr>
+                <td> a.slice(s, n), a[s, n] </td>
+                <td> Array </td>
+                <td> renvoie une nouvelle liste constituée des éléments de la liste a à partir de l'indice s jusqu'à (s+n)-1. </td>
+            </tr>
+            <tr>
+                <td> a.slice(x..y), a[x..y] </td>
+                <td> Array </td>
+                <td> renvoie nouvelle liste constituée des éléments d'indice x à y dans a </td>
+            </tr>
+            <tr>
+                <td> a.slice(x...y), a[x...y] </td>
+                <td> Array </td>
+                <td> renvoie nouvelle liste constituée des éléments d'indice x à y-1 dans a </td>
+            </tr>
+            <tr>
+                <td> a.find(o), a.detect(o), a.indexOf(o), a.index(o), a.search(o) </td>
+                <td> Fixnum | Bignum </td>
+                <td> retourne le premier indice référençant l'objet o dans la liste a </td>
+            </tr>
+            <tr>
+                <td> a.rindex(o) </td>
+                <td> Fixnum | Bignum </td>
+                <td> retourne le dernier indice référençant l'objet o dans la liste a </td>
+            </tr>
+            <tr>
+                <td> a.find_all { |o| actions }, a.select { |o| actions } </td>
+                <td> Array </td>
+                <td> retourne une nouvelle liste avec tous les éléments pour lesquels le bloc, auquel on passe l'élément, retourne vrai </td>
+            </tr>
+            <tr>
+                <td> a.reject {|o| block } </td>
+                <td> Array </td>
+                <td> retourne une nouvelle liste contenant chaque élément de a pour lequel le bloc qui le prend en paramètre est faux </td>
+            </tr>
+            <tr>
+                <td> a.values_at(filter, ...) </td>
+                <td> Array </td>
+                <td> retourne les éléments de a correspondant au filtre filter qui peut être une suite d'indices ou d'intervalles (Range).</td>
+            </tr>
+        </tbody>
+        </table>
+        
+        <h3 id="list_update">Fonctions d'affectation et d'insertion</h3>
+        
+        <table class="fun">
+        <tbody>
+            <tr>
+                <th>Fonction </th>
+                <th>Type retourné </th>
+                <th>Description </th>
+            </tr>
+            <tr>
+                <td> a[i] = e </td>
+                <td> e.class </td>
+                <td> l'indice i de la liste référencera à présent l'objet e. Si i >= a.length, autant d'object nil sont insérés jusqu'à l'indice i qui référencera e </td>
+            </tr>
+            <tr>
+                <td> a[i, n] = e</td>
+                <td> e.class </td>
+                <td> les indices entre i+1 et (i+n) sont supprimés. L'indice i référence à présent l'objet e.<br> Si n est égal à zéro, un indice référençant l'élément e sera ajouté à la liste (comme insert) à i </td>
+            </tr>
+            <tr>
+                <td> a[i, n] = b <i># b est une liste</i></td>
+                <td> Array (a) </td>
+                <td> tous les indices entre i et (i+n)-1 référenceront à présent l'objet de même indice dans la liste b.<br> Si la liste b est trop petite, <u>la liste a sera raccourcie</u> </td>
+            </tr>
+            <tr>
+                <td> a.insert(i, o) </td>
+                <td> Array (a) </td>
+                <td> insère dans la liste juste avant l'indice i un nouvel indice qui référencera l'objet o et deviendra le nouvel indice i </td>
+            </tr>
+            <tr>
+                <td> a.fill(o) </td>
+                <td> Array (a) </td>
+                <td> tous les indices de la liste a référenceront l'objet o </td>
+            </tr>
+            <tr>
+                <td> a.fill(o, s), a.fill(o, s, n) </td>
+                <td> Array (a) </td>
+                <td> les indices de la liste a de s à la fin, ou de s à (s+n)-1 si n est spécifié, référenceront l'objet o </td>
+            </tr>
+            <tr>
+                <td> a.fill(o, x..y) </td>
+                <td> Array (a) </td>
+                <td> les indices de x à y de la liste a référenceront l'objet o </td>
+            </tr>
+            <tr>
+                <td> a.fill { |i| actions }, a.fill(s) { |i| actions }, a.fill(s, n) { |i| actions }, a.fill(x..y) { |i| actions } </td>
+                <td> Array (a) </td>
+                <td> les indices spécifiés référenceront le résultat du bloc auquel l'indice sera passé en paramètre </td>
+            </tr>
+            <tr>
+                <td> a.replace(b) </td>
+                <td> Array (a == b) </td>
+                <td> remplace les éléments de a par ceux de b (cela réaffecte a à une nouvelle liste) </td>
+            </tr>
+            <tr>
+                <td> a.unshift(o, ...) </td>
+                <td> Array (a) </td>
+                <td> ajoute un ou plusieurs éléments au début de la liste et retourne la liste </td>
+            </tr>
+            <tr>
+                <td> a.push(o, ...) </td>
+                <td> Array (a) </td>
+                <td> ajoute un ou plusieurs éléments à la fin de la liste et retourne la liste </td>
+            </tr>
+        </tbody>
+        </table>
+        
+        <h3 id="list_delete">Fonctions de suppression</h3>
+        
+        <table class="fun">
+        <tbody>
+            <tr>
+                <th>Fonction </th>
+                <th>Type retourné </th>
+                <th>Description </th>
+            </tr>
+            <tr>
+                <td> a.clear </td>
+                <td> Array (a) </td>
+                <td> efface toute la liste, sa longueur sera égale à 0 après.  Cette fonction modifie a, même si elle n'a pas de ! </td>
+            </tr>
+            <tr>
+                <td> a.delete_at(i) </td>
+                <td> Array (a) </td>
+                <td> supprime l'indice i en retournant l'objet à qui il faisait référence. Si l'indice est invalide, nil est retourné.  Cette fonction modifie a, même si elle n'a pas de ! </td>
+            </tr>
+            <tr>
+                <td> a.delete(o) </td>
+                <td> type de o (o) </td>
+                <td> supprime tous les indices référençant o. <u>Si aucun n'est trouvé, retourne nil. Cette fonction modifie a, même si elle n'a pas de !</u> </td>
+            </tr>
+            <tr>
+                <td> a.delete(o) { actions } </td>
+                <td> type de o (o) | résultat du bloc </td>
+                <td> supprime tous les indices référençant o. <u>Si aucun n'est trouvé, retourne le résultat du bloc qui n'est pas exécuté sinon. Cette fonction modifie a, même si elle n'a pas de !</u> </td>
+            </tr>
+            <tr>
+                <td> a.delete_if { |o| actions } </td>
+                <td> Array (a) </td>
+                <td> supprime tous les indices pour lequel le bloc, auquel on passe l'objet référencé par l'indice, retourne vrai. Cette fonction modifie a, même si elle n'a pas de ! </td>
+            </tr>
+            <tr>
+                <td> a.reject! {|o| block } </td>
+                <td> Array (a) </td>
+                <td> supprime dans a chaque élément pour lequel le bloc qui le prend en paramètre est vrai, équivalent à delete_if </td>
+            </tr>
+            <tr>
+                <td> array.slice!(index), array.slice!(s, n), array.slice!(x..y), array.slice!(x...y)</td>
+                <td> type de l'élément supprimé | <br> Array des éléments supprimés </td>
+                <td> supprime les éléments spécifiés </td>
+            </tr>
+        </tbody>
+        </table>
+        
+        <h3 id="list_test">Fonctions de tests et d'information</h3>
+        
+        <table class="fun">
+        <tbody>
+            <tr>
+                <th>Fonction </th>
+                <th>Type retourné </th>
+                <th>Description </th>
+            </tr>
+            <tr>
+                <td> a == b </td>
+                <td> TrueClass | FalseClass </td>
+                <td> vrai si a et b ont la même longueur et a[i] == b[i] pour i compris entre 0 et la longueur-1.</td>
+            </tr>
+            <tr>
+                <td> a.member?(o), o <b>in</b> a, a.include?(o) </td>
+                <td> TrueClass | FalseClass </td>
+                <td> vrai si a contient un indice référençant l'objet o </td>
+            </tr>
+            <tr>
+                <td> a.any? </td>
+                <td> TrueClass | FalseClass </td>
+                <td> vrai si a contient au moins 1 indice référençant un objet <u>autre que nil</u></td>
+            </tr>
+            <tr>
+                <td> a.all?(o) </td>
+                <td> TrueClass | FalseClass </td>
+                <td> vrai si tous les indices de a référencent l'objet o </td>
+            </tr>
+            <tr>
+                <td> a.empty? </td>
+                <td> TrueClass | FalseClass </td>
+                <td> vrai si la longueur de la liste a est égale à 0 </td>
+            </tr>
+            <tr>
+                <td> a.eql?(b) </td>
+                <td> TrueClass | FalseClass </td>
+                <td> vrai si a et b sont le même objet ou sont deux listes contenant les mêmes références </td>
+            </tr>
+            <tr>
+                <td> a.size, a.length </td>
+                <td> Fixnum | Bignum </td>
+                <td> retourne la taille de la liste a </td>
+            </tr>
+            <tr>
+                <td> a.nitems </td>
+                <td> Fixnum | Bignum </td>
+                <td> retourne le nombre d'éléments non égal à nil dans la liste a </td>
+            </tr>
+            <tr>
+                <td> a.min </td>
+                <td> selon élément </td>
+                <td> retourne l'élément minimal de la liste a (tous les éléments doivent pouvoir être comparés) </td>
+            </tr>
+            <tr>
+                <td> a.max </td>
+                <td> selon élément </td>
+                <td> retourne l'élément maximal de la liste a (tous les éléments doivent pouvoir être comparés)  </td>
+            </tr>
+        </tbody>
+        </table>
+        
+        <h3 id="list_others">Autres fonctions principales</h3>
+        
+        <table class="fun">
+        <tbody>
+            <tr>
+                <th>Fonction </th>
+                <th>Type retourné </th>
+                <th>Description </th>
+            </tr>
+            <tr>
+                <td> a + b, a | b, a.concat(b) </td>
+                <td> Array </td>
+                <td> retourne une nouvelle liste qui est la concaténation de a et b </td>
+            </tr>
+            <tr>
+                <td> a - b </td>
+                <td> Array </td>
+                <td> retourne une nouvelle liste qui contient les éléments de a ne figurant pas dans b </td>
+            </tr>
+            <tr>
+                <td> a * i </td>
+                <td> Array </td>
+                <td> si i est un entier, retourne une nouvelle liste qui est la concaténation de i fois a </td>
+            </tr>
+            <tr>
+                <td> a * abc </td>
+                <td> String </td>
+                <td> si abc est une chaîne, retourne une nouvelle chaîne qui est la concaténation des éléments de a séparés par abc. Équivalent de join.</td>
+            </tr>
+            <tr>
+                <td> a & b</td>
+                <td> Array </td>
+                <td> renvoie une nouvelle liste contenant les éléments communs à a et b</td>
+            </tr>
+            <tr>
+                <td> a &lt;&lt; e </td>
+                <td> Array (a) </td>
+                <td> ajout d'un élément e dans l1 </td>
+            </tr>
+            <tr>
+                <td> a &lt;=&gt; b </td>
+                <td> Fixnum (-1, 0 ou 1) </td>
+                <td> passe les éléments a et b à l'opérateur <=> un à un. S'arrête dès que le résultat est différent de 0 (donc à la première différence) et retourne le résultat </td>
+            </tr>
+            <tr>
+                <td> a.shift </td>
+                <td> selon élément </td>
+                <td> retourne le premier élément et l'enlève. Retourne <b>nil</b> si la liste a est vide </td>
+            </tr>
+            <tr>
+                <td> a.pop </td>
+                <td> selon élément </td>
+                <td> retourne le dernier élément et l'enlève. Retourne <b>nil</b> si la liste a est vide </td>
+            </tr>
+            <tr>
+                <td> a.reverse </td>
+                <td> Array </td>
+                <td> donne la liste inversée </td>
+            </tr>
+            <tr>
+                <td> a.reverse! </td>
+                <td> Array </td>
+                <td> inverse l'ordre des éléments de a </td>
+            </tr>
+            <tr>
+                <td> a.flatten </td>
+                <td> Array </td>
+                <td> si la liste contient des listes, elles seront toutes fusionnées en la seule liste qui sera retournée </td>
+            </tr>
+            <tr>
+                <td> a.flatten! </td>
+                <td> Array </td>
+                <td> si la liste contient des listes, elles seront toutes fusionnées au sein de la liste a. Retourne <b>nil</b> si aucune modification n'est faite </td>
+            </tr>
+            <tr>
+                <td> a.frozen? </td>
+                <td> TrueClass | FalseClass </td>
+                <td> retourne vrai si la liste ne peut être modifiée (soit par l'appel de la fonction <b>freeze</b>, soit durant un tri de façon temporaire) </td>
+            </tr>
+            <tr>
+                <td> a.hash </td>
+                <td> Fixnum </td>
+                <td> retourne une valeur unique selon le contenu de la liste. Deux listes avec le même contenu auront la même valeur </td>
+            </tr>
+            <tr>
+                <td> a.each { |o| actions } </td>
+                <td> Array (a) </td>
+                <td> parcours chaque élément de la liste a en le passant en paramètre du bloc </td>
+            </tr>
+            <tr>
+                <td> a.reverse_each { |o| actions } </td>
+                <td> Array (a) </td>
+                <td> parcours chaque élément de la liste a en ordre inverse en le passant en paramètre du bloc </td>
+            </tr>
+            <tr>
+                <td> a.each_index { |i| actions } </td>
+                <td> Array (a) </td>
+                <td> parcours chaque élément de la liste a en passant son indice en paramètre du bloc </td>
+            </tr>
+            <tr>
+                <td> a.compact </td>
+                <td> Array </td>
+                <td> retourne une nouvelle liste à partir de a en ne reprenant pas les indices qui référencent <b>nil</b></td>
+            </tr>
+            <tr>
+                <td> a.compact! </td>
+                <td> Array </td>
+                <td> supprime dans la liste a les indices qui référencent <b>nil</b>. <u>Retourne nil si aucun n'a été trouvé</u>, a sinon</td>
+            </tr>
+            <tr>
+                <td> a.map {|o| actions} a.collect {|o| actions} </td>
+                <td> Array </td>
+                <td> invoque le bloc pour chaque élément de la liste a et collecte les résultats dans une nouvelle liste retournée </td>
+            </tr>
+            <tr>
+                <td> a.map! {|o| actions} a.collect! {|o| actions} </td>
+                <td> Array (a) </td>
+                <td> remplace chaque élément de la liste a par l'élément retourné par le bloc appelé avec l'objet que référence l'indice en paramètre </td>
+            </tr>
+            <tr>
+                <td> a.partition { |o| block } </td>
+                <td> Array </td>
+                <td> retourne une liste contenant deux listes. Dans la première sont les éléments pour lequel le bloc est vrai. Dans la seconde sont les éléments pour lequel le bloc est faux </td>
+            </tr>
+            <tr>
+                <td> a.join(sep) </td>
+                <td> String </td>
+                <td> fusionne tous les éléments de la liste a en y intercalant la chaîne sep (pareil que l'opérateur * avec une chaîne) </td>
+            </tr>
+            <tr>
+                <td> a.each_with_index { |o, i| block } </td>
+                <td> Array (a) </td>
+                <td> parcours la liste avec un bloc recevant l'élément et un index </td>
+            </tr>
+            <tr>
+                <td> a.uniq </td>
+                <td> Array </td>
+                <td> retourne une nouvelle liste en supprimant les éléments en double </td>
+            </tr>
+            <tr>
+                <td> a.uniq! </td>
+                <td> Array (a) </td>
+                <td> enlève les éléments en double dans a</td>
+            </tr>
+            <tr>
+                <td> a.sort, a.sort { |a, b| actions } </td>
+                <td> Array </td>
+                <td> retourne une nouvelle liste en triant les éléments de la liste a </td>
+            </td>
+            <tr>
+                <td> a.sort!, a.sort! { |a, b| actions } </td>
+                <td> Array (a) </td>
+                <td> trie la liste a </td>
+            </td>
+            <tr>
+                <td> a.zip(p, ...), a.zip(p, ...) { |arr| actions } </td>
+                <td> Array | NilClass </td>
+                <td> p doit répondre à la méthode <b>each</b>. Associe chaque élément de p à un élément de a et retourne la nouvelle liste ainsi constituée. Si un bloc est fourni, chaque élément ainsi créé sera passé en paramètre au bloc mais la méthode retournera <b>nil</b> </td>
+            </tr>
+            <tr>
+                <td> a.assoc(o) </td>
+                <td> Array </td>
+                <td> la liste a doit être une liste de liste. Retourne la première liste (par ordre d'indice) qui se trouve dans a dont le premier élément est une référence vers o. </td>
+            </tr>
+            <tr>
+                <td> a.rassoc(o) </td>
+                <td> Array </td>
+                <td> la liste a doit être une liste de liste. Retourne la première liste (par ordre d'indice) qui se trouve dans a dont le second élément est une référence vers o. </td>
+            </tr>
+            <tr>
+                <td> a.to_a </td>
+                <td> Array (a) </td>
+                <td> renvoie la liste elle-même. si cette méthode est appelée sur une instance d'une sous-classe de <b>Array</b>, le résultat sera une instance d'<b>Array</b> (la classe-mère) </td>
+            </tr>
+            <tr>
+                <td> a.to_ary </td>
+                <td> Array (a) </td>
+                <td> retourne a </td>
+            </tr>
+            <tr>
+                <td> a.to_s </td>
+                <td> String </td>
+                <td> retourne a.join (c'est-à-dire une chaîne des éléments de la liste concaténés sans séparateur) </td>
+            </tr>
+            <tr>
+                <td> a.inspect </td>
+                <td> String </td>
+                <td> renvoie une version affichable de la liste </td>
+            </tr>
+            <tr>
+                <td> a.inject(initial) { |r, o| block } </td>
+                <td> selon r </td>
+                <td> exécute un bloc sur chaque élément en passant le résultat à l'exécution suivante dans r. r est initialisé à a[0] et l'exécution du bloc commence à a[1] si initial n'est pas défini. Sinon r est égal à initial et l'exécution du bloc commence à a [0] </td>
+            </tr>
+            <tr>
+                <td> a.pack(template) </td>
+                <td> String </td>
+                <td> transforme le tableau en une séquence binaire (sous la forme d'une chaîne) selon le format template </td>
+            </tr>
+            <tr>
+                <td> a.transpose </td>
+                <td> Array </td>
+                <td> ne marche que si a est une liste de liste. inverse les lignes et les colonnes </td>
+            </tr>
+        </tbody>
+        </table>
+        
+        <p class="back"><a href="#sommaire">Retour sommaire</a></p>
+        
+        <!-- ---------------------------------------------------------------- -->
+        <h2 id="dict">8. Dictionnaires <span class="titlecode">(Hash)</span></h2>
+        <!-- ---------------------------------------------------------------- -->
+        
+        <h3 id="dict_create">Création</h3>
+        
+        <p>Un dictionnaire, ou table de hachage, associe une <strong>clé</strong> à une <strong>valeur</strong>. La clé peut être de n'importe quel type, comme la valeur.</p>
+        <p>Lorsque l'on tente d'accéder à une valeur par une clé qui n'existe, <strong>nil</strong> est retourné ou la valeur par défaut, si elle a été définie lors de la création du dictionnaire.</p>
+        
+        <table class="def">
+        <tbody>
+            <tr>
+                <th>Nom </th>
+                <th>Littéral </th>
+            </tr>
+            <tr>
+                <td> Hash </td>
+                <td> { 1 =&gt; 'a' , 2 =&gt; 'b' , 3 =&gt; 'c' } </td>
+            </tr>
+        </tbody>
+        </table>
+        
+        <p>La méthode de classe <span class="code">new</span> permet de créer un nouveau dictionnaire :</p>
+        <div class="code">
+            dico1 = Hash.new <i># dico1 aura 0 élément</i><br>
+            dico2 = Hash.new(23) <i># 0 élément et 23 comme valeur par défaut</i><br>
+            dico3 = Hash.new[1 => 'a', 2 => 'b'] <i># dico3 aura 2 éléments</i><br>
+        </div>
+        <p>On peut changer plus tard le hash en utilisant :</p>
+        <div class="code">
+            dico2.default = nouvelle_valeur
+        </div>
+        
+        <h3 id="dict_read">Fonctions d'accès</h3>
+        
+        <table class="fun">
+        <tbody>
+            <tr>
+                <th>Fonction </th>
+                <th>Type retourné </th>
+                <th>Description </th>
+            </tr>
+            <tr>
+                <td> d[key] </td>
+                <td> d[key].class </td>
+                <td> retourne la valeur de la paire avec la clé correspondante. Si elle n'existe pas, retourne la valeur par défaut dictionnaire </td>
+            </tr>
+            <tr>
+                <td> d.fetch(key) <br> d.fetch(key, default) </td>
+                <td> d[key].class | default.class </td>
+                <td> retourne la valeur de la paire avec la clé correspondante. Si elle n'existe pas et qu'un paramètre default a été spécifié il est retourné. Sinon une exception KeyError est levée. <b>la valeur par défaut du dictionnaire n'est pas utilisée</b> </td>
+            </tr>
+            <tr>
+                <td> d.fetch(key) { | key | block } </td>
+                <td> d[key].class | selon bloc</td>
+                <td> retourne la valeur de la paire avec la clé correspondante. Si elle n'existe pas, le bloc auquel on passe la clé demandée en paramètre est exécuté et son résultat retourné. <b>Il ne sert à rien de passer un second paramètre defaut si on utilise un bloc car le paramètre sera ignoré </td>
+            </tr>
+            <tr>
+                <td> d.key(value) <br> d.index(value) <i># ne plus utiliser</i> </td>
+                <td> selon la clé trouvée </td>
+                <td> retourne une des clés correspondant à la valeur value, ou nil si la valeur n'a pas été trouvée (indépendamment de la valeur de d.default) </td>
+            </tr>
+            <tr>
+                <td> d.each { |key, value| block } <br> d.each_pair { |key, value| block } </td>
+                <td> Hash (d) </td>
+                <td> parcours l'ensemble du dictionnaire, exécutant à chaque fois le block qui reçoit en paramètre la paire clé-valeur </td>
+            </tr>
+            <tr>
+                <td> d.each_key { |key| block } </td>
+                <td> Hash (d) </td>
+                <td> parcours l'ensemble du dictionnaire, exécutant à chaque fois le block qui reçoit en paramètre la clé de la paire </td>
+            </tr>
+            <tr>
+                <td> d.each_value { |key| block } </td>
+                <td> Hash (d) </td>
+                <td> parcours l'ensemble du dictionnaire, exécutant à chaque fois le block qui reçoit en paramètre la valeur de la paire </td>
+            </tr>
+            <tr>
+                <td> d.select { |key, value| block } </td>
+                <td> Hash </td>
+                <td> retourne un dictionnaire constitué des paires de d pour lesquelles le block, auquel on passe la clé et sa valeur correspondante, retourne vrai </td>
+            </tr>
+            <tr>
+                <td> d.reject { |key, value| block } </td>
+                <td> Hash </td>
+                <td> retourne un dictionnaire constitué des paires de d pour lesquelles le block, auquel on passe la clé et sa valeur correspondante, retourne faux </td>
+            </tr>
+            <tr>
+                <td> d.values_at(key1, key2, ...) </td>
+                <td> Array </td>
+                <td> retourne une liste contenant les valeurs correspondant aux clés données en paramètres </td>
+            </tr>
+        </tbody>
+        </table>
+        
+        <h3 id="dict_update">Fonctions d'affectation et d'insertion</h3>
+        
+        <table class="fun">
+        <tbody>
+            <tr>
+                <th>Fonction </th>
+                <th>Type retourné </th>
+                <th>Description </th>
+            </tr>
+            <tr>
+                <td> d[key] = value </td>
+                <td> value.class </td>
+                <td> stocke une nouvelle paire (key, value) dans d ou met à jour la valeur pour la paire ayant la clé key </td>
+            </tr>
+            <tr>
+                <td> d1.merge(d2) </td>
+                <td> Hash (d1) </td>
+                <td> retourne un nouveau dictionnaire, résultant de la fusion de d1 et d2. Si une clé existe à la fois dans d1 et d2, la valeur correspondante dans d2 est prise </td>
+            </tr>
+            <tr>
+                <td> d1.merge(d2) {|key, d1val, d2val| block} </td>
+                <td> Hash (d1) </td>
+                <td> retourne un nouveau dictionnaire, résultant de la fusion de d1 et d2. Si une clé existe à la fois dans d1 et d2, la valeur finale sera déterminée par le block auquel la clé, la valeur correspondante dans d1 et la valeur correspondante dans d2 sont passées </td>
+            </tr>
+            <tr>
+                <td> d1.merge!(d2) <br> d1.update(d2) </td>
+                <td> Hash (d1) </td>
+                <td> met à jour d1 selon d2 : ajoute les paires clé-valeur existant dans d2 et non d1, met à jour les clés de d1 contenues aussi dans d2 en prenant la valeur de d2 </td>
+            </tr>
+            <tr>
+                <td> d1.merge!(d2) {|key, d1val, d2val| block} <br> d1.update(d2) {|key, d1val, d2val| block} </td>
+                <td> Hash (d1) </td>
+                <td> met à jour d1 selon d2 : ajoute les paires clé-valeur existant dans d2 et non d1. Si un clé existe de d2 existe déjà dans d1, la valeur finale sera déterminée par le block auquel la clé, la valeur correspondante dans d1 et la valeur correspondante dans d2 sont passées </td>
+            </tr>
+            <tr>
+                <td> d1.replace(d2) </td>
+                <td> Hash (d2)</td>
+                <td> remplace le contenu de d1 par celui de d2 </td>
+            </tr>
+            <tr>
+                <td> d.store(key, value) </td>
+                <td> value.class </td>
+                <td> stocke la valeur value à la clé key dans d ou si key existe déjà dans d, met à jour la valeur. Retourne value </td>
+            </tr>
+            <tr>
+                <td> d.shift </td>
+                <td> Array </td>
+                <td> retourne une paire sous la forme d'un tableau [clé, valeur] en l'enlevant de d </td>
+            </tr>
+            <!--<tr>
+                <td> d1.update(d2) </td>
+                <td></td>
+                <td><i>voir la fonction merge</i></td>
+            </tr>-->
+        </tbody>
+        </table>
+        
+        <h3 id="dict_delete">Fonctions de suppression</h3>
+        
+        <table class="fun">
+        <tbody>
+            <tr>
+                <th>Fonction </th>
+                <th>Type retourné </th>
+                <th>Description </th>
+            </tr>
+            <tr>
+                <td> d.clear </td>
+                <td> Hash (d) </td>
+                <td> enlève toutes les paires du dictionnaire </td>
+            </tr>
+            <tr>
+                <td> d.delete(key) </td>
+                <td> d[key].class </td>
+                <td> enlève la paire correspondant à la clé key</td>
+            </tr>
+            <tr>
+                <td> d.delete(key) { |k| block } </td>
+                <td> d[key].class ou selon bloc</td>
+                <td> enlève la paire correspondant à la clé key. Si la clé n'est pas trouvée, retourne le résultat du bloc auquel la clé key est passé en paramètre </td>
+            </tr>
+            <tr>
+                <td> d.delete_if { |key,value| block } </td>
+                <td> Hash (d) </td>
+                <td> enlève toutes les paires du dictionnaire pour lequel le bloc, auquel la paire est passée en paramètre, retourne vrai </td>
+            </tr>
+            <tr>
+                <td> d.reject! { |key, value| block } </td>
+                <td> Hash (d) </td>
+                <td> ne garde que les paires pour laquelle le bloc, auquel on passe la clé et sa valeur, retourne faux </td>
+            </tr>
+            <tr>
+                <td> d.select! { |key, value| block } </td>
+                <td> Hash (d) </td>
+                <td> ne garde que les paires pour laquelle le bloc, auquel on passe la clé et sa valeur, retourne vrai </td>
+            </tr>
+        </tbody>
+        </table>
+        
+        <h3 id="dict_test">Fonctions de tests et d'information</h3>
+        
+        <table class="fun">
+        <tbody>
+            <tr>
+                <th>Fonction </th>
+                <th>Type retourné </th>
+                <th>Description </th>
+            </tr>
+            <tr>
+                <td> d1 == d2</td>
+                <td>TrueClass | FalseClass</td>
+                <td> retourne vrai si les deux dictionnaires ont le même nombre de paires et qu'elles sont égales </td>
+            </tr>
+            <tr>
+                <td> d.empty? </td>
+                <td>TrueClass | FalseClass</td>
+                <td> retourne vrai si le dictionnaire ne contient pas de paires </td>
+            </tr>
+            <tr>
+                <td> d.default(p = nil) </td>
+                <td> selon valeur </td>
+                <td> retourne la valeur par défaut qui est retournée lorsque l'on tente d'accéder à la valeur d'une clé qui n'existe pas, on peut passer une valeur qui sera envoyée à la procédure par défaut, si un bloc a été passé à la création du dictionnaire </td>
+            </tr>
+            <tr>
+                <td> d.default_proc </td>
+                <td> Proc </td>
+                <td> retourne la procédure par défaut lorsqu'une clé n'existe pas, si un bloc a été passé à la création du dictionnaire, sinon retourne <b>nil</b> </td>
+            </tr>
+            <tr>
+                <td> d.has_key?(key) <br> d.include?(key) <br> d.key?(key) <br>d.member?(key) </td>
+                <td>TrueClass | FalseClass</td>
+                <td> retourne vrai si le dictionnaire contient une paire avec la clé <em>key</em> </td>
+            </tr>
+            <tr>
+                <td> d.has_value?(value) <br> d.value?(value) </td>
+                <td>TrueClass | FalseClass</td>
+                <td> retourne vrai si le dictionnaire contient une paire avec la valeur <em>value</em> </td>
+            </tr>
+            <tr>
+                <td> d.keys </td>
+                <td> Array </td>
+                <td> fournit une liste de toutes les clés des paires du dictionnaire </td>
+            </tr>
+            <tr>
+                <td> d.size <br> d.length </td>
+                <td> Fixnum | Bignum </td>
+                <td> retourne le nombre de paires dans le dictionnaire </td>
+            </tr>
+            <tr>
+                <td> d.sort </td>
+                <td> Array </td>
+                <td> retourne une liste triée dont chaque élément est une sous-liste de 2 éléments : la clé et sa valeur </td>
+            </tr>
+            <tr>
+                <td> d.values </td>
+                <td> Array </td>
+                <td> fournit une liste de toutes les valeurs des paires du dictionnaire </td>
+            </tr>
+        </tbody>
+        </table>
+        
+        <h3 id="dict_others">Autres fonctions principales</h3>
+        
+        <table class="fun">
+        <tbody>
+            <tr>
+                <th>Fonction </th>
+                <th>Type retourné </th>
+                <th>Description </th>
+            </tr>
+            <tr>
+                <td> d.invert </td>
+                <td> Hash </td>
+                <td> renvoi un nouveau dictionnaire où, pour chaque paire (clé, valeur) de d, on aura une paire (valeur, clé) </td>
+            </tr>
+            <tr>
+                <td> d.rehash </td>
+                <td> Hash (d) </td>
+                <td> Reconstruit le dictionnaire suivant ses différentes valeurs. Si un itérateur le parcours et que la fonction est appelée, une exception <b>RuntimeError</b> sera levée dans l'itérateur </td>
+            </tr>
+            <tr>
+                <td> d.to_a </td>
+                <td> Array </td>
+                <td> retourne un tableau contenant autant de tableaux qu'il y a de paires dans d. Chaque tableau contient deux éléments : en premier la clé et ensuite sa valeur correspondante </td>
+            </tr>
+            <tr>
+                <td> d.to_hash </td>
+                <td> Hash </td>
+                <td> retourne le dictionnaire lui-même </td>
+            </tr>
+            <tr>
+                <td> d.to_s <br> d.inspect </td>
+                <td> String </td>
+                <td> traduit le dictionnaire en une chaîne lisible et la retourne </td>
+            </tr>
+        </tbody>
+        </table>
+        
+        <p class="back"><a href="#sommaire">Retour sommaire</a></p>
+
+        <!-- --------------------------------------------------------------------------->
+        <h2 id="op">9. Opérateurs</h2>
+        <!-- --------------------------------------------------------------------------->
+        
+        <h3 id="op_bin">Opérateurs binaires</h3>
+        <table class="def">
+        <tbody>
+            <tr>
+                <th>Type </th>
+                <th>Syntaxe </th>
+            </tr>
+            <tr>
+                <td> Arithmétiques </td>
+                <td> + - * / % (modulo) ** (puissance)</td>
+            </tr>
+            <tr>
+                <td> Comparaison </td>
+                <td> &lt; &lt;= &gt; &gt;= <br>&lt;=&gt; (retourne 0 si égaux, 1 si le premier est le plus grand, -1 sinon)</td>
+            </tr>
+            <tr>
+                <td> Égalité </td>
+                <td>  == != <br> === (utilisé dans les clauses case)</td>
+            </tr>
+            <tr>
+                <td> Affectation </td>
+                <td> = += -= *= /= %= **= </td>
+            </tr>
+            <tr>
+                <td> Bit à bit </td>
+                <td> &amp; | ^ (ou exclusif) ~ (complément) <br> &lt;&lt; &gt;&gt; (décalages gauche et droit)</td>
+            </tr>
+            <tr>
+                <td> Logique </td>
+                <td> and or &amp;&amp; ||</td>
+            </tr>
+            <tr>
+                <td> Création d'intervalle </td>
+                <td> <em>borne_inf</em>..<em>borne_sup</em> (inclusif) <br> <em>borne_inf</em>...<em>borne_sup</em> (exclusif de borne_sup) </td>
+            </tr>
+            <tr>
+                <td> Appel de méthode </td>
+                <td> <em>objet</em>.<em>message</em> </td>
+            </tr>
+            <tr>
+                <td> Accès à une constante définie dans un module ou une classe </td>
+                <td> <em>identifiant</em>::<em>constante</em> </td>
+            </tr>
+        </tbody>
+        </table>
+        <p>La méthode eql? teste à la fois la valeur et le type des 2 objets comparés. Ainsi <span class="code">2.0 == 2</span> est vrai mais <span class="code">2.0.eql?(2)</span> retournera faux.</p>
+        <p>La méthode equal? retourne vrai si et seulement les deux objets ont le même id.</p>
+        <p>Ruby permet des affectations parallèles : <span class="code">x, y = 10, 20</span>. Cela est utilise pour échanger la valeur de deux variables sans passer par une troisième : <span class="code">x, y = y, x</span>.
+        
+        <h3 id="op_una">Opérateurs unaires</h3>
+        <table class="def">
+        <tbody>
+            <tr>
+                <th>Type </th>
+                <th>Syntaxe </th>
+            </tr>
+            <tr>
+                <td> Mathématique </td>
+                <td> + - </td>
+            </tr>
+            <tr>
+                <td> Logique </td>
+                <td> ! not </td>
+            </tr>
+            <tr>
+                <td> Définition </td>
+                <td> defined? <em>identifiant</em> </td>
+            </tr>
+            <tr>
+                <td> Résolution de portée </td>
+                <td> ::<em>identifiant</em> </td>
+            </tr>
+        </tbody>
+        </table>
+        <p><span class="code"><b>defined?</b></span> retourne <span class="code"><b>nil</b></span> si l'identifiant ne correspond à aucune variable, la chaîne "local-variable" s'il correspond à une variable locale, "constant" s'il correspond à une constante, et "global-variable" s'il correspond à une variable globale.</p>
+        <p>L'opérateur de résolution de portée sert lorsqu'une constante à l'intérieur d'un module porte le même nom qu'une constante d'une plus grande portée. Pour pouvoir accéder à la constante qui a la portée la plus grande, on la précède de <span class="code">::</span> :</p>
+        <div class="code">
+            Bonjour = 0<br>
+            <b>module</b> Cache<br>
+            &nbsp;&nbsp;Bonjour = 22<br>
+            &nbsp;&nbsp;puts Bonjour <i># affichera 22</i><br>
+            &nbsp;&nbsp;puts ::Bonjour <i># affichera 0</i><br>
+            <b>end</b><br>
+        </div>
+        
+        <h3 id="op_ter">Opérateur ternaire</h3>
+        <table class="def">
+        <tbody>
+            <tr>
+                <th>Type </th>
+                <th>Syntaxe </th>
+            </tr>
+            <tr>
+                <td> Opérateur ternaire </td>
+                <td> <em>expression</em> <b>?</b> <em>action si vrai</em> <b>:</b> <em>action si faux</em> </td>
+            </tr>
+        </tbody>
+        </table>
+        
+        <h3 id="op_precedence">Précédence des opérateurs</h3>
+        <p>Voici les opérateurs du plus prioritaire au moins prioritaire (les opérateurs sur la même ligne ont la même précédence) :</p>
+        <table class="def">
+        <tbody>
+            <tr><td>::</td></tr>
+            <tr><td>[] []=</td></tr>
+            <tr><td>**</td></tr>
+            <tr><td>! ~ + (unaire) - (unaire)</td></tr>
+            <tr><td>* / %</td></tr>
+            <tr><td>+ -</td></tr>
+            <tr><td>&gt;&gt; &lt;&lt;</td></tr>
+            <tr><td>&amp;</td></tr>
+            <tr><td>^ |</td></tr>
+            <tr><td>&lt;= &lt; &gt; &gt;=</td></tr>
+            <tr><td>&lt;=&gt; == === != =~ !~</td></tr>
+            <tr><td>&&</td></tr>
+            <tr><td>||</td></tr>
+            <tr><td>.. ...</td></tr>
+            <tr><td>? : (ternaire)</td></tr>
+            <tr><td>= %= { /= -= += |= &= &gt;&gt;= &lt;&lt;= *= &&= ||= **=</td></tr>
+            <tr><td><b>defined?</b></td></tr>
+            <tr><td><b>not</b></td></tr>
+            <tr><td><b>or and</b></td></tr>
+        </tbody>
+        </table>
+        
+        <h3 id="op_redef">Redéfinition d'opérateur</h3>
+        <p>Les opérateurs ::, [], []=, **, !, ~, +, -, * / %,  >>, <<, &, |, ^, <=, <, >, >=, <=>, ==, ===, !=, =~, !~ sont des fonctions et peuvent donc être redéfinies, changeant ainsi le comportement des opérateurs :</p>
+        <div class="code">
+          <b>def</b> +(a)<br>
+          &nbsp;&nbsp;<i># votre code ici</i><br>
+          <b>end</b>
+        </div>
+        <p>Attention, rappelez vous que a + b et b + a ne sont pas équivalent. Le premier correspond à a.+(b) et le second à b.+(a). Si a et b ne sont pas du même type, vérifiez bien où vous redéfinissez l'opérateur.</p>
+        <p>Pour faire la différence entre les opérateurs unaires + et -, lorsque l'on redéfinit ceux-ci il faut employer +@ et -@</p>
+        
+        <p class="back"><a href="#sommaire">Retour sommaire</a></p>
+
+        <!-- ---------------------------------------------------------------- -->
+        <h2 id="flux">10. Contrôle du flux</h2>
+        <!-- ---------------------------------------------------------------- -->
+        
+        <h3 id="seq">Séquence</h3>
+
+        <div class="code">
+            action  <i># En Ruby, chaque instruction est une expression évaluable</i>
+            action  <i># Il suffit de passer à la ligne pour les faire suivre</i>
+        </div>
+        <div class="code">
+            action ; action  <i># Sur un même ligne, on sépare les actions par un ;</i>
+        </div>
+
+        <h3 id="cond">Conditions</h3>
+    
+        <p>Pour qu'une partie du code ne soit exécutée que si une condition est vrai, on utilisera <span class="code"><b>if</b></span> :</p>
+        <div class="code">
+            <b>if</b> condition [ <b>then</b> ]<br />
+            &nbsp;&nbsp; actions<br />
+            [ <b>elsif</b> condition [ <b>then</b> ]<br />
+            &nbsp;&nbsp; actions ] <b>*</b><br />
+            [ <b>else</b><br />
+            &nbsp;&nbsp; actions ] <b>?</b><br />
+            <b>end</b>
+        </div>
+        <p>Sont considérées fausses les valeurs <span class="code"><b>false</b></span> et <span class="code"><b>nil</b></span>. Toutes les autres valeurs sont vraies.</p>
+        <p><span class="code"><b>if</b></span> peut également s'utiliser en modificateur de ligne ou de bloc :</p>
+        <div class="code">
+            action <b>if</b> condition<br>
+            <br>
+            <b>begin</b><br>
+            &nbsp;&nbsp;actions<br>
+            <b>end</b> <b>if</b> condition
+        </div>
+        <p>Ruby possède aussi l'instruction <span class="code"><b>unless</b></span> qui exécute le bloc qu'elle garde si et seulement la condition est <strong>fause</strong>. On pourrait la traduire par "à moins que" ou "sauf si".</p>
+        <div class="code">
+            <b>unless</b> condition [ <b>then</b> ]<br />
+            &nbsp;&nbsp; actions<br />
+            [ <b>else</b><br />
+            &nbsp;&nbsp; actions ] <b>?</b><br />
+            <b>end</b>
+        </div>
+        <p><span class="code"><b>unless</b></span> peut également s'utiliser en modificateur de ligne ou de bloc :</p>
+        <div class="code">
+            action <b>unless</b> condition ]<br>
+            <br>
+            <b>begin</b><br>
+            &nbsp;&nbsp;actions<br>
+            <b>end</b> <b>unless</b> condition
+        </div>
+        <p>Ruby possède aussi l'instruction <span class="code"><b>case</b></span> qui permet d'exécuter du code en fonction de la valeur d'une expression. Lorsque l'expression qui suit directement le <span class="code"><b>case</b></span> est égale à une des expressions spécifiées par le <span class="code"><b>when</b></span>, les actions suivantes du <span class="code"><b>when</b></span> sont exécutées et <strong>seulement</strong> celles-ci (pas de <em>falling-through</em> à travers les <span class="code"><b>when</b></span> suivants comme en C avec "switch").
+        <div class="code">
+            <b>case</b> expression<br>
+            [ <b>when</b> expression [, expression]* [ <b>then</b> ]<br>
+            &nbsp;&nbsp;actions ]*<br>
+            [ <b>else</b><br>
+            &nbsp;&nbsp;actions ]<br>
+            <b>end</b>
+        </div>
+        <p>L'opérateur <span class="code">===</span> est utilisé pour effectuer la comparaison, qui correspond à la méthode équivalente de l'expression utilisé dans le <span class="code"><b>when</b></span>.</p>
+        <p>Si aucun <span class="code"><b>when</b></span> ne correspond, les actions sous le <span class="code"><b>else</b></span> sont exécutées.</p>
+        
+        <h3 id="loop">Répétitions</h3>
+
+        <p>Boucle qui s'exécute <em>tant que</em> la condition est vraie :</p>
+        <div class="code">
+            <b>while</b> condition [ <b>do</b> ]<br />
+            &nbsp;&nbsp; actions<br />
+            <b>end</b>
+        </div>
+        <p><span class="code"><b>while</b></span> peut également s'utiliser en modificateur de ligne ou de bloc :</p>
+        <div class="code">
+            action <b>while</b> condition<br>
+            <br>
+            <b>begin</b><br>
+            &nbsp;&nbsp;actions<br>
+            <b>end</b> <b>while</b> condition
+        </div>
+        <p>Dans ces deux derniers cas, le code est exécuté <strong>au moins une fois</strong> avant l'évaluation de la condition à la manière d'un "do ... while" dans d'autres langages.</p>
+        <p>De la même manière que <span class="code"><b>unless</b></span> et l'inverse de <span class="code"><b>if</b></span>, <span class="code"><b>until</b></span> est l'inverse de <span class="code"><b>while</b></span> : le code s'exécute tant que la condition est fausse.</p>
+        <div class="code">
+            <b>until</b> condition [ <b>do</b> ]<br />
+            &nbsp;&nbsp; actions<br />
+            <b>end</b>
+        </div>
+        <p><span class="code"><b>until</b></span> peut également s'utiliser en modificateur de ligne ou de bloc, et le code sera exécuté également une fois avant la vérification de la condition : </p>
+        <div class="code">
+            action [ <b>until</b> condition ]<br>
+            <br>
+            <b>begin</b><br>
+            &nbsp;&nbsp;actions<br>
+            <b>end</b> <b>until</b> condition
+        </div>
+        <p>Autre grand classique des boucles, <span class="code"><b>for</b></span> :</p>
+        <div class="code">
+            <b>for</b> identifiant <b>in</b> expression [ <b>do</b> ]<br />
+            &nbsp;&nbsp; actions<br />
+            <b>end</b>
+        </div>
+        <p>Pour sauter à la prochaine itération de la boucle la plus interne, il faut utiliser <span class="code"><b>next</b></span>.</p>
+        <p>Pour quitter la boucle la plus interne, il faut utiliser <span class="code"><b>break</b></span>.</p>
+        <p>On peut recommencer la dernière itération de la boucle la plus interne, sans vérifier la condition à nouveau néanmoins, avec <span class="code"><b>redo</b></span>. Attention aux boucles infinies.</p>
+        <p>On peut recommencer totalement l'itération de la boucle la plus interne avec <span class="code"><b>retry</b></span>. Cette fonctionnalité a été désactivée depuis Ruby 1.9 et génère à présent une exception de type <span class="code">SyntaxError</span>.</p>
+        <div class="code">
+            <b>for</b> i <b>in</b> 1..3 <i># lance 3 fois un dé</i><br>
+            &nbsp;&nbsp;de = Random.new.rand(1..6)<br>
+            &nbsp;&nbsp;puts i, de<br>
+            &nbsp;&nbsp;<b>retry if</b> de == 1 <i># recommence tout si on tombe sur 1 (Ruby &lt; 1.9)</i><br>
+            &nbsp;&nbsp;<b>redo if</b> de < 4 <i># recommence l'itération si on tombe sur 2 ou 3</i><br>
+            <b>end</b>
+        </div>
+        <p>Ruby propose également des méthodes pour itérer sur un objet :</p>
+        <div class="code">
+            (1..10).each { |i| actions }<br>
+            1.upto(10) { |i| actions }<br>
+            10.downto(1) { |i| actions }<br>
+            (1..10).step(2) { |i| actions }<br>
+            ['a', 'b'].each_with_index { |v, i| actions }<br>
+        </div>
+        
+        <p class="back"><a href="#sommaire">Retour sommaire</a></p>
+        
+        <!-- ---------------------------------------------------------------- -->
+        <h2 id="elem_fun">11. Fonctions</h2>
+        <!-- ---------------------------------------------------------------- -->
+        
+        <h3 id="fun_def">Définition d'une fonction</h3>
+        
+        <p>En Ruby, les fonctions sont toutes des méthodes, c'est-à-dire appartenant à un objet. Pour définir une méthode, il faut utiliser le mot-clé <span class="code">def</span>.</p>
+        
+        <div class="code">
+            <b>def</b> identifiant [ ( par [ = defval] [, par<sub>i</sub> [ = defval] ]<sup>*</sup> [, *par<sub>l</sub> ] [, &amp;par<sub>h</sub> ] ) ] <br />
+            &nbsp;&nbsp; actions<br />
+            <b>end</b><br><br>
+            <i># Exemple 1</i><br>
+            <b>def</b> affiche_bonjour (nom)<br>
+            &nbsp;&nbsp; puts "Bonjour #{nom}"<br>
+            <b>end</b><br><br>
+            <i># Exemple 2</i><br>
+            <b>def</b> affiche_bonjour_x (nom, nb)<br>
+            &nbsp;&nbsp; i = 0<br>
+            &nbsp;&nbsp; <b>while</b> i &lt; nb<br>
+            &nbsp;&nbsp; &nbsp;&nbsp; affiche_bonjour nom<br>
+            &nbsp;&nbsp; &nbsp;&nbsp; i += 1<br>
+            &nbsp;&nbsp; <b>end</b><br>
+            <b>end</b><br>
+        </div>
+        
+        <p>Si la fonction ne prend pas de paramètres, on peut se passer de parenthèse dans sa signature.</p>
+        <p>On peut préciser pour chaque paramètre une valeur par défaut. Si une valeur par défaut est définie, passer une valeur pour le paramètre devient optionnel.</p>
+        <p>Au contraire de Python, n'importe quel paramètre peut avoir une valeur par défaut, et on peut intercaler des paramètres avec et sans : <span class="code">def f (a=5, b)</span>.</p>
+        <p>Il faut toujours appeler une méthode avec le nombre de paramètre requis, au contraire d'un langage comme Lua. Sinon Ruby lèvera une exception <span class="code">ArgumentError</span></p>
+        
+        <p>Il peut y avoir potentiellement jusqu'à deux paramètres spéciaux pour avoir un nombre variable de paramètres :</p>
+        <ul class="normale">
+            <li><span class="code">*nom</span> indique qu'il peut y avoir une infinité de paramètres, séparés par une virgule. Ils seront tous stockés dans nom sous la forme d'une liste.</li>
+            <li><span class="code">&amp;nom</span> indique qu'il peut y avoir une infinité de paramètres nommés, constitués d'un identifiant = une valeur. Ils seront tous stockés sous la forme d'un dictionnaire.</li>
+        </ul>
+        <p><span class="code">*nom</span> doit toujours précédé <span class="code">&amp;nom</span> s'il existe. <span class="code">*nom</span> doit toujours être en avant-dernière position si <span class="code">&amp;nom</span> existe ou en dernière position sinon. <span class="code">&amp;nom</span> doit toujours être en dernière position de la liste de paramètres.
+        </p>
+
+        <h3 id="fun_cal">Appel de fonction</h3>
+        
+        <p>Pour appeler une fonction, en Ruby on considère que l'on envoie un message (le nom de la fonction) à un objet, il faut utiliser la syntaxe suivante :</p>
+        
+        <div class="code">
+            [ objet <b>.</b> ] identifiant [ ( paramètres ) ]  <i># Appel de fonction</i><br>
+            <i># Exemple</i><br>
+            affiche_bonjour("Bob")<br>
+            affiche_bonjour(nom="Bob")<br>
+            affiche_bonjour "Slim"<br>
+            affiche_bonjour nom="Slim"<br>
+            affiche_bonjour_x "Bob", 2<br>
+        </div>
+        
+        <p>Si aucun objet n'est précisé, le receveur est l'objet courant.</p>
+        <p>Les parenthèses sont optionnelles.</p>
+        <p>On peut préciser le nom du paramètre auquel on passe une valeur. Sinon l'attribution des valeurs se fait par la position.</p>
+        <p>On peut éclater un énumérable avec l'opérateur * :</p>
+        
+        <div class="code">
+            *enum  <i># Fracturation d'un énumérable pour passer différents arguments</i><br><br>
+            <i># Exemple</i><br>
+            a = ["Bob", 2]<br>
+            affiche_bonjour_x *a<br>
+        </div>
+        
+        <p>Attention : un hash se fracture en autant de liste qu'il a d'éléments. Chaque liste comportant 2 éléments : en indice 0 la clé, en indice 1 la valeur.</p>
+        
+        <h3 id="fun_ret">Retour de fonction</h3>
+        
+        <p>Normalement, une fois appelé, la fonction s'exécute jusqu'à sa fin.</p>
+        <p>En Ruby, une fonction retourne <strong>toujours</strong> une valeur, la dernière évaluée.</p>
+        <p>On peut sortir du code d'une fonction avec le mot-clé <span class="code">return</span>, éventuellement suivi d'une expression :</p>
+        
+        <div class="code">
+            <b>return</b> [ expression [, expression<sub>i</sub>]<sup>*</sup> ]  <i># Quitte la fonction</i>
+        </div>
+        
+        <p>Si aucune expression n'est donnée, <span class="code">nil</span> sera retourné. Si plus d'une expression sont données, le type du résultat sera <span class="code">Array</span>.</p>
+        
+        <h3 id="fun_aka">Alias d'une fonction (et d'une variable globale)</h3>
+
+        <p>En Ruby, on peut définir un alias, un nouveau nom pour une méthode ou une variable globale. Le premier nom reste inchangé, il s'agit juste d'un nouveau moyen d'y accéder. Pratique pour avoir par exemple deux noms, count et length, pour une fonction qui compte un nombre d'éléments, sans avoir à écrire deux fois le même code.</p>
+        <p>Un alias ne peut pas être défini dans le corps d'une fonction.</p>
+        
+        <div class="code">
+            <b>alias</b> nouveau_nom ancien_nom <i># Définition d'un alias</i>
+        </div>
+        
+        <h3 id="fun_und">Suppression de la définition d'une fonction</h3>
+        
+        <p>Supprime la définition d'une méthode.</p>
+        <p>Cela ne peut pas être fait dans le corps d'une méthode.</p>
+        
+        <div class="code">
+            <b>undef</b> nom_methode <i># Suppression de la définition d'une fonction</i>
+        </div>
+        
+        <p class="back"><a href="#sommaire">Retour sommaire</a></p>
+        
+        <!-- ---------------------------------------------------------------- -->
+        <h2 id="elem_class">12. Classes et objets</h2>
+        <!-- ---------------------------------------------------------------- -->
+        
+        <h3 id="oo_intro">L'orientée objet</h3>
+        
+        <p>En Ruby, tout est objet. Une <strong>classe</strong> est la définition générale d'un concept, qui possède des <strong>attributs</strong> et des <strong>méthodes</strong>. Par exemple, une voiture (classe) a une couleur et un propriétaire (deux attributs) et elle peut rouler et s'arrêter (deux méthodes). Les <strong>instances</strong> d'une classe, ou <strong>objets</strong>, sont des cas particuliers du concept, la voiture rouge de Marc, la voiture verte de Katia, qui ont à leur disposition toutes les méthodes définies dans la classe, ici rouler et s'arrêter.</p>
+        <p>Ruby est donc un langage <strong>orienté objet</strong>. De façon universitaire, on définit l'orientation objet d'un langage par le fait de pouvoir :
+            <ul class="normale">
+                <li>cacher certains attributs d'une classe aux autres, c'est <strong>l'encapsulation</strong>,</li>
+                <li>reprendre la définition générale d'une classe (la classe mère) dans une nouvelle (la classe fille) en ajoutant à cette dernière de nouveaux attributs et méthodes, c'est <strong>l'héritage</strong>,</li>
+                <li>pour une instance d'une classe fille, se faire passer à tout moment pour une instance d'une de ses classes mères, c'est <strong>le polymorphisme</strong>.</li>
+            </ul>
+        </p>
+        
+        <p>En Ruby, une classe ne peut avoir <strong>qu'une seule classe mère</strong>, c'est le <strong>mono-héritage</strong>.</p>
+        
+        <p>Enfin, et c'est là où la phrase <em>"en Ruby, tout est objet"</em> prend tout son sens, <strong>les classes sont des objets de la classe <span class="code">Class</span></strong> ! Si cette dernière phrase provoque des migraines chez vous, ignorez la pour l'instant.</p>
+        <p>Notons que d'autres langages sont orientés objets mais n'utilise pas la division classe/instance. Un tel exemple est le langage JavaScript, qui utilise une notion appelée <strong>prototype</strong>.</p>
+        
+        <h3 id="oo_class_create">Création d'une classe</h3>
+        
+        <div class="code">
+            <b>class</b> identifiant [ &lt; parent ]<br>
+            &nbsp;&nbsp; actions<br>
+            <b>end</b>
+        </div>
+        
+        <p>A l'intérieur d'une classe, on définit des méthodes d'instances et à l'intérieur de celles-ci, des attributs des instances (appelés aussi variables d'instance).</p>
+        
+        <div class="code">
+            <b>class</b> UneClasse < UneAutreClasse<br>
+            &nbsp;&nbsp; <b>def</b> une_methode (paramètre1, paramètre2)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; b = 2 <i># cette variable b est une variable locale, définie seulement pour la méthode</i><br>
+            &nbsp;&nbsp;&nbsp;&nbsp; @a = 1 <i># une variable d'instance commence par le symbole @</i><br>
+            &nbsp;&nbsp; <b>end</b> <br>
+            <b>end</b>
+        </div>
+        
+        <p>Par convention, pour les noms des méthodes, on utilise des lettres minuscules et s'il y a plusieurs mots, on les sépare par un "_".</p>
+        <p>Pour les noms des classes, on utilise des mots accolés en les faisant commencer par une majuscule.</p>
+        
+        <h3 id="oo_overriding">Redéfinition d'une méthode d'instance</h3>
+        
+        <p>Si dans une classe fille on nomme une méthode d'instance du même nom qu'une méthode d'instance qui se trouve dans une ou plusieurs de ses classes mères, on dit que l'on redéfinit cette méthode d'instance, on parle de <strong>redéfinition</strong> (ou <em>overriding</em> en anglais, à ne pas confondre avec <em>overloading</em> ou surcharge qui est un autre concept non utilisé en Ruby).</p>
+        
+        <div class="code">
+            <b>class</b> UneClasse <br>
+            &nbsp;&nbsp; <b>def</b> une_methode <br>
+            &nbsp;&nbsp;&nbsp;&nbsp; puts "je suis une instance d'UneClasse"<br>
+            &nbsp;&nbsp; <b>end</b> <br>
+            <b>end</b> <br>
+            <br>
+            <b>class</b> UneClasseFille &lt; UneClasse <br>
+            &nbsp;&nbsp; <b>def</b> une_methode <i># on va redéfinir cette méthode</i><br>
+            &nbsp;&nbsp;&nbsp;&nbsp; puts "je suis une instance d'UneClasseFille"<br>
+            &nbsp;&nbsp; <b>end</b> <br>
+            <b>end</b>
+        </div>
+        
+        <h3 id="oo_class_method">Méthodes et variables de classe</h3>
+        
+        <p>On peut définir également des variables de classe. La valeur d'une variable de classe est la même pour toute les instances de la classe.</p>
+        
+        <div class="code">
+            <b>class</b> UneClasse < UneAutreClasse<br>
+            &nbsp;&nbsp; <b>def</b> une_methode (paramètre1, paramètre2)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp; @@c = 3 <i># cette variable de classe commence par deux symboles @</i><br>
+            &nbsp;&nbsp; <b>end</b> <br>
+            &nbsp;&nbsp; @@c = 5 <i># on peut définir une variable de classe en dehors de toute méthode d'instance</i><br>
+            <b>end</b>
+        </div>
+        
+        <p>Les variables de classe ne sont néanmoins pas accessibles en dehors de leur classe. On utilisera une variable globale (commençant avec $) pour partager une valeur entre différentes classes.</p>
+        
+        <p>Il existe également des méthodes de classe. Il faut faire précéder leur nom par le nom de la classe suivi d'un point.</p>
+        
+        <div class="code">
+            <b>class</b> UneClasse < UneAutreClasse<br>
+            &nbsp;&nbsp; <b>def</b> UneClasse.une_methode (paramètre1) <i># ceci est une méthode de classe</i><br>
+            &nbsp;&nbsp;&nbsp;&nbsp; b = 2 <i># il ne peut y avoir que des variables locales ou</i><br>
+            &nbsp;&nbsp;&nbsp;&nbsp; @@c = 3 <i># des variables de classe dans son corps</i><br>
+            &nbsp;&nbsp; <b>end</b> <br>
+            <b>end</b>
+        </div>
+
+        <p>On n'a pas besoin d'avoir une instance pour appeler une méthode de classe.</p>
+        <p>Une méthode de classe ne peut pas accéder aux variables d'instance @.</p>
+        <p>Pour l'appeler, on spécifiera comme receveur la classe : <span class="code">UneClasse.une_methode</span>.</p>
+        
+        <h3 id="oo_class_update">Modifier la définition d'une classe</h3>
+        
+        <p>Pour ajouter une méthode d'instance ou de classe à une classe, ou remplacer le corps d'une méthode déjà définie, il suffit de réouvrir sa définition, sans répéter son éventuelle classe-mère.</p>
+        
+        <div class="code">
+            <b>class</b> UneClasse <br>
+            &nbsp;&nbsp; <b>def</b> une_nouvelle_methode <br>
+            &nbsp;&nbsp; <b>end</b> <br>
+            <b>end</b>
+        </div>
+        
+        <h3 id="oo_instance">Création d'une instance</h3>
+        
+        <p>Pour créer une instance, il faut appeler la méthode de classe <span class="code">new</span> qui est disponible dans toutes les classes.</p>
+        
+        <div class="code">
+            <i># Code générique d'une création d'instance</i><br>
+            nom_classe <b>.</b> new [ ( paramètres ) ] <br>
+            <i># Exemple qui stocke une référence à l'objet créé dans mon_instance</i><br>
+            mon_instance = UneClasse.new
+        </div>
+        
+        <p>La méthode de classe new va créer l'objet puis appeler sa méthode <span class="code">initialize</span> en lui passant ses paramètres. On peut redéfinir cette méthode d'instance pour contrôler l'initialisation de notre objet. Par analogie avec d'autres langages, on appelle cette fonction un <strong>constructeur</strong>, bien que dans le cas de Ruby il s'agisse plutôt d'une initilisation.</p>
+        
+        <div class="code">
+            <b>class</b> Voiture <br>
+            &nbsp;&nbsp; <b>def</b> initialize(col, proprietaire) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp; @couleur = col <br>
+            &nbsp;&nbsp;&nbsp;&nbsp; @proprietaire = prop <br>
+            &nbsp;&nbsp; <b>end</b> <br>
+            <b>end</b> <br>
+            v1 = Voiture.new("rouge", "Marc") <br>
+            v2 = Voiture.new("verte", "Katia")
+        </div>
+        
+        <p>Pour appeler une méthode d'instance, on utilise la syntaxe suivante : <span class="code">instance.methode(paramètres)</span></p>
+        
+        <h3 id="oo_encapsulation">Encapsulation en Ruby</h3>
+        
+        <p>En Ruby, les attributs d'instances sont <strong>protégés</strong>, ils ne sont accessibles que dans les instances de la classe où ils sont définis et dans ses sous-classes.</p>
+        <p>En Ruby, les méthodes d'instances sont <strong>publiques</strong> par défaut, accessibles par tous. On peut utiliser les méthodes <strong>protected</strong> et <strong>private</strong> avant le <strong>def</strong> pour changer cela.</p>
+        <p>Une méthode protégée ne peut être appelée que dans la classe et dans ses sous-classes.</p>
+        <p><strong>Contrairement aux autres langages orientés objets</strong>où une méthode privée ne peut être appelée que dans la classe même, en Ruby, une méthode privée peut-être appelée également dans ses sous-classes. La différence entre une méthode protégée et privée, et que cette dernière ne peut être appelée avec un receveur explicite (notation receveur . méthode ). De ce fait, une fonction privée ne peut être appelée que par son objet.</p>
+        
+        <div class="code">
+            <b>class</b> A<br>
+            &nbsp;&nbsp; <b>def</b> une_methode_publique <br>
+            &nbsp;&nbsp; <b>end</b><br>
+            &nbsp;&nbsp; protected<br>
+            &nbsp;&nbsp; <b>def</b> une_methode_protegee <br>
+            &nbsp;&nbsp; <b>end</b><br>
+            &nbsp;&nbsp; private<br>
+            &nbsp;&nbsp; <b>def</b> une_methode_privee <br>
+            &nbsp;&nbsp; <b>end</b><br>
+            <b>end</b><br>
+            <br>
+            <i># Visibilité générale</i><br>
+            a = A.new <br>
+            a.une_methode_publique <i># marche</i><br>
+            a.une_methode_protegee <i># lève une exception NoMethodError</i><br>
+            a.une_methode_privee <i># lève une exception NoMethodError</i><br>
+            <br>
+            <i># Visibilité dans une classe fille</i><br>
+            <b>class</b> B &lt; A<br>
+            &nbsp;&nbsp; <b>def</b> une_methode <br>
+            &nbsp;&nbsp;&nbsp;&nbsp; une_methode_publique <i># marche</i><br>
+            &nbsp;&nbsp;&nbsp;&nbsp; une_methode_protegee <i># marche</i><br>
+            &nbsp;&nbsp;&nbsp;&nbsp; une_methode_privee <i># marche</i><br>
+            &nbsp;&nbsp; <b>end</b><br>
+            <b>end</b>
+        </div>
+        
+        <p>Notons que quand une fonction est définie dans une classe, elle est par défaut publique. Au contraire, en dehors d'une classe, une méthode définie sera par défaut privée.</p>
+        
+        <h3 id="oo_self">Le mot-clé self</h3>
+        
+        <p>Le mot-clé <span class="code">self</span> contient une référence vers l'objet "en cours". Dans le corps d'une méthode d'instance, self désigne l'objet lui-même.</p>
+        
+        <p><strong>Dans le corps d'une classe, en-dehors des corps des méthodes d'instance, self désigne l'objet classe lui-même et non une instance !</strong>.</p>
+        
+        <div class="code">
+            <b>class</b> A<br>
+            &nbsp;&nbsp; <b>def</b> une_methode <br>
+            &nbsp;&nbsp;&nbsp;&nbsp; <b>self</b>  <i># L'instance elle-même</i><br>
+            &nbsp;&nbsp; <b>end</b><br>
+            &nbsp;&nbsp; <b>def</b> self.une_methode_de_classe <br>
+            &nbsp;&nbsp; <i># équivalent à A.une_methode_de_classe </i><br>
+            &nbsp;&nbsp; <b>end</b><br>
+            <b>end</b>
+        </div>
+        
+        <p>Pour accéder à une variable d'instance, on ne peut pas utiliser <span class="code">self</span>.</p>
+        
+        <p>Pour accéder à une méthode d'instance dans le corps d'une méthode d'instance, faire précéder l'appel par <span class="code">self.</span> n'est pas obligatoire (et résulte en une exception <span class="code">NoMethodError</span> pour les méthodes d'instance privées). À quoi sert <span class="code">self</span> alors ?</p>
+        
+        <p>On peut retourner une référence à l'objet lui-même. Cela permet de <strong>chaîner</strong> les appels : <span class="code">mon_objet.methode1(a).methode2(b).methode3</span></p>
+        
+        <p>On peut faire la distinction dans une méthode entre un appel de méthode sans paramètre et une variable locale portant le même nom :</p>
+        
+        <div class="code">
+            <b>class</b> A<br>
+            &nbsp;&nbsp; <b>def</b> une_methode <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<b>return</b> 2<br>
+            &nbsp;&nbsp; <b>end</b><br>
+            &nbsp;&nbsp; <br>
+            &nbsp;&nbsp; <b>def</b> une_autre_methode <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;une_methode = 5<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;puts une_methode <i># affiche 5</i><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;puts self.une_methode <i># affiche 2</i><br>
+            &nbsp;&nbsp; <b>end</b><br>
+            <b>end</b>
+        </div>
+        
+        <h3 id="oo_super">Le mot-clé super</h3>
+         
+        <div class="code">
+            <b>super</b>  <i># Pour accéder aux fonctions du parent</i>
+        </div>
+        
+        <h3 id="oo_mutators">Les méthodes d'actualisation (mutators)</h3>
+        
+        <h3 id="oo_objet">Type objet</h3>
+        <table class="fun">
+        <tbody>
+            <tr>
+                <th>Fonction </th>
+                <th>Type retourné </th>
+                <th>Description </th>
+            </tr>
+            <tr>
+                <td> object.method(id) </td>
+                <td></td>
+                <td> renvoie s'il existe un objet Method correspondant à l'id </td>
+            </tr>
+            <tr>
+                <td> identifiant.new </td>
+                <td></td>
+                <td> crée une nouvelle instance </td>
+            </tr>
+            <tr>
+                <td> identifiant.clone </td>
+                <td></td>
+                <td> clone l'objet </td>
+            </tr>
+            <tr>
+                <td> identifiant.is_a? ou kind_of? </td>
+                <td></td>
+                <td> renvoie vrai s'il est de cette classe </td>
+            </tr>
+            <tr>
+                <td> identifiant.class </td>
+                <td></td>
+                <td> donne la classe de l'objet </td>
+            </tr>
+            <tr>
+                <td> identifiant.methods </td>
+                <td></td>
+                <td> liste de chaînes de symboles de toutes les méthodes de l'objet </td>
+            </tr>
+            <tr>
+                <td> identifiant.respond_to? </td>
+                <td></td>
+                <td> l'objet répond-t-il au message ? (= s'il a une méthode correspondante) </td>
+            </tr>
+        </tbody>
+        </table>
+
+        <p class="back"><a href="#sommaire">Retour sommaire</a></p>
+        
+        <!-- ---------------------------------------------------------------- -->
+        <h2 id="elem_mod">13. Modules et fichiers</h2>
+        <!-- ---------------------------------------------------------------- -->
+        
+        <h3 id="mod_mod">Définition d'un module</h3>
+        
+        <p>Un module en Ruby est un espace de nom dans lequel vous pouvez déclarer des constantes, des fonctions et des classes. De base, des éléments portant le même nom mais déclarés dans des modules différents sont des objets différents.</p>
+        <div class="code">
+            <b>module</b> identifiant<br>
+            &nbsp;&nbsp; actions<br>
+            <b>end</b>
+        </div>
+        <p>Les fonctions de module se déclarent comme les fonctions de classe, en précédant l'identifiant de la fonction par celui du module suivi d'un point : <span class="code"><b>def</b> mon_module.ma_fonction</span>.</p>
+        
+        <h3 id="mod_mod">Inclusion des éléments d'un module</h3>
+        
+        <p>On peut en Ruby importer tous les éléments définis dans un module dans l'espace de nom courant à l'aide de <span class="code"><b>include</b></span> :</p>
+        <div class="code">
+            <b>include</b> identifiant_module
+        </div>
+        <p>On aura plus alors à précéder les éléments déclarés dans le module par son nom et :: (pour les constantes) ou . (pour les fonctions).</p>
+        <div class="code">
+            <b>module</b> Bob<br>
+            &nbsp;&nbsp;&nbsp; ConsBob = 6<br>
+            <b>end</b><br>
+            puts Bob::ConsBob <i># Bob:: est requis</i><br>
+            <b>include</B> Bob<br>
+            puts ConsBob <i># Plus besoin de Bob::</i><br>
+        </div>
+        <p>Ruby ne supporte pas l'héritage multiple (le fait pour une classe d'avoir plusieurs classes mères). En incluant un module dans une classe, les instances de cette classe auront accès aux fonctions définies dans le module comme des méthodes d'instance. On appelle cette technique d'émulation de l'héritage multiple des <em>mixins</em>.</p>
+        <p>Les fonctions définies dans le module peuvent utiliser des variables d'instance (@) comme si elles avaient été définies dans la classe.</p>
+        <div class="code">
+            <b>module</b> Mix<br>
+            &nbsp;&nbsp;&nbsp; <b>def</b> display<br>
+            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; puts @val<br>
+            &nbsp;&nbsp;&nbsp; <b>end</b><br>
+            <b>end</b><br>
+            <br>
+            <b>class</b> Test<br>
+            &nbsp;&nbsp;&nbsp; <b>include</b> Mix<br>
+            &nbsp;&nbsp;&nbsp; <b>def</b> initialize(val)<br>
+            &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; @val = val<br>
+            &nbsp;&nbsp;&nbsp; <b>end</b><br>
+            <b>end</b><br>
+            <br>
+            t = Test.new(55)<br>
+            t.display<br>
+        </div>
+        
+        <h3 id="mod_req">Code réparti sur plusieurs fichiers</h3>
+        
+        <p>Quand on a du code dans plusieurs fichiers, si on veut qu'un fichier A utilise du code du fichier B, il faut utiliser l'instruction <span class="code"><b>require</b></span> :</p>
+        <div class="code">
+            <i># Exige la présence d'un fichier</i><br>
+            <b>require</b> "nom_du_fichier" <br>
+            <b>require</b> "nom_du_fichier.rb" <br>
+            <b>require</b> a <i>#a est convertible en chaîne</i><br>
+        </div>
+        <p>Si le fichier ne peut pas être chargé, une exception <span class="code">LoadError</span> sera levée.</p>
+        <p>Le fichier sera cherché dans tous les dossiers listés dans la variable globale <span class="code">$LOAD_PATH</span>.</p>
+        <p>De base, le dossier du script courant <strong>n'est pas</strong> dans <span class="code">$LOAD_PATH</span>, il faut le rajouter manuellement <strong>avant</strong> de faire le <span class="code"><b>require</b></span> ainsi : <span class="code">$LOAD_PATH &lt;&lt; '.'</span></p>        
+        
+        <p class="back"><a href="#sommaire">Retour sommaire</a></p>
+
+        <!-- ---------------------------------------------------------------- -->        
+        <h2 id="spe">14. Gestion des exceptions</h2>
+        <!-- ---------------------------------------------------------------- -->
+        
+        <h3 id="exp">Exceptions</h3>
+        
+        <p>Pour gérer une exception il suffit d'ajouter un ou plusieurs blocs <span class="code">rescue</span> à un bloc <span class="code">begin / end</span>.</p>
+        <div class="code">
+            <b>begin</b><br>
+            &nbsp;&nbsp; actions<br>
+            <b>rescue</b> [ identifiant_type [=> identifiant_variable] ]<br>
+            &nbsp;&nbsp; actions<br>
+            [ <b>else</b>
+            &nbsp;&nbsp; actions ]<br>
+            [ <b>ensure</b><br>
+            &nbsp;&nbsp; actions ]<br>
+            <b>end</b>
+        </div>
+        <p>L'identifiant passé en paramètre du <span class="code"><b>rescue</b></span> indique le type d'exception capturée (ainsi que ses sous-classes) par la clause rescue.</p>
+        <p>Si l'exception ne correspond pas à un des identifiants attendus par les clauses rescue, le code dans la clause <span class="code"><b>else</b></span> sera exécuté.</p>
+        <p>La clause <span class="code"><b>ensure</b></span>indique du code qui sera toujours exécuté à la fin, qu'il y ait eu une exception ou pas, et même s'il y a un <span class="code"><b>return</b></span> dans le bloc initial.</p>
+        <p>Pour lever une exception :</p>
+        <div class="code">
+            <b>raise</b><br>
+            <b>raise</b> <em>chaîne</em><br>
+            <b>raise</b> <em>Type, chaîne</em>
+        </div>
+        <p>Le type de base des exceptions dans les cas 1 et 2 est <span class="code">RuntimeError</span>.
+        <p>La variable globale <span class="code">$!</span> contient le message de la dernière exception levée ou <span class="code"><b>nil</b></span> s'il n'y en avait pas.</p>
+        <p>Ruby permet aussi dans une clause <span class="code"><b>rescue</b></span> de reprendre l'exécution à partir du begin avec le mot clé <span class="code"><b>retry</b></span> :
+        <div class="code">
+            <b>retry</b>
+        </div>
+        <p>Attention aux boucles infinies avec <span class="code"><b>retry</b></span>! La puissance vient avec son prix !</p>
+        
+        <h3 id="exp_type">Type d'exceptions</h3>
+        <p>Les classes d'exception descendent toutes de <span class="code">Exception</span>. Elle a 7 classes filles : Interrupt, NoMemoryError, SignalException, ScriptError, StandardError, SystemExit. RuntimeError est une classe fille de StandardError.</p>
+        <p>On peut bien sûr définir nos propres classes d'exception :</p>
+        <div class="code">
+            <b>class</b> MonException &lt; StandardError<br>
+            &nbsp;&nbsp;<b>def</b> initialize(reason)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;@reason = reason<br>
+            &nbsp;&nbsp;<b>end</b><br>
+            <b>end</b>
+        </div>
+        <p>On l'a lèvera en déclarant une nouvelle instance :</p>
+        <div class="code">
+            <b>raise</b> MonException.new(<em>"motif de l'erreur"</em>)
+        </div>
+        
+        <h3 id="exp_throw">Catch et throw</h3>
+        <p>En plus ce que nous venons de voir, Ruby propose un modèle pour dépiler la pile jusqu'à un point précis. On définit déjà une étiquette pour un bloc avec <span class="code"><b>catch</b></span>. Si on utilise <span class="code"><b>throw</b></span> dans ce bloc ou dans une fonction appelée dans ce bloc, Ruby interrompra l'exécution du bloc, dépilera jusqu'à son début et le sautera.</p>
+        <div class="code">
+            a = "abc"<br>
+            <b>catch</b> :reviens <b>do</b><br>
+            &nbsp;&nbsp;a.upcase!<br>
+            &nbsp;&nbsp;<b>throw</b> :reviens, 0<br>
+            &nbsp;&nbsp;<i># code jamais exécuté</i><br>
+            <b>end</b>
+        </div>
+        <p>Le second paramètre optionnel après le throw est la valeur qui sera retournée (comme toute instruction en Ruby est évaluable, le bloc catch l'est aussi). S'il n'est pas fourni, <span class="code"><b>nil</b></span> sera retourné.</p>
+        <div class="code">
+            <b>throw</b> <em>:symbole</em><br>
+            <b>throw</b> <em>"chaîne"</em><br>
+            <b>throw</b> <em>:symbole</em>, <em>expression</em><br>
+            <b>throw</b> <em>"chaîne"</em>, <em>expression</em>
+        </div>
+        <p>De même, <span class="code"><b>catch</b></span> peut s'utiliser avec un symbole ou une chaîne :</p>
+        <div class="code">
+            <b>catch</b> <em>:symbole</em><br>
+            <b>catch</b> <em>"chaîne"</em><br>
+        </div>
+        
+        <p class="back"><a href="#sommaire">Retour sommaire</a></p>
+        
+        <!-- ---------------------------------------------------------------- -->
+        <h2 id="utiles">15. Utiles</h2>
+        <!-- ---------------------------------------------------------------- -->
+        
+        <div class="code">
+            Randow.new.rand(min..max)  <i># Nombres aléatoires (min et max inclus)</i>
+        </div>
+        
+        <p>Sérialisation (<a href="http://ruby-doc.org/core-2.2.0/Marshal.html">doc</a>) :</p>
+        <div class="code">
+            data = Marshal.dump(o) <i># sérialise dans une chaîne</i><br>
+            obj = Marshal.load(data) <i># charge la chaîne</i>
+        </div>
+        <p class="back"><a href="#sommaire">Retour sommaire</a></p>
+    
+    </div> <!-- /container -->
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    
+  </body>
+</html>

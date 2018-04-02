@@ -1,0 +1,48 @@
+﻿<html>
+  <head>
+    <script type="application/javascript">
+      function loadJSON(callback) {
+        var xobj = new XMLHttpRequest();
+        xobj.overrideMimeType("application/json");
+        xobj.open('GET', './prenoms.json', true);
+        xobj.onreadystatechange = function() {
+          if (xobj.readyState === 4 && xobj.status === 200) {
+            callback(xobj.responseText);
+          }
+        };
+        xobj.send(null);
+      }
+
+      function init() {
+        loadJSON(function(response) {
+          var prenoms = JSON.parse(response);
+          //alert(prenoms);
+          // display
+          var table = document.getElementById("display");
+          for (var i = 0; i < prenoms.length; i++) {
+            var row = table.insertRow(-1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var firstname = prenoms[i][0];
+            cell1.innerHTML = firstname.charAt(0).toUpperCase() + firstname.slice(1);
+            cell2.innerHTML = prenoms[i][1];
+            if (prenoms[i][1] == "f") {
+              cell2.setAttribute("style", "color: blue;");
+            } else if (prenoms[i][1] == "m") {
+              cell2.setAttribute("style", "color: green;");
+            } else if (prenoms[i][1] == "e") {
+              cell2.setAttribute("style", "color: purple;");
+            }
+          }
+        });
+      }
+      
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <h1>Test AJAX</h1>
+    <table id="display">
+    </table>
+  </body>
+</html>

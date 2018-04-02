@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Journal Mémoire M1 LITL</title>
+    <link href="http://damien.gouteux.free.fr/css/simplex.bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+        div.soap {
+            background: #FEFEFE;
+            border: 1px solid #111111;
+            border-radius: 10px;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            padding-left: 2em;
+            padding-bottom: 2em;
+        }
+        span.red {
+            background: rgb(217,35,15);
+            color: white;
+            font-weight: bold;
+        }
+        span.green {
+            background: rgb(15,217,136);
+            color: white;
+            font-weight: bold;
+        }
+        table.data {
+            border: 1px solid #555555;
+        }
+        table.data th {
+            padding: 0.5em;
+            border: 1px solid #888888;
+        }
+        table.data td {
+            padding: 0.5em;
+            border: 1px solid #888888;
+        }
+        table.data tr:hover {
+            background: rgb(15,217,136);
+        }
+    </style>
+  </head>
+  <body>
+    <div id="main" class="container">
+      <div id="pageContent">
+        <div class="soap">
+          <h1>Caractéristiques linguistiques des titres de publications scientifiques</h1>
+          <h2>Journal de recherche</h2>
+        </div>
+        
+        <div class="soap">
+          <h1>Sommaire</h1>
+          <ol>
+            <li><a href="#objectives">Objectifs</a></li>
+            <li><a href="#reading">Lectures</a></li>
+            <li><a href="#data">Données</a></li>
+            <li><a href="#hal">Interrogation de HAL</a></li>
+            <li><a href="#links">Liens</a></li>
+          </ol>
+          <i>Dernière mise à jour le 23 octobre 2017. HAL compte 1 409 684 éléments.</i>
+        </div>
+        
+        <div class="soap">
+          <h1 id="objectives">Objectifs</h1>
+          <h2>Objectifs du semestre 1</h2>
+          <ul>
+            <li>Choix du mémoire avant le <span class="green">16 octobre 2017</span></li>
+            <li>Dépôt du sujet de mémoire avant le <span class="red">27 octobre 2017</span></li>
+            <li>Rédaction d’un état de l’art dans le domaine de recherche retenu</li>
+            <li>Capacité à bien expliquer la problématique de recherche</li>
+            <li>Première présentation des données de l’étude</li>
+            <li>Potentialités de l’étudiant évaluées au cours du semestre (motivation, autonomie, rigueur, assiduité, progression)</li>
+          </ul>
+          <p>Livrable : document de 15 à 20 pages (simple interligne, times 11 ou équivalent, recto-verso N&B, pages numérotées) au plus tard le <span class="red">lundi 22 janvier 2017</span>. Le document doit obligatoirement comprendre une bibliographie correctement formatée.</p>
+        </div>
+        
+        <div class="soap">
+          <h1 id="reading">Lectures</h1>
+          <ol>
+            <li><i>(en cours)</i> <a href="https://www.researchgate.net/publication/220364492_What's_in_a_title_Number_of_words_and_the_presence_of_colons">Lewison, Grant & Hartley, James (2005). What’s in a title? Number of words and the presence of colons. <i>Scientometrics</i>. 63. 341-356. 10.1007/s11192-005-0216-0</a></li>
+            <li><i>(à voir)</i> Haggan, M. (2004). Research paper titles in literature, linguistics and science: dimensions of attraction. <i>Journal of Pragmatics</i>, 2.36: 293-317.</li>
+          </ol>
+        </div>
+        
+        <div class="soap">
+          <h1 id="data">Données</h1>
+          <h2>Échantillons</h2>
+          <h3>Échantillon du 20 octobre 2017</h3>
+          <ul>
+            <li>146 602 titres</li>
+            <li>53 169 ( 36.27 %) titres avec un deux-points ':'</li>
+          </ul>
+          <p>Les titres par leur discipline majeur</p>
+          <!--ID	Titre	Type	Annee	Nauteurs	Champ	Disciplines-->
+            <table class="data">
+            <thead>
+              <tr><th>#</th><th>Champ (code)</th><th>Approximation champ en texte</th><th>Nombre</th><th>%</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1.</td><td>SHS</td><td>Sciences de l'Homme et Société</td><td>100678</td><td>68.670%</td></tr>
+              <tr><td>2.</td><td>SDV</td><td>Sciences du Vivant [q-bio]</td><td>14807</td><td>10.100%</td></tr>
+              <tr><td>3.</td><td>INFO</td><td>Informatique [cs]</td><td>8312</td><td>5.670%</td></tr>
+              <tr><td>4.</td><td>SPI</td><td>Sciences de l'ingénieur [physics]</td><td>7805</td><td>5.320%</td></tr>
+              <tr><td>5.</td><td>SDE</td><td>Sciences de l'environnement</td><td>3528</td><td>2.410%</td></tr>
+              <tr><td>6.</td><td>PHYS</td><td>Physique [physics]</td><td>3283</td><td>2.240%</td></tr>
+              <tr><td>7.</td><td>SDU</td><td>Planète et Univers [physics]</td><td>1988</td><td>1.360%</td></tr>
+              <tr><td>8.</td><td>MATH</td><td>Mathématiques [math]</td><td>1970</td><td>1.340%</td></tr>
+              <tr><td>9.</td><td>CHIM</td><td>Chimie</td><td>1490</td><td>1.020%</td></tr>
+              <tr><td>10.</td><td>SCCO</td><td>Sciences cognitives</td><td>1265</td><td>0.860%</td></tr>
+              <tr><td>11.</td><td>N</td><td>???</td><td>652</td><td>0.440%</td></tr>
+              <tr><td>12.</td><td>QFIN</td><td>Économie et finance quantitative [q-fin]</td><td>356</td><td>0.240%</td></tr>
+              <tr><td>13.</td><td>P</td><td>???</td><td>249</td><td>0.170%</td></tr>
+              <tr><td>14.</td><td>STAT</td><td>Statistiques [stat]</td><td>170</td><td>0.120%</td></tr>
+              <tr><td>15.</td><td>NLIN</td><td>Science non linéaire [physics]</td><td>15</td><td>0.010%</td></tr>
+              <tr><td>16.</td><td>NA</td><td>Mathématiques [math]/Analyse numérique [math.NA]<br>OU<br>Informatique [cs]/Analyse numérique [cs.NA]</td><td>10</td><td>0.010%</td></tr>
+              <tr><td>17.</td><td>M</td><td>???</td><td>9</td><td>0.010%</td></tr>
+              <tr><td>18.</td><td>NEP</td><td>???</td><td>2</td><td>0.000%</td></tr>
+              <tr><td>19.</td><td>B</td><td>???</td><td>2</td><td>0.000%</td></tr>
+              <tr><td>20.</td><td>ARC</td><td>???</td><td>1</td><td>0.000%</td></tr>
+              <tr><td>21.</td><td>H</td><td>???</td><td>1</td><td>0.000%</td></tr>
+              <tr><td>22.</td><td>D</td><td>???</td><td>1</td><td>0.000%</td></tr>
+              <tr><td>23.</td><td>PNEU</td><td>???</td><td>1</td><td>0.000%</td></tr>
+              <tr><td>24.</td><td>IT</td><td>Informatique [cs]/Théorie de l'information [cs.IT]</td><td>1</td><td>0.000%</td></tr>
+              <tr><td>25.</td><td>S</td><td>???</td><td>1</td><td>0.000%</td></tr>
+              <tr><td>26.</td><td>EMIM</td><td>???</td><td>1</td><td>0.000%</td></tr>
+              <tr><td>27.</td><td>C</td><td>???</td><td>1</td><td>0.000%</td></tr>
+              <tr><td>28.</td><td>CDVM</td><td>???</td><td>1</td><td>0.000%</td></tr>
+              <tr><td>29.</td><td>CEINTURE</td><td>???</td><td>1</td><td>0.000%</td></tr>
+              <tr><td>30.</td><td>U</td><td>???</td><td>1</td><td>0.000%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="soap">
+          <h1 id="hal">Interrogation de HAL</h1>
+          <p><u><b>Paramètres</u></b></p>
+          <ul>
+            <li>Sortie :  wt=json ou xml</li>
+            <li>Indentation : indent=true</li>
+            <li>Champs voulus : fl= (séparés par une virgule)</li>
+          </ul>
+          <p><u><b>Champs OK</u></b></p>
+          <ul>
+              <li>domain_s</li>
+              <li>authFullName_s</li>
+              <li>title_s</li>
+              <li>docType_s</li>
+              <li>modifiedDateY_i</li>
+              <li>rows (défaut : 30, max : 10 000)</li>
+          </ul>
+          <p><b><u>Exemples de requêtes</u></b></p>
+          <p>Une requête sur une chercheuse :</p>
+          <pre><a href="https://api.archives-ouvertes.fr/search/?q=lenorzer&wt=json&fl=domain_s,authFullName_s,docType_s,title_s,modifiedDateY_i&indent=true"  target="_blank">https://api.archives-ouvertes.fr/search/?q=lenorzer&wt=json&fl=domain_s,authFullName_s,docType_s,title_s,modifiedDateY_i&indent=true</a></pre>
+          <p>Avoir tous les dommaines avec label, docid et code (max 10000 résultats) au format JSON :</p>
+          <pre><a href="https://api.archives-ouvertes.fr/ref/domain?wt=json&indent=true&rows=10000&fl=label_s,docid,code_s" target="_blank">https://api.archives-ouvertes.fr/ref/domain?wt=json&indent=true&rows=10000&fl=label_s,docid,code_s</a></pre>
+          <p>Avoir des infos sur le domaine "sdv" au format JSON :</p>
+          <pre><a href="https://api.archives-ouvertes.fr/ref/domain?q=sdv&wt=json&indent=true" target="_blank">https://api.archives-ouvertes.fr/ref/domain?q=sdv&wt=json&indent=true</a></pre>
+        </div>
+        
+        <div class="soap">
+          <h1 id="links">Liens</h1>
+          <ul>
+            <li><a href="https://halshs.archives-ouvertes.fr/">HAL</li>
+            <li><a href="https://api.archives-ouvertes.fr/docs">API HAL</a></li>
+            <li><a href="https://hal.archives-ouvertes.fr/browse/domain/submitType_s/file/">Disciplines</a></li>
+            <li><a href="https://api.archives-ouvertes.fr/docs/ref/resource/domain/schema/fields/#fields">Champs des Disciplines</a></li>
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+    <center>Damien Gouteux 2017</center>
+  </body>
+</html>

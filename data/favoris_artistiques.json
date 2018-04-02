@@ -1,0 +1,128 @@
+﻿{
+    "name" : "Favoris artistiques",
+    "type" : "datafly_schema",
+    "version" : 1.0,
+    "enum_definition" : {
+        "music_type:string" : [
+            "symphonie", "concerto", "ballet", "opéra"
+        ],
+        "game_type:string" : [
+            "fps", "rts", "rpg", "gestion"
+        ],
+        "book_type:string" : [
+            "roman", "essai", "bd", "manuel", "guide"
+        ]
+    },
+    "table_definition" : {
+        "creator" : {
+            "name" : "string"
+        },
+        "compositor = creator" : {
+        },
+        "actor = creator" : {
+        },
+        "director = creator" : {
+        },
+        "author < creator" : {
+            "birth" : "date:YYYY-MM-DD",
+            "death" : "date:YYYY-MM-DD",
+            "country": "string"
+        },
+        "studio < creator" : {
+            "creation" : "date:YYYY",
+            "ended" : "(opt)date:YYYY"
+        },
+        "work" : {
+            "name" : "string",
+            "year" : "date:YYYY",
+            "type" : "string",
+            "creator" : "ref_one:creator"
+        },
+        "music < work" : {
+            "type" : "enum:music_type",
+            "creator" : "ref_one:author",
+            "opus" : "integer"
+        },
+        "video_game < work" : {
+            "type" : "enum:game_type",
+            "creator" : "ref_one:studio"
+        },
+        "book < work" : {
+            "type" : "enum:book_type",
+            "creator" : "ref_one:author"
+        },
+        "movie < work" : {
+        }
+    },
+    "table_content" : {
+        "creator" : [
+        ],
+        "compositor" : [
+            ["Tchaïkovski"],
+            ["Dvorák"]
+        ],
+        "author" : [
+            ["Michael Crichton"],
+            ["Stefan Zweig"]
+        ],
+        "actor" : [
+            ["Tilda Swinton"],
+            ["Sean Connery"],
+            ["Tom Cruise"],
+            ["Bruce Willis"]
+        ],
+        "director" : [
+            ["Alfonso Cuaron"],
+            ["John Mc Tiernan"],
+            ["Akira Kurosawa"],
+            ["James Cameron"],
+            ["Joseph Kosinski"],
+            ["J. J. Abrams"],
+            ["Paul Verhoeven"]
+        ],
+        "book" : [
+            ["Jurassic Park"]
+        ],
+        "music" : [
+            ["Concerto pour violon en ré majeur", 1878, "concerto", "Tchaïkovski", 35],
+            ["Le Lac des cygnes", 1876, "ballet", "Tchaïkovski", 20],
+            ["Symphonie no 9 en mi mineur « du Nouveau Monde », B. 178", 1893, "symphonie", "Dvorák", 95],
+            ["Concerto pour violoncelle en si mineur, B. 191", 1895, "concerto", "Dvorák", 104]
+        ],
+        "movie" : [
+            ["The Fountain"],
+            ["Les parapluies de Cherbourg"],
+            ["Moonrise Kingdom"],
+            ["Star Trek"],
+            ["Star Wars"],
+            ["Predator"],
+            ["Dune"],
+            ["Moulin Rouge !"],
+            ["Robocop"],
+            ["Black Hawk Down"],
+            ["Terminator"],
+            ["Conan le barbare"],
+            ["Hot Shots !"],
+            ["Cloverfield"],
+            ["Indiana Jones et la dernière croisade"],
+            ["La Ligne rouge"],
+            ["À la poursuite d'Octobre Rouge"],
+            ["Mad Max IV: Fury Road"],
+            ["Mad Max II"],
+            ["Equilibrium"],
+            ["Aliens le retour"],
+            ["V pour Vendetta"],
+            ["Tron l'héritage"],
+            ["Les fils de l'homme"],
+            ["Ran"],
+            ["Starship Troopers"],
+            ["Jurassic Park"]
+        ],
+        "studio" : [
+        ],
+        "video_game" : [
+        ],
+        "work" : [
+        ]
+    }
+}
