@@ -263,7 +263,7 @@
         <h3 id="helloworld">1.5 Bonjour le monde !</h3>
         <p>La tradition veut que l'on commence par écrire "Bonjour le monde !" lorsque l'on découvre un nouveau langage de programmation. Nous ne dérogeons pas à la règle :</p>
         <div class="code">
-          <i>-- Ceci est un commentaire</i>
+          <i>-- Ceci est un commentaire jusqu'à la fin de la ligne</i><br>
           <span class="function">print</span>(<span class="string">"Bonjour le monde !"</span>)
         </div>
   
@@ -296,12 +296,11 @@
         
         <ul class="normale">
           <li>Site officiel du langage, il contient tout ce qu'il faut pour débuter : une distribution standard avec notamment l'interpréteur officiel et la bibliothèque standard : <a href="https://www.lua.org">https://www.lua.org</a></li>
-          <li>Le livre électronique <em>Programming in Lua</em>, 1<sup>ère</sup> édition (légèrement daté) : <a href="https://www.lua.org/pil/contents.html">https://www.lua.org/pil/contents.html</a></li>
+          <li>Le livre électronique <em>Programming in Lua</em>, appelé le "PIL", est un livre d'introduction Lua avec de nombreux exemples. La première édition est gratuitement disponible en ligne mais ne correspond plus à la version actuelle du langage : <a href="https://www.lua.org/pil/contents.html">https://www.lua.org/pil/contents.html</a></li>
           <li>Le wiki des utilisateurs de Lua : <a href="http://lua-users.org/wiki/">http://lua-users.org/wiki/</a></li>
           <li>Lua binaries, distributions de Lua pour différents systèmes d'exploitation : <a href="http://luabinaries.sourceforge.net/">http://luabinaries.sourceforge.net/</a></li>
           <li>Löve, une VM Lua mettant à disposition une bibliothèque pour faire des jeux : <a href="https://love2d.org/">https://love2d.org/</a></li>
           <li>MoonSharp, un intérpréteur Lua écrit en C# pour les plates-formes .Net, Mono et Unity : <a href="http://www.moonsharp.org/">http://www.moonsharp.org/</a></li>
-          <li>Programming in Lua, le "PIL", est un livre d'introduction Lua avec de nombreux exemples. La première édition est gratuitement disponible en ligne mais ne correspond plus à la version actuelle du langage : <a href="https://www.lua.org/pil/">https://www.lua.org/pil/</a></li>
           <li>Page de Wikipédia sur Lua : <a href="https://en.wikipedia.org/wiki/Lua_(programming_language)">https://en.wikipedia.org/wiki/Lua_(programming_language)</a></li>
           <li>Boutique officielle pour supporter Lua via l'achat de goodies : <a href="https://www.zazzle.com/Lua_Store">https://www.zazzle.com/Lua_Store</a></li>
        </ul>
@@ -341,7 +340,7 @@
         <p>Le type <span class="type">string</span> unifie les caractères et les chaînes de caractères. Lua peut stocker les chaînes en UTF-8 mais ne sait pas comment les gérer.</p>
         <p>Remarques importantes :</p>
         <ul>
-          <li>Les valeurs <span class="keyword">nil</span> et <span class="keyword">false</span> sont les deux seules valeurs qui sont considérées comme fausse par les tests. Toutes les autres, y compris <span class="number">0</span> et la chaîne vide <span class="string">""</span> sont vraies.</p></li>
+          <li>Les valeurs <span class="keyword">nil</span> et <span class="keyword">false</span> sont les deux seules valeurs qui sont considérées comme fausse par les tests. Toutes les autres valeurs, y compris <span class="number">0</span> et la chaîne vide <span class="string">""</span> sont vraies.</p></li>
           <li>Les chaînes sont immutables en Lua.</li>
         </ul>
 
