@@ -214,7 +214,7 @@
       
       <div id="pageContent">
         <h1>Comparaison de la syntaxe de plusieurs langages de programmation</h1>
-        <p>Cette page est inspirée par la démarche de <a href="http://rigaux.org/language-study/syntax-across-languages.html">Pascal Rigaux</a> qui a produit un document bien plus complet portant sur bien plus de langages. Il existe aussi le site <a href="http://hyperpolyglot.org/">Hyperpolyglot</a> qui comparent la syntaxe de différents langages. De mon côté, je vais me concentrer sur les 4 langages que j'utilise le plus souvent :</p>
+        <p>Cette page est inspirée par la démarche de <a href="http://rigaux.org/language-study/syntax-across-languages.html">Pascal Rigaux</a> qui a produit un document bien plus complet portant sur bien plus de langages. Il existe aussi le site <a href="http://hyperpolyglot.org/">Hyperpolyglot</a> qui compare la syntaxe de différents langages. De mon côté, je vais me concentrer sur les 4 langages que j'utilise le plus souvent :</p>
         <ol>
           <li>Python</li>
           <li>Ruby</li>
@@ -490,7 +490,9 @@
               &nbsp;&nbsp;&nbsp;&nbsp;<i>actions</i><br>
               <b>end</b></td>
               <!-- JavaScript -->
-              <td></td>
+              <td><b>while</b> (<i>condition</i>) {<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<i>actions</i><br>
+              }</td>
             </tr>
             <tr>
               <td>Boucle post-<br>conditionnelle</td>
@@ -514,8 +516,8 @@
               <td></td>
               <!-- Lua -->
               <td><b>for</b> <i>id</i> = <i>début</i>, <i>fin</i> [ , <i>pas</i> ] <b>do</b><br>
-                  &nbsp;&nbsp;&nbsp;&nbsp;<i>actions</i><br>
-                  <b>end</b>
+                &nbsp;&nbsp;&nbsp;&nbsp;<i>actions</i><br>
+                <b>end</b>
               </td>
               <!-- JavaScript -->
               <td></td>
@@ -523,13 +525,15 @@
             <tr>
               <td>Boucle sur<br>liste</td>
               <!-- Python -->
-              <td></td>
+              <td><b>for</b> <i>indice</i> <b>in</b> <i>liste</i>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<i>actions</i><br>
+              </td>
               <!-- Ruby -->
               <td></td>
               <!-- Lua -->
               <td><b>for</b> <i>indice</i>, <i>valeur</i> <b>in</b> ipairs(<i>table</i>) <b>do</b><br>
-                  &nbsp;&nbsp;&nbsp;&nbsp;<i>actions</i><br>
-                  <b>end</b>
+                &nbsp;&nbsp;&nbsp;&nbsp;<i>actions</i><br>
+                <b>end</b>
               </td>
               <!-- JavaScript -->
               <td></td>
@@ -537,7 +541,11 @@
             <tr>
               <td>Boucle sur<br>dictionnaire</td>
               <!-- Python -->
-              <td></td>
+              <td><b>for</b> <i>clé</i> <b>in</b> <i>dico</i>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<i>actions</i><br>
+                <b>for</b> <i>clé, valeur</i> <b>in</b> <i>dico.items()</i>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<i>actions</i>
+              </td>
               <!-- Ruby -->
               <td></td>
               <!-- Lua -->
@@ -1015,7 +1023,7 @@
         </table>
       </div>
     </div>
-    <div style="width: 50%; margin: auto; text-align: center; margin-top: 10px; margin-bottom: 5px;">2005 ? 2017</div>
+    <div style="width: 50%; margin: auto; text-align: center; margin-top: 10px; margin-bottom: 5px;">2005 ❤ 2017</div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
   </body>
