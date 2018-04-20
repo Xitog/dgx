@@ -1,15 +1,14 @@
-﻿<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
 <html lang="fr">
-﻿   <head>
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Le Compagnon du Talisman</title>
-    <link rel="icon" href="http://damien.gouteux.free.fr/img/favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="http://damien.gouteux.free.fr/img/favicon.ico" type="image/x-icon" />
-    <link href="http://damien.gouteux.free.fr/css/simplex.bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="http://damien.gouteux.free.fr/css/palatino.css" rel="styleSheet" type="text/css">
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon" />
+    <link href="../css/simplex.bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="../css/palatino.css" rel="styleSheet" type="text/css">
     <style type="text/css">
       #content.palatino h2 { border-bottom: 1px solid #CEC498; margin-top: 60px; }
       #content.palatino table.tab { font-family: Palatino; font-size: 14px; }
@@ -37,49 +36,49 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li id="Accueil"><a href="http://damien.gouteux.free.fr/index.html">Accueil</a></li>
+              <li id="Accueil"><a href="../index.html">Accueil</a></li>
               <li id="Blog"><a href="#blog" onclick="view_one_entry(0);">Blog</a></li>
               <li class="dropdown">
                 <a id="Langues" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Langues <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                 <li class="dropdown-header">Français</li>
-                  <li><a href="http://damien.gouteux.free.fr/francais/fiche_api_fr.html">Sons du français</a></li>
+                  <li><a href="../francais/fiche_api_fr.html">Sons du français</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Italien</li>
-                  <li><a href="http://damien.gouteux.free.fr/italien/beatrice.html">Beatrice : grammaire</a></li>
-                  <li><a href="http://damien.gouteux.free.fr/italien/jeux.html">Jeux</a></li>
+                  <li><a href="../italien/beatrice.html">Beatrice : grammaire</a></li>
+                  <li><a href="../italien/jeux.html">Jeux</a></li>
                 </ul>
               </li>
               <li class="dropdown">
                 <a id="Informatique" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Informatique <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li class="dropdown-header">Python</li>
-                  <li><a href="http://damien.gouteux.free.fr/python/aide_python.html">Aide-mémoire</a></li>
+                  <li><a href="../python/aide_python.html">Aide-mémoire</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Ruby</li>
-                  <li><a href="http://damien.gouteux.free.fr/ruby/guide_ruby.html">Guide</a></li>
-                  <li><a href="http://damien.gouteux.free.fr/ruby/aide_ruby.html">Aide-mémoire</a></li>
+                  <li><a href="../ruby/guide_ruby.html">Guide</a></li>
+                  <li><a href="../ruby/aide_ruby.html">Aide-mémoire</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Lua</li>
-                  <li><a href="http://damien.gouteux.free.fr/lua/aide_lua.html">Aide-mémoire</a></li>
+                  <li><a href="../lua/aide_lua.html">Aide-mémoire</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Selene <i>(mon langage)</i></li>
-                  <li><a href="http://damien.gouteux.free.fr/selene/guide_selene">Guide</a></li>
+                  <li><a href="../selene/guide_selene">Guide</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Modélisation</li>
                   <li><a href="#" class="dead">Tutoriel sur XCore</a></li>
-                  <li><a href="http://damien.gouteux.free.fr/model/json.html">Fiche sur JSON</a></li>
+                  <li><a href="../model/json.html">Fiche sur JSON</a></li>
                 </ul>
               </li>
               <li class="dropdown">
                 <a id="Histoire" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Histoire <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li class="dropdown-header">Méthode</li>
-                  <li><a href="http://damien.gouteux.free.fr/histoire/methode.html">Généralités</a></li>
-                  <li><a href="http://damien.gouteux.free.fr/histoire/bibliographie.html">Bibliographie</a></li>
+                  <li><a href="../histoire/methode.html">Généralités</a></li>
+                  <li><a href="../histoire/bibliographie.html">Bibliographie</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Aide-mémoires</li>
-                  <li><a href="http://damien.gouteux.free.fr/histoire/france19eme.html">France au XIXe</a></li>
+                  <li><a href="../histoire/france19eme.html">France au XIXe</a></li>
                 </ul>
               </li>
               <li class="dropdown">
@@ -90,7 +89,7 @@
                   <li><a href="#" class="dead">Univers de jeu</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Livres dont VOUS êtes le héros</li>
-                  <li><a href="http://damien.gouteux.free.fr/jeux/doc_talisman.html" class="active">Le Compagnon du Talisman</a></li>
+                  <li><a href="../jeux/doc_talisman.html" class="active">Le Compagnon du Talisman</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Jeux vidéo</li>
                   <li><a href="#" class="dead">Guide des STR</a></li>
@@ -101,9 +100,9 @@
                 <a id="Autres" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Autres <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li class="dropdown-header">Collections</li>
-                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#prenoms">Prénoms</a></li>
-                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#langages">Langages</a></li>
-                  <li><a href="http://damien.gouteux.free.fr/data/outil_collections.html#favoris_artistiques">Favoris artistiques</a></li>
+                  <li><a href="../data/outil_collections.html#prenoms">Prénoms</a></li>
+                  <li><a href="../data/outil_collections.html#langages">Langages</a></li>
+                  <li><a href="../data/outil_collections.html#favoris_artistiques">Favoris artistiques</a></li>
                 </ul>
               </li>
             </ul>
@@ -1118,63 +1117,63 @@ En attaque ou défense, cela peut transformer le coup en blessure grave ou écor
 	<li>Serakub <sup>322</sup></li>
 	<li>Les Tours de l&#8217;Augure <sup>322</sup></li>
 </ul>
-<h3 id="personnages">III.C Personnages et organisations</h3>
-<p><strong>Alambic</strong> <sup>394</sup>, un alchimiste qui a sa boutique à Griseguilde. Ses articles sont &#8220;à surprises&#8221;.</p>
-<p><strong>Apothécus</strong>, on le rencontre au <sup>128</sup> et son nom est révélé au <sup>98</sup>. C&#8217;est un habitant de Griseguilde, un historien, qui s&#8217;avèrera un allié précieux. Il vous donne une <span class="a">rose de jade</span> et un <span class="a">anneau +1 <span class="caps">HAB</span></span>.</p>
-<p><strong>Les Croisés</strong> <sup>13</sup> : un groupe chargé par les <span class="o">Maîtres de la Tradition de Serakub</span> de récupérer le Talisman de la Mort dans les profondeurs de l&#8217;Abyme. Lorsque le joueur les rencontre, il n&#8217;en reste plus que quatre. Il est composé de <span class="p">la Dame de Mailles</span> et de trois hommes : un Paladin, un Sorcier, et un Prêtre.</p>
-<p><strong>Essedéhaif</strong> <sup>209</sup>, le Maître de la Guilde des Voleurs.</p>
-<p><strong>Fauconna</strong>, Grande Prêtresse de Kyrinla la Cruelle. Elle est un adversaire qui cherche à mettre la main sur le Talisman. Elle est également cheffe des Amazones et en cela Commandante du Guet. Le joueur la tue au cours de l&#8217;aventure, mais elle revient le hanter sous la forme d&#8217;un esprit.</p>
-<p>Les différents combats contre Fauconna : </p>
-<table class="tab">
-	<tr>
-		<th>Chapitre </th>
-		<th>Nom </th>
-		<th>Habilité</th>
-		<th>Endurance </th>
-		<th>Spécial </th>
-		<th>Dessin </th>
-	</tr>
-	<tr>
-		<td> 31 </td>
-		<td> Fauconna </td>
-		<td> 9 </td>
-		<td> 6 </td>
-		<td> </td>
-		<td> 78, 222 </td>
-	</tr>
-	<tr>
-		<td> 50 </td>
-		<td> Fauconna </td>
-		<td> 12 </td>
-		<td> 14 </td>
-		<td> </td>
-		<td> 78, 222 </td>
-	</tr>
-	<tr>
-		<td> 59 </td>
-		<td> Fauconna (blessée) </td>
-		<td> 12 </td>
-		<td> 6 </td>
-		<td> </td>
-		<td> 78, 222 </td>
-	</tr>
-	<tr>
-		<td> 76 </td>
-		<td> Fauconna </td>
-		<td> 12 </td>
-		<td> 14 </td>
-		<td> </td>
-		<td> 78, 222 </td>
-	</tr>
-	<tr>
-		<td> 87 </td>
-		<td> Fauconna </td>
-		<td> 12 </td>
-		<td> 14 </td>
-		<td> </td>
-		<td> 78, 222 </td>
-	</tr>
-</table>
+    <h3 id="personnages">III.C Personnages et organisations</h3>
+      <p><strong>Alambic</strong> <sup>394</sup>, un alchimiste qui a sa boutique à Griseguilde. Ses articles sont &#8220;à surprises&#8221;.</p>
+      <p><strong>Apothécus</strong>, on le rencontre au <sup>128</sup> et son nom est révélé au <sup>98</sup>. C&#8217;est un habitant de Griseguilde, un historien, qui s&#8217;avèrera un allié précieux. Il vous donne une <span class="a">rose de jade</span> et un <span class="a">anneau +1 <span class="caps">HAB</span></span>.</p>
+      <p><strong>Les Croisés</strong> <sup>13</sup> : un groupe chargé par les <span class="o">Maîtres de la Tradition de Serakub</span> de récupérer le Talisman de la Mort dans les profondeurs de l&#8217;Abyme. Lorsque le joueur les rencontre, il n&#8217;en reste plus que quatre. Il est composé de <span class="p">la Dame de Mailles</span> et de trois hommes : un Paladin, un Sorcier, et un Prêtre.</p>
+      <p><strong>Essedéhaif</strong> <sup>209</sup>, le Maître de la Guilde des Voleurs.</p>
+      <p><strong>Fauconna</strong>, Grande Prêtresse de Kyrinla la Cruelle. Elle est un adversaire qui cherche à mettre la main sur le Talisman. Elle est également cheffe des Amazones et en cela Commandante du Guet. Le joueur la tue au cours de l&#8217;aventure, mais elle revient le hanter sous la forme d&#8217;un esprit.</p>
+      <p>Les différents combats contre Fauconna : </p>
+      <table class="tab">
+        <tr>
+          <th>Chapitre </th>
+          <th>Nom </th>
+          <th>Habilité</th>
+          <th>Endurance </th>
+          <th>Spécial </th>
+          <th>Dessin </th>
+        </tr>
+        <tr>
+          <td> 31 </td>
+          <td> Fauconna </td>
+          <td> 9 </td>
+          <td> 6 </td>
+          <td> </td>
+          <td> 78, 222 </td>
+        </tr>
+        <tr>
+          <td> 50 </td>
+          <td> Fauconna </td>
+          <td> 12 </td>
+          <td> 14 </td>
+          <td> </td>
+          <td> 78, 222 </td>
+        </tr>
+        <tr>
+          <td> 59 </td>
+          <td> Fauconna (blessée) </td>
+          <td> 12 </td>
+          <td> 6 </td>
+          <td> </td>
+          <td> 78, 222 </td>
+        </tr>
+        <tr>
+          <td> 76 </td>
+          <td> Fauconna </td>
+          <td> 12 </td>
+          <td> 14 </td>
+          <td> </td>
+          <td> 78, 222 </td>
+        </tr>
+        <tr>
+          <td> 87 </td>
+          <td> Fauconna </td>
+          <td> 12 </td>
+          <td> 14 </td>
+          <td> </td>
+          <td> 78, 222 </td>
+        </tr>
+      </table>
 <p>On rencontre ensuite son esprit :</p>
 <table class="tab">
 	<tr>
@@ -1251,33 +1250,39 @@ En attaque ou défense, cela peut transformer le coup en blessure grave ou écor
 	</tr>
 </table>
 <p><strong>Wodeman</strong> Druide Gardien du <span class="l">Bocage Sacré</span> où il réside. Il a pour amie la louve blanche <strong>Crinière de Neige</strong>.</p>
+
 <h3 id="artefacts">III.D  Artefacts</h3>
-<p><span id="amulette"><strong>Amulette de Corne de Licorne</strong></span> : Obtenue au <sup>49</sup>. Utile au <sup>105</sup>, au <sup>87</sup> elle vous donne +2 <span class="caps">HAB</span> pour un combat seulement.</p>
-<p><span id="anneaup1"><strong>Anneau +1 <span class="caps">HAB</span></strong></span> <sup>98</sup> : donné par <span class="p">Apothécus</span>.</p>
-<p><span id="anneauregen"><strong>Anneau de Régénération</strong></span> dit <strong>Anneau de Fauconna</strong> <sup>54</sup> : +6 <span class="caps">END</span>. Perd tout pouvoir magique lorsque vous sortez du Temple et est volé pour le Moine au <sup>366</sup>.</p>
-<p><span id="cotte"><strong>Cotte de mailles magiques</strong></span> <sup>117</sup> : armure magique +1 <span class="caps">HAB</span> donnée par <span class="p">Lillantha</span>.</p>
-<p><span id="ecailles"><strong>Écailles de Dragon</strong></span> <sup>324</sup> : avec la <span class="a">Gomme d&#8217;Ambre</span> cela permet de constituer un bouclier magique contre le Dragon Rouge.</p>
-<p><span id="elixir"><strong>Élixir de vie</strong></span> <sup>372</sup> : vendu par <span class="p">Alambic</span> pour 12 pièces d&#8217;or. <span class="caps">END</span> = <span class="caps">END</span> initialie + 2.</p>
-<p><span id="fetiche"><strong>Fétiche maudit d&#8217;impolitesse majeure</strong></span> <sup>32</sup> : ce fétiche maudit fait prononcer des jurons et des paroles outrageantes à son porteur, malgré sa volonté !</p>
-<p><span id="gomme"><strong>Gomme d&#8217;Ambre</strong></span> <sup>110</sup> : permet de coller les écailles de dragon entre elles pour faire un bouclier magique. Donnée par le chef des <span class="c">Hommes Pourceaux</span>. <strong>Nécessaire pour finir le livre-jeu !</strong></p>
-<p><span id="lance"><strong>Lance Fléau des Dragons</strong></span> <sup>371, 395</sup> : arme magique conçue pour tuer les dragons. Sert aux <sup>34, 58</sup>.</p>
-<p><span id="livregriseguilde"><strong>Livre de Griseguilde Revisitée</strong></span> : livre fourmillant d&#8217;informations sur Griseguilde.</p>
-<p><span id="livreinfortune"><strong>Livre de l&#8217;infortune</strong></span> <sup>262</sup> : livre maudit qui fait perdre 1 <span class="caps">CHA</span> à tout lecteur.</p>
-<p><span id="onguent"><strong>Onguent de Peau d&#8216;écorce</strong></span> <sup>372</sup> : vendu par <span class="p">Alambic</span> pour 7 pièces d&#8217;or. -2 <span class="caps">END</span>.</p>
-<p><span id="parchemin"><strong>Parchemin de la douleur</strong></span> : Obtenu au <sup>176</sup>, il affaiblit sa cible. Utile au <sup>105</sup>.</p>
-<p><span id="pierre"><strong>Pierre de Fortune/Chance</strong></span> <sup>372</sup>: vendu par <span class="p">Alambic</span> pour 10 pièces d&#8217;or. +1 <span class="caps">CHA</span>.</p>
-<p><span id="plume"><strong>Plume de Rock</strong></span> <sup>84</sup> : plume magique de Rock permettant d’atterrir en douceur au <sup>227</sup>.</p>
-<p><span id="pommedor"><strong>Pomme d&#8217;or</strong></span> <sup>54</sup> : donnée par <span class="p">Wodeman</span>, elle permet de regagner +4 <span class="caps">END</span>.</p>
-<p><span id="rosedejade"><strong>Rose de jade</strong></span> <sup>98</sup> : symbole que vous donne <span class="p">Apothécus</span> pour vérifier qu&#8217;il s&#8217;agit bien de vous et pas d&#8217;un <span class="c">Changeur de Formes</span>.</p>
-<p><span id="saintepee"><strong>Sainte Épée</strong></span> <sup>193</sup>, <sup>62</sup> : épée magique +1 <span class="caps">HAB</span> donnée par l&#8217;esprit du Paladin.</p>
-<p><span id="seve"><strong>Sève de Saule</strong></span> <sup>161</sup> : redonne +4 <span class="caps">END</span>.</p>
-<p><span id="vapeurs"><strong>Vapeurs de vélocité</strong></span> <sup>372</sup> : vendu par <span class="p">Alambic</span> pour 10 pièces d&#8217;or. Utile au <sup>105</sup> mais elle s&#8217;avère une arnaque complète : il s&#8217;agit d&#8217;une fiole vide au <sup>76</sup>.</p>
-<p style="text-align:center"><a href="#sommaire">Retour sommaire</a></p>
+
+    <p><span id="amulette"><strong>Amulette de Corne de Licorne</strong></span> : Obtenue au <sup>49</sup>. Utile au <sup>105</sup>, au <sup>87</sup> elle vous donne +2 <span class="caps">HAB</span> pour un combat seulement.</p>
+    <p><span id="anneaup1"><strong>Anneau +1 <span class="caps">HAB</span></strong></span> <sup>98</sup> : donné par <span class="p">Apothécus</span>.</p>
+    <p><span id="anneauregen"><strong>Anneau de Régénération</strong></span> dit <strong>Anneau de Fauconna</strong> <sup>54</sup> : +6 <span class="caps">END</span>. Perd tout pouvoir magique lorsque vous sortez du Temple et est volé pour le Moine au <sup>366</sup>.</p>
+    <p><span id="cotte"><strong>Cotte de mailles magiques</strong></span> <sup>117</sup> : armure magique +1 <span class="caps">HAB</span> donnée par <span class="p">Lillantha</span>.</p>
+    <p><span id="ecailles"><strong>Écailles de Dragon</strong></span> <sup>324</sup> : avec la <span class="a">Gomme d&#8217;Ambre</span> cela permet de constituer un bouclier magique contre le Dragon Rouge.</p>
+    <p><span id="elixir"><strong>Élixir de vie</strong></span> <sup>372</sup> : vendu par <span class="p">Alambic</span> pour 12 pièces d&#8217;or. <span class="caps">END</span> = <span class="caps">END</span> initialie + 2.</p>
+    <p><span id="fetiche"><strong>Fétiche maudit d&#8217;impolitesse majeure</strong></span> <sup>32</sup> : ce fétiche maudit fait prononcer des jurons et des paroles outrageantes à son porteur, malgré sa volonté !</p>
+    <p><span id="gomme"><strong>Gomme d&#8217;Ambre</strong></span> <sup>110</sup> : permet de coller les écailles de dragon entre elles pour faire un bouclier magique. Donnée par le chef des <span class="c">Hommes Pourceaux</span>. <strong>Nécessaire pour finir le livre-jeu !</strong></p>
+    <p><span id="lance"><strong>Lance Fléau des Dragons</strong></span> <sup>371, 395</sup> : arme magique conçue pour tuer les dragons. Sert aux <sup>34, 58</sup>.</p>
+    <p><span id="livregriseguilde"><strong>Livre de Griseguilde Revisitée</strong></span> : livre fourmillant d&#8217;informations sur Griseguilde.</p>
+    <p><span id="livreinfortune"><strong>Livre de l&#8217;infortune</strong></span> <sup>262</sup> : livre maudit qui fait perdre 1 <span class="caps">CHA</span> à tout lecteur.</p>
+    <p><span id="onguent"><strong>Onguent de Peau d&#8216;écorce</strong></span> <sup>372</sup> : vendu par <span class="p">Alambic</span> pour 7 pièces d&#8217;or. -2 <span class="caps">END</span>.</p>
+    <p><span id="parchemin"><strong>Parchemin de la douleur</strong></span> : Obtenu au <sup>176</sup>, il affaiblit sa cible. Utile au <sup>105</sup>.</p>
+    <p><span id="pierre"><strong>Pierre de Fortune/Chance</strong></span> <sup>372</sup>: vendu par <span class="p">Alambic</span> pour 10 pièces d&#8217;or. +1 <span class="caps">CHA</span>.</p>
+    <p><span id="plume"><strong>Plume de Rock</strong></span> <sup>84</sup> : plume magique de Rock permettant d’atterrir en douceur au <sup>227</sup>.</p>
+    <p><span id="pommedor"><strong>Pomme d&#8217;or</strong></span> <sup>54</sup> : donnée par <span class="p">Wodeman</span>, elle permet de regagner +4 <span class="caps">END</span>.</p>
+    <p><span id="rosedejade"><strong>Rose de jade</strong></span> <sup>98</sup> : symbole que vous donne <span class="p">Apothécus</span> pour vérifier qu&#8217;il s&#8217;agit bien de vous et pas d&#8217;un <span class="c">Changeur de Formes</span>.</p>
+    <p><span id="saintepee"><strong>Sainte Épée</strong></span> <sup>193</sup>, <sup>62</sup> : épée magique +1 <span class="caps">HAB</span> donnée par l&#8217;esprit du Paladin.</p>
+    <p><span id="seve"><strong>Sève de Saule</strong></span> <sup>161</sup> : redonne +4 <span class="caps">END</span>.</p>
+    <p><span id="vapeurs"><strong>Vapeurs de vélocité</strong></span> <sup>372</sup> : vendu par <span class="p">Alambic</span> pour 10 pièces d&#8217;or. Utile au <sup>105</sup> mais elle s&#8217;avère une arnaque complète : il s&#8217;agit d&#8217;une fiole vide au <sup>76</sup>.</p>
+    <p style="text-align:center"><a href="#sommaire">Retour sommaire</a></p>
+    
 <h2 id="annexes">Annexes</h2>
+
 <h3 id="historique">1. Historique</h3>
+
 <ul>
-	<li>Première publication de ce guide : le <strong>20 janvier 2015</strong>.</li>
+    <li>Première publication de ce guide : le <strong>20 janvier 2015</strong>.</li>
 </ul>
+
 <p style="text-align:center"><a href="#sommaire">Retour sommaire</a></p>
 
       </div>
