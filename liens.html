@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<!-- Liens V3 (après links.html et liens.rb) -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Page d'accueil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="zlib/bootstrap/css/bootstrap.css" type="text/css"/>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="zlib/bootstrap/js/bootstrap.js"></script>
+	<style>
+	  #search {
+	    background-attachment: scroll;
+		background-clip: border-box;
+		background-color: transparent;
+		background-image: -moz-linear-gradient(50% 0%, #F5F5F5, #F1F1F1);
+		background-origin: padding-box;
+		background-position: 0% 0%;
+		background-repeat: repeat;
+		background-size: auto auto;
+		border-bottom-color: #4D90FE;
+		border-bottom-left-radius: 2px;
+		border-bottom-right-radius: 2px;
+		border-bottom-style: solid;
+		border-bottom-width: 1px;
+		border-image-outset: 0 0 0 0;
+		border-image-repeat: stretch stretch;
+		border-image-slice: 100% 100% 100% 100%;
+		border-image-source: none;
+		border-image-width: 1 1 1 1;
+		border-left-color: #4D90FE;
+		border-left-style: solid;
+		border-left-width: 1px;
+		border-right-color: #4D90FE;
+		border-right-style: solid;
+		border-right-width: 1px;
+		border-top-color: #4D90FE;
+		border-top-left-radius: 2px;
+		border-top-right-radius: 2px;
+		border-top-style: solid;
+		border-top-width: 1px;
+		box-shadow: rgba(255, 255, 255, 0.5) 0px 0px 0px 1px inset;
+		color: #444;
+		cursor: default;
+		display: inline-block;
+		font-family: MS Shell Dlg;
+		font-size: 11px;
+		font-size-adjust: none;
+		font-stretch: normal;
+		font-style: normal;
+		font-variant: normal;
+		font-weight: 700;
+		height: 29px;
+		line-height: 29px;
+		margin-bottom: 16px;
+		margin-left: 8px;
+		margin-right: 8px;
+		margin-top: 16px;
+		min-width: 54px;
+		outline-color: #444;
+		outline-style: none;
+		outline-width: 0px;
+		padding-bottom: 0px;
+		padding-left: 8px;
+		padding-right: 8px;
+		padding-top: 0px;
+		text-align: center;
+		text-decoration: none;
+		white-space: nowrap;
+		-moz-border-bottom-colors: none;
+		-moz-border-left-colors: none;
+		-moz-border-right-colors: none;
+		-moz-border-top-colors: none;
+		-moz-font-feature-settings: normal;
+		-moz-font-language-override: normal;
+		-moz-text-decoration-color: #444;
+		-moz-text-decoration-line: none;
+		-moz-text-decoration-style: solid;
+		-moz-user-select: none;
+	  }
+	  body {
+	    height: 100%;
+	  }
+          // Sticky footer style
+          html {
+             position: relative;
+             min-height: 100%;
+         }
+         body {
+             /* Margin bottom by footer height */
+             margin-bottom: 30px;
+         }
+         .footer {
+             border-top: 1px solid #EEEEEE;
+             position: absolute;
+             bottom: 5px;
+             /* Set the fixed height of the footer here */
+             height: 30px;
+             //background-color: #f5f5f5;
+             width: 100%;
+         }
+         footer div p {
+             text-align: center;
+         }
+       </style>
+  </head>    
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <ul class="nav">
+            <li><a href="http://ran.alwaysdata.net/archives/liens_last.rb?me">⌘</a></li>
+            <li><a href="https://accounts.google.com/ServiceLogin?service=mail&passive=true&rm=false&continue=http://mail.google.com/mail/&scc=1&ltmpl=default&ltmplcache=2&emr=1">Gmail</a></li>
+            <li><a href="https://drive.google.com/?tab=mo&authuser=0#my-drive">Drive</a></li>
+            <li><a href="https://maps.google.fr/">Maps</a></li>
+            <li><a href="https://calendar.google.com/calendar/render?tab=mc&pli=1#main_7">Agenda</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Réseaux <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li style="cursor: default;"><b>Musique</b></li>
+                  <li><a href="https://play.spotify.com/">Spotify</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Sociaux</b></li>
+                  <li><a href="https://www.facebook.com/">Facebook</a></li>
+                  <li><a href="https://twitter.com/">Twitter</a></li>
+                  <li><a href="https://plus.google.com/?partnerid=gplp0">Google+</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Images & Data</b></li>
+                  <li><a href="https://www.pinterest.com/">Pinterest</a></li>
+                  <li><a href="https://picasaweb.google.com/home">Picasa</a></li>
+                  <li><a href="https://www.dropbox.com/home">Dropbox</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Content creation</b></li>
+                  <li><a href="https://fr.wordpress.com/">Wordpress</a></li>
+                  <li><a href="https://hi.co/">Hi.co</a></li>
+                  <li><a href="https://medium.com/">Medium</a></li>
+                  <li><a href="https://kdp.amazon.com/signin?language=fr_FR">KDP</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Liens</b></li>
+                  <li><a href="http://www.pearltrees.com/">Pearltrees</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Notes</b></li>
+                  <li><a href="https://keep.google.com/#home">Keep</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Pro</b></li>
+                  <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
+                  <li><a href="http://www.viadeo.com/">Viadeo</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Vie <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li style="cursor: default;"><b>État</b></li>
+                  <li><a href="http://www.impots.gouv.fr/">Impôts</a></li>
+                  <li><a href="http://www.ameli.fr/">Ameli</a></li>
+                  <li><a href="http://www.ameli-sante.fr/">Ameli Santé</a></li>
+                  <li><a href="http://www.caf.fr/">CAF</a></li>
+                  <li><a href="https://mabanque.bnpparibas/fr/Accueil-part-fr">BNP</a></li>
+                  <li><a href="http://www.pole-emploi.fr/accueil/">Pôle emploi</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Télécom.</b></li>
+                  <li><a href="http://www.orange.fr/">Orange</a></li>
+                  <li><a href="https://subscribe.free.fr/login/">Free</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Shopping</b></li>
+                  <li><a href="https://secure.fr.vente-privee.com/vp4/Login/Portal_FR.aspx?CountryCode=FR">Ventes privées</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Études <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li style="cursor: default;"><b>Paul-Valéry Montpellier 3</b></li>
+                  <li><a href="http://www.univ-montp3.fr">Portail</a></li>
+                  <li><a href="http://ead.univ-montp3.fr">EAD</a></li>
+                  <li><a href="http://monupv.univ-montp3.fr">Mon université</a></li>
+                  <li><a href="http://moodle.univ-montp3.fr">Moodle</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Vie Locale <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li style="cursor: default;"><b>Bibliothèques</b></li>
+                  <li><a href="http://www.univ-bordeaux.fr/ddoc/base-doc.html"><i>Bdx</i> Babord+</a></li>
+                  <li><a href="http://bibliotheque.bordeaux.fr/"><i>Bdx</i> Bibliothèque de Bordeaux</a></li>
+                  <li><a href="http://mediatheque.mairie-pessac.fr/exploitation/"><i>Bdx</i> Médiathèque de Pessac</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Spectacles vivants</b></li>
+                  <li><a href="http://onct.toulouse.fr/"><i>Tls</i> Orchestre du Capitole</a></li>
+                  <li><a href="http://www.theatreducapitole.fr/"><i>Tls</i> Théâtre du Capitole</a></li>
+                  <li><a href="http://www.opera-bordeaux.com/"><i>Bdx</i> Opéra de Bordeaux</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Cinéma</b></li>
+                  <li><a href="http://www.cinemas-utopia.org/bordeaux/"><i>Bdx</i> Utopia Bordeaux</a></li>
+                  <li><a href="http://www.ugc.fr/cinema.html?code=BORDE"><i>Bdx</i> UGC Bordeaux</a></li>
+                  <li><a href="http://www.cinemasgaumontpathe.com/cinemas/cinema-gaumont-labege/"><i>Tls</i> Gaumont Labège</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Média <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li style="cursor: default;"><b>Journaux</b></li>
+                  <li><a href="http://www.lemonde.fr/">Le Monde</a></li>
+                  <li><a href="http://rue89.nouvelobs.com/">Rue 89</a></li>
+                  <li><a href="http://www.monde-diplomatique.fr/">Le Monde Diplomatique</a></li>
+                  <li><a href="http://www.telerama.fr/">Télérama</a></li>
+                  <li><a href="http://www.terraeco.net/">Terra Eco</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Radios</b></li>
+                  <li><a href="http://www.franceinter.fr/player">France Inter</a></li>
+                  <li><a href="http://www.franceculture.fr/player">France Culture</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Média locaux</b></li>
+                  <li><a href="www.myglobalbordeaux.com">My Global Bordeaux</a></li>
+                  <li><a href="http://www.sudouest.fr/elections-europeennes/">Sud Ouest</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Agences de presse</b></li>
+                  <li><a href="http://www.afp.fr/">AFP</a></li>
+                  <li><a href="http://www.reuters.com/">Reuters</a></li>
+                  <li><a href="http://www.ap.org/">Associated Press</a></li>
+                  <li><a href="http://www.ansa.it/">Agenzia Nazionale Stampa Associata</a></li>
+                  <li><a href="http://www.belga.be/fr/accueil/">Belga</a></li>
+                  <li><a href="http://www.jplusplus.org/fr/">Journalism++</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Blogs</b></li>
+                  <li><a href="http://blogs.afp.com/makingof/">Making of AFP</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Critique</b></li>
+                  <li><a href="http://www.acrimed.org/">Acrimed</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Production</b></li>
+                  <li><a href="http://www.miseajournalisme.com/">Mise à jour(nalisme)</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Émissions <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li style="cursor: default;"><b>Journaux</b></li>
+                  <li><a href="http://aquitaine.france3.fr/emissions/jt-1920-aquitaine">Fr3 19-20 Aquitaine</a></li>
+                  <li><a href="http://www.franceinter.fr/emission-le-journal-de-13h-0">Inter treize</a></li>
+                  <li><a href="http://www.franceinter.fr/emission-le-journal-de-19h">Inter soir</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Portails</b></li>
+                  <li><a href="http://culturebox.francetvinfo.fr/">CultureBox</a></li>
+                  <li><a href="http://geopolis.francetvinfo.fr/">Géopolis</a></li>
+                  <li><a href="http://concert.arte.tv/fr">Concert Arte</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Radio</b></li>
+                  <li><a href="http://www.franceculture.fr/emission-du-grain-a-moudre-0">Du grain à moudre</a></li>
+                  <li><a href="http://www.franceculture.fr/emission-concordance-des-temps-0">Concordance des temps</a></li>
+                  <li><a href="http://www.franceculture.fr/podcast/4685238">Mauvais genres</a></li>
+                  <li><a href="http://www.franceculture.fr/podcast/4685710">L'esprit public</a></li>
+                  <li><a href="http://www.franceculture.fr/podcast/4685104">Sur les docks</a></li>
+                  <li><a href="http://www.franceculture.fr/podcast/4685022">La fabrique de l'Histoire</a></li>
+                  <li><a href="http://www.franceculture.fr/podcast/4689436">Le journal de la Culture</a></li>
+                  <li><a href="http://www.franceculture.fr/podcast/4685716">Villes-Mondes</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Télévision</b></li>
+                  <li><a href="http://www.lepetitjournal.com/">Le petit journal</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Histoire <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li style="cursor: default;"><b>Blogs</b></li>
+                <li><a href="http://www.leshistoriensdegarde.fr/">Les historiens de garde</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Langues <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li style="cursor: default;"><b>Linguistique</b></li>
+                  <li><a href="http://www.linguistes.com/">Linguistes.com</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Langues</b></li>
+                  <li><a href="http://claudepiron.free.fr/">Claude Piron</a></li>
+                  <li><a href="http://www.nativlang.com/romance-languages/">Comparaison des langues romanes</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Français</b></li>
+                  <li><a href="http://www.cnrtl.fr/definition/">CNRTL</a></li>
+                  <li><a href="http://www.crisco.unicaen.fr/des/">Crisco</a></li>
+                  <li><a href="http://leconjugueur.lefigaro.fr/conjugaison/">Le conjugueur</a></li>
+                  <li><a href="http://www.lexique.org/>Lexique.org</a></li>
+                  <li><a href="http://www.culture.fr/franceterme>FranceTerme</a></li>
+                  <li><a href="http://tex.loria.fr/typographie/typo.pdf">Typographie</a></li>
+                  <li><a href="http://bbouillon.free.fr/univ/">Grammaire Bouillon</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Anglais</b></li>
+                  <li><a href="http://www.larousse.fr/dictionnaires/francais-anglais">Larousse Fr - En</a></li>
+                  <li><a href="http://www.eslpod.com/website/index_new.html">ESL Podcast</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Italien</b></li>
+                  <li><a href="http://www.larousse.fr/dictionnaires/francais-italien">Larousse Fr - It</a></li>
+                  <li><a href="http://www.newsinslowitalian.com/">Slow italian Podcast</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Allemand</b></li>
+                  <li><a href="http://www.cronimus.apinc.org/">Cronimus</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Esperanto</b></li>
+                  <li><a href="http://fr.lernu.net/">Lernu</a></li>
+                  <li><a href="http://esperanto-panorama.net/franca/vortaro.htm">Panorama voc</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Ido</b></li>
+                  <li><a href="http://idolinguo.org.uk/">Ido linguo (uk)</a></li>
+                  <li><a href="http://www.ido-france.org/">Ido France</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Traduction</b></li>
+                  <li><a href="http://www.larousse.fr/dictionnaires">Larousse</a></li>
+                  <li><a href="http://www.reverso.net/text_translation.aspx?lang=FR">Reverso</a></li>
+                  <li><a href="https://translate.google.com/">Google Translate</a></li>
+                  <li><a href="http://www.wordreference.com/">Wordreference</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Lettres <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li style="cursor: default;"><b>Méthodes</b></li>
+                  <li><a href="http://www.etudes-litteraires.com/">Études littéraires</a></li>
+                  <li><a href="http://rene.pommier.free.fr/">René Pommier</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Textes</b></li>
+                  <li><a href="http://iliadeodyssee.texte.free.fr/aatexte/accueil/accueiliade.htm">Iliade</a></li>
+                  <li><a href="http://www.deslettres.fr/">Des lettres</a></li>
+                  <li><a href="http://www.babelio.com/">Babelio</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Humanités <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li style="cursor: default;"><b>Général</b></li>
+                  <li><a href="http://www.persee.fr/web/guest/home">Persée</a></li>
+                  <li><a href="http://www.revues.org/">Revues.org</a></li>
+                  <li><a href="http://www.cairn.info/">Cairn.info</a></li>
+                  <li><a href="http://hypotheses.org/">Hypotheses.org</a></li>
+                  <li><a href="http://www.ladocumentationfrancaise.fr/">Doc. Fr</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Perso <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li style="cursor: default;"><b>Guides</b></li>
+                  <li><a href="http://ran.alwaysdata.net/">Ran</a></li>
+                  <li><a href="https://docs.google.com/spreadsheets/d/14n8_Ub_-L4JAkGeWt6QykfazSxzxCGVxnXi5aXlCSrQ/edit#gid=1739499777">Contacts</a>
+                  <li><a href="https://docs.google.com/spreadsheets/d/1tbsBVys9VN0ue9DdVi7astArwFoogerBT7VeMYpkkq8/edit#gid=0">Projets</a>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Beatrice</b></li>
+                  <li><a href="http://ran.alwaysdata.net/beatrice/">Beatrice 2.x</a></li>
+                  <li><a href="http://ran.alwaysdata.net/beatrice/beatrice3.html">Beatrice 3.x</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Sites</b></li>
+                  <li><a href="http://onnellinen.wordpress.com/">Onnellinen</a></li>
+                  <li><a href="https://damiengouteux.wordpress.com/">Site pro</a></li>
+                  <li><a href="http://vestigesdujeu.wordpress.com/">Vestiges</a></li>
+                  <li><a href="http://ran.alwaysdata.net/tests/">Tests</a></li>
+                  <li><a href="http://ran.alwaysdata.net/ijba/">IJBA</a></li>
+                  <li><a href="http://ran.alwaysdata.net/liens.rb">Liens (me)</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Dev <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li style="cursor: default;"><b>Scripting Languages</b></li>
+                  <li><a href="https://www.python.org/">Python</a></li>
+                  <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
+                  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a></li>
+                  <li><a href="http://php.net/">PHP</a></li>
+                  <li><a href="http://www.lua.org/">Lua</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Source Languages</b></li>
+                  <li><a href="http://msdn.microsoft.com/en-us/library/kx37x362.aspx">C#</a></li>
+                  <li><a href="https://www.java.com/fr/">Java</a></li>
+                  <li><a href="http://msdn.microsoft.com/en-us/library/60k1461a.aspx">C/C++</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Infographie</b></li>
+                  <li><a href="http://www.highcharts.com/">Highcharts</a></li>
+                  <li><a href="http://infogr.am/">Infogr.am</a></li>
+                  <li><a href="http://fusion-tables-api-samples.googlecode.com/svn/trunk/FusionTablesLayerWizard/src/index.html">Fusion Tables Wizard</a></li>
+                  <li><a href="http://opengameart.org">Open Game Art (Flare, Bellanger)</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Outils</b></li>
+                  <li><a href="http://borgar.github.io/textile-js/">Textile live</a></li>
+                  <li><a href="http://redcloth.org/textile/page-layout/">Textile manuel</a></li>
+                  <li><a href="http://vue.tufts.edu/">V.U.E.</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Frameworks</b></li>
+                  <li><a href="http://getbootstrap.com/"><i>js</i> Bootstrap</a></li>
+                  <li><a href="http://twinery.org/"><i>py</i> Twine</a></li>
+                  <li><a href="http://www.dabeaz.com/ply/"><i>py</i> PLY</a></li>
+                  <li><a href="http://www.pygame.org/news.html"><i>py</i> Pygame</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Musiques <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li style="cursor: default;"><b>Guide</b></li>
+                  <li><a href="http://www.guideclassique.com/">Guide classique</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>YouTube</b></li>  
+                  <li><a href="https://www.youtube.com/watch?v=SNSz0_XJD4s">Hymne italien (Turin 2006)</a></li>
+                  <li><a href="https://www.youtube.com/watch?v=0X3Me_MVR90">Ants go marching (Die Hard 3)</a></li>
+                  <li><a href="https://www.youtube.com/watch?v=E0sgoOTUwyU">Polovtsian Dances (Burial at Sea Ep1)</a></li>
+                  <li><a href="https://www.youtube.com/watch?v=DG5OhYcEadU">Dancers on a String (Bioshock)</a></li>
+                  <li><a href="https://www.youtube.com/watch?v=wp6QpMWaKpE">The Ocean on His Shoulders (Bioshock)</a></li>
+                  <li><a href="https://www.youtube.com/watch?v=BHunor1B3xU">Por una cabeza, Carlos Gardel</a></li>
+                  <li><a href="https://www.youtube.com/watch?v=CoSLD1sCyfc">Pilgrim's Chorus (Tannhäuser)</a></li>
+                  <li><a href="https://www.youtube.com/watch?v=i381VcMpoMQ">Icewind Dale Theme (Icewind Dale)</a></li>
+                  <li><a href="https://www.youtube.com/watch?v=C-0QpAnWZTc">Easthaven in Peace (Icewind Dale)</a></li>
+                  <li><a href="https://www.youtube.com/watch?v=go0h5jtgGQQ">Kuldahar Theme (Icewind Dale)</a></li>
+                  <li><a href="https://www.youtube.com/watch?v=jAu5S9W_lsc">Temple of the Forgotten God Entrance (Icewind Dale)</a></li>
+                  <li><a href="https://www.youtube.com/watch?v=GEbCUXjcbxc">The Dragon Eye (Icewind Dale)</a></li>
+                  <li><a href="https://www.youtube.com/watch?v=OZOuy4YM0AI">Deionarra's Theme (Planescape: Torment)</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>YouTube ClipCulte</b></li>  
+                  <li><a href="https://www.youtube.com/watch?v=k6mZZiI4ShQ">Total Annihilation Intro</a></li>
+                  <li><a href="https://www.youtube.com/watch?v=GVx4LafsvSU">Opening of Conan (1982)</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Hobbies <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li style="cursor: default;"><b>Achats JV</b></li>
+                  <li><a href="http://www.go2arena.com/">Go2arena</a></li>
+                  <li><a href="https://www.humblebundle.com/store">Humble bundle</a></li>
+                  <li><a href="http://www.gog.com/">GOG</a></li>
+                  <li><a href="http://store.steampowered.com/?l=french">Steam</a></li>
+                  <li><a href="https://www.origin.com/fr-fr/store/">Origin</a></li>
+                  <li><a href="https://fr.gamesplanet.com/">Gamesplanet</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Site d'actualités</b></li>
+                  <li><a href="http://www.nofrag.com/">NoFrag</a></li>
+                  <li><a href="http://www.gamekult.com/">Gamekult</a></li>
+                  <li><a href="http://www.gamebanshee.com/">Gamebanshee</a></li>
+                  <li><a href="http://www.moddb.com/">Mod DB</a></li>
+                  <li><a href="http://www.gamesindustry.biz/">Games Industry</a></li>
+                  <li><a href="http://www.factornews.com/">FactorNews</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>CCG & RPG</b></li>
+                  <li><a href="http://www.rpg.net/">RPG.net</a></li>
+                  <li><a href="http://magic.wizards.com/">Magic the Gathering</a></li>
+                  <li><a href="http://magiccards.info/">Magiccards.info</a></li>
+                  <li><a href="http://www.legrog.org/"><img src="http://www.legrog.org/images/structure/favicon.png"> Le Grog</a></li>
+                  <li><a href="http://company.wizards.com/">Wizards</a></li>
+                  <li><a href="http://www.fantasyflightgames.com/">FFG</a></li>
+                  <li><a href="http://xwing-miniatures.wikia.com/wiki/X-Wing_Miniatures_Wiki">X-Wing</a></li>
+                  <li><a href="http://rpg.drivethrustuff.com/browse.php?language=fr&filters=0_0_0_0_40030&&language=fr">DriveThru</a></li>
+                  <li><a href="http://www.warseer.com/forums/forum.php?s=2cc29739751a786bff161c54b424fb82">Warseer</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>Spectacles vivants</b></li>
+                  <li><a href="http://planet-opera.com/">Planet Opera</a></li>
+                  <li><a href="http://northernballet.com/">Northern Ballet</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> États-ONG<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li style="cursor: default;"><b>États</b></li>
+                  <li><a href="http://www.vie-publique.fr">Vie-publique.fr</a></li>
+                  <li><a href="http://www.assemblee-nationale.fr/">Assemblée nationale</a></li>
+                  <li><a href="http://lannuaire.service-public.fr/navigation/gironde.html">Annuaire État</a></li>
+                  <li class="divider"></li>
+                <li style="cursor: default;"><b>ONG</b></li>
+                  <li><a href="http://www.anticor.org/">Anticor</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Autres <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li style="cursor: default;"><b>Autres</b></li>
+                <li><a href="http://lestagieaireditele.tumblr.com/">J en folie</a></li>
+                <li><a href="http://www.openculture.com/">OpenCulture</a></li>
+                <li><a href="http://www.ambafrance-it.org/-Revue-de-la-presse-italienne-">Revue de presse it</a></li>
+                <li><a href="http://www.opensubtitles.org/fr">Open Subtitles</a></li>
+                <li><a href="https://net2ftp.alwaysdata.com/index.php">Info</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <br><br>
+    <table width="100%" height="100%">
+      <tr>
+        <td valign="center" align="center">
+          <img src="https://www.google.fr/images/srpr/logo11w.png" width="269px" height="95px" style="margin-bottom: 20px">
+          <form method="get" action="http://www.google.com/search">
+            <input type="text"   name="q" maxlength="255" value="" style="width:50em"/><br>
+            <input type="submit" value="Google Search" id="search" /><br>
+            <input type="radio"  name="sitesearch" value="" checked /> Web
+            <input type="radio"  name="sitesearch" value="ran.alwaysdata.net" /> Local<br />
+          </form>
+        </td>
+      </tr>
+    </table>
+    <!--<hr>-->
+    <footer class="footer">
+      <div class="container">
+        <center><p class="muted credit"><a href="http://onnellinen.wordpress.com/">Damien Gouteux</a> 2005 - 2016</p></center>
+      </div>
+    </footer>
+  </body>
+</html>
