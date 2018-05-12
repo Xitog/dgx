@@ -107,39 +107,47 @@
        </style>
   </head>    
   <body>
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="container">
-          <ul class="nav">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+             <span class="sr-only">Toggle navigation</span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+           </button>
+           <a class="navbar-brand" href="#">Menu</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
             <li><a href="http://ran.alwaysdata.net/archives/liens_last.rb?me">⌘</a></li>
             <li><a href="https://accounts.google.com/ServiceLogin?service=mail&passive=true&rm=false&continue=http://mail.google.com/mail/&scc=1&ltmpl=default&ltmplcache=2&emr=1">Gmail</a></li>
             <li><a href="https://drive.google.com/?tab=mo&authuser=0#my-drive">Drive</a></li>
             <li><a href="https://maps.google.fr/">Maps</a></li>
             <li><a href="https://calendar.google.com/calendar/render?tab=mc&pli=1#main_7">Agenda</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Réseaux <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Réseaux <b class="caret"></b></a>
+              <ul class="dropdown-menu" role="menu">
                 <li style="cursor: default;"><b>Musique</b></li>
                   <li><a href="https://play.spotify.com/">Spotify</a></li>
-                  <li class="divider"></li>
+                <li class="divider"></li>
                 <li style="cursor: default;"><b>Sociaux</b></li>
                   <li><a href="https://www.facebook.com/">Facebook</a></li>
-                  <li><a href="https://twitter.com/">Twitter</a></li>
-                  <li><a href="https://plus.google.com/?partnerid=gplp0">Google+</a></li>
-                  <li class="divider"></li>
+                   <li><a href="https://twitter.com/">Twitter</a></li>
+                   <li><a href="https://plus.google.com/?partnerid=gplp0">Google+</a></li>
+                <li class="divider"></li>
                 <li style="cursor: default;"><b>Images & Data</b></li>
                   <li><a href="https://www.pinterest.com/">Pinterest</a></li>
                   <li><a href="https://picasaweb.google.com/home">Picasa</a></li>
                   <li><a href="https://www.dropbox.com/home">Dropbox</a></li>
-                  <li class="divider"></li>
+                <li class="divider"></li>
                 <li style="cursor: default;"><b>Content creation</b></li>
                   <li><a href="https://fr.wordpress.com/">Wordpress</a></li>
                   <li><a href="https://hi.co/">Hi.co</a></li>
                   <li><a href="https://medium.com/">Medium</a></li>
                   <li><a href="https://kdp.amazon.com/signin?language=fr_FR">KDP</a></li>
-                  <li class="divider"></li>
+                <li class="divider"></li>
+                <!-- no restyle beyond this bar -->
                 <li style="cursor: default;"><b>Liens</b></li>
                   <li><a href="http://www.pearltrees.com/">Pearltrees</a></li>
                   <li class="divider"></li>
@@ -479,7 +487,7 @@
           </ul>
         </div>
       </div>
-    </div>
+    </nav>
     <br><br>
     <table width="100%" height="100%">
       <tr>
