@@ -229,7 +229,7 @@
           table.setAttribute('border', '1');
           display_table(table, data.table_content.jv);
           var endText = document.getElementById("endText");
-          endText.innerHTML = "There are ".concat(endText.length).concat(" games in this table.");
+          endText.innerHTML = "There are ".concat(data.table_content.jv.length).concat(" games in this table.");
         }
       
         function films(response) {
