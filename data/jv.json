@@ -52,7 +52,7 @@
             ["*", "System Shock 2", 1999, "FPS", "Irrational Games"],
             ["", "Quake 3: Arena", 1999, "FPS", "Id"],
             ["*", "Planescape: Torment", 1999, "RPG", "Black Isle"],
-            ["*", "BioShock", 2007, "FPS", "Irrational Games"],
+            ["*", "BioShock", 2007, "FPS", "Irrational Games"]
         ]
     }
 }
