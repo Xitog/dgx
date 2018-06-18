@@ -117,6 +117,12 @@
             xobj.open('GET', './langages.json?stamp=' + Math.random(), true);
           } else if (target == "favoris_artistiques") {
             xobj.open('GET', './favoris_artistiques.json?stamp=' + Math.random(), true);
+          } else if (target == "musiques") {
+            xobj.open('GET', './musiques.json?stamp=' + Math.random(), true);
+          } else if (target == "jv") {
+            xobj.open('GET', './jv.json?stamp=' + Math.random(), true);
+          } else if (target == "films") {
+            xobj.open('GET', './films.json?stamp=' + Math.random(), true);
           }
           xobj.onreadystatechange = function() {
             if (xobj.readyState === 4 && xobj.status === 200) {
@@ -130,6 +136,9 @@
           document.getElementById("prenoms").setAttribute("class", "");
           document.getElementById("langages").setAttribute("class", "");
           document.getElementById("favoris").setAttribute("class", "");
+          document.getElementById("musiques").setAttribute("class", "");
+          document.getElementById("jv").setAttribute("class", "");
+          document.getElementById("films").setAttribute("class", "");
           document.getElementById(target).setAttribute("class", "active");
         }
         
@@ -199,10 +208,37 @@
           display_table(table, fav.movie);
         }
         
+        function musiques(response) {
+          var data = JSON.parse(response);
+          var table = document.getElementById("tableContent");
+          table.style.width = "100%";
+          table.setAttribute("class", "tab");
+          table.setAttribute('border', '1');
+          display_table(table, data.table_content.music);
+        }
+      
+        function jv(response) {
+          var data = JSON.parse(response);
+          var table = document.getElementById("tableContent");
+          table.style.width = "100%";
+          table.setAttribute("class", "tab");
+          table.setAttribute('border', '1');
+          display_table(table, data.table_content.jv);
+        }
+      
+        function films(response) {
+          var data = JSON.parse(response);
+          var table = document.getElementById("tableContent");
+          table.style.width = "100%";
+          table.setAttribute("class", "tab");
+          table.setAttribute('border', '1');
+          display_table(table, data.table_content.films);
+        }
+      
         function handleHash() {
           var titre = document.getElementById("collection");
           var texte = document.getElementById("intro");
-          texte.innerHTML = "Affichage d'une collection : <a href=\"#prenoms\">prénoms</a> | <a href=\"#langages\">langages</a> | <a href=\"#favoris_artistiques\">favoris artistiques</a>.";
+          texte.innerHTML = "Affichage d'une collection : <a href=\"#prenoms\">prénoms</a> | <a href=\"#langages\">langages</a> | <a href=\"#favoris_artistiques\">favoris artistiques</a> | <a href=\"#musiques\">musiques</a> | <a href=\"#jv\">jv</a> | <a href=\"#films\">films</a>.";
           // Clean Table et introText
           var intro = document.getElementById("introText");
           intro.innerHTML = "";
@@ -225,6 +261,18 @@
               titre.innerHTML = "Favoris artistiques";
               loadJSON("favoris_artistiques", favoris_artistiques);
               setActive("favoris");
+            } else if (splitted[splitted.length-1] == "musiques") {
+              titre.innerHTML = "Musiques favorites";
+              loadJSON("musiques", musiques);
+              setActive("musiques");
+            } else if (splitted[splitted.length-1] == "jv") {
+              titre.innerHTML = "Jeux vidéo favoris";
+              loadJSON("jv", jv);
+              setActive("jv");
+            } else if (splitted[splitted.length-1] == "films") {
+              titre.innerHTML = "Films favoris";
+              loadJSON("films", films);
+              setActive("films");
             }
           }
         }
