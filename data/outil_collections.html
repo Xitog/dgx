@@ -107,6 +107,7 @@
       <p>Création : le 10 avril 2017 | Dernière mise-à-jour : le 18 juin 2018 | Auteur : Damien Gouteux | Type : Outils | Sujet : collection</p>
       <div id="introText"></div>
       <div id="pageContent"><table id="tableContent"></table></div>
+      <div id="endText"></div>
     </div>
     
     <script type="text/javascript">
@@ -227,6 +228,8 @@
           table.setAttribute("class", "tab");
           table.setAttribute('border', '1');
           display_table(table, data.table_content.jv);
+          var endText = document.getElementById("endText");
+          endText.innerHTML = "There are ".concat(endText.length).concat(" games in this table.");
         }
       
         function films(response) {
