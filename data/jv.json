@@ -1,0 +1,41 @@
+{
+    "name" : "Favoris artistiques",
+    "type" : "datafly_schema",
+    "version" : 1.0,
+    "enum_definition" : {
+        "game_type:string" : [
+            "FPS", "RTS", "RPG"
+        ],
+    },
+    "table_definition" : {
+        "creator" : {
+            "name" : "string"
+        },
+        "studio < creator" : {
+            "creation" : "date:YYYY",
+            "ended" : "(opt)date:YYYY"
+        },
+        "work" : {
+            "name" : "string",
+            "year" : "date:YYYY",
+            "type" : "string",
+            "creator" : "ref_one:creator"
+        },
+        "video_game < work" : {
+            "type" : "enum:game_type",
+            "creator" : "ref_one:studio"
+        }
+    },
+    "table_content" : {
+        "creator" : [
+        ],
+        "studio" : [
+            ["Blizzard"]
+        ],
+        "work" : [
+        ],
+        "jv" : [
+            ["WarCraft II", 1996, "RTS", "Blizzard"]
+        ]
+    }
+}
