@@ -5,7 +5,7 @@
     "enum_definition" : {
         "game_type:string" : [
             "FPS", "RTS", "RPG"
-        ],
+        ]
     },
     "table_definition" : {
         "creator" : {
