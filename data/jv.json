@@ -16,6 +16,7 @@
             "ended" : "(opt)date:YYYY"
         },
         "work" : {
+            "gold" : "string",
             "name" : "string",
             "year" : "date:YYYY",
             "type" : "string",
@@ -35,7 +36,12 @@
         "work" : [
         ],
         "jv" : [
-            ["WarCraft II", 1996, "RTS", "Blizzard"]
+            ["*", "WarCraft II", 1995, "RTS", "Blizzard"],
+            ["*", "Diablo", 1996, "RPG", "Blizzard"],
+            ["*", "Total Annihilation", 1997, "RTS", "Cavedog"],
+            ["*", "Baldur's Gate", 1998, "RPG", "BioWare"],
+            ["*", "System Shock 2", 1999, "FPS", "Irrational Games"],
+            ["*", "Planescape: Torment", 1999, "RPG", "Black Isle"]
         ]
     }
 }
