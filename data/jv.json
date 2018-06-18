@@ -36,12 +36,23 @@
         "work" : [
         ],
         "jv" : [
+            ["", "Dune II : La Bataille d'Arrakis", "1992", "RTS", "Westwood"],
+            ["", "Wolfenstein 3D", 1992, "FPS", "Id"],
+            ["", "Doom", 1993, "FPS", "Id"],
+            ["", "Doom II: Hell on Earth", 1994, "FPS", "Id"],
             ["*", "WarCraft II", 1995, "RTS", "Blizzard"],
+            ["*", "Duke Nukem 3D", 1996, "FPS", "3DRealms"],
+            ["*", "Quake", 1996, "FPS", "Id"],
+            ["", "Red Alert", 1996, "RTS", "Westwood"],
             ["*", "Diablo", 1996, "RPG", "Blizzard"],
             ["*", "Total Annihilation", 1997, "RTS", "Cavedog"],
+            ["*", "Quake 2", 1997, "FPS", "Id"],
+            ["*", "StarCraft", 1998, "RTS", "Blizzard"],
             ["*", "Baldur's Gate", 1998, "RPG", "BioWare"],
             ["*", "System Shock 2", 1999, "FPS", "Irrational Games"],
-            ["*", "Planescape: Torment", 1999, "RPG", "Black Isle"]
+            ["", "Quake 3: Arena", 1999, "FPS", "Id"],
+            ["*", "Planescape: Torment", 1999, "RPG", "Black Isle"],
+            ["*", "BioShock", 2007, "FPS", "Irrational Games"],
         ]
     }
 }
