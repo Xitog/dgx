@@ -113,7 +113,7 @@
       <div id="content">
       
       <h1 id="json">Fiche JSON</h1>
-      <p id="intro">Cette fiche expose le format de données <b>JSON</b>. Parfois, vous devez sauvegarder vos données en mémoire vive sur le disque dur ou bien les envoyer à un programme distant. Pour cela il faut sérialiser vos données, c'est-à-dire les écrire dans un format qui permet leur sauvegarde ou leur transmission. JSON est un tel format. C'est un format texte lisible par l'humain, très simple : ses spécifications sont courtes et claires. </p>
+      <p id="intro">Cette fiche expose le format de données <b>JSON</b> inventé par Douglas Crockford en 2001. Parfois, vous devez sauvegarder vos données en mémoire vive sur le disque dur ou bien les envoyer à un programme distant. Pour cela il faut sérialiser vos données, c'est-à-dire les écrire dans un format qui permet leur sauvegarde ou leur transmission. JSON est un tel format. C'est un format texte lisible par l'humain, très simple : ses spécifications sont courtes et claires. </p>
       <p>Création : le 10 avril 2017 | Dernière mise-à-jour : le 1<sup>er</sup> mai 2017 | Auteur : Damien Gouteux | Type : Fiche | Sujet : JSON, donnée, langage, modélisation, informatique</p>
       
       <h2>Liens</h2>
@@ -150,7 +150,7 @@
         </li>
       </ul>
       <p>1: atomiques et composés sont des termes personnels.</p>
-    
+      
       <p>Remarques :</p>
       <ul class="normale">
         <li><u>La clé ne peut être que de type <span class="highlight">String</span></u></li>
@@ -161,9 +161,28 @@
         <li>Pas de virgule <span class="code">,</span> après l'élément final.</li>
       </ul>
     
+      <h2>Textes de référence</h2>
+      
+      <p>JSON est défini dans les documents suivants :</p>
+      <ul>
+        <li><a href="https://www.ecma-international.org/publications/standards/Ecma-404.htm><b>ECMA 404</b></a></li>
+        <li><a href="https://tools.ietf.org/html/rfc8259">RFC 8259</a><b>Dernière spécification en date</b></a></li>
+        <li><a href="https://tools.ietf.org/html/rfc7493">RFC 7493</a><b>I-JSON recommandé par Tim Bray</b></a></li>
+        <li><a href="https://tools.ietf.org/html/rfc7159">RFC 7159</a><i>Obsolète</i></li>
+        <li><a href="https://tools.ietf.org/html/rfc7158">RFC 7158</a><i>Obsolète</i>
+        <li><a href="https://tools.ietf.org/html/rfc4627">RFC 4627</a><i>Obsolète</i>
+      </ul>
+      
+      <p>Tim Bray a édité les différentes RFC après avoir travaillé sur XML. Il fait des commentaires très utiles dans son blog personnel :</p>
+      <ul>
+        <li><a href="https://www.tbray.org/ongoing/When/201x/2017/12/14/RFC-8259-STD-90">The Last JSON Spec</a> <i>(Quelle spécification prendre)</i></li>
+        <li><a href="https://www.tbray.org/ongoing/When/201x/2014/03/05/RFC7159-JSON">JSON Redux AKA RFC7159</a> <i>(Histoire de la standardisation)</i></li>
+        <li><a href="https://www.tbray.org/ongoing/When/201x/2016/08/20/Fixing-JSON">Fixing JSON</a></li>
+        <li><a href="https://www.tbray.org/ongoing/When/201x/2016/04/30/JSON-Schema-funnies">Specifying JSON</a> <i>(Sur la nécessité de spécifié)</i></li>
+      </ul>
+      
       <h2>Exemple</h2>
       
-
       <pre class="code">
     {
         <b class="green">"type"</b> : <b class="green">"Voiture"</b>,
@@ -180,6 +199,16 @@
       
       </div>
     </div>
+          
+    <h2>Autres formats</h2>
+    
+    <p>Il existe d'autres formats qui remplisse les mêmes fonctions que JSON :</p>
+    <ul>
+        <li><a href="https://github.com/edn-format/edn">Langage EDN</a> <i>(basé sur Clojure)</i></li>
+        <li><a href="https://json5.org/">JSON5</a> <i>(extension de JSON)</i></li>
+        <li><a href="https://raw.githubusercontent.com/hjson/hjson/master/rfc/hjson.txt">HJSON</a> <i>(extension de JSON)</i></li>
+        <li><a href="https://github.com/cognitect/transit-format">Transit</a></li>
+    </ul>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
