@@ -30,9 +30,9 @@
     },
     "table_content" : {
         "langages" : [
-            ["Nom cible famille site commentaire"],
-            ["ActionScript i fam{} https://www.adobe.com/devnet/actionscript/learning.html"],
-            ["Ada toASM Algol https://fr.wikipedia.org/wiki/Ada_(langage)"],
+            ["<b>Nom</b> <b>Famille</b> <b>Cible</b> <b>Site</b> <b>Commentaire</b>"],
+            ["ActionScript fam{} interpreter https://www.adobe.com/devnet/actionscript/learning.html"],
+            ["Ada Algol toASM https://fr.wikipedia.org/wiki/Ada_(langage)"],
             ["Amber toJS http://www.amber-lang.net/"],
             ["Bash script"],
             ["Boo famTab toIL http://boo-lang.org/"],
@@ -60,7 +60,7 @@
             ["Erlang https://www.erlang.org/"],
             ["Euphoria script toC http://openeuphoria.org/ "],
             ["Falcon famEnd http://falconpl.org/"],
-            ["Fantom fam{} toIL toBC toJS http://fantom.org/ exFan"],
+            ["Fantom fam{} toIL_toBC_toJS http://fantom.org/ exFan"],
             ["Ferite i fam{} http://ferite.sourceforge.net/ No_update_since_2004"],
             ["Fortran"],
             ["Free_Pascal  http://www.freepascal.org/"],
