@@ -1,20 +1,35 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+﻿   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Aide-mémoire Ruby</title>
     <meta name="description" content="Un aide-mémoire pour le langage de programmation Ruby"/>
-    <link rel="icon" href="../img/favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon" />
-    <link href="../css/simplex.bootstrap.css" rel="stylesheet">
-    <link href="../css/flashy.css" rel="stylesheet">
+    <link rel="icon" href=".https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
+    <link href="https://xitog.github.io/dgx/css/simplex.bootstrap.css" rel="stylesheet">
+    <link href="https://xitog.github.io/dgx/css/flashy.css" rel="stylesheet">
     <style type="text/css"></style>
+    <script type="text/javascript" src="./js/prenoms.js"></script>
+    <script type="text/javascript" src="./js/blog.js"></script>
+    <script type="text/javascript">
+        function reset_menu(id) {
+            var menus = ["Accueil", "Blog", "Langues", "Informatique", "Histoire", "Jeux", "Autres"];
+            for(var i=0; i < menus.length; i++) {
+                var m = document.getElementById(menus[i]);
+                if (menus[i] == id) {
+                    m.setAttribute("class", "active");
+                } else {
+                    m.setAttribute("class", "");
+                }
+            }
+        }
+    </script>
   </head>
   <body>
     <div id="main" class="container">
+    
       <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -28,78 +43,82 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li id="Accueil"><a href="../index.html">Accueil</a></li>
-              <li id="Blog"><a href="../index.html#blog" onclick="view_one_entry(0);">Blog</a></li>
+              <li id="Accueil" class="active"><a href="./index.html">Accueil</a></li>
+              <li id="Blog"><a href="#blog" onclick="view_one_entry(0);">Blog</a></li>
               <li class="dropdown">
                 <a id="Langues" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Langues <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li class="dropdown-header">Français</li>
-                  <li><a href="../francais/fiche_api_fr.html">Sons du français</a></li>
+                <li class="dropdown-header">Français</li>
+                  <li><a href="./francais/fiche_api_fr.html">Fiche sur les phonèmes du français</a></li>
+                  <li><a href="./francais/outil_stats_fr.html">Outil d'analyse textuelle</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Italien</li>
-                  <li><a href="../italien/beatrice.html">Beatrice : grammaire</a></li>
-                  <li><a href="../italien/jeux.html">Jeux</a></li>
+                  <li><a href="./italien/beatrice.html">Beatrice : grammaire</a></li>
+                  <li><a href="./italien/jeux.html">Jeux</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Journal</li>
+                  <li><a href="./ling/journal.html">Journal</a></li>
                 </ul>
               </li>
               <li class="dropdown">
-                <a id="Informatique" href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-expanded="false">Informatique <span class="caret"></span></a>
+                <a id="Informatique" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Informatique <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li class="dropdown-header">Python</li>
-                  <li><a href="../python/aide_python.html">Aide-mémoire</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdown-header">Ruby</li>
-                  <li><a href="../ruby/guide_ruby.html">Guide</a></li>
-                  <li><a href="../ruby/aide_ruby.html" class="active" >Aide-mémoire</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdown-header">Lua</li>
-                  <li><a href="../lua/aide_lua.html">Aide-mémoire</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdown-header">Selene <i>(mon langage)</i></li>
-                  <li><a href="../selene/guide_selene.html">Guide</a></li>
+                  <li class="dropdown-header">Programmation</li>
+                  <li><a href="./prog/aide_syntaxe.html">Syntaxes comparées</a></li>
+                  <li><a href="./prog/aide_python.html">Aide-mémoire Python</a></li>
+                  <li><a href="./prog/aide_ruby.html">Aide-mémoire Ruby</a></li>
+                  <li><a href="./prog/aide_lua.html">Aide-mémoire Lua</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Modélisation</li>
-                  <li><a href="../tutoriels/xcore.html" class="dead">Tutoriel sur XCore</a></li>
+                  <li><a href="./model/json.html">Aide-mémoire JSON</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Autres</li>
+                  <li><a href="./prog/outils.html">Logiciels utiles</a></li>
                 </ul>
               </li>
               <li class="dropdown">
                 <a id="Histoire" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Histoire <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li class="dropdown-header">Méthode</li>
-                  <li><a href="../histoire/methode.html">Généralités</a></li>
-                  <li><a href="../histoire/bibliographie.html">Bibliographie</a></li>
+                  <li><a href="./histoire/methode.html">Généralités</a></li>
+                  <li><a href="./histoire/bibliographie.html">Bibliographie</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Aide-mémoires</li>
-                  <li><a href="../histoire/france19eme.html">France au XIXe</a></li>
+                  <li><a href="./histoire/france19eme.html">France au XIXe</a></li>
                 </ul>
               </li>
               <li class="dropdown">
                 <a id="Jeux" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Jeux <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li class="dropdown-header">Terres sauvages <i>(mon jdr)</i></li>
-                  <li><a href="#" class="dead">Règles de jeu de rôles</a></li>
-                  <li><a href="#" class="dead">Univers de jeu</a></li>
+                  <li class="dropdown-header">Jeux de rôles</i></li>
+                  <li><a href="#" class="dead">Essai de système</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Livres dont VOUS êtes le héros</li>
-                  <li><a href="../jeux/doc_talisman.html">Le Compagnon du Talisman</a></li>
+                  <li><a href="./jeux/doc_talisman.html">Le Compagnon du Talisman</a></li>
+                  <li><a href="./jeux/doc_sorcier.html">Le Compagnon du Sorcier</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Jeux vidéo</li>
-                  <li><a href="../jeux/guide_rts.html" class="dead">Guide des STR</a></li>
-                  <li><a href="../jeux/projet_rts.html" class="dead">Projet de STR</a></li>
+                  <li><a href="#" class="dead">Les enfants de Dune</a></li>
+                  <li><a href="#" class="dead">Le raycasting : la 2.5D</a></li>
+                  <li><a href="./data/outil_collections.html#jv">Jeux vidéo favoris</a></li>
                 </ul>
               </li>
               <li class="dropdown">
                 <a id="Autres" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Autres <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Musique</li>
+                  <li><a href="./concerts_classiques/index.html">Concerts classiques</a></li>
                   <li class="dropdown-header">Collections</li>
-                  <li><a href="../data/outil_collections.html#prenoms">Prénoms</a></li>
-                  <li><a href="../data/outil_collections.html#langages">Langages</a></li>
-                  <li><a href="../data/outil_collections.html#favoris_artistiques">Favoris artistiques</a></li>
+                  <li><a href="./data/outil_collections.html#prenoms">Prénoms</a></li>
+                  <li><a href="./data/outil_collections.html#langages">Langages</a></li>
+                  <li><a href="./data/outil_collections.html#favoris_artistiques">Favoris artistiques</a></li>
+                  <li><a href="http://ran.alwaysdata.net/liens.html">Liens</a></li>
                 </ul>
               </li>
             </ul>
-          </div><!-- nav-collapse -->
-        </div><!-- container-fluid -->
-      </nav> <!-- navbar navbar-default -->
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
       
       <div class="jumbotron">
         <h1>Aide-mémoire Ruby</h1>
@@ -107,7 +126,7 @@
         <p>Une fiche synthétique sur le langage de programmation Ruby pour <strong>rafraîchir sa mémoire</strong> ou <strong>découvrir ce langage si vous connaissez déjà un langage similaire</strong> comme Python, Perl ou PHP.
         <p>Elle aborde toutes les connaissances de base du langage, ainsi que l'essentiel de sa bibliothèque intégrée (Core API) mais pas sa bibliothèque standard, ni des bibliothèques populaires comme Ruby On Rails.</p>
         <p>Cette fiche <strong>n'est pas recommandée pour quelqu'un souhaitant découvrir la programmation</strong> et ses principaux concepts. Pour cela, mieux vaut se tourner vers une véritable introduction à la programmation.</p>
-        <p class="sign">Damien Gouteux,<br> mis à jour le 21 avril 2017,<br>créé le 10 mars 2015.</p>
+        <p class="sign">Damien Gouteux,<br> mis à jour le 18 septembre 2018,<br>créé le 10 mars 2015 (3 ans).</p>
       </div>
 
         <h2 id="sommaire">Sommaire</h2>
@@ -117,6 +136,7 @@
               <li><a href="#bas_aff">Affichage</a></li>
               <li><a href="#bas_key">Mots réservés</a></li>
               <li><a href="#bas_com">Commentaires</a></li>
+              <li><a href="#bas_org">Organisation du code</a></li>
               <li><a href="#bas_beg">BEGIN et END</a></li>
             </ol>
           </li>
@@ -126,6 +146,7 @@
               <li><a href="#var_var">Variables</a></li>
               <li><a href="#var_con">Constantes</a></li>
               <li><a href="#var_glo">Globales</a></li>
+              <li><a href="#var_env">Variables d'environnement</a></li>
               <li><a href="#var_ins">Variables d'instance</a></li>
               <li><a href="#var_cls">Variables de classe</a></li>
               <li><a href="#var_psd">Pseudo-variables</a></li>
@@ -226,9 +247,26 @@
         
         <p>Date d'apparition du langage : 1995</p>
         <p>Créateur : Yukihiro "Matz" Matsumoto (Japon)</p>
-        <p>Version actuelle à la date d'écriture : 2.2.3 (2015)</p>
+        <p>Type : langage de script orienté objet</p>
+        <p>Philosophie :</p>
+        <ul>
+          <li>Développer rapidement et en y prenant du plaisir,</li>
+          <li>Principe de moindre surprise.</li>
+        </ul>
+        <p>Principaux traits :</p>
+        <ul>
+          <li>Syntaxe simple dérivée d'Algol et Pascal, proche de Lua,</li>
+          <li>Blocs de code passables comme paramètres,</li>
+          <li>Gestion automatique de la mémoire,</li>
+          <li>Gestion de niveaux de confiance,</li>
+          <li>Gestion des exceptions.</li>
+        </ul>
+        <p>Principaux concurrents : JavaScript, Python, Perl, PHP.</p>
+        <p>Version actuelle à la date d'écriture : 2.5.1 (2018)</p>
+        <p>Standardisation : <a href="https://www.iso.org/standard/59579.html">ISO 30170:2012</a> (payant)</p>
         <p>Extension d'un fichier Ruby : <span class="code">rb</span></p>
         <p>Exécuter mon_fichier.rb : <span class="code"><b>ruby</b> </i>mon_fichier.rb</i></span></p>
+        <p>Accéder aux options de l'interpréteur : <span class="code"><b>ruby</b> -h</span></p>
         <p>Première ligne d'un fichier sous Linux : <span class="code">#!/usr/bin/ruby</span></p>
         <p>Accéder à la console interactive : <span class="code"><b>irb</b></span></p>
         <p>IRb signifie <i>Interactive Ruby</i>.</p>
@@ -239,7 +277,7 @@
         <p>Interprétation de code dans une chaîne : <span class="code"> puts "#{a+1}"</span></p>
 
         <h3 id="bas_key">Mots réservés</h3>
-        <p>Mots réservés (39) : BEGIN, END, alias, and, begin, break, case, class, def, defined?, do, else, elsif, end, ensure, false, for, if, in, module, next, nil, not, or, redo, rescue, retry, return, self, super, then, true, undef, unless, until, when, while, __FILE__, __LINE__</p>
+        <p>Mots réservés (39) : BEGIN, END, alias, and, begin, break, case, class, def, defined?, do, else, elsif, end, ensure, false, for, if, in, module, next, nil, not, or, redo, rescue, retry, return, self, super, then, true, undef, unless, until, when, while, yield, __FILE__, __LINE__</p>
         
         <h3 id="bas_com">Commentaires</h3>
         <p>Commentaires en Ruby : <span class="code"><i># mon commentaire jusqu'à la fin de la ligne</i></span></p>
@@ -254,27 +292,58 @@
         <p>Déclarer un bloc de code exécuté avant l'exécution du programme : <span class="code"><b>BEGIN</b> { <i>code</i> }</span></p>
         <p>Déclarer un bloc de code exécuté après l'exécution du programme : <span class="code"><b>END</b> { <i>code</i> }</span></p>
         
+        <h3 id="bas_org">Organisation du code</h3>
+        <p>Ruby considère une fin de ligne comme la fin d'une expression à interpréter sauf si un opérateur binaire termine la ligne ou si la ligne se termine par un backslash \.</p>
+        <p>Ruby fait la distinction entre majuscules et minuscules.</p>
+        
         <p class="back"><a href="#sommaire">Retour sommaire</a></p>
         
-        <h2 id="sites">2. Autres ressources</h2> 
+        <h2 id="sites">2. Autres ressources en ligne</h2> 
+        <p>La validité des liens a été vérifiée le 18 septembre 2018.</p>
         <ul class="normale">
-          <li>Site officiel du langage : <a href="https://www.ruby-lang.org">https://www.ruby-lang.org</a></li>
-          <li>Site de la documentation : <a href="http://ruby-doc.org/">http://ruby-doc.org/</a></li>
-          <li>Installer Ruby sur Windows : <a href="http://rubyinstaller.org/">http://rubyinstaller.org/</a></li>
-          <li>Télécharger le code source de Ruby : <a href="https://www.ruby-lang.org/fr/downloads/">https://www.ruby-lang.org/fr/downloads/</a></li>
-          <li>Liste des bibliothèques disponibles : <a href="https://www.ruby-toolbox.com/">https://www.ruby-toolbox.com/</a></li>
-          <li>Fiche Wikipédia française : <a href="http://fr.wikipedia.org/wiki/Ruby">http://fr.wikipedia.org/wiki/Ruby</a></li>
-          <li>Fiche Wikipédia anglaise : <a href="http://en.wikipedia.org/wiki/Ruby_%28programming_language%29">http://en.wikipedia.org/wiki/Ruby_%28programming_language%29</a></li>
+          <li>Sites principaux
+            <ul>
+              <li>Site officiel du langage : <a href="https://www.ruby-lang.org">https://www.ruby-lang.org</a></li>
+              <li>Site de la documentation : <a href="http://ruby-doc.org/">http://ruby-doc.org/</a></li>
+              <li>Installer Ruby sur Windows : <a href="http://rubyinstaller.org/">http://rubyinstaller.org/</a></li>
+              <li>Télécharger le code source de Ruby : <a href="https://www.ruby-lang.org/fr/downloads/">https://www.ruby-lang.org/fr/downloads/</a></li>
+              <li>Fiches Wikipédia <a href="http://fr.wikipedia.org/wiki/Ruby">en français</a> et <a href="http://en.wikipedia.org/wiki/Ruby_%28programming_language%29">en anglais</a> sur Ruby</li>
+            </ul>
+          </li>
+          <li>Tester Ruby en ligne
+            <ul>
+              <li>Console Ruby en ligne : <a href="http://tryruby.org">https://ruby.github.io/TryRuby/</a></li>
+              <li>Une autre console Ruby en ligne : <a href="https://repl.it/languages/ruby">https://repl.it/languages/ruby</a></li>
+            </ul>
+          </li>
+          <li>Site d'actualités
+            <ul>
+              <li>Ruby Inside, actualités et tutoriels (jusqu'à 2014): <a href="http://www.rubyinside.com/">http://www.rubyinside.com/</a></li>
+            </ul>
+          </li>
+          <li>Apprendre et progresser en Ruby
+            <ul>
+              <li>Site de tutoriels <i>Tutorials Point</i> : <a href="http://www.tutorialspoint.com/ruby/">http://www.tutorialspoint.com/ruby/</a></li>
+              <li><i>Ruby Quicktips</i>, des bouts de code utile : <a href="http://rubyquicktips.com/">http://rubyquicktips.com/</a></li>
+              <li>Livre sur Wikibooks : <a href="https://en.wikibooks.org/wiki/Ruby_Programming">https://en.wikibooks.org/wiki/Ruby_Programming</a></li>
+              <li>Le <i>Pickaxe</i>, livre de référence sur Ruby 1.6 (dépassée) : <a href="http://ruby-doc.com/docs/ProgrammingRuby/">Programming Ruby</a></li>
+            </ul>
+          </li>
+          <li>Liste de bibliothèques pour Ruby
+            <ul>
+              <li>Dépôt <i>RubyGems</i> : <a href="https://rubygems.org/">https://rubygems.org/</a></li>
+              <li>Dépôt <i>The Ruby Toolbox</i> : <a href="https://www.ruby-toolbox.com/">https://www.ruby-toolbox.com/</a></li>
+              <li><i>Ruby On Rails</i> (RoR), le framework qui a fait connaître Ruby : <a href="http://rubyonrails.org/">http://rubyonrails.org/</a></li>
+              <li><i>Gosu</i>, une bibliothèque pour faire des jeux 2D : <a href="https://www.libgosu.org/">https://www.libgosu.org/</a></li>
+            </ul>
+          </li>
+          <!-- Dead links -->
+          <!--
           <li>Console Ruby en ligne : <a href="http://tryruby.org">http://tryruby.org</a></li>
-          <li>Une autre console Ruby en ligne : <a href="https://repl.it/languages/ruby">https://repl.it/languages/ruby</a></li>
-          <li>Le "Pickaxe", livre de référence sur Ruby : <a href="http://ruby-doc.com/docs/ProgrammingRuby/">Programming Ruby</a></li>
-          <li>Livre sur Wikibooks : <a href="https://en.wikibooks.org/wiki/Ruby_Programming">https://en.wikibooks.org/wiki/Ruby_Programming</a></li>
-          <li>Site de tutoriels : <a href="http://www.tutorialspoint.com/ruby/">http://www.tutorialspoint.com/ruby/</a></li>
-          <li>Ruby Inside, actualités et tutoriels (jusqu'à 2014): <a href="http://www.rubyinside.com/">http://www.rubyinside.com/</a></li>
-          <li>Ruby On Rails (RoR), le framework qui a fait connaître Ruby : <a href="http://rubyonrails.org/">http://rubyonrails.org/</a></li>
-          <li>Site communautaire français autour de RoR : <a href="http://www.railsfrance.org/">http://www.railsfrance.org/</a></li>
           <li>Site communautaire français autour de Ruby (mort) : <a href="http://www.rubyfrance.org/">http://www.rubyfrance.org/</a></li>
-          <li>Ruby Quicktips, des bouts de code utile : <a href="http://rubyquicktips.com/">http://rubyquicktips.com/</a></li>
+          <li>Site communautaire français autour de RoR : <a href="http://www.railsfrance.org/">http://www.railsfrance.org/</a></li>
+          https://www.ruby-lang.org/en/news/2013/08/08/rip-raa/
+          -->
         </ul>
         <p class="back"><a href="#sommaire">Retour sommaire</a></p>
 
@@ -297,6 +366,9 @@
 
         <h3 id="var_glo">Globales</h3>
         <p>Déclaration d'une variable globale (elle sera accessible partout) : <span class="code">$mon_identifiant = expression</span></p>
+        
+        <h3 id="var_env">Variables d'environnement</h3>
+        <p>Les variables d'environnement sont stockées dans le dictionnaire <span class="code">ENV</span></p>
 
         <h3 id="var_ins">Variables d'instance</h3>
         <p>Une variable d'instance commence par le signe @ : <span class="code">@a</span></p>
@@ -330,8 +402,8 @@
                 <th>Littéral </th>
             </tr>
             <tr>
-                <td> Fixnum, Bignum </td>
-                <td> 0b1 (binaire)<br>07 (octal)<br>0xf (hexadécimal)<br>10 (décimal)<br>1_000 (1000 en format plus lisible)</td>
+                <td> Fixnum, Bignum (fusionnées en Integer)</td>
+                <td> 0b1 (binaire)<br>07 (octal)<br>0o10 (octal)<br>0xf (hexadécimal)<br>10 (décimal)<br>1_000 (1000 en format plus lisible)</td>
             </tr>
         </tbody>
         </table>
@@ -346,11 +418,11 @@
             </tr>
             <tr>
                 <td> Float </td>
-                <td> 1000.0<br>1E3<br>1.0e8<br> </td>
+                <td> 1000.0<br>1E3<br>1.0e8<br>5e+10 </td>
             </tr>
         </tbody>
         </table>
-        <p>Listes des fonctions principales :</p>
+        <p><strong>Listes des fonctions principales :</strong></p>
         <table class="fun">
         <tbody>
             <tr>
@@ -396,9 +468,12 @@
             </tr>
         </tbody>
         </table>
-        <p>Les chaînes avec des guillemets doubles interprètent les caractères spéciaux précédés d'un antislash. Les chaînes avec les guillemets simples n'interprètent que les caractères spéciaux <span class="code">\'</span> et <span class="code">\\</span>, produisant ' et \ respectivement. Le caractère spécial le plus utilisé est <span class="code">\n</span> pour faire une nouvelle ligne.</p>
-        <p>On peut insérer du code dans n'importe quel chaîne en utilisant <span class="code">#{<i>code</i>}</span>, il sera exécuté une fois à la création de l'objet.</p>
-        <p>Listes des fonctions principales :</p>
+        <p>Les chaînes avec des guillemets doubles interprètent les caractères spéciaux précédés d'un antislash ainsi que le code dans <span class="code">#{<i>code</i>}</span>. Le code sera exécuté une fois à la création de l'objet et la valeur retournée sera substituée au code dans la chaîne.</p>
+        <p>Les chaînes avec les guillemets simples n'interprètent que les caractères spéciaux <span class="code">\'</span> et <span class="code">\\</span>, produisant ' et \ respectivement.
+        <p>Le caractère spécial le plus utilisé est <span class="code">\n</span> pour faire une nouvelle ligne.</p>
+        <p>Deux chaînes adjacentes sont automatiquement concaténées.</p>
+        <p>On peut définir des chaînes à l'aide de l'expression : <span class="code">%qX...X</span> où X est un caractère délimiteur. Si X est ( [ { ou &lt;, le caratère délimiteur de fin sera le caractère fermant respectif soit ) ] } ou &gt;.</p>
+        <p><strong>Listes des fonctions principales :</strong></p>
         <table class="def">
         <tbody>
             <tr>
@@ -859,7 +934,7 @@
             <tr>
                 <td> a &lt;&lt; e </td>
                 <td> Array (a) </td>
-                <td> ajout d'un élément e dans l1 </td>
+                <td> ajout d'un élément e dans a </td>
             </tr>
             <tr>
                 <td> a &lt;=&gt; b </td>
