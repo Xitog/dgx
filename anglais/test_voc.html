@@ -1,0 +1,50 @@
+<html>
+<head>
+  <title>Test anglais</title>
+  <script>
+    function test() {
+      let answer;
+      //for (let obj of document.images) { // ET PAS in !
+      //  console.log("Info :", obj, obj.id);
+      //  answer = obj.id;
+      //}
+      let o = document.getElementById("answer");
+      let test_name = tests_list[tests_nb];
+      if (o.value === test_name) {
+        alert("Bien joué !");
+        tests_nb++;
+        let i =  document.getElementById("answer");
+        i.value = "";
+        on_load();
+      } else {
+        alert("Il y a une erreur !");
+      }
+    }
+    
+    var tests = {
+        "book" : "./Anglais/white-book.png",
+        "read" : "./Anglais/read.png",
+        "talk" : "./Anglais/discussion.png",
+    };
+    
+    var tests_list = [
+        "book", "read", "talk",
+    ];
+    
+    var tests_nb = 0;
+    
+    function on_load() {
+        let o = document.getElementById("pic");
+        let test_name = tests_list[tests_nb];
+        o.src = tests[test_name];
+    }
+  </script>
+</head>
+<body onload="on_load();">
+  <form>
+    <table>
+      <tr><td><img id="pic" src=""></td><td align="center"><input id="answer" size="50" placeholder="Entrer un mot ici anglais sans article et sans majuscule"/><br><br><button onclick="test(); return false;"/>Vérifier</td></tr>
+    </table>
+  </form>
+</body>
+</html>
