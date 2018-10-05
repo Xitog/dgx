@@ -46,7 +46,12 @@
             }
         }
         
+        var actual = null;
+
         function show(target) {
+          if (actual) {
+            actual.style.textDecoration="none";
+	  }
           var element = document.getElementById(target);
           var button = document.getElementById(target + '_button');
           if (element.style.display == "block") {
@@ -54,7 +59,8 @@
           } else {
             element.style.display = "block";
           }
-          button.textDecorator = "underline";
+          button.style.textDecoration="underline";
+          actual = button;
         }
     </script>
   </head>
