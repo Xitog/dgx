@@ -23,6 +23,15 @@
                 }
             }
         }
+        
+        function show() {
+          var element = document.getElementById("contentButton");
+			    if (element.style.display == "block") {
+				    element.style.display = "none";
+			    } else {
+				    element.style.display = "block";
+			    }
+        }
     </script>
   </head>
   <body>
@@ -134,7 +143,8 @@
       </div>
       
       <div id="pageContent">
-        <p>Plan du site :</p>
+        <button type="button" onclick="show()">Plan du site</button>
+        <div id="contentButton" style="display: none">
         <ul>
           <li><a href="./index.html">Accueil</a>, cette page</li>
           <li><a href="./blog.html">Mon blog</a>, pour avoir des nouvelles fraîches</li>
@@ -227,6 +237,7 @@
             </ul>
           </li>
         </ul>
+        </div>
       </div>
     
     </div>
