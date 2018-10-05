@@ -26,7 +26,7 @@
         color: #CC6714;
         background-color: #F6F6F6;
       }
-      ul.simple {
+      div.jumbotron ul.simple {
         font-family: "Palatino Linotype";
         font-size: 18px;
       }
@@ -48,11 +48,13 @@
         
         function show(target) {
           var element = document.getElementById(target);
+          var button = document.getElementById(target + '_button');
           if (element.style.display == "block") {
             element.style.display = "none";
           } else {
             element.style.display = "block";
           }
+          button.textDecorator = "underline";
         }
     </script>
   </head>
@@ -175,9 +177,9 @@
       
       <div id="pageContent">
         <div>
-	  <button class="button" type="button" onclick="show('plan')">Plan du site</button>
+	  <button id="plan_button" class="button" type="button" onclick="show('plan')">Plan du site</button>
 	  &nbsp;
-	  <button class="button" type="button" onclick="show('cv')">CV</button>
+	  <button id="cv_button" class="button" type="button" onclick="show('cv')">CV</button>
 	</div>
         <div id="plan" style="display: none">
         <ul>
