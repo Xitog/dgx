@@ -8,7 +8,24 @@
     <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
     <link href="./css/simplex.bootstrap.css" rel="stylesheet">
-    <style type="text/css"></style>
+    <style type="text/css">
+      button {
+        border: 1px #c9c9c9 solid;
+        color: #0080ff;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        font-family: "Palatino linotype";
+      }
+      button:hover {
+        color: #91170a;
+        background-color: #F6F6F6;
+      }
+    </style>
     <script type="text/javascript" src="./js/prenoms.js"></script>
     <script type="text/javascript" src="./js/blog.js"></script>
     <script type="text/javascript">
@@ -24,8 +41,8 @@
             }
         }
         
-        function show() {
-          var element = document.getElementById("contentButton");
+        function show(target) {
+          var element = document.getElementById(target);
 			    if (element.style.display == "block") {
 				    element.style.display = "none";
 			    } else {
@@ -143,8 +160,12 @@
       </div>
       
       <div id="pageContent">
-        <button type="button" onclick="show()">Plan du site</button>
-        <div id="contentButton" style="display: none">
+        <div>
+	  <button class="button" type="button" onclick="show('plan')">Plan du site</button>
+	  &nbsp;
+	  <button class="button" type="button" onclick="show('cv')">CV</button>
+	</div>
+        <div id="plan" style="display: none">
         <ul>
           <li><a href="./index.html">Accueil</a>, cette page</li>
           <li><a href="./blog.html">Mon blog</a>, pour avoir des nouvelles fraîches</li>
@@ -238,6 +259,19 @@
           </li>
         </ul>
         </div>
+	<div id="cv" style="display: none">
+	<ul>
+	  <li>Formations
+	    <ul>
+              <li>2015 : Master de journalisme, Institut de journalisme Bordeaux-Aquitaine (IJBA) - Université Bordeaux-Montaigne (Bordeaux III), Bordeaux,</li>
+	      <li>2015 : Licence de sciences du langage, Université Paul-Valéry (Montpellier III), Montpellier,</li>
+	      <li>2012 : Licence d'Humanités, Université Paris-Ouest Nanterre-La Défense (Paris X), Paris,</li>
+              <li>2007 : Diplôme d'ingénieur en génie informatique, Institut national de sciences appliquées (INSA), Toulouse,</li>
+              <li>2004 : Diplôme universitaire de technologie (DUT), Informatique de gestion, Université Paul Sabatier (Toulouse III), Toulouse.</li>    
+            </ul>
+	  </li>
+	</ul>
+	</div>
       </div>
     
     </div>
