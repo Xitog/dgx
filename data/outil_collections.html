@@ -206,6 +206,9 @@
             for (var j = 0; j < line.length; j++) {
               var cell = row.insertCell(-1)
               cell.innerHTML = line[j];
+              if (line[j].startsWith("http")) {
+                cell.innerHTML = "<a href=\"" + line[j] + "\">" + line[j] + "</a>";
+              }
             }
           }
         }
