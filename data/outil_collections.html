@@ -133,6 +133,8 @@
             xobj.open('GET', './jv.json?stamp=' + Math.random(), true);
           } else if (target == "films") {
             xobj.open('GET', './films.json?stamp=' + Math.random(), true);
+          } else if (target == "livres") {
+            xobj.open('GET', './livres.json?stamp=' + Math.random(), true);
           }
           xobj.onreadystatechange = function() {
             if (xobj.readyState === 4 && xobj.status === 200) {
@@ -247,6 +249,19 @@
           table.setAttribute("class", "tab");
           table.setAttribute('border', '1');
           display_table(table, data.table_content.films);
+          var endText = document.getElementById("endText");
+          endText.innerHTML = "There are ".concat(data.table_content.films.length).concat(" movies in this table.");
+        }
+      
+        function livres(response) {
+          var data = JSON.parse(response);
+          var table = document.getElementById("tableContent");
+          table.style.width = "100%";
+          table.setAttribute("class", "tab");
+          table.setAttribute('border', '1');
+          display_table(table, data.table_content.films);
+          var endText = document.getElementById("endText");
+          endText.innerHTML = "There are ".concat(data.table_content.livres.length).concat(" books in this table.");
         }
       
         function handleHash() {
@@ -287,6 +302,10 @@
               titre.innerHTML = "Films favoris";
               loadJSON("films", films);
               setActive("films");
+            } else if (splitted[splitted.length-1] == "livres") {
+              titre.innerHTML = "Livres lus";
+              loadJSON("livres", livres);
+              setActive("livres");
             }
           }
         }
