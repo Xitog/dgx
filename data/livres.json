@@ -36,7 +36,7 @@
         "work" : [
         ],
         "livres" : [
-            ["*", "Bel-Ami", "1885", "Maupassant", "Roman", "https://fr.wikipedia.org/wiki/Bel-Ami"],
+            ["*", "Bel-Ami", "1885", "Maupassant", "Roman", "https://fr.wikipedia.org/wiki/Bel-Ami"]
         ]
     }
 }
