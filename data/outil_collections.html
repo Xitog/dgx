@@ -143,6 +143,7 @@
         }
         
         function setActive(target) {
+          /*
           document.getElementById("prenoms").setAttribute("class", "");
           document.getElementById("langages").setAttribute("class", "");
           document.getElementById("favoris").setAttribute("class", "");
@@ -150,6 +151,7 @@
           document.getElementById("jv").setAttribute("class", "");
           document.getElementById("films").setAttribute("class", "");
           document.getElementById(target).setAttribute("class", "active");
+          */
         }
         
         function prenoms(response) {
@@ -250,7 +252,7 @@
         function handleHash() {
           var titre = document.getElementById("collection");
           var texte = document.getElementById("intro");
-          texte.innerHTML = "Affichage d'une collection : <a href=\"#prenoms\">prénoms</a> | <a href=\"#langages\">langages</a> | <a href=\"#favoris_artistiques\">favoris artistiques</a> | <a href=\"#musiques\">musiques</a> | <a href=\"#jv\">jv</a> | <a href=\"#films\">films</a>.";
+          // texte.innerHTML = "Affichage d'une collection : <a href=\"#prenoms\">prénoms</a> | <a href=\"#langages\">langages</a> | <a href=\"#favoris_artistiques\">favoris artistiques</a> | <a href=\"#musiques\">musiques</a> | <a href=\"#jv\">jv</a> | <a href=\"#films\">films</a>.";
           // Clean Table et introText
           var intro = document.getElementById("introText");
           intro.innerHTML = "";
