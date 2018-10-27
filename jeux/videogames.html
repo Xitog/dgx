@@ -40,13 +40,32 @@
       span.year {
         color: #DD0000;
       }
-      span.game {
+      #content.palatino span.game {
         color: #006FDD;
+        border: 1px solid rgb(225, 228, 229);
+        background-color: rgb(250, 250, 250);
+        padding-left: 3px;
+        padding-right: 5px;
       }
-      span.culte {
+      #content.palatino span.date {
+        color: rgb(231, 76, 60);
+        border: 1px solid rgb(225, 228, 229);
+        background-color: rgb(250, 250, 250);
+        padding-left: 3px;
+        padding-right: 4px;
+      }
+      #content.palatino span.code {
+        font-family: consolas;
+        color: rgb(231, 76, 60);
+        border: 1px solid rgb(225, 228, 229);
+        background-color: rgb(250, 250, 250);
+        padding-left: 3px;
+        padding-right: 4px;
+      }
+      #content.palatino span.culte {
         font-weight: bold;
       }
-      p {
+      #content.palatino p {
         text-align: justify;
       }
     </style>
@@ -176,7 +195,9 @@
           <tr><td>RPG</td><td>Baldur's Gate</td><td>5 janvier 1999</td><td><span class="year">2002</span> avec Baldur's Gate II</td></tr>
           <tr><td>FPS/RPG</td><td>System Shock 2</td><td>1999</td><td><span class="year">2006</span>, janvier ou février (achat le 24/01 sur Ebay)</td></tr>
         </table>
-        <p>Il y a eu ensuite une exploration plus ou moins méticuleuse de ces trois genres. Certains jeux découverts après les "fondateurs" ont même laissé une empreinte tout aussi forte, voire supérieure à ceux-ci, ils sont en gras.</p>
+        <p>À côté de ces jeux cultes, j'ai également joué à deux autres jeux à la fin 1996 / début 1997 : le premier était <span class="game">Nitemare 3D</span> dont j'avais eu le shareware sur un CD accompagnant un magazine. Un shareware est une version amputée d'un jeu ne comportant que le premier épisode, comme une grande démo. C'était un jeu reprenant le concept de <span class="game">Wolfenstein 3D</span>, auquel je jouerai bien plus tard, avec un thème gentiment horrifique inspiré des monstres de la Hammer comme une momie ou le monstre de Frankenstein. Le jeu était bien moins beau et plaisant que Duke Nukem 3D mais ce dernier me faisait peur, j'avais 12 ans à l'époque, surtout avec son épisode 2 prenant place dans l'espace : son réalisme (pour l'époque) des environnements, les lumières clignotantes, les aliens surgissants à l'improviste. Nitemare 3D, malgré son thème horrifique, était d'une réalisation déjà dépassée et permettait une mise à distance beaucoup plus grande. L'autre jeu auquel je jouais était un jeu d'aventure, le seul auquel j'ai joué : <span class="game">Woodruff et le Schnibble d'Azimuth</span>.
+        <p>Je découvris plus tard qu'avec Duke Nukem 3D venait une collection de sharewares dont <span class="game">Realms of Chaos</span> un jeu de plate-forme médiéval-fantastique, un jeu de course loufoque, <span class="game">Wacky Wheels</span>, inspiré de Mario Kart, et surtout un autre FPS du nom de <span class="game">Rise of the Triad</span>.
+        <p>Par la suite, je n'explorais ni le genre du jeu d'aventure, ni celui du jeu de course, ni celui du jeu de plate-forme. Je m'aventurais par contre dans une exploration plus ou moins méticuleuse de mes trois genres favoris, FPS, RPG et RTS. Certains jeux découverts après les "fondateurs" ont même laissé une empreinte tout aussi forte, voire supérieure à ceux-ci, ils sont en gras dans la suite de cette page.</p>
         <h2>FPS</h2>
         <h2>RTS</h2>
         <h2>RPG Action</h2>
@@ -219,8 +240,21 @@
           <tr><td></td><td><b>BioShock Infinite</b></td><td></td><td></td></tr>
           <tr><td></td><td><b></b></td><td></td><td></td></tr>
         </table>
+        
+      <h2>Index des jeux cités</h2>
+        <table>
+          <tr><td>Nitemare 3D</td><td>1994</td><td>Gray Design Associates</td><td>Accyrate Research, Inc.</td><td>FPS</td><td><a href="https://en.wikipedia.org/wiki/Nitemare_3D">Wikipedia</a></td><td><a href="http://www.dgray.com/n3dpage.htm">Site officiel</a></td><tr>
+          <tr><td>Realms of Chaos</td><td>1995</td><td>Apogee Software</td><td>Apogee Software</td><td>Plate-forme</td><td><a href="https://en.wikipedia.org/wiki/Realms_of_Chaos_(video_game)">Wikipedia</a></td><td></td></tr>
+          <tr><td>Wacky Wheels</td><td>1994</td><td>Beavis Soft</td><td>Apogee Software</td><td>Course</td><td><a href="https://en.wikipedia.org/wiki/Wacky_Wheels">Wikipedia</a><td></td></tr>
+          <tr><td>Woodruff et le Schnibble d'Azimuth</td><td>1994</td><td>Coktel Vision</td><td>Sierra On-Line</td><td>Aventure</td><td><a href="https://fr.wikipedia.org/wiki/Woodruff_et_le_Schnibble_d%27Azimuth">Wikipedia</a></td><td></td></tr>
+        </table>
+        
+        <h2>Les langages de patrons</h2>
+        <p>Les langages de patrons sont utilisés pour décrire un patron. Un patron décrit un ensemble de modèles qui peuvent ensuite être capturés ou générés par ce patron. Par exemple, le patron « A B? C », où A, B et C sont des éléments et ? désigne un élément optionnel, décrit les séquences <span class="code">A C</span> et <span class="code">A B C</span>.</p>
+        <p>Mon premier langage de patron, pour mon mémoire de master 1 en traitement automatique des langues, ne gérait pas la répétition mais l'optionnalité (à l'aide de <span class="code">?</span>), le choix (à l'aide de <span class="code">[ A B ]</span>) et la sous-séquence (à l'aide de <span class="code">( A B )</span>. Ainsi on pouvait faire un choix entre un élément ou une sous-séquence : <span class="code">[ (A B) C ] D</span> décrit les séquences <span class="code">A B D</span> et <span class="code">C D</span>. Techniquement, ma façon de les gérer était très bourrine : je dépliais le patron, stockant toutes les séquences qu'il générait dans une liste. Je comparais ensuite une nouvelle séquence avec les séquences générées et si une correspondait, c'est que le patron la capturait. Si plusieurs séquences correspondaient, la plus longue était choisie.</p>
+        <p>Mon second langage de patrons a été développé le <span class="date">27 octobre 2018</span> pour un lexer de langage. Il reprend ceux de regex. Il propose, comme le premier, le choix et l'optionnalité avec les mêmes symboles, mais perd les sous-séquences et rajoute la répétition (à l'aide de <span class="code">+</span> pour répéter de 1 à n fois et <span class="code">*</span> pour répéter de 0 à n fois). Il propose des caractères spéciaux de classes de caractères, <span class="code">\d</span> pour les chiffres, <span class="code">\a</span> pour les lettres et <span class="code">\w</span> pour les lettres, les chiffres et _. De plus les caractères spéciaux peuvent être échappés à l'aide également de l'antislash.</p>
       </div>
-    
+      
     </div>
     
     <!--
