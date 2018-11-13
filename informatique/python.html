@@ -138,30 +138,39 @@
       
         <h2 id="sommaire">Sommaire</h2>
         <ol class="menu">
-          <li><a href="#bases">Bases</a>
+          <li><a href="#intro">Introduction</a>
             <ol class="menu">
-              <li><a href="#bas_aff">Affichage</a></li>
-              <li><a href="#bas_key">Mots réservés</a></li>
-              <li><a href="#bas_com">Commentaires</a></li>
-            </ol>
-          </li>
-          <li><a href="#sites">Sites web</a>
-            <ol class="menu">
-              <li><a href="#sit_bib">Bibliothèques</a></li>
-              <li><a href="#sit_tools">Outils</a></li>
+              <li><a href="#intro_carac">Caractéristiques générales</a></li>
+              <li><a href="#intro_aff">Affichage</a></li>
+              <li><a href="#intro_key">Mots réservés</a></li>
+              <li><a href="#intro_com">Commentaires</a></li>
             </ol>
           </li>
           <li><a href="#types">Types de base</a>
             <ol class="menu">
-              <li><a href="#numbers">Nombres</a></li>
-              <li><a href="#strings">Chaînes de caractères</a></li>
-              <li><a href="#booleans">Booléens</a></li>
-              <li><a href="#nil">Valeur nil</a></li>
-              <li><a href="#table">Tables</a>
+              <li><a href="#typ_int">Entiers</a></li>
+              <li><a href="#typ_float">Réels</a></li>
+              <li><a href="#typ_strings">Chaînes de caractères</a></li>
+              <li><a href="#typ_booleans">Booléens</a></li>
+              <li><a href="#typ_nil">Valeur nil</a></li>
+              <li><a href="#typ_tuple">Tuples</a></li>
+              <li><a href="#typ_list">Listes</a>
                 <ol class="menu">
-                  <li><a href="#table_def">Définition</a></li>
-                  <li><a href="#table_acc">Accès</a></li>
-                  <li><a href="#table_meta">Métatable</a></li>
+                  <li><a href="#typ_list_def">Définition</a></li>
+                  <li><a href="#typ_list_acc">Accès</a></li>
+                  <li><a href="#typ_list_iter">Itération</a></li>
+                </ol>
+              </li>
+              <li><a href="#typ_dict">Dictionnaires</a>
+                <ol class="menu">
+                  <li><a href="#typ_dict_def">Définition</a></li>
+                  <li><a href="#typ_dict_acc">Accès</a></li>
+                  <li><a href="#typ_dict_iter">Itération</a></li>
+                </ol>
+              </li>
+              <li><a href="#typ_set">Ensembles</a>
+                <ol class="menu">
+                  <li><a href="#typ_set_def">Définition</a></li>
                 </ol>
               </li>
             </ol>
@@ -170,68 +179,79 @@
             <ol class="menu">
               <li><a href="#op_bin">Opérateurs binaires</a>
                 <ol class="menu">
-                  <li><a href="#ari">Opérateurs arithmétiques</a></li>
-                  <li><a href="#cmp">Opérateurs de comparaisons</a></li>
-                  <li><a href="#boo">Opérateurs booléens</a></li>
-                  <li><a href="#oth">Autres opérateurs</a></li>
+                  <li><a href="#op_bin_ari">Opérateurs arithmétiques</a></li>
+                  <li><a href="#op_bin_cmp">Opérateurs de comparaisons</a></li>
+                  <li><a href="#op_bin_boo">Opérateurs booléens</a></li>
+                  <li><a href="#op_bin_oth">Autres opérateurs</a></li>
                 </ol>
               </li>
               <li><a href="#op_una">Opérateurs unaires</a>
                 <ol class="menu">
-                  <li><a href="#ari">Opérateurs arithmétiques</a></li>
-                  <li><a href="#boo">Opérateurs booléens</a></li>
+                  <li><a href="#op_una_ari">Opérateurs arithmétiques</a></li>
+                  <li><a href="#op_una_boo">Opérateurs booléens</a></li>
                 </ol>
               </li>
             </ol>
           </li>
           <li><a href="#flux">Contrôle du flux</a>
             <ol class="menu">
-              <li><a href="#seq">Séquence</a></li>
-              <li><a href="#cond">Conditions</a></li>
-              <li><a href="#loop">Répétitions</a></li>
+              <li><a href="#flux_seq">Séquence</a></li>
+              <li><a href="#flux_cond">Condition</a></li>
+              <li><a href="#flux_loop">Répétition</a></li>
             </ol>
           </li>
-          <li><a href="#functions">Fonctions</a>
+          <li><a href="#fun">Fonctions</a>
             <ol class="menu">
-              <li><a href="#def">Définition</a></li>
-              <li><a href="#call">Appel</a></li>
-              <li><a href="#closure">Closure</a></li>
+              <li><a href="#fun_def">Définition</a></li>
+              <li><a href="#fun_call">Appel</a></li>
+              <li><a href="#fun_closure">Closure</a></li>
+              <li><a href="#fun_lambda">Fonctions anonymes</a></li>
             </ol>
           </li>
-          <li><a href="#spe">Gestion des exceptions</a>
+          <li><a href="#oo">Programmation orientée objet</a>
             <ol class="menu">
-              <li><a href="#exp">Appels protégés</a></li>
+              <li><a href="#oo_class">Définition de classes</a></li>
+              <li><a href="#oo_new">Instanciation d'objets</a></li>
+              <li><a href="#oo_extends">Héritage et polymorphisme</a></li>
             </ol>
           </li>
-          <li><a href="#base">Fonctions de base</a>
+          <li><a href="#try">Gestion des exceptions</a>
             <ol class="menu">
-              <li><a href="#lib_io">Sortie et entrée console</a></li>
-              <li><a href="#lib_numbers">Nombres</a></li>
-              <li><a href="#lib_strings">Chaînes de caractères</a></li>
-              <li><a href="#lib_tables">Tables</a></li>
+              <li><a href="#try_try">Bloc try / except / else / finally</a></li>
+              <li><a href="#try_raise">Lever une exception</a></li>
+            </ol>
+          </li>
+          <li><a href="#mod">Modules et organisation du code</a></li>
+          <li><a href="#lib">Bibliothèque de base</a>
+            <ol class="menu">
               <li><a href="#lib_file">Fichiers</a></li>
             </ol>
           </li>
+          <li><a href="#quicktips">Focus sur des points particuliers</a>
+            <ol class="menu">
+              <li><a href="#formatdecimal">Formatage rapide des décimaux</a></li>
+              <li><a href="#enumerations">Énumérations en Python</a></li>
+              <li><a href="#tryelse">Mot clé else dans try</a></li>
+              <li><a href="#tryopenfile">Essayer d'ouvrir un fichier</a></li>
+            </ol>
+          </li>
+          <li><a href="#sites">Bibliographie et webographie</a>
+            <ol class="menu">
+              <li><a href="#sit_bib">Bibliothèques</a></li>
+              <li><a href="#sit_tools">Outils</a></li>
+            </ol>
+          </li>
         </ol>
-      
-        <h2 id="bases">1. Bases</h2>
-      
+        
+        <h2 id="intro">1. Introduction</h2>
+        
+        <h3 id="intro_carac">Caractéristiques générales</h3>
+        
         <p>Date d'apparition du langage : 1990</p>
         
         <p>Créateur : Guido van Rossum (Pays-Bas).</p>
         
         <p>Ceci est un brouillon d’une éventuelle feuille de notes pour Python.</p>
-        
-        <h2 id="bases">2. Sites web</h2>
-        
-        <ul class="normale">
-            <li><a href="https://www.python.org/">Site officiel</a></li>
-            <li><a href="https://pypi.python.org/pypi">PYPI</a> dépôt de bibliothèques Python</a></li>
-            <li><a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">Dépôt non officiel de binaires pour Windows</a></li>
-            <li>Page française de <a href="https://fr.wikipedia.org/wiki/Python_(langage)">Wikipedia</a> sur Python</li>
-        </ul>
-        
-        <h2>2. Introduction à Python</h2>
         
         <ul>
           <li>Typage Fort + Dynamique (duck/latent typing)</li>
@@ -247,36 +267,25 @@
           </li>
         </ul>
   
-        <h2>II. Structures de contrôle en Python</h2>
+        <h3 id="intro_aff">Affichage</h3>
+        
+        <p>Une fonction à connaître en Python est <span class="code function">print</span>. Elle permet d'afficher sur la sortie standard. Ainsi, l'application standard lorsqu'on apprend un nouveau langage de programmation s'écrira :</p>
+        
+        <div class="code">
+<span class="function">print</span>(<span class="string">"Hello, World!"</span>)
+        </div>
+        
+        <h3 id="intro_key">Mots-clés</h3>
+        
+        <h3 id="intro_com">Commentaires</h3>
+        
+        <p>En Python, tout texte situé après un <span class="code comment">#</span> sur une ligne est ignoré jusqu'à la prochaine ligne.</p>
+        
+        <div class="code">
+<span class="function">print</span>(<span class="string">"Hello, World!"</span>) <span class="comment"># Ceci est un commentaire</span>
+        </div>
 
-        <p>Il existe trois structures de contrôle fondamentales : séquence, sélection et itération.</p>
-
-        <p>En Python, l’instruction ‘nulle’ est « pass » et est obligatoire !</p>
-
-        <h3>Conditions</h3>
-
-        <pre class="code">
-<b>if</b> condition :
-  action
-<b>elif</b> condition :
-  action
-<b>else</b> :
-  action
-        </pre>
-
-        <h3>Boucles</h3>
-
-        <pre class="code">
-<b>for</b> var in</b> list :
-  action
-
-<b>while</b> condition :
-  action
-        </pre>
-
-        <p>Et voilà !</p>
-
-        <h2>III. Les littéraux en Python</h2>
+        <h2>2. Types de base</h2>
 
         <h3>1. Scalaires</h3>
 
@@ -321,6 +330,14 @@ hexdigit ::=
 
         </pre>
 
+        <p><span class="notabene" id="formatdecimal"/>Pour contrôler sur combien de position s'affiche un entier décimal, on peut utiliser les puissantes possibilités de formatage de Python. Pour afficher ainsi le chiffre 5 sur 2 positions, en mettant 0 dans les positions inoccupées par le chiffre, il suffira d'écrire :</p>
+        
+        <div class="code">
+<span class="function">print</span>(f<span class="string">"{5:02d}"</span>)
+        </div>
+        
+        <p>Le formatage commence par <span class="code">:</span> puis le 0 indique le caractère à mettre dans les positions inoccupées, le 2 indique le nombre de positions, et enfin <span class="code">d</span> qu'il s'agit d'un affichage décimal.</p>
+        
         <h4>B) Nombres réels</h4>
 
         <p>Les nombres réels n’utilisent que la base décimale, est le « . » pour séparer la partie entière de la décimale. Le « . » est nécessaire, même sans partie décimale, pour différencier un entier ou un flottant. De même la partie entière, si elle est égale à 0, peut être omise. Un exposant peu être spécifié avec la lettre E (indifféremment de la casse).</p>
@@ -377,7 +394,22 @@ literal ::=
                 | floatnumber | imagnumber
 
         </pre>
-
+        
+        <h4>F) Énumérations</h4>
+    
+        <p><span class="notabene" id="enumerations">Il est possible de déclarer des énumérations en Python. Une énumération est un type dont l'ensemble des valeurs possibles est connu.</p>
+        
+        <div class="code">
+<span class="keyword">from</span> enum <span class="keyword">import</span> Enum<br>
+<span class="keyword">class</span> MyEnum(Enum):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;V1 = 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;V2 = 2<br>
+        </div>
+        
+        <p>L'affichage d'une énumération n'est pas simplement sa valeur.</p>
+        <p>Une valeur d'énumération est hashable donc utilisable comme clé dans un dictionnaire.<p>
+        <p>On peut itérer sur les différentes valeurs d'une itération avec un <span class="code keyword">for</span>.
+    
         <h3>Séquences Immutables</h3>
         <ul>
           <li>str   ’Hello’ | « Hello »    immutable séquence de caractère</li>
@@ -398,7 +430,37 @@ literal ::=
           <li>NoneType  None</li>
         </ul>
 
-        <h2>IV. Fonctions</h2>
+        <h2>4. Contrôle du flux</h2>
+
+        <p>Il existe trois structures de contrôle fondamentales : séquence, sélection et répétition, appelée aussi itération.</p>
+
+        <p>En Python, l’instruction ‘nulle’ est « pass » et est obligatoire !</p>
+
+        <h3>Conditions</h3>
+
+        <pre class="code">
+<b>if</b> condition :
+  action
+<b>elif</b> condition :
+  action
+<b>else</b> :
+  action
+        </pre>
+
+        <h3>Boucles</h3>
+
+        <pre class="code">
+<b>for</b> var in</b> list :
+  action
+
+<b>while</b> condition :
+  action
+        </pre>
+
+        <p>Et voilà !</p>
+        
+        <h2>5. Fonctions</h2>
+        
         <pre class="code">
 def Nom ( arg1, arg2, ... ) :
    action
@@ -409,7 +471,7 @@ return var1, var2, ...
       
         <p>Même si il n’y pas d’arguments, les parenthères sont obligatoires, dans la définition et l’appel. (!= Ruby)</p>
 
-        <h2>V. Programmation Objet</h2>
+        <h2>6. Programmation orientée objet</h2>
 
         <p>Classe & objets</p>
         <pre class="code">
@@ -457,7 +519,30 @@ class Pipo(object):
 
         <p>http://docs.python.org/dev/library/abc.html#module-abc</p>
 
-        <h2>VI. Les Modules</h2>
+
+        <h2 id="exceptions">VII. Gestion des exceptions</h2>
+        
+        <h3 id="try">Bloc try / except / else / finally</h3>
+        
+        <div class="code">
+<span class="keyword">try</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;actions<br>
+<span class="keyword">except</span> TypeException1 <span class="keyword">as</span> Identifiant:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;actions<br>
+<span class="keyword">except</span> TypeException2:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;actions<br>
+<span class="keyword">else</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;actions si pas d'exception<br>
+<span class="keyword">finally</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;actions toujours exécutées<br>
+        </div>
+        
+        <p>On peut attraper un type d'exception et mettre l'exception dans une variable avec <span class="code keyword">as</span>.</p>
+        <p><span class="notabene" id="tryelse"/>Le code défini dans <span class="code keyword">else</span> n'est exécuté que s'il n'y a pas eu d'exceptions et qu'il n'y a pas d'instructions comme <span class="code keyword">break</span>, <span class="code keyword">continue</span> ou <span class="code keyword">return</span> dans le code du <span class="code keyword">try</span>. Cela permet de garder le code gérant l'exception dans le bloc <span class="code keyword">except</span> proche de la ligne pouvant lever l'exception.</p>
+        <p>Le code défini dans <span class="code keyword">finally</span> est toujours exécuté, qu'il y ait eu une exception ou non.</p>
+        <p>Un bloc try
+        
+        <h2>8. Modules et organisation du code</h2>
 
         <p>Principes</p>
         <ul>
@@ -466,7 +551,7 @@ class Pipo(object):
           <li>Module csv : traitement de fichiers structurés par séparateurs</li>
         </ul>
 
-        <h2>VII. Python et le Web : Introduction à Zope</h2>
+        <h2>8b. Python et le Web : Introduction à Zope</h2>
         <ul>
           <li>Architecture générale : mécanisme de publication</li>
           <li>Interaction DHTML-Python : Exemples</li>
@@ -475,10 +560,23 @@ class Pipo(object):
 
         <p>Un bon « duck programmer » utilisera hasattr() plutôt que type() ou isinstance()
       http://en.wikipedia.org/wiki/Category:Type_theory</p>
+        
+        <p><span class="notabene" id="tryopenfile"/>La meilleure façon de vérifier qu'un fichier existe au moment de l'ouvrir est de tenter de l'ouvrir dans un bloc try et de guetter l'exception <span class="function">FileNotFound</span>. En effet, tout test d'existence préalable à l'ouverture est insuffisant : entre le test et le moment où on ouvre véritablement le fichier, celui-ci peut avoir été détruit ou déplacé.</p>
+        
+        <h2 id="bases">9. Bibliographie et webographie</h2>
+            
+        <ul class="normale">
+            <li><a href="https://www.python.org/">Site officiel</a></li>
+            <li><a href="https://pypi.python.org/pypi">PYPI</a> dépôt de bibliothèques Python</a></li>
+            <li><a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">Dépôt non officiel de binaires pour Windows</a></li>
+            <li>Page française de <a href="https://fr.wikipedia.org/wiki/Python_(langage)">Wikipedia</a> sur Python</li>
+        </ul>
 
+        <center>Damien Gouteux - 2018</center>
       </div>
     </div>
     
+        
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     

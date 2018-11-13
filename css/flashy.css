@@ -115,15 +115,39 @@ td {
 }
 
 /* span */
+span.notabene:before {
+    content: "☞";
+    margin-right: 6px;
+    color: orange;
+    font-size: 32px;
+}
 
 span.code {
     background-color: #F9F9F9; /* #efefef; */
     border: 1px solid #AAA;
     padding-left: 3px;
-    padding-right: 3px;
+    padding-right: 4px;
     padding-top : 2px;
     padding-bottom : 2px;
     font-family: "Consolas";
+}
+
+span.keyword {
+    font-weight: bold;
+    color: #1479cc;
+}
+
+span.function {
+    color: #7013c6;
+}
+
+span.string {
+    color: #3c891b;
+}
+
+span.comment {
+    color: #ffa500;
+    font-style: italic;
 }
 
 h2 span.titlecode {
