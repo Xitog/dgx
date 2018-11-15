@@ -15,10 +15,10 @@
             color: black;
         }
         table.x col {
-            width: 22%
+            width: 18%
         }
         table.x col:nth-of-type(1) {
-            width: 12%;
+            width: 10%;
         }
         table.x th {
             text-align: center;
@@ -252,6 +252,10 @@
         </ol>
         <p>Mon but est de faire un aide-mémoire pour savoir comment la fonctionnalité X marche avec le langage Y, de repérer les différences de comportement et enfin de produire une syntaxe pour un petit langage personnel.</p>
         <p><u>Attention</u> : parfois, sous une syntaxe proche se cache parfois une gestion ou une conception complètement différente d'une fonctionnalité. Quand c'est le cas, nous essayerons de le préciser brièvement.</p>
+        <p>Sommaire :</p>
+        <ul>
+          <li><a href="#oo">L'orienté objet</a></li>
+        </ul>
         <table class="x">
           <col/>
           <col/>
@@ -721,7 +725,7 @@
             <tr>
               <td>Valeurs<br>considérées<br>comme<br>fausses</td>
               <!-- JavaScript -->
-              <td>0, -0, <b>null</b>, <b>false</b>, <b>NaN</b>, <b>undefined</b> ou ""</td>
+              <td>0, -0, <b>null</b>, <b>false</b>, <b>NaN</b>,<br><b>undefined</b> ou ""</td>
               <!-- Java -->
               <td></td>
               <!-- Python -->
@@ -733,11 +737,11 @@
             </tr>
             <tr class="title2">
               <td class="title2" colspan="6">
-                <strong>Composition</strong>
+                <strong>Tuples</strong>
               </td>
             </tr>
             <tr>
-              <td>Tuples</td>
+              <td>Littéral</td>
               <!-- JavaScript -->
               <td></td>
               <!-- Java -->
@@ -750,7 +754,13 @@
               <!-- Lua -->
               <td></td>
             </tr>
-              <td>Listes</td>
+            <tr class="title2">
+              <td class="title2" colspan="6">
+                <strong>Listes</strong>
+              </td>
+            </tr>
+            <tr>
+              <td>Littéral</td>
               <!-- JavaScript -->
               <td></td>
               <!-- Java -->
@@ -762,22 +772,37 @@
               <!-- Lua -->
               <td>{elem1, elem2, ...}</td>
             </tr>
+            <tr class="title2">
+              <td class="title2" colspan="6">
+                <strong>Dictionnaires</strong>
+              </td>
             </tr>
-              <td>Dictionnaires</td>
+            <tr>
+              <td>Littéral</td>
+              <!-- JavaScript -->
+              <td>{key1: val1, key2: val2, ...}</td>
+              <!-- Java -->
+              <td></td>
+              <!-- Python -->
+              <td>{key1: val1, key2: val2, ...}</td>
+              <!-- Ruby -->
+              <td>{key1 => val1, key2 => val2, ...}</td>
+              <!-- Lua -->
+              <td>{key1 = elem1, key1 = elem2, ...}<br>
+              identifiers are allowed as keys</td>
+            </tr>
+            <tr>
+              <td>Accès</td>
               <!-- JavaScript -->
               <td></td>
               <!-- Java -->
               <td></td>
               <!-- Python -->
-              <td>Littéral : {key1: val1, key2: val2, ...}<br>
-              Accès : id[key]</td>
+              <td>id[key]</td>
               <!-- Ruby -->
-              <td>Littéral : {key1 => val1, key2 => val2, ...}<br>
-              Accès : id[key]</td>
+              <td>id[key]</td>
               <!-- Lua -->
-              <td>Littéral : {key1 = elem1, key1 = elem2, ...}<br>
-              identifiers are allowed as keys<br>
-              Accès : id[key] id.key</td>
+              <td>id[key] ou id.key</td>
             </tr>
             <tr class="title">
               <td class="title" colspan="6">
@@ -789,52 +814,35 @@
               <!-- JavaScript -->
               <td>+ - / * %</td>
               <!-- Java -->
-              <td></td>
-              <!-- Python -->
               <td>+ - / * %</td>
-              <!-- Ruby -->
-              <td>+ - / * %</td>
-              <!-- Lua -->
-              <td>+ - / * %</td>
-            </tr>
-            <tr>
-              <td>Divisions</td>
-              <!-- JavaScript -->
-              <td></td>
-              <!-- Java -->
-              <td></td>
               <!-- Python -->
-              <td>/ : division<br>
-              // : division entière</td>
+              <td>+ - / * %<br>
+                  <u># division entière</u><br>
+                  //<br>
+                  <u># puissance</u><br>
+                  **</td>
               <!-- Ruby -->
-              <td></td>
+              <td>+ - / * %<br>
+                  <u># puissance</u><br>
+                  **</td>
               <!-- Lua -->
-              <td>/ : division<br>
-              <s>math.floor</s>(a / b) : <br>division entière</td>
-            </tr>
-            <tr>
-              <td>Puissance</td>
-              <!-- JavaScript -->
-              <td></td>
-              <!-- Java -->
-              <td></td>
-              <!-- Python -->
-              <td>**</td>
-              <!-- Ruby -->
-              <td></td>
-              <!-- Lua -->
-              <td>^<br><s>math.pow</s>(i, power)</td>
+              <td>+ - / * %<br>
+                  <u>-- division entière</u><br>
+                  <s>math.floor</s>(a / b) ()<br>
+                  <u>-- puissance</u><br>
+                  ^ ou <s>math.pow</s>(i, power)</td>
             </tr>
             <tr>
               <td>Comparaison</td>
               <!-- JavaScript -->
-              <td></td>
+              <td>&lt; &lt;= == != &gt;= &gt;</td>
               <!-- Java -->
-              <td></td>
+              <td>&lt; &lt;= == != &gt;= &gt;</td>
               <!-- Python -->
               <td>&lt; &lt;= == != &gt;= &gt;</td>
               <!-- Ruby -->
-              <td></td>
+              <td>&lt; &lt;= == != &gt;= &gt;<br>
+                  &lt;=&gt; (renvoit 3 valeurs)</td>
               <!-- Lua -->
               <td>&lt; &lt;= == ~= &gt;= &gt;</td>
             </tr>
@@ -847,7 +855,7 @@
               <!-- Python -->
               <td><b>and</b> <b>or</b> <b>not</b></td>
               <!-- Ruby -->
-              <td></td>
+              <td><b>and</b> <b>or</b> <b>not</b></td>
               <!-- Lua -->
               <td><b>and</b> <b>or</b> <b>not</b></td>
             </tr>
@@ -860,9 +868,9 @@
               <!-- Python -->
               <td>=</td>
               <!-- Ruby -->
-              <td></td>
+              <td>=</td>
               <!-- Lua -->
-              <td></td>
+              <td>=</td>
             </tr>
             <tr>
               <td>Affectation combinée</td>
@@ -875,7 +883,7 @@
               <!-- Ruby -->
               <td></td>
               <!-- Lua -->
-              <td></td>
+              <td>non gérée</td>
             </tr>
             <tr>
               <td>Concaténation de chaînes</td>
@@ -911,36 +919,269 @@
             </tr>
             <tr class="title">
               <td class="title" colspan="6">
-                <strong>Orienté objet</strong>
+                <strong id="oo">Orienté objet</strong>
+              </td>
+            </tr>
+            <tr class="title2">
+              <td class="title2" colspan="6">
+                <strong id="class">Classes et instances</strong>
               </td>
             </tr>
             <tr>
               <td>Déclaration</td>
               <!-- JavaScript -->
-              <td></td>
+              <td><b>class</b> ClassName {<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;code<br>
+              }</td>
               <!-- Java -->
-              <td></td>
+              <td><b>class</b> ClassName {<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;code<br>
+              }</td>
               <!-- Python -->
-              <td><b>class</b> <i>name</i>:<br>
+              <td><b>class</b> ClassName:<br>
               &nbsp;&nbsp;&nbsp;&nbsp;code</td>
               <!-- Ruby -->
-              <td></td>
+              <td><b>class</b> ClassName<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;code</br>
+              <b>end</b></td>
               <!-- Lua -->
-              <td></td>
+              <td>non géré</td>
             </tr>
             <tr>
               <td>Héritage</td>
               <!-- JavaScript -->
-              <td></td>
+              <td><b>class</b> ClassName <b>extends</b> SuperClass {<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;code<br>
+              }</td>
               <!-- Java -->
-              <td></td>
+              <td><b>class</b> ClassName <b>extends</b> SuperClass {<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;code<br>
+              }</td>
               <!-- Python -->
-              <td><b>class</b> <i>name</i>(<i>superclass</i>):<br>
+              <td><b>class</b> ClassName(SuperClass):<br>
               &nbsp;&nbsp;&nbsp;&nbsp;code</td>
               <!-- Ruby -->
-              <td></td>
+              <td><b>class</b> ClassName &lt; SuperClass<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;code</br>
+              <b>end</b></td>
               <!-- Lua -->
-              <td></td>
+              <td>non géré</td>
+            </tr>
+            <tr>
+              <td>Constructeur</td>
+              <!-- JavaScript -->
+              <td><s>constructor</s>(params) {<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;code</br>
+                  }</td>
+              <!-- Java -->
+              <td><b>public</b> ClassName(params) {<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;code</br>
+                  }</td>
+              <!-- Python -->
+              <td><b>def</b> <s>__init__</s>(self, params):<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;code</td>
+              <!-- Ruby -->
+              <td><b>def</b> <s>initialize</s>(params):<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;code</td>
+              <!-- Lua -->
+              <td>non géré</td>
+            </tr>
+            <tr>
+              <td>Création d'une instance</td>
+              <!-- JavaScript -->
+              <td>let i = <b>new</b> ClassName(params);</td>
+              <!-- Java -->
+              <td>ClassName i = <b>new</b> ClassName(params);</td>
+              <!-- Python -->
+              <td>i = ClassName(params)</td>
+              <!-- Ruby -->
+              <td>i = ClassName.new(params)</td>
+              <!-- Lua -->
+              <td>non géré</td>
+            </tr>
+            <tr>
+              <td>Test si une instance est de la classe</td>
+              <!-- JavaScript -->
+              <td><b>instanceof</b></td>
+              <!-- Java -->
+              <td><b>instanceof</b></td>
+              <!-- Python -->
+              <td><b>isinstance</b></td>
+              <!-- Ruby -->
+              <td><u># vrai si c'est une instance de la classe ou d'une sous-classe</u><br>
+                  <s>is_a?</s> <s>kind_of?</s><br>
+                  <u># vrai seulement si c'est une instance la classe</u><br>
+                  <s>instance_of?</s></td>
+              <!-- Lua -->
+              <td>non géré</td>
+            </tr>
+            <tr class="title2">
+              <td class="title2" colspan="6">
+                <strong id="method">Attributs</strong>
+              </td>
+            </tr>
+            <tr class="title2">
+              <td class="title2" colspan="6">
+                <strong id="method">Méthodes</strong>
+              </td>
+            </tr>
+            <tr>
+              <td>Définition d'une méthode</td>
+              <!-- JavaScript -->
+              <td>methodName(params) {<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;code</br>
+                  }</td>
+              <!-- Java -->
+              <td>encapuslation methodName(params) {<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;code</br>
+                  }</td>
+              <!-- Python -->
+              <td><b>def</b> method_name(<s>self</s>, params):<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;code</td>
+              <!-- Ruby -->
+              <td><b>def</b> method_name(params)<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;code<br>
+              <b>end</b></td>
+              <!-- Lua -->
+              <td>non géré</td>
+            </tr>
+            <tr>
+              <td>Accès à l'objet courant</td>
+              <!-- JavaScript -->
+              <td><u>// obligatoire</u><br><b>this</b></td>
+              <!-- Java -->
+              <td><u>// implicite</u><br><b>this</b></td>
+              <!-- Python -->
+              <td><u># obligatoire</u><br><u># toujours en 1er paramètre</u><br><s>self</s></td>
+              <!-- Ruby -->
+              <td><u># attribut accessible avec @</u><br><b>self</b></td>
+              <!-- Lua -->
+              <td>non géré</td>
+            </tr>
+            <tr>
+              <td>Appel d'une méthode</td>
+              <!-- JavaScript -->
+              <td>obj.method(params)</td>
+              <!-- Java -->
+              <td>obj.method(params)</td>
+              <!-- Python -->
+              <td>obj.method(params)</td>
+              <!-- Ruby -->
+              <td>obj.method(params)</td>
+              <!-- Lua -->
+              <td>obj:method(params)</td>
+            </tr>
+            <tr>
+              <td>Surcharge d'une méthode<br>(overloading)<br>On peut avoir 2 fonctions avec le même nom et des paramètres différents</td>
+              <!-- JavaScript -->
+              <td>non gérée</td>
+              <!-- Java -->
+              <td>oui</td>
+              <!-- Python -->
+              <td>non gérée</td>
+              <!-- Ruby -->
+              <td>non gérée</td>
+              <!-- Lua -->
+              <td>non gérée</td>
+            </tr>
+            <tr>
+              <td>Redéfinition d'une méthode<br>(overriding)</td>
+              <!-- JavaScript -->
+              <td>directement</td>
+              <!-- Java -->
+              <td>directement, optionnellement :<br>
+              <s>@Override</s><br>
+                 encapuslation methodName(params) {<br>
+                 &nbsp;&nbsp;&nbsp;&nbsp;code</br>
+                 }</td>
+              <!-- Python -->
+              <td>directement</td>
+              <!-- Ruby -->
+              <td>directement</td>
+              <!-- Lua -->
+              <td>non gérée</td>
+            </tr>
+            <tr class="title2">
+              <td class="title2" colspan="6">
+                <strong id="static">Membres statiques</strong>
+              </td>
+            </tr>
+            <tr>
+              <td>Définition d'une méthode<br>statique</td>
+              <!-- JavaScript -->
+              <td><b>static</b> methodName(params) {<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;code</br>
+                  }</td>
+              <!-- Java -->
+              <td><b>static</b> encapuslation methodName(params) {<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;code</br>
+                  }</td>
+              <!-- Python -->
+              <td><s>@staticmethod</s><br><b>def</b> method_name(<s>self</s>, params):<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;code</td>
+              <!-- Ruby -->
+              <td><b>def</b> ClassName.method_name(params)<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;code<br>
+              <b>end</b></td>
+              <!-- Lua -->
+              <td>non géré</td>
+            </tr>
+            <tr class="title2">
+              <td class="title2" colspan="6">
+                <strong id="abstract">Classes et méthodes abstraites</strong>
+              </td>
+            </tr>
+            <tr>
+              <td>Définition d'une classe<br>abstraite</td>
+              <!-- JavaScript -->
+              <td><b>class</b> ClassName {<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<s>constructor</s>(params) {<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>if</b> (<b>this</b>.constructor === ClassName) {<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>throw</b> <b>new</b> <s>TypeError</s>(<i>'Abstract class ClassName cannot be instantiated directly'</i>);<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+              }</td>
+              <!-- Java -->
+              <td><b>abstract</b> <b>class</b> ClassName {<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;code</br>
+                  }</td>
+              <!-- Python -->
+              <td><b>from</b> abc <b>import</b> ABC<br>
+                  <b>class</b> ClassName(ABC):<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;code</td>
+              <!-- Ruby -->
+              <td><b>class</b> ClassName<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<b>def</b> <s>initialize</s><br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>raise</b> <s>NotImplementedError</s>, <i>'Not implemented'</i><br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<b>end</b><br>
+                  <b>end</b></td>
+              <!-- Lua -->
+              <td>non géré</td>
+            </tr>
+            <tr>
+              <td>Définition d'une méthode<br>abstraite</td>
+              <!-- JavaScript -->
+              <td>methodName(params) {<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<b>throw</b> <b>new</b> <s>Error</s>(<i>'Not implemented'</i>);<br>
+              }</td>
+              <!-- Java -->
+              <td><b>abstract</b> encapuslation methodName(params) {<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;code</br>
+                  }</td>
+              <!-- Python -->
+              <td><b>def</b> method_name(<s>self</s>, params):<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<b>raise</b> <s>NotImplementedError</s></td>
+              <!-- Ruby -->
+              <td><b>def</b> method_name(params):<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<b>raise</b> <s>NotImplementedError</s>, <i>'Not implemented'</i><br>
+              <b>end</b></td>
+              <!-- Lua -->
+              <td>non géré</td>
+            </tr>
+            <tr class="title2">
+              <td class="title2" colspan="6">
+                <strong id="reflex">Réflexivité</strong>
+              </td>
             </tr>
             <tr class="title">
               <td class="title" colspan="6">
@@ -976,11 +1217,11 @@
               <!-- Java -->
               <td></td>
               <!-- Python -->
-              <td><u># instance attribute or method:</u><br>
+              <td><u># attribut</u><br>
                 <s>hasattr</s>(obj, <i>'name'</i>)<br>
-                <u># local variable or function:</u><br>
+                <u># variable ou fonction locale</u><br>
                 <i>'name'</i> <b>in</b> <s>locals</s>()<br>
-                <u># global variable or function:</u><br>
+                <u># variable ou fonction globale</u><br>
                 <i>'name'</i> <b>in</b> <s>globals</s>()<br>
               </td>
               <!-- Ruby -->
