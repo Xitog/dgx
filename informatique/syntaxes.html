@@ -243,19 +243,57 @@
         <h1>Comparaison de la syntaxe de plusieurs langages de programmation</h1>
         <p>Cette page est inspirée par la démarche de <a href="http://rigaux.org/language-study/syntax-across-languages.html">Pascal Rigaux</a> qui a produit un document bien plus complet portant sur bien plus de langages. Il existe aussi le site <a href="http://hyperpolyglot.org/">Hyperpolyglot</a> qui compare la syntaxe de différents langages. De mon côté, je vais me concentrer sur les 4 langages que j'utilise le plus souvent :</p>
         <ol>
+          <li>JavaScript</li>
+          <li>Java</li>
           <li>Python</li>
           <li>Ruby</li>
           <li>Lua</li>
-          <li>JavaScript</li>
-          <!--<li>Java</li>
-          <li>C</li>-->
+          <!--<li>C</li>-->
         </ol>
         <p>Mon but est de faire un aide-mémoire pour savoir comment la fonctionnalité X marche avec le langage Y, de repérer les différences de comportement et enfin de produire une syntaxe pour un petit langage personnel.</p>
         <p><u>Attention</u> : parfois, sous une syntaxe proche se cache parfois une gestion ou une conception complètement différente d'une fonctionnalité. Quand c'est le cas, nous essayerons de le préciser brièvement.</p>
         <p>Sommaire :</p>
         <ul>
-          <li><a href="#oo">L'orienté objet</a></li>
+          <li><a href="#gen">Généralités</a></li>
+          <li><a href="#base">Éléments de base</a></li>
+          <li><a href="#flux">Contrôle du flux</a>
+            <ul>
+              <li>Séquence</li>
+              <li>Sélection</li>
+              <li>Répétition</li>
+            </ul>
+          <li><a href="#data">Types de données</a>
+            <ul>
+              <li>Chaînes de caractères</li>
+              <li>Nombres</li>
+              <li>Booléens</li>
+              <li>Tuples</li>
+              <li>Littéral</li>
+              <li>Listes</li>
+              <li>Dictionnaires</li>
+            </ul>
+          </li>
+          <li><a href="#op">Opérateurs</a></li>
+          <li><a href="#sp">Sous-programmes</a></li>
+          <li><a href="#oo">L'orienté objet</a>
+            <ul>
+              <li><a href="#oo_classes">Classes et instances</a></li>
+              <li><a href="#oo_attributes">Attributs</a></li>
+              <li><a href="#oo_methods">Méthodes</a></li>
+              <li><a href="#oo_static">Membres statiques</a></li>
+              <li><a href="#oo_abstract">Classes et méthodes abstraites</a></li>
+              <li><a href="#oo_reflex">Réflexivité</a></li>
+            </ul>
+          <li><a href="#mod">Modules</a></li>
+          <li><a href="#bib">Bibliothèques de base</a></li>
+            <ul>
+              <li>XML</li>
+              <li>JSON</li>
+            </ul>
+          </li>
+          <li><a href="#bibex">Bibliothèques externes</a></li>
         </ul>
+        <br>
         <table class="x">
           <col/>
           <col/>
@@ -268,7 +306,7 @@
           <tbody>
             <tr class="title">
               <td class="title" colspan="6">
-                <strong>Généralités</strong>
+                <strong id="gen">Généralités</strong>
               </td>
             </tr>
             <tr>
@@ -413,7 +451,7 @@
             </tr>
             <tr class="title">
               <td class="title" colspan="6">
-                <strong>Éléments de base</strong>
+                <strong id="base">Éléments de base</strong>
               </td>
             </tr>
             <tr>
@@ -473,6 +511,22 @@
               <td></td>
             </tr>
             <tr>
+              <td>Fonction principale</td>
+              <!-- JavaScript -->
+              <td></td>
+              <!-- Java -->
+              <td><b>public</b> <b>static</b> <b>void</b> main(<s>String</s>[] args) {<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;code<br>
+                  }</td>
+              <!-- Python -->
+              <td><b>if</b> <s>__name__</s> == <i>'__main__'</i>:<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;code</td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td></td>
+            </tr>
+            <tr>
               <td>Quitter programme</td>
               <!-- JavaScript -->
               <td></td>
@@ -487,7 +541,7 @@
             </tr>
             <tr class="title">
               <td class="title" colspan="6">
-                <strong>Contrôle du flux</strong>
+                <strong id="flux">Contrôle du flux</strong>
               </td>
             </tr>
             <tr class="title2">
@@ -691,7 +745,7 @@
             </tr>
             <tr class="title">
               <td class="title" colspan="6">
-                <strong>Types de données</strong>
+                <strong id="data">Types de données</strong>
               </td>
             </tr>
             <tr class="title2">
@@ -806,7 +860,7 @@
             </tr>
             <tr class="title">
               <td class="title" colspan="6">
-                <strong>Opérateurs</strong>
+                <strong id="op">Opérateurs</strong>
               </td>
             </tr>
             <tr>
@@ -900,7 +954,7 @@
             </tr>
             <tr class="title">
               <td class="title" colspan="6">
-                <strong>Sous-programmes</strong>
+                <strong id="sp">Sous-programmes</strong>
               </td>
             </tr>
             <tr>
@@ -924,7 +978,7 @@
             </tr>
             <tr class="title2">
               <td class="title2" colspan="6">
-                <strong id="class">Classes et instances</strong>
+                <strong id="oo_classes">Classes et instances</strong>
               </td>
             </tr>
             <tr>
@@ -968,6 +1022,24 @@
               <td>non géré</td>
             </tr>
             <tr>
+              <td>Encapsulation</td>
+              <!-- JavaScript -->
+              <td></td>
+              <!-- Java -->
+              <td><b>public</b><br>
+                  (rien = niveau package)<br>
+                  <b>protected</b><br>
+                  <b>private</b></td>
+              <!-- Python -->
+              <td>__ <u># au début d'un membre le masque</u></td>
+              <!-- Ruby -->
+              <td><b>public</b><br>
+                  <b>protected</b><br>
+                  <b>private</b></td>
+              <!-- Lua -->
+              <td>non géré</td>
+            </tr>
+            <tr>
               <td>Constructeur</td>
               <!-- JavaScript -->
               <td><s>constructor</s>(params) {<br>
@@ -1000,13 +1072,25 @@
               <td>non géré</td>
             </tr>
             <tr>
-              <td>Test si une instance est de la classe</td>
-              <!-- JavaScript -->
-              <td><b>instanceof</b></td>
+              <td>Tester si a est une instance de A ou une de ses sous-classes</td>
               <!-- Java -->
-              <td><b>instanceof</b></td>
+              <td><u>// test si a est une instance de A ou d'une de ses sous-classes</u><br>
+                  a <b>instanceof</b> A<br>
+                  <u>// test si a est une instance de A uniquement</u><br>
+                  a.getClass() == A.class<br>
+              </td>
+              <!-- JavaScript -->
+              <td><u>// test si a est une instance de A ou d'une de ses sous-classes</u><br>
+                  a <b>instanceof</b> A<br>
+                  <u>// test si a est une instance de A uniquement</u><br>
+                  a.constructor.name === <i>"A"</i><br>
+                  A.prototype.isPrototypeOf(a)<br>
+              </td>
               <!-- Python -->
-              <td><b>isinstance</b></td>
+              <td><u># test si a est une instance de A ou d'une de ses sous-classes</u><br>
+                  <b>isinstance</b>(a, A)<br>
+                  <u># test si a est une instance de A uniquement</u><br>
+                  a.__class__ == A</td>
               <!-- Ruby -->
               <td><u># vrai si c'est une instance de la classe ou d'une sous-classe</u><br>
                   <s>is_a?</s> <s>kind_of?</s><br>
@@ -1015,14 +1099,71 @@
               <!-- Lua -->
               <td>non géré</td>
             </tr>
-            <tr class="title2">
-              <td class="title2" colspan="6">
-                <strong id="method">Attributs</strong>
-              </td>
+            <tr>
+              <td>Copie d'une instance</td>
+              <!-- JavaScript -->
+              <td></td>
+              <!-- Java -->
+              <td><b>public</b> <b>class</b> ClassName <b>implements</b> Cloneable {<br>
+                  }<br>
+                  <br>
+                  <b>try</b> {<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;ClassName i1 = <b>new</b> ClassName();<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;ClassName i2 = (ClassName) i1.clone();<br>
+                  } <b>catch</b> (CloneNotSupportedException cne) {<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;code<br>
+                  }</td>
+              <!-- Python -->
+              <td><u># Copie non profonde</u><br>
+                  <b>from</b> copy <b>import</b> copy, deepcopy<br>
+                  i1 = ClassName()<br>
+                  i2 = copy(i1)<br>
+                  <u># Copie profonde</u><br>
+                  i3 = deepcopy(i1)</td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>Destruction d'une instance</td>
+              <!-- JavaScript -->
+              <td><b>delete</b> a</td>
+              <!-- Java -->
+              <td>ne peut être fait explicitement</td>
+              <!-- Python -->
+              <td><b>del</b> i</td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td></td>
             </tr>
             <tr class="title2">
               <td class="title2" colspan="6">
-                <strong id="method">Méthodes</strong>
+                <strong id="oo_attributes">Attributs</strong>
+              </td>
+            </tr>
+            <tr>
+              <td>Définition</td>
+              <!-- JavaScript -->
+              <td></td>
+              <!-- Java -->
+              <td></td>
+              <!-- Python -->
+              <td><u># Avec les slots, on ne peut pas ajouter ou enlever des attributs des instances</u><br>
+                  <b>class</b> ClassName:<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;__slots__ = (<i>'a'</i>, <i>'b'</i>)<br>
+                  <br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<b>def</b> <s>__init__</s>(<s>self</s>, a, b):<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<s>self</s>.a, <s>self</s>.b = a, b</td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td></td>
+            </tr>
+            <tr class="title2">
+              <td class="title2" colspan="6">
+                <strong id="oo_methods">Méthodes</strong>
               </td>
             </tr>
             <tr>
@@ -1101,9 +1242,66 @@
               <!-- Lua -->
               <td>non gérée</td>
             </tr>
+             <tr>
+              <td>Test si une instance a une méthode</td>
+              <!-- JavaScript -->
+              <td><i>'methodName'</i> <b>in</b> obj && <b>typeof</b> obj.methodName === <i>"function"</i></td>
+              <!-- Java -->
+              <td></td>
+              <!-- Python -->
+              <td><s>hasattr</s>(obj, <i>'method_name'</i>)</td>
+              <!-- Ruby -->
+              <td>obj.respond_to? :fun<br>
+                  obj.respond_to? <i>"fun"</i></td>
+              <!-- Lua -->
+              <td></td>
+            </tr>
+            <tr>
+              <td>Obtenir toutes les méthodes d'une instance</td>
+              <!-- JavaScript -->
+              <td><u>// via la classe de l'instance</u><br>
+                  Object.getOwnPropertyNames(ClassName.prototype)<br>
+                  Object.getOwnPropertyDescriptors(ClassName.prototype)</td>
+              <!-- Java -->
+              <td><u>// via la classe de l'instance</u><br>
+                  <b>import</b> java.lang.reflect.Method;<br>
+                  <b>try</b> {<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;Class cls = Class.forName(<i>"ClassName"</i>);<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;Method m[] = cls.getMethods();<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<b>for</b> (<s>int</s> i = 0; i &lt; m.length; i++) {<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(m[i]);<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                  } <b>catch</b> (ClassNotFoundException cnfe) {<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<i>"Class not found."</i>);<br>
+                  }</td>
+              <!-- Python -->
+              <td><u># via une instance</u><br>
+                  [x <b>for</b> x <b>in</b> <s>dir</s>(ClassName) <b>if</b> <s>callable</s>(<s>getattr</s>(a, x))]</td>
+              <!-- Ruby -->
+              <td><u># via une instance</u><br>
+                  a.methods</td>
+              <!-- Lua -->
+              <td>non géré</td>
+            </tr>
+            <tr>
+              <td>Accès la super méthode</td>
+              <!-- JavaScript -->
+              <td><s>super</s>(params) <u>// pour le parent constructor</u><br>
+                  <s>super</s>.fun(params) <u>// pour une fonction parente</u></td>
+              <!-- Java -->
+              <td><s>super</s>(params) <u>// pour le parent constructor</u><br>
+                  <s>super</s>.fun(params) <u>// pour une fonction parente</u></td>
+              <!-- Python -->
+              <td><u># class de l'objet COURANT (et pas la superclasse)</u><br>
+                  <s>super</s>(ClassName, self).method_name(args)</td>
+              <!-- Ruby -->
+              <td><s>super</s>(params)</td>
+              <!-- Lua -->
+              <td>non géré</td>
+            </tr>
             <tr class="title2">
               <td class="title2" colspan="6">
-                <strong id="static">Membres statiques</strong>
+                <strong id="oo_static">Membres statiques</strong>
               </td>
             </tr>
             <tr>
@@ -1128,7 +1326,7 @@
             </tr>
             <tr class="title2">
               <td class="title2" colspan="6">
-                <strong id="abstract">Classes et méthodes abstraites</strong>
+                <strong id="oo_abstract">Classes et méthodes abstraites</strong>
               </td>
             </tr>
             <tr>
@@ -1169,8 +1367,16 @@
                   &nbsp;&nbsp;&nbsp;&nbsp;code</br>
                   }</td>
               <!-- Python -->
-              <td><b>def</b> method_name(<s>self</s>, params):<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;<b>raise</b> <s>NotImplementedError</s></td>
+              <td>
+                  <u># Façon propre</u><br>
+                  <b>from</b> abc <b>import</b> ABC, abstractmethod<br>
+                  <b>class</b> ClassName(ABC):<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<s>@abstractmethod</s><br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<b>def</b> method_name(<s>self</s>, params):<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;code<br>
+                  <u># Façon pas propre</u><br>
+                  <b>def</b> method_name(<s>self</s>, params):<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<b>raise</b> <s>NotImplementedError</s></td>
               <!-- Ruby -->
               <td><b>def</b> method_name(params):<br>
               &nbsp;&nbsp;&nbsp;&nbsp;<b>raise</b> <s>NotImplementedError</s>, <i>'Not implemented'</i><br>
@@ -1180,12 +1386,12 @@
             </tr>
             <tr class="title2">
               <td class="title2" colspan="6">
-                <strong id="reflex">Réflexivité</strong>
+                <strong id="oo_reflex">Réflexivité</strong>
               </td>
             </tr>
             <tr class="title">
               <td class="title" colspan="6">
-                <strong>Modules</strong>
+                <strong id="mod">Modules</strong>
               </td>
             </tr>
             <tr>
@@ -1207,7 +1413,7 @@
             </tr>
             <tr class="title">
               <td class="title" colspan="6">
-                <strong>Bibliothèques de base</strong>
+                <strong id="bib">Bibliothèques de base</strong>
               </td>
             </tr>
             <tr>
@@ -1377,7 +1583,7 @@
             </tr>
             <tr class="title">
               <td class="title" colspan="6">
-                <strong>Bibliothèques externes</strong>
+                <strong id="bibex">Bibliothèques externes</strong>
               </td>
             </tr>
             <tr>
