@@ -457,30 +457,42 @@
             <tr>
               <td>Commentaire<br>monoligne</td>
               <!-- JavaScript -->
-              <td>// comment</td>
+              <td><u>// comment</u></td>
               <!-- Java -->
-              <td>// comment</td>
               <!-- Python -->
-              <td># comment</td>
+              <td><u># comment</u></td>
               <!-- Ruby -->
-              <td># comment</td>
+              <td><u># comment</u></td>
               <!-- Lua -->
-              <td>-- comment</td>
+              <td><u>-- comment</u></td>
               
             </tr>
             <tr>
               <td>Commentaire<br>multiligne</td>
               <!-- JavaScript -->
-              <td>/*<br>&nbsp;&nbsp;comment<br>*/</td>
+              <td><u>/*<br>&nbsp;&nbsp;comment<br>*/</u></td>
               <!-- Java -->
-              <td>/*<br>&nbsp;&nbsp;comment<br>*/</td>
+              <td><u>/*<br>&nbsp;&nbsp;comment<br>*/</u></td>
               <!-- Python -->
               <td></td>
               <!-- Ruby -->
               <td></td>
               <!-- Lua -->
-              <td>--[[<br>&nbsp;&nbsp;comment<br>]]<br>Tips: use --]] to close to easily switch<br>between commenting/<br>uncommenting.</td>
+              <td><u>--[[<br>&nbsp;&nbsp;comment<br>]]</u><br>Tips: use --]] to close to easily switch<br>between commenting/<br>uncommenting.</td>
             </tr>
+            <tr>
+              <td>Instruction nulle</td>
+              <!-- JavaScript -->
+              <td></td>
+              <!-- Java -->
+              <td></td>
+              <!-- Python -->
+              <td><b>pass</b></td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td></td>
+            </td>
             <tr>
               <td>Bloc</td>
               <!-- JavaScript -->
@@ -550,10 +562,16 @@
               </td>
             </tr>
             <tr>
+              <td>Suite d'instructions</td>
+              <!-- JavaScript -->
               <td></td>
+              <!-- Java -->
               <td></td>
-              <td></td>
-              <td></td>
+              <!-- Python -->
+              <td>retour à la ligne ou ;</td>
+              <!-- Ruby -->
+              <td>retour à la ligne ou ;</td>
+              <!-- Lua -->
               <td></td>
             </tr>
             <tr class="title2">
@@ -1213,6 +1231,22 @@
               <td>obj:method(params)</td>
             </tr>
             <tr>
+              <td>Appel d'une méthode via son nom</td>
+              <!-- JavaScript -->
+              <td>Object.getOwnPropertyDescriptors(ClassName.prototype)[<i>'method'</i>].value(params)</td>
+              <!-- Java -->
+              <td></td>
+              <!-- Python -->
+              <td>getattr(obj, <i>'method'</i>)(params)</td>
+              <!-- Ruby -->
+              <td>obj.send(<i>'method'</i>, params)<br>
+                  <u># Alternativement</u><br>
+                  method_object = obj.method(:length)<br>
+                  method_object.call(params)</td>
+              <!-- Lua -->
+              <td></td>
+            </tr>
+            <tr>
               <td>Surcharge d'une méthode<br>(overloading)<br>On peut avoir 2 fonctions avec le même nom et des paramètres différents</td>
               <!-- JavaScript -->
               <td>non gérée</td>
@@ -1393,6 +1427,21 @@
               <td class="title" colspan="6">
                 <strong id="mod">Modules</strong>
               </td>
+            </tr>
+            <tr>
+              <td>Interfaces</td>
+              <!-- JavaScript -->
+              <td></td>
+              <!-- Java -->
+              <td><b>interface</b> Name {<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;définitions<br>
+                  }</td>
+              <!-- Python -->
+              <td></td>
+              <!-- Ruby -->
+              <td></td>
+              <!-- Lua -->
+              <td></td>
             </tr>
             <tr>
               <td>Imports</td>
