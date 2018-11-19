@@ -10,6 +10,7 @@
     <link href="../css/simplex.bootstrap.css" rel="stylesheet">
     <link href="../css/palatino.css" rel="styleSheet" type="text/css">
     <!--<link rel="stylesheet" type="text/css" href="../css/style2018.css">-->
+    <!-- Created 20 september 2017 -->
   </head>
   <body>
     <div id="main" class="container">
@@ -113,55 +114,148 @@
 
       <div id="content" class="palatino">
         
-  <h1 class="title">Le Raycasting pour FPS en 2.5D</h1>
-  <h1>Sommaire</h1>
-  <ol>
-    <li><a href="#Intro">Introduction</a></li>
-    <li><a href="#Liens">Liens</a></li>
-  </ol>
-  <p>Cette page décrit la technique du raycasting utilisée par les FPS en 2.5D. Retour à l'<a href="../index.html">index</a>.</p>
-  <h1 id="Intro">Introduction</h1>
-  <h1 id="Liens">Liens</h1>
-  <ul>
-    <li>Le <a href="http://www.mobygames.com/game-group/25d-engine-build">BUILD engine</a> par Ken Silverman :
-      <ul>
-        <li>Liens sur le moteur :
-          <ul>
-            <li><a href="http://advsys.net/ken/buildsrc/">Site officiel de Ken sur le Build</a></li>
-            <li><a href="http://advsys.net/ken/buildsrc/build2.htm">Site officiel de Ken sur le Build 2</a></li>
-            <li><a href="https://www.youtube.com/watch?v=VSVzn0F3pyQ">Son histoire par CuteFloor</a></li>
-            <li><a href="https://www.youtube.com/watch?v=3qtmkkdND6M">Vidéo sur Build 2 par CuteFloor</a></li>
-          </ul>
-        </li>
-        <li>Les jeux :
-          <ul>
-            <li><a href="http://www.mobygames.com/game/dos/duke-nukem-3d">Duke Nukem 3D</a>
-              <ul>
-                <li>US, shareware : jan 1996</li>
-                <li>US, registered : may 1996</li>
-                <li>FR, registered : sep 1996</li>
-              </ul>
-            </li>
-            <li>Blood</li>
-            <li>Redneck Rampage</li>
-            <li>Shadow Warrior</li>
-            <li>Powerslave / Exhumed</li>
-            <li>Fate (unreleased)
-              <ul>
-                <li><a href="https://www.youtube.com/watch?v=sUOZwQneA-4">Vidéo de gameplay de la démo</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    <li>Le <a href="http://www.mobygames.com/game-group/3d-engine-wolf3d">Woolf3D Engine</a></li>
-    <li>Prédecesseurs... (Hovertank3D, Catacombs)</li>
-  </ul>
+        <h1 class="title">Raycasting pour FPS en 2.5D</h1>
+        <h1>Sommaire</h1>
+        <ol>
+          <li><a href="#intro">Introduction</a></li>
+          <li><a href="#historique">Historique</a></li>
+          <li><a href="#liens">Liens</a></li>
+        </ol>
+        <p>Cette page décrit la technique du raycasting utilisée par les FPS en 2.5D. Retour à l'<a href="../index.html">index</a>.</p>
         
+        <h1 id="intro">1. Introduction</h2>
+
+        <p>Le <a href="https://en.wikipedia.org/wiki/Ray_casting">raycasting</a> (lancer de rayons) est une technique dans les jeux vidéo pour, à partir d'une carte 2D, afficher en temps réel un environnement qui à l'apparence d'une 3D rudimentaire. On appelle parfois cette technique et ce rendu de la « <a href="https://en.wikipedia.org/wiki/2.5D">2.5D</a> », terme qui regroupe également d'autres techniques de représentation d'un environnement 3D.</p>
+      
+        <h1 id="historique">2. Historique</h1>
+    
+        <p>Le jeu qui a popularisé cette technique est <a href="https://en.wikipedia.org/wiki/Wolfenstein_3D">Wolfenstein 3D</a>, d'id Software, sorti le 5 mai 1992. Le raycasting était une technique bien adaptée à la puissance des machines de l'époque, codée avec brio par <a href="https://en.wikipedia.org/wiki/John_Carmack">John Carmack</a>, et mis au service dans ce jeu d'un gameplay simple et rapide, dans une direction artistique faisant la part belle à la violence (pour l'époque) et aux décorations nazies, les ennemis du jeu.</p>
+    
+        <p>Le moteur qui implémente le raycasting dans Wolfenstein 3D propose néanmoins des fonctionnalités très rudimentaires : le niveau est stocké dans un tableau. Tous les murs ont la même hauteur, ont une longueur qui est toujours un multiple d'une valeur de base, ils se croisent toujours perpendiculairement, le sol et le plafond ne sont pas texturés, la lumière est statique. Le moteur offre néanmoins des murs texturés, des portes, des sprites pour les ennemis, les objets et les lumières statiques.</p>
+    
+        <p>Avant Wolfenstein 3D, John Carmack avait développé en 1991 le moteur de Hovertank 3D pour son précédent employeur, Softdisk. Celui-ci fut amélioré pour Catacomb 3-D en 1991. Un autre développeur, Blue Sky Productions était lui en train de programmer Ultima Underworld: The Stygian Abyss, un autre jeu utilisant le raycasting comme principe.</p>
+    
+        <p>id Software a vendu le moteur de Wolfenstein 3D à différentes équipes de développement, qui en retour l'ont utilisé dans différents jeux, parfois en le changeant profondemment.</p>
+    
+        <p>Avec la sortie du jeu suivant d'id Software, Doom, en XXXX, le moteur de Wolfenstein 3D prend un sérieux coup de vieux. Les derniers feux du raycasting brilleront avec Dark Forces, Duke Nukem 3D, Shadow Warrior et Blood, ces trois derniers utilisant le Build engine comme moteur.</p>
+        
+        <h1 id="liens">3. Liens</h1>
+        
+        <ul>
+          <li>Avant Wolfenstein
+            <ul>
+              <li>Hovertank 3D</li>
+              <li>Catacombs</li>
+            </ul>
+          </li>
+          <li><b>Wolfenstein</b> by John Carmack [<a href="http://www.mobygames.com/game-group/3d-engine-wolf3d">moby</a>]
+            <ul>
+              <li>Wolfenstein 3D</li>
+              <li>Blake Stone: Aliens of Gold [<a href="https://en.wikipedia.org/wiki/Blake_Stone:_Aliens_of_Gold">wiki</a>]  (JAM Productions, 1993)</li>
+              <li>Blake Stone: Planet Strike [<a href="https://en.wikipedia.org/wiki/Blake_Stone:_Planet_Strike">wiki</a>] (JAM Productions, 1994)</li>
+              <li>Corridor 7</li>
+              <li>Operation Body Count</li>
+              <li>Super 3D Noah's Ark</li>
+              <li>Rise of the Triad [<a href="https://en.wikipedia.org/wiki/Rise_of_the_Triad">wiki</a>] (Apogee Software, 1994)</li>
+            </ul>
+          </li>
+          <li><b>Id Tech 1</b> by John Carmack
+            <ul>
+              <li>Doom</li>
+              <li>Doom II</li>
+              <li>Strife</li>
+            </ul>
+          </li>
+          <li><b>Build Engine</b> by Ken Silverman [<a href="http://www.mobygames.com/game-group/25d-engine-build">moby</a>]
+            <ul>
+              <li>Technique
+                <ul>
+                  <li><a href="http://advsys.net/ken/buildsrc/">Site officiel de Ken sur le Build</a></li>
+                  <li><a href="http://advsys.net/ken/buildsrc/build2.htm">Site officiel de Ken sur le Build 2</a></li>
+                  <li><a href="https://www.youtube.com/watch?v=VSVzn0F3pyQ">Son histoire par CuteFloor</a></li>
+                  <li><a href="https://www.youtube.com/watch?v=3qtmkkdND6M">Vidéo sur Build 2 par CuteFloor</a></li>
+                </ul>
+              </li>
+              <li>Jeux
+                <ul>
+                  <li><b>1995</b> TekWar [<a href="https://www.mobygames.com/game/william-shatners-tekwar">moby</a>]
+                  <li><b>1995</b> Witchaven [<a href="https://www.mobygames.com/game/witchaven">moby</a>]
+                  <li><b>1996</b> Duke Nukem 3D [<a href="http://www.mobygames.com/game/dos/duke-nukem-3d">moby</a>]<br>
+                      US shareware : jan 1996, US registered : may 1996, FR, registered : sep 1996</li>
+                  <li><b>1996</b> Witchaven II [<a href="https://www.mobygames.com/game/witchaven-ii-blood-vengeance">moby</a>]</li>
+                  <li><b>1996</b> Powerslave / Exhumed [<a href="https://www.mobygames.com/game/powerslave">moby</a>]</li>
+                  <li><b>1997</b> Blood [<a href="https://www.mobygames.com/game/blood">moby</a>]</li>
+                  <li>Redneck Rampagne</li>
+                  <li><b>1997</b> Shadow Warrior [<a href="https://www.mobygames.com/game/shadow-warrior">moby</a>]</li>
+                  <li>Fate (unreleased)
+                    <ul>
+                      <li><a href="https://www.youtube.com/watch?v=sUOZwQneA-4">Vidéo de gameplay de la démo</a></li>
+                    </ul>
+                  </li>
+                  <li><b>2018</b> Ion Maiden [<a href="https://www.mobygames.com/game/ion-maiden">moby</a>]</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>Autres moteurs
+            <ul>
+              <li>Jedi engine
+                <ul>
+                  <li><b>1995</b> Dark Forces (Jedi engine) [<a href="https://www.mobygames.com/game/star-wars-dark-forces">moby</a>]</li>
+                  <li><b>1997</b> Outlaws (Jedi engine) [<a href="https://www.mobygames.com/game/outlaws">moby</a>]</li>
+                  <li>Ultima Underworld: The Stygian Abyss</li>
+                  <li>Skynet</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        
+            
+        <p>De nombreux sites et vidéos traitent de ce sujet. En particulier, je tiens à remercier Lode Vandevenne pour sa <a href="http://lodev.org/cgtutor/">série d'articles sur le Raycasting</a> et bien sûr les contributeurs anonymes de Wikipédia.</p>
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=-5nhdEDGaws">Vidéo d'un moteur avancé</a> basé sur le tutoriel de Lode Vandevenne qui rajoute des plusieurs niveaux, des murs fins, un ciel panoramique et du brouillard.</li>
+        </ul>
+    
+        <p>Bibliothèques pour programmer des jeux :</p>
+        <ul>
+          <li>C
+            <ul>
+              <li><a href="http://liballeg.org/">Allegro</a></li>
+              <li><a href="https://www.libsdl.org/">SDL 1 et 2</a></li>
+              <li><a href="https://www.sfml-dev.org">SFML</a></li>
+            </ul>
+          </li>
+          <li>Lua
+            <ul>
+              <li>Löve</li>
+            </ul>
+          </li>
+          <li>Python
+            <ul>
+              <li><a href="http://www.pygame.org">Pygame</a></li>
+              <li><a href="https://python-sfml.org/">SFML</a></li>
+            </ul>
+          </li>
+          <li>Ruby
+            <ul>
+              <li>Gosu</li>
+              <li>SFML</li>
+            </ul>
+          </li>
+          <li>Java
+            <ul>
+              <li>libGDX</li>
+            </ul>
+          </li>
+        </ul>
+    
+        <p>Le jeu est <a href="http://3d.wolfenstein.com/game_EU.php">jouable en ligne</a> dans une version codée en JavaScript.</p>
+    
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-  </div>
 
 </body>
 </html>
