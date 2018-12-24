@@ -7,37 +7,33 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Aide-mémoire Python</title>
-    <link rel="icon" href="../img/favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon" />
-    <link href="../css/simplex.bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="../css/flashy.css" rel="styleSheet" type="text/css">
+    <link rel="icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
+    <link href="https://xitog.github.io/dgx/css/simplex.bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="https://xitog.github.io/dgx/css/flashy.css" rel="styleSheet" type="text/css">
     <style type="text/css">
+      p {
+        text-align: justify;
+      }
+      p.info {
+        border: 1px solid #777777;
+        background-color: #ffeaee; //rgb(250, 240, 240);
+        padding-left: 0.7em;
+        padding-right: 0.7em;
+        padding-bottom: 0.7em;
+      }
+      p.subtitle {
+        color: #777777;
+        font-size: 13px;
+        margin-top: 0px;
+      }
+      h3 {
+        color: #9564b3; //#a175bb; //#b897cc; //#dbcae5; //#f4e1ff;
+      }
     </style>
   </head>
  <body>
     <div id="main" class="container">
-
-    <!--<style type="text/css">
-        #container .on  { display: block; }
-        #container .off { display: none; }
-        table.main      { border-width: 0px; border-color: #000000; border-style: solid; margin: auto; }
-        div.main        { font-family: arial;     font-size: 12px; color: gray; }
-        pre             { font-family: monospace; font-size: 12px; color: white; background: #00a0a0; }
-        a.current       { font-family: arial;     font-size: 14px; color: DarkSlateGray; text-decoration: none; font-weight: normal; }
-        a.current:hover { cursor: default; }
-        a.ghost         { font-family: arial;     font-size: 14px; color: DarkSlateGray; text-decoration: none; font-weight: normal; }
-        a.intext        { font-family: arial;     font-size: 12px; color: DarkSlateGray; text-decoration: none; font-weight: normal; }
-        a.ghost:hover   { color: White; text-decoration: underline; background: DarkSlateGray; }
-        a.intext:hover  { color: White; text-decoration: underline; background: DarkSlateGray; }
-        h1              { font-family: arial;     font-size: 16px; color: SeaGreen; }
-		h2              { font-family: arial;     font-size: 14px; color: SeaGreen; }
-        h3              { font-family: arial;     font-size: 14px; color: DarkSlateGray; }
-        h4              { font-family: arial;     font-size: 14px; color: DarkGray; }
-        body            { font-family: arial;     font-size: 14px; color: DarkSlateGray; }
-        table           { border: 1px solid DarkSlateGray;}
-        td, th          { border: 1px solid DarkSlateGray; text-align: center;}
-    </style>-->
-    
       <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -137,6 +133,7 @@
       <div id="content">
       
         <h2 id="sommaire">Sommaire</h2>
+        <p class="subtitle">Guide pour Python 3.x. Dernière modification le 21 décembre 2018. Statut : incomplet.</p>
         <ol class="menu">
           <li><a href="#intro">Introduction</a>
             <ol class="menu">
@@ -148,29 +145,49 @@
           </li>
           <li><a href="#types">Types de base</a>
             <ol class="menu">
-              <li><a href="#typ_int">Entiers</a></li>
-              <li><a href="#typ_float">Réels</a></li>
-              <li><a href="#typ_strings">Chaînes de caractères</a></li>
-              <li><a href="#typ_booleans">Booléens</a></li>
-              <li><a href="#typ_nil">Valeur nil</a></li>
-              <li><a href="#typ_tuple">Tuples</a></li>
-              <li><a href="#typ_list">Listes</a>
-                <ol class="menu">
-                  <li><a href="#typ_list_def">Définition</a></li>
-                  <li><a href="#typ_list_acc">Accès</a></li>
-                  <li><a href="#typ_list_iter">Itération</a></li>
+              <li>Scalaires</a>
+                <ol>
+                  <li><a href="#typ_int">Entiers</a></li>
+                  <li><a href="#typ_float">Nombres réels</a></li>
+                  <li>Nombres complexes</li>
+                  <li><a href="#typ_booleans">Booléens</a></li>
+                  <li>Règles de grammaire associées aux littéraux</li>
+                  <li>Énumérations</li>
                 </ol>
               </li>
-              <li><a href="#typ_dict">Dictionnaires</a>
-                <ol class="menu">
-                  <li><a href="#typ_dict_def">Définition</a></li>
-                  <li><a href="#typ_dict_acc">Accès</a></li>
-                  <li><a href="#typ_dict_iter">Itération</a></li>
+              <li>Séquences Immutables
+                <ol>
+                  <li><a href="#typ_strings">Chaînes de caractères</a></li>
+                  <li><a href="#typ_tuple">Tuples</a></li>
+                  <li>Sets immutables</li>
                 </ol>
               </li>
-              <li><a href="#typ_set">Ensembles</a>
-                <ol class="menu">
-                  <li><a href="#typ_set_def">Définition</a></li>
+              <li>Séquences Mutables
+                <ol>
+                  <li><a href="#typ_list">Listes</a>
+                    <ol class="menu">
+                      <li><a href="#typ_list_def">Définition</a></li>
+                      <li><a href="#typ_list_acc">Accès</a></li>
+                      <li><a href="#typ_list_iter">Itération</a></li>
+                    </ol>
+                  </li>
+                  <li><a href="#typ_dict">Dictionnaires</a>
+                    <ol class="menu">
+                      <li><a href="#typ_dict_def">Définition</a></li>
+                      <li><a href="#typ_dict_acc">Accès</a></li>
+                      <li><a href="#typ_dict_iter">Itération</a></li>
+                    </ol>
+                  </li>
+                  <li><a href="#typ_set">Ensembles</a>
+                    <ol class="menu">
+                      <li><a href="#typ_set_def">Définition</a></li>
+                    </ol>
+                  </li>
+                </ol>
+              </li>
+              <li><a href="#typ_others">Autres</a>
+                <ol>
+                  <li><a href="#typ_others_nil">Type vide</a></li>
                 </ol>
               </li>
             </ol>
@@ -212,7 +229,12 @@
             <ol class="menu">
               <li><a href="#oo_class">Définition de classes</a></li>
               <li><a href="#oo_new">Instanciation d'objets</a></li>
+              <li><a href="#oo_attribute">Attributs</a></li>
+              <li><a href="#oo_method">Méthodes</a></li>
+              <li><a href="#oo_prop">Propriété</a></li>
               <li><a href="#oo_extends">Héritage et polymorphisme</a></li>
+              <li><a href="#oo_abstract">Classe abstraite</a></li>
+              <li><a href="#oo_data">Dataclass</a></li>
             </ol>
           </li>
           <li><a href="#try">Gestion des exceptions</a>
@@ -221,12 +243,15 @@
               <li><a href="#try_raise">Lever une exception</a></li>
             </ol>
           </li>
-          <li><a href="#mod">Modules et organisation du code</a></li>
-          <li><a href="#lib">Bibliothèque de base</a>
+          <li><a href="#mod">Modules</a></li>
+          <li><a href="#lib">Bibliothèque standard</a>
             <ol class="menu">
-              <li><a href="#lib_file">Fichiers</a></li>
+              <li><a href="#lib_files">Gestion des fichiers</a></li>
             </ol>
           </li>
+          <li><a href="#cli">Construire des applications en ligne de commande</a></li>
+          <li><a href="#gui">Construire des applications avec un GUI</a></li>
+          <li><a href="#web">Construire des applications web</a></li>
           <li><a href="#quicktips">Focus sur des points particuliers</a>
             <ol class="menu">
               <li><a href="#formatdecimal">Formatage rapide des décimaux</a></li>
@@ -235,7 +260,7 @@
               <li><a href="#tryopenfile">Essayer d'ouvrir un fichier</a></li>
             </ol>
           </li>
-          <li><a href="#sites">Bibliographie et webographie</a>
+          <li><a href="#liens">Bibliographie et webographie</a>
             <ol class="menu">
               <li><a href="#sit_bib">Bibliothèques</a></li>
               <li><a href="#sit_tools">Outils</a></li>
@@ -253,17 +278,17 @@
         
         <p>Ceci est un brouillon d’une éventuelle feuille de notes pour Python.</p>
         
-        <ul>
+        <ul class="normale">
           <li>Typage Fort + Dynamique (duck/latent typing)</li>
           <li>Interprété, Cross-platform</li>
           <li>Implémentations : CPython (C), Jython (JVM), IronPython (.Net), PyPy (Python)</li>
           <li>Sous-langages   :
             <ul>
-		      <li>Stackless Python (sans pile C)</li>
-		      <li>RPython (sous ensemble de Python compilé pour PyPy)</li>
-		      <li>Pyrex[->Cython] (type C + Python)</li>
-		      <li>Extensions : .py, .pyc (bytecode), .pyx (Pyrex)</li>
-	        </ul>
+              <li>Stackless Python (sans pile C)</li>
+              <li>RPython (sous ensemble de Python compilé pour PyPy)</li>
+              <li>Pyrex[->Cython] (type C + Python)</li>
+              <li>Extensions : .py, .pyc (bytecode), .pyx (Pyrex)</li>
+            </ul>
           </li>
         </ul>
   
@@ -330,7 +355,7 @@ hexdigit ::=
 
         </pre>
 
-        <p><span class="notabene" id="formatdecimal"/>Pour contrôler sur combien de position s'affiche un entier décimal, on peut utiliser les puissantes possibilités de formatage de Python. Pour afficher ainsi le chiffre 5 sur 2 positions, en mettant 0 dans les positions inoccupées par le chiffre, il suffira d'écrire :</p>
+        <p class="info"><span class="notabene" id="formatdecimal"/>Pour contrôler sur combien de position s'affiche un entier décimal, on peut utiliser les puissantes possibilités de formatage de Python. Pour afficher ainsi le chiffre 5 sur 2 positions, en mettant 0 dans les positions inoccupées par le chiffre, il suffira d'écrire :</p>
         
         <div class="code">
 <span class="function">print</span>(f<span class="string">"{5:02d}"</span>)
@@ -397,7 +422,7 @@ literal ::=
         
         <h4>F) Énumérations</h4>
     
-        <p><span class="notabene" id="enumerations">Il est possible de déclarer des énumérations en Python. Une énumération est un type dont l'ensemble des valeurs possibles est connu.</p>
+        <p class="info"><span class="notabene" id="enumerations">Il est possible de déclarer des énumérations en Python. Une énumération est un type dont l'ensemble des valeurs possibles est connu.</p>
         
         <div class="code">
 <span class="keyword">from</span> enum <span class="keyword">import</span> Enum<br>
@@ -411,7 +436,7 @@ literal ::=
         <p>On peut itérer sur les différentes valeurs d'une itération avec un <span class="code keyword">for</span>.
     
         <h3>Séquences Immutables</h3>
-        <ul>
+        <ul class="normale">
           <li>str   ’Hello’ | « Hello »    immutable séquence de caractère</li>
           <li>unicode  u’Hello’ | u »Hello »    immutable séquence de caractère</li>
           <li>tuple  (4.0, ‘a’, ‘b’) | (3,)   immutable, on peut mixé les types</li>
@@ -419,24 +444,40 @@ literal ::=
         </ul>
 
         <h3>Séquences Mutables</h3>
-        <ul>
+        <ul class="normale">
           <li>list  [1, 'a', True]     mutable, on peut mixer les types</li>
           <li>dict  {‘key1' : 1.0, ‘key2' : False} paire clé / valeur</li>
           <li>set   set([4.0, 'a', True])   mutable, sans ordre, sans doublon</li>
         </ul>
 
-        <h3>Autres</h3>
+        <h3 id="typ_others">Autres</h3>
+        
+        <h4 id="typ_others_nil">Type vide</h4>
+        
         <ul>
           <li>NoneType  None</li>
         </ul>
+        
+        <h2 id="operators">3. Opérateurs</h2>
+        
+        <h3 id="op_bin">3.1 Opérateurs binaires</h3>
+        <h4 id="op_bin_ari">3.1.1 Opérateurs arithmétiques</h4>
+        <h4 id="op_bin_cmp">3.1.2 Opérateurs de comparaisons</h4>
+        <h4 id="op_bin_boo">3.1.3 Opérateurs booléens</h4>
+        <h4 id="op_bin_oth">3.1.4 Autres opérateurs</h4>
+        <h3 id="op_una">3.2 Opérateurs unaires</h3>
+        <h4 id="op_una_ari">3.2.1 Opérateurs arithmétiques</h4>
+        <h4 id="op_una_boo">3.2.2 Opérateurs booléens</h4>
 
-        <h2>4. Contrôle du flux</h2>
+        <h2 id="flux">4. Contrôle du flux</h2>
 
         <p>Il existe trois structures de contrôle fondamentales : séquence, sélection et répétition, appelée aussi itération.</p>
 
         <p>En Python, l’instruction ‘nulle’ est « pass » et est obligatoire !</p>
 
-        <h3>Conditions</h3>
+        <h3 id="flux_seq">4.1 Séquence</h3>
+        
+        <h3 id="flux_cond">4.2 Condition</h3>
 
         <pre class="code">
 <b>if</b> condition :
@@ -447,7 +488,7 @@ literal ::=
   action
         </pre>
 
-        <h3>Boucles</h3>
+        <h3 id="flux_loop">4.3 Répétition</h3>
 
         <pre class="code">
 <b>for</b> var in</b> list :
@@ -471,29 +512,34 @@ return var1, var2, ...
       
         <p>Même si il n’y pas d’arguments, les parenthères sont obligatoires, dans la définition et l’appel. (!= Ruby)</p>
 
-        <h2>6. Programmation orientée objet</h2>
+        <h2 id="oo">6. Programmation orientée objet</h2>
 
-        <p>Classe & objets</p>
+        <h3 id="oo_class">Définition de classes</h3>
+        <h3 id="oo_new">Instanciation d'objets</h3>
+        <h3 id="oo_attribute">Attributs</h3>
+        <h3 id="oo_method">Méthodes</h3>
+        
+        <p>Classe et objets</p>
         <pre class="code">
 class Nom(ClasseMère) :
  action
         </pre>
 
-        <p>Méthodes & instances</p>
-        <ul>
+        <p>Méthodes et instances</p>
+        <ul class="normale">
           <li>Encapsulation</li>
           <li>Polymorphisme</li>
           <li>Héritage simple</li>
           <li>Héritage multiple</li>
         </ul>
 
-        <p>Propriétés</p>
+        <h3 id="oo_prop">Propriété</h3>
         <p>http://adam.gomaa.us/blog/2008/aug/11/the-python-property-builtin/</p>
 
         <p>On peut faire des properties en Python, à la manière de Ruby :</p>
         <pre class="code">
 class Pipo(object):
-	...
+    ...
     myProp = property(getter, setter, deleter, doc)
         </pre>
 
@@ -514,13 +560,16 @@ class Pipo(object):
               del self.last_name
           return locals()
         </pre>
-
-        <p>Abstract</p>
+        
+        <h3 id="oo_extends">Héritage et polymorphisme</h3>
+        
+        <h3 id="oo_abstract">Classe abstraite</h3>
 
         <p>http://docs.python.org/dev/library/abc.html#module-abc</p>
-
-
-        <h2 id="exceptions">VII. Gestion des exceptions</h2>
+        
+        <h3 id="oo_data">Dataclass</h3>
+        
+        <h2 id="exceptions">7. Gestion des exceptions</h2>
         
         <h3 id="try">Bloc try / except / else / finally</h3>
         
@@ -538,38 +587,84 @@ class Pipo(object):
         </div>
         
         <p>On peut attraper un type d'exception et mettre l'exception dans une variable avec <span class="code keyword">as</span>.</p>
-        <p><span class="notabene" id="tryelse"/>Le code défini dans <span class="code keyword">else</span> n'est exécuté que s'il n'y a pas eu d'exceptions et qu'il n'y a pas d'instructions comme <span class="code keyword">break</span>, <span class="code keyword">continue</span> ou <span class="code keyword">return</span> dans le code du <span class="code keyword">try</span>. Cela permet de garder le code gérant l'exception dans le bloc <span class="code keyword">except</span> proche de la ligne pouvant lever l'exception.</p>
+        <p class="info"><span class="notabene" id="tryelse"/>Le code défini dans <span class="code keyword">else</span> n'est exécuté que s'il n'y a pas eu d'exceptions et qu'il n'y a pas d'instructions comme <span class="code keyword">break</span>, <span class="code keyword">continue</span> ou <span class="code keyword">return</span> dans le code du <span class="code keyword">try</span>. Cela permet de garder le code gérant l'exception dans le bloc <span class="code keyword">except</span> proche de la ligne pouvant lever l'exception.</p>
         <p>Le code défini dans <span class="code keyword">finally</span> est toujours exécuté, qu'il y ait eu une exception ou non.</p>
         <p>Un bloc try
         
-        <h2>8. Modules et organisation du code</h2>
+        <h2 id="mod">8. Modules</h2>
 
         <p>Principes</p>
-        <ul>
+        <ul class="normale">
           <li>Module re : expressions régulières</li>
           <li>Module os,sys : services du systèmes d’exploitation</li>
           <li>Module csv : traitement de fichiers structurés par séparateurs</li>
         </ul>
-
-        <h2>8b. Python et le Web : Introduction à Zope</h2>
-        <ul>
+        <p>et organisation du code</p>
+        
+        <h2 id="lib">9. Bibliothèque standard</h2>
+        
+        <h3 id="lib_files">9.1 Gestion des fichiers</h3>
+        
+        <p class="info"><span class="notabene" id="tryopenfile"/>La meilleure façon de vérifier qu'un fichier existe au moment de l'ouvrir est de tenter de l'ouvrir dans un bloc try et de guetter l'exception <span class="function">FileNotFound</span>. En effet, tout test d'existence préalable à l'ouverture est insuffisant : entre le test et le moment où on ouvre véritablement le fichier, celui-ci peut avoir été détruit ou déplacé.</p>
+        
+        <p><a href="https://docs.python.org/3/library/difflib.html">Difflib</a> pour comparer des séquences, par exemple des mots, et proposer des séquences proches.</p>
+        
+        <h2 id="cli">10. Construire des applications en ligne de commande</h2>
+        
+        <p>Une application en ligne de commande se lance depuis un terminal. Elle prend en entrée des paramètres et des options. Elle doit prendre en compte l'absence de paramètres, un mauvais paramètre ou une mauvaise valeur d'option. Pour les gérer, il y a plusieurs façons :</p>
+        <ul class="normale">
+          <li>En gérant directement sys.argv,</li>
+          <li>En utilisant le module <a href="https://docs.python.org/2/library/optparse.html">optparse</a> de la bibliothèque standard mais cette solution est obsolète depuis la version 2.7,</li>En utilisant <a href="https://docs.python.org/3/library/getopt.html">getopt</a> de la bibliothèque standard qui imite la fonction C getopt(), assez verbeuse,</li>
+          <li>En utilisant le module <a href="https://docs.python.org/3/library/argparse.html">argparse</a> de la bibliothèque standard recommandé pour cette tâche,</li>
+          <li>En utilisant le module <a href="http://docopt.org/">docopt</a> qui utilise une chaîne pour décrire les options et gère le reste automatiquement,</li>
+          <li>En utilisant le module <a href="https://click.palletsprojects.com/en/7.x/">click</a> qui utilise une myriade de décorateurs.</li>
+        </ul>
+        <p>Docopt, en se basant sur un simple texte dans le microlangage du même nom, est très amusant à utiliser. Click permet d'aller beaucoup plus loin pour des interfaces très complexes. Enfin, argparse est le module recommandé livré de base avec la bibliothèque standard.</p>
+        
+        <p>Enfin, un module sympathique qui permet d'ajouter très facilement une barre de progression, <a href="https://pypi.org/project/tqdm/">tqdm</a>, et autre pour avoir de la couleur dans la console windows, <a href="https://pypi.org/project/colorama/">colorama</a>.</p>
+        
+        <h2 id="gui">11. Construire des applications avec un GUI</h2>
+        
+        <p>Pour développer rapidement une application avec une interface utilisateur graphique pour les systèmes d'exploitation classiques, on peut utiliser :</p>
+        <ul class="normale">
+          <li><a href="https://www.qt.io/qt-for-python">Qt for Python (PySide2),</a></li>
+          <lI><a href="http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/index.html">Tkinter</a> (<a href="http://tkinter.fdex.eu/">doc en français</a>), livré avec la bibliothèque standard,</li>
+        </ul>
+        
+        <h2 id="web">12. Construire des applications web</h2>
+        
+        <p>Pour développer rapidement une application web, trois cadriciels se distinguent :</p>
+        <ul class="normale">
+          <li><a href="https://bottlepy.org/docs/dev/">Bottle.py</a>, le plus simple, il tient en un seul fichier,</li>
+          <li><a href="http://flask.pocoo.org/">Flask</a>, un peu plus complexe, mais reste simple,</li>
+          <li><a href="https://www.djangoproject.com/">Django</a>, le plus complet et complexe.</li>
+        </ul>
+        
+        <p>Pour du templating de page web : <a href="http://jinja.pocoo.org/docs/2.10/">Jinja2</a>.</p>
+        
+        <p>Pour gérer les requêtes, on peut citer l'excellente bibliothèque <a href="http://docs.python-requests.org/en/master/">Requests</a>.</p>
+        
+        <p>Pour parcourir du HTML, <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">BeautifulSoup</a> est excellent.</p>
+        
+        <ul class="normale">
           <li>Architecture générale : mécanisme de publication</li>
           <li>Interaction DHTML-Python : Exemples</li>
           <li>Notes diverses</li>
         </ul>
 
+        <p>8b. Python et le Web : Introduction à Zope</p>
+        
         <p>Un bon « duck programmer » utilisera hasattr() plutôt que type() ou isinstance()
       http://en.wikipedia.org/wiki/Category:Type_theory</p>
         
-        <p><span class="notabene" id="tryopenfile"/>La meilleure façon de vérifier qu'un fichier existe au moment de l'ouvrir est de tenter de l'ouvrir dans un bloc try et de guetter l'exception <span class="function">FileNotFound</span>. En effet, tout test d'existence préalable à l'ouverture est insuffisant : entre le test et le moment où on ouvre véritablement le fichier, celui-ci peut avoir été détruit ou déplacé.</p>
-        
-        <h2 id="bases">9. Bibliographie et webographie</h2>
+        <h2 id="liens">9. Bibliographie et webographie</h2>
             
         <ul class="normale">
             <li><a href="https://www.python.org/">Site officiel</a></li>
             <li><a href="https://pypi.python.org/pypi">PYPI</a> dépôt de bibliothèques Python</a></li>
             <li><a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">Dépôt non officiel de binaires pour Windows</a></li>
             <li>Page française de <a href="https://fr.wikipedia.org/wiki/Python_(langage)">Wikipedia</a> sur Python</li>
+            <li><a href="https://realpython.com">Real Python</a>, excellent site abordant en profondeur ses sujets pour débuter ou renforcer ses connaissances</li>
         </ul>
 
         <center>Damien Gouteux - 2018</center>
