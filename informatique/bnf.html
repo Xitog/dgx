@@ -1,0 +1,312 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BNF et EBNF</title>
+    <link rel="icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
+    <link href="https://xitog.github.io/dgx/css/simplex.bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      span.code {
+        font-family: Courier New;
+        border: 1px solid grey;
+        background-color: #EFEFEF;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main" class="container">
+    
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+             <a class="navbar-brand" href="#">Menu</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li id="Accueil"><a href="../index.html">Accueil</a></li>
+              <li id="Blog"><a href="blog.html">Blog</a></li>
+              <li class="dropdown">
+                <a id="Langues" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Langues <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                <li class="dropdown-header">Français</li>
+                  <li><a href="./francais/fiche_api_fr.html">Fiche sur les phonèmes du français</a></li>
+                  <li><a href="./francais/outil_stats_fr.html">Outil d'analyse textuelle</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Italien</li>
+                  <li><a href="./italien/beatrice.html">Beatrice : grammaire</a></li>
+                  <li><a href="./italien/jeu_conjugaison.html">Jeu sur la conjugaison</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Anglais</li>
+                  <li><a href="./anglais/jeu_vocabulaire.html">Jeu sur le vocabulaire</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Linguistique</li>
+                  <li><a href="./linguistique/informations.html">Informations générales</a></li>
+                </ul>
+              </li>
+              <li class="dropdown-toggle" class="active">
+                <a id="Informatique" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Informatique <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Programmation</li>
+                  <li><a href="./informatique/syntaxes.html">Syntaxes comparées</a></li>
+                  <li><a href="./informatique/python.html">Aide-mémoire Python</a></li>
+                  <li><a href="./informatique/ruby.html">Aide-mémoire Ruby</a></li>
+                  <li><a href="./informatique/lua.html">Aide-mémoire Lua</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Modélisation</li>
+                  <li><a href="./informatique/bnf.html" class="active">Aide-mémoire BNF et EBNF</a></li>
+                  <li><a href="./informatique/json.html">Aide-mémoire JSON</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Autres</li>
+                  <li><a href="./informatique/outils.html">Logiciels utiles</a></li>
+                  <li><a href="./data/outil_collections.html#langages">Liste de langages</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Histoire" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Histoire <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Méthode</li>
+                  <li><a href="./histoire/methode.html">Généralités</a></li>
+                  <li><a href="./histoire/bibliographie.html">Bibliographie</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Aide-mémoires</li>
+                  <li><a href="./histoire/france19eme.html">France au XIXe</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Jeux" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Jeux <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Jeux de rôles</i></li>
+                  <li><a href="./jeux/systeme_rpg_un.html">Essai de système</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Livres dont VOUS êtes le héros</li>
+                  <li><a href="./jeux/compagnon_talisman.html">Le Compagnon du Talisman</a></li>
+                  <li><a href="./jeux/compagnon_sorcier.html">Le Compagnon du Sorcier</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Jeux vidéo</li>
+                  <li><a href="./jeux/rts.html">Les enfants de Dune : les RTS</a></li>
+                  <li><a href="./jeux/raycasting.html">Le raycasting : la 2.5D</a></li>
+                  <li><a href="./jeux/play_rts.html">Jouer à mon RTS</a></li>
+                  <li><a href="./jeux/play_fps.html">Jouer à mon FPS</a></li>
+                  <li><a href="./data/outil_collections.html#jv">Jeux vidéo favoris</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Autres" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Autres <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Musique</li>
+                  <li><a href="./concerts_classiques/index.html">Concerts classiques</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Collections</li>
+                  <li><a href="./data/outil_collections.html#prenoms">Prénoms</a></li>
+                  <li><a href="./data/outil_collections.html#livres">Livres lus</a></li>
+                  <li><a href="./data/outil_collections.html#favoris_artistiques">Favoris artistiques</a></li>
+                  <li><a href="./liens.html">Liens rapides</a></li>
+                  <li><a href="./liste_liens.html">Tous les liens</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+    
+      <div class="jumbotron">
+        <h1 id="titreHaut">Modèles et Langages</h1>
+        <hr>
+      </div>
+      
+      <div id="pageContent">
+        <div align="center" width="100%">
+          <table>
+            <tr><td><b>Données</b></td><td>&#8592;représente&#8592;</td><td><b>Modèle</b></td><td>&#8592;respecte&#8592;</td><td rowspan="3"><b>Métamodèle</b><br>Grammaire</td></tr>
+            <tr><td>       </td><td>                        </td><td>&#8595;utilise&#8595;</td><td></td><td></td></tr>
+            <tr><td>       </td><td>                        </td><td><b>Langage</b></td><td>&#8592;décrit&#8592;</td><td></td></tr>
+            <tr><td>       </td><td>                        </td><td>       </td><td>                    </td><td>&#8595;utilise&#8595;</td></tr>
+            <tr><td>       </td><td>                        </td><td>       </td><td>                    </td><td><b>Métalangage</b></td></tr>
+          </table>
+        </div>
+        <ul>
+          <li>Des <b>données</b> sont <b>écrites|exprimées|modélisées|représentées</b> dans un <b>langage</b> par un <b>modèle</b>.</li>
+          <li>Un langage <b>obéit à|respectent</b> des <b>règles</b>, sa <b>grammaire</b>, aussi appelée <b>métamodèle</b>.</li>
+          <li>On dit qu'une grammaire|un métamodèle <b>décrit</b> un langage, l'ensemble des possiblités correctes.</li>
+          <li>On peut <b>tester|vérifier</b> si <b>un modèle</b> <b>obéit aux|respectent</b> les règles :
+            <ul>
+              <li>Si oui, le modèle est <b>grammatical (correct)</b>, ex : <i>Les chats sont beaux.</i></li>
+              <li>Si non, le modèle est <b>agrammatical (incorrect)</b>, ex : <i><span style="color: red">l</span>es chat<span style="color: red">_</span> <span style="color: red">est</span> beaux.</i></li>
+            </ul>
+          </li>
+          <li>La grammaire|les règles sont elles-mêmes des données écrites|exprimées|modélisées|représentées dans un langage par un modèle.</li>
+          <li>On appelle ce langage un <b>métalangage</b>.</li>
+          <li>Un métalangage est décrit par un métamétamodèle que respecte le métamodèle... On pourrait boucleer à l'infini.</li>
+          <li>Mais généralement le métamodèle et le métalangage sont <b>réflexifs</b> : le métalangage est décrit par le métamodèle, sans ajouter un niveau supplémentaire.</li>
+          <li>La notation <b>Backus-Naur Form (BNF)</b> est métalangage.
+            <ul>
+              <li>Elle utilise deux types de symboles : les <span class="code">terminaux</span> et les <span class="code">non-terminaux</span>.</li>
+              <li>Les terminaux sont un ou plusieurs caractères entre guillemets doubles <span class="code"><b>"</b></span> ou simples <span class="code"><b>'</b></span></li>
+              <li>La chaîne vide est symbolisée par <span class="code"><b>""</b></span> ou  <span class="code"><b>''</b></span></li>
+              <li>Elle est constituée de règles notées : <span class="code">&lt;non-terminal&gt; ::= expansion</span></li>
+              <li>Il doit y avoir <b>une règle par ligne</b>.</li>
+              <li>Une expansion est consituée de terminaux et non-terminaux arrangée en :
+                <ul>
+                  <li><b>suite</b> par simple juxtaposition. Ex : <span class="code">"abc" "def"</span></li>
+                  <li><b>choix</b> avec le symbole <span class="code"><b>|</b></span>. Ex : <span class="code">"abc" | "def"</span></li>
+                </ul>
+              </li>
+              <li>La suite est <b>prioraire</b> par rapport à au choix. Ex : <span class="code">"abc" "def" | "ghi"</span> doit se lire :
+                <ul>
+                  <li>SOIT "abc" suivi obligatoirement de "def"</li>
+                  <li>SOIT "ghi"</li>
+                </ul>
+              </li>
+              <li>Et non "abc" suivi de ("def" OU "ghi").</li>
+              <li>Il n'y a pas de moyen de <b>modifier la prioriété</b> en BNF, il faut passer par une règle car l'expansion est moins prioritaire que le choix.</li>
+              <li>Ainsi pour représenter "abc" suivi de ("def" OUI "ghi") :<br>
+                <span class="code">&lt;règle1&gt; ::= "abc" &lt;règle2&gt;</span><br>
+                <span class="code">&lt;règle2&gt; ::= "def" | "ghi"</span>
+              </li>
+              <li>L'expression d'une possible <b>répétition</b> se fait en combinant la suite, le choix et une définition <b>récursive</b> comme dans : <span class="code">&lt;suite&gt; ::= &lt;item&gt; | &lt;item&gt; &lt;suite&gt;</span></li>
+              <li>On peut décrire BNF en BNF (réflexivitié) :
+                <table>
+                  <tr>
+                    <td><span class="code">&lt;syntaxe&gt;</span></td>
+                    <td><span class="code">::=</span></td>
+                    <td><span class="code">&lt;règle&gt; | &lt;règle syntaxe&gt;</span></td>
+                    <td>Une syntaxe correcte contient au moins une règle</td>
+                  </tr>
+                  <tr>
+                    <td><span class="code">&lt;règle&gt;</span></td>
+                    <td><span class="code">::=</span></td>
+                    <td><span class="code">"&lt;"&lt;nom&gt;"&gt;" "::=" &lt;expansion&gt; "\n"</span></td>
+                    <td>Définition d'une règle par ligne</td>
+                  </tr>
+            
+                  <tr>
+                    <td><span class="code">&lt;nom&gt;</span></td>
+                    <td><span class="code">::=</span></td>
+                    <td><span class="code">&lt;lettre&gt; | &lt;nom&gt; &lt;lettreplus&gt;</span></td>
+                    <td>Définition d'un nom de non-terminal</td>
+                  </tr>
+                  <tr>
+                    <td><span class="code">&lt;lettre&gt;</span></td>
+                    <td><span class="code">::=</span></td>
+                    <td><span class="code">"a" | "b" ...</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><span class="code">&lt;lettreplus&gt;</span></td>
+                    <td><span class="code">::=</span></td>
+                    <td><span class="code">&lt;lettre&gt; | &lt;digit&gt; | "-"</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><span class="code">&lt;digit&gt;</span></td>
+                    <td><span class="code">::=</span></td>
+                    <td><span class="code">"0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"</span></td>
+                    <td></td>
+                  </tr>
+            
+                  <tr>
+                    <td><span class="code">&lt;expansion&gt;</span></td>
+                    <td><span class="code">::=</span></td>
+                    <td><span class="code">&lt;suite&gt; | &lt;suite&gt; "|" &lt;expansion&gt;</span></td>
+                    <td>Suite ou choix</td>
+                  </tr>
+                  <tr>
+                    <td><span class="code">&lt;suite&gt;</span></td>
+                    <td><span class="code">::=</span></td>
+                    <td><span class="code">&lt;symbole&gt; | &lt;symbole&gt; &lt;suite&gt;</span></td>
+                    <td>Suite</td>
+                  </tr>
+                  <tr>
+                    <td><span class="code">&lt;symbole&gt;</span></td>
+                    <td><span class="code">::=</span></td>
+                    <td><span class="code">&lt;terminal&gt; | &lt;non-terminal&gt;</span></td>
+                  </tr>
+            
+                  <tr>
+                    <td><span class="code">&lt;non-terminal&gt;</span></td>
+                    <td><span class="code">::=</span></td>
+                    <td><span class="code">"&lt;"nom"&gt;"</span></td>
+                    <td>Symbole non-terminal</td>
+                  </tr>
+            
+                  <tr>
+                    <td><span class="code">&lt;terminal&gt;</span></td>
+                    <td><span class="code">::=</span></td>
+                    <td><span class="code">'"'&lt;texteDouble&gt;'"' | '"'&lt;texteSimple&gt;'"' </span></td>
+                    <td>Symbole terminal</td>
+                  </tr>
+            
+                  <tr>
+                    <td><span class="code">&lt;texteDouble&gt;</span></td>
+                    <td><span class="code">::=</span></td>
+                    <td><span class="code">"" | &lt;caractèreTexteDouble&gt; &lt;texte&gt;</span></td>
+                    <td></td>
+                  </tr>
+            
+                  <tr>
+                    <td><span class="code">&lt;caractèreTexteDouble&gt;</span></td>
+                    <td><span class="code">::=</span></td>
+                    <td><span class="code">&lt;lettre&gt; | &lt;digit&gt; | &lt;autres&gt; | "'"</span></td>
+                    <td></td>
+                  </tr>
+            
+                  <tr>
+                    <td><span class="code">&lt;texteSimple&gt;</span></td>
+                    <td><span class="code">::=</span></td>
+                    <td><span class="code">"" | &lt;caractèreTexteSimple&gt; &lt;texte&gt;</span></td>
+                    <td>Il peut y avoir ' dedans car délimité par "</td>
+                  </tr>
+            
+                  <tr>
+                    <td><span class="code">&lt;caractèreTexteSimple&gt;</span></td>
+                    <td><span class="code">::=</span></td>
+                    <td><span class="code">&lt;lettre&gt; | &lt;digit&gt; | &lt;autres&gt; | '"'</span></td>
+                    <td>Il peut y avoir " dedans car délimité par '</td>
+                  </tr>
+            
+                  <tr>
+                    <td><span class="code">&lt;autres&gt;</span></td>
+                    <td><span class="code">::=</span></td>
+                    <td><span class="code">"-" | "_" | ...</span></td>
+                    <td></td>
+                  </tr>
+                </table>
+                Pour simplifier, on a pas offert la possibilité d'avoir des lignes vides ni de mettre des espaces.
+              </li>
+            </ul>
+          </li>
+          <li>La notation <b>Extended Backus-Naur Form (EBNF)</b> étend la BNF en y ajoutant la <b>répétition</b>. Ils existent plusieurs variantes.</li>
+          <li>Dans la variante définie par l'ISO, les changements sont :
+            <ul>
+              <li>Le symbole <span class="code">::=</span> est remplacé par <span class="code">=</span></li>
+              <li>Une règle doit être terminée par un <span class="code">;</span></li>
+              <li>La suite est marquée par une <span class="code">,</span></li>
+              <li>L'optionalité (0 ou 1) est marquée par <span class="code">[ ... ]</span></li>
+              <li>La répétition (0 ou n) est marquée par <span class="code">{ ... }</span></li>
+              <li>La répétition avec un élément obligatoire (1 ou n) est marquée par <span class="code">{ ... }-</span></li>
+            </ul>
+          </li>
+          <li>Il existe également Augmented BNF (ABNF) et XBNF qui étendent la BNF. Elles sont fonctionnellement très proches de l'EBNF.</li>
+          <li>L'optionalité est parfois exprimée par le suffixe <span class="code"><b>?</b></span>, la répétition (0, n) par <span class="code"><b>*</b></span> (étoile de Kleene) et la répétition (1, n) par <span class="code"><b>+</b></span>.</li>
+          <li>Liens :
+            <ul>
+              <li><a href="https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form">Backus-Naur form sur Wikipedia (anglais)</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form">Extended Backus-Naur form sur Wikipedia (anglais)</a></li>
+              <li><a href="http://www.cs.man.ac.uk/~pjj/bnf/ebnf.html">Variantes de BNF et d'EBNF par Pete Jinks</a></li>
+              <li><a href="http://matt.might.net/articles/grammars-bnf-ebnf/">Site sur BNF et EBNF par Matt Might</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

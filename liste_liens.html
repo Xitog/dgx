@@ -64,6 +64,7 @@
                   <li><a href="./informatique/lua.html">Aide-mémoire Lua</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Modélisation</li>
+                  <li><a href="./informatique/bnf.html">Aide-mémoire BNF et EBNF</a></li>
                   <li><a href="./informatique/json.html">Aide-mémoire JSON</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Autres</li>
@@ -100,8 +101,8 @@
                   <li><a href="./data/outil_collections.html#jv">Jeux vidéo favoris</a></li>
                 </ul>
               </li>
-              <li class="dropdown">
-                <a id="Autres" href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-expanded="false">Autres <span class="caret"></span></a>
+              <li class="dropdown" class="active">
+                <a id="Autres" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Autres <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li class="dropdown-header">Musique</li>
                   <li><a href="./concerts_classiques/index.html">Concerts classiques</a></li>
@@ -110,7 +111,8 @@
                   <li><a href="./data/outil_collections.html#prenoms">Prénoms</a></li>
                   <li><a href="./data/outil_collections.html#livres">Livres lus</a></li>
                   <li><a href="./data/outil_collections.html#favoris_artistiques">Favoris artistiques</a></li>
-                  <li><a href="./liens.html" class="active">Liens</a></li>
+                  <li><a href="./liens.html">Liens rapides</a></li>
+                  <li class="active"><a href="./liste_liens.html">Tous les liens</a></li>
                 </ul>
               </li>
             </ul>
@@ -126,11 +128,9 @@
       <!--
     Modélisation & langages
         http://modeling-languages.com/
-        Epsilon http://www.eclipse.org/epsilon/
         EuGENia http://www.eclipse.org/epsilon/doc/eugenia/
         Xtext http://www.eclipse.org/Xtext/
         ANTLR v3 http://www.antlr3.org/
-        [L] ANTLR http://www.antlr.org/
         Bison (Parser generator) https://www.gnu.org/software/bison/
         Flex (Lexical analyzer=scanner generator) https://github.com/westes/flex
         [L] Lex & Yacc http://dinosaur.compilertools.net/
@@ -179,14 +179,30 @@
         <ul>
           <li><b>Langues</b>
             <ul>
-              <li>Français
-                <ul>
-                  <li>Outils
-                    <ul>
-                      <li><a href="http://lexique.org/">Lexique</a>, une base de données qui fournit pour 135 000 mots du français.</li>
-                    </ul>
-                  </li>
-                </ul>
+              <li>Langues naturelles
+                <table>
+                  <tr>
+                    <th>Français</th><th>Anglais</th><th>Italien</th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <ul>
+                        <li><a href="http://lexique.org/">Lexique3</a><sup>bd 135 000 mots</sup></li>
+                      </ul>
+                    </td>
+                    <td>
+                      <ul>
+                        <li><a href="http://www.wordreference.com/fren/">Wordref fr-en</a></li>
+                      </ul>
+                    </td>
+                    <td>
+                      <ul>
+                        <li><a href="https://www.italian-verbs.com/verbes-italiens.php">Verbes italiens</a></li>
+                        <li><a href="http://www.wordreference.com/enit/">Wordref en-it</a></li>
+                      </ul>
+                    </td>
+                  </tr>
+                </table>
               </li>
               <li>Langues auxiliaires internationales
                 <table>
@@ -203,6 +219,7 @@
                     </td>
                     <td>
                       <ul>
+                        <li><img src="http://www.interlingua.com/misc/favicon.ico" width="16" height="16"> <a href="http://www.interlingua.com/">Interlingua</a></li>
                         <li><a href="https://interlinguafrance.wordpress.com/">Union interlinguiste de France</a> (UIF)</li>
                       </ul>
                     </td>
@@ -214,6 +231,12 @@
                   <li><a href="https://www.cactus2000.de/fr/">Conjugaisons Cactus : fr, it, en, de</a></li>
                 </ul>
               </li>
+              <li>Corpus
+                <ul>
+                  <li><a href="http://www.natcorp.ox.ac.uk/">British National Corpus</a></li>
+                  <li><a href="https://corpus.byu.edu/bnc/">British National Corpus</a><sup>online</sup></li>
+                </ul>
+              </li>
             </ul>
           </li>
           <li><b>Informatique</b>
@@ -223,7 +246,29 @@
                   <li><a href="http://gnosis.cx/TPiP/">NLP par Gnosis</a></li>
                 </ul>
               </li>
-              <li>Langages
+              <li>Langages de modélisation
+                <table>
+                  <tr><th>Langages</th><th>Outils</th></tr>
+                  <tr>
+                    <td>
+                      <ul>
+                        <li><a href="https://modeling-languages.com/">Modeling Languages</a></li>
+                        <li><a href="https://projects.eclipse.org/projects/modeling.emf.emf">Eclipse EMF</a></li>
+                        <li><a href="http://www.uml-sysml.org/">UML, SYSML</a></li>
+                        <li><a href="https://www.w3.org/standards/xml/schema">XML Schema (XSD)</a></li>
+                        <li><a href="http://json-schema.org/">JSON Schema</a></li>
+                      </ul>
+                    </td>
+                    <td>
+                      <ul>
+                        <li><a href="https://www.eclipse.org/papyrus/">Papyrus</a><sup>UML, BPMN</sup></li>
+                        <li><a href="https://www.eclipse.org/epsilon/">Eclipse Epsilon</a></li>
+                      </ul>
+                    </td>
+                  </tr>
+                </table>
+              </li>
+              <li>Langages de programmation
                 <ul>
                   <li>Python
                     <table>
@@ -243,16 +288,39 @@
                         </td>
                         <td>
                           <ul>
+                            <li><a href="https://docs.python.org/3/">Official Documentation</a>
+                              <ul>
+                                <li><a href="https://docs.python.org/3/reference/expressions.html">6. Expressions</a></li>
+                                <li><a href="https://docs.python.org/3/reference/simple_stmts.html">7. Statements</a></li>
+                                <li><a href="https://docs.python.org/3/library/stdtypes.html">Standard Types</a></li>
+                                <li><a href="https://docs.python.org/3/library/collections.html">Collections</a></li>
+                                <li><a href="https://docs.python.org/3/library/queue.html">Queues</a></li>
+                                <li><a href="https://docs.python.org/3/library/threading.html">Threading</a></li>
+                                <li><a href="https://docs.python.org/3/library/asyncio-task.html">Coroutines</a></li>
+                                <li><a href="https://docs.python.org/3/library/json.html">JSON</a></li>
+                                <li><a href="https://docs.python.org/3/library/xml.etree.elementtree.html">XML</a></li>
+                                <li><a href="https://docs.python.org/3/library/socketserver.html">Sockets</a></li>
+                                <li><a href="https://docs.python.org/3/whatsnew/index.html">What's New</a></li>
+                              </ul>
+                            </li>
                             <li><a href="http://book.pythontips.com/en/latest/index.html">Intermediate Python</a></li>
                             <li><a href="http://rgruet.free.fr/PQR27/PQR2.7.html">Python Quick Reference 2.7</a></li>
+                            <li><a href="http://effbot.org/tkinterbook/tkinter-index.htm">Effbot</a><sup>Tkinter</sup></li>
+                            <li><a href="http://tkinter.fdex.eu/">ISN</a><sup>Tkinter</sup></li>
                           </ul>
                         </td>
                         <td>
                           <ul>
+                            <li><a href="https://pypi.python.org/pypi">PyPI</a><sup>repo</sup></li>
+                            <li><a href="https://www.lfd.uci.edu/~gohlke/pythonlibs/">PythonLibs</a><sup>bin repo</sup></li>
+                            <li><a href="https://python-pillow.org/">Pillow</a><sup>pic</sup></li>
+                            <li><a href="http://www.pythonware.com/products/pil/"><s>PIL</s></a><sup>see Pillow</sup></li>
                             <li><a href="https://www.djangoproject.com/">Django</a><sup>web</sup></li>
                             <li><a href="http://flask.pocoo.org/">Flask</a><sup>web</sup></li>
-                            <li><a href="http://bottlepy.org/docs/dev/">Bottle</a><sup>web</sup></li>
+                            <li><img src="https://bottlepy.org/docs/dev/_static/favicon.ico" width="16" height="16"><a href="http://bottlepy.org/docs/dev/">Bottle</a><sup>web</sup></li>
                             <li><a href="https://www.pygame.org/">Pygame</a><sup>game</sup></li>
+                            <li><a href="https://lxml.de/">LXML</a><sup>XML</sup></li>
+                            <li><a href="http://docs.python-requests.org/en/latest/">Requests</a><sup>network</sup></li>
                           </ul>
                         </td>
                         <td>
@@ -315,6 +383,7 @@
                             <li><img src="https://rubyonrails.org/favicon.ico" width="16" height="16"> <a href="https://rubyonrails.org/">Ruby on Rails</a><sup>web</sup></li>
                             <li><img src="http://sinatrarb.com/images/favicon.ico" width="16" height="16"> <a href="http://sinatrarb.com/">Sinatra</a><sup>web</sup></li>
                             <li><img src="https://www.libgosu.org/favicon.ico" width="16" height="16"> <a href="https://www.libgosu.org/">Gosu</a><sup>game</sup></li>
+                            <li><img src="http://rspec.info/images/logo_ogp.png" width="16" height="16"> <a href="http://rspec.info/">RSpec</a><sup>TTD</sup></li>
                           </ul>
                         </td>
                       </tr>
@@ -329,6 +398,7 @@
                         <td>
                           <ul>
                             <li><img src="https://www.lua.org/favicon.ico" width="16" height="16"> <a href="https://www.lua.org">Site officiel de Lua</a></li>
+                            <li><a href="https://studio.zerobrane.com/">ZeroBrane</a><sup>IDE</sup></li>
                           </ul>
                         </td>
                         <td>
@@ -350,9 +420,15 @@
                   <li>C
                     <table>
                       <tr>
-                        <th>Documentation</th>
+                        <th>Implémentations</th><th>Documentation</th>
                       </tr>
                       <tr>
+                        <td>
+                          <ul>
+                            <li><a href="http://www.smorgasbordet.com/pellesc/">Pelles C</a></li>
+                            <li><a href="http://www.mingw.org/">MinGW</a></li>
+                          </ul>
+                        </td>
                         <td>
                           <ul>
                             <li><a href="http://nehe.gamedev.net/">NeHe</a><sup>OpenGL</sup></li>
@@ -366,9 +442,14 @@
                   <li>Java
                     <table>
                       <tr>
-                        <th>Bibliothèques</th>
+                        <th>Outils</th><th>Bibliothèques</th>
                       </tr>
                       <tr>
+                        <td>
+                          <ul>
+                            <li><a href="https://www.eclipse.org/">Eclipse</a><sup>IDE</sup></li>
+                          </ul>
+                        </td>
                         <td>
                           <ul>
                             <li><a href="https://libgdx.badlogicgames.com/index.html">LibGDX</a></li>
@@ -377,7 +458,7 @@
                       </tr>
                     </table>
                   </li>
-                  <li>Autres langages
+                  <li>Autres langages de programmation
                     <ul>
                       <li><a href="https://pike.lysator.liu.se/">Pike</a></li>
                       <li><a href="https://www.angelcode.com/angelscript/">AngelScript</a></li>
@@ -389,15 +470,40 @@
                   </li>
                 </ul>
               </li>
+              <li>Langages de description
+                <table>
+                  <tr>
+                    <th>Web</th><th>Données</th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <ul>
+                        <li><a href="https://developer.mozilla.org/fr/docs/Web/HTML">HTML</a></li>
+                        <li><a href="https://developer.mozilla.org/fr/docs/Web/CSS">CSS</a></li>
+                      </ul>
+                    </td>
+                    <td>
+                      <ul>
+                        <li><a href="http://www.json.org/json-fr.html">JSON</a></li>
+                        <li><a href="https://yaml.org/">YAML</a></li>
+                        <li><a href="https://www.itu.int/en/ITU-T/asn1/Pages/asn1_project.aspx">ASN.1</a></li>
+                      </ul>
+                    </td>
+                  </tr>
+                </table>
+              </li>
               <li>Création de langages & de compilateurs
                 <ul>
                   <li><img src="http://rigaux.org/favicon.ico" width="16" height="16"> <a href="http://rigaux.org/language-study/syntax-across-languages.html"><b>Syntax across languages by P. Rigaux</b></a></li>
                   <li><a href="https://ruslanspivak.com/lsbasi-part1/"><b>Construire un langage par Ruslan</b></a></li>
-                  <li><a href="http://www.dabeaz.com/ply/">Ply (Python)</a></li>
+                  <li><a href="http://www.dabeaz.com/ply/">Ply</a><sup>Python</sup></li>
+                  <li><a href="http://goldparser.org/">GOLD Parser</a></li>
+                  <lI><a href="https://www.antlr.org/">ANTLR</a></li>
                 </ul>
               </li>
               <li>Rédaction de guides & fiches
                 <ul>
+                  <li><a href="https://pages.github.com/">Pages GitHub</a></li>
                 </ul>
               </li>
               <li>Dev jeux
@@ -410,7 +516,23 @@
               </li>
               <li>Outils
                 <ul>
-                  <li><a href="https://trello.com">Trello</a></li>
+                  <li><a href="https://trello.com">Trello</a><sup>Projet</sup></li>
+                  <li><a href="https://jenkins.io">Jenkins</a><sup>CI</sup></li>
+                  <li><a href="https://www.qwant.com/?l=fr">Qwant</a><sup>web search</sup></li>
+                  <li><a href="https://fr.overleaf.com">Overleaf</a><sup>online Latex</sup></a></li>
+                  <li>Tests automatisés
+                    <ul>
+                      <li><a href="https://www.eclipse.org/rcptt/">RCPTT</a>
+                        <ul>
+                          <li><a href="https://www.eclipse.org/rcptt/documentation/userguide/getstarted/">Documentation officielle</a></li>
+                          <li><a href="http://download.xored.com/q7/docs/ecl-api/latest">ECL</a> le langage de tests de RCPTT</li>
+                          <li><a href="https://eclipsesource.com/blogs/tutorials/rcp-testing-tool-rcptt-basic-tutorial/">Tutorial</a></li>
+                        </ul>
+                      </li>
+                      <li><a href="http://sikulix.com/">SikuliX</a></li>
+                      <li><a href="http://docs.fitnesse.org/FrontPage">FitNesse</a></li>
+                    </ul>
+                  </li>
                 </ul>
               </li>
             </ul>
@@ -442,10 +564,17 @@
               <li>Magic: The Gathering
                 <ul>
                   <li><a href="http://www.wizards.com">Wizards of the Coast</a>, site officiel</li>
-                  <li><a href="https://scryfall.com/"><b>Scryfall</b>, remplace MagicCards.info</a></li>
+                  <li><a href="https://magic.wizards.com/fr/products/core-2019/cards">Core set 2019</a></li>
+                  <li><a href="https://scryfall.com/"><b>Scryfall</b></a><sup>database</sup></li>
+                  <li><a href="https://magiccards.info"><s>Magiccards.info</s></a><sup>see Scryfall</sup></li>
                 </ul>
               </li>
               <li>Warhammmer</li>
+              <li>Autres jeux et sociétés
+                <ul>
+                  <li><a href="https://www.fantasyflightgames.com/en/index/">Fantasy Flight Games</a></li>
+                </ul>
+              </li>
               <li>Jeux vidéo
                 <ul>
                   <li>Site d'information sur des jeux
@@ -504,6 +633,55 @@
                     </ul>
                   </li>
                 </ul>
+              </li>
+            </ul>
+          </li>
+          <li>Vie quotidienne
+            <ul>
+              <li>Banques
+                <p>
+                  <a href="https://www.labanquepostale.fr/content/particulier.html/"><img src="https://www.labanquepostale.fr/etc/designs/labanquepostale/core-designs/images/bp-app/favicon.png" width="16" height="16"></a>
+                </p>
+              </li>
+              <li>Sorties
+                <ul>
+                  <li><a href="https://www.cinemaspathegaumont.com/">Gaumont</a></li>
+                </ul>
+              </li>
+              <li>Musique
+                <ul>
+                  <li><a href="https://open.spotify.com/browse">Spotify</a></li>
+                </ul>
+              </li>
+              <li>Cartes
+                <ul>
+                  <li><a href="https://www.viamichelin.fr/web/Trafic">Via Michelin</a></li>
+                </ul>
+              </li>
+              <li>News
+                <table>
+                  <tr>
+                    <th>Généralistes</th><th>Économie</th><th>Autres</th>
+                  </tr>
+                  <td>
+                    <ul>
+                      <li><a href="https://www.franceinter.fr/">France Inter</a></li>
+                      <li><a href="https://www.franceculture.fr/">France Culture</a></li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul>
+                      <li><a href="https://www.lesechos.fr/">Les Échos</a></li>
+                      <li><a href="http://www.touleco.fr/">Toul'Éco</a></li>
+                      <li><a href="https://www.usine-digitale.fr/">Usine Digitale</a></li>
+                      <li><a href="https://www.distributique.com/">Distributique</a></li>
+                    </ul>
+                  </td>
+                  <td>
+                    <ul>
+                      <li><a href="http://www.programme-tv.net/">Programmes Télé</a></li>
+                    </ul>
+                </table>
               </li>
             </ul>
           </li>
