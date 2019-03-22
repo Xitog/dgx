@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Transitions</title>
+    <title>Cartes de carreaux</title>
     <link rel="icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
     <link href="https://xitog.github.io/dgx/css/simplex.bootstrap.css" rel="stylesheet" type="text/css">
@@ -16,6 +16,7 @@
     }
     table.repr td {
       padding: 0px;
+      text-align: center;
     }
     
     table.repr_border {
@@ -25,16 +26,12 @@
     table.repr_border td {
       padding: 0px;
       border: 1px solid black;
+      font-size: 14px;
+      text-align: center;
+      color: black;
     }
     
-    table td {
-      font-size: 14px;
-      font-family: "Palatino Linotype", "Palatino", "Georgia";
-      color: black;
-      border: 1px solid black;
-      padding: 2px;
-      text-align: center;
-    }
+    // font-family: "Palatino Linotype", "Palatino", "Georgia";
     
     span.game {
       font-weight: bold;
@@ -160,438 +157,619 @@
   
       <div id="content" class="palatino">
 
-    <h1>Transitions</h1>
-    <h2>Un tableau comme carte</h2>
-    <p>Le jeu <span class="game">WarCraft II</span> propose une vue de dessus d'une carte où se déroule la partie. Cette carte est stocké à l'aide d'un tableau. Chaque case du tableau contient une indication de textures à utiliser. Par exemple, une case peut contenir la valeur <span class="number">0</span>, qui désigne de l'eau, ou <span class="number">1</span> de la terre. Prenons une carte de <span class="number">5</span> cases en largeur et en hauteur, une taille que nous notons 5x5, et affichons la dans un premier temps avec des bordures délimitant chaque case puis sans :</p>
-    <div>
-      <table class="repr_border">
-        <tr>
-          <td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/mud.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/mud.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/mud.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/mud.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/mud.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/mud.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td>
-        </tr>
-      </table>
-      &nbsp;&nbsp;
-      <table class="repr">
-        <tr>
-          <td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/mud.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/mud.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/mud.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/mud.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/mud.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/mud.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td>
-        </tr>
-      </table>
-    </div>
-    <p>On voit que l'ensemble de la carte, qui comporte <span class="number">25</span> cases, ne fait que répéter deux textures. On peut ainsi décrire facilement de vastes étendues à partir de peu d'éléments. On appelle ses éléments d'après l'anglais <span class="keyword_en">tiles</span>, que l'on pourrait traduire par carreau ou tuile, et cette technique le <span class="keyword_en">tiling</span>, traduisible par carrelage. Si on enlève les bordures, le résultat est déjà plus convaincant. Néanmoins, la transition de l'eau vers la terre est un peu abrupte, elle ne fait pas naturelle. Pour améliorer le résultat, on va faire des <span class="keyword_fr">transitions</span>.</p>
-    <h2>Un système de transition</h2>
-    <p>Nous allons établir un ensemble de règles pour les transitions :</p>
-    <ol>
-      <li>Un carreau d'eau est influencé par un carreau de terre. C'est-à-dire que si un carreau jouxte un carreau de terre, c'est le carreau d'eau qui changera pour refléter une transition.</li>
-      <li>Un carreau ne peut avoir autour de lui qu'un seul type d'influenceur. On a vu que les carreaux d'eau sont influencés par les carreaux de terre. Imaginons un autre type de carreau, le sable, qui influence également l'eau. Un carreau d'eau ne pourra être entouré que d'un seul type d'influenceur dans sa proximité immédiate.</li>
-      <li>Un carreau ne peut avoir à sa gauche et à sa droite un carreau l'influençant en même temps. De même, un carreau ne peut avoir en haut et en bas un carreau l'influençant en même temps. Ces configurations sont interdites :<br/>
-        <table class="repr_border">
-          <tr>
-            <td><img src="transitions/blank.png"/></td><td><img src="transitions/blank.png"/></td><td><img src="transitions/blank.png"/></td>
-          </tr>
-          <tr>
-            <td><img src="transitions/mud.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/mud.png"/></td>
-          </tr>
-          <tr>
-            <td><img src="transitions/blank.png"/></td><td><img src="transitions/blank.png"/></td><td><img src="transitions/blank.png"/></td>
-          </tr>
-        </table>
-        &nbsp;&nbsp;
-        <table class="repr_border">
-          <tr>
-            <td><img src="transitions/blank.png"/></td><td><img src="transitions/mud.png"/></td><td><img src="transitions/blank.png"/></td>
-          </tr>
-          <tr>
-            <td><img src="transitions/blank.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/blank.png"/></td>
-          </tr>
-          <tr>
-            <td><img src="transitions/blank.png"/></td><td><img src="transitions/mud.png"/></td><td><img src="transitions/blank.png"/></td>
-          </tr>
-        </table>
-      </li>
-      <li>Les carreaux influenceurs doivent être consécutifs. Toutes les configurations discontinues sont interdites comme :<br/>
-        <table class="repr_border">
-          <tr>
-            <td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td><td><img src="transitions/water.png"/></td>
-          </tr>
-          <tr>
-            <td><img src="transitions/blank.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/mud.png"/></td>
-          </tr>
-          <tr>
-            <td><img src="transitions/blank.png"/></td><td><img src="transitions/blank.png"/></td><td><img src="transitions/mud.png"/></td>
-          </tr>
-        </table>
-      </li>
-    </ol>
-    <p>Un carreau est entouré de <span class="number">8</span> autres carreaux. Nous les notons et les numérotons ainsi, en partant du carreau en haut à gauche et en les parcourant dans le sens horaire :</p>
-    <div>
-      <table>
-        <tr>
-          <td><b>Carreau</b></td>
-          <td>Nord-Ouest</td>
-          <td>Nord</td>
-          <td>Nord-Est</td>
-          <td>Est</td>
-          <td>Sud-Est</td>
-          <td>Sud</td>
-          <td>Sud-Ouest</td>
-          <td>Ouest</td>
-        </tr>
-        <tr>
-          <td><b>Numéro</b></td>
-          <td><span class="number">0</span></td>
-          <td><span class="number">1</span></td>
-          <td><span class="number">2</span></td>
-          <td><span class="number">3</span></td>
-          <td><span class="number">4</span></td>
-          <td><span class="number">5</span></td>
-          <td><span class="number">6</span></td>
-          <td><span class="number">7</span></td>
-        </tr>
-        <tr>
-          <td><b>2<sup>Numéro</sup></b></td>
-          <td><span class="number">1</span></td>
-          <td><span class="number">2</span></td>
-          <td><span class="number">4</span></td>
-          <td><span class="number">8</span></td>
-          <td><span class="number">16</span></td>
-          <td><span class="number">32</span></td>
-          <td><span class="number">64</span></td>
-          <td><span class="number">128</span></td>
-        </tr>
-      </table>
-    </div>
-    <div style="margin-top: 1em;">
-      <table class="repr_border">
-        <tr>
-          <td width="32px" height="32px">NO</td>
-          <td width="32px" height="32px">N</td>
-          <td width="32px" height="32px">NE</td>
-        </tr>
-        <tr>
-          <td width="32px" height="32px">O</td>
-          <td width="32px" height="32px"></td>
-          <td width="32px" height="32px">E</td>
-        </tr>
-        <tr>
-          <td width="32px" height="32px">SO</td>
-          <td width="32px" height="32px">S</td>
-          <td width="32px" height="32px">SE</td>
-        </tr>
-      </table>
-      &nbsp;&nbsp;
-      <table class="repr_border">
-        <tr>
-          <td width="32px" height="32px"><span class="number">0</span></td>
-          <td width="32px" height="32px"><span class="number">1</span></td>
-          <td width="32px" height="32px"><span class="number">2</span></td>
-        </tr>
-        <tr>
-          <td width="32px" height="32px"><span class="number">7</span></td>
-          <td width="32px" height="32px"></td>
-          <td width="32px" height="32px"><span class="number">3</span></td>
-        </tr>
-        <tr>
-          <td width="32px" height="32px"><span class="number">4</span></td>
-          <td width="32px" height="32px"><span class="number">5</span></td>
-          <td width="32px" height="32px"><span class="number">6</span></td>
-        </tr>
-      </table>
-      &nbsp;&nbsp;
-      <table class="repr_border">
-        <tr>
-          <td width="32px" height="32px"><span class="number">1</span></td>
-          <td width="32px" height="32px"><span class="number">2</span></td>
-          <td width="32px" height="32px"><span class="number">4</span></td>
-        </tr>
-        <tr>
-          <td width="32px" height="32px"><span class="number">128</span></td>
-          <td width="32px" height="32px"></td>
-          <td width="32px" height="32px"><span class="number">8</span></td>
-        </tr>
-        <tr>
-          <td width="32px" height="32px"><span class="number">16</span></td>
-          <td width="32px" height="32px"><span class="number">32</span></td>
-          <td width="32px" height="32px"><span class="number">64</span></td>
-        </tr>
-      </table>
-    </div>
-    <p>La règle 2 dit que s'il y a un ou plusieurs carreaux influenceurs, ils seront tous du même type. Cela revient à un choix binaire, savoir si c'est le carreau est un influenceur ou pas. Il y a donc <span class="number">2<sup>8</sup></span>, soit <span class="number">256</span>, possibilités. Pour un carreau, chaque possibilité de configuration des carreaux qui l'entourent est identifiée par un nombre qui est le résultat de l'addition de <span class="number">2<sup>position</sup></span> pour chaque carreau influenceur. Les règles 3 et 4 suppriment de nombreuses combinaisons et réduisent à <span class="number">12</span> le nombre de transitions nécessaires.</p>
-    <p>À présent, passons aux exemples. Voici sept exemples de configurations de carreaux entourant le carreau central dont une interdite :</p>
-    <div>
-      A. <table class="repr_border">
-        <tr>
-          <td><img src="transitions/mud.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-      </table>
-      &nbsp;&nbsp;
-      B. <table class="repr_border">
-        <tr>
-          <td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-      </table>
-      &nbsp;&nbsp;
-      C. <table class="repr_border">
-        <tr>
-          <td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-      </table>
-      &nbsp;&nbsp;
-      D. <table class="repr_border">
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-      </table>
-      <br/>
-      E. <table class="repr_border">
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/mud.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-      </table>
-      &nbsp;&nbsp;
-      F. <table class="repr_border">
-        <tr>
-          <td><img src="transitions/mud.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/mud.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-      </table>
-      &nbsp;&nbsp;
-      G. <table class="repr_border">
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/mud.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-      </table>
-    </div>
-    <p>La configuration interdite est la F. Sur la rangée du haut, un carreau d'eau est entouré horizontalement par deux carreux de terre l'influençant. Pour les  <span class="number">6</span> configurations valides, nous allons ensuite calculer l'identification de chaque configuration :</p>
-    <ol style="list-style-type: upper-latin;">
-      <li>La position <span class="number">0</span> a un carreau qui influence celui du milieu. Pour le calcul, on prend donc <span class="number">2<sup>0</sup></span> soit <span class="number">1</span>.</li>
-      <li>Les positions <span class="number">0</span> et <span class="number">1</span> ont un carreau qui influence celui du milieu. Pour le calucl, on additionne donc <span class="number">2<sup>0</sup></span> + <span class="number">2<sup>1</sup></span> soit <span class="number">3</span>.</li>
-      <li>Les positions <span class="number">0</span>, <span class="number">1</span> et <span class="number">2</span> ont un carreau qui influence celui du milieu. Pour le calcul, on additionne donc <span class="number">2<sup>0</sup></span> + <span class="number">2<sup>1</sup></span> + <span class="number">2<sup>2</sup></span> soit <span class="number">7</span>.</li>
-      <li>Les positions <span class="number">1</span> et <span class="number">2</span> ont un carreau qui influence celui du milieu. Pour le calcul, on additionne donc <span class="number">2<sup>1</sup></span> + <span class="number">2<sup>2</sup></span> soit <span class="number">6</span>.</li>
-      <li>La position <span class="number">2</span> a un carreau qui influence celui du milieu. Pour le calcul, on prend donc <span class="number">2<sup>2</sup></span> soit <span class="number">4</span>.</li>
-      <li>Configuration invalide d'après nos règles.</li>
-      <li>La position <span class="number">1</span> a un carreau qui influence celui du milieu. Pour le calcul, on prend donc <span class="number">2<sup>1</sup></span> soit <span class="number">2</span>.</li>
-    </ol>
-    <p>On dessine alors dans le carreau central une texture qui représente la transition qu'il va adopter : <img src=""/></p>
-    <div>
-      A. <table class="repr_border">
-        <tr>
-          <td><img src="transitions/mud.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/mud-nw-water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-      </table>
-      &nbsp;&nbsp;
-      B. <table class="repr_border">
-        <tr>
-          <td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/mud-n-water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-      </table>
-      &nbsp;&nbsp;
-      C. <table class="repr_border">
-        <tr>
-          <td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/mud-n-water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-      </table>
-      &nbsp;&nbsp;
-      D. <table class="repr_border">
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/mud-n-water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-      </table>
-      <br/>
-      E. <table class="repr_border">
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/mud.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/mud-ne-water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-      </table>
-      &nbsp;&nbsp;
-      G. <table class="repr_border">
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/mud.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/mud-n-water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-      </table>
-    </div>
-    <p>On remarque quelque chose de très important qui fait figure de 5<sup>ème</sup> règle : <b>si le nord est un carreau influenceur, peut importe la valeur des deux coins associés, ici nord-ouest et nord-est</b>. En conséquence, on peut associer un identifiant de configuration à une transition :</p>
-    <ul>
-      <li><span class="number">1</span> appelle la transition <img src="transitions/mud-nw-water.png"/></li>
-      <li><span class="number">3</span>, <span class="number">7</span>, <span class="number">6</span> et <span class="number">2</span> appelle la transition <img src="transitions/mud-n-water.png"/></li>
-      <li><span class="number">4</span> appelle la transition <img src="transitions/mud-ne-water.png"/></li>
-    </ul>
-    <p>Il faut à présent construire une correspondance entre les configurations et les <span class="number">12</span> transitions possibles. Cette correspondance peut se faire à l'aide d'une table ou d'une fonction. En entrée, on a le numéro de configuration, en sortie le numéro de la texture à prendre. Il faut travailler avec deux tableaux : celui de départ, où sont stockées les textures d'eau et de terre, et celui d'arrivée, où on stocke les transitions ou l'absence de transition.</p>
-    <p>En reprenant les configurations précédentes et en appliquant à chaque carreau notre algorithme de transition, on obtient au final :</p>
+        <h1>Cartes de carreaux, Transitions et Variations</h1>
+        <h2>Sommaire</h2>
+        <ul>
+          <li><a href="#I">I. Un tableau comme carte</a></li>
+          <li><a href="#II">II. Un système de transition</a>
+            <ul>
+              <li><a href="#IIA">II.A Règles de transitions</a></li>
+              <li><a href="#IIB">II.B Exemples de configurations</a></li>
+              <li><a href="#IIC">II.C Correspondances configuration-transition</a></li>
+              <li><a href="#IID">II.D Exemples de résultats</a></li>
+            </ul>
+          </li>
+          <li><a href="#III">III. Variations</a></li>
+          <li><a href="#IV">Crédits</a></li>
+        </ul>
+        
+        <h2 id="I">I. Un tableau comme carte</h2>
+        
+        <p>Le jeu <span class="game">WarCraft II</span> propose une vue de dessus d'une carte où se déroule la partie. Cette carte est stocké à l'aide d'un tableau. Chaque case du tableau contient une indication de textures à utiliser. Par exemple, une case peut contenir la valeur <span class="number">0</span>, qui désigne de l'eau, ou <span class="number">1</span> de la terre. Prenons une carte de <span class="number">5</span> cases en largeur et en hauteur, une taille que nous notons 5x5, et affichons la dans un premier temps avec des bordures délimitant chaque case (A) puis sans (B) :</p>
         <div>
-      A. <table class="repr_border">
-        <tr>
-          <td><img src="transitions/mud.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/mud-n-water.png"/></td><td><img src="transitions/mud-nw-water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-      </table>
-      &nbsp;&nbsp;
-      B. <table class="repr_border">
-        <tr>
-          <td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/mud-n-water.png"/></td><td><img src="transitions/mud-n-water.png"/></td><td><img src="transitions/mud-nw-water.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-      </table>
-      &nbsp;&nbsp;
-      C. <table class="repr_border">
-        <tr>
-          <td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/mud-n-water.png"/></td><td><img src="transitions/mud-n-water.png"/></td><td><img src="transitions/mud-n-water.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-      </table>
-      &nbsp;&nbsp;
-      D. <table class="repr_border">
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/mud.png"/></td><td><img src="transitions/mud.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/mud-n-water.png"/></td><td><img src="transitions/mud-n-water.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-      </table>
-      <br/>
-      E. <table class="repr_border">
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/mud.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/mud-ne-water.png"/></td><td><img src="transitions/mud-n-water.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-      </table>
-      &nbsp;&nbsp;
-      G. <table class="repr_border">
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/mud.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/mud-ne-water.png"/></td><td><img src="transitions/mud-n-water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-        <tr>
-          <td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td><td><img src="transitions/water.png"/></td>
-        </tr>
-      </table>
-      <p>Il reste à dire les variations !</p>
+          A. <table class="repr_border">
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+          </table>
+          &nbsp;&nbsp;
+          B. <table class="repr">
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+          </table>
+          &nbsp;&nbsp;
+          C. <table class="repr">
+               <tr>
+                 <td><img src="transitions/carte-excel.png"/></td>
+               </tr>
+             </table>
+        </div>
+        <p>On voit que l'ensemble de la carte, qui comporte <span class="number">25</span> cases, ne fait que répéter deux textures. On peut ainsi décrire facilement de vastes étendues à partir de peu d'éléments. On appelle ses éléments d'après l'anglais <span class="keyword_en">tiles</span>, que l'on pourrait traduire par carreau ou tuile, et cette technique le <span class="keyword_en">tiling</span>, traduisible par carrelage. Une case du tableau correspond donc à un carreau. Pour construire et éditer une telle carte, on peut construire un éditeur de carte ou utiliser un simple tableur comme Microsoft Excel ou LibreOffice Calc. La même carte sous Excel se présenterait comme (C).</p>
+        <p>Si on enlève les bordures de notre exemple (B), le résultat est déjà plus convaincant. Néanmoins, la transition de l'eau vers la terre est un peu abrupte, elle ne fait pas naturelle. Pour améliorer le résultat, on va faire des <span class="keyword_fr">transitions</span>.</p>
+        
+        <h2 id="II">II. Un système de transition</h2>
+        
+        <h3 id="IIA">II.A Règles de transitions</h3>
+        
+        <p>Nous allons établir un ensemble de règles pour les transitions :</p>
+        <ol>
+          <li>Un carreau d'eau est influencé par un carreau de terre. C'est-à-dire que si un carreau jouxte un carreau de terre, c'est le carreau d'eau qui changera pour refléter une transition.</li>
+          <li>Un carreau ne peut avoir autour de lui qu'un seul type d'influenceur. On a vu que les carreaux d'eau sont influencés par les carreaux de terre. Imaginons un autre type de carreau, le sable, qui influence également l'eau. Un carreau d'eau ne pourra être entouré que d'un seul type d'influenceur dans sa proximité immédiate.</li>
+          <li>Un carreau ne peut avoir à sa gauche et à sa droite un carreau l'influençant en même temps. De même, un carreau ne peut avoir en haut et en bas un carreau l'influençant en même temps. Ces configurations sont interdites :<br/>
+            <table class="repr_border">
+              <tr>
+                <td><img src="transitions/blank.png"/></td><td><img src="transitions/blank.png"/></td><td><img src="transitions/blank.png"/></td>
+              </tr>
+              <tr>
+                <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/mud-1.png"/></td>
+              </tr>
+              <tr>
+                <td><img src="transitions/blank.png"/></td><td><img src="transitions/blank.png"/></td><td><img src="transitions/blank.png"/></td>
+               </tr>
+            </table>
+            &nbsp;&nbsp;
+            <table class="repr_border">
+              <tr>
+                <td><img src="transitions/blank.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/blank.png"/></td>
+              </tr>
+              <tr>
+                <td><img src="transitions/blank.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/blank.png"/></td>
+              </tr>
+              <tr>
+                <td><img src="transitions/blank.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/blank.png"/></td>
+               </tr>
+            </table>
+          </li>
+          <li>Les carreaux influenceurs doivent être consécutifs. Toutes les configurations discontinues sont interdites comme :<br/>
+            <table class="repr_border">
+              <tr>
+                <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+              </tr>
+              <tr>
+                <td><img src="transitions/blank.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/mud-1.png"/></td>
+              </tr>
+              <tr>
+                <td><img src="transitions/blank.png"/></td><td><img src="transitions/blank.png"/></td><td><img src="transitions/mud-1.png"/></td>
+              </tr>
+            </table>
+          </li>
+        </ol>
+        <p>Un carreau est entouré de <span class="number">8</span> autres carreaux. Nous les notons et les numérotons ainsi, en partant du carreau en haut à gauche et en les parcourant dans le sens horaire :</p>
+        <div>
+          <table class="repr_border">
+            <col width="90"/>
+            <col width="90"/>
+            <col width="90"/>
+            <col width="90"/>
+            <col width="90"/>
+            <col width="90"/>
+            <col width="90"/>
+            <col width="90"/>
+            <col width="90"/>
+            <tr>
+              <td><b>Carreau</b></td>
+              <td>Nord-Ouest</td>
+              <td>Nord</td>
+              <td>Nord-Est</td>
+              <td>Est</td>
+              <td>Sud-Est</td>
+              <td>Sud</td>
+              <td>Sud-Ouest</td>
+              <td>Ouest</td>
+            </tr>
+            <tr>
+              <td><b>Numéro</b></td>
+              <td><span class="number">0</span></td>
+              <td><span class="number">1</span></td>
+              <td><span class="number">2</span></td>
+              <td><span class="number">3</span></td>
+              <td><span class="number">4</span></td>
+              <td><span class="number">5</span></td>
+              <td><span class="number">6</span></td>
+              <td><span class="number">7</span></td>
+            </tr>
+            <tr>
+              <td><b>2<sup>Numéro</sup></b></td>
+              <td><span class="number">1</span></td>
+              <td><span class="number">2</span></td>
+              <td><span class="number">4</span></td>
+              <td><span class="number">8</span></td>
+              <td><span class="number">16</span></td>
+              <td><span class="number">32</span></td>
+              <td><span class="number">64</span></td>
+              <td><span class="number">128</span></td>
+            </tr>
+          </table>
+        </div>
+        <div style="margin-top: 1em;">
+          <table class="repr_border">
+            <tr>
+              <td width="32px" height="32px">NO</td>
+              <td width="32px" height="32px">N</td>
+              <td width="32px" height="32px">NE</td>
+            </tr>
+            <tr>
+              <td width="32px" height="32px">O</td>
+              <td width="32px" height="32px"></td>
+              <td width="32px" height="32px">E</td>
+            </tr>
+            <tr>
+              <td width="32px" height="32px">SO</td>
+              <td width="32px" height="32px">S</td>
+              <td width="32px" height="32px">SE</td>
+            </tr>
+          </table>
+          &nbsp;&nbsp;
+          <table class="repr_border">
+            <tr>
+              <td width="32px" height="32px"><span class="number">0</span></td>
+              <td width="32px" height="32px"><span class="number">1</span></td>
+              <td width="32px" height="32px"><span class="number">2</span></td>
+            </tr>
+            <tr>
+              <td width="32px" height="32px"><span class="number">7</span></td>
+              <td width="32px" height="32px"></td>
+              <td width="32px" height="32px"><span class="number">3</span></td>
+            </tr>
+            <tr>
+              <td width="32px" height="32px"><span class="number">4</span></td>
+              <td width="32px" height="32px"><span class="number">5</span></td>
+              <td width="32px" height="32px"><span class="number">6</span></td>
+            </tr>
+          </table>
+          &nbsp;&nbsp;
+          <table class="repr_border">
+            <tr>
+              <td width="32px" height="32px"><span class="number">1</span></td>
+              <td width="32px" height="32px"><span class="number">2</span></td>
+              <td width="32px" height="32px"><span class="number">4</span></td>
+            </tr>
+            <tr>
+              <td width="32px" height="32px"><span class="number">128</span></td>
+              <td width="32px" height="32px"></td>
+              <td width="32px" height="32px"><span class="number">8</span></td>
+            </tr>
+            <tr>
+              <td width="32px" height="32px"><span class="number">16</span></td>
+              <td width="32px" height="32px"><span class="number">32</span></td>
+              <td width="32px" height="32px"><span class="number">64</span></td>
+            </tr>
+          </table>
+        </div>
+        <p>La règle 2 dit que s'il y a un ou plusieurs carreaux influenceurs, ils seront tous du même type. Cela revient à un choix binaire, savoir si c'est le carreau est un influenceur ou pas. Il y a donc <span class="number">2<sup>8</sup></span>, soit <span class="number">256</span>, possibilités. Pour un carreau, chaque possibilité de configuration des carreaux qui l'entourent est identifiée par un nombre qui est le résultat de l'addition de <span class="number">2<sup>position</sup></span> pour chaque carreau influenceur. Les règles 3 et 4 suppriment de nombreuses combinaisons et réduisent à <span class="number">12</span> le nombre de transitions nécessaires.</p>
+        <p><span class="game">WarCraft II</span> autorisait également deux configurations avec des carreaux influenceurs discontinus : ceux dans des diagonales opposées. Nous ne reprenons pas cette spécifité.</p>
+        
+        <h3 id="IIB">II.B Exemples de configurations</h3>
+        
+        <p>À présent, passons aux exemples. Voici sept exemples de configurations de carreaux entourant le carreau central dont une interdite :</p>
+        <div>
+          A. <table class="repr_border">
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+          </table>
+          &nbsp;&nbsp;
+          B. <table class="repr_border">
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+          </table>
+          &nbsp;&nbsp;
+          C. <table class="repr_border">
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+          </table>
+          &nbsp;&nbsp;
+          D. <table class="repr_border">
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+          </table>
+          <br/>
+          E. <table class="repr_border">
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+          </table>
+          &nbsp;&nbsp;
+          F. <table class="repr_border">
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+          </table>
+          &nbsp;&nbsp;
+          G. <table class="repr_border">
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+          </table>
+        </div>
+        <p>La configuration interdite est la F. Sur la rangée du haut, un carreau d'eau est entouré horizontalement par deux carreux de terre l'influençant. Pour les  <span class="number">6</span> configurations valides, nous allons ensuite calculer l'identification de chaque configuration :</p>
+        <ol style="list-style-type: upper-latin;">
+          <li>La position <span class="number">0</span> a un carreau qui influence celui du milieu. Pour le calcul, on prend donc <span class="number">2<sup>0</sup></span> soit <span class="number">1</span>.</li>
+          <li>Les positions <span class="number">0</span> et <span class="number">1</span> ont un carreau qui influence celui du milieu. Pour le calucl, on additionne donc <span class="number">2<sup>0</sup></span> + <span class="number">2<sup>1</sup></span> soit <span class="number">3</span>.</li>
+          <li>Les positions <span class="number">0</span>, <span class="number">1</span> et <span class="number">2</span> ont un carreau qui influence celui du milieu. Pour le calcul, on additionne donc <span class="number">2<sup>0</sup></span> + <span class="number">2<sup>1</sup></span> + <span class="number">2<sup>2</sup></span> soit <span class="number">7</span>.</li>
+          <li>Les positions <span class="number">1</span> et <span class="number">2</span> ont un carreau qui influence celui du milieu. Pour le calcul, on additionne donc <span class="number">2<sup>1</sup></span> + <span class="number">2<sup>2</sup></span> soit <span class="number">6</span>.</li>
+          <li>La position <span class="number">2</span> a un carreau qui influence celui du milieu. Pour le calcul, on prend donc <span class="number">2<sup>2</sup></span> soit <span class="number">4</span>.</li>
+          <li>Configuration invalide d'après nos règles.</li>
+          <li>La position <span class="number">1</span> a un carreau qui influence celui du milieu. Pour le calcul, on prend donc <span class="number">2<sup>1</sup></span> soit <span class="number">2</span>.</li>
+        </ol>
+        <p>On dessine alors dans le carreau central une texture qui représente la transition qu'il va adopter : <img src=""/></p>
+        <div>
+          A. <table class="repr_border">
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/mud-nw-water.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+          </table>
+          &nbsp;&nbsp;
+          B. <table class="repr_border">
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/mud-n-water.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+          </table>
+          &nbsp;&nbsp;
+          C. <table class="repr_border">
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/mud-n-water.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+          </table>
+          &nbsp;&nbsp;
+          D. <table class="repr_border">
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/mud-n-water.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+          </table>
+          <br/>
+          E. <table class="repr_border">
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/mud-ne-water.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+          </table>
+          &nbsp;&nbsp;
+          G. <table class="repr_border">
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/mud-n-water.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+          </table>
+        </div>
+        <p>On remarque quelque chose de très important qui fait figure de 5<sup>ème</sup> règle : <b>si le nord est un carreau influenceur, peut importe la valeur des deux coins associés, ici nord-ouest et nord-est</b>. En conséquence, on peut associer un identifiant de configuration à une transition :</p>
+        <ul>
+          <li><span class="number">1</span> appelle la transition <img src="transitions/mud-nw-water.png"/></li>
+          <li><span class="number">3</span>, <span class="number">7</span>, <span class="number">6</span> et <span class="number">2</span> appelle la transition <img src="transitions/mud-n-water.png"/></li>
+          <li><span class="number">4</span> appelle la transition <img src="transitions/mud-ne-water.png"/></li>
+        </ul>
+        
+        <h3 id="IIC">II.C Correspondances configuration-transition</h3>
+        
+        <p>Il faut à présent construire une correspondance entre les configurations et les <span class="number">12</span> transitions possibles. Cette correspondance peut se faire à l'aide d'une table ou d'une fonction. En entrée, on a le numéro de configuration, en sortie le numéro de la texture à prendre. Il faut travailler avec deux tableaux : celui de départ, où sont stockées les textures d'eau et de terre, et celui d'arrivée, où on stocke les transitions ou l'absence de transition.</p>
+        
+        <h3 id="IID">II.D Exemples de résultats</h3>
+        
+        <p>Ci-dessous sont les <span class="number">12</span> transitions possibles de la terre vers l'eau dans notre système ainsi que le carreau "sans transition" pour l'eau :</p>
+        <div>
+          <table class="repr_border">
+            <tr>
+              <td><img src="transitions/mud-nw-water.png"/></td>
+              <td><img src="transitions/mud-n-water.png"/></td>
+              <td><img src="transitions/mud-ne-water.png"/></td>
+              <td><img src="transitions/mud-e-water.png"/></td>
+              <td><img src="transitions/mud-se-water.png"/></td>
+              <td><img src="transitions/mud-s-water.png"/></td>
+              <td><img src="transitions/mud-sw-water.png"/></td>
+              <td><img src="transitions/mud-w-water.png"/></td>
+              <td><img src="transitions/mud-nnee-water.png"/></td>
+              <td><img src="transitions/mud-eses-water.png"/></td>
+              <td><img src="transitions/mud-ssww-water.png"/></td>
+              <td><img src="transitions/mud-wnwn-water.png"/></td>
+              <td><img src="transitions/water-1.png"/></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td>6</td>
+              <td>7</td>
+              <td>8</td>
+              <td>9</td>
+              <td>10</td>
+              <td>11</td>
+              <td>12</td>
+              <td>13</td>
+            </tr>
+          </table>
+        </div>
+        <p>En reprenant les configurations précédentes et en appliquant à chaque carreau notre algorithme de transition, on obtient au final :</p>
+        <div>
+          A. <table class="repr_border">
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-w-water.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/mud-n-water.png"/></td><td><img src="transitions/mud-nw-water.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+          </table>
+          &nbsp;&nbsp;
+          B. <table class="repr_border">
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-w-water.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/mud-n-water.png"/></td><td><img src="transitions/mud-n-water.png"/></td><td><img src="transitions/mud-nw-water.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+          </table>
+          &nbsp;&nbsp;
+          C. <table class="repr_border">
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/mud-n-water.png"/></td><td><img src="transitions/mud-n-water.png"/></td><td><img src="transitions/mud-n-water.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+          </table>
+          &nbsp;&nbsp;
+          D. <table class="repr_border">
+            <tr>
+              <td><img src="transitions/mud-e-water.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/mud-ne-water.png"/></td><td><img src="transitions/mud-n-water.png"/></td><td><img src="transitions/mud-n-water.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+          </table>
+          <br/>
+          E. <table class="repr_border">
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/mud-e-water.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/mud-ne-water.png"/></td><td><img src="transitions/mud-n-water.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+          </table>
+          &nbsp;&nbsp;
+          G. <table class="repr_border">
+            <tr>
+              <td><img src="transitions/mud-e-water.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-w-water.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/mud-ne-water.png"/></td><td><img src="transitions/mud-n-water.png"/></td><td><img src="transitions/mud-nw-water.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/water-1.png"/></td>
+            </tr>
+          </table>
+        </div>
+        <p>Pour reprendre notre exemple initial, nous avons ce résultat là qui fait beaucoup plus naturel :</p>
+        <div>
+          <table class="repr_border">
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-wnwn-water.png"/></td><td><img src="transitions/mud-n-water.png"/></td><td><img src="transitions/mud-nnee-water.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-w-water.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/mud-e-water.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-ssww-water.png"/></td><td><img src="transitions/mud-s-water.png"/></td><td><img src="transitions/mud-eses-water.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+          </table>
+          &nbsp;&nbsp;
+          <table class="repr">
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-wnwn-water.png"/></td><td><img src="transitions/mud-n-water.png"/></td><td><img src="transitions/mud-nnee-water.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-w-water.png"/></td><td><img src="transitions/water-1.png"/></td><td><img src="transitions/mud-e-water.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-ssww-water.png"/></td><td><img src="transitions/mud-s-water.png"/></td><td><img src="transitions/mud-eses-water.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td><td><img src="transitions/mud-1.png"/></td>
+            </tr>
+          </table>
+        </div>
+        
+        <h2 id="III">III. Variations</h2>
+        
+        <p>Pour obtenir un effet encore plus de naturel, on peut également faire varier les textures de transition et sans transition. Il suffit d'avoir plusieurs variantes de textures et de les alterner. On veillera à ne pas trop répéter les variations pour garder un effet naturel.</p>
+        <p>Voici des exemples de variations pour la texture sans transition d'eau avec des plantes aquatiques :</p>
+        <div>
+          <table class="repr_border">
+            <tr>
+              <td><img src="transitions/water-1.png"/></td>
+              <td><img src="transitions/water-2.png"/></td>
+              <td><img src="transitions/water-3.png"/></td>
+            </tr>
+            <tr><td>1</td><td>2</td><td>3</td></tr>
+          </table>
+        </div>
+        <p>Voici des exemples de variations pour la texture sans transition de terre avec des rochers :</p>
+        <div>
+          <table class="repr_border">
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td>
+              <td><img src="transitions/mud-2.png"/></td>
+              <td><img src="transitions/mud-3.png"/></td>
+              <td><img src="transitions/mud-4.png"/></td>
+              <td><img src="transitions/mud-5.png"/></td>
+              <td><img src="transitions/mud-6.png"/></td>
+            </tr>
+            <tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+          </table>
+        </div>
+        <p>Et bien sûr, on peut combiner transitions et variations en offrant plusieurs textures possibles pour la même transition :</p>
+        <div>
+          <table class="repr_border">
+            <tr>
+              <td><img src="transitions/mud-1.png"/></td>
+            </tr>
+            <tr><td>1</td></tr>
+          </table>
+        </div>
+        
+        <h2 id="IV">III. Crédits</h2>
+        
+        <ul>
+          <li>Damien Gouteux 2019 pour le texte</li>
+          <li>Les graphismes sont tirés du jeu libre <span class="game">Wyrmsun</span> par Andrettin :
+            <ul>
+              <li><a href="https://andrettin.github.io/">Présentation du jeu</a></li>
+              <li><a href="https://github.com/andrettin/wyrmsun">Dépôt des données du jeu</a></li>
+              <li><a href="http://store.steampowered.com/app/370070">Page Steam du jeu</a></li>
+              <li><a href="https://twitter.com/wyrmsun">Page Twitter du jeu</a></li>
+              <li><a href="https://framalibre.org/content/wyrmsun">Page Framasoft du jeu</a></li>
+            </ul>
+          </li>
+          <li>Plus précisément, les graphismes utilisés sont tirés de :
+            <ul>
+              <li><a href="https://github.com/Andrettin/Wyrmsun/blob/master/graphics/terrain/deep_water.png">/graphics/terrain/deep_water.png</a> par Exidelo sous licence CC0.</li>
+              <li><a href="https://github.com/Andrettin/Wyrmsun/blob/master/graphics/neutral/decorations/flowers_swamp_1.png">/graphics/neutral/decorations/flowers_swamp_1.png</a> par b_o sous licence GPL 2.0 et CC-BY-SA 3.0.</li>
+              <li><a href="https://github.com/Andrettin/Wyrmsun/blob/master/graphics/neutral/decorations/large_flower_swamp_1.png">/graphics/neutral/decorations/large_flower_swamp_1.png</a> par b_o sous licence GPL 2.0 et CC-BY-SA 3.0.</li>
+              <li><a href="https://github.com/Andrettin/Wyrmsun/blob/master/graphics/neutral/decorations/small_rocks.png">/graphics/neutral/decorations/small_rocks.png</a> par b_o sous licence GPL 2.0 et CC-BY-SA 3.0.</li>
+            </ul>
+          </li>
+        </ul>
+        
+      </div>
     </div>
-   </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
