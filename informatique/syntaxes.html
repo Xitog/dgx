@@ -1498,7 +1498,8 @@
               range(min, max_non_inclu)
               </td>
               <!-- Ruby -->
-              <td></td>
+              <td>min..max<br>
+              min...max_non_inclu</td>
               <!-- Lua -->
               <td></td>
             </tr>
@@ -1513,7 +1514,7 @@
               os.getcwd()<br>
               os.chdir(path)</td>
               <!-- Ruby -->
-              <td></td>
+              <td>Dir.pwd</td>
               <!-- Lua -->
               <td></td>
             </tr>
@@ -1526,7 +1527,7 @@
               <!-- Python -->
               <td><b>import</b> os<br>os.listdir(<i>path</i>)</td>
               <!-- Ruby -->
-              <td></td>
+              <td>Dir.glob("*")</td>
               <!-- Lua -->
               <td></td>
             </tr>
@@ -1541,7 +1542,7 @@
               os.path.isfile(<i>path</i>)<br>
               os.path.isdir(<i>path</i>)</td>
               <!-- Ruby -->
-              <td></td>
+              <td>File.exist?(<i>path</i>)</td>
               <!-- Lua -->
               <td></td>
             </tr>
