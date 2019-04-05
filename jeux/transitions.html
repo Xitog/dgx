@@ -31,22 +31,22 @@
       color: black;
     }
     
-    // font-family: "Palatino Linotype", "Palatino", "Georgia";
+    table.info td {
+      border-bottom: 1px solid #777777;
+      font-size: 14px;
+      text-align: left;
+      color: black;
+    }
+    table.info tr:first-child {
+      border-top: 1px solid #777777;
+    }
+    table.info tr:nth-child(odd) {
+      background-color: #EFEFEF;
+    }
+    table.info tr:nth-child(even) {
+    }
     
-    span.game {
-      font-weight: bold;
-      color: darkgreen;
-    }
-    span.number {
-      color: red;
-    }
-    span.keyword_fr {
-      font-weight: bold;
-    }
-    span.keyword_en {
-      font-weight: bold;
-      font-style: italic;
-    }
+    // font-family: "Palatino Linotype", "Palatino", "Georgia";
     
     li {
       font-size: 14px;
@@ -65,12 +65,27 @@
     div.code b {
       color: orange;
     }
+    
+    span.game {
+      font-weight: bold;
+      color: darkgreen;
+    }
+    span.number {
+      color: red;
+    }
+    span.keyword_fr {
+      font-weight: bold;
+    }
+    span.keyword_en {
+      font-weight: bold;
+      font-style: italic;
+    }
     </style>
   </head>
   <body>
     <div id="main" class="container">
     
-      <nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -113,7 +128,8 @@
                   <li><a href="https://xitog.github.io/dgx/informatique/lua.html">Aide-mémoire Lua</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Modélisation</li>
-                  <li><a href="https://xitog.github.io/dgx/informatique/json.html">Aide-mémoire JSON</a></li>
+                  <li><a href="./informatique/bnf.html">Aide-mémoire BNF et EBNF</a></li>
+                  <li><a href="./informatique/json.html">Aide-mémoire JSON</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Autres</li>
                   <li><a href="https://xitog.github.io/dgx/informatique/outils.html">Logiciels utiles</a></li>
@@ -145,8 +161,11 @@
                   <li><a href="https://xitog.github.io/dgx/jeux/rts.html">Les enfants de Dune : les RTS</a></li>
                   <li><a href="https://xitog.github.io/dgx/jeux/raycasting.html">Le raycasting : la 2.5D</a></li>
                   <li><a href="https://xitog.github.io/dgx/jeux/play_rts.html">Jouer à mon RTS</a></li>
-                  <li><a href="https://xitog.github.io/dgx/jeux/play_fps.html" class="active">Jouer à mon FPS</a></li>
+                  <li><a href="https://xitog.github.io/dgx/jeux/play_fps.html">Jouer à mon FPS</a></li>
                   <li><a href="https://xitog.github.io/dgx/data/outil_collections.html#jv">Jeux vidéo favoris</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Articles techniques</i></li>
+                  <li><a href="https://xitog.github.io/dgx/jeux/transitions.html" class="active">Cartes et transitions</a></li>
                 </ul>
               </li>
               <li class="dropdown">
@@ -160,6 +179,7 @@
                   <li><a href="https://xitog.github.io/dgx/data/outil_collections.html#livres">Livres lus</a></li>
                   <li><a href="https://xitog.github.io/dgx/data/outil_collections.html#favoris_artistiques">Favoris artistiques</a></li>
                   <li><a href="https://xitog.github.io/dgx/liens.html">Liens</a></li>
+                  <li><a href="./liste_liens.html">Tous les liens</a></li>
                 </ul>
               </li>
             </ul>
@@ -182,7 +202,9 @@
             </ul>
           </li>
           <li><a href="#III">III. Variations</a></li>
-          <li><a href="#IV">Crédits</a></li>
+          <li><a href="#IV">IV. Multitransitions</a></li>
+          <li><a href="#V">V. Historique</a></li>
+          <li><a href="#VI">VI. Crédits</a></li>
         </ul>
         
         <h2 id="I">I. Un tableau comme carte</h2>
@@ -569,10 +591,10 @@
         
         <p>Il faut à présent construire une correspondance entre les configurations et les <span class="number">12</span> transitions possibles. Cette correspondance peut se faire à l'aide d'une table ou d'une fonction. En entrée, on a le numéro de configuration, en sortie le numéro de la texture à prendre. Il faut travailler avec deux tableaux : celui de départ, où sont stockées les textures d'eau et de terre, et celui d'arrivée, où on stocke les transitions ou l'absence de transition. L'algorithme est le suivant :</p>
         <div class="code">
-        <b>Pour</b> chaque ligne<br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;<b>Pour</b> chaque colonne<br/>
+        <b>Pour</b> chaque ligne <b>faire</b><br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;<b>Pour</b> chaque colonne <b>faire</b><br/>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Je calcule l'identifiant de configuration de la case(colonne, ligne) du tableau de départ<br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Si</b> il s'agit d'une configuration interdite alors<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Si</b> il s'agit d'une configuration interdite <b>alors</b><br/>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>lever</b> exception ConfigurationInterdite<br/>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Sinon</b><br/>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Je mets dans le tableau d'arrivée la transition correspondant à l'identifiant<br/>
@@ -813,7 +835,98 @@
           </table>
         </div>
         
-        <h2 id="IV">III. Crédits</h2>
+        <h2 id="IV">IV. Multitransitions</h2>
+        
+        <p>Nous avons pour l'instant mis en jeu une seule transition : de l'eau vers la terre, avec l'eau étant influencée par la terre. Mais on peut étendre ce principe à plusieurs transitions. Nous ajoutons ici l'herbe et la terre séchée. Nous commençons par construire un tableau qui indique "qui influence qui", une case rouge marquant que la texture sur la ligne est influencée par la texture sur la colonne, une case verte marquant que la texture sur la ligne influence la texture sur la colonne, une case grise indique une identité :</p>
+        <div align="center" width="100%">
+          <table class="repr_border">
+            <col width="20%">
+            <col width="20%">
+            <col width="20%">
+            <col width="20%">
+            <col width="20%">
+            <tr>
+              <td>Textures</td>
+              <td>Eau</td>
+              <td>Terre</td>
+              <td>Terre séchée</td>
+              <td>Herbe</td>
+            </tr>
+            <tr>
+              <td>Eau</td>
+              <td style="background-color: lightgrey;"></td>
+              <td style="background-color: red;"></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Terre</td>
+              <td style="background-color: green;"></td>
+              <td style="background-color: lightgrey;"></td>
+              <td style="background-color: red;"></td>
+              <td style="background-color: red;"></td>
+            </tr>
+            <tr>
+              <td>Terre séchée</td>
+              <td></td>
+              <td style="background-color: green;"></td>
+              <td style="background-color: lightgrey;"></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Herbe</td>
+              <td></td>
+              <td style="background-color: green;"></td>
+              <td></td>
+              <td style="background-color: lightgrey;"></td>
+            </tr>
+          </table>
+        </div>
+        <p>Ce tableau montre, par ses cases vertes et grises, les seules cases qui doivent être adjacentes pour que l'effet de transition soit possible. Nous définissons ensuite les textures, les 12 nécessaires pour créer les transitions, ainsi que les textures de base, sans transition, et les variations. Nous obtenons ensuite les effets suivants :</p>
+        <div align="center">
+          <img src="./transitions/TestWaterMudDry1.png"/>
+          &nbsp;
+          &nbsp;
+          <img src="./transitions/TestWaterMudGrass1.png"/>
+          &nbsp;
+          &nbsp;
+          <img src="./transitions/TestWaterMudDryGrass1.png"/>
+        </div>
+        
+        <h2 id="V">V. Historique</h2>
+        
+        <p>Pendant longtemps j'utilisais les textures de <span class="game">Yoda Stories</span> mais elles ne nécessitaient pas de transitions. En cherchant à les remplacer par des textures libres de droits comme celles de LPC ou Wyrmsun, j'ai commencé à rechercher comment négocier les transitions.</p>
+        <div align="center">
+          <table class="info">
+            <col width="120px">
+            <tr>
+              <td>Mars 2019</td>
+              <td>3<sup>ème</sup> itération, en <b>Python</b>, faite à partir de la 2<sup>ème</sup>. Multitransitions (4 : eau, terre, herbe, terre séchée), variations. Règle de continuité.<br>Écrite pour la rédaction de l'article. Lecture depuis tableur.</td>
+            </tr>
+            <tr>
+              <td>Août 2018</td>
+              <td>2<sup>ème</sup> itération, en <b>JavaScript</b>. Multitransitions (3 : eau, terre, herbe). Si on a pas de bordures, alors on peut avoir des coins.<br/>Lecture depuis code.</td>
+            </tr>
+            <tr>
+              <td>Janvier-Février 2018</td>
+              <td>1<sup>er</sup> itération, en <b>Python</b>. Multitransitions (4 : eau, terre, herbe, sable). Règle de non-encerclement vertical et horizontal.<br/>Lecture depuis tableur.</td>
+            </tr>
+            <tr>
+              <td>Janvier 2018</td>
+              <td>Lecture directe du format tableur depuis Python avec le module xlrd</td>
+            </tr>
+            <tr>
+              <td>Juin 2017</td>
+              <td>Première carte faite avec un tableur, lue via une conversion au format CSV.</td>
+            </tr>
+            <tr>
+              <td>Mai 2017</td>
+              <td>Recherches sur la transition.</td>
+            </tr>
+          </table>
+        </div>
+        
+        <h2 id="VI">VI. Crédits</h2>
         
         <ul>
           <li>Damien Gouteux 2019 pour le texte</li>
@@ -830,6 +943,8 @@
             <ul>
               <li><a href="https://github.com/Andrettin/Wyrmsun/blob/master/graphics/terrain/shallow_water.png">/graphics/terrain/shallow_water.png</a> par Jinn sous licence CC0.</li>
               <li><a href="https://github.com/Andrettin/Wyrmsun/blob/master/graphics/terrain/deep_water-1.png">/graphics/terrain/deep_water-1.png</a> par Exidelo sous licence CC0.</li>
+              <li><a href="https://github.com/Andrettin/Wyrmsun/blob/master/graphics/terrain/dry_mud.png">/graphics/terrain/dry_mud.png</a> par Jinn sous licence CC0.</li>
+              <li><a href="https://github.com/Andrettin/Wyrmsun/blob/master/graphics/terrain/grass.png">/graphics/terrain/grass.png</a> par Exidelo sous licence CC0.</li>
               <li><a href="https://github.com/Andrettin/Wyrmsun/blob/master/graphics/neutral/decorations/flowers_swamp_1.png">/graphics/neutral/decorations/flowers_swamp_1.png</a> par b_o sous licence GPL 2.0 et CC-BY-SA 3.0.</li>
               <li><a href="https://github.com/Andrettin/Wyrmsun/blob/master/graphics/neutral/decorations/large_flower_swamp_1.png">/graphics/neutral/decorations/large_flower_swamp_1.png</a> par b_o sous licence GPL 2.0 et CC-BY-SA 3.0.</li>
               <li><a href="https://github.com/Andrettin/Wyrmsun/blob/master/graphics/neutral/decorations/small_rocks.png">/graphics/neutral/decorations/small_rocks.png</a> par b_o sous licence GPL 2.0 et CC-BY-SA 3.0.</li>
