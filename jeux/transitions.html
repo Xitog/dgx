@@ -209,7 +209,7 @@
         
         <h2 id="I">I. Un tableau comme carte</h2>
         
-        <p>Le jeu <span class="game">WarCraft II</span> propose une vue de dessus d'une carte où se déroule la partie. Cette carte est stocké à l'aide d'un tableau. Chaque case du tableau contient une indication de textures à utiliser. Par exemple, une case peut contenir la valeur <span class="number">0</span>, qui désigne de l'eau, ou <span class="number">1</span> de la terre. Prenons une carte de <span class="number">5</span> cases en largeur et en hauteur, une taille que nous notons 5x5, et affichons la dans un premier temps avec des bordures délimitant chaque case (A) puis sans (B) :</p>
+        <p>Le jeu <span class="game">WarCraft II</span> (1995) propose une vue de dessus d'une carte où se déroule la partie. Cette carte est stocké à l'aide d'un tableau. Chaque case du tableau contient une indication de textures à utiliser. Par exemple, une case peut contenir la valeur <span class="number">0</span>, qui désigne de l'eau, ou <span class="number">1</span> de la terre. Prenons une carte de <span class="number">5</span> cases en largeur et en hauteur, une taille que nous notons 5x5, et affichons la dans un premier temps avec des bordures délimitant chaque case (A) puis sans (B) :</p>
         <div>
           A. <table class="repr_border">
             <tr>
@@ -840,17 +840,21 @@
         <p>Nous avons pour l'instant mis en jeu une seule transition : de l'eau vers la terre, avec l'eau étant influencée par la terre. Mais on peut étendre ce principe à plusieurs transitions. Nous ajoutons ici l'herbe et la terre séchée. Nous commençons par construire un tableau qui indique "qui influence qui", une case rouge marquant que la texture sur la ligne est influencée par la texture sur la colonne, une case verte marquant que la texture sur la ligne influence la texture sur la colonne, une case grise indique une identité :</p>
         <div align="center" width="100%">
           <table class="repr_border">
-            <col width="20%">
-            <col width="20%">
-            <col width="20%">
-            <col width="20%">
-            <col width="20%">
+            <col width="30%">
+            <col width="10%">
+            <col width="10%">
+            <col width="10%">
+            <col width="10%">
+            <col width="10%">
+            <col width="10%">
             <tr>
               <td>Textures</td>
               <td>Eau</td>
               <td>Terre</td>
               <td>Terre séchée</td>
               <td>Herbe</td>
+              <td>Herbe sombre</td>
+              <td>Eau profonde</td>
             </tr>
             <tr>
               <td>Eau</td>
@@ -858,6 +862,8 @@
               <td style="background-color: red;"></td>
               <td></td>
               <td></td>
+              <td></td>
+              <td style="background-color: red;"></td>
             </tr>
             <tr>
               <td>Terre</td>
@@ -865,6 +871,8 @@
               <td style="background-color: lightgrey;"></td>
               <td style="background-color: red;"></td>
               <td style="background-color: red;"></td>
+              <td></td>
+              <td></td>
             </tr>
             <tr>
               <td>Terre séchée</td>
@@ -872,11 +880,33 @@
               <td style="background-color: green;"></td>
               <td style="background-color: lightgrey;"></td>
               <td></td>
+              <td></td>
+              <td></td>
             </tr>
             <tr>
               <td>Herbe</td>
               <td></td>
               <td style="background-color: green;"></td>
+              <td></td>
+              <td style="background-color: lightgrey;"></td>
+              <td style="background-color: red;"></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Herbe sombre</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td style="background-color: green;"></td>
+              <td style="background-color: lightgrey;"></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Eau profonde</td>
+              <td style="background-color: green;"></td>
+              <td></td>
+              <td></td>
+              <td></td>
               <td></td>
               <td style="background-color: lightgrey;"></td>
             </tr>
@@ -895,10 +925,14 @@
         
         <h2 id="V">V. Historique</h2>
         
-        <p>Pendant longtemps j'utilisais les textures de <span class="game">Yoda Stories</span> mais elles ne nécessitaient pas de transitions. En cherchant à les remplacer par des textures libres de droits comme celles de LPC ou Wyrmsun, j'ai commencé à rechercher comment négocier les transitions.</p>
+        <p>Pendant longtemps j'utilisais les textures de <span class="game">Yoda Stories</span> (1997) mais elles ne nécessitaient pas de transitions. En cherchant à les remplacer par des textures libres de droits comme celles de LPC ou Wyrmsun, j'ai commencé à rechercher comment négocier les transitions.</p>
         <div align="center">
           <table class="info">
             <col width="120px">
+            <tr>
+              <td>Avril 2019</td>
+              <td>Je continue sur la V3 : ajout de deux textures supplémentaires et de leurs transitions : herbe sombre et eau profonde, en obscurcissant herbe et eau (-20 de luminosité), pour un total de 6 textures de base. Ajout des coins doubles opposés pour la transiton eau/terre. Production de la carte au format JavaScript depuis Excel.</td>
+            </tr>
             <tr>
               <td>Mars 2019</td>
               <td>3<sup>ème</sup> itération, en <b>Python</b>, faite à partir de la 2<sup>ème</sup>. Multitransitions (4 : eau, terre, herbe, terre séchée), variations. Règle de continuité.<br>Écrite pour la rédaction de l'article. Lecture depuis tableur.</td>
@@ -930,7 +964,7 @@
         
         <ul>
           <li>Damien Gouteux 2019 pour le texte</li>
-          <li>Les graphismes sont tirés du jeu libre <span class="game">Wyrmsun</span> par Andrettin :
+          <li>Les graphismes sont tirés du jeu libre <span class="game">Wyrmsun</span> (2014) par Andrettin :
             <ul>
               <li><a href="https://andrettin.github.io/">Présentation du jeu</a></li>
               <li><a href="https://github.com/andrettin/wyrmsun">Dépôt des données du jeu</a></li>

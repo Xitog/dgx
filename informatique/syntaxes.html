@@ -287,11 +287,15 @@
           <li><a href="#mod">Modules</a></li>
           <li><a href="#bib">Bibliothèques de base</a></li>
             <ul>
-              <li>XML</li>
-              <li>JSON</li>
+              <li><a href="#data_xml">XML</a></li>
+              <li><a href="#data_json">JSON</a></li>
             </ul>
           </li>
-          <li><a href="#bibex">Bibliothèques externes</a></li>
+          <li><a href="#bibex">Bibliothèques externes</a>
+            <ul>
+              <li><a href="#data_excel">Excel</a></li>
+            </ul>
+          </li>
         </ul>
         <br>
         <table class="x">
@@ -1562,7 +1566,7 @@
               <td></td>
             </tr>
             <tr>
-              <td>JSON Writing</td>
+              <td id="data_json">JSON Writing</td>
               <!-- JavaScript -->
               <td></td>
               <!-- Java -->
@@ -1597,7 +1601,7 @@
               <td></td>
             </tr>
             <tr>
-              <td>XML Writing</td>
+              <td id="data_xml">XML Writing</td>
               <!-- JavaScript -->
               <td></td>
               <!-- Java -->
@@ -1623,9 +1627,12 @@
               <td></td>
               <!-- Python -->
               <td><b>import</b> xml.etree.ElementTree as ET<br>
+                <u># From file</u><br>
                 tree = ET.parse(<i>'pipo.xml'</i>)<br>
-                root = tree.getroot()<br>
-                elem = ET.fromstring(<i>'<tag attr1="5" attr2="6"/>'</i>)<br>
+                elem = tree.getroot()<br>
+                <u># From string</u><br>
+                elem = ET.fromstring(<i>'&lt;tag attr1="5" attr2="6"/&gt;'</i>)<br>
+                <u># Access</u><br>
                 elem.tag <u># string of the tag</u><br>
                 elem.attrib <u># dict of attributes</u><br>
               </td>
@@ -1701,9 +1708,19 @@
                 <ul>
                   <li>JSON : <a href="https://docs.python.org/3/library/json.html">json</a> (std)</li>
                   <li>XML : <a href="https://docs.python.org/3/library/xml.etree.elementtree.html">xml.etree.ElementTree</a> (std)</li>
-                  <li>XSL : <a href="http://xlrd.readthedocs.io/en/latest/">xlrd</a>/<a href="http://xlwt.readthedocs.io/en/latest/">xlwt</a></li>
+                  <li id="data_excel">XSL : <a href="http://xlrd.readthedocs.io/en/latest/">xlrd</a>/<a href="http://xlwt.readthedocs.io/en/latest/">xlwt</a></li>
                   <li>XLSX : <a href="https://openpyxl.readthedocs.io/en/stable/">openpyxl</a></li>
                 </ul>
+                <u># Write Excel</u><br/>
+                <b>import</b> xlwt<br/>
+                book = xlwt.Workbook()<br/>
+                sheet = book.add_sheet(<i>"Sheet1"</i>)<br/>
+                data = [<i>'a'</i>, <i>'b'</i>, <i>'c'</i>, <i>'d'</i>, <i>'e'</i>]<br/>
+                <b>for</b> irow <b>in</b> range(10):<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;row = sheet.row(irow)<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;<b>for</b> icol, val <b>in</b> enumerate(data):<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;row.write(icol, <i>f"{val}{irow}"</i>)<br/>
+                book.save(<i>"out.xls"</i>)
               </td>
               <!-- Ruby -->
               <td></td>
