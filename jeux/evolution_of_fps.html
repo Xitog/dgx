@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Evolution of early FPS</title>
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
+    <link href="https://xitog.github.io/dgx/css/simplex.bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      table {
+        border-collapse: collapse;
+      }
+      td {
+        border: 1px solid black;
+      }
+      td.y {
+        background-color: #6af654;
+        text-align: center;
+        font-weight: bold;
+        color: white;
+      }
+      td.n {
+        background-color: #F6546A;
+        text-align: center;
+        font-weight: bold;
+        color: white;
+      }
+      td.q {
+        background-color: #f68f54;
+        text-align: center;
+        font-weight: bold;
+        color: white;
+      }
+      td.i {
+        background-color: #546af6;
+        text-align: center;
+        font-weight: bold;
+        color: white;
+      }
+      th {
+        border: 1px solid black;
+        text-align: center;
+        font-weight: bold;
+        background-color: lightgrey;
+        padding-left: 1em;
+        padding-right: 1em;
+      }
+      td.part {
+        text-align: center;
+        font-weight: bold;
+        background-color: lightgrey;
+      }
+      td.link {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main" class="container">
+    
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+             <a class="navbar-brand" href="#">Menu</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li id="Accueil"><a href="https://xitog.github.io/dgx/index.html">Accueil</a></li>
+              <li id="Blog"><a href="https://xitog.github.io/dgx/blog.html">Blog</a></li>
+              <li class="dropdown">
+                <a id="Langues" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Langues <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                <li class="dropdown-header">Français</li>
+                  <li><a href="https://xitog.github.io/dgx/francais/fiche_api_fr.html">Fiche sur les phonèmes du français</a></li>
+                  <li><a href="https://xitog.github.io/dgx/francais/outil_stats_fr.html">Outil d'analyse textuelle</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Italien</li>
+                  <li><a href="https://xitog.github.io/dgx/italien/beatrice.html">Beatrice : grammaire</a></li>
+                  <li><a href="https://xitog.github.io/dgx/italien/jeu_conjugaison.html">Jeu sur la conjugaison</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Anglais</li>
+                  <li><a href="https://xitog.github.io/dgx/anglais/jeu_vocabulaire.html">Jeu sur le vocabulaire</a></li>
+                  <li><a href="https://xitog.github.io/dgx/anglais/verbes.html">Verbes fréquents</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Interlingua</li>
+                  <li><a href="https://xitog.github.io/dgx/interlingua/conjugueur.html">Conjugueur</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Linguistique</li>
+                  <li><a href="https://xitog.github.io/dgx/linguistique/informations.html">Informations générales</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Informatique" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Informatique <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Programmation</li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/syntaxes.html">Syntaxes comparées</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/python.html">Aide-mémoire Python</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/ruby.html">Aide-mémoire Ruby</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/lua.html">Aide-mémoire Lua</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/ruby_guide.html">Guide Ruby</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/ash_guide.html">Guide Ash</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Modélisation</li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/bnf.html">Aide-mémoire BNF et EBNF</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/json.html">Aide-mémoire JSON</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Autres</li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/outils.html">Logiciels utiles</a></li>
+                  <li><a href="https://xitog.github.io/dgx/data/outil_collections.html#langages">Liste de langages</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Histoire" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Histoire <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Méthode</li>
+                  <li><a href="https://xitog.github.io/dgx/histoire/methode.html">Généralités</a></li>
+                  <li><a href="https://xitog.github.io/dgx/histoire/bibliographie.html">Bibliographie</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Aide-mémoires</li>
+                  <li><a href="https://xitog.github.io/dgx/histoire/france19eme.html">France au XIXe</a></li>
+                </ul>
+              </li>
+              <li class="dropdown active">
+                <a id="Jeux" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Jeux <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Jeux de rôles</i></li>
+                  <li><a href="https://xitog.github.io/dgx/jeux/systemes_rpg.html">Systèmes des RPG</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Livres-jeux</li>
+                  <li><a href="https://xitog.github.io/dgx/jeux/compagnon_talisman.html">Le Compagnon du Talisman</a></li>
+                  <li><a href="https://xitog.github.io/dgx/jeux/compagnon_sorcier.html">Le Compagnon du Sorcier</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Histoire des jeux vidéo</li>
+                  <li><a href="https://xitog.github.io/dgx/jeux/rts.html">Les enfants de Dune : les RTS</a></li>
+                  <li><a href="https://xitog.github.io/dgx/data/outil_collections.html#jv">Jeux vidéo favoris</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Techniques des jeux vidéo</i></li>
+                  <li><a href="https://xitog.github.io/dgx/jeux/raycasting.html">Le raycasting : la 2.5D</a></li>
+                  <li><a href="https://xitog.github.io/dgx/jeux/evolution_of_fps.html" class="active">Évolution des premiers FPS</a></li>
+                  <li><a href="https://xitog.github.io/dgx/jeux/transitions.html">Cartes et transitions</a></li>
+                  <li><a href="https://xitog.github.io/dgx/jeux/dialogues.html">Dialogues</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Jeux vidéo maison</i></li>
+                  <li><a href="https://xitog.github.io/dgx/jeux/play_rts.html">Jouer à mon RTS</a></li>
+                  <li><a href="https://xitog.github.io/dgx/jeux/play_fps.html">Jouer à mon FPS</a></li>
+                  
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Autres" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Autres <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Musique</li>
+                  <li><a href="https://xitog.github.io/dgx/concerts_classiques/index.html">Concerts classiques</a></li>
+                  <li><a href="https://xitog.github.io/dgx/favoris/musiques.html">Musiques favorites</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Collections</li>
+                  <li><a href="../data/outil_collections.html#prenoms">Prénoms</a></li>
+                  <li><a href="https://xitog.github.io/dgx/data/outil_collections.html#livres">Livres lus</a></li>
+                  <li><a href="https://xitog.github.io/dgx/data/outil_collections.html#favoris_artistiques">Favoris artistiques</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Liens</li>
+                  <li><a href="https://xitog.github.io/dgx/liens.html">Barre de liens</a></li>
+                  <li><a href="https://xitog.github.io/dgx/liste_liens.html">Collection de liens</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+      <div id="pageContent">
+        <h2>The evolution of early FPS</h2>
+        <table id="maintable">
+          <thead>
+            <tr><th>Title</th>                       <th>Hovertank 3-D</th>              <th>Catacombs 3-D</th>                    <th>Wolfenstein 3D</th>             <th>ShadowCaster</th>                <th>Doom</th>                        <th>Heretic</th>           <th>Hexen</th>         <th>Rise of the Triad</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Release date</td>                <td>April, 1991</td>                <td>November, 1991</td>                   <td>May 5, 1992</td>                <td>September, 1993</td>             <td>December 10, 1993</td>           <td> December 23, 1994</td><td></td>              <td></td>            </tr>
+            <tr><td>Developer</td>                   <td>id Software</td>                <td>id Software</td>                      <td>id Software</td>                <td>Raven Software</td>              <td>id Software</td>                 <td>Raven Software</td>    <td>Raven Software</td><td>Apogee</td>      </tr>
+            <tr><td>Publisher</td>                   <td>Softdisk</td>                   <td>Softdisk</td>                         <td>Apogee Software</td>            <td>ORIGIN Systems / EA</td>         <td>GT Interactive</td>              <td>GT Interactive</td>    <td></td>              <td></td>            </tr>
+            <tr><td>Genre</td>                       <td>SF</td>                         <td>Fantasy</td>                          <td>WWII</td>                       <td>Fantasy</td>                     <td>SF</td>                          <td>Fantasy</td>           <td>Fantasy</td>       <td>Modern</td>      </tr>
+            <tr><td class="part" colspan="9">Links</td></tr>
+            <tr><td>Wikipedia page</td>
+                <td class="link"></td>
+                <td class="link"></td>
+                <td class="link"></td>
+                <td class="link"><a href="https://en.wikipedia.org/wiki/ShadowCaster">Wikipedia</a></td>
+                <td class="link"></td>
+                <td class="link"><a href="https://en.wikipedia.org/wiki/Heretic_(video_game)">Wikipedia</a></td>
+            </tr>
+            <tr><td>Moby Games page</td>
+                <td class="link"></td>
+                <td class="link"></td>
+                <td class="link"></td>
+                <td class="link"><a href="https://www.mobygames.com/game/shadowcaster">Moby Games</a></td>
+                <td class="link"></td>
+                <td class="link"><a href="https://www.mobygames.com/game/heretic">Moby Games</a></td>
+            </tr>
+            <tr><td>Doomwiki page</td>
+                <td class="link"></td>
+                <td class="link"></td>
+                <td class="link"></td>
+                <td class="link"><a href="https://doomwiki.org/wiki/Shadowcaster">Doomwiki</a></td>
+                <td class="link"></td>
+                <td class="link"></td>
+            </tr>
+            <tr><td>Source code</td>
+                <td class="link"><a href="https://github.com/FlatRockSoft/Hovertank3D">Github</a></td>
+                <td class="link"><a href="https://github.com/CatacombGames/Catacomb3D">Github</a></td>
+                <td class="link"></td>
+                <td class="link"></td>
+                <td class="link"></td>
+                <td class="link"></td>
+            </tr>
+            <tr><td class="part" colspan="9">Engine features</td></tr>
+            <tr><td>Engine derivated from</td>       <td class="i">Original work</i></td><td class="i">Original work</i></td>     <td class="i">Original work</i></td><td class="i">Wolfenstein 3D</i></td><td class="i">Original work</i></td><td class="i">Doom</i></td></tr>
+            <tr><td>Main concept</td>                <td class="q">?</td>                <td class="q">?</td>                     <td class="i">Raycasting</td>       <td class="i">Raycasting</td>        <td class="i">Raycasting</td>       <td class="i">Raycasting</td></tr>
+            <tr><td>Level form</td>                  <td class="q">?</td>                <td class="i">Grid</td>                  <td class="i">Grid</td>             <td class="i">Grid</td>              <td class="i">Sectors</td>          <td class="i">Sectors</td></tr>
+            <tr><td>Orthogonal walls</td>            <td class="y">yes</td>              <td class="y">yes</td>                   <td class="y">yes</td>              <td class="y">yes</td>               <td class="y">yes</td>              <td class="y">yes</td></tr>
+            <tr><td>Non orthogonal walls</td>        <td class="n">no</td>               <td class="n">no</td>                    <td class="n">no</td>               <td class="n">no</td>                <td class="y">yes</td>              <td class="y">yes</td></tr>
+            <tr><td>Multiples of a base length</td>  <td class="q">?</td>                <td class="y">yes</td>                   <td class="y">yes</td>              <td class="y">yes</td>               <td class="n">no</td>               <td class="y">no</td></tr>
+            <tr><td>Different level heights</td>     <td class="n">no</td>               <td class="n">no</td>                    <td class="n">no</td>               <td class="y">yes</td>               <td class="y">yes</td>              <td class="y">yes</td></tr>
+            <tr><td>Different wall heights</td>      <td class="n">no</td>               <td class="n">no</td>                    <td class="n">no</td>               <td class="q">?</td>                 <td class="y">yes</td>              <td class="y">yes</td></tr>
+            <tr><td>Textured walls</td>              <td class="n">no</td>               <td class="y">yes</td>                   <td class="y">yes</td>              <td class="y">yes</td>               <td class="y">yes</td>              <td class="y">yes</td></tr>
+            <tr><td>Textured floors and ceilings</td><td class="n">no</td>               <td class="n">no</td>                    <td class="n">no</td>               <td class="y">yes</td>               <td class="y">yes</td>              <td class="y">yes</td></tr>
+            <tr><td>Sloped floors and ceilings</td>  <td class="n">no</td>               <td class="n">no</td>                    <td class="n">no</td>               <td class="q">?</td>                 <td class="n">no</td>               <td class="n">no</td></tr>
+            <tr><td>Skybox</td>                      <td class="n">no</td>               <td class="n">no</td>                    <td class="n">no</td>               <td class="n">yes</td>               <td class="y">yes</td>              <td class="y">yes</td></tr>
+            <tr><td>Scalable sprites</td>            <td class="q">?</td>                <td class="y">yes</td>                   <td class="y">yes</td>              <td class="y">yes</td>               <td class="y">yes</td>              <td class="y">yes</td></tr>
+            <tr><td>Distance diminished lighting</td><td class="n">no</td>               <td class="n">no</td>                    <td class="n">no</td>               <td class="y">yes</td>               <td class="q">?</td>                <td class="q">?</td></tr>
+            <tr><td>Dynamic lighting</td>            <td class="n">no</td>               <td class="n">no</td>                    <td class="n">no</td>               <td class="n">no</td>                <td class="y">yes</td>              <td class="q">?</td></tr>
+            <tr><td>Colors</td>                      <td class="q">?</td>                <td class="i">16-color EGA</td>          <td class="i">256-color VGA</td>    <td class="q">?</td>                 <td class="q">?</td>                <td class="q">?</td></tr>
+            <tr><td>Doors</td>                       <td class="n">no</td>               <td class="i">Only disappearing walls</i><td class="y">yes</td>              <td class="y">yes</td>               <td class="y">yes</td>              <td class="q">?</td></tr>
+            <tr><td class="part" colspan="9">Gameplay features</td></tr>
+            <tr><td>Run</td>                         <td class="n">no</td>               <td class="n">no</td>                    <td class="n">no</td>               <td class="n">no</td>                <td class="n">no</td>               <td class="n">no</td></tr>
+            <tr><td>Jump</td>                        <td class="n">no</td>               <td class="n">no</td>                    <td class="n">no</td>               <td class="n">no</td>                <td class="n">no</td>               <td class="n">no</td></tr>
+            <tr><td>Look up and down</td>            <td class="n">no</td>               <td class="n">no</td>                    <td class="n">no</td>               <td class="n">no</td>                <td class="n">no</td>               <td class="y">yes</td></tr>
+            <tr><td>Inventory</td>                   <td class="n">no</td>               <td class="n">no</td>                    <td class="n">no</td>               <td class="y">yes</td>               <td class="n">no</td>               <td class="y">yes</td></tr>
+          </tbody>
+        </table>
+        <h2>Information</h2>
+        <ul>
+          <li>Early versions of Doom were able to draw sloped floors but it was not kept in the final version in order to make the engine faster.</li>
+          <li>Apogee Software used the shareware business model: the game was given freely, but players have to pay in order to unlock the full content of the game.</li>
+          <li>id Software was incorporated February 1, 1991 [1].</li>
+        </ul>
+        <h2>Sources</h2>
+        <ol>
+          <li><a href="https://www.ign.com/articles/2008/09/23/the-early-years-of-id-software">The early years of id Software, IGN</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Template:Wolfenstein_3D_engine_games">Wolfenstein 3D engine games on Wikipedia</a></li>
+        </ol>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>    
+  </body>
+</html>
