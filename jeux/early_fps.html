@@ -1,0 +1,389 @@
+﻿<head>
+  <title>Evolution of early FPS</title>
+  <style>
+    p {
+        font-family: "Palatino, Palatino Linotype, Georgia";
+        font-size: 1.1em;
+    }
+    table#main {
+        border-collapse: collapse;
+        font-family: "Arial";
+        font-size: 0.8em;
+    }
+    table#main td {
+        border: 1px black solid;
+    }
+    table#main tr:first-child {
+        font-weight: bold;
+    }
+    table#main tr td:first-child {
+        font-weight: bold;
+    }
+    table#main td.y {
+        font-weight: bold;
+        background-color: rgb(146, 208, 80);
+        color: white;
+        text-align: center;
+    }
+    table#main td.n {
+        font-weight: bold;
+        background-color: rgb(247, 150, 70);
+        color: white;
+        text-align: center;
+    }
+    table#main td.i {
+        font-weight: bold;
+        background-color: rgb(0, 176, 240);
+        color: white;
+        text-align: center;
+    }
+    table#main td.h1 {
+        font-weight: bold;
+        background-color: black;
+        color: white;
+        text-align: center;
+    }
+    table#main td.h2 {
+        font-weight: bold;
+        background-color: rgb(238, 236, 225);
+        color: black;
+        text-align: center;
+    }
+    table#main td.u {
+        vertical-align: top;
+    }
+  </style>
+</head>
+<body>
+  <p>This table compares the technical capacities of 5 different games whose engines were developed by John Carmack, from 1991 to 1993.</p>
+  <p>John Carmack, from id Software, was a pioneer in rendering a 3D environment for PC games, as was the team from Blue Sky Productions behind <i>Ultima Underworld</i> (1992).</p>
+  <p>This table shows clearly a rapid evolution, from untextured to textured walls, from orthogonal to non-orthogonal walls and from grid-based to free-form level.</p>
+  <p>Damien Gouteux, 2020-02-21</p>
+  <table id="main">
+    <tbody>
+      <tr>
+        <td>Game name</td>
+        <td>Hovertank 3D</td>
+        <td>Catacomb 3D</td>
+        <td>Wolfenstein 3D</td>
+        <td>ShadowCaster</td>
+        <td>Doom</td>
+      </tr>
+      <tr>
+        <td>Engine name, offical or <i>not</i></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><i>Raven Engine</i></td>
+        <td>Id Tech 1</td>
+      </tr>
+      <tr>
+        <td>Company</td>
+        <td>id Software</td>
+        <td>id Software</td>
+        <td>id Software</td>
+        <td>Raven Software</td>
+        <td>id Software</td>
+      </tr>
+      <tr>
+        <td>Links</td>
+        <td>
+          <a href="https://www.mobygames.com/game/dos/hovertank-one">Mobygames</a>,
+          <a href="https://en.wikipedia.org/wiki/Hovertank_3D">Hovertank 3D</a>
+        </td>
+        <td>
+          <a href="https://www.mobygames.com/game/dos/catacomb-3-d">Mobygames</a>,
+          <a href="https://en.wikipedia.org/wiki/Catacomb_3-D">Wikipedia</a>
+        </td>
+        <td>
+          <a href="https://www.mobygames.com/game/wolfenstein-3d">Mobygames</a>,
+          <a href="https://en.wikipedia.org/wiki/Wolfenstein_3D">Wikipedia</a>
+        </td>
+        <td>
+          <a href="https://www.mobygames.com/game/dos/shadowcaster">Mobygames</a>,
+          <a href="https://en.wikipedia.org/wiki/ShadowCaster">Wikipedia</a>
+        </td>
+        <td>
+          <a href="https://www.mobygames.com/game/doom">Mobygames</a>,
+          <a href="https://en.wikipedia.org/wiki/Doom_(1993_video_game)">Wikipedia</a>
+        </td>
+      <tr>
+        <td>Source code</td>
+        <td><a href="https://github.com/FlatRockSoft/Hovertank3D">Github FlatRockSoft</a></td>
+        <td><a href="https://github.com/CatacombGames/Catacomb3DGithub">Github CatacombGames</a></td>
+        <td><a href="https://github.com/id-Software/wolf3d">Github id Software</td>
+        <td><a href="https://drive.google.com/open?id=0B3gIcilDnsOPakdzNWNMZ1hNWUE&amp;authuser=0">Red Shadow Software</td>
+        <td><a href="https://github.com/id-Software/DOOM">Git id Software</td>
+      </tr>
+      <tr>
+        <td>Release date</td>
+        <td>April, <b>1991</b></td>
+        <td>November, <b>1991</b></td>
+        <td>May 5, <b>1992</b></td>
+        <td><b>1993</b></td>
+        <td>December 10, <b>1993</b></td>
+      </tr>
+      <tr>
+        <td>Release of the source code</td>
+        <td>June, 2014</td>
+        <td>June, 2014</td>
+        <td>July 21, 1995</td>
+        <td>-</td>
+        <td>December 23, 1997</td>
+      </tr>
+      <tr>
+        <td class="u">Programmers<br>(<b>engine programmer</b>)</td>
+        <td class="u"><b>John Carmack</b><br>John Romero</td>
+        <td class="u"><b>John Carmack</b><br>John Romero<br>Jason Blochowiak</td>
+        <td class="u"><b>John Carmack</b><br>John Romero</td>
+        <td class="u"><b>John Carmack</b><br>Victor Brueggemann<br>Kurt Schallitz<br>Carl Stika<br>Ben Gokey<br>Rick Johnson<br>David Stildolph</td>
+        <td class="u"><b>John Carmack</b><br>Mike Abrash<br>John Romero<br>Dave Taylor</td>
+      </tr>
+      <tr>
+        <td class="u">Artists</td>
+        <td class="u">Adrian Carmack</td>
+        <td class="u">Adrian Carmack</td>
+        <td class="u">Adrian Carmack</td>
+        <td class="u">Shane Gurno<br>Brian Pelletier<br>Scott Rice<br>James Sumwalt</td>
+        <td class="u">Adrian Carmack<br>Kevin Cloud</td>
+      </tr>
+      <tr>
+        <td>Editing Tool</td>
+        <td>TEd</td>
+        <td>TEd</td>
+        <td>TEd</td>
+        <td>TEd</td>
+        <td class=xl72 width=162 style='width:122pt'>DoomEd</td>
+      </tr>
+      <tr>
+        <td class="h1" colspan="6">Technical information</td>
+      </tr>
+      <tr>
+        <td class="h2" colspan="6">General</td>
+      </tr>
+      <tr>
+        <td>Colors</td>
+        <td class="i">16-color EGA</td>
+        <td class="i">16-color EGA</td>
+        <td class="i">256-color VGA</td>
+        <td class="i">256-color VGA</td>
+        <td class="i">256-color VGA</td>
+      </tr>
+      <tr>
+        <td>Resolution</td>
+        <td class="i">320x200</td>
+        <td class="i">320x200</td>
+        <td class="i">320x200</td>
+        <td class="i">320x200</td>
+        <td class="i">320x200</td>
+      </tr>
+      <tr>
+        <td class="h2" colspan="6">Levels</td>
+      </tr>
+      <tr>
+        <td>Level form</td>
+        <td class="i">grid</td>
+        <td class="i">grid</td>
+        <td class="i">grid</td>
+        <td class="i">grid</td>
+        <td class="i">sectors</td>
+      </tr>
+      <tr>
+        <td>Rendering</td>
+        <td class="i">wall span</td>
+        <td class="i">wall span</td>
+        <td class="i">raycasting</td>
+        <td class="i">raycasting</td>
+        <td class="i">raycasting</td>
+      </tr>
+      <tr>
+        <td>Hub</td>
+        <td class="n">no</td>
+        <td class="y">yes</td>
+        <td class="n">no</td>
+        <td class="y">yes</td>
+        <td class="n">no</td>
+      </tr>
+      <tr>
+        <td class="h2" colspan="6">Things</td>
+      </tr>
+      <tr>
+        <td>Scalable sprites</td>
+        <td class="y">yes</td>
+        <td class="y">yes</td>
+        <td class="y">yes</td>
+        <td class="y">yes</td>
+        <td class="y">yes</td>
+      </tr>
+      <tr>
+        <td>Polygonal things</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+      </tr>
+      <tr>
+        <td>Doors</td>
+        <td class="n">no</td>
+        <td class="i">Disappearing walls</td>
+        <td class="y">yes</td>
+        <td class="y">yes</td>
+        <td class="y">yes</td>
+      </tr>
+      <tr>
+        <td class="h2" colspan="6">Walls</td>
+      </tr>
+      <tr>
+        <td>Orthogonal walls</td>
+        <td class="y">yes</td>
+        <td class="y">yes</td>
+        <td class="y">yes</td>
+        <td class="y">yes</td>
+        <td class="y">yes</td>
+      </tr>
+      <tr>
+        <td>Non-orthogonal walls</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="y">yes</td>
+      </tr>
+      <tr>
+        <td>Free length of walls</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="y">yes</td>
+      </tr>
+      <tr>
+        <td class="h2" colspan="6">3rd Dimension</td>
+      </tr>
+      <tr>
+        <td>Different heights per levels</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="y">yes</td>
+        <td class="y">yes</td>
+      </tr>
+      <tr>
+        <td>Different heights per walls</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="y">yes</td>
+      </tr>
+      <tr>
+        <td>Sloped floors and ceilings</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="y">yes</td>
+        <td class="n">no</td>
+      </tr>
+      <tr>
+        <td>Elevators</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="y">yes</td>
+      </tr>
+      <tr>
+        <td class="h2" colspan="6">Texture-mapping</td>
+      </tr>
+      <tr>
+        <td>Textured walls</td>
+        <td class="n">no</td>
+        <td class="y">yes</td>
+        <td class="y">yes</td>
+        <td class="y">yes</td>
+        <td class="y">yes</td>
+      </tr>
+      <tr>
+        <td>Textures floors and ceilings</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="y">yes</td>
+        <td class="y">yes</td>
+      </tr>
+      <tr>
+        <td>Animated textures</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="y">yes</td>
+        <td class="y">yes</td>
+      </tr>
+      <tr>
+        <td>Skybox</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="y">yes</td>
+        <td class="y">yes</td>
+      </tr>
+      <tr>
+        <td class="h2" colspan="6">Lighting</td>
+      </tr>
+      <tr>
+        <td>Distance diminished lighting</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="y">yes</td>
+        <td class="y">yes</td>
+      </tr>
+      <tr>
+        <td>Different lighting per levels</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="y">yes</td>
+        <td class="y">yes</td>
+      </tr>
+      <tr>
+        <td>Different lighting per sectors</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="y">yes</td>
+      </tr>
+      <tr>
+        <td>Dynamic lighting</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="n">no</td>
+        <td class="y">yes</td>
+      </tr>
+      <tr>
+        <td class="h1" colspan="6">Usage</td>
+      </tr>
+      <tr>
+        <td class="u">Other games using the engine
+                      <br><i>(with additional capabilities)</i></td>
+        <td class="u">-</td>
+        <td class="u">Catacomb Abyss<br>Catacomb Armageddon<br>Catacomb Apocalypse</td>
+        <td class="u">Blake Stone: Aliens of Gold<br>
+            Blake Stone: Planet Strike<br>
+            Corridor 7<br>
+            Operation Body Count<br>
+            Super 3D Noah's Ark<br>
+            Rise of the Triad</td>
+        <td class="u">In Pursuit of Greed</td>
+        <td class="u">Doom II<br>
+            Heretic<br>
+            Hexen: Beyond Heretic<br>
+            Strife<br>
+            Chex Quest</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
