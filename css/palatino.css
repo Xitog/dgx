@@ -194,7 +194,7 @@
     border: 1px solid #929497;
     font-family: "Palatino";
 }
-#content.palatino table thead th {
+#content.palatino table thead tr th {
     background-color: #CEC498;
     color: white;
     font-weight: bold;
@@ -242,8 +242,7 @@
     border: 1px solid black;
 }
 
-#content.palatino .center
-        {
+#content.palatino .center {
     margin-left:auto;
     margin-right:auto;
     width:70%;
