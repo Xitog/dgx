@@ -259,3 +259,8 @@
     margin-right:auto;
     width:70%;
 }
+
+#content.palatino a:hover {
+    background-color: #CC6714;
+    color: #FFFFFF;
+}
