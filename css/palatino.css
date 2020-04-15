@@ -195,12 +195,14 @@
 #content.palatino td {
     border: 1px solid #acaeb0;
     font-family: "Palatino Linotype", "Palatino";
+    margin: 2px;
 }
 #content.palatino th {
     background-color: #CEC498;
     color: white;
     font-weight: bold;
     border: 1px solid #acaeb0;
+    margin: 2px;
 }
 #content.palatino table tbody tr:nth-child(odd) { 
     background-color: #FFFFFF; 
