@@ -264,3 +264,7 @@
     background-color: #CC6714;
     color: #FFFFFF;
 }
+
+#content.palatino li.dropdown-header {
+    color: #111111;
+}
