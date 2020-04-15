@@ -268,3 +268,13 @@
 #content.palatino li.dropdown-header {
     color: #808080; /*#e5e5e5;*/
 }
+
+#main.container {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(238, 238, 238);
+    border-radius: 4px;
+}
+
+#content.palatino {
+    background-color: rgb(252, 252, 252);
+}
