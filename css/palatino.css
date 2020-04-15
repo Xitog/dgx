@@ -31,8 +31,7 @@
     font-style: normal;
     color: #111111;
 }
-#content.palatino p.first:first-letter
-        {
+#content.palatino p.first:first-letter {
     font-size:18;
     font-weight: bold;
     color: #CEC498;  
@@ -190,9 +189,15 @@
     background-color: #FFFFFF;
 } 
 
+#content.palatino table {
+    border-collapse: collapse;
+    border: 1px solid #929497;
+    font-family: "Palatino";
+}
 #content.palatino table thead th {
     background-color: #CEC498;
     color: white;
+    font-weight: bold;
 }
 #content.palatino table tbody tr:nth-child(odd) { 
     background-color: #F5F5F5; 
