@@ -280,3 +280,7 @@
 #content.palatino {
     background-color: rgb(252, 252, 252);
 }
+
+hr {
+    margin: 10px;
+}
