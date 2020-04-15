@@ -212,10 +212,10 @@
     padding-right: 5px;
 }
 #content.palatino table tbody tr:nth-child(odd) { 
-    background-color: #FFFFFF; 
+    background-color: #F5F5F5;
 }
 #content.palatino table tbody tr:nth-child(2n) { 
-    background-color: #F5F5F5;
+    background-color: #FFFFFF;
 }
 
 #content.palatino p.line {
