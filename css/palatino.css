@@ -279,6 +279,7 @@
 
 #content.palatino {
     background-color: rgb(252, 252, 252);
+    border-bottom: 0;
 }
 
 hr {
