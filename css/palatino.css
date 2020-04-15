@@ -191,6 +191,7 @@
 
 #content.palatino table {
     border-collapse: collapse;
+    margin-bottom: 9px;
 }
 #content.palatino td {
     border: 1px solid #acaeb0;
