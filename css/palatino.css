@@ -57,11 +57,11 @@
 }
 #content.palatino span.code, #content.palatino span.morphlex, #content.palatino span.morphgram {
     font-family: "Consolas";
-font-style: normal;
-font-size: 12px;
-background-color: #F9F9F9;
-padding-left: 2px;
-padding-right: 2px;
+    font-style: normal;
+    font-size: 12px;
+    background-color: #F9F9F9;
+    padding-left: 2px;
+    padding-right: 2px;
 }
 #content.palatino span.code {
     border: 1px solid #AAAAAA;
@@ -189,6 +189,17 @@ padding-right: 2px;
 #content.palatino table.tab tbody tr:nth-child(2n) { 
     background-color: #FFFFFF;
 } 
+
+#content.palatino table thead th {
+    background-color: #CEC498;
+    color: white;
+}
+#content.palatino table tbody tr:nth-child(odd) { 
+    background-color: #F5F5F5; 
+}
+#content.palatino table tbody tr:nth-child(2n) { 
+    background-color: #FFFFFF;
+}
 
 #content.palatino p.line {
     border-bottom: 1px dashed #CEC398;
