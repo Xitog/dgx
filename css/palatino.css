@@ -193,13 +193,14 @@
     border-collapse: collapse;
 }
 #content.palatino td {
-    border: 1px solid #929497;
+    border: 1px solid #acaeb0;
     font-family: "Palatino Linotype", "Palatino";
 }
 #content.palatino th {
     background-color: #CEC498;
     color: white;
     font-weight: bold;
+    border: 1px solid #acaeb0;
 }
 #content.palatino table tbody tr:nth-child(odd) { 
     background-color: #FFFFFF; 
