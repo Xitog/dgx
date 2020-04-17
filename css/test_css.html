@@ -1,0 +1,187 @@
+<html>
+  <head>
+    <title>Test CSS</title>
+    <link href="file://C:/Users/DGX/Desktop/Git/dgx/css/palatino.css" rel="styleSheet" type="text/css">
+    <!--<link href="https://xitog.github.io/dgx/css/flashy.css" rel="styleSheet" type="text/css">-->
+    <!--<link href="https://xitog.github.io/dgx/css/palatino.css" rel="styleSheet" type="text/css">-->
+    <!--<link href="https://xitog.github.io/dgx/css/style2018.css" rel="styleSheet" type="text/css">-->
+    <!--<link href="https://xitog.github.io/dgx/css/green.css" rel="styleSheet" type="text/css">-->
+  </head>
+  <body id="content" class="palatino">
+
+    <h1>Palatino</h1>
+
+    <p>Ceci est une page pour montrer le css. La classe under permet de souligner les titres. La classe cal permet de mettre en Calibri les titres et les paragraphes. La classe alt permet d'avoir un schéma de couleur alternatif pour les titres 1.</p>
+    <p>Pour le code inline, balise code. Pour le code séparé, utiliser pre avec la classe code.</p>
+
+    <h2>Les titres</h2>
+
+    <h1>Titre 1</h1>
+    <h2>Titre 2</h2>
+    <h3>Titre 3</h3>
+    <h4>Titre 4</h4>
+
+    <h1 class="under">Titre 1</h1>
+    <h2 class="under">Titre 2</h2>
+    <h3 class="under">Titre 3</h3>
+    <h4 class="under">Titre 4</h4>
+
+    <h1 class="cal">Titre 1</h1>
+    <h2 class="cal">Titre 2</h2>
+    <h3 class="cal">Titre 3</h3>
+    <h4 class="cal">Titre 4</h4>
+
+    <h1 class="alt">Titre 1</h1>
+    <h2 class="alt">Titre 2</h2>
+    <h3 class="alt">Titre 3</h3>
+    <h4 class="alt">Titre 4</h4>
+
+    <h1 class="alt cal under">Titre 1</h1>
+    <h2 class="alt cal under">Titre 2</h2>
+    <h3 class="alt cal under">Titre 3</h3>
+    <h4 class="alt cal under">Titre 4</h4>
+
+    <hr>
+    <h2>Liste</h2>
+
+    <ul>
+      <li>Liste non ordonnée, item 1</li>
+      <li>Liste non ordonnée, item 2</li>
+    </ul>
+
+    <ol>
+      <li>Liste ordonnée, item 1</li>
+      <li>Liste ordonnée, item 2</li>
+    </ol>
+
+    <ol class="roman">
+      <li>Liste ordonnée romaine, item 1</li>
+      <li>Liste ordonnée romaine, item 2</li>
+    </ol>
+
+    <p>Paragraphe intermédiaire sinon hr est grosse...</p>
+
+    <hr>
+    <h2>Paragraphes et textes</h2>
+
+    <p>Paragraphe de texte simple.</p>
+    <p>gras : <b>ceci est en gras</b></p>
+    <p>italique : <i>ceci est en italique</i></p>
+
+    <p>Couleurs, gras, soulignés :</p>
+    <ul>
+      <li><span class="green">span vert</span>, <b><span class="green">span vert gras</span></b>, <span class="green u">span vert souligné</span></li>
+      <li><span class="blue">span bleu</span>, <b><span class="blue">span bleu gras</span></b>, <span class="blue u">span bleu souligné</span></li>
+      <li><span class="orange">span orange</span>, <b><span class="orange">span orange gras</span></b>, <span class="orange u">span orange souligné</span></li>
+    </ul>
+    <p>Souligné léger : <span class="u">ceci est souligné</span></p>
+
+    <p>Pour le lexique : <span class="morphlex">morphlex</span> et <span class="morphgram">morphgram</span>.</p>
+
+    <p class="first">The first letter is big.</p>
+    <p>A normal paragraph.</p>
+    <p class="centered_bordered">A centered p</p>
+    <p>A normal paragraph.</p>
+    <p class="orange_dashed_bottom">A line p</p>
+    <p>A normal paragraph.</p>
+
+    <div class="bordered">A bordered div</div>
+    
+    <p>A normal paragraph.</p>
+    
+    <div class="block">A block div</div>
+
+    <hr>
+    <h2>Code</h2>
+
+    <p>Deux solutions : inline ou séparé :</p>
+    <ul>
+      <li>Séparé, on fait un pre, de classe code. Pas de div, ni de p spécial !</li>
+      <li>Inline, on utilise la balise code.</li>
+    </ul>
+    
+    <pre class="code">
+<span class="keyword">def</span> <span class="identifier">function_id</span>(param1, param2):
+    <span class="special">print</span>(<span class="string">"this is my code"</span>)
+    <span class="keyword">return</span> <span class="number">5</span></pre>
+    
+    <p>Inline on utilise la balise <code>code</code>.</p>
+    
+    <ul>
+      <li>Span identifier : <code><span class="identifier">ceci est du identifier</span></code>
+      <li>Span special : <code><span class="special">ceci est du special</span></code></li>
+      <li>Span keyword : <code><span class="keyword">ceci est du keyword</span></code></li>
+      <li>Texte normal pour voir si la bordure mord dessus : et non !</li>
+      <li>Span number : <code><span class="number">ceci est du number</span></code></li>
+      <li>Span string : <code><span class="string">ceci est du string</span></code></li>
+      <li>Span code : <code>ceci est du code</code></li>
+      <li>Span commentaire : <code><span class="comment">-- ceci est du commentaire</span></code></li>
+    </ul>
+
+    <hr>
+    
+    <h2>Sémantique</h2>
+    
+    <p>Ceci est un <span class="game">jeu</span></p>
+    <p>Ceci est une <span class="date">date</span></p>
+    <p>Ceci est une <span class="people">personne</span></p>
+
+    <p>Ceci est un <span class="game border">jeu</span> avec bordure.</p>
+    <p>Ceci est une <span class="date border">date</span> avec bordure.</p>
+    <p>Ceci est une <span class="people border">personne</span> avec bordure.</p>
+
+    <p class="cal">Ceci est un <span class="game">jeu</span> dans un paragraphe cal</p>
+    <p class="cal">Ceci est une <span class="date">date</span> dans un paragraphe cal</p>
+    <p class="cal">Ceci est une <span class="people">personne</span> dans un paragraphe cal</p>
+
+    <p class="cal">Ceci est un <span class="game border">jeu</span> dans un paragraphe cal avec bordure</p>
+    <p class="cal">Ceci est une <span class="date border">date</span> dans un paragraphe cal avec bordure</p>
+    <p class="cal">Ceci est une <span class="people border">personne</span> dans un paragraphe cal avec bordure</p>
+
+    <hr>
+    <h2>Liens</h2>
+    <a href="https://www.google.com">Ceci est un lien indépendant</a>
+    <p>texte <a href="https://www.google.com">Ceci est un lien dans un paragraphe</a> texte</p>
+
+    <a class="alt" href="https://www.google.com">Ceci est un lien indépendant alternatif</a>
+    <a class="alt cal" href="https://www.google.com">Ceci est un lien indépendant alternatif et calibri</a>
+    
+    <p>Bonjour. <a class="alt" href="https://www.google.com">Ceci est un lien indépendant alternatif dans un paragraphe</a></p>
+    <p>Bonjour. <a class="alt cal" href="https://www.google.com">Ceci est un lien indépendant alternatif et calibri dans un paragraphe</a></p>
+    <p class="cal">Bonjour. <a class="alt cal" href="https://www.google.com">Ceci est un lien indépendant alternatif et calibri dans un paragraphe calibri</a></p>
+
+    <hr>
+    <h2>Ligne horizontale</h2>
+
+    <hr>
+    <h2>Liste de définitions</h2>
+
+    <dl>
+      <dt>Un terme</dt>
+      <dd>Une définition</dd>
+      <dt>Un autre terme</dt>
+      <dd><p>Une définition dans un paragraphe.</p></dd>
+    </dl>
+
+    <hr>
+    <h2>Table</h2>
+
+    <table>
+      <thead>
+        <tr><th>Header 1</th><th>Header 2</th><th>Header 3</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Data 1.1</td><td>Data 2.1</td><td>Data 3.1</td></tr>
+        <tr><td>Data 1.2</td><td>Data 2.2</td><td>Data 3.2</tr></tr>
+      </tbody>
+    </table>
+
+    <hr>
+    <h2>Blockquote</h2>
+    
+    <blockquote>
+        Ceci est un blockquote.
+    </blockquote>
+
+  </body>
+</html>
