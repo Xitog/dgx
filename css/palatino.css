@@ -1,273 +1,144 @@
+/*-----------------------------------------------------------------------------
+ * Created: 2 april 2018 transfered from free.fr to github but it's older
+ * Revised: 17 april 2020
+ * Author: Damien Gouteux
+ * Unused:
+ *     content: "» ";
+ *     a:visited
+ *     rgb(0, 111, 221); un bleu sympa ou 006fdd
+ * Fusion of style2018 created on Mar 2, 2018 and modified only on Mar 5, 2018.
+ *-----------------------------------------------------------------------------
+ * Summary:
+ *     body
+ *     title: h1, h2, h3, h4
+ *     paragraph
+ *     .center
+ *     div
+ *     span
+ *     Pre, Code and Span for Code
+ *     b
+ *     a
+ *     li
+ *     table
+ *     définitions de termes
+ *     hr
+ *     blockquote
+ *---------------------------------------------------------------------------*/
 
-#content.palatino {
+/*-----------------------------------------------------------------------------
+ *
+ * Corps
+ *
+ *---------------------------------------------------------------------------*/
+
+body {
     font-family: "Palatino Linotype", "Palatino", "Georgia";
+    background-color: rgb(252, 252, 252);
+    border-bottom: 0;
 }
-#content.palatino h1 {
-    font-size: 22px;
-    font-weight: bold;
+
+/*-----------------------------------------------------------------------------
+ *
+ * Titres
+ *
+ *---------------------------------------------------------------------------*/
+
+h1, h2, h3, h4 {
+    font-family: "Palatino Linotype", "Palatino", "Georgia";
     font-style: normal;
+    font-weight: normal;
+}
+h1 {
+    font-size: 24px;
+    font-weight: bold;
     color: #929497;
     line-height: 27px;
-    margin-top: 10px;
-    font-family: "Palatino Linotype", "Palatino", "Georgia";
+    margin-bottom: 10px;
 }
-#content.palatino h2 {
-    font-size: 18px;
-    font-weight: normal;
-    font-style: normal;
+h2 {
+    font-size: 22px;
     color: #CEC498;
-    font-family: "Palatino Linotype", "Palatino", "Georgia";
 }
-#content.palatino h3 {
-    font-size: 16px;
-    font-weight: normal;
-    font-style: normal;
+h3 {
+    font-size: 20px;
     color: #98a2ce;
-    font-family: "Palatino Linotype", "Palatino", "Georgia";
 }
-#content.palatino p {
+h4 {
+    font-size: 18px;
+    color: #929497;
+}
+h1.under {
+    border-bottom: 1px solid #929497;
+}
+h2.under {
+    border-bottom: 1px solid #CEC498;
+}
+h3.under {
+    border-bottom: 1px solid #98a2ce;
+}
+h4.under {
+    border-bottom: 1px solid #929497;
+}
+h1.alt {
+    color: #006FDD;
+    font-weight: normal;
+}
+h1.alt.under {
+    border-bottom: 1px solid #006FDD;
+}
+h1.cal, h2.cal, h3.cal, h4.cal {
+    font-family: "Calibri";
+}
+
+/*-----------------------------------------------------------------------------
+ *
+ * Paragraphes
+ *
+ *---------------------------------------------------------------------------*/
+
+p {
     font-size: 14px;
     font-weight: normal;
     font-style: normal;
     color: #111111;
 }
-#content.palatino p.first:first-letter {
+p.first:first-letter {
     font-size:18;
     font-weight: bold;
     color: #CEC498;  
 }
-#content.palatino li {
-    font-size: 14px;
-    font-weight: normal;
-    font-style: normal;
-    color: #111111;
-}
-#content.palatino pre.code {
-    background-color: #F9F9F9;
-    border: 1px solid #AAAAAA;
-    padding: 2px;
-    font-family: "Consolas";
-}
-#content.palatino p.code {
-    background-color: #F9F9F9;
-    border: 1px solid #AAAAAA;
-    padding: 2px;
-    font-family: "Consolas";
-}
-#content.palatino span.code, #content.palatino span.morphlex, #content.palatino span.morphgram {
-    font-family: "Consolas";
-    font-style: normal;
-    font-size: 12px;
-    background-color: #F9F9F9;
-    padding-left: 2px;
-    padding-right: 2px;
-}
-#content.palatino span.code {
-    border: 1px solid #AAAAAA;
-}
-#content.palatino span.morphlex {
-    border: 1px solid #9999CC;
-    color: #9999CC;
-}
-#content.palatino span.morphgram {
-    border: 1px solid #55AA55;
-    color: #55AA55;
-}
-#content.palatino span.t {
-    border-bottom: 1px solid #AAAAAA;
-}
-#content.palatino span.green_under {
-    color: #55AA55;
-    text-decoration: underline;
-}
-#content.palatino span.green {
-    color: #55AA55;
-}
-#content.palatino span.blue_under {
-    color: #9999CC;
-    text-decoration: underline;
-}
-#content.palatino span.blue {
-    color: #9999CC;
-}
-#content.palatino div.block {
-    margin-left: 10px;
-    border-left: 1px solid #EEEEEE;
-    padding-left: 3px;
-}
-#content.palatino b.green {
-    color: #55AA55;
-}
-#content.palatino b.blue {
-    color: #9999CC;
-}
-#content.palatino b.orange {
-    color: #FF6600;
-
-}
-#content.palatino a {
-    font-family: "Palatino Linotype", "Palatino", "Georgia";
-    color: #CC6714; #929497;
-}
-#content.palatino a.red {
-    color: #CC9999;
-}
-#content.palatino a.blue {
-    color: #9999CC;
-}
-#content.palatino a.green {
-    color: #55AA55;
-}
-#content.palatino table.tab a {
-    font-family:    "Lucida Grande","Verdana","Arial","Helvetica","sans-serif";
-    font-size:      12px;
-    line-height:    1.6em;
-}
-
-/* :link :visited :hover */
-
-#content.palatino table#menu {
-    border-collapse: collapse;
-    border: 1px solid #929497;
-    font-family: "Palatino";
-}
-#content.palatino table#menu td.cat {
-    background-color: #E9E4D2;
-    border-bottom: 1px dotted #929497;
-    color: #929497;
-}
-#content.palatino table#menu td.cat:before {
-    content: "» ";
-}
-#content.palatino table#menu td.cat:hover {
-    background-color: #929497;
-    color: White;
-    cursor: hand;
-}
-#content.palatino table#menu td.cat a {
-    text-decoration: none;
-    color: inherit;
-}
-#content.palatino table#menu td.sub {
-    background-color: #FAF5E3;
-    border-bottom: 1px dotted #929497;
-    color: #929497;
-}
-#content.palatino table#menu td.sub:before {
-    content: "\233D \0020";
-}
-#content.palatino table#menu td.sub:hover {
-    background-color: #929497;
-    color: White;
-    cursor: hand;
-}
-#content.palatino table#menu td.sub a {
-    text-decoration: none;
-    color: inherit;
-}
-#content.palatino table#menu td#spe {
-    background-color: #CEC498;
-    color: #FFFFFF;
-    font-size: 60px;
-    font-family: "Palatino";
-    border-bottom: 1px solid #929497;
-    text-align: center;
-}
-#content.palatino table.tab {
-    font-family:    Lucida Grande,Verdana,Arial,Helvetica,sans-serif;
-    font-size:      12px;
-    line-height:    1.6em;
-}
-#content.palatino table.tab thead th {
-    background-color: #CEC498;
-    color: white;
-}
-#content.palatino table.tab tbody tr:nth-child(odd) { 
-    background-color: #F5F5F5; 
-}
-#content.palatino table.tab tbody tr:nth-child(2n) { 
-    background-color: #FFFFFF;
-} 
-
-#content.palatino table {
-    border-collapse: collapse;
-    margin-bottom: 9px;
-}
-#content.palatino td {
-    border: 1px solid #acaeb0;
-    font-family: "Palatino Linotype", "Palatino";
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-#content.palatino th {
-    background-color: #CEC498;
-    color: white;
-    font-weight: bold;
-    border: 1px solid #acaeb0;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-#content.palatino table tbody tr:nth-child(odd) { 
-    background-color: #F5F5F5;
-}
-#content.palatino table tbody tr:nth-child(2n) { 
-    background-color: #FFFFFF;
-}
-
-#content.palatino p.line {
+p.line {
     border-bottom: 1px dashed #CEC398;
     color: #FF8000;
     font-family: "Consolas";
 }
-
-#content.palatino div.bordered {
-    border: 1px solid #929497;
-}
-
-#content.palatino p.centered {
+p.centered {
     border-top: 1px solid #929497;
     border-bottom: 1px solid #929497;
     text-align: center;
 }
-
-#content.palatino table.tbordered {
-    font-family:    Lucida Grande,Verdana,Arial,Helvetica,sans-serif;
-    font-size:      12px;
-    line-height:    1.6em;
-    border-collapse:collapse;
-}
-#content.palatino table.tbordered thead th {
-    background-color: #CEC498;
-    color: white;
-}
-#content.palatino table.tbordered tbody tr:nth-child(odd) { 
-    background-color: #F5F5F5; 
-}
-#content.palatino table.tbordered tbody tr:nth-child(2n) { 
-    background-color: #FFFFFF;
-}
-#content.palatino table.tbordered, table.tbordered th, table.tbordered tr, table.tbordered td {
-    border: 1px solid black;
+p.cal {
+    font-family: "Calibri";
+    font-size: 16px;
 }
 
-#content.palatino .center {
+/*-----------------------------------------------------------------------------
+ *
+ * Classe : centré
+ *
+ *---------------------------------------------------------------------------*/
+
+.center {
     margin-left:auto;
     margin-right:auto;
     width:70%;
 }
 
-#content.palatino a:hover {
-    background-color: #CC6714;
-    color: #FFFFFF;
-}
-
-#content.palatino li.dropdown-header {
-    color: #808080; /*#e5e5e5;*/
-}
+/*-----------------------------------------------------------------------------
+ *
+ * Division
+ *
+ *---------------------------------------------------------------------------*/
 
 #content-div {
     background-color: rgb(255, 255, 255);
@@ -276,12 +147,279 @@
     padding-left: 10px;
     padding-right: 10px;
 }
-
-#content.palatino {
-    background-color: rgb(252, 252, 252);
-    border-bottom: 0;
+div.bordered {
+    border: 1px solid #929497;
+}
+div.block {
+    margin-left: 10px;
+    border-left: 1px solid #EEEEEE;
+    padding-left: 3px;
 }
 
+/*-----------------------------------------------------------------------------
+ *
+ * Span
+ *
+ *---------------------------------------------------------------------------*/
+
+span.morphlex, span.morphgram {
+    font-family: "Consolas";
+    font-style: normal;
+    font-size: 13px;
+    background-color: #F9F9F9;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+span.morphlex {
+    border: 1px solid #9999CC;
+    color: #9999CC;
+}
+span.morphgram {
+    border: 1px solid #55AA55;
+    color: #55AA55;
+}
+span.t {
+    border-bottom: 1px solid #AAAAAA;
+}
+span.green_under {
+    color: #55AA55;
+    text-decoration: underline;
+}
+span.green {
+    color: #55AA55;
+}
+span.blue_under {
+    color: #9999CC;
+    text-decoration: underline;
+}
+span.blue {
+    color: #9999CC;
+}
+
+/*-----------------------------------------------------------------------------
+ *
+ * Pre, Code and Span for Code
+ *
+ *---------------------------------------------------------------------------*/
+
+pre.code, code {
+    background-color: #F9F9F9; /* #FAFAFA; */
+    border: 1px solid #AAAAAA;
+}
+pre.code {
+    padding: 2px;
+    font-family: "Consolas";
+    font-size: 14px;
+}
+code {
+    padding: 0px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+code, span.identifier, span.keyword, span.string, span.number, span.special {
+    font-family: "Consolas";
+    font-size: 14px;
+    background-color: #F9F9F9;
+}
+
+span.identifier {
+    color: rgb(0, 0, 255);
+}
+span.keyword {
+    color: rgb(255, 119, 0); /* orange */
+}
+span.string {
+    color: rgb(0, 170, 0);
+}
+span.number {
+    color: rgb(255, 0, 0);
+}
+span.special {
+    color: rgb(144, 0, 144); /* purple */
+}
+span.comment {
+  color: grey;
+  font-style: italic;
+}
+
+/*-----------------------------------------------------------------------------
+ *
+ * Sémantique
+ *
+ *---------------------------------------------------------------------------*/
+
+ span.people {
+    color: #00DD00;
+}
+
+span.date {
+    color: #DD0000;
+}
+
+span.game {
+    color: #006FDD;
+}
+
+span.people.border, span.date.border, span.game.border {
+    border: 1px solid rgb(225, 228, 229);
+    background-color: rgb(250, 250, 250);
+    padding-left: 3px;
+    padding-right: 5px;
+}
+
+/*-----------------------------------------------------------------------------
+ *
+ * Gras
+ *
+ *---------------------------------------------------------------------------*/
+
+b.green {
+    color: #55AA55;
+}
+b.blue {
+    color: #9999CC;
+}
+b.orange {
+    color: #FF6600;
+}
+
+/*-----------------------------------------------------------------------------
+ *
+ * Liens
+ *
+ *---------------------------------------------------------------------------*/
+ 
+a {
+    font-family: "Palatino Linotype", "Palatino", "Georgia";
+    color: #CC6714; #929497;
+}
+a:hover {
+    background-color: #CC6714;
+    color: #FFFFFF;
+}
+
+a.red {
+    color: #CC9999;
+}
+a.blue {
+    color: #9999CC;
+}
+a.green {
+    color: #55AA55;
+}
+
+a.cal {
+    font-size: 16px;
+    font-family: "Calibri";
+}
+a.alt {
+    text-decoration: None;
+}
+a.alt:hover {
+    background-color: #FFFFFF;
+    color: rgb(204, 103, 20);
+    text-decoration: underline;
+}
+
+/*-----------------------------------------------------------------------------
+ *
+ * Liste
+ *
+ *---------------------------------------------------------------------------*/
+
+li {
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    color: #111111;
+}
+li.dropdown-header {
+    color: #808080;
+}
+ol.roman {
+  list-style-type:upper-roman;
+}
+
+/*-----------------------------------------------------------------------------
+ *
+ * Table
+ *
+ *---------------------------------------------------------------------------*/
+
+table a {
+    font-family:    "Lucida Grande","Verdana","Arial","Helvetica","sans-serif";
+    font-size:      12px;
+    line-height:    1.6em;
+}
+
+table {
+    font-family:     Lucida Grande,Verdana,Arial,Helvetica,sans-serif;
+    font-size:       12px;
+    line-height:     1.6em;
+    border-collapse: collapse;
+    margin-bottom:   9px;
+}
+table th {
+    background-color: #CEC498;
+    color: white;
+    font-weight: bold;
+    border: 1px solid #acaeb0;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+table td {
+    border: 1px solid #ACAEB0;
+    font-family: "Palatino Linotype", "Palatino";
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+table tbody tr:nth-child(odd) {
+    background-color: #FFFFFF;
+}
+table tbody tr:nth-child(2n) {
+    background-color: #F5F5F5;
+}
+
+/*-----------------------------------------------------------------------------
+ *
+ * Liste de termes
+ *
+ *---------------------------------------------------------------------------*/
+
+dt {
+    font-weight: bold;
+    color: #CEC498;
+}
+dt:before {
+    content: "\233D \0020";
+}
+
+/*-----------------------------------------------------------------------------
+ *
+ * Ligne horizontale
+ *
+ *---------------------------------------------------------------------------*/
+
 hr {
+    border: None;
+    height: 1px;
+    color: #ACAEB0;
+    background-color: #ACAEB0;
     margin: 10px;
+}
+
+/*-----------------------------------------------------------------------------
+ *
+ * Blockquote
+ *
+ *---------------------------------------------------------------------------*/
+
+blockquote {
+    border-left: 8px solid  #ACAEB0;
+    padding-left: 5px;
 }
