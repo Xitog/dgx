@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tools & Languages</title>
+<title>Jeux vidéo</title>
 <link rel="icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" /><link rel="shortcut icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" /><link href="https://xitog.github.io/dgx/css/simplex.bootstrap.css" rel="stylesheet">
 <link href="https://xitog.github.io/dgx/css/palatino.css" rel="stylesheet">
 </head>
@@ -127,112 +127,16 @@
         </div><!--/.container-fluid -->
       </nav>
 <div id="content-div">
-<h1 id="json">JSON</h1>
-<hr>
-<p>Cette fiche expose le format de données <b>JSON</b> inventé par Douglas Crockford en 2001. JSON signifie <b>JavaScript Object Notation</b> car sa syntaxe est héritée du langage de programmation JavaScript. Elle est un sous-ensemble du langage <b>YAML</b>.</p>
-<p>Parfois, vous devez sauvegarder vos données en mémoire vive sur le disque dur ou bien les envoyer à un programme distant. Pour cela il faut <b>sérialiser vos données</b>, c'est-à-dire les écrire dans un format qui permet leur sauvegarde ou leur transmission. JSON est un tel format. C'est un format texte lisible par l'humain, très simple : ses spécifications sont courtes et claires.</p>
-<p>Création : le 10 avril 2017 | Dernière mise-à-jour : le 25 septembre 2018 | Conversion en <a href="https://xitog.github.io/dgx/informatique/hamill.html">Hamill</a> : le 19 septembre 2020</p>
-<p>Auteur : Damien Gouteux | Type : Fiche | Sujet : JSON, donnée, langage, modélisation, informatique</p>
-<h2 id="sommaire">Sommaire</h2>
+<h1 id="critiques-de-jeux">Critiques de jeux</h1>
+<h2 id="hexen:-beyond-heretic">Hexen: Beyond Heretic</h2>
+<p><i>(sorti en 1995, joué et fini fin 2019, début 2020)</i></p>
+<p>Hexen... J'avoue, il m'a été difficile d'entrer dans ce jeu. Le prologue, une sorte d'église abandonnée, met en avant sa beauté et ses combats plutôt sympa. J'étais sceptique au début : j'avais une appréhension pour un FPS centré sur le corps à corps, du moins si on choisit le guerrier comme classe, mais l'amplitude des coups portés rend cela assez agréable. On se surprend même à pouvoir toucher un ennemi qui, à l'écran, semble pourtant un tantinet trop loin.</p>
+<p>Avec Raven, il y a une attention aux détails : la technique est maîtrisée, il s'agit encore une fois d'un jeu basé sur le moteur de Doom, alors on fignole l'ambiance, les effets sonores et graphiques. Mais si les combats sont assez jouissifs, cela se gâte lorsqu'on observe l'ensemble du gameplay. Là où Heretic, le précurseur d'Hexen, proposait une succession de niveaux séparés les uns des autres, à la manière de Doom, Hexen propose cinq hubs. Les hubs sont constitués d'un niveau central et de différents niveaux interconnectés par des portails. Et là, le calvaire commence.</p>
+<p>En gros, un bouton dans un des niveaux du hub peut ouvrir une porte ou un mur dans un autre, sans bien sûr que le joueur ait une seule indication sur sa localisation. Il faut donc arpenter et arpenter encore les mêmes niveaux, débusquer les endroits bloqués pour, à chaque bouton pressé, refaire le tour de ces endroits. C'est fastidieux, surtout dans le premier hub qui prend pour thèmes les éléments feu, glace et acier. Ces premiers niveaux sont très abstraits, ce qui n'aide pas à s'y retrouver, et je ne me suis sorti de ce labyrinthe qu'en dessinant à la main une carte avec les différentes interconnexions entre les niveaux.</p>
+<p>Heureusement, les hubs suivants sont meilleurs et nous permettent de découvrir des lieux habituels de l'héroïc fantasy : un marais avec son château perdu dans la brume, un désert de rocaille, un temple, un énorme château, un cimetière... Moins abstraits, moins labyrinthiques, on s'y retrouve mieux et cela devient un véritable plaisir de les explorer à fond en appréciant l'ambiance déployée pour trouver l'ultime porte à ouvrir. Les monstres sont variés et présentent un bon défi, il y a plétore d'objets aux effets variés, pas seulement des kits de soins.</p>
+<p>Après l'avoir fini, je peux dire qu'Hexen est un bon, sinon grand, jeu. Sorti fin 1995, c'est la queue de la comète des jeux utilisant le moteur de Doom, que Strife viendra clore. L'ambiance héroïc fantasy est bien sympa, les trois classes de personnage apportent une rejouabilité non négligeable, chacune ayant son propre ensemble d'armes.</p>
 <ul>
-<li><a href="#liens">Liens</a></li>
-<li><a href="#description">Description</a></li>
-<li><a href="#textes-de-référence">Textes de référence</a></li>
-<li><a href="#exemple">Exemple</a></li>
-<li><a href="#autres-formats">Autres formats</a></li>
-</ul>
-<h2 id="liens">Liens</h2>
-<h3 id="json">JSON</h3>
-<ul>
-<li><a href="http://www.json.org/json-fr.html">Site officiel de JSON</a>.</li>
-<li><a href="http://jsonlint.com/">JSON Lint</a>, un site pour valider syntaxiquement ses documents JSON.</li>
-<li>Gérer JSON en...</li>
-<ul>
-<li><a href="https://docs.python.org/3/library/json.html">JSON dans la documentation officielle</a> de Python.</li>
-<li><a href="http://ruby-doc.org/stdlib-2.0.0/libdoc/json/rdoc/JSON.html">JSON dans la documentation officielle</a> de Ruby.</li>
-<li><a href="http://lua-users.org/wiki/JsonModules">Liste de modules</a> pour gérer le format JSON en Lua.</li>
-</ul>
-</ul>
-<h3 id="json-schema">JSON Schema</h3>
-<ul>
-<li><a href="http://json-schema.org/">JSON Schema</a>, pour valider ses documents JSON par rapport à un métamodèle.</li>
-<ul>
-<li><a href="https://json-schema.org/latest/json-schema-core.html">JSON Schema Core</a>, ce document décrit le noyau de JSON Schema,</li>
-<li><a href="https://json-schema.org/latest/json-schema-validation.html">JSON Schema Validation</a>, ce document décrit les contraintes disponibles sur les données.</li>
-</ul>
-<li><a href="https://json-schema.org/understanding-json-schema">Understanding JSON Schema</a>, un livre électronique expliquant JSON Schema.</li>
-<li><a href="https://www.jsonschemavalidator.net/">JSON Schema Validator</a>, pour valider des données contre un schéma.</li>
-</ul>
-<h2 id="description">Description</h2>
-<p>On peut diviser les 6 types de données en 2 :</p>
-<ul>
-<li>Les types <i>atomiques</i><sup>1</sup> de données :</li>
-<ul>
-<li>Number (entiers et réels) : <code>1.2 23</code>,</li>
-<li>String <code>"bonjour"</code>,</li>
-<li>Boolean <code>true false</code>,</li>
-<li>et la valeur <code>null</code>.</li>
-</ul>
-<li>Les types <i>composés</i><sup>1</sup> de données :</li>
-<ul>
-<li>Object <code>{ clé : value, ... }</code>,</li>
-<li>Array <code>[ val1, ...]</code>.</li>
-</ul>
-</ul>
-<p><sup>1</sup>: atomiques et composés sont des termes personnels.</p>
-<p>Remarques :</p>
-<ul>
-<li><b>La clé ne peut être que de type</b> <code>String</code>, pas de nombres, pas d'identifiant.</li>
-<li>JSON est un sous-ensemble du langage <a href="http://yaml.org/">YAML</a>, plus particulièrement de sa syntaxe compacte.</li>
-<li>JSON est un sous-ensemble de <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript">JavaScript</a>.</li>
-<li>Pas de guillemet simple <code>'</code> pour encadrer les chaînes de caractères seulement le double <code>"</code>.</li>
-<li>Les chaînes de caractères doivent être en <a href="http://unicode.org/fr/">Unicode</a>, plus précisément, encodées en <a href="https://tools.ietf.org/html/rfc8259#section-8.1">UTF-8</a>.</li>
-<li><b>Pas de virgule <code>,</code> après l'élément final d'un Object ou d'une Array</b>.</li>
-<li><b>On ne peut pas faire de commentaires en JSON</b>.</li>
-</ul>
-<h2 id="textes-de-référence">Textes de référence</h2>
-<p>JSON est défini dans les documents suivants :</p>
-<ul>
-<li><a href="https://www.ecma-international.org/publications/standards/Ecma-404.htm">ECMA-404</a> : <b>Standard ECMA 404</b></li>
-<li><a href="https://tools.ietf.org/html/rfc8259">RFC 8259</a> : <b>Dernière spécification en date</b></li>
-<li><a href="https://tools.ietf.org/html/rfc7493">RFC 7493</a> : <b>I-JSON recommandé par Tim Bray</b></li>
-<li><a href="https://tools.ietf.org/html/rfc7159">RFC 7159</a> : obsolète</li>
-<li><a href="https://tools.ietf.org/html/rfc7158">RFC 7158</a> : obsolète</li>
-<li><a href="https://tools.ietf.org/html/rfc4627">RFC 4627</a> : obsolète</li>
-</ul>
-<p>* Tim Bray a édité les différentes RFC après avoir travaillé sur XML. Il fait des commentaires très utiles dans son blog personnel :</p>
-<ul>
-<li><a href="https://www.tbray.org/ongoing/When/201x/2017/12/14/RFC-8259-STD-90">The Last JSON Spec</a> : quelle spécification prendre</li>
-<li><a href="https://www.tbray.org/ongoing/When/201x/2014/03/05/RFC7159-JSON">JSON Redux AKA RFC7159</a> : histoire de la standardisation</li>
-<li><a href="https://www.tbray.org/ongoing/When/201x/2016/08/20/Fixing-JSON">Fixing JSON</a> : des points à réparer dans la spécification actuelle, notamment sur la virgule</li>
-<li><a href="https://www.tbray.org/ongoing/When/201x/2016/04/30/JSON-Schema-funnies">Specifying JSON</a> : sur la nécessité de spécifier</li>
-</ul>
-<h2 id="exemple">Exemple</h2>
-<pre class="code">
-    {
-        "type" : "Voiture",
-        "marque" : "Hyundai",
-        "modèle" : "Getz",
-        "annéeConstruction" : 2005,
-        "nomConducteurs" : [
-            "Damien",
-            "Charles",
-            "Gustave"
-        ],
-        "madeInEurope" : false
-    }
-</pre>
-<h2 id="autres-formats">Autres formats</h2>
-<p>Il existe d'autres formats qui remplisse les mêmes fonctions que JSON :</p>
-<ul>
-<li><a href="http://yaml.org/">YAML</a> : JSON est un sous-ensemble du langage YAML qui est beaucoup plus riche,</li>
-<li><a href="https://github.com/edn-format/edn">Langage EDN</a> : langage basé sur le langage de programmation Clojure,</li>
-<li><a href="https://json5.org/">JSON5</a> : extension de JSON,</li>
-<li><a href="https://raw.githubusercontent.com/hjson/hjson/master/rfc/hjson.txt">HJSON</a> : extension de JSON,</li>
-<li><a href="https://github.com/cognitect/transit-format">Transit</a> : un autre format de sérialisation d'objet,</li>
-<li><a href="https://github.com/msgpack/msgpack/blob/master/spec.md">MessagePack</a> : un autre format de sérialisation d'objet,</li>
-<li><a href="https://avro.apache.org/">Apache Avro</a> : un autre format de sérialisation de données.</li>
-<li><a href="https://json-ld.org/">JSON LD</a> : format pour décrire des données liées utilisant JSON devenu une <a href="https://www.w3.org/TR/json-ld/">recommandation du W3C</a>.</li>
+<li>Hexen sur <a href="https://fr.wikipedia.org/wiki/Hexen">Wikipedia</a>, <a href="https://www.mobygames.com/game/hexen-beyond-heretic">Mobygames</a>, <a href="https://doom.fandom.com/wiki/Hexen">doom.fandom</a>, <a href="https://doomwiki.org/wiki/Hexen">doomwiki</a></li>
 </ul>
 </div>
 </div>
