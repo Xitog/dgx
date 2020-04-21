@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hamill</title>
+<title>Favoris</title>
 <link rel="icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" /><link rel="shortcut icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" /><link href="https://xitog.github.io/dgx/css/simplex.bootstrap.css" rel="stylesheet">
 <link href="https://xitog.github.io/dgx/css/palatino.css" rel="stylesheet">
 </head>
@@ -127,103 +127,102 @@
         </div><!--/.container-fluid -->
       </nav>
 <div id="content-div">
-<h1 id="hamill">Hamill</h1>
+<h1 id="favoris">Favoris</h1>
 <hr>
-<p>Ce document décrit le langage <b>Hamill</b>. Comme <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> ou <a href="https://en.wikipedia.org/wiki/Textile_(markup_language)">Textile</a>, c'est un <a href="https://en.wikipedia.org/wiki/Lightweight_markup_language">langage de balisage léger</a> pour écrire de la documentation dans un fichier texte, directement lisible sans transformation, mais pouvant également être transformé en HTML.</p>
-<p>On peut faire des commentaires en commençant une ligne par --.</p>
-<!-- Ceci est un commentaire il sera exporté en HTML -->
-<p>On peut faire une ligne horizontale avec une ligne constituée uniquement de - d'une longueur supérieure ou égale à 3.</p>
-<p>On peut forcer un retour à la ligne avec !! entouré d'un espace : ceci est un retour<br>à la ligne.</p>
-<h2 id="modification-de-texte">Modification de texte</h2>
+<p>Cette page présente 43 films cultes, dont 19 archicultes en <b>gras</b>, ainsi que des musiques que j'aime particulièrement.</p>
+<p>On note quelques récurrences intéressantes parmi les archicultes :</p>
 <ul>
-<li>**<b>gras</b>** : pour mettre en gras</li>
-<li>''<i>italique</i>'' : pour mettre en italique</li>
-<li>--<s>barré</s>-- : pour barré</li>
-<li>__<u>souligné</u>__ : pour souligner</li>
-<li>^^<sup>exposant</sup>^^ : pour mettre en exposant</li>
+<li>5 films du réalisateur <i>John McTiernan</i> : Predator, Le 13<sup>e</sup> guerrier, Piège de cristal, Une journée en enfer et À la poursuite d'Octobre Rouge.</li>
+<li>2 films du réalisateur <i>Paul Verhoeven</i> : Robocop et Starship Troopers.</li>
+<li>2 films du réalisateur <i>James Cameron</i> : Terminator et Aliens.</li>
+<li>4 films avec le compositeur <i>Basil Poledouris</i> : Robocop, Starship Troopers, Conan le Barbare et À la poursuite d'Octobre Rouge.</li>
+<li>3 films avec le compositeur <i>John Williams</i> : Star Wars, Jurassic Park et Indiana Jones et la dernière croisade.</li>
+<li>2 films avec le compositeur <i>James Horner</i> : Aliens, le retour et Willow.</li>
+<li>10 films dans les années 80</li>
 </ul>
-<h2 id="code">Code</h2>
-<p>On utilise @@<code><span class="normal">pour</span> <span class="normal">du</span> <span class="normal">code</span> <span class="normal">inline</span></code>@@. Hamill dispose d'un colorisateur syntaxique pour Python et JSON, on précise ainsi : @@python<code><span class="keyword">def</span> <span class="identifier">function</span><span class="separator">(<span class="normal">par1</span><span class="separator">, <span class="normal">par2</span><span class="separator">)</code>@@.</p>
-<p>Pour un bloc de code, il ya deux solutions :</p>
-<p>On peut faire une ligne avec seulement @@ suivi éventuellement du langage qu'on souhaite puis des lignes avec @@ au début jusqu'à une ligne ne comportant que @@. Ainsi :</p>
-<pre>
-@@python
-@@     # Ceci est un commentaire
-@@     def function(par1, par2):
-@@         return "Ceci est une fonction"
-@@
-</pre>
-<p>Donnera :</p>
-<pre class="code">
-    <span class="comment"># Ceci est un commentaire</span><span class="newline">
-    <span class="keyword">def</span> <span class="identifier">function</span><span class="separator">(<span class="normal">par1</span><span class="separator">, <span class="normal">par2</span><span class="separator">)<span class="operator">:<span class="newline">
-        <span class="keyword">return</span> <span class="string">"Ceci est une fonction"</span><span class="newline">
-<span class="newline">
-</pre>
-<p>On peut également faire une ligne avec seulement @@@ suivi éventuellement du langage qu'on souhaite puis des lignes <u>sans rien</u> jusqu'à une ligne ne comportant que @@@. Ainsi :</p>
-<pre>
-@@@python
-     # Ceci est un commentaire
-     def function(par1, par2):
-         return "Ceci est une fonction"
-@@@
-</pre>
-<p>Donnera :</p>
-<pre class="code">
-    <span class="comment"># Ceci est un commentaire</span><span class="newline">
-    <span class="keyword">def</span> <span class="identifier">function</span><span class="separator">(<span class="normal">par1</span><span class="separator">, <span class="normal">par2</span><span class="separator">)<span class="operator">:<span class="newline">
-        <span class="keyword">return</span> <span class="string">"Ceci est une fonction"</span><span class="newline">
-</pre>
-<h2 id="listes">Listes</h2>
+<h2 id="films">Films</h2>
 <ul>
-<li>* une liste non numérotée</li>
-</ul>
+<li>Films de science-fiction</li>
 <ul>
-<li>- une autre liste non numérotée</li>
-</ul>
-<ol>
-<li>% une liste numérotée</li>
-</ol>
-<h2 id="listes-de-définition">Listes de définition</h2>
+<li>Space-opéra</li>
 <ul>
-<li>$ une liste de définition. On fait suivre directement la définition</li>
+<li><b>Star Wars</b> (1977) George Lucas, John Williams</li>
+<li>Rogue One (2016) Gareth Edwards, Michael Giacchino</li>
+<li>Star Trek (2009 et 2013) J. J. Abrams, Michael Giacchino</li>
+<li>Dune (1984) David Lynch, Toto</li>
 </ul>
-<h2 id="tables">Tables</h2>
+<li>Post-apocalyptique</li>
 <ul>
-<li>Un tableau s'écrit ainsi : |col1|col2|col3|</li>
-<li>La ligne de titre doit être la première et séparée par des colonnes |----|</li>
+<li><b>Mad Max: Fury Road</b> (2015) George Miller, Tom Holkenborg a.k.a. Junkie XL</li>
+<li><b>Mad Max 2 : Le défi / Mad Max 2</b> (1981) George Miller, Brian May</li>
 </ul>
-<table>
-<tr><th>Ceci</th><th>est</th><th>un  </th><th>tableau    </th></tr>
-<tr><td>Il  </td><td>est</td><td>beau</td><td>mon tableau</td></tr>
-</table>
-<h2 id="liens">Liens</h2>
+<li>Militaro-futuriste</li>
 <ul>
-<li>On utilise les crochets [ nom affiché -> lien ]</li>
-<li>Le lien peut être directement http:// ou https://</li>
-<li>Ou le lien peut être une redirection [ nom affiché -> code ] puis une défintion de la forme : [code]: http://...</li>
-<li>Ou le lien peut être seulement <b>#</b>. Dans ce cas, il essaye de faire pointé sur le nom affiché ou, si c'est un titre, le nom affiché transformé <i>(voir ci-dessous)</i></li>
-<li>Les titres sont automatiquement transformés en ancre en remplaçant les espaces par - et en les mettant en minuscules : ainsi <b>Les jeux</b> devient <b>les-jeux</b></li>
+<li>Edge of Tomorrow (2014) Doug Liman, Christophe Beck</li>
+<li><b>Starship Troopers</b> (1997) Paul Verhoeven, Basil Poledouris</li>
 </ul>
-<h2 id="doctrines">Doctrines</h2>
-<p>On peut utiliser <code>!<span class="normal">doctrine</span></code> en début de ligne pour modifier des variables globales de transformation en HTML. On peut définir la valeur d'une doctrine plusieurs fois mais <b>seule la dernière valeur définie sera prise en compte</b> pour la génération. En effet, on ne peut pas être versatile quand il s'agit de doctrine. Par exemple :</p>
+<li><b>Predator</b> (1987) John McTiernan, Alan Silvestri</li>
+<li><b>Robocop</b> (1987) Paul Verhoeven, Basil Poledouris</li>
+<li><b>Terminator</b> (1984) James Cameron, Brad Fiedel</li>
+<li>Cloverfield (2008) Matt Reeves, Michael Giacchino</li>
+<li>Equilibrium (2002) Kurt Wimmer, Klaus Badelt</li>
+<li>Alien, le 8e passager / Alien (1979) Ridley Scott, Jerry Goldsmith</li>
+<li><b>Aliens, le retour / Aliens</b> (1986) James Cameron, James Horner</li>
+<li>V pour Vendetta (2006) James McTeigue, Dario Marianelli</li>
+<li><b>Tron : L'Héritage / Tron: Legacy</b> (2010) Joseph Kosinski, Daft Punk</li>
+<li>Les Fils de l'homme / Children of Men (2006) Alfonso Cuarón</li>
+<li>Oblivion (2013) Joseph Kosinski, Anthony Gonzalez (de M83) et Joseph Trapanese</li>
+</ul>
+<li>Films médiévaux-fantastiques</li>
 <ul>
-<li><code>!<span class="normal">doctrine</span> <span class="normal">TITLE</span>=<span class="normal">titre</span></code> pour définir le titre de la page</li>
-<li><code>!<span class="normal">doctrine</span> <span class="normal">ICON</span>=<span class="normal">icon</span></code> pour définir une icône pour la page</li>
-<li><code>!<span class="normal">doctrine</span> <span class="normal">EXPORT_COMMENT</span>=<span class="normal">true</span>/<span class="normal">false</span></code> spécifie si les commentaires seront exportés en HTML ou pas</li>
-<li><code>!<span class="normal">doctrine</span> <span class="normal">ADD_CSS</span>=<span class="normal">lien</span> <span class="normal">vers</span> <span class="normal">un</span> <span class="normal">fichier</span> <span class="normal">CSS</span></code> spécifie un fichier CSS à ajouter</li>
-<li><code>!<span class="normal">doctrine</span> <span class="normal">ADD_SCRIPT</span>=<span class="normal">lien</span> <span class="normal">vers</span> <span class="normal">un</span> <span class="normal">fichier</span> <span class="normal">de</span> <span class="normal">script</span></code> spécifie un fichier JavaScript à ajouter</li>
-<li><code>!<span class="normal">doctrine</span> <span class="normal">BODY_CLASS</span>=<span class="normal">classe</span></code> pour définir la classe du body</li>
-<li><code>!<span class="normal">doctrine</span> <span class="normal">BODY_ID</span>=<span class="normal">id</span></code> pour définir l'id du body</li>
-<li><code>!<span class="normal">doctrine</span> <span class="normal">PARAGRAPH_DEFINITION</span>=<span class="normal">true</span>/<span class="normal">false</span></code> spécifie si les dd doivent être mis dans des balises p</li>
-<li><code>!<span class="normal">doctrine</span> <span class="normal">DEFAULT_CODE</span>=<span class="normal">python</span>/<span class="normal">json</span></code> définit la coloration syntaxique par défaut du code (text par défaut)</li>
+<li><b>Conan le barbare</b> / Conan the Barbarian (1982) John Milius, Basil Poledouris</li>
+<li><b>Le 13e guerrier / The 13th Warrior</b> (1999) John McTiernan, Jerry Goldsmith</li>
+<li><b>Willow</b> (1988) Ron Howard, James Horner</li>
 </ul>
-<h2 id="spécial">Spécial</h2>
+<li>Films d'actions et d'aventures</li>
 <ul>
-<li><code>!<span class="normal">css</span> <span class="normal">css</span>-<span class="normal">code</span></code> permet de rajouter du code css</li>
-<li><code>!<span class="normal">html</span> <span class="normal">html</span>-<span class="normal">code</span></code> permet de rajouter du code html</li>
+<li><b>Indiana Jones et la dernière croisade / Indiana Jones and the Last Crusade</b> (1989) Steven Spielberg, John Williams</li>
+<li>Moonraker (1979) Lewis Gilbert, John Barry</li>
+<li>Au service secret de Sa Majesté / On Her Majesty's Secret Service (1969) Peter Hunt, John Barry</li>
+<li><b>Piège de cristal / Die Hard</b> (1988) John McTiernan, Michael Kamen</li>
+<li><b>Une journée en enfer / Die Hard with a Vengeance</b> (1995) John McTiernan, Michael Kamen</li>
 </ul>
-</div>
+<li>Films de guerre</li>
+<ul>
+<li><b>La Chute du faucon noir / Black Hawk Down</b> (2001) Ridley Scott, Hans Zimmer</li>
+<li>La ligne rouge / The Thin Red Line (1998) Terrence Malick, Hans Zimmer</li>
+<li><b>À la poursuite d'Octobre Rouge / The Hunt for Red October</b> (1990) John McTiernan, Basil Poledouris</li>
+</ul>
+<li>Films historiques</li>
+<ul>
+<li><b>Ran / 乱</b> (1985) Akira Kurosawa</li>
+<li>Zoulou / Zulu (1964) Cyril R. Endfield, John Barry</li>
+<li><b>Le Dernier des Mohicans / The Last of the Mohicans</b> (1992) Michael Mann, Trevor Jones et Randy Edelman</li>
+<li>Western</li>
+<ul>
+<li>Le Bon, la Brute et le Truand / Il buono, il brutto, il cattivo (1966) Sergio Leone, Ennio Morricone</li>
+<li>Il était une fois dans l'Ouest / C'era una volta il West (1968) Sergio Leone, Ennio Morricone</li>
+</ul>
+</ul>
+<li>Comédies</li>
+<ul>
+<li>Hot Shots! (1991) Jim Abrahams</li>
+<li>Papy fait de la résistance (1983) Jean-Marie Poiré</li>
+</ul>
+<li>Comédies musicales</li>
+<ul>
+<li>Les parapluies de Cherbourg (1964) Jacques Demy, Michel Legrand</li>
+<li>Moulin Rouge! (2001) Baz Luhrmann, Craig Armstrong</li>
+</ul>
+<li>Inclassables</li>
+<ul>
+<li>The Fountain (2006) Darren Aronofsky, Clint Mansell</li>
+<li>Moonrise Kingdom (2012) Wes Anderson</li>
+<li><b>Jurassic Park</b> (technothriller) (1993) Steven Spielberg, John Williams</li>
+</ul>
+</ul>
+<h2 id="musiques">Musiques</h2>
+<p>Todo</p>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>

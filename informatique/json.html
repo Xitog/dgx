@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tools & Languages</title>
+<title>JSON</title>
 <link rel="icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" /><link rel="shortcut icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" /><link href="https://xitog.github.io/dgx/css/simplex.bootstrap.css" rel="stylesheet">
 <link href="https://xitog.github.io/dgx/css/palatino.css" rel="stylesheet">
 </head>
@@ -168,24 +168,24 @@
 <ul>
 <li>Les types <i>atomiques</i><sup>1</sup> de données :</li>
 <ul>
-<li>Number (entiers et réels) : <code>1.2 23</code>,</li>
-<li>String <code>"bonjour"</code>,</li>
-<li>Boolean <code>true false</code>,</li>
-<li>et la valeur <code>null</code>.</li>
+<li>Number (entiers et réels) : <code><span class="number">1.<span class="number">2 <span class="number">23</span></code>,</li>
+<li>String <code><span class="string">"bonjour"</span></code>,</li>
+<li>Boolean <code><span class="boolean">true</span> <span class="boolean">false</span></code>,</li>
+<li>et la valeur <code><span class="keyword">null</span></code>.</li>
 </ul>
 <li>Les types <i>composés</i><sup>1</sup> de données :</li>
 <ul>
-<li>Object <code>{ clé : value, ... }</code>,</li>
-<li>Array <code>[ val1, ...]</code>.</li>
+<li>Object <code>{ <span class="normal">clé</span> : <span class="normal">value</span>, ... }</code>,</li>
+<li>Array <code>[ <span class="normal">val1</span>, ...]</code>.</li>
 </ul>
 </ul>
 <p><sup>1</sup>: atomiques et composés sont des termes personnels.</p>
 <p>Remarques :</p>
 <ul>
-<li><b>La clé ne peut être que de type</b> <code>String</code>, pas de nombres, pas d'identifiant.</li>
+<li><b>La clé ne peut être que de type</b> <code><span class="normal">String</span></code>, pas de nombres, pas d'identifiant.</li>
 <li>JSON est un sous-ensemble du langage <a href="http://yaml.org/">YAML</a>, plus particulièrement de sa syntaxe compacte.</li>
 <li>JSON est un sous-ensemble de <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript">JavaScript</a>.</li>
-<li>Pas de guillemet simple <code>'</code> pour encadrer les chaînes de caractères seulement le double <code>"</code>.</li>
+<li>Pas de guillemet simple <code><span class="string">'</code> pour encadrer les chaînes de caractères seulement le double <code><span class="string">"</code>.</li>
 <li>Les chaînes de caractères doivent être en <a href="http://unicode.org/fr/">Unicode</a>, plus précisément, encodées en <a href="https://tools.ietf.org/html/rfc8259#section-8.1">UTF-8</a>.</li>
 <li><b>Pas de virgule <code>,</code> après l'élément final d'un Object ou d'une Array</b>.</li>
 <li><b>On ne peut pas faire de commentaires en JSON</b>.</li>
@@ -209,18 +209,18 @@
 </ul>
 <h2 id="exemple">Exemple</h2>
 <pre class="code">
-    {
-        "type" : "Voiture",
-        "marque" : "Hyundai",
-        "modèle" : "Getz",
-        "annéeConstruction" : 2005,
-        "nomConducteurs" : [
-            "Damien",
-            "Charles",
-            "Gustave"
-        ],
-        "madeInEurope" : false
-    }
+    {<span class="newline">
+        <span class="string">"type"</span> : <span class="string">"Voiture"</span>,<span class="newline">
+        <span class="string">"marque"</span> : <span class="string">"Hyundai"</span>,<span class="newline">
+        <span class="string">"modèle"</span> : <span class="string">"Getz"</span>,<span class="newline">
+        <span class="string">"annéeConstruction"</span> : <span class="number">2005</span>,<span class="newline">
+        <span class="string">"nomConducteurs"</span> : [<span class="newline">
+            <span class="string">"Damien"</span>,<span class="newline">
+            <span class="string">"Charles"</span>,<span class="newline">
+            <span class="string">"Gustave"</span><span class="newline">
+        ],<span class="newline">
+        <span class="string">"madeInEurope"</span> : <span class="boolean">false</span><span class="newline">
+    }<span class="newline">
 </pre>
 <h2 id="autres-formats">Autres formats</h2>
 <p>Il existe d'autres formats qui remplisse les mêmes fonctions que JSON :</p>
