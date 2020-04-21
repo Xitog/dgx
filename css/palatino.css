@@ -209,6 +209,7 @@ span.orange.u {
 pre.code, code {
     background-color: #F9F9F9; /* #FAFAFA; */
     border: 1px solid #AAAAAA;
+    color: black;
 }
 pre.code {
     padding: 2px;
