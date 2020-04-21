@@ -221,7 +221,7 @@ code {
     padding-right: 2px;
 }
 
-code, span.identifier, span.keyword, span.string, span.number, span.special {
+code, span.identifier, span.keyword, span.string, span.number, span.special, span.boolean {
     font-family: "Consolas";
     font-size: 14px;
     background-color: #F9F9F9;
@@ -243,8 +243,11 @@ span.special {
     color: rgb(144, 0, 144); /* purple */
 }
 span.comment {
-  color: grey;
-  font-style: italic;
+    color: grey;
+    font-style: italic;
+}
+span.boolean {
+    color: rgb(255, 119, 0); /* orange */
 }
 
 /*-----------------------------------------------------------------------------
