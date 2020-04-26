@@ -340,17 +340,24 @@ ol.roman {
  *---------------------------------------------------------------------------*/
 
 table a {
+    /*
     font-family:    "Lucida Grande","Verdana","Arial","Helvetica","sans-serif";
     font-size:      12px;
+    */
+    font-size:       14px;
     line-height:    1.6em;
 }
 
 table {
+    /*
     font-family:     Lucida Grande,Verdana,Arial,Helvetica,sans-serif;
     font-size:       12px;
+    */
+    font-size:       14px;
     line-height:     1.6em;
     border-collapse: collapse;
     margin-bottom:   9px;
+    color:           black;
 }
 table th {
     background-color: #CEC498;
