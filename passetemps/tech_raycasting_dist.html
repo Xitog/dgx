@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="fr" onmouseleave="out();" onmouseenter="inside();">
+  <head>
+    <meta charset="utf-8">
+    <title>FOV test</title>
+    <script type="text/javascript" src="common.js"></script>
+  </head>
+  <body onload="start();">
+    <canvas id="screen2D" width="640" height="480">
+      
+    </canvas>
+    <br>
+    <form>
+      x = <input id="x" type="text" value="9.5"/>
+      y = <input id="y" type="text" value="7.5"/>
+      a = <input id="a" type="text" value="0"/> <i>(en degré)</i>
+      <input type="button" value="ok" onclick="change();"/>
+    </form>
+    <br>
+    <canvas id="screen3D" width="640" height="480">
+      
+    </canvas>
+    <script type="text/javascript">
+    var player_x = 9.5;
+    var player_y = 7.5;
+    var player_a = 0;
+    var cos_a = Math.cos(player_a);
+    var sin_a = Math.sin(player_a);
+    var player_fov = 66 * 0.01745; // in rad
+    
+    var right = false;
+    var left = false;
+    var down = false;
+    var up = false;
+    
+    var pause = false;
+    
+    var distances;
+    
+    var SCREEN_WIDTH = 640;
+    var SCREEN_HEIGHT = 480;
+    
+    var map = [
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    ];
+    
+    function change() {
+        player_a = getFloat("a") * 0.01745; // in rad
+        player_x = getFloat("x");
+        player_y = getFloat("y");
+        cos_a = Math.cos(player_a);
+        sin_a = Math.sin(player_a);
+    }
+    
+    function start() {
+        window.onkeydown = on_key_down;
+        window.onkeyup = on_key_up;
+        window.setInterval(run, 33);
+        //document.addEventListener('keydown', io);
+        //window.onfocusout = out;
+        //window.onblur = out;
+        document.mouseout = out;
+        document.mouseleave = out;
+    }
+    
+    function inside() {
+        pause = false;
+    }
+    
+    function out() {
+        console.log(right);
+        right = false;
+        left = false;
+        down = false;
+        up = false;
+        pause = true;
+    }
+    
+    function on_key_down(event) {
+        if (pause) { return; }
+        if (event.key === 's') {
+            down = true;
+        } else if (event.key === 'z') {
+            up = true;
+        } else if (event.key === 'q') {
+            left = true;
+        } else if (event.key === 'd') {
+            right = true;
+        }
+    }
+    
+    function on_key_up(event) {
+        if (pause) { return; }
+        if (event.key === 's') {
+            down = false;
+        } else if (event.key === 'z') {
+            up = false;
+        } else if (event.key === 'q') {
+            left = false;
+        } else if (event.key === 'd') {
+            right = false;
+        } else {
+            console.log(event.key);
+        }
+    }
+    
+    function run() {
+        update();
+        draw();
+    }
+    
+    function update() {
+        if (down) {
+            player_x -= cos_a * 0.1;
+            player_y -= sin_a * 0.1;
+        }
+        if (up) {
+            player_x += cos_a * 0.1;
+            player_y += sin_a * 0.1;
+        }
+        if (right) {
+            player_a += 0.05;
+            cos_a = Math.cos(player_a);
+            sin_a = Math.sin(player_a);
+        }
+        if (left) {
+            player_a -= 0.05;
+            cos_a = Math.cos(player_a);
+            sin_a = Math.sin(player_a);
+        }
+    }
+    
+    function draw() {
+        // Screen info
+        let infos = init("screen2D");
+        draw2D(infos.context);
+        infos = init("screen3D");
+        draw3D(infos.context);
+    }
+    
+    function draw2D(ctx) {
+        // Grid Drawing
+        rect(ctx, 'lightgrey', 0, 0, 640, 480, true);
+        rect(ctx, 'black', 0, 0, 639, 479, false);
+        
+        for (let row=0; row < 15; row++) {
+          line(ctx, 'black', 0, row * 32, 639, row * 32);
+        }
+        
+        for (let col=0; col < 20; col++) {
+          line(ctx, 'black', col * 32, 0, col * 32, 479);
+        }
+        for (let row=0; row < 15; row++) {
+            for (let col=0; col < 20; col++) {
+                if (map[row][col] != 0) {
+                    rect(ctx, 'lightblue', col * 32, row * 32, 32, 32, true);
+                }
+            }
+        }
+        // Player
+        circle(ctx, 'red', player_x * 32, player_y * 32, 32);
+        // Dir
+        line(ctx, 'red', 
+            player_x * 32, 
+            player_y * 32, 
+            (player_x + cos_a) * 32,
+            (player_y + sin_a) * 32
+        );
+        // Camera Plane Calculating
+        let n = Math.tan(player_fov) / 2;
+        let cam_x = -sin_a * n;
+        let cam_y = cos_a * n;
+        // Rays
+        distances = [];
+        for (let x = 0; x < SCREEN_WIDTH; x++) {
+            let factor = (x / SCREEN_WIDTH) * 2 - 1;
+            let ray_x = cos_a + factor * cam_x;
+            let ray_y = sin_a + factor * cam_y;
+            
+            // DDA calc
+            let delta_x;
+            let step_map_x;
+            if (ray_x < 0) {
+                delta_x = Math.abs((player_x - Math.floor(player_x)) / ray_x);
+                step_map_x = -1;
+            } else {
+                delta_x = Math.abs((Math.floor(player_x) + 1 - player_x) / ray_x);
+                step_map_x = 1
+            }
+            let delta_y;
+            let step_map_y;
+            if (ray_y < 0) {
+                delta_y = Math.abs((player_y - Math.floor(player_y)) / ray_y);
+                step_map_y = -1;
+            } else {
+                delta_y = Math.abs((Math.floor(player_y) + 1 - player_y) / ray_y);
+                step_map_y = 1;
+            }
+            
+            let map_x = Math.floor(player_x);
+            let map_y = Math.floor(player_y);
+            
+            let distance_x = Math.abs(1 / ray_x);
+            let distance_y = Math.abs(1 / ray_y);
+            
+            let step_x = delta_x;
+            let step_y = delta_y;
+
+            let cumul_x = 0;
+            let cumul_y = 0;
+            
+            let on_x = false; // if we are breaking in by x or y
+            
+            while (map_x >= 0 && map_y >= 0 && map_x < 20 && map_y < 15) {
+              if (map[map_y][map_x] != 0) {
+                break;
+              }
+              if (cumul_x + step_x < cumul_y + step_y) {
+                cumul_x += step_x;
+                step_x = distance_x;
+                map_x += step_map_x;
+                on_x = true;
+              } else {
+                cumul_y += step_y;
+                step_y = distance_y;
+                map_y += step_map_y;
+                on_x = false;
+              }
+            }
+            let d = Math.abs(n * factor);
+            let angle = Math.atan(d);
+            // Correcting
+            if (ray_x < 0) {
+                map_x += 1;
+                cumul_x -= step_x;
+            }
+            if (ray_y < 0) {
+                map_y += 1;
+                cumul_y -= step_y;
+            }
+            if (on_x) {
+                distances.push(Math.cos(angle) * cumul_x);
+            } else {
+                distances.push(Math.cos(angle) * cumul_y);
+            }
+            
+            line(ctx, 'green',
+                player_x * 32,
+                player_y * 32, 
+                map_x * 32, 
+                map_y * 32
+            );
+        }
+        // Camera Plane Drawing
+        line(ctx, 'yellow',
+            (player_x + cos_a) * 32, 
+            (player_y + sin_a) * 32, 
+            (player_x + cos_a + cam_x) * 32, 
+            (player_y + sin_a + cam_y) * 32
+        );
+        line(ctx, 'yellow', 
+            (player_x + cos_a) * 32, 
+            (player_y + sin_a) * 32, 
+            (player_x + cos_a - cam_x) * 32, 
+            (player_y + sin_a - cam_y) * 32
+        );
+        
+        line(ctx, 'yellow',
+            player_x * 32, 
+            player_y * 32, 
+            (player_x + cos_a + cam_x) * 32, 
+            (player_y + sin_a + cam_y) * 32
+        );
+        line(ctx, 'yellow',
+            player_x * 32, 
+            player_y * 32, 
+            (player_x + cos_a - cam_x) * 32, 
+            (player_y + sin_a - cam_y) * 32
+        );
+    }
+    
+    function draw3D(ctx) {
+        rect(ctx, 'black', 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, true);
+        
+        for (let col=0; col < SCREEN_WIDTH; col++) {
+            let halfsize = Math.trunc((SCREEN_HEIGHT / distances[col]) / 2);
+            line(ctx, 'red', col, SCREEN_HEIGHT / 2 - halfsize, col, SCREEN_HEIGHT / 2 + halfsize);
+        }
+    }
+        
+    </script>
+  </body>
+</html>

@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>DDA test</title>
+    <script type="text/javascript" src="common.js"></script>
   </head>
   <body> <!-- onload="main()" -->
     <form>
@@ -18,44 +19,20 @@
     <script type="text/javascript">
       // 20 x 15
 
-      function circle(ctx, color, x, y, r) {
-        ctx.strokeStyle = color;
-        ctx.beginPath();
-        ctx.arc(x, y, r, 0, 2 * Math.PI);
-        ctx.stroke();
-      }
-      
-      function line(ctx, color, x1, y1, x2, y2) {
-        ctx.strokeStyle = color;
-        ctx.beginPath();
-        ctx.moveTo(x1, y1);
-        ctx.lineTo(x2, y2);
-        ctx.stroke();
-      }
-      
-      function rect(ctx, color, x, y, w, h, fill) {
-        if (fill) {
-            ctx.fillStyle = color;
-            ctx.fillRect(x, y, w, h);
-        } else {
-            ctx.strokeStyle = color;
-            ctx.strokeRect(x, y, w, h);
-        }
-      }
-      
       function main() {
         // Player info
         
-        let player_a = parseFloat(document.getElementById("a").value) * 0.01745; // in rad
-        let player_x = parseFloat(document.getElementById("x").value);
-        let player_y = parseFloat(document.getElementById("y").value);
+        let player_a = getFloat("a") * 0.01745; // in rad
+        let player_x = getFloat("x");
+        let player_y = getFloat("y");
         let cos_a = Math.cos(player_a);
         let sin_a = Math.sin(player_a);
         
         // Screen info
-        
-        var screen = document.getElementById('screen');
-        var ctx = screen.getContext('2d');
+
+        let infos = init();
+        let screen = infos.screen;
+        let ctx = infos.context;
         
         console.log(screen.width, screen.offsetWidth);
         console.log(screen.height, screen.offsetHeight);
@@ -63,8 +40,6 @@
         
         // Grid Drawing
         
-        ctx.translate(0.5, 0.5);
-
         rect(ctx, 'lightgrey', 0, 0, 640, 480, true);
         rect(ctx, 'black', 0, 0, 639, 479, false);
         
@@ -115,7 +90,7 @@
         
         let step_x = delta_x;
         let step_y = delta_y;
-        let count = 0;
+
         let cumul_x = 0;
         let cumul_y = 0;
         
@@ -123,7 +98,6 @@
         
         console.log("Start", "x =", map_x, "y =", map_y);
         while (map_x >= 0 && map_y >= 0 && map_x < 20 && map_y < 15) {
-          count += 1;
           if (cumul_x + step_x < cumul_y + step_y) {
             cumul_x += step_x;
             step_x = distance_x;

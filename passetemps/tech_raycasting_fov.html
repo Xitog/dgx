@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>FOV test</title>
+    <script type="text/javascript" src="common.js"></script>
+  </head>
+  <body>
+    <form>
+      fov = <input id="fov" type="text" value="66"/>
+      <input type="button" value="-" onclick="less('fov');"/>
+      <input type="button" value="+" onclick="more('fov');"/> <i>(en degré)</i>
+      a = <input id="a" type="text" value="215"/>
+      <input type="button" value="-" onclick="less('ang');"/>
+      <input type="button" value="+" onclick="more('ang');"/>
+      <i>(en degré)</i>
+      <input type="button" value="ok" onclick="main();"/>
+    </form>
+    <br>
+    <canvas id="screen" width="640" height="480">
+      
+    </canvas>
+    <script type="text/javascript">
+    function less(p) {
+        if (p === 'ang') {
+            let player_a = getFloat("a");
+            setFloat("a", player_a - 15);
+        } else if (p === 'fov') {
+            let fov = getFloat("fov");
+            setFloat("fov", fov - 3);
+        }
+        main();
+    }
+    
+    function more(p) {
+        if (p === 'ang') {
+            let player_a = getFloat("a");
+            setFloat("a", player_a + 15);
+        } else if (p === 'fov') {
+            let fov = getFloat("fov");
+            setFloat("fov", fov + 3);
+        }
+        main();
+    }
+    
+    function main() {
+        // Screen info
+
+        let infos = init();
+        let screen = infos.screen;
+        let ctx = infos.context;
+        
+        // Grid Drawing
+        
+        rect(ctx, 'lightgrey', 0, 0, 640, 480, true);
+        rect(ctx, 'black', 0, 0, 639, 479, false);
+        
+        for (let row=0; row < 15; row++) {
+          line(ctx, 'black', 0, row * 32, 639, row * 32);
+        }
+        
+        for (let col=0; col < 20; col++) {
+          line(ctx, 'black', col * 32, 0, col * 32, 479);
+        }
+        
+        // Player Drawing
+        
+        let player_x = 9.5;
+        let player_y = 7.5;
+        
+        circle(ctx, 'red', player_x * 32, player_y * 32, 32);
+
+        // Dir Drawing
+        
+        let player_a = getFloat("a") * 0.01745; // in rad
+        let cos_a = Math.cos(player_a);
+        let sin_a = Math.sin(player_a);
+        
+        line(ctx, 'red', 
+            player_x * 32, 
+            player_y * 32, 
+            (player_x + cos_a) * 32,
+            (player_y + sin_a) * 32
+        );
+        
+        // Camera Plane Calculating
+        
+        let player_fov = getFloat("fov") * 0.01745; // in rad
+        let n = Math.tan(player_fov) / 2;
+        
+        let cam_x = -sin_a * n;
+        let cam_y = cos_a * n;
+
+        // Rays
+        
+        for (let x = 0; x < 100; x++) {
+            let factor = (x / 100) * 2 - 1;
+            let ray_x = cos_a + factor * cam_x;
+            let ray_y = sin_a + factor * cam_y;
+            line(ctx, 'green',
+                player_x * 32,
+                player_y * 32, 
+                player_x * 32 + ray_x * 100, 
+                player_y * 32 + ray_y * 100
+            );
+        }
+
+        // Camera Plane Drawing
+
+        line(ctx, 'yellow',
+            (player_x + cos_a) * 32, 
+            (player_y + sin_a) * 32, 
+            (player_x + cos_a + cam_x) * 32, 
+            (player_y + sin_a + cam_y) * 32
+        );
+        line(ctx, 'yellow', 
+            (player_x + cos_a) * 32, 
+            (player_y + sin_a) * 32, 
+            (player_x + cos_a - cam_x) * 32, 
+            (player_y + sin_a - cam_y) * 32
+        );
+        
+        line(ctx, 'yellow',
+            player_x * 32, 
+            player_y * 32, 
+            (player_x + cos_a + cam_x) * 32, 
+            (player_y + sin_a + cam_y) * 32
+        );
+        line(ctx, 'yellow',
+            player_x * 32, 
+            player_y * 32, 
+            (player_x + cos_a - cam_x) * 32, 
+            (player_y + sin_a - cam_y) * 32
+        );
+        
+    }
+    </script>
+  </body>
+</html>
