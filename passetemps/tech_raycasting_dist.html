@@ -6,24 +6,27 @@
     <script type="text/javascript" src="common.js"></script>
   </head>
   <body onload="start();">
-    <canvas id="screen2D" width="640" height="480">
-      
-    </canvas>
-    <br>
-    <form>
+      <form>
       x = <input id="x" type="text" value="9.5"/>
-      y = <input id="y" type="text" value="7.5"/>
-      a = <input id="a" type="text" value="0"/> <i>(en degré)</i>
+      y = <input id="y" type="text" value="12"/>   <!-- 7.5 -->
+      a = <input id="a" type="text" value="0"/>
+      <input type="button" value="-" onclick="less('ang');"/>
+      <input type="button" value="+" onclick="more('ang');"/>
+      <i>(en degré)</i>
       <input type="button" value="ok" onclick="change();"/>
     </form>
     <br>
+    <canvas id="screen2D" width="640" height="480">
+      
+    </canvas>
+    &nbsp;
     <canvas id="screen3D" width="640" height="480">
       
     </canvas>
     <script type="text/javascript">
-    var player_x = 9.5;
-    var player_y = 7.5;
-    var player_a = 0;
+    var player_x = getFloat("x");
+    var player_y = getFloat("y");
+    var player_a = 90 * 0.01745; //0;
     var cos_a = Math.cos(player_a);
     var sin_a = Math.sin(player_a);
     var player_fov = 66 * 0.01745; // in rad
@@ -36,27 +39,58 @@
     var pause = false;
     
     var distances;
+    var intersections;
+    var intersections_map;
+    
+    // Debug
+    //var rays = [0, 160, 320, 480, 639];
+    //var rays = [320];
     
     var SCREEN_WIDTH = 640;
     var SCREEN_HEIGHT = 480;
     
+    var colors = [
+        'black',
+        'red',
+        'purple',
+        'yellow'
+    ];
+    
     var map = [
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
         [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 2, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 0, 1],
         [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
         [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 0, 0, 0, 1],
+        [1, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
         [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     ];
+    
+    function less(p) {
+        if (p === 'ang') {
+            player_a -= 15 * 0.01745;
+            cos_a = Math.cos(player_a);
+            sin_a = Math.sin(player_a);
+            setFloat("a", player_a * 57.2958);
+        }
+    }
+    
+    function more(p) {
+        if (p === 'ang') {
+            player_a += 15 * 0.01745;
+            cos_a = Math.cos(player_a);
+            sin_a = Math.sin(player_a);
+            setFloat("a", player_a * 57.2958);
+        }
+    }
     
     function change() {
         player_a = getFloat("a") * 0.01745; // in rad
@@ -151,7 +185,7 @@
         infos = init("screen3D");
         draw3D(infos.context);
     }
-    
+
     function draw2D(ctx) {
         // Grid Drawing
         rect(ctx, 'lightgrey', 0, 0, 640, 480, true);
@@ -181,12 +215,20 @@
             (player_y + sin_a) * 32
         );
         // Camera Plane Calculating
-        let n = Math.tan(player_fov) / 2;
+        let n = Math.tan(player_fov / 2);
         let cam_x = -sin_a * n;
         let cam_y = cos_a * n;
         // Rays
         distances = [];
+        intersections = [];
+        intersections_map = [];
         for (let x = 0; x < SCREEN_WIDTH; x++) {
+            // Debug
+            //if (!rays.includes(x)) {
+            //    distances.push(0);
+            //    continue;
+            //}
+            
             let factor = (x / SCREEN_WIDTH) * 2 - 1;
             let ray_x = cos_a + factor * cam_x;
             let ray_y = sin_a + factor * cam_y;
@@ -243,26 +285,38 @@
             }
             let d = Math.abs(n * factor);
             let angle = Math.atan(d);
-            // Correcting
-            if (ray_x < 0) {
-                map_x += 1;
-                cumul_x -= step_x;
-            }
-            if (ray_y < 0) {
-                map_y += 1;
-                cumul_y -= step_y;
-            }
+            // Distance
+            let dist_taken;
+            let point;
             if (on_x) {
-                distances.push(Math.cos(angle) * cumul_x);
+                dist_taken = cumul_x;
+                if (ray_x < 0) {
+                    point = [map_x + 1, player_y + ray_y * cumul_x];
+                } else {
+                    point = [map_x, player_y + ray_y * cumul_x];
+                }
             } else {
-                distances.push(Math.cos(angle) * cumul_y);
+                dist_taken = cumul_y;
+                if (ray_y < 0) {
+                    point = [player_x + ray_x * cumul_y, map_y + 1];
+                } else {
+                    point = [player_x + ray_x * cumul_y, map_y];
+                }
             }
+            distances.push(dist_taken);
+            intersections.push(point);
+            intersections_map.push({y : map_y, x : map_x});
+            //let true_dist = Math.sqrt(Math.pow(player_x - point[0], 2) + Math.pow(player_y - point[1], 2));
+            //if (Math.abs(true_dist - dist_taken) > 0.1) {
+            //    console.log("diff=", Math.abs(true_dist - dist_taken), "true=", true_dist, "cumul=", dist_taken, step_x, step_y);
+            //}
+            //distances.push(Math.cos(angle) * dist_taken);
             
             line(ctx, 'green',
                 player_x * 32,
                 player_y * 32, 
-                map_x * 32, 
-                map_y * 32
+                point[0] * 32, 
+                point[1] * 32
             );
         }
         // Camera Plane Drawing
@@ -295,11 +349,26 @@
     
     function draw3D(ctx) {
         rect(ctx, 'black', 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, true);
-        
+
         for (let col=0; col < SCREEN_WIDTH; col++) {
             let halfsize = Math.trunc((SCREEN_HEIGHT / distances[col]) / 2);
-            line(ctx, 'red', col, SCREEN_HEIGHT / 2 - halfsize, col, SCREEN_HEIGHT / 2 + halfsize);
+            let point = intersections_map[col];
+            let color_index = map[point.y][point.x];
+            let color = colors[color_index];
+            line(ctx, color, col, SCREEN_HEIGHT / 2 - halfsize, col, SCREEN_HEIGHT / 2 + halfsize);
         }
+        
+        // Debug
+        /*
+        let halfsizes = [];
+        for (let colx of rays) {
+            halfsizes.push(Math.trunc((SCREEN_HEIGHT / distances[colx]) / 2));
+        }
+        for (let i = 0; i < halfsizes.length - 1; i++) {
+            line(ctx, 'red', rays[i], SCREEN_HEIGHT / 2 - halfsizes[i], rays[i+1], SCREEN_HEIGHT / 2 - halfsizes[i+1]);
+            line(ctx, 'red', rays[i], SCREEN_HEIGHT / 2 + halfsizes[i], rays[i+1], SCREEN_HEIGHT / 2 + halfsizes[i+1]);
+        }
+        */
     }
         
     </script>
