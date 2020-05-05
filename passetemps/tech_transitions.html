@@ -15,6 +15,9 @@
       display: inline-block;
     }
     table.repr td {
+        border: None;
+    }
+    table.repr td {
       padding: 0px;
       text-align: center;
     }
@@ -73,19 +76,12 @@
     span.number {
       color: red;
     }
-    span.keyword_fr {
-      font-weight: bold;
-    }
-    span.keyword_en {
-      font-weight: bold;
-      font-style: italic;
-    }
     </style>
   </head>
   <body>
     <div id="main" class="container">
     
-<nav class="navbar navbar-default" role="navigation">
+      <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -113,6 +109,10 @@
                   <li class="divider"></li>
                   <li class="dropdown-header">Anglais</li>
                   <li><a href="https://xitog.github.io/dgx/anglais/jeu_vocabulaire.html">Jeu sur le vocabulaire</a></li>
+                  <li><a href="https://xitog.github.io/dgx/anglais/verbes.html">Verbes fréquents</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Interlingua</li>
+                  <li><a href="https://xitog.github.io/dgx/interlingua/conjugueur.html">Conjugueur</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Linguistique</li>
                   <li><a href="https://xitog.github.io/dgx/linguistique/informations.html">Informations générales</a></li>
@@ -126,14 +126,16 @@
                   <li><a href="https://xitog.github.io/dgx/informatique/python.html">Aide-mémoire Python</a></li>
                   <li><a href="https://xitog.github.io/dgx/informatique/ruby.html">Aide-mémoire Ruby</a></li>
                   <li><a href="https://xitog.github.io/dgx/informatique/lua.html">Aide-mémoire Lua</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/ruby_guide.html">Guide Ruby</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/ash_guide.html">Guide Ash</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Modélisation</li>
-                  <li><a href="./informatique/bnf.html">Aide-mémoire BNF et EBNF</a></li>
-                  <li><a href="./informatique/json.html">Aide-mémoire JSON</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/bnf.html">Aide-mémoire BNF et EBNF</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/json.html">Aide-mémoire JSON</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/hamill.html">Aide-mémoire Hamill</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Autres</li>
-                  <li><a href="https://xitog.github.io/dgx/informatique/outils.html">Logiciels utiles</a></li>
-                  <li><a href="https://xitog.github.io/dgx/data/outil_collections.html#langages">Liste de langages</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/tools_langs.html">Logiciels utiles et autres langages</a></li>
                 </ul>
               </li>
               <li class="dropdown">
@@ -148,24 +150,33 @@
                 </ul>
               </li>
               <li class="dropdown active">
-                <a id="Jeux" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Jeux <span class="caret"></span></a>
+                <a id="Jeux" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Passe-temps <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Présentations générales</i></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/pres_jeux.html">Les jeux</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/pres_jeuxvideo.html">Les jeux vidéo</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/pres_favoris.html">Favoris artistiques</a></li>
+                  <li class="divider"></li>
                   <li class="dropdown-header">Jeux de rôles</i></li>
-                  <li><a href="https://xitog.github.io/dgx/jeux/systeme_rpg_un.html">Essai de système</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/systemes_rpg.html">Systèmes des RPG</a></li>
                   <li class="divider"></li>
-                  <li class="dropdown-header">Livres dont VOUS êtes le héros</li>
-                  <li><a href="https://xitog.github.io/dgx/jeux/compagnon_talisman.html">Le Compagnon du Talisman</a></li>
-                  <li><a href="https://xitog.github.io/dgx/jeux/compagnon_sorcier.html">Le Compagnon du Sorcier</a></li>
+                  <li class="dropdown-header">Livres-jeux</li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/compagnon_talisman.html">Le Compagnon du Talisman</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/compagnon_sorcier.html">Le Compagnon du Sorcier</a></li>
                   <li class="divider"></li>
-                  <li class="dropdown-header">Jeux vidéo</li>
-                  <li><a href="https://xitog.github.io/dgx/jeux/rts.html">Les enfants de Dune : les RTS</a></li>
-                  <li><a href="https://xitog.github.io/dgx/jeux/raycasting.html">Le raycasting : la 2.5D</a></li>
-                  <li><a href="https://xitog.github.io/dgx/jeux/play_rts.html">Jouer à mon RTS</a></li>
-                  <li><a href="https://xitog.github.io/dgx/jeux/play_fps.html">Jouer à mon FPS</a></li>
-                  <li><a href="https://xitog.github.io/dgx/data/outil_collections.html#jv">Jeux vidéo favoris</a></li>
+                  <li class="dropdown-header">Histoire des jeux vidéo</li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/history_rts.html">Les enfants de Dune : les RTS</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/history_fps.html">Les enfants de Doom : les FPS</a></li>
                   <li class="divider"></li>
-                  <li class="dropdown-header">Articles techniques</i></li>
-                  <li><a href="https://xitog.github.io/dgx/jeux/transitions.html" class="active">Cartes et transitions</a></li>
+                  <li class="dropdown-header">Techniques des jeux vidéo</i></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_raycasting.html">Le raycasting : la 2.5D</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_transitions.html" class="active">Cartes et transitions</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_dialogues.html">Dialogues</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Jeux vidéo et outils maison</i></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/project_teddy.html">Éditeur de carte</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/project_rts.html">Jouer à mon RTS</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/project_fps.html">Jouer à mon FPS</a></li>
                 </ul>
               </li>
               <li class="dropdown">
@@ -173,20 +184,21 @@
                 <ul class="dropdown-menu" role="menu">
                   <li class="dropdown-header">Musique</li>
                   <li><a href="https://xitog.github.io/dgx/concerts_classiques/index.html">Concerts classiques</a></li>
+                  <li><a href="https://xitog.github.io/dgx/favoris/musiques.html">Musiques favorites</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Collections</li>
                   <li><a href="https://xitog.github.io/dgx/data/outil_collections.html#prenoms">Prénoms</a></li>
-                  <li><a href="https://xitog.github.io/dgx/data/outil_collections.html#livres">Livres lus</a></li>
-                  <li><a href="https://xitog.github.io/dgx/data/outil_collections.html#favoris_artistiques">Favoris artistiques</a></li>
-                  <li><a href="https://xitog.github.io/dgx/liens.html">Liens</a></li>
-                  <li><a href="./liste_liens.html">Tous les liens</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Liens</li>
+                  <li><a href="https://xitog.github.io/dgx/liens.html">Barre de liens</a></li>
+                  <li><a href="https://xitog.github.io/dgx/liste_liens.html">Collection de liens</a></li>
                 </ul>
               </li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
-  
+      
       <div id="content" class="palatino">
 
         <h1>Cartes de carreaux, Transitions et Variations</h1>
@@ -195,10 +207,19 @@
           <li><a href="#I">I. Un tableau comme carte</a></li>
           <li><a href="#II">II. Un système de transition</a>
             <ul>
-              <li><a href="#IIA">II.A Règles de transitions</a></li>
-              <li><a href="#IIB">II.B Exemples de configurations</a></li>
-              <li><a href="#IIC">II.C Correspondances configuration-transition</a></li>
-              <li><a href="#IID">II.D Exemples de résultats</a></li>
+              <li><a href="#IIA">II.A Cinq règles de transitions</a>
+                <ol>
+                  <li><a href="r01">Hiérarchie d'influence</a></li>
+                  <li><a href="r02">Unicité</a></li>
+                  <li><a href="r03">Étau</a></li>
+                  <li><a href="r04">Continuité</a></li>
+                  <li><a href="r05">Coins en opposition</a></li>
+                </ol>
+              </li>
+              <li><a href="#IIB">II.B Système de numérotation</a></li>
+              <li><a href="#IIC">II.C Exemples de configurations</a></li>
+              <li><a href="#IID">II.D Correspondances configuration-transition</a></li>
+              <li><a href="#IIE">II.E Exemples de résultats</a></li>
             </ul>
           </li>
           <li><a href="#III">III. Variations</a></li>
@@ -253,18 +274,24 @@
                </tr>
              </table>
         </div>
-        <p>On voit que l'ensemble de la carte, qui comporte <span class="number">25</span> cases, ne fait que répéter deux textures. On peut ainsi décrire facilement de vastes étendues à partir de peu d'éléments. On appelle ses éléments d'après l'anglais <span class="keyword_en">tiles</span>, que l'on pourrait traduire par carreau ou tuile, et cette technique le <span class="keyword_en">tiling</span>, traduisible par carrelage. Une case du tableau correspond donc à un carreau. Pour construire et éditer une telle carte, on peut construire un éditeur de carte ou utiliser un simple tableur comme Microsoft Excel ou LibreOffice Calc. La même carte sous Excel se présenterait comme (C).</p>
-        <p>Si on enlève les bordures de notre exemple (B), le résultat est déjà plus convaincant. Néanmoins, la transition de l'eau vers la terre est un peu abrupte, elle ne fait pas naturelle. Pour améliorer le résultat, on va faire des <span class="keyword_fr">transitions</span>.</p>
+        <p>On voit que l'ensemble de la carte, qui comporte <span class="number">25</span> cases, ne fait que répéter deux textures. On peut ainsi décrire facilement de vastes étendues à partir de peu d'éléments. On appelle ses éléments d'après l'anglais <b><i>tiles</i></b>, que l'on pourrait traduire par carreau ou tuile, et cette technique le <b><i>tiling</i></b>, traduisible par carrelage. Une case du tableau correspond donc à un carreau. Pour construire et éditer une telle carte, on peut construire un éditeur de carte ou utiliser un simple tableur comme Microsoft Excel ou LibreOffice Calc. La même carte sous Excel se présenterait comme (C).</p>
+        <p>Si on enlève les bordures de notre exemple (B), le résultat est déjà plus convaincant. Néanmoins, la transition de l'eau vers la terre est un peu abrupte, elle ne fait pas naturelle. Pour améliorer le résultat, on va créer un jeu de textures spéciales qui assureront des <b>transitions plus douces et naturelles</b>.</p>
         
         <h2 id="II">II. Un système de transition</h2>
         
-        <h3 id="IIA">II.A Règles de transitions</h3>
+        <p>Nous allons établir un système de transition composé de :</p>
+        <ul>
+          <li>cinq règles de transition et</li>
+          <li>un système de numérotation.</li>
+        </ul>
+        
+        <h3 id="IIA">II.A Cinq règles de transitions</h3>
         
         <p>Nous allons établir un ensemble de règles pour les transitions :</p>
         <ol>
-          <li>Un carreau d'eau est influencé par un carreau de terre. C'est-à-dire que si un carreau jouxte un carreau de terre, c'est le carreau d'eau qui changera pour refléter une transition.</li>
-          <li>Un carreau ne peut avoir autour de lui qu'un seul type d'influenceur. On a vu que les carreaux d'eau sont influencés par les carreaux de terre. Imaginons un autre type de carreau, le sable, qui influence également l'eau. Un carreau d'eau ne pourra être entouré que d'un seul type d'influenceur dans sa proximité immédiate.</li>
-          <li>Un carreau ne peut avoir à sa gauche et à sa droite un carreau l'influençant en même temps. De même, un carreau ne peut avoir en haut et en bas un carreau l'influençant en même temps. Ces configurations sont interdites :<br/>
+          <li id="r01">Première règle, on établit une <b><u>hiérarchie d'influence</u></b> : un carreau d'eau est <b>influencé</b> par un carreau de terre. C'est-à-dire que si un carreau jouxte un carreau de terre, c'est le carreau d'eau qui changera pour refléter une transition : sa texture d'eau simple sera remplacée par une texture de transition entre l'eau et la terre : on notera <code>eau &lt; terre</code></li>
+          <li id="r02">Deuxième règle, celle d'<b><u>unicité</u></b> : <b>un carreau ne peut avoir autour de lui qu'un seul type d'influenceur</b>. On a vu que les carreaux d'eau sont influencés par les carreaux de terre. Imaginons un autre type de carreau, le sable, qui influence également l'eau. Un carreau d'eau ne pourra être entouré que d'un seul type d'influenceur dans sa proximité immédiate.</li>
+          <li id="r03">Troisième règle : celle de l'<b><u>étau</u></b> : un carreau ne peut avoir à sa gauche et à sa droite un carreau l'influençant en même temps. De même, un carreau ne peut avoir en haut et en bas un carreau l'influençant en même temps. Les configurations représentées ci-dessous sont donc interdites :<br/>
             <table class="repr_border">
               <tr>
                 <td><img src="graphics/transitions/base/blank-1.png"/></td><td><img src="graphics/transitions/base/blank-1.png"/></td><td><img src="graphics/transitions/base/blank-1.png"/></td>
@@ -289,7 +316,7 @@
                </tr>
             </table>
           </li>
-          <li>Les carreaux influenceurs doivent être consécutifs. Toutes les configurations discontinues sont interdites comme :<br/>
+          <li id="r04">Quatrième règle, celle de la <b><u>continuité</u></b> : <b>Les carreaux influenceurs doivent être consécutifs. Toutes les configurations discontinues sont interdites</b> comme :<br/>
             <table class="repr_border">
               <tr>
                 <td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td>
@@ -302,8 +329,42 @@
               </tr>
             </table>
           </li>
+          <li id="r05">Cinquième règle, qui est une exception à la quatrième, est celle des <b><u>coins en opposition</u></b> : la configuration où deux coins en opposition sont des influenceurs et ceux sont les seuls influenceurs est autorisée. Cela concerne les deux configurations ci-dessous :<br/>
+            <table class="repr_border">
+              <tr>
+                <td><img src="graphics/transitions/base/mud-1.png"/></td>
+                <td><img src="graphics/transitions/base/water-1.png"/></td>
+                <td><img src="graphics/transitions/base/water-1.png"/></td>
+              </tr>
+              <tr>
+                <td><img src="graphics/transitions/base/water-1.png"/></td>
+                <td><img src="graphics/transitions/base/water-1.png"/></td>
+                <td><img src="graphics/transitions/base/water-1.png"/></td>
+              </tr>
+              <tr>
+                <td><img src="graphics/transitions/base/water-1.png"/></td>
+                <td><img src="graphics/transitions/base/water-1.png"/></td>
+                <td><img src="graphics/transitions/base/mud-1.png"/></td>
+              </tr>
+            </table>
+            &nbsp;&nbsp;
+            <table class="repr_border">
+              <tr>
+                <td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td>
+              </tr>
+              <tr>
+                <td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td>
+              </tr>
+              <tr>
+                <td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td>
+              </tr>
+            </table>
+          </li>
         </ol>
-        <p>Un carreau est entouré de <span class="number">8</span> autres carreaux. Nous les notons et les numérotons ainsi, en partant du carreau en haut à gauche et en les parcourant dans le sens horaire :</p>
+        
+        <h3 id="IIB">II.B Système de numérotation</h3>
+        
+        <p>Un carreau est entouré de <span class="number">8</span> autres carreaux. Nous les notons et les numérotons comme ci-dessous, en partant du carreau en haut à gauche et en les parcourant dans le sens horaire :</p>
         <div>
           <table class="repr_border">
             <col width="90"/>
@@ -325,6 +386,17 @@
               <td>Sud</td>
               <td>Sud-Ouest</td>
               <td>Ouest</td>
+            </tr>
+            <tr>
+              <td><b>Code</b></td>
+              <td>NO</td>
+              <td>N</td>
+              <td>NE</td>
+              <td>E</td>
+              <td>SE</td>
+              <td>S</td>
+              <td>SO</td>
+              <td>O</td>
             </tr>
             <tr>
               <td><b>Numéro</b></td>
@@ -350,6 +422,7 @@
             </tr>
           </table>
         </div>
+        <p>Autrement représenté ainsi :</p>
         <div style="margin-top: 1em;">
           <table class="repr_border">
             <tr>
@@ -405,10 +478,9 @@
             </tr>
           </table>
         </div>
-        <p>La règle 2 dit que s'il y a un ou plusieurs carreaux influenceurs, ils seront tous du même type. Cela revient à un choix binaire, savoir si c'est le carreau est un influenceur ou pas. Il y a donc <span class="number">2<sup>8</sup></span>, soit <span class="number">256</span>, possibilités. Pour un carreau, chaque possibilité de configuration des carreaux qui l'entourent est identifiée par un nombre qui est le résultat de l'addition de <span class="number">2<sup>position</sup></span> pour chaque carreau influenceur. Les règles 3 et 4 suppriment de nombreuses combinaisons et réduisent à <span class="number">12</span> le nombre de transitions nécessaires.</p>
-        <p><span class="game">WarCraft II</span> autorisait également deux configurations avec des carreaux influenceurs discontinus : ceux dans des diagonales opposées. Nous ne reprenons pas cette spécifité.</p>
+        <p>La règle 2 dit que s'il y a un ou plusieurs carreaux influenceurs, ils seront tous du même type. Cela revient à un choix binaire, savoir si c'est le carreau est un influenceur ou pas. Il y a donc <span class="number">2<sup>8</sup></span>, soit <span class="number">256</span>, possibilités. Pour un carreau, chaque possibilité de configuration des carreaux qui l'entourent est identifiée par un nombre qui est le résultat de l'addition de <span class="number">2<sup>position</sup></span> pour chaque carreau influenceur. Les règles 3 et 4 suppriment de nombreuses combinaisons et réduisent à <span class="number">14</span> le nombre de textures nécessaires pour faire la transition entre eau et terre.</p>
         
-        <h3 id="IIB">II.B Exemples de configurations</h3>
+        <h3 id="IIC">II.C Exemples de configurations</h3>
         
         <p>À présent, passons aux exemples. Voici sept exemples de configurations de carreaux entourant le carreau central dont une interdite :</p>
         <div>
@@ -496,10 +568,10 @@
             </tr>
           </table>
         </div>
-        <p>La configuration interdite est la F. Sur la rangée du haut, un carreau d'eau est entouré horizontalement par deux carreux de terre l'influençant. Pour les  <span class="number">6</span> configurations valides, nous allons ensuite calculer l'identification de chaque configuration :</p>
+        <p>La configuration interdite est la F. La rangée du haut présente deux carreux influenceurs discontinus. De plus, le carreau d'eau de la rangée du haut est entouré horizontalement par deux carreux de terre l'influençant, ce qui est également illégal. Pour les  <span class="number">6</span> configurations valides, nous allons ensuite calculer l'identification de chaque configuration :</p>
         <ol style="list-style-type: upper-latin;">
           <li>La position <span class="number">0</span> a un carreau qui influence celui du milieu. Pour le calcul, on prend donc <span class="number">2<sup>0</sup></span> soit <span class="number">1</span>.</li>
-          <li>Les positions <span class="number">0</span> et <span class="number">1</span> ont un carreau qui influence celui du milieu. Pour le calucl, on additionne donc <span class="number">2<sup>0</sup></span> + <span class="number">2<sup>1</sup></span> soit <span class="number">3</span>.</li>
+          <li>Les positions <span class="number">0</span> et <span class="number">1</span> ont un carreau qui influence celui du milieu. Pour le calcul, on additionne donc <span class="number">2<sup>0</sup></span> + <span class="number">2<sup>1</sup></span> soit <span class="number">3</span>.</li>
           <li>Les positions <span class="number">0</span>, <span class="number">1</span> et <span class="number">2</span> ont un carreau qui influence celui du milieu. Pour le calcul, on additionne donc <span class="number">2<sup>0</sup></span> + <span class="number">2<sup>1</sup></span> + <span class="number">2<sup>2</sup></span> soit <span class="number">7</span>.</li>
           <li>Les positions <span class="number">1</span> et <span class="number">2</span> ont un carreau qui influence celui du milieu. Pour le calcul, on additionne donc <span class="number">2<sup>1</sup></span> + <span class="number">2<sup>2</sup></span> soit <span class="number">6</span>.</li>
           <li>La position <span class="number">2</span> a un carreau qui influence celui du milieu. Pour le calcul, on prend donc <span class="number">2<sup>2</sup></span> soit <span class="number">4</span>.</li>
@@ -513,7 +585,7 @@
               <td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td>
             </tr>
             <tr>
-              <td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-nw-water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td>
+              <td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-cnw-water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td>
             </tr>
             <tr>
               <td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td>
@@ -561,7 +633,7 @@
               <td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td>
             </tr>
             <tr>
-              <td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-ne-water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td>
+              <td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-cne-water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td>
             </tr>
             <tr>
               <td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td>
@@ -580,16 +652,18 @@
             </tr>
           </table>
         </div>
-        <p>On remarque quelque chose de très important qui fait figure de 5<sup>ème</sup> règle : <b>si le nord est un carreau influenceur, peut importe la valeur des deux coins associés, ici nord-ouest et nord-est</b>. En conséquence, on peut associer un identifiant de configuration à une transition :</p>
+        <p>On remarque quelque chose de très important pour la mise en œuvre de nos règles : <b>si le nord est un carreau influenceur, peut importe la valeur des deux coins associés, ici nord-ouest et nord-est</b>.
+        <p>Comme nous l'avons vu dans ces exemples, on peut associer un <b>identifiant de configuration</b> pour déterminer la texture de transition à prendre :</p>
         <ul>
-          <li><span class="number">1</span> appelle la transition <img src="graphics/transitions/mud_shallow_water/mud-nw-water-1.png"/></li>
+          <li><span class="number">1</span> appelle la transition <img src="graphics/transitions/mud_shallow_water/mud-cnw-water-1.png"/></li>
           <li><span class="number">3</span>, <span class="number">7</span>, <span class="number">6</span> et <span class="number">2</span> appelle la transition <img src="graphics/transitions/mud_shallow_water/mud-n-water-1.png"/></li>
-          <li><span class="number">4</span> appelle la transition <img src="graphics/transitions/mud_shallow_water/mud-ne-water-1.png"/></li>
+          <li><span class="number">4</span> appelle la transition <img src="graphics/transitions/mud_shallow_water/mud-cne-water-1.png"/></li>
         </ul>
+        <p>Cet identifiant est un nombre compris entre 0 et 255, avec certains nombres interdits par nos règles.</p>
         
-        <h3 id="IIC">II.C Correspondances configuration-transition</h3>
+        <h3 id="IID">II.D Correspondances configuration-transition</h3>
         
-        <p>Il faut à présent construire une correspondance entre les configurations et les <span class="number">12</span> transitions possibles. Cette correspondance peut se faire à l'aide d'une table ou d'une fonction. En entrée, on a le numéro de configuration, en sortie le numéro de la texture à prendre. Il faut travailler avec deux tableaux : celui de départ, où sont stockées les textures d'eau et de terre, et celui d'arrivée, où on stocke les transitions ou l'absence de transition. L'algorithme est le suivant :</p>
+        <p>Il faut à présent construire une correspondance entre les configurations et les <span class="number">14</span> transitions possibles. Cette correspondance peut se faire à l'aide d'une table ou d'une fonction. En entrée, on a le numéro de configuration, en sortie le numéro de la texture à prendre. Il faut travailler avec deux tableaux : celui de départ, où sont stockées les textures d'eau et de terre, et celui d'arrivée, où on stocke les transitions ou l'absence de transition. L'algorithme est le suivant :</p>
         <div class="code">
         <b>Pour</b> chaque ligne <b>faire</b><br/>
         &nbsp;&nbsp;&nbsp;&nbsp;<b>Pour</b> chaque colonne <b>faire</b><br/>
@@ -603,24 +677,26 @@
         <b>Fin Pour</b><br/>
         </div>
         
-        <h3 id="IID">II.D Exemples de résultats</h3>
+        <h3 id="IIE">II.E Exemples de résultats</h3>
         
-        <p>Ci-dessous sont les <span class="number">12</span> transitions possibles de la terre vers l'eau dans notre système ainsi que le carreau "sans transition" pour l'eau :</p>
+        <p>Ci-dessous sont les <span class="number">14</span> transitions possibles de la terre vers l'eau dans notre système ainsi que le carreau "sans transition" pour l'eau :</p>
         <div>
           <table class="repr_border">
             <tr>
-              <td><img src="graphics/transitions/mud_shallow_water/mud-nw-water-1.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-cnw-water-1.png"/></td>
               <td><img src="graphics/transitions/mud_shallow_water/mud-n-water-1.png"/></td>
-              <td><img src="graphics/transitions/mud_shallow_water/mud-ne-water-1.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-cne-water-1.png"/></td>
               <td><img src="graphics/transitions/mud_shallow_water/mud-e-water-1.png"/></td>
-              <td><img src="graphics/transitions/mud_shallow_water/mud-se-water-1.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-ces-water-1.png"/></td>
               <td><img src="graphics/transitions/mud_shallow_water/mud-s-water-1.png"/></td>
-              <td><img src="graphics/transitions/mud_shallow_water/mud-sw-water-1.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-csw-water-1.png"/></td>
               <td><img src="graphics/transitions/mud_shallow_water/mud-w-water-1.png"/></td>
-              <td><img src="graphics/transitions/mud_shallow_water/mud-nnee-water-1.png"/></td>
-              <td><img src="graphics/transitions/mud_shallow_water/mud-eses-water-1.png"/></td>
-              <td><img src="graphics/transitions/mud_shallow_water/mud-ssww-water-1.png"/></td>
-              <td><img src="graphics/transitions/mud_shallow_water/mud-wnwn-water-1.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-ne-water-1.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-es-water-1.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-sw-water-1.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-nw-water-1.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-cnecsw-water-1.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-cnwces-water-1.png"/></td>
               <td><img src="graphics/transitions/base/water-1.png"/></td>
             </tr>
             <tr>
@@ -637,6 +713,8 @@
               <td>11</td>
               <td>12</td>
               <td>13</td>
+              <td>14</td>
+              <td>15</td>
             </tr>
           </table>
         </div>
@@ -647,7 +725,7 @@
               <td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-w-water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td>
             </tr>
             <tr>
-              <td><img src="graphics/transitions/mud_shallow_water/mud-n-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-nw-water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-n-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-cnw-water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td>
             </tr>
             <tr>
               <td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td>
@@ -659,7 +737,7 @@
               <td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-w-water-1.png"/></td>
             </tr>
             <tr>
-              <td><img src="graphics/transitions/mud_shallow_water/mud-n-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-n-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-nw-water-1.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-n-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-n-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-cnw-water-1.png"/></td>
             </tr>
             <tr>
               <td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td>
@@ -683,7 +761,7 @@
               <td><img src="graphics/transitions/mud_shallow_water/mud-e-water-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td>
             </tr>
             <tr>
-              <td><img src="graphics/transitions/mud_shallow_water/mud-ne-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-n-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-n-water-1.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-cne-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-n-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-n-water-1.png"/></td>
             </tr>
             <tr>
               <td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td>
@@ -695,7 +773,7 @@
               <td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-e-water-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td>
             </tr>
             <tr>
-              <td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-ne-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-n-water-1.png"/></td>
+              <td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-cne-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-n-water-1.png"/></td>
             </tr>
             <tr>
               <td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td>
@@ -707,7 +785,7 @@
               <td><img src="graphics/transitions/mud_shallow_water/mud-e-water-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-w-water-1.png"/></td>
             </tr>
             <tr>
-              <td><img src="graphics/transitions/mud_shallow_water/mud-ne-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-n-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-nw-water-1.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-cne-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-n-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-cnw-water-1.png"/></td>
             </tr>
             <tr>
               <td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td>
@@ -721,13 +799,13 @@
               <td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td>
             </tr>
             <tr>
-              <td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-wnwn-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-n-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-nnee-water-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td>
+              <td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-nw-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-n-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-ne-water-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td>
             </tr>
             <tr>
               <td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-w-water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-e-water-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td>
             </tr>
             <tr>
-              <td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-ssww-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-s-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-eses-water-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td>
+              <td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-sw-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-s-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-es-water-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td>
             </tr>
             <tr>
               <td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td>
@@ -739,13 +817,13 @@
               <td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td>
             </tr>
             <tr>
-              <td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-wnwn-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-n-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-nnee-water-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td>
+              <td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-nw-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-n-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-ne-water-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td>
             </tr>
             <tr>
               <td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-w-water-1.png"/></td><td><img src="graphics/transitions/base/water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-e-water-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td>
             </tr>
             <tr>
-              <td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-ssww-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-s-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-eses-water-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td>
+              <td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-sw-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-s-water-1.png"/></td><td><img src="graphics/transitions/mud_shallow_water/mud-es-water-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td>
             </tr>
             <tr>
               <td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td><td><img src="graphics/transitions/base/mud-1.png"/></td>
@@ -791,32 +869,36 @@
         <div>
           <table class="repr_border">
             <tr>
-              <td><img src="graphics/transitions/mud_shallow_water/mud-nw-water-1.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-cnw-water-1.png"/></td>
               <td><img src="graphics/transitions/mud_shallow_water/mud-n-water-1.png"/></td>
-              <td><img src="graphics/transitions/mud_shallow_water/mud-ne-water-1.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-cne-water-1.png"/></td>
               <td><img src="graphics/transitions/mud_shallow_water/mud-e-water-1.png"/></td>
-              <td><img src="graphics/transitions/mud_shallow_water/mud-se-water-1.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-ces-water-1.png"/></td>
               <td><img src="graphics/transitions/mud_shallow_water/mud-s-water-1.png"/></td>
-              <td><img src="graphics/transitions/mud_shallow_water/mud-sw-water-1.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-csw-water-1.png"/></td>
               <td><img src="graphics/transitions/mud_shallow_water/mud-w-water-1.png"/></td>
-              <td><img src="graphics/transitions/mud_shallow_water/mud-nnee-water-1.png"/></td>
-              <td><img src="graphics/transitions/mud_shallow_water/mud-eses-water-1.png"/></td>
-              <td><img src="graphics/transitions/mud_shallow_water/mud-ssww-water-1.png"/></td>
-              <td><img src="graphics/transitions/mud_shallow_water/mud-wnwn-water-1.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-ne-water-1.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-es-water-1.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-sw-water-1.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-nw-water-1.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-cnecsw-water-1.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-cnwces-water-1.png"/></td>
             </tr>
             <tr>
-              <td><img src="graphics/transitions/mud_shallow_water/mud-nw-water-2.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-cnw-water-2.png"/></td>
               <td><img src="graphics/transitions/mud_shallow_water/mud-n-water-2.png"/></td>
-              <td><img src="graphics/transitions/mud_shallow_water/mud-ne-water-2.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-cne-water-2.png"/></td>
               <td><img src="graphics/transitions/mud_shallow_water/mud-e-water-2.png"/></td>
-              <td><img src="graphics/transitions/mud_shallow_water/mud-se-water-2.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-ces-water-2.png"/></td>
               <td><img src="graphics/transitions/mud_shallow_water/mud-s-water-2.png"/></td>
-              <td><img src="graphics/transitions/mud_shallow_water/mud-sw-water-2.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-csw-water-2.png"/></td>
               <td><img src="graphics/transitions/mud_shallow_water/mud-w-water-2.png"/></td>
-              <td><img src="graphics/transitions/mud_shallow_water/mud-nnee-water-2.png"/></td>
-              <td><img src="graphics/transitions/mud_shallow_water/mud-eses-water-2.png"/></td>
-              <td><img src="graphics/transitions/mud_shallow_water/mud-ssww-water-2.png"/></td>
-              <td><img src="graphics/transitions/mud_shallow_water/mud-wnwn-water-2.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-ne-water-2.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-es-water-2.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-sw-water-2.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-nw-water-2.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-cnecsw-water-2.png"/></td>
+              <td><img src="graphics/transitions/mud_shallow_water/mud-cnwces-water-2.png"/></td>
             </tr>
             <tr>
               <td>1</td>
@@ -831,6 +913,8 @@
               <td>10</td>
               <td>11</td>
               <td>12</td>
+              <td>13</td>
+              <td>14</td>
             </tr>
           </table>
         </div>
@@ -863,7 +947,7 @@
               <td></td>
               <td></td>
               <td></td>
-              <td style="background-color: red;"></td>
+              <td style="background-color: green;"></td>
             </tr>
             <tr>
               <td>Terre</td>
@@ -903,7 +987,7 @@
             </tr>
             <tr>
               <td>Eau profonde</td>
-              <td style="background-color: green;"></td>
+              <td style="background-color: red;"></td>
               <td></td>
               <td></td>
               <td></td>
@@ -912,23 +996,30 @@
             </tr>
           </table>
         </div>
-        <p>Ce tableau montre, par ses cases vertes et grises, les seules cases qui doivent être adjacentes pour que l'effet de transition soit possible. Nous définissons ensuite les textures, les 12 nécessaires pour créer les transitions, ainsi que les textures de base, sans transition, et les variations. Nous obtenons ensuite les effets suivants :</p>
+        <p>Ce tableau montre, par ses cases vertes et rouges, les seules cases qui doivent être adjacentes pour que l'effet de transition soit possible. Nous pouvons également écrire la hiérarchie ainsi :</p>
+        <p><code>eau profonde &lt; eau &lt; terre &lt; terre séchée</code></p>
+        <p><code>eau profonde &lt; eau &lt; terre &lt; herbe &lt; herbe sombre</code></p>
+        <p>Il y a donc <span class="number">5</span> transitions différentes. Nous définissons ensuite les textures, les <span class="number">14</span> nécessaires pour créer les transitions, ainsi que les textures de base, sans transition, et les variations. Nous obtenons ensuite les effets suivants :</p>
         <div align="center">
-          <img src="./transitions/TestWaterMudDry1.png"/>
+          <img src="graphics/transitions/TestWaterMudDry1.png"/>
           &nbsp;
           &nbsp;
-          <img src="./transitions/TestWaterMudGrass1.png"/>
+          <img src="graphics/transitions/TestWaterMudGrass1.png"/>
           &nbsp;
           &nbsp;
-          <img src="./transitions/TestWaterMudDryGrass1.png"/>
+          <img src="graphics/transitions/TestWaterMudDryGrass1.png"/>
         </div>
         
         <h2 id="V">V. Historique</h2>
         
-        <p>Pendant longtemps j'utilisais les textures de <span class="game">Yoda Stories</span> (1997) mais elles ne nécessitaient pas de transitions. En cherchant à les remplacer par des textures libres de droits comme celles de LPC ou Wyrmsun, j'ai commencé à rechercher comment négocier les transitions.</p>
+        <p>Pendant longtemps j'utilisais les textures de <span class="game">Yoda Stories</span> (1997) pour mes projets personnels mais, outre le fait qu'elles soient sous copyright, elles ne nécessitaient pas de transitions. En cherchant à les remplacer par des textures libres de droits comme celles de LPC ou Wyrmsun, j'ai commencé à rechercher comment négocier les transitions.</p>
         <div align="center">
           <table class="info">
             <col width="120px">
+            <tr>
+              <td>Mai 2020</td>
+              <td>Reprise de l'article en portant à 14 le nombre de transitions (coins en diagonale autorisés). Je refais le format d'encodage du nom des textures pour qu'ils correspondent à celui du répertoire des assets.</td>
+            </tr>
             <tr>
               <td>Avril 2019</td>
               <td>Je continue sur la V3 : ajout de deux textures supplémentaires et de leurs transitions : herbe sombre et eau profonde, en obscurcissant herbe et eau (-20 de luminosité), pour un total de 6 textures de base. Ajout des coins doubles opposés pour la transiton eau/terre. Production de la carte au format JavaScript depuis Excel.</td>
@@ -963,7 +1054,7 @@
         <h2 id="VI">VI. Crédits</h2>
         
         <ul>
-          <li>Damien Gouteux 2019 pour le texte</li>
+          <li>Damien Gouteux 2019-2020 pour le texte</li>
           <li>Les graphismes sont tirés du jeu libre <span class="game">Wyrmsun</span> (2014) par Andrettin :
             <ul>
               <li><a href="https://andrettin.github.io/">Présentation du jeu</a></li>
