@@ -2,7 +2,7 @@
 <html lang="fr" onmouseleave="out();" onmouseenter="inside();">
   <head>
     <meta charset="utf-8">
-    <title>FOV test</title>
+    <title>FPS 2.5D</title>
     <script type="text/javascript" src="common.js"></script>
   </head>
   <body onload="start();">
@@ -158,13 +158,15 @@
     }
     
     function update() {
+        let next_x = player_x;
+        let next_y = player_y;
         if (down) {
-            player_x -= cos_a * 0.1;
-            player_y -= sin_a * 0.1;
+            next_x -= cos_a * 0.1;
+            next_y -= sin_a * 0.1;
         }
         if (up) {
-            player_x += cos_a * 0.1;
-            player_y += sin_a * 0.1;
+            next_x += cos_a * 0.1;
+            next_y += sin_a * 0.1;
         }
         if (right) {
             player_a += 0.05;
@@ -175,6 +177,20 @@
             player_a -= 0.05;
             cos_a = Math.cos(player_a);
             sin_a = Math.sin(player_a);
+        }
+        let next_x_map = Math.trunc(next_x);
+        let next_y_map = Math.trunc(next_y);
+        let player_x_map = Math.trunc(player_x);
+        let player_y_map = Math.trunc(player_y);
+        if (map[next_y_map][next_x_map] != 0) {
+            if (map[next_y_map][player_x_map] == 0) {
+                player_y = next_y;
+            } else if (map[player_y_map][next_x_map] == 0) {
+                player_x = next_x;
+            }
+        } else {
+            player_x = next_x;
+            player_y = next_y;
         }
     }
     
