@@ -1,94 +1,26 @@
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DG</title>
-    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
-    <link href="https://xitog.github.io/dgx/css/simplex.bootstrap.css" rel="stylesheet">
-    <link href="https://xitog.github.io/dgx/css/palatino.css" rel="stylesheet">
-    <style type="text/css">
-       .jumbotron {
-        padding-top: 30px;
-      }
-      .jumbotron p, .jumbotron li {
-        color: rgb(119, 119, 119);
-        font-family: "Palatino Linotype";
-        font-size: 18px;
-        font-weight: 200;
-        line-height: 25.7167px;
-        margin-bottom: 10px;
-      }
-      .jumbotron h1 {
-      color: rgb(204, 103, 20);
-        font-family: "Palatino Linotype";
-        font-size: 58.5px;
-        font-weight: 300;
-        line-height: 64.35px;
-        margin-bottom: 9px;
-        margin-top: 9px;
-      }
-      .jumbotron hr {
-        border-top-color: #dbdbdb;
-        margin-top: 18px;
-        margin-bottom: 18px;
-        border: 0;
-      }
-      button {
-        border: 1px #c9c9c9 solid;
-        color: #0080ff;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-        font-family: "Palatino linotype";
-        background-color: #f4f4f4;
-      }
-      button:hover {
-        color: #CC6714;
-        background-color: #F6F6F6;
-      }
-      div.jumbotron ul.simple {
-        font-family: "Palatino Linotype";
-        font-size: 18px;
-      }
-    </style>
-    <script type="text/javascript" src="./js/prenoms.js"></script>
-    <script type="text/javascript" src="./js/blog.js"></script>
-    <script type="text/javascript">
-        function reset_menu(id) {
-            var menus = ["Accueil", "Blog", "Langues", "Informatique", "Histoire", "Jeux", "Autres"];
-            for(var i=0; i < menus.length; i++) {
-                var m = document.getElementById(menus[i]);
-                if (menus[i] == id) {
-                    m.setAttribute("class", "active");
-                } else {
-                    m.setAttribute("class", "");
-                }
-            }
-        }
-        
-        function show(target) {
-          var element = document.getElementById(target);
-          var button = document.getElementById(target + '_button');
-          if (element.style.display == "block") {
-            element.style.display = "none";
-            button.style.textDecoration="none";
-          } else {
-            element.style.display = "block";
-            button.style.textDecoration="underline";
-          }
-        }
-    </script>
-  </head>
-  <body>
-    <div id="main" class="container">
-    
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DG</title>
+<link rel="icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" /><link rel="shortcut icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" /><link href="https://xitog.github.io/dgx/css/simplex.bootstrap.css" rel="stylesheet">
+<link href="https://xitog.github.io/dgx/css/palatino.css" rel="stylesheet">
+<style type="text/css">
+.jumbotron { padding-top: 30px; }
+</style>
+<style type="text/css">
+.jumbotron p, .jumbotron li { color: rgb(119, 119, 119); font-family: "Palatino Linotype"; font-size: 18px; font-weight: 200; line-height: 25.7167px; margin-bottom: 10px; }
+</style>
+<style type="text/css">
+.jumbotron h1 { font-size: 58.5px; font-weight: 300; line-height: 64.35px; margin-bottom: 9px; margin-top: 9px; }
+</style>
+<style type="text/css">
+.jumbotron hr { border-top-color: #dbdbdb; margin-top: 18px; margin-bottom: 18px; border: 0; }
+</style>
+</head>
+<body>
+<div id="main" class="container">
       <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -102,7 +34,7 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li id="Accueil" class="active"><a href="https://xitog.github.io/dgx/index.html">Accueil</a></li>
+              <li id="Accueil"><a href="https://xitog.github.io/dgx/index.html">Accueil</a></li>
               <li id="Blog"><a href="https://xitog.github.io/dgx/blog.html">Blog</a></li>
               <li class="dropdown">
                 <a id="Langues" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Langues <span class="caret"></span></a>
@@ -154,7 +86,7 @@
                   <li><a href="https://xitog.github.io/dgx/histoire/bibliographie.html">Bibliographie</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Aide-mémoires</li>
-                  <li><a href="https://xitog.github.io/dgx/histoire/france19eme.html">France au XIXe</a></li>
+                  <li><a href="https://xitog.github.io/dgx/histoire/france19eme.html">France au XIX<sup>e</sup></a></li>
                 </ul>
               </li>
               <li class="dropdown">
@@ -198,6 +130,7 @@
                   <li><a href="https://xitog.github.io/dgx/data/outil_collections.html#prenoms">Prénoms</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Liens</li>
+                  <li><a href="https://xitog.github.io/dgx/plan.html">Plan du site</a></li>
                   <li><a href="https://xitog.github.io/dgx/liens.html">Barre de liens</a></li>
                   <li><a href="https://xitog.github.io/dgx/liste_liens.html">Collection de liens</a></li>
                 </ul>
@@ -206,169 +139,26 @@
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
-
-      <div class="jumbotron">
-        <h1>Bienvenue</h1>
-        <hr>
-        <p>Bonjour visiteur !</p>
-        <p>Vous vous trouvez sur mon site web personnel, qui présente mes projets.</p>
-        <p>Mes projets se divisent en deux catégories :</p>
-        <ul class="simple">
-          <li>Les programmes informatiques,</li>
-          <li>Les guides et les fiches pour apprendre ou réviser.</li>
-        </ul>
-        <p>Mes projets concernent trois grands domaines scientifiques :</p>
-        <ul class="simple">
-          <li>la linguistique, l'informatique et l'histoire</li>
-        </ul>
-        <p>Ils concernent également mes passes-temps, surtout les jeux, vidéo ou non.</p>
-        <p>J'espère que ce site pourra vous être utile et je vous souhaite une bonne journée !</p>
-        <p id="signature" class="sign">Damien Gouteux, dernière mise à jour le 28 avril 2020.</p>
-      </div>
-      
-      <div id="pageContent">
-        <div>
-          <button id="plan_button" class="button" type="button" onclick="show('plan')">Plan du site</button>
-          &nbsp;
-          <button id="cv_button" class="button" type="button" onclick="show('cv')">CV</button>
-        </div>
-        <div id="plan" style="display: none">
-        <ul>
-          <li><a href="./index.html">Accueil</a>, cette page</li>
-          <li><a href="./blog.html">Mon blog</a>, pour avoir des nouvelles fraîches</li>
-          <li>Langues
-            <ul>
-              <li>Français
-                <ul>
-                  <li><a href="./francais/fiche_api_fr.html">Fiche sur les phonèmes du français</a></li>
-                  <li><a href="./francais/outil_stats_fr.html">Outil d'analyse textuelle du français</a></li>
-                </ul>
-              </li>
-              <li>Italien
-                <ul>
-                  <li><a href="./italien/beatrice.html">Beatrice : une grammaire de l'italien</a></li>
-                  <li><a href="./italien/jeu_conjugaison.html">Jeu avec les verbes italiens</a></li>
-                </ul>
-              </li>
-              <li>Anglais
-                <ul>
-                  <li><a href="./anglais/jeu_vocabulaire.html">Jeu avec le vocabulaire anglais</a></li>
-                </ul>
-              </li>
-              <li>Linguistique
-                <ul>
-                  <li><a href="./linguistique/informations.html">Journal de mon travail en traitement automatique des langues</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li>Informatique
-            <ul>
-              <li>Programmation
-                <ul>
-                  <li><a href="./informatique/syntaxes.html">Syntaxes comparées de Python, Ruby, Lua et JavaScript</a></li>
-                  <li><a href="./informatique/python.html">Aide-mémoire sur Python</a></li>
-                  <li><a href="./informatique/ruby.html">Aide-mémoire sur Ruby</a></li>
-                  <li><a href="./informatique/lua.html">Aide-mémoire sur Lua</a></li>
-                  <li><a href="./data/outil_collections.html#langages">Liste de langages de programmation</a></li>
-                </ul>
-              </li>
-              <li>Modélisation
-                <ul>
-                  <li><a href="./informatique/json.html">Aide-mémoire sur JSON</a></li>
-                </ul>
-              </li>
-              <li>Outils
-                <ul>
-                  <li><a href="./informatique/outils.html">Logiciels utiles</a></li>
-                </ul>
-            </ul>
-          </li>
-          <li>Histoire
-            <ul>
-              <li><a href="./histoire/methode.html">Généralités sur la méthodologie des épreuves d'Histoire</a></li>
-              <li><a href="./histoire/bibliographie.html">Bibliographie</a></li>
-              <li><a href="./histoire/france19eme.html">Aide-mémoire sur la France au XIXe</a></li>
-            </ul>
-          </li>
-          <li>Jeux
-            <ul>
-              <li><a href="./passetemps/systeme_rpg_un.html" class="dead">Essai de système de règles de jeu de rôles</a> <i>(todo)</i></li>
-              <li>Livre dont VOUS êtes le héros : des guides sur certains volumes
-                <ul>
-                  <li><a href="./passetemps/compagnon_talisman.html">Le Compagnon du Talisman</a></li>
-                  <li><a href="./passetemps/compagnon_sorcier.html">Le Compagnon du Sorcier</a></li>
-                </ul>
-              </li>  
-              <li>Jeux vidéo
-                <ul>
-                  <li><a href="./passetemps/rts.html">Les enfants de Dune : guide et essai de jeu de type STR</a></li>
-                  <li><a href="./passetemps/raycasting.html">Le raycasting : la 2.5D, guide et essai de moteur de jeu basé sur le raycasting</a></li>
-                  <li><a href="./passetemps/play_rts.html">Jouer à mon RTS old school</a></li>
-                  <li><a href="./passetemps/play_fps.html">Jouer à mon FPS 2.5D ultra old school</a></li>
-                  <li><a href="./data/outil_collections.html#jv">Jeux vidéo favoris</a></li>
-                </ul>
-              </li>  
-            </ul>
-          </li>
-          <li> Autres projets
-            <ul>
-              <li><a href="./concerts_classiques/index.html">Concerts classiques</a></li>
-              <li>Collections
-                <ul>
-                  <li><a href="./data/outil_collections.html#prenoms">Prénoms</a></li>
-                  <li><a href="./data/outil_collections.html#livres">Livres lus</a></li>
-                  <li><a href="./data/outil_collections.html#favoris_artistiques">Favoris artistiques</a></li>
-                  <li><a href="./liens.html">Liens</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-        </ul>
-        </div>
-        <div id="cv" style="display: none">
-          <ul>
-            <li><b>Formations</b>
-              <ul>
-                <li>2015 : Master de journalisme, Institut de journalisme Bordeaux-Aquitaine (IJBA) - Université Bordeaux-Montaigne (Bordeaux III), Bordeaux,</li>
-                <li>2015 : Licence de sciences du langage, Université Paul-Valéry (Montpellier III), Montpellier,</li>
-                <li>2012 : Licence d'Humanités, Université Paris-Ouest Nanterre-La Défense (Paris X), Paris,</li>
-                <li>2007 : Diplôme d'ingénieur en génie informatique, Institut national de sciences appliquées (INSA), Toulouse,</li>
-                <li>2004 : Diplôme universitaire de technologie (DUT), Informatique de gestion, Université Paul Sabatier (Toulouse III), Toulouse.</li>    
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    
-    </div>
-    
-    <div style="width: 50%; margin: auto; text-align: center;">2005 ❤ 2020</div>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>    
-    <script type="text/javascript">
-            
-      window.onload = function() {
-        var splitted = window.location.href.split("#");
-        if (splitted.length > 1) {
-          if (splitted[splitted.length-1] == "prenoms") {
-            prenoms();
-          } else if (splitted[splitted.length-1] == "blog") {
-            view_one_entry(0);
-          } else {
-            var titre = document.getElementById("titreHaut");
-            titre.innerHTML = "Bienvenue";
-            var texte = document.getElementById("texteHaut");
-            texte.innerHTML = "Ce site est actuellement en reconstruction, merci pour votre patience.";
-            var medium = document.getElementById("texteMedium");
-            medium.innerHTML = "Nous espérons qu'il pourra vous être utile et nous vous souhaitons une bonne journée !";
-            var signature = document.getElementById("signature");
-            signature.innerHTML ="Damien Gouteux, dernière mise à jour le 26 juin 2018.";
-          }
-        }
-      }
-    
-    </script>
-  </body>
-</html>
+<div class="jumbotron">
+<h1 id="bienvenue">Bienvenue</h1>
+<hr>
+<p>Bonjour visiteur !</p>
+<p>Vous vous trouvez sur mon site web personnel, qui présente mes projets.</p>
+<p>Mes projets se divisent en deux catégories :</p>
+<ul>
+<li>Les programmes informatiques,</li>
+<li>Les guides et les fiches pour apprendre ou réviser.</li>
+</ul>
+<p>Mes projets concernent trois grands domaines scientifiques :</p>
+<ul>
+<li>la linguistique, l'informatique et l'histoire</li>
+</ul>
+<p>Ils concernent également mes passes-temps, surtout les jeux, vidéo ou non.</p>
+<p>J'espère que ce site pourra vous être utile et je vous souhaite une bonne journée !</p>
+<p id="signature" class="sign">Damien Gouteux, dernière mise à jour le 28 avril 2020.</p>
+</div>
+<div style="width: 50%; margin: auto; text-align: center;">2005 ❤ 2020</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+</body>
