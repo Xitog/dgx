@@ -1,14 +1,16 @@
-<html>
+<html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hamill</title>
-<link rel="icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" /><link rel="shortcut icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" /><link href="https://xitog.github.io/dgx/css/simplex.bootstrap.css" rel="stylesheet">
-<link href="https://xitog.github.io/dgx/css/palatino.css" rel="stylesheet">
+  <meta charset=utf-8>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hamill</title>
+  <link rel="icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
+  <link href="https://xitog.github.io/dgx/css/simplex.bootstrap.css" rel="stylesheet">
+  <link href="https://xitog.github.io/dgx/css/palatino.css" rel="stylesheet">
 </head>
 <body>
-<div id="main" class="container">
+  <div id="main" class="container">
       <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -192,11 +194,16 @@
 <h2 id="tables">Tables</h2>
 <ul>
 <li>Un tableau s'écrit ainsi : |col1|col2|col3|</li>
-<li>La ligne de titre doit être la première et séparée par des colonnes |----|</li>
+<li>La ligne de titre doit être la première et séparée des autres par une ligne de tirets : |----|</li>
 </ul>
 <table>
 <tr><th>Ceci</th><th>est</th><th>un  </th><th>tableau    </th></tr>
 <tr><td>Il  </td><td>est</td><td>beau</td><td>mon tableau</td></tr>
+</table>
+<p>On peut mettre bien sûr des modificateurs de textes dans un tableau mais <u>pas de listes dans un tableau pour l'instant</u> :</p>
+<table>
+<tr><th><sup>Ceci</sup></th><th><b>est</b></th><th><u>un</u>            </th><th><i>tableau</i></th></tr>
+<tr><td>Il      </td><td>est    </td><td><s>beau</s> différent</td><td>ce tableau.</td></tr>
 </table>
 <h2 id="liens">Liens</h2>
 <ul>
@@ -211,11 +218,13 @@
 <ul>
 <li><code>!<span class="normal">doctrine</span> <span class="normal">TITLE</span>=<span class="normal">titre</span></code> pour définir le titre de la page</li>
 <li><code>!<span class="normal">doctrine</span> <span class="normal">ICON</span>=<span class="normal">icon</span></code> pour définir une icône pour la page</li>
+<li><code>!<span class="normal">doctrine</span> <span class="normal">LANG</span>=<span class="normal">lang</span></code> pour définir la langue utilisée dans la page</li>
+<li><code>!<span class="normal">doctrine</span> <span class="normal">ENCODING</span>=<span class="normal">encoding</span></code> pour définir la langue utilisée dans la page, par défaut utf-8</li>
+<li><code>!<span class="normal">doctrine</span> <span class="normal">BODY_CLASS</span>=<span class="normal">classe</span></code> pour définir la classe du body</li>
+<li><code>!<span class="normal">doctrine</span> <span class="normal">BODY_ID</span>=<span class="normal">id</span></code> pour définir l'id du body</li>
 <li><code>!<span class="normal">doctrine</span> <span class="normal">EXPORT_COMMENT</span>=<span class="normal">true</span>/<span class="normal">false</span></code> spécifie si les commentaires seront exportés en HTML ou pas</li>
 <li><code>!<span class="normal">doctrine</span> <span class="normal">ADD_CSS</span>=<span class="normal">lien</span> <span class="normal">vers</span> <span class="normal">un</span> <span class="normal">fichier</span> <span class="normal">CSS</span></code> spécifie un fichier CSS à ajouter</li>
 <li><code>!<span class="normal">doctrine</span> <span class="normal">ADD_SCRIPT</span>=<span class="normal">lien</span> <span class="normal">vers</span> <span class="normal">un</span> <span class="normal">fichier</span> <span class="normal">de</span> <span class="normal">script</span></code> spécifie un fichier JavaScript à ajouter</li>
-<li><code>!<span class="normal">doctrine</span> <span class="normal">BODY_CLASS</span>=<span class="normal">classe</span></code> pour définir la classe du body</li>
-<li><code>!<span class="normal">doctrine</span> <span class="normal">BODY_ID</span>=<span class="normal">id</span></code> pour définir l'id du body</li>
 <li><code>!<span class="normal">doctrine</span> <span class="normal">PARAGRAPH_DEFINITION</span>=<span class="normal">true</span>/<span class="normal">false</span></code> spécifie si les dd doivent être mis dans des balises p</li>
 <li><code>!<span class="normal">doctrine</span> <span class="normal">DEFAULT_CODE</span>=<span class="normal">python</span>/<span class="normal">json</span></code> définit la coloration syntaxique par défaut du code (text par défaut)</li>
 </ul>
@@ -225,7 +234,7 @@
 <li><code>!<span class="normal">html</span> <span class="normal">html</span>-<span class="normal">code</span></code> permet de rajouter du code html</li>
 </ul>
 </div>
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </body>
