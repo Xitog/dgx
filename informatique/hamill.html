@@ -11,6 +11,8 @@
 </head>
 <body>
   <div id="main" class="container">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
       <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -135,6 +137,7 @@
 <p>Ce document décrit le langage <b>Hamill</b>. Comme <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> ou <a href="https://en.wikipedia.org/wiki/Textile_(markup_language)">Textile</a>, c'est un <a href="https://en.wikipedia.org/wiki/Lightweight_markup_language">langage de balisage léger</a> pour écrire de la documentation dans un fichier texte, directement lisible sans transformation, mais pouvant également être transformé en HTML.</p>
 <p>On peut faire des commentaires en commençant une ligne par --.</p>
 <!-- Ceci est un commentaire il sera exporté en HTML -->
+<p><b>LIMITATION : les commentaires doivent être sur une ligne séparée et non à la fin d'une ligne. Hamill risque de se tromper</b> (mélange entre <code>!<span class="normal">require</span></code> qui teste la fin de la ligne)</p>
 <p>On peut faire une ligne horizontale avec une ligne constituée uniquement de - d'une longueur supérieure ou égale à 3.</p>
 <p>On peut forcer un retour à la ligne avec !! entouré d'un espace : ceci est un retour<br>à la ligne.</p>
 <h2 id="modification-de-texte">Modification de texte</h2>
@@ -187,9 +190,10 @@
 <ol>
 <li>% une liste numérotée</li>
 </ol>
+<p><b>LIMITATION : Hamill ne gère pas une inclusion d'une liste numérotée dans une non-numérotée et vice-versa.</b></p>
 <h2 id="listes-de-définition">Listes de définition</h2>
 <ul>
-<li>$ une liste de définition. On fait suivre directement la définition</li>
+<li>$ indique une liste de définition. On fait suivre directement la définition en la précédant d'espaces.</li>
 </ul>
 <h2 id="tables">Tables</h2>
 <ul>
@@ -200,7 +204,7 @@
 <tr><th>Ceci</th><th>est</th><th>un  </th><th>tableau    </th></tr>
 <tr><td>Il  </td><td>est</td><td>beau</td><td>mon tableau</td></tr>
 </table>
-<p>On peut mettre bien sûr des modificateurs de textes dans un tableau mais <u>pas de listes dans un tableau pour l'instant</u> :</p>
+<p>On peut mettre bien sûr des modificateurs de textes dans un tableau mais <b>LIMITATION : pas de listes dans un tableau pour l'instant</b> :</p>
 <table>
 <tr><th><sup>Ceci</sup></th><th><b>est</b></th><th><u>un</u>            </th><th><i>tableau</i></th></tr>
 <tr><td>Il      </td><td>est    </td><td><s>beau</s> différent</td><td>ce tableau.</td></tr>
@@ -213,21 +217,31 @@
 <li>Ou le lien peut être seulement <b>#</b>. Dans ce cas, il essaye de faire pointé sur le nom affiché ou, si c'est un titre, le nom affiché transformé <i>(voir ci-dessous)</i></li>
 <li>Les titres sont automatiquement transformés en ancre en remplaçant les espaces par - et en les mettant en minuscules : ainsi <b>Les jeux</b> devient <b>les-jeux</b></li>
 </ul>
-<h2 id="doctrines">Doctrines</h2>
-<p>On peut utiliser <code>!<span class="normal">doctrine</span></code> en début de ligne pour modifier des variables globales de transformation en HTML. On peut définir la valeur d'une doctrine plusieurs fois mais <b>seule la dernière valeur définie sera prise en compte</b> pour la génération. En effet, on ne peut pas être versatile quand il s'agit de doctrine. Par exemple :</p>
+<h2 id="constantes">Constantes</h2>
+<p>On peut définir des constantes en mettant <code>!<span class="normal">const</span></code> en début de ligne. Les constantes peuvent être définies n'importe où dans le document et plusieurs fois mais <b><u>seule la dernière valeur définie est prise en compte</u></b>.</p>
 <ul>
-<li><code>!<span class="normal">doctrine</span> <span class="normal">TITLE</span>=<span class="normal">titre</span></code> pour définir le titre de la page</li>
-<li><code>!<span class="normal">doctrine</span> <span class="normal">ICON</span>=<span class="normal">icon</span></code> pour définir une icône pour la page</li>
-<li><code>!<span class="normal">doctrine</span> <span class="normal">LANG</span>=<span class="normal">lang</span></code> pour définir la langue utilisée dans la page</li>
-<li><code>!<span class="normal">doctrine</span> <span class="normal">ENCODING</span>=<span class="normal">encoding</span></code> pour définir la langue utilisée dans la page, par défaut utf-8</li>
-<li><code>!<span class="normal">doctrine</span> <span class="normal">BODY_CLASS</span>=<span class="normal">classe</span></code> pour définir la classe du body</li>
-<li><code>!<span class="normal">doctrine</span> <span class="normal">BODY_ID</span>=<span class="normal">id</span></code> pour définir l'id du body</li>
-<li><code>!<span class="normal">doctrine</span> <span class="normal">EXPORT_COMMENT</span>=<span class="normal">true</span>/<span class="normal">false</span></code> spécifie si les commentaires seront exportés en HTML ou pas</li>
-<li><code>!<span class="normal">doctrine</span> <span class="normal">ADD_CSS</span>=<span class="normal">lien</span> <span class="normal">vers</span> <span class="normal">un</span> <span class="normal">fichier</span> <span class="normal">CSS</span></code> spécifie un fichier CSS à ajouter</li>
-<li><code>!<span class="normal">doctrine</span> <span class="normal">ADD_SCRIPT</span>=<span class="normal">lien</span> <span class="normal">vers</span> <span class="normal">un</span> <span class="normal">fichier</span> <span class="normal">de</span> <span class="normal">script</span></code> spécifie un fichier JavaScript à ajouter</li>
-<li><code>!<span class="normal">doctrine</span> <span class="normal">PARAGRAPH_DEFINITION</span>=<span class="normal">true</span>/<span class="normal">false</span></code> spécifie si les dd doivent être mis dans des balises p</li>
-<li><code>!<span class="normal">doctrine</span> <span class="normal">DEFAULT_CODE</span>=<span class="normal">python</span>/<span class="normal">json</span></code> définit la coloration syntaxique par défaut du code (text par défaut)</li>
+<li><code>!<span class="normal">const</span> <span class="normal">TITLE</span>=<span class="normal">titre</span></code> pour définir le titre de la page</li>
+<li><code>!<span class="normal">const</span> <span class="normal">ICON</span>=<span class="normal">icon</span></code> pour définir une icône pour la page</li>
+<li><code>!<span class="normal">const</span> <span class="normal">LANG</span>=<span class="normal">lang</span></code> pour définir la langue utilisée dans la page</li>
+<li><code>!<span class="normal">const</span> <span class="normal">ENCODING</span>=<span class="normal">encoding</span></code> pour définir la langue utilisée dans la page, par défaut utf-8</li>
+<li><code>!<span class="normal">const</span> <span class="normal">BODY_CLASS</span>=<span class="normal">classe</span></code> pour définir la classe du body</li>
+<li><code>!<span class="normal">const</span> <span class="normal">BODY_ID</span>=<span class="normal">id</span></code> pour définir l'id du body</li>
 </ul>
+<h2 id="variables">Variables</h2>
+<p>On peut définir des variables en mettant <code>!<span class="normal">var</span></code> en début de ligne. On peut changer sa valeur en la redéfinissant dans le document plusieurs fois. Au contraire des constantes, les variables sont lues au fur et à mesure de l'émission du HTML.</p>
+<ul>
+<li><code>!<span class="normal">var</span> <span class="normal">EXPORT_COMMENT</span>=<span class="normal">true</span>/<span class="normal">false</span></code> spécifie si les commentaires seront exportés en HTML ou pas</li>
+<li><code>!<span class="normal">var</span> <span class="normal">PARAGRAPH_DEFINITION</span>=<span class="normal">true</span>/<span class="normal">false</span></code> spécifie si les dd doivent être mis dans des balises p</li>
+<li><code>!<span class="normal">var</span> <span class="normal">DEFAULT_CODE</span>=<span class="normal">python</span>/<span class="normal">json</span></code> définit la coloration syntaxique par défaut du code (text par défaut)</li>
+<li><code>!<span class="normal">var</span> <span class="normal">NEXT_PAR_CLASS</span>=<span class="normal">cls</span></code> spécifie la classe du <b>prochain</b> paragraphe</li>
+<li><code>!<span class="normal">var</span> <span class="normal">DEFAULT_PAR_CLASS</span>=<span class="normal">cls</span></code> spécifie la classe par défaut de <b>tous les paragraphes qui suivent</b></li>
+</ul>
+<h2 id="inclusion-de-fichier-html">Inclusion de fichier HTML</h2>
+<p>On peut inclure un fichier HTML avec <code>!<span class="normal">include</span></code> en début de ligne. Le contenu du fichier sera copié directement le document produit.</p>
+<h2 id="liens-vers-un-fichier-css-ou-javascript">Liens vers un fichier CSS ou JavaScript</h2>
+<p>On peut lier notre document à fichier CSS ou JavaScript avec la commande <code>!<span class="normal">require</span></code> en début de ligne.</p>
+<p>Le lien vers un fichier CSS requis est <b>automatiquement</b> placé dans la tête du document HTML.</p>
+<p>Le lien vers un fichier JavaScript requis est placé là ou se trouve le <code>!<span class="normal">require</span></code>. <b>LIMITATION : Hamill ne peut pas mettre un lien vers un fichier JavaScript dans la tête pour l'instant</b>.</p>
 <h2 id="spécial">Spécial</h2>
 <ul>
 <li><code>!<span class="normal">css</span> <span class="normal">css</span>-<span class="normal">code</span></code> permet de rajouter du code css</li>
@@ -235,6 +249,4 @@
 </ul>
 </div>
   </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </body>
