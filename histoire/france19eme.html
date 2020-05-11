@@ -1,21 +1,18 @@
-<!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" CONTENT="Histoire France XIX 1815">
-    <title>La France au 19ème siècle</title>
-    <link rel="icon" href="../img/favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon" />
-    <link href="../css/simplex.bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="../css/palatino.css" rel="styleSheet" type="text/css">
-    <style type="text/css">
-    </style>
-  </head>
- <body>
-    <div id="main" class="container">
-    
+<head>
+  <meta charset=utf-8>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>La France au 19ème siècle</title>
+  <link rel="icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
+  <link href="https://xitog.github.io/dgx/css/simplex.bootstrap.css" rel="stylesheet">
+  <link href="https://xitog.github.io/dgx/css/palatino.css" rel="stylesheet">
+</head>
+<body>
+  <div id="main" class="container">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
       <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -29,313 +26,264 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li id="Accueil"><a href="../index.html">Accueil</a></li>
-              <li id="Blog"><a href="#blog" onclick="view_one_entry(0);">Blog</a></li>
+              <li id="Accueil"><a href="https://xitog.github.io/dgx/index.html">Accueil</a></li>
+              <li id="Blog"><a href="https://xitog.github.io/dgx/blog.html">Blog</a></li>
               <li class="dropdown">
                 <a id="Langues" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Langues <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                 <li class="dropdown-header">Français</li>
-                  <li><a href="../francais/fiche_api_fr.html">Fiche sur les phonèmes du français</a></li>
-                  <li><a href="../francais/outil_stats_fr.html">Outil d'analyse textuelle</a></li>
+                  <li><a href="https://xitog.github.io/dgx/francais/fiche_api_fr.html">Fiche sur les phonèmes du français</a></li>
+                  <li><a href="https://xitog.github.io/dgx/francais/outil_stats_fr.html">Outil d'analyse textuelle</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Italien</li>
-                  <li><a href="../italien/beatrice.html">Beatrice : grammaire</a></li>
-                  <li><a href="../italien/jeu_conjugaison.html">Jeu sur la conjugaison</a></li>
+                  <li><a href="https://xitog.github.io/dgx/italien/beatrice.html">Beatrice : grammaire</a></li>
+                  <li><a href="https://xitog.github.io/dgx/italien/jeu_conjugaison.html">Jeu sur la conjugaison</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Anglais</li>
-                  <li><a href="../anglais/jeu_vocabulaire.html">Jeu sur le vocabulaire</a></li>
+                  <li><a href="https://xitog.github.io/dgx/anglais/jeu_vocabulaire.html">Jeu sur le vocabulaire</a></li>
+                  <li><a href="https://xitog.github.io/dgx/anglais/verbes.html">Verbes fréquents</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Interlingua</li>
+                  <li><a href="https://xitog.github.io/dgx/interlingua/conjugueur.html">Conjugueur</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Linguistique</li>
-                  <li><a href="../linguistique/informations.html">Informations générales</a></li>
+                  <li><a href="https://xitog.github.io/dgx/linguistique/informations.html">Informations générales</a></li>
                 </ul>
               </li>
               <li class="dropdown">
                 <a id="Informatique" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Informatique <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li class="dropdown-header">Programmation</li>
-                  <li><a href="../informatique/syntaxes.html">Syntaxes comparées</a></li>
-                  <li><a href="../informatique/python.html">Aide-mémoire Python</a></li>
-                  <li><a href="../informatique/ruby.html">Aide-mémoire Ruby</a></li>
-                  <li><a href="../informatique/lua.html">Aide-mémoire Lua</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/syntaxes.html">Syntaxes comparées</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/python.html">Aide-mémoire Python</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/ruby.html">Aide-mémoire Ruby</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/lua.html">Aide-mémoire Lua</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/ruby_guide.html">Guide Ruby</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/ash_guide.html">Guide Ash</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Modélisation</li>
-                  <li><a href="../informatique/json.html">Aide-mémoire JSON</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/bnf.html">Aide-mémoire BNF et EBNF</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/json.html">Aide-mémoire JSON</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/hamill.html">Aide-mémoire Hamill</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Autres</li>
-                  <li><a href="../informatique/outils.html">Logiciels utiles</a></li>
-                  <li><a href="../data/outil_collections.html#langages">Liste de langages</a></li>
-                </ul>
-              </li>
-              <li class="dropdown active">
-                <a id="Histoire" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Histoire <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                  <li class="dropdown-header">Méthode</li>
-                  <li><a href="../histoire/methode.html">Généralités</a></li>
-                  <li><a href="../histoire/bibliographie.html">Bibliographie</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdown-header">Aide-mémoires</li>
-                  <li><a href="../histoire/france19eme.html" class="active">France au XIXe</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/tools_langs.html">Logiciels utiles et autres langages</a></li>
                 </ul>
               </li>
               <li class="dropdown">
-                <a id="Jeux" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Jeux <span class="caret"></span></a>
+                <a id="Histoire" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Histoire <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Méthode</li>
+                  <li><a href="https://xitog.github.io/dgx/histoire/methode.html">Généralités</a></li>
+                  <li><a href="https://xitog.github.io/dgx/histoire/bibliographie.html">Bibliographie</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Aide-mémoires</li>
+                  <li><a href="https://xitog.github.io/dgx/histoire/france19eme.html">France au XIX<sup>e</sup></a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Jeux" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Passe-temps <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Présentations générales</i></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/pres_jeux.html">Les jeux</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/pres_jeuxvideo.html">Les jeux vidéo</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/pres_favoris.html">Favoris artistiques</a></li>
+                  <li class="divider"></li>
                   <li class="dropdown-header">Jeux de rôles</i></li>
-                  <li><a href="../jeux/systeme_rpg_un.html">Essai de système</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/systemes_rpg.html">Systèmes des RPG</a></li>
                   <li class="divider"></li>
-                  <li class="dropdown-header">Livres dont VOUS êtes le héros</li>
-                  <li><a href="../jeux/compagnon_talisman.html">Le Compagnon du Talisman</a></li>
-                  <li><a href="../jeux/compagnon_sorcier.html">Le Compagnon du Sorcier</a></li>
+                  <li class="dropdown-header">Livres-jeux</li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/compagnon_talisman.html">Le Compagnon du Talisman</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/compagnon_sorcier.html">Le Compagnon du Sorcier</a></li>
                   <li class="divider"></li>
-                  <li class="dropdown-header">Jeux vidéo</li>
-                  <li><a href="../jeux/rts.html">Les enfants de Dune : les RTS</a></li>
-                  <li><a href="../jeux/raycasting.html">Le raycasting : la 2.5D</a></li>
-                  <li><a href="../jeux/play_rts.html">Jouer à mon RTS</a></li>
-                  <li><a href="../jeux/play_fps.html">Jouer à mon FPS</a></li>
-                  <li><a href="../data/outil_collections.html#jv">Jeux vidéo favoris</a></li>
+                  <li class="dropdown-header">Histoire des jeux vidéo</li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/history_rts.html">Les enfants de Dune : les RTS</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/history_fps.html">Les enfants de Doom : les FPS</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Techniques des jeux vidéo</i></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_raycasting.html">Le raycasting : la 2.5D</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_transitions.html">Cartes et transitions</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_dialogues.html">Dialogues</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Jeux vidéo et outils maison</i></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/project_teddy.html">Éditeur de carte</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/project_rts.html">Jouer à mon RTS</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/project_fps.html">Jouer à mon FPS</a></li>
                 </ul>
               </li>
               <li class="dropdown">
                 <a id="Autres" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Autres <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li class="dropdown-header">Musique</li>
-                  <li><a href="../concerts_classiques/index.html">Concerts classiques</a></li>
+                  <li><a href="https://xitog.github.io/dgx/concerts_classiques/index.html">Concerts classiques</a></li>
+                  <li><a href="https://xitog.github.io/dgx/favoris/musiques.html">Musiques favorites</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Collections</li>
-                  <li><a href="../data/outil_collections.html#prenoms">Prénoms</a></li>
-                  <li><a href="../data/outil_collections.html#livres">Livres lus</a></li>
-                  <li><a href="../data/outil_collections.html#favoris_artistiques">Favoris artistiques</a></li>
-                  <li><a href="../liens.html">Liens</a></li>
+                  <li><a href="https://xitog.github.io/dgx/data/outil_collections.html#prenoms">Prénoms</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Liens</li>
+                  <li><a href="https://xitog.github.io/dgx/plan.html">Plan du site</a></li>
+                  <li><a href="https://xitog.github.io/dgx/liens.html">Barre de liens</a></li>
+                  <li><a href="https://xitog.github.io/dgx/liste_liens.html">Collection de liens</a></li>
                 </ul>
               </li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
-    
-    <!--
-      <div class="jumbotron">
-        <h1 id="titreHaut">Méthodologie d'Histoire</h1>
-        <hr>
-        <p id="texteHaut" class="n">Une fiche de méthodologie pour les épreuves universitaires d'Histoire.</p>
-        <p id="signature" class="sign">Damien Gouteux,<br> mis à jour le 30 avril 2017,<br>créé le ???.</p>  
-      </div>
-    -->  
-  
-      <div id="content" class="palatino">
-
-        <h1>La France au 19ème siècle</h1>
-        <p>Quelques notes sur la France au 19ème siècle <i>(pour l'instant surtout sur la période de la Restauration, de 1815 à 1830).</p>
-
-        <h2>Les questions</h2>
-      
-        <ul>
-          <li>Le rapport de force entre le roi et la représentation nationale.</li>
-          <li>Le droit de vote et son élargissement.</li>
-          <li><i>(mineure)</i> La centralisation.</li>
-        </ul>
-
-      <h2>Chronologie</h2>
-        <p><b>4 juin 1814</b> établissement de <b><a href="#charte">la Charte</a></b>, Constitution qui n'ose dire son nom, sur laquelle reposera la politique des années à venir.</p>
-
-        <p><b>18 juin 1815 à la bataille de Waterloo</b>, Napoléon est défait finalement après l'épisode des Cent-Jours.</p>
-
-        <p><b>20 novembre 1815, le second traité de Paris</b> entérine formellement la défaite. La France retrouve ses frontières de 1790. C'est le vrai départ de la <b>Restauration</b> des Bourbons.</p>
-
-        <p><b>De juillet à septembre 1815, ministère Talleyrand</b> qui dirige le ministère et s'occupe des Affaires étrangères. Fouché est à la Police. Tous les deux sont des traîtres à leur précédent maître.</p>
-
-        <p><b>Août 1815, élection de la <i>Chambre introuvable</i></b>, en grande majorité constituée de royalistes ultras mais pas de vieille noblesse. Cette élection survient dans le contexte de la <i>Terreur blanche</i> (meurtres, bandes d'assassins) s'abattant sur les véritables ou supposés jacobins et bonapartistes. Les lois votées par cette chambre attaquent violemment ces mêmes catégories.</p>
-
-        <p><b>Septembre 1815, le <a class="green" href="#richelieu">duc de Richelieu</a> président du Conseil. Il fait voter la loi Laîné en janvier 1817 (réorganisation des élections législatives favorisant la bourgeoisie urbaine plutôt libérale) et la loi Gouvion-Saint-Cyr en mars 1818 (organisation du recrutement en contradiction avec l'abolitation de conscription de la Charte). Fin de l'occupation du territoire de la France par les troupes étrangères en novembre 1818.</b></p>
-
-        <p><b>Septembre 1816, dissolution de la Chambre</b> par le roi lassé des excès de la Chambre introuvable. Les constitutionnels tirent leur épingle du jeu.</p> 
-
-        <p><b>1816-1817 Crises frumentaires</b></p>
-
-        <p><b>Décembre 1818, le <a class="green" href="#decazes">duc Decazes</a> au pouvoir </b> suite à la démission du <a class="green" href="#richelieu">duc de Richelieu</a>. Il sera nommé président du Conseil en novembre 1819. Plutôt libéral mais critiqué par eux pour sa timidité. Il essaye de se rapprocher alors des ultras, sans véritable succès, et la ire que déclenche la mort du duc de Berry contre lui le contraint à démissionner.</p>
-     
-        <p><b>Février 1820-Décembre 1821, rappelle de <a class="green" href="#richelieu">Richelieu</a></b> : la liberté individuelle et la liberté de la presse sont suspendues. Jeunesse étudiante en révolte. Universités mises au pas. Système du double vote pour les plus imposés. L'enseignement secondaire est placé sous le contrôle du clergé.</p>
-
-        <p><b>Élections de 1820, nette victoire ultra.</b> Devant leurs demandes croissantes, le <a class="green" href="#richelieu">duc de Richelieu</a> démissionne.</p>
-
-        <p><b>Décembre 1821, <a class="green" href="#villele">Villèle</a> président du conseil</b>, ancien maire de Toulouse, très lié au comte d'Artois. Épuration de l'Université, fusion des ministères des Affaires ecclésistiques et de l'Instruction publique placés sous l'autorité d'un religieux. Presse muselée. Lutte avec succès contre la <i>Charbonnerie</i>, organisation insurectionnelle, fonctionnant en <i>ventes</i>, recrutant parmi la jeunesse (des casernes, étudiantes) (affaire des quatre sergents de la Rochelle). Intervention en Espagne en 1823 pour appuyer le roi absolutiste Ferdinand VII contre les constitutionnels (prise du fort du Trocadéro).</p>
-
-        <p><b>Dissolution en décembre 1823 puis élections en février-mars 1824, les ultras sortent vainqueurs.</b> C'est la <i>Chambre retrouvée</i>.</p> 
-        
-        <p><b>Septembre 1824, mort de Louis XVIII, Charles X monte sur le trône, sacre à Reims en mai 1825.</b></p>
-
-        <p><b><a class="green" href="#villele">Villèle</a> continue</b>, renforcement du poids de l'Église (loi punissant de mort le sacrilège), indemnisation des émigrés (avril 1825) - le <i>milliard des émigrés</i>, tentative d'une loi avantageant l'aîné dans l'héritage pour protéger les grandes propriétés des nobles mais échec à la Chambre des pairs (en contradiction flagrante avec l'égalité affichée par la Charte). Intervention en Grèce pour aider les insurgés en 1827-28. Rétablissement de la censure en 1827</p>
-
-        <p><b>Novembre 1827, dissolution et élections</b> face au mécontentement qui gronde. Net désaveux de <a class="green" href="#villele">Villèle</a>, beaucoup de libéraux élus, démission de <a class="green" href="#villele">Villèle</a> en janvier 1828.</p>
-
-        <p><b><a class="green" href="martignac">vicomte Martignac</a>, président</b>. Rescinde l'Instruction publique et les Affaires ecclésiastiques. Essaye de travailler avec une majorité du centre, pour un projet plutôt libéral. Censure supprimée.</p>
-
-        <p><b>Août 1829, <a class="green" href="polignac">Jules de Polignac</a></b> remplace <a class="green" href="martignac">Martignac</a>, qui chute sur la réforme des conseillers généraux qu'il voulait faire élire et non plus nommés. Son action était jugée trop timide par les libéraux, trop libérale pour les ultras.</p>
-
-        <p><b>Mars 1830</b> : discours du Trône du roi, qui est vu comme l'annonce d'un coup d'État par les libéraux majoritaires. En effet la pression augmente entre le roi et la Chambre des députés. Ceux-ci font une Adresse au roi, qui dissout la chambre en mai.
-
-        <p><b>5 juillet 1830 chute d'Alger</b>. Décidé par le gouvernement pour faire distraction sur la base de vieux différents. Sera le départ du second empire colonial français.</p>
-
-        <p><b>Crise économique</b> depuis 1827 provoque des troubles. La grande bourgeoise, évincée des postes clés, voient leurs activités frappées par la récession. La libéralisation de 1828 a vu un essor d'une gauche antimonarchique, et l'image de la République devient meilleure.</p>
-
-        <p><b>Élections de juin-juillet 1830, majorité libérale renforcée</b>. Cristallisation du problème constitutionnel : soit le roi accepte les vues de la Chambre et un gouvernement libéral est nommé (-> monarchie parlementaire), soit le conflit éclate et le roi passe outre (-> monarchie absolutiste). Le roi choisit la deuxième solution, utilise l'article 14 pour promouvoir des ordonnances, considérant que la sûreté de l'État est en danger - comme elle ne l'est pas, c'est d'un véritable coup d'État dont-il s'agit.</p>  
-
-        <p><b>Les Trois Glorieuses journées des 27, 28 et 29 juillet 1830</b>. Mise à bas de la Restauration, début de la monarchie de Juillet portée par les orléanistes (Thiers). Les députés proposent au duc d'Orléans de devenir lieutenant-général du royaume. Fuite de Charles X en Angleterre. La révolution est essentiellement parisienne. Une charte modifiée est concoctée par les parlementaires.</p>
-
-        <p><b>9 août 1830</b>, intronisation de Louis-Philippe 1er, <i>roi des Français</i>. De nombreux officiers, membres de l'administration refuse de prêter serment au nouveau roi et démissionne, laissant leur place vacante, ce qui donnera lieu à la <i>curée</i>.</p>
-
-      <!-- ------------------------------------------------------------------- -->
-
-      <h2>Personnages</h2>
-
-        <h3>Les rois et la famille royale</h3>
-
-        <p id="louis18"><b>Louis XVIII</b> roi obèse de 59 ans revenant d'exil, plutôt souple politiquement, sans enfant. Roi de 1814 à septembre 1824 (sauf durant la parenthèse des Cent-Jours).</p>
-
-        <p id="artois">Son frère dit Monsieur, le <b>comte d'Artois</b>, futur <b>Charles X</b> chef des ultras (royalistes), roi de septembre 1824 à juillet 1830. En tant que comte, sa couleur est le vert d'où le nom de verdets des bandes d'assassins de la Terreur blanche). Populaire au début de son règne (septembre 1824-juillet 1830) qui débute par son sacre à Reims en mai 1825.</p>
-
-        <p id="berry">Les fils du comte d'Artois : le <b>duc d'Angoulême</b> et le <b>duc de Berry</b>, héritié présumé de la dynastie, assassiné par un ouvrier en février 1820. De lui il naîtra un fils posthume, <i>l'enfant du miracle</i>, le duc de Bordeaux.</p>
-      
-        <p id="orleans"><b>Le duc d'Orléans</b>, grand gagnant de loi d'indemnisation des émigrés, fils de Philippe-Égalité, roi des français de juillet 1830 à février 1848.</p>
-
-        <h3>Autres</h3>
-
-        <p id="guizot"><b>Guizot</b>, libéral, créateur de la société "Aide-toi, le ciel d'aidera" en 1827 qui publie brochure, et "travaille" l'électorat. Avec Villemain et Cousin, ils forment <i>"la trilogie pensante du quartier latin"</i> [1].</p>
-
-        <p id="demaistre"><b>Joseph de Maistre</b>, royaliste ardent, théoricien.</p>
-
-        <p id="hugo"><b>Hugo</b>, royaliste ultra, évoluera vers la démocratie sous Louis-Philippe. Engagé contre la peine de mort, puis la République contre Napoléon III. Ces frasques amoureuses sont piquantes.</p>
-
-        <p id="vigny"><b>Vigny</b>, royaliste ultra.</p>
-
-        <p id="lamartine"><b>Lamartine</b>, royaliste ultra, évoluera vers la république.</p>
-
-        <p id="chateaubriand"><b>Chateaubriand</b>, royaliste ultra.</p>
-
-        <h3>Les présidents du conseil de 1815 à 1830</h3>
-
-        <p id="richelieu">Le <b>duc de Richelieu</b>, président du conseil par deux fois, de septembre 1815 à décembre 1818 puis de février 1820 à décembre 1821.</p>
-
-        <p id="decazes">Le duc <b>Decazes</b>, président du conseil de novembre 1819 à février 1820 (donc entre les deux mandats de Richelieu). Entre décembre 1818 et novembre 1819, c'est le Marquis Dessolles qui occupe cette fonction, mais le pouvoir est déjà entre les mains de Decazes.</p>
-
-        <p id="villele"><b>Villèle</b>, président du conseil de décembre 1821 à janvier 1828, proche du comte d'Artois.</p>
-       
-        <p id="martignac"><b>vicomte Martignac</b>, président du conseil entre Villèle et Polignac.</p>
-        
-        <p id="polignac"><b>Jules de Polignac</b>, fils de la favorite de Marie-Antoinette, ami du comte d'Artois. Refusa de prêter sermant à la Charte, président du conseil de août 1829 à la chute de Charles X.</p>
-
-      <!-- ------------------------------------------------------------------- -->
-
-      <h2>Les grands thèmes</h2>
-
-      <p id="charte"><b>La Charte</b>, signée le 4 juin 1814, est une Constitution qui n'ose dire son nom, un mélange entre un retour à la monarchie et certains acquis de la Révolution. Le système est bicaméral (= deux chambres). D'un côté, il y a une véritable représentation nationale, la <b>Chambre des députés</b>, élue au <b><a href="#cens">suffrage censitaire</a></b> (et se renouvelle en partie annuellement) et de l'autre, la <b>Chambre des pairs</b> (dite Chambre haute), héréditaires ou nommés à vie par le roi. Le pouvoir législatif est dans les mains des Chambres mais partagé avec le roi, qui peut proposer des lois, tout en détenant le pouvoir exécutif. L'article 14 lui confère de plus la possibilité d'émettre des ordonnances nécessaires à la sûreté de l'État. La religion catholique est religion d'État mais la liberté de conscience et de culte est assurée. Les français sont égaux devant la loi et les impôts. La Charte ne met pas en place une monarchie parlementaire (où le roi se plie à la chambre des députés) mais ce n'est pas non plus une monarchie absolue. Les ministres sont nommés par le roi et responsable seulement devant lui, ils forment le Conseil, doté d'un président. Six principaux ministères : Justice, Guerre, Finances, Marine et Colonies, Affaires étrangères et Intérieur, les deux derniers étant les plus prestigieux. De plus elle abolie la circonscription. Il fallait lui prêter serment, ce que certains ultras refusèrent. Une nouvelle version est écrite à la révolution de 1830.</p>
-
-      <p id="cens">Le <b>suffrage censitaire</b> conditionne le droit de vote et d'éligibilité à la somme des contributions directs payées (le cens) par la personne. Il est de 300F pour le droit de vote, et de 1000F pour l'égibilité, réduisant à moins de 100000 les votants.</p>
-
-      <p><b>Les constitutionnels</b> : Plutôt conservateurs, attachés à la Charte. Journaux : Le Courrier, le Journal de Paris.</p>
-
-      <p><b>Les ultras</b> : famille politique, (on parle d'ultracisme) royaliste, anti-Charte. Journaux : Le Drapeau blanc, La Gazette de France, le Journal des Débats, La Quotidienne. Ils sont liés à l'organisation des Chevaliers de la Foi, organisation secrète sous l'Empire en faveur de la restauration, et à la Congrégation, avec à sa tête le duc de Montmorency, organisation pour la défense de la Foi catholique.</p>
-
-      <p><b>Les libéraux</b> : famille politique, anti-ultra, anti-Ancien Régime, anticléricaux, proche de la philosophie des Lumières (Raison et Liberté). Journaux : Le Mercure, La Minerve, Le Constitutionnel. D'inspiration économique libérale, veulent plus d'importance pour la Chambre des députés.</p>
-
-      <p><b>Les bonapartistes</b> : famille politique, non représentée à la Chambre. Légende dorée du <i>grand-homme</i> qui se développe.</p>
-
-      <p><b>Les républicains</b> : famille politique, non représentée à la Chambre. Mauvaise réputation de la République, liée à la Terreur.</p>
-
-      <p><b>L'armée</b> : la Restauration est dure avec l'armée : de nombreux soldats sont licenciés, certains officiers ralliés à Napoléon pendant les Cent-Jours sont condamnés (Ney).</p>
-
-      <p><b>L'administration</b> : il y a épuration à la Restauration mais globalement le système napoléonien est conservé avec sa centralisation. Le gouvernement nomme les conseillers généraux (départements) et les maires.</p>
-
-      <!-- ------------------------------------------------------------------- -->
-
-      <h2>Société</h2>
-
-      <p>Émergence d'un sentiment national (cadre administratif, monnaie, représentation nationale) mais contrastes régionaux (langues).</p>
-      <p>population : jeune, rurale (mais le poids des villes augmente), exception de Paris, transition démographique (restriction volontaire des naissances).
-      Début timide d'exode rurale vers les villes (qui explosera au Second Empire et plus tard).</p>
-
-      <h3>La campagne</h3>
-
-      <p>La France est encore très agricole encore dans l'emploi.</p>
-      <p>Il existe différents systèmes : <ul>
-         <li>Faire valoir-direct (exploitant = propriétaire)</li>
-         <li>Faire valoir-indirect (exploitant != propriétaire) : deux sous-types<ul>
-            <li>métayage (le locataire/métayer paye le proriétaire/bailleur avec une part de la récole)</li>
-            <li>fermage (le locataire/fermier paye en argent)</li>
-         </ul>L'argent mis en jeu par le fermage permet : propriétaire : épargne & investissement | fermier : d'entrer un circuit commercial</li>
-      </ul></p>
-
-      <p>Émiettement des parcelles via héritage.</p>
-      <p>Hiérarchie selon sa relation avec la propriété foncière (possession/location, taille) + la bourgeoisie des villages (prof. libérales), artisans, commerçants</p>
-      <p>On constante entre 1815 et 1848 une paupérisation des paysans.</p>
-      <p>Déchristianisation des campagnes (inégales selon l'aire géographique) -> limitation des naissances.</p>
-      <p>Privé du droit de vote, ils n'ont que la révolte suscitée par la misère généralement. Mais diffusion de la démocratie : cens à 200F en 1830 au lieu de 300F avant, 1848 : suffrage universel masculin.</p>
-      <p>Intérêt pour l'agronomie (mais diffusion lente face aux résistances paysannes) on parle "d'agromanie".</p>
-      <p>Crises : 1815-17, 1846-47.</p>
-      <p>Prix à la baisse (sauf pendant les crises).</p>
-
-      <h3>La ville</h3>
-
-      <p>1/4 en 1848 des fr urbains. En augmentation.</p>
-      <p>1846 : définition de la ville : seuil de 2000 hbts.</p>
-      <p>centre administratif, politique, culturel. Espace francophone a contrario des campagnes.</p>
-      <p>Exode rural (-> vulnérabilité) qui peuple les villes.</p>
-      <p>Renaissance de l'urbanisme (salubrité, intérêt pour les monuments, gares, éclairage) politique municipale volontariste sous la monarchie de Juillet.</p>
-      <p>Dev de la spéculation immobilière</p>
-      <p>Ségrégation horizontale (beaux quartiers / faubourgs) et verticale (immeuble)</p>
-      <p>Balzac : "La France, au XIXème siècle, est partagée en deux grandes zones : Paris et la province"</p>
-      <p>Paris : par sa population, sa concentration du pouvoir politique, puissance éco et culturelle, elle est inégalée.</p>
-      <p>Hiérarchie sociale :  bourgeoisie conquérante / employé / artisants / ouvriers / domestique / petits métiers.</p>
-      <p>Signe de la bourgeoisie : la domesticité (surtout féminine).</p>
-      <p>Lieu d'ascension sociale, mais aussi de peur (ville invisible du crime) et de révolutions.</p>
-
-      <h3>Éducation</h3>
-
-      <p>Loi Guizot de 1833 : obligation pour les communes >500 hbts d'avoir une école primaire (pour les garçons).</p>
-
-      <h3>Le cas de la noblesse</h3>
-
-      <p>La noblesse. Terres à la campagne, mais vie surtout à la ville (selon la richesse).</p>
-      <p>Pas de fusion entre noblesse d'Ancien Régime et d'Empire.</p>
-      <p>Restauration : soutien de la noblesse, mais pas la Monarchie de Juillet.</p>
-      <p>Richesse écornée (-> loi de 1825 du milliard des émigrés).</p>
-      <p>Obligation de constituer un majorat pour les pairs de France (ensemble de biens inaliénables, indivisibles assurant un revenu) pour le fils aînés.</p>
-      <p>Échec du rétablissement du droit d'aînesse contraire à l'égalité promise par la Charte en 1826.</p>
-      <p>Volonté de distinction par le mode de vie.</p>
-      <p>Agromanie, carrière militaire, revenus surtout basés sur le foncier, vie sociale (philantropie, politique, culture : salons).</p>
-      <p>Carrière cléricale moins séduisante, mais lien avec l'Église (alliance Trône-Autel).</p>
-      <p>Participation des femmes dans la gestion des finances et du domaine.</p>
-      <p>Mœurs copiées par les bourgeois.</p>
-
-      <h2>Références</h2>
-
-      <h3>Historiens</h3>
-      <ul>
-        <li>David Higgs</li>
-        <li>Alain Corbin</li>
-        <li>Maurice Agulhon</li>
-        <li>Jean-Claude Caron</li>
-        <li>Louis Chevalier</li>
-        <li>John Merriman</li>
-        <li>Adeline Daumard</li>
-        <li>Philippe Vigier</li>
-        <li>Jean-Pierre Chaline</li>
-        <li>Anne Martin-Fugier</li>
-      </ul>
-      </ul>
-
-      <h3>Bibliographie</h3>
-      <p>[1] Caron, Jean-Claude. <i>La France de 1815 à 1848</i>. A. Colin, 1993.</p>
-
-      <h3>Sites web</h3>
-      <p><a href="http://www.19e.org">http://www.19e.org</a></p>
-
-
-      </div>
-    </div>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    
-  </body>
-</html>
+<div id="content-div">
+<h1 id="la-france-au-19ème-siècle">La France au 19ème siècle</h1>
+<hr>
+<p>Quelques notes sur la France au 19ème siècle (<i>pour l'instant surtout sur la période de la Restauration, de 1815 à 1830</i>).</p>
+<h2 id="sommaire">Sommaire</h2>
+<ul>
+<li><a href="#les-questions">Les questions</a></li>
+<li><a href="#chronologie">Chronologie</a></li>
+<li><a href="#personnages">Personnages</a></li>
+<li><a href="#les-grands-thèmes">Les grands thèmes</a></li>
+<li><a href="#société">Société</a></li>
+<li><a href="#références">Références</a></li>
+</ul>
+<h2 id="les-questions">Les questions</h2>
+<ul>
+<li>Le rapport de force entre le roi et la représentation nationale.</li>
+<li>Le droit de vote et son élargissement.</li>
+<li><i>(mineure)</i> La centralisation.</li>
+</ul>
+<h2 id="chronologie">Chronologie</h2>
+<p><b>4 juin 1814</b> établissement de <a href="#la-charte">la Charte</a>, Constitution qui n'ose dire son nom, sur laquelle reposera la politique des années à venir.</p>
+<p><b>18 juin 1815 à la bataille de Waterloo</b>, Napoléon est défait finalement après l'épisode des Cent-Jours.</p>
+<p><b>20 novembre 1815, le second traité de Paris</b> entérine formellement la défaite. La France retrouve ses frontières de 1790. C'est le vrai départ de la <b>Restauration</b> des Bourbons.</p>
+<p><b>De juillet à septembre 1815, ministère Talleyrand</b> qui dirige le ministère et s'occupe des Affaires étrangères. Fouché est à la Police. Tous les deux sont des traîtres à leur précédent maître.</p>
+<p><b>Août 1815, élection de la <i>Chambre introuvable</i></b>, en grande majorité constituée de royalistes ultras mais pas de vieille noblesse. Cette élection survient dans le contexte de la <i>Terreur blanche</i> (meurtres, bandes d'assassins) s'abattant sur les véritables ou supposés jacobins et bonapartistes. Les lois votées par cette chambre attaquent violemment ces mêmes catégories.</p>
+<p><b>Septembre 1815, le <a href="#duc-de-richelieu">duc de Richelieu</a> président du Conseil</b>. Il fait voter la loi Laîné en janvier 1817 (réorganisation des élections législatives favorisant la bourgeoisie urbaine plutôt libérale) et la loi Gouvion-Saint-Cyr en mars 1818 (organisation du recrutement en contradiction avec l'abolitation de conscription de la Charte). <b>Fin de l'occupation du territoire de la France par les troupes étrangères en novembre 1818</b>.</p>
+<p><b>Septembre 1816, dissolution de la Chambre</b> par le roi lassé des excès de la Chambre introuvable. Les constitutionnels tirent leur épingle du jeu.</p>
+<p><b>1816-1817 Crises frumentaires</b></p>
+<p><b>Décembre 1818, le <a href="#duc-decazes">duc Decazes</a> au pouvoir</b> suite à la démission du <a href="#duc-de-richelieu">duc de Richelieu</a>. Il sera nommé président du Conseil en novembre 1819. Plutôt libéral mais critiqué par eux pour sa timidité. Il essaye de se rapprocher alors des ultras, sans véritable succès, et la ire que déclenche la mort du duc de Berry contre lui le contraint à démissionner.</p>
+<p><b>Février 1820-Décembre 1821, rappelle du <a href="#duc-de-richelieu">duc de Richelieu</a></b> : la liberté individuelle et la liberté de la presse sont suspendues. Jeunesse étudiante en révolte. Universités mises au pas. Système du double vote pour les plus imposés. L'enseignement secondaire est placé sous le contrôle du clergé.</p>
+<p><b>Élections de 1820, nette victoire ultra.</b> Devant leurs demandes croissantes, le <a href="#duc-de-richelieu">duc de Richelieu</a> démissionne.</p>
+<p><b>Décembre 1821, <a href="#villèle">Villèle</a> président du conseil</b>, ancien maire de Toulouse, très lié au comte d'Artois. Épuration de l'Université, fusion des ministères des Affaires ecclésistiques et de l'Instruction publique placés sous l'autorité d'un religieux. Presse muselée. Lutte avec succès contre la <i>Charbonnerie</i>, organisation insurectionnelle, fonctionnant en <i>ventes</i>, recrutant parmi la jeunesse (des casernes, étudiantes) (affaire des quatre sergents de la Rochelle). Intervention en Espagne en 1823 pour appuyer le roi absolutiste Ferdinand VII contre les constitutionnels (prise du fort du Trocadéro).</p>
+<p><b>Dissolution en décembre 1823 puis élections en février-mars 1824, les ultras sortent vainqueurs.</b> C'est la Chambre retrouvée.</p>
+<p><b>Septembre 1824, mort de Louis XVIII, Charles X monte sur le trône, sacre à Reims en mai 1825.</b></p>
+<p><b><a href="#villèle">Villèle</a> continue</b>, renforcement du poids de l'Église (loi punissant de mort le sacrilège), indemnisation des émigrés (avril 1825) - le milliard des émigrés, tentative d'une loi avantageant l'aîné dans l'héritage pour protéger les grandes propriétés des nobles mais échec à la Chambre des pairs (en contradiction flagrante avec l'égalité affichée par la Charte). Intervention en Grèce pour aider les insurgés en 1827-28. Rétablissement de la censure en 1827</p>
+<p><b>Novembre 1827, dissolution et élections</b> face au mécontentement qui gronde. Net désaveux de <a href="#villèle">Villèle</a>, beaucoup de libéraux élus, démission de Villèle en janvier 1828.</p>
+<p><b>Le <a href="#vicomte-martignac">vicomte Martignac</a>, président</b>. Rescinde l'Instruction publique et les Affaires ecclésiastiques. Essaye de travailler avec une majorité du centre, pour un projet plutôt libéral. Censure supprimée.</p>
+<p><b>Août 1829, <a href="#jules-de-polignac">Jules de Polignac</a> remplace le <a href="#vicomte-martignac">vicomte Martignac</a></b>, qui chute sur la réforme des conseillers généraux qu'il voulait faire élire et non plus nommés. Son action était jugée trop timide par les libéraux, trop libérale pour les ultras.</p>
+<p><b>Mars 1830 : discours du Trône du roi</b>, qui est vu comme l'annonce d'un coup d'État par les libéraux majoritaires. En effet la pression augmente entre le roi et la Chambre des députés. Ceux-ci font une Adresse au roi, qui dissout la chambre en mai.</p>
+<p><b>5 juillet 1830 chute d'Alger.</b> Décidé par le gouvernement pour faire distraction sur la base de vieux différents. Sera le départ du second empire colonial français.</p>
+<p>La <b>crise économique depuis 1827 provoque des troubles</b>. La grande bourgeoise, évincée des postes clés, voient leurs activités frappées par la récession. La libéralisation de 1828 a vu un essor d'une gauche antimonarchique, et l'image de la République devient meilleure.</p>
+<p><b>Élections de juin-juillet 1830, majorité libérale renforcée.</b> Cristallisation du problème constitutionnel : soit le roi accepte les vues de la Chambre et un gouvernement libéral est nommé (-> monarchie parlementaire), soit le conflit éclate et le roi passe outre (-> monarchie absolutiste). Le roi choisit la deuxième solution, utilise l'article 14 pour promouvoir des ordonnances, considérant que la sûreté de l'État est en danger - comme elle ne l'est pas, c'est d'un véritable coup d'État dont-il s'agit.</p>
+<p>L<b>es Trois Glorieuses journées des 27, 28 et 29 juillet 1830.</b> Mise à bas de la Restauration, début de la monarchie de Juillet portée par les orléanistes (Thiers). Les députés proposent au duc d'Orléans de devenir lieutenant-général du royaume. Fuite de Charles X en Angleterre. La révolution est essentiellement parisienne. Une charte modifiée est concoctée par les parlementaires.</p>
+<p><b>9 août 1830</b>, intronisation de Louis-Philippe 1er, <i>roi des Français</i>. De nombreux officiers, membres de l'administration refuse de prêter serment au nouveau roi et démissionne, laissant leur place vacante, ce qui donnera lieu à la <i>curée</i>.</p>
+<h2 id="personnages">Personnages</h2>
+<h3 id="les-rois-et-la-famille-royale">Les rois et la famille royale</h3>
+<p><b>Louis XVIII</b> roi obèse de 59 ans revenant d'exil, plutôt souple politiquement, sans enfant. Roi de 1814 à septembre 1824 (sauf durant la parenthèse des Cent-Jours).</p>
+<p>Son frère dit Monsieur, le <b>comte d'Artois</b>, futur <b>Charles X</b> chef des ultras (royalistes), roi de septembre 1824 à juillet 1830. En tant que comte, sa couleur est le vert d'où le nom de verdets des bandes d'assassins de la Terreur blanche). Populaire au début de son règne (septembre 1824-juillet 1830) qui débute par son sacre à Reims en mai 1825.</p>
+<p>Les fils du comte d'Artois : le <b>duc d'Angoulême</b> et le <b>duc de Berry</b>, héritié présumé de la dynastie, assassiné par un ouvrier en février 1820. De lui il naîtra un fils posthume, <i>l'enfant du miracle</i>, en septembre 1820, Henri d'Artois, le <b>duc de Bordeaux</b>.</p>
+<p>Le <b>duc d'Orléans</b>, grand gagnant de loi d'indemnisation des émigrés, fils de Philippe-Égalité, roi des français de juillet 1830 à février 1848.</p>
+<p>Arbre généalogique des derniers Bourbons :</p>
+<ul>
+<li>Charles-Philippe de France, comte d'Artois, roi de France sous le nom de <b>Charles X</b> (abdique en 1830)</li>
+<ul>
+<li>Louis-Antoine d'Artois, Duc d'Angoulême (renonce à ses droits en 1830 au profit d'Henri)</li>
+<li>Charles-Ferdinand d'Artois, duc de Berry (assassiné en 1820)</li>
+<ul>
+<li>Louise d'Artois,</li>
+<li>Henri d'Artois, duc de Bordeaux</li>
+</ul>
+</ul>
+</ul>
+<h3 id="autres">Autres</h3>
+<p><b>François Guizot</b>, libéral, créateur de la société "Aide-toi, le ciel d'aidera" en 1827 qui publie brochure, et "travaille" l'électorat. Avec Villemain et Cousin, ils forment <i>"la trilogie pensante du quartier latin"</i> [<a href="#1">1</a>].</p>
+<p><b>Joseph de Maistre</b>, royaliste ardent, théoricien.</p>
+<p><b>Victor Hugo</b>, royaliste ultra, évoluera vers la démocratie sous Louis-Philippe. Engagé contre la peine de mort, puis la République contre Napoléon III. Ces frasques amoureuses sont piquantes.</p>
+<p><b>Alfred de Vigny</b>, royaliste ultra.</p>
+<p><b>Alphonse de Lamartine</b>, royaliste ultra, évoluera vers la république.</p>
+<p><b>François-René de Chateaubriand</b>, royaliste ultra.</p>
+<h3 id="les-présidents-du-conseil-de-1815-à-1830">Les présidents du conseil de 1815 à 1830</h3>
+<p>Le <b><span id="duc-de-richelieu">duc de Richelieu</span></b>, président du conseil par deux fois, de septembre 1815 à décembre 1818 puis de février 1820 à décembre 1821.</p>
+<p>Le <b><span id="duc-decazes">duc Decazes</span></b>, président du conseil de novembre 1819 à février 1820 (donc entre les deux mandats de Richelieu). Entre décembre 1818 et novembre 1819, c'est le Marquis Dessolles qui occupe cette fonction, mais le pouvoir est déjà entre les mains de Decazes.</p>
+<p><b>Joseph de <span id="villèle">Villèle</span></b>, président du conseil de décembre 1821 à janvier 1828, proche du comte d'Artois, né et mort à Toulouse.</p>
+<p>Le <b><span id="vicomte-martignac">vicomte Martignac</span></b>, président du conseil entre Villèle et Polignac.</p>
+<p><b><span id="jules-de-polignac">Jules de Polignac</span></b>, fils de la favorite de Marie-Antoinette, ami du comte d'Artois. Refusa de prêter sermant à la Charte, président du conseil de août 1829 à la chute de Charles X.</p>
+<h2 id="les-grands-thèmes">Les grands thèmes</h2>
+<p><b><span id="la-charte">La Charte</span></b>, signée le 4 juin 1814, est une Constitution qui n'ose dire son nom, un mélange entre un retour à la monarchie et certains acquis de la Révolution. Le système est bicaméral (= deux chambres). D'un côté, il y a une véritable représentation nationale, la <b>Chambre des députés</b>, élue au <a href="#suffrage-censitaire">suffrage censitaire</a> (et se renouvelle en partie annuellement) et de l'autre, la <b>Chambre des pairs</b> (dite Chambre haute), héréditaires ou nommés à vie par le roi. Le pouvoir législatif est dans les mains des Chambres mais partagé avec le roi, qui peut proposer des lois, tout en détenant le pouvoir exécutif. L'article 14 lui confère de plus la possibilité d'émettre des ordonnances nécessaires à la sûreté de l'État. La religion catholique est religion d'État mais la liberté de conscience et de culte est assurée. Les français sont égaux devant la loi et les impôts. La Charte ne met pas en place une monarchie parlementaire (où le roi se plie à la chambre des députés) mais ce n'est pas non plus une monarchie absolue. Les ministres sont nommés par le roi et responsable seulement devant lui, ils forment le Conseil, doté d'un président. Six principaux ministères : Justice, Guerre, Finances, Marine et Colonies, Affaires étrangères et Intérieur, les deux derniers étant les plus prestigieux. De plus elle abolie la circonscription. Il fallait lui prêter serment, ce que certains ultras refusèrent. Une nouvelle version est écrite à la révolution de 1830.</p>
+<p>Le <b><span id="suffrage-censitaire">suffrage censitaire</span></b> conditionne le droit de vote et d'éligibilité à la somme des contributions directs payées (le cens) par la personne. Il est de 300F pour le droit de vote, et de 1000F pour l'égibilité, réduisant à moins de 100000 les votants.</p>
+<p><b>Les constitutionnels</b> : Plutôt conservateurs, attachés à la Charte. Journaux : <i>Le Courrier</i>, <i>le Journal de Paris</i>.</p>
+<p><b>Les ultras</b> : famille politique, (on parle d'ultracisme) royaliste, anti-Charte. Journaux : <i>Le Drapeau blanc</i>, <i>La Gazette de France</i>, <i>le Journal des Débats</i>, <i>La Quotidienne</i>. Ils sont liés à l'organisation des Chevaliers de la Foi, organisation secrète sous l'Empire en faveur de la restauration, et à la Congrégation, avec à sa tête le duc de Montmorency, organisation pour la défense de la Foi catholique.</p>
+<p><b>Les libéraux</b> : famille politique, anti-ultra, anti-Ancien Régime, anticléricaux, proche de la philosophie des Lumières (Raison et Liberté). Journaux : <i>Le Mercure</i>, <i>La Minerve</i>, <i>Le Constitutionnel</i>. D'inspiration économique libérale, veulent plus d'importance pour la Chambre des députés.</p>
+<p><b>Les bonapartistes</b> : famille politique, non représentée à la Chambre. Légende dorée du grand-homme qui se développe.</p>
+<p><b>Les républicains</b> : famille politique, non représentée à la Chambre. Mauvaise réputation de la République, liée à la Terreur.</p>
+<p><b>L'armée</b> : la Restauration est dure avec l'armée : de nombreux soldats sont licenciés, certains officiers ralliés à Napoléon pendant les Cent-Jours sont condamnés (Ney).</p>
+<p><b>L'administration</b> : il y a épuration à la Restauration mais globalement le système napoléonien est conservé avec sa centralisation. Le gouvernement nomme les conseillers généraux (départements) et les maires.</p>
+<h2 id="société">Société</h2>
+<p>Émergence d'un sentiment national (cadre administratif, monnaie, représentation nationale) mais contrastes régionaux (langues).</p>
+<p>population : jeune, rurale (mais le poids des villes augmente), exception de Paris, transition démographique (restriction volontaire des naissances). Début timide d'exode rurale vers les villes (qui explosera au Second Empire et plus tard).</p>
+<h3 id="la-campagne">La campagne</h3>
+<p>La France est encore très agricole encore dans l'emploi.</p>
+<p>Il existe différents systèmes :</p>
+<ul>
+<li>Faire valoir-direct (exploitant = propriétaire)</li>
+<li>Faire valoir-indirect (exploitant != propriétaire), deux sous-types :</li>
+<ul>
+<li>métayage (le locataire/métayer paye le proriétaire/bailleur avec une part de la récole)</li>
+<li>fermage (le locataire/fermier paye en argent)</li>
+</ul>
+</ul>
+<p>L'argent mis en jeu par le fermage permet : propriétaire : épargne &amp; investissement | fermier : d'entrer un circuit commercial</p>
+<p>Émiettement des parcelles via héritage.</p>
+<p>Hiérarchie selon sa relation avec la propriété foncière (possession/location, taille) + la bourgeoisie des villages (prof. libérales), artisans, commerçants</p>
+<p>On constante entre 1815 et 1848 une paupérisation des paysans.</p>
+<p>Déchristianisation des campagnes (inégales selon l'aire géographique) -> limitation des naissances.</p>
+<p>Privé du droit de vote, ils n'ont que la révolte suscitée par la misère généralement. Mais diffusion de la démocratie : cens à 200F en 1830 au lieu de 300F avant, 1848 : suffrage universel masculin.</p>
+<p>Intérêt pour l'agronomie (mais diffusion lente face aux résistances paysannes) on parle "d'agromanie".</p>
+<p>Crises : 1815-17, 1846-47.</p>
+<p>Prix à la baisse (sauf pendant les crises).</p>
+<h3 id="la-ville">La ville</h3>
+<p>1/4 en 1848 des fr urbains. En augmentation.</p>
+<p>1846 : définition de la ville : seuil de 2000 hbts.</p>
+<p>centre administratif, politique, culturel. Espace francophone a contrario des campagnes.</p>
+<p>Exode rural (-> vulnérabilité) qui peuple les villes.</p>
+<p>Renaissance de l'urbanisme (salubrité, intérêt pour les monuments, gares, éclairage) politique municipale volontariste sous la monarchie de Juillet.</p>
+<p>Dev de la spéculation immobilière</p>
+<p>Ségrégation horizontale (beaux quartiers / faubourgs) et verticale (immeuble)</p>
+<p>Balzac : "La France, au XIXème siècle, est partagée en deux grandes zones : Paris et la province"</p>
+<p>Paris : par sa population, sa concentration du pouvoir politique, puissance éco et culturelle, elle est inégalée.</p>
+<p>Hiérarchie sociale : bourgeoisie conquérante / employé / artisants / ouvriers / domestique / petits métiers.</p>
+<p>Signe de la bourgeoisie : la domesticité (surtout féminine).</p>
+<p>Lieu d'ascension sociale, mais aussi de peur (ville invisible du crime) et de révolutions.</p>
+<h3 id="éducation">Éducation</h3>
+<p>Loi Guizot de 1833 : obligation pour les communes &gt;500 hbts d'avoir une école primaire (pour les garçons).</p>
+<h3 id="le-cas-de-la-noblesse">Le cas de la noblesse</h3>
+<p>La noblesse. Terres à la campagne, mais vie surtout à la ville (selon la richesse).</p>
+<p>Pas de fusion entre noblesse d'Ancien Régime et d'Empire.</p>
+<p>Restauration : soutien de la noblesse, mais pas la Monarchie de Juillet.</p>
+<p>Richesse écornée (-> loi de 1825 du milliard des émigrés).</p>
+<p>Obligation de constituer un majorat pour les pairs de France (ensemble de biens inaliénables, indivisibles assurant un revenu) pour le fils aînés.</p>
+<p>Échec du rétablissement du droit d'aînesse contraire à l'égalité promise par la Charte en 1826.</p>
+<p>Volonté de distinction par le mode de vie.</p>
+<p>Agromanie, carrière militaire, revenus surtout basés sur le foncier, vie sociale (philantropie, politique, culture : salons).</p>
+<p>Carrière cléricale moins séduisante, mais lien avec l'Église (alliance Trône-Autel).</p>
+<p>Participation des femmes dans la gestion des finances et du domaine.</p>
+<p>Mœurs copiées par les bourgeois.</p>
+<h2 id="références">Références</h2>
+<h3 id="historiens">Historiens</h3>
+<ul>
+<li>David Higgs</li>
+<li>Alain Corbin</li>
+<li>Maurice Agulhon</li>
+<li>Jean-Claude Caron</li>
+<li>Louis Chevalier</li>
+<li>John Merriman</li>
+<li>Adeline Daumard</li>
+<li>Philippe Vigier</li>
+<li>Jean-Pierre Chaline</li>
+<li>Anne Martin-Fugier</li>
+</ul>
+<h3 id="bibliographie">Bibliographie</h3>
+<p>[<span id="1">1</span>] Caron, Jean-Claude. La France de 1815 à 1848. A. Colin, 1993.</p>
+<h3 id="sites-web">Sites web</h3>
+<p><a href="http://www.19e.org">http://www.19e.org</a></p>
+</div>
+  </div>
+</body>
