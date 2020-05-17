@@ -140,77 +140,81 @@
 <p>Auteur : Damien Gouteux | Type : Fiche | Sujet : JSON, donnée, langage, modélisation, informatique</p>
 <h2 id="sommaire">Sommaire</h2>
 <ul>
-<li><a href="#liens">Liens</a></li>
-<li><a href="#description">Description</a></li>
-<li><a href="#textes-de-référence">Textes de référence</a></li>
-<li><a href="#exemple">Exemple</a></li>
-<li><a href="#autres-formats">Autres formats</a></li>
+  <li><a href="#liens">Liens</a></li>
+  <li><a href="#description">Description</a></li>
+  <li><a href="#textes-de-référence">Textes de référence</a></li>
+  <li><a href="#exemple">Exemple</a></li>
+  <li><a href="#autres-formats">Autres formats</a></li>
 </ul>
 <h2 id="liens">Liens</h2>
 <h3 id="json">JSON</h3>
 <ul>
-<li><a href="http://www.json.org/json-fr.html">Site officiel de JSON</a>.</li>
-<li><a href="http://jsonlint.com/">JSON Lint</a>, un site pour valider syntaxiquement ses documents JSON.</li>
-<li>Gérer JSON en...</li>
-<ul>
-<li><a href="https://docs.python.org/3/library/json.html">JSON dans la documentation officielle</a> de Python.</li>
-<li><a href="http://ruby-doc.org/stdlib-2.0.0/libdoc/json/rdoc/JSON.html">JSON dans la documentation officielle</a> de Ruby.</li>
-<li><a href="http://lua-users.org/wiki/JsonModules">Liste de modules</a> pour gérer le format JSON en Lua.</li>
-</ul>
+  <li><a href="http://www.json.org/json-fr.html">Site officiel de JSON</a>.</li>
+  <li><a href="http://jsonlint.com/">JSON Lint</a>, un site pour valider syntaxiquement ses documents JSON.</li>
+  <li>Gérer JSON en...
+    <ul>
+      <li><a href="https://docs.python.org/3/library/json.html">JSON dans la documentation officielle</a> de Python.</li>
+      <li><a href="http://ruby-doc.org/stdlib-2.0.0/libdoc/json/rdoc/JSON.html">JSON dans la documentation officielle</a> de Ruby.</li>
+      <li><a href="http://lua-users.org/wiki/JsonModules">Liste de modules</a> pour gérer le format JSON en Lua.</li>
+    </ul>
+  </li>
 </ul>
 <h3 id="json-schema">JSON Schema</h3>
 <ul>
-<li><a href="http://json-schema.org/">JSON Schema</a>, pour valider ses documents JSON par rapport à un métamodèle.</li>
-<ul>
-<li><a href="https://json-schema.org/latest/json-schema-core.html">JSON Schema Core</a>, ce document décrit le noyau de JSON Schema,</li>
-<li><a href="https://json-schema.org/latest/json-schema-validation.html">JSON Schema Validation</a>, ce document décrit les contraintes disponibles sur les données.</li>
-</ul>
-<li><a href="https://json-schema.org/understanding-json-schema">Understanding JSON Schema</a>, un livre électronique expliquant JSON Schema.</li>
-<li><a href="https://www.jsonschemavalidator.net/">JSON Schema Validator</a>, pour valider des données contre un schéma.</li>
+  <li><a href="http://json-schema.org/">JSON Schema</a>, pour valider ses documents JSON par rapport à un métamodèle.
+    <ul>
+      <li><a href="https://json-schema.org/latest/json-schema-core.html">JSON Schema Core</a>, ce document décrit le noyau de JSON Schema,</li>
+      <li><a href="https://json-schema.org/latest/json-schema-validation.html">JSON Schema Validation</a>, ce document décrit les contraintes disponibles sur les données.</li>
+    </ul>
+  </li>
+  <li><a href="https://json-schema.org/understanding-json-schema">Understanding JSON Schema</a>, un livre électronique expliquant JSON Schema.</li>
+  <li><a href="https://www.jsonschemavalidator.net/">JSON Schema Validator</a>, pour valider des données contre un schéma.</li>
 </ul>
 <h2 id="description">Description</h2>
 <p>On peut diviser les 6 types de données en 2 :</p>
 <ul>
-<li>Les types <i>atomiques</i><sup>1</sup> de données :</li>
-<ul>
-<li>Number (entiers et réels) : <code><span class="number">1.<span class="number">2 <span class="number">23</span></code>,</li>
-<li>String <code><span class="string">"bonjour"</span></code>,</li>
-<li>Boolean <code><span class="boolean">true</span> <span class="boolean">false</span></code>,</li>
-<li>et la valeur <code><span class="keyword">null</span></code>.</li>
-</ul>
-<li>Les types <i>composés</i><sup>1</sup> de données :</li>
-<ul>
-<li>Object <code>{ <span class="normal">clé</span> : <span class="normal">value</span>, ... }</code>,</li>
-<li>Array <code>[ <span class="normal">val1</span>, ...]</code>.</li>
-</ul>
+  <li>Les types <i>atomiques</i><sup>1</sup> de données :
+    <ul>
+      <li>Number (entiers et réels) : <code><span class="number">1.<span class="number">2 <span class="number">23</span></code>,</li>
+      <li>String <code><span class="string">"bonjour"</span></code>,</li>
+      <li>Boolean <code><span class="boolean">true</span> <span class="boolean">false</span></code>,</li>
+      <li>et la valeur <code><span class="keyword">null</span></code>.</li>
+    </ul>
+  </li>
+  <li>Les types <i>composés</i><sup>1</sup> de données :
+    <ul>
+      <li>Object <code>{ <span class="normal">clé</span> : <span class="normal">value</span>, ... }</code>,</li>
+      <li>Array <code>[ <span class="normal">val1</span>, ...]</code>.</li>
+    </ul>
+  </li>
 </ul>
 <p><sup>1</sup>: atomiques et composés sont des termes personnels.</p>
 <p>Remarques :</p>
 <ul>
-<li><b>La clé ne peut être que de type</b> <code><span class="normal">String</span></code>, pas de nombres, pas d'identifiant.</li>
-<li>JSON est un sous-ensemble du langage <a href="http://yaml.org/">YAML</a>, plus particulièrement de sa syntaxe compacte.</li>
-<li>JSON est un sous-ensemble de <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript">JavaScript</a>.</li>
-<li>Pas de guillemet simple <code><span class="string">'</code> pour encadrer les chaînes de caractères seulement le double <code><span class="string">"</code>.</li>
-<li>Les chaînes de caractères doivent être en <a href="http://unicode.org/fr/">Unicode</a>, plus précisément, encodées en <a href="https://tools.ietf.org/html/rfc8259#section-8.1">UTF-8</a>.</li>
-<li><b>Pas de virgule <code>,</code> après l'élément final d'un Object ou d'une Array</b>.</li>
-<li><b>On ne peut pas faire de commentaires en JSON</b>.</li>
+  <li><b>La clé ne peut être que de type</b> <code><span class="normal">String</span></code>, pas de nombres, pas d'identifiant.</li>
+  <li>JSON est un sous-ensemble du langage <a href="http://yaml.org/">YAML</a>, plus particulièrement de sa syntaxe compacte.</li>
+  <li>JSON est un sous-ensemble de <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript">JavaScript</a>.</li>
+  <li>Pas de guillemet simple <code><span class="string">'</code> pour encadrer les chaînes de caractères seulement le double <code><span class="string">"</code>.</li>
+  <li>Les chaînes de caractères doivent être en <a href="http://unicode.org/fr/">Unicode</a>, plus précisément, encodées en <a href="https://tools.ietf.org/html/rfc8259#section-8.1">UTF-8</a>.</li>
+  <li><b>Pas de virgule <code>,</code> après l'élément final d'un Object ou d'une Array</b>.</li>
+  <li><b>On ne peut pas faire de commentaires en JSON</b>.</li>
 </ul>
 <h2 id="textes-de-référence">Textes de référence</h2>
 <p>JSON est défini dans les documents suivants :</p>
 <ul>
-<li><a href="https://www.ecma-international.org/publications/standards/Ecma-404.htm">ECMA-404</a> : <b>Standard ECMA 404</b></li>
-<li><a href="https://tools.ietf.org/html/rfc8259">RFC 8259</a> : <b>Dernière spécification en date</b></li>
-<li><a href="https://tools.ietf.org/html/rfc7493">RFC 7493</a> : <b>I-JSON recommandé par Tim Bray</b></li>
-<li><a href="https://tools.ietf.org/html/rfc7159">RFC 7159</a> : obsolète</li>
-<li><a href="https://tools.ietf.org/html/rfc7158">RFC 7158</a> : obsolète</li>
-<li><a href="https://tools.ietf.org/html/rfc4627">RFC 4627</a> : obsolète</li>
+  <li><a href="https://www.ecma-international.org/publications/standards/Ecma-404.htm">ECMA-404</a> : <b>Standard ECMA 404</b></li>
+  <li><a href="https://tools.ietf.org/html/rfc8259">RFC 8259</a> : <b>Dernière spécification en date</b></li>
+  <li><a href="https://tools.ietf.org/html/rfc7493">RFC 7493</a> : <b>I-JSON recommandé par Tim Bray</b></li>
+  <li><a href="https://tools.ietf.org/html/rfc7159">RFC 7159</a> : obsolète</li>
+  <li><a href="https://tools.ietf.org/html/rfc7158">RFC 7158</a> : obsolète</li>
+  <li><a href="https://tools.ietf.org/html/rfc4627">RFC 4627</a> : obsolète</li>
 </ul>
 <p>* Tim Bray a édité les différentes RFC après avoir travaillé sur XML. Il fait des commentaires très utiles dans son blog personnel :</p>
 <ul>
-<li><a href="https://www.tbray.org/ongoing/When/201x/2017/12/14/RFC-8259-STD-90">The Last JSON Spec</a> : quelle spécification prendre</li>
-<li><a href="https://www.tbray.org/ongoing/When/201x/2014/03/05/RFC7159-JSON">JSON Redux AKA RFC7159</a> : histoire de la standardisation</li>
-<li><a href="https://www.tbray.org/ongoing/When/201x/2016/08/20/Fixing-JSON">Fixing JSON</a> : des points à réparer dans la spécification actuelle, notamment sur la virgule</li>
-<li><a href="https://www.tbray.org/ongoing/When/201x/2016/04/30/JSON-Schema-funnies">Specifying JSON</a> : sur la nécessité de spécifier</li>
+  <li><a href="https://www.tbray.org/ongoing/When/201x/2017/12/14/RFC-8259-STD-90">The Last JSON Spec</a> : quelle spécification prendre</li>
+  <li><a href="https://www.tbray.org/ongoing/When/201x/2014/03/05/RFC7159-JSON">JSON Redux AKA RFC7159</a> : histoire de la standardisation</li>
+  <li><a href="https://www.tbray.org/ongoing/When/201x/2016/08/20/Fixing-JSON">Fixing JSON</a> : des points à réparer dans la spécification actuelle, notamment sur la virgule</li>
+  <li><a href="https://www.tbray.org/ongoing/When/201x/2016/04/30/JSON-Schema-funnies">Specifying JSON</a> : sur la nécessité de spécifier</li>
 </ul>
 <h2 id="exemple">Exemple</h2>
 <pre class="code">
@@ -230,14 +234,14 @@
 <h2 id="autres-formats">Autres formats</h2>
 <p>Il existe d'autres formats qui remplisse les mêmes fonctions que JSON :</p>
 <ul>
-<li><a href="http://yaml.org/">YAML</a> : JSON est un sous-ensemble du langage YAML qui est beaucoup plus riche,</li>
-<li><a href="https://github.com/edn-format/edn">Langage EDN</a> : langage basé sur le langage de programmation Clojure,</li>
-<li><a href="https://json5.org/">JSON5</a> : extension de JSON,</li>
-<li><a href="https://raw.githubusercontent.com/hjson/hjson/master/rfc/hjson.txt">HJSON</a> : extension de JSON,</li>
-<li><a href="https://github.com/cognitect/transit-format">Transit</a> : un autre format de sérialisation d'objet,</li>
-<li><a href="https://github.com/msgpack/msgpack/blob/master/spec.md">MessagePack</a> : un autre format de sérialisation d'objet,</li>
-<li><a href="https://avro.apache.org/">Apache Avro</a> : un autre format de sérialisation de données.</li>
-<li><a href="https://json-ld.org/">JSON LD</a> : format pour décrire des données liées utilisant JSON devenu une <a href="https://www.w3.org/TR/json-ld/">recommandation du W3C</a>.</li>
+  <li><a href="http://yaml.org/">YAML</a> : JSON est un sous-ensemble du langage YAML qui est beaucoup plus riche,</li>
+  <li><a href="https://github.com/edn-format/edn">Langage EDN</a> : langage basé sur le langage de programmation Clojure,</li>
+  <li><a href="https://json5.org/">JSON5</a> : extension de JSON,</li>
+  <li><a href="https://raw.githubusercontent.com/hjson/hjson/master/rfc/hjson.txt">HJSON</a> : extension de JSON,</li>
+  <li><a href="https://github.com/cognitect/transit-format">Transit</a> : un autre format de sérialisation d'objet,</li>
+  <li><a href="https://github.com/msgpack/msgpack/blob/master/spec.md">MessagePack</a> : un autre format de sérialisation d'objet,</li>
+  <li><a href="https://avro.apache.org/">Apache Avro</a> : un autre format de sérialisation de données.</li>
+  <li><a href="https://json-ld.org/">JSON LD</a> : format pour décrire des données liées utilisant JSON devenu une <a href="https://www.w3.org/TR/json-ld/">recommandation du W3C</a>.</li>
 </ul>
 </div>
   </div>

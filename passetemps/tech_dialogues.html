@@ -142,131 +142,152 @@ code {color: #006FDD; border: 1px solid rgb(225, 228, 229); padding-left: 3px; p
 <hr>
 <h2 id="sommaire">Sommaire</h2>
 <ul>
-<li><a href="#i.-un-système-de-dialogues">I. Un système de dialogues</a></li>
-<ul>
-<li><a href="#i.a-modélisation-des-dialogues-en-arbre">I.A Modélisation des dialogues en arbre</a></li>
-<li><a href="#i.b-séparation-de-la-structure-et-des-données">I.B Séparation de la structure et des données</a></li>
-<li><a href="#i.c-internationalisation">I.C Internationalisation</a></li>
-<li><a href="#i.d-parcours">I.D Parcours</a></li>
-<li><a href="#i.e-exemples-de-résultats">I.E Exemples de résultats</a></li>
-</ul>
-<li><a href="#ii.-historique">II. Historique</a></li>
-<li><a href="#iii.-crédits">III. Crédits</a></li>
+  <li><a href="#i.-un-système-de-dialogues">I. Un système de dialogues</a>
+    <ul>
+      <li><a href="#i.a-modélisation-des-dialogues-en-arbre">I.A Modélisation des dialogues en arbre</a></li>
+      <li><a href="#i.b-séparation-de-la-structure-et-des-données">I.B Séparation de la structure et des données</a></li>
+      <li><a href="#i.c-internationalisation">I.C Internationalisation</a></li>
+      <li><a href="#i.d-parcours">I.D Parcours</a></li>
+      <li><a href="#i.e-exemples-de-résultats">I.E Exemples de résultats</a></li>
+    </ul>
+  </li>
+  <li><a href="#ii.-historique">II. Historique</a></li>
+  <li><a href="#iii.-crédits">III. Crédits</a></li>
 </ul>
 <h2 id="i.-un-système-de-dialogues">I. Un système de dialogues</h2>
 <p>Un système de dialogue permet de gérer les échanges entre le personnage du joueur et des personnages non-joueurs (PNJ). Le joueur choisir les réponses de son personnage. Dans les systèmes classiques, comme celui de <code><span class="normal">Baldur</span>'<span class="normal">s <span class="normal">Gate</span></code>, les choix proposent la réponse complète qui sera prononcée une fois qu'elle sera choisie. Dans d’autres, comme <code><span class="normal">Mass</span> <span class="normal">Effect</span></code>, seul une idée générale de la réponse est donnée, avec parfois des effets d’incompréhension. Notre système se veut classique.</p>
 <h3 id="i.a-modélisation-des-dialogues-en-arbre">I.A Modélisation des dialogues en arbre</h3>
 <p>La première étape est de séparer la structure des dialogues, les enchaînements et les choix, du texte des dialogues. Pour cela, les dialogues vont être enregistrés sous la forme d'arbre. Nous présentons ci-dessous un exemple d'arbre avec le texte, en utilisant le codage suivant :</p>
 <ul>
-<li>Les phrases en noir indiquent les dialogues du PNJ,</li>
-<li>les phrases en <i>italique et bleu</i> sont les réponses que le personnage du joueur peut prononcer,</li>
-<li>entre parenthèses le ton des réponses du joueur pour aider à leur compréhension,</li>
-<li>entre crochets des tests nécessaires pour avoir accès à une réponse du joueur ou obtenir une réponse d'un PNJ.</li>
+  <li>Les phrases en noir indiquent les dialogues du PNJ,</li>
+  <li>les phrases en <i>italique et bleu</i> sont les réponses que le personnage du joueur peut prononcer,</li>
+  <li>entre parenthèses le ton des réponses du joueur pour aider à leur compréhension,</li>
+  <li>entre crochets des tests nécessaires pour avoir accès à une réponse du joueur ou obtenir une réponse d'un PNJ.</li>
 </ul>
 <p>Exemple d'arbre de dialogue avec texte, le joueur incarne un inquisiteur chargé de trouver une certaine Siriah Anrir, qui réussirait des miracles à l'aide d'arts sombres. Pour cela, il se rend dans le village où elle serait située et entrepend un villageois :</p>
 <ul>
-<li>Bonjour, étranger, que puis-je pour vous ?</li>
-<ol>
-<li><i>Je cherche Siriah Anrir, où puis la trouver ?</i></li>
-<ul>
-<li>Je ne connais pas cette Dame.</li>
-<li>[Charisme &gt; 14] Pourquoi voulez-vous rencontrer notre Dame ?</li>
-<ol>
-<li><i>[Intelligence &gt; 14] (mensonge) On m'a vanté ses pouvoirs et j'aurais aimé être béni.</i></li>
-<ul>
-<li>[Charisme &gt; 16] Très bien, son temple est sous la maison communale.</li>
-<li>Elle viendra à vous quand vous serez prêt. Bonne journée.</li>
-</ul>
-<li><i>Je suis ici pour enquêter sur ses agissements.</i></li>
-<ul>
-<li>Je n'ai rien à vous dire. Bonne journée.</li>
-</ul>
-</ol>
-</ul>
-<li><i>Je désire rencontrer le chef du village.</i></li>
-<ul>
-<li>Le bourgmestre a disparu depuis trois nuits. Tout le village est très inquiet. Pourriez-vous nous aider à la retrouver ?</li>
-<ol>
-<li><i>Je vais voir ce que je peux faire.</i></li>
-<li><i>(désolé) Je suis désolé mais je ne peux pas vous aider.</i></li>
-<ul>
-<li>Cela ne fait rien. Bonne route étranger.</li>
-</ul>
-<li><i>(méprisant) Cela ne m'intéresse pas.</i></li>
-</ol>
-</ul>
-<li><i>J'ai besoin de soin.</i></li>
-<ul>
-<li>Vous trouverez le shaman dans sa hutte, à la lisière des bois.</li>
-<ul>
-<li><i>Merci, au revoir.</i></li>
-</ul>
-</ul>
-</ol>
+  <li>Bonjour, étranger, que puis-je pour vous ?
+    <ol>
+      <li><i>Je cherche Siriah Anrir, où puis la trouver ?</i>
+        <ul>
+          <li>Je ne connais pas cette Dame.</li>
+          <li>[Charisme &gt; 14] Pourquoi voulez-vous rencontrer notre Dame ?
+            <ol>
+              <li><i>[Intelligence &gt; 14] (mensonge) On m'a vanté ses pouvoirs et j'aurais aimé être béni.</i>
+                <ul>
+                  <li>[Charisme &gt; 16] Très bien, son temple est sous la maison communale.</li>
+                  <li>Elle viendra à vous quand vous serez prêt. Bonne journée.</li>
+                </ul>
+              </li>
+              <li><i>Je suis ici pour enquêter sur ses agissements.</i>
+                <ul>
+                  <li>Je n'ai rien à vous dire. Bonne journée.</li>
+                </ul>
+              </li>
+            </ol>
+          </li>
+        </ul>
+      </li>
+      <li><i>Je désire rencontrer le chef du village.</i>
+        <ul>
+          <li>Le bourgmestre a disparu depuis trois nuits. Tout le village est très inquiet. Pourriez-vous nous aider à la retrouver ?
+            <ol>
+              <li><i>Je vais voir ce que je peux faire.</i></li>
+              <li><i>(désolé) Je suis désolé mais je ne peux pas vous aider.</i>
+                <ul>
+                  <li>Cela ne fait rien. Bonne route étranger.</li>
+                </ul>
+              </li>
+              <li><i>(méprisant) Cela ne m'intéresse pas.</i></li>
+            </ol>
+          </li>
+        </ul>
+      </li>
+      <li><i>J'ai besoin de soin.</i>
+        <ul>
+          <li>Vous trouverez le shaman dans sa hutte, à la lisière des bois.
+            <ul>
+              <li><i>Merci, au revoir.</i></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ol>
+  </li>
 </ul>
 <p>On voit que la structure de données applicable ici est <b>un arbre</b>.</p>
 <h3 id="i.b-séparation-de-la-structure-et-des-données">I.B Séparation de la structure et des données</h3>
 <p>On va séparer les données, le texte, de la structure. On a d'un côté la structure qui garde, en plus de l'arborescence des réponses indiquant les enchaînements et les choix possibles, la personne qui parle et les tests associés. On indique le texte par un simple identifiant numérique. Pour ne pas confondre, les nombres indiquant un choix sont en rouge :</p>
 <ul>
-<li>1</li>
-<ol>
-<li><i>2</i></li>
-<ul>
-<li>3</li>
-<li>[Charisme &gt; 14] 4</li>
-<ol>
-<li><i>[Intelligence &gt; 14] 5</i></li>
-<ul>
-<li>[Charisme &gt; 16] 6</li>
-<li>7</li>
-</ul>
-<li><i>8</i></li>
-<ul>
-<li>9</li>
-</ul>
-</ol>
-</ul>
-<li><i>10</i></li>
-<ul>
-<li>11</li>
-<ol>
-<li><i>12</i></li>
-<li><i>13</i></li>
-<ul>
-<li>14</li>
-</ul>
-<li><i>15</i></li>
-</ol>
-</ul>
-<li><i>16</i></li>
-<ul>
-<li>17</li>
-<ul>
-<li><i>18</i></li>
-</ul>
-</ul>
-</ol>
+  <li>1
+    <ol>
+      <li><i>2</i>
+        <ul>
+          <li>3</li>
+          <li>[Charisme &gt; 14] 4
+            <ol>
+              <li><i>[Intelligence &gt; 14] 5</i>
+                <ul>
+                  <li>[Charisme &gt; 16] 6</li>
+                  <li>7</li>
+                </ul>
+              </li>
+              <li><i>8</i>
+                <ul>
+                  <li>9</li>
+                </ul>
+              </li>
+            </ol>
+          </li>
+        </ul>
+      </li>
+      <li><i>10</i>
+        <ul>
+          <li>11
+            <ol>
+              <li><i>12</i></li>
+              <li><i>13</i>
+                <ul>
+                  <li>14</li>
+                </ul>
+              </li>
+              <li><i>15</i></li>
+            </ol>
+          </li>
+        </ul>
+      </li>
+      <li><i>16</i>
+        <ul>
+          <li>17
+            <ul>
+              <li><i>18</i></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ol>
+  </li>
 </ul>
 <p>Et le texte, qu'on peut stocker dans un fichier texte, XML, JSON ou binaire, qui est de la forme clé =&gt; texte :</p>
 <ol>
-<li>Bonjour, étranger, que puis-je pour vous ?</li>
-<li>Je cherche Siriah Anrir, où puis la trouver ?</li>
-<li>Je ne connais pas cette Dame.</li>
-<li>Pourquoi voulez-vous rencontrer notre Dame ?</li>
-<li>(mensonge) On m'a vanté ses pouvoirs et j'aurais aimé être béni.</li>
-<li>Très bien, son temple est sous la maison communale.</li>
-<li>Elle viendra à vous quand vous serez prêt. Bonne journée.</li>
-<li>Je suis ici pour enquêter sur ses agissements.</li>
-<li>Je n'ai rien à vous dire. Bonne journée.</li>
-<li>Je désire rencontrer le chef du village.</li>
-<li>Le bourgmestre a disparu depuis trois nuits. Tout le village est très inquiet. Pourriez-vous nous aider à la retrouver ?</li>
-<li>Je vais voir ce que je peux faire.</li>
-<li>(désolé) Je suis désolé mais je ne peux pas vous aider.</li>
-<li>Cela ne fait rien. Bonne route étranger.</li>
-<li>(méprisant) Cela ne m'intéresse pas.</li>
-<li>J'ai besoin de soin.</li>
-<li>Vous trouverez le shaman dans sa hutte, à la lisière des bois.</li>
-<li>Merci, au revoir.</li>
+  <li>Bonjour, étranger, que puis-je pour vous ?</li>
+  <li>Je cherche Siriah Anrir, où puis la trouver ?</li>
+  <li>Je ne connais pas cette Dame.</li>
+  <li>Pourquoi voulez-vous rencontrer notre Dame ?</li>
+  <li>(mensonge) On m'a vanté ses pouvoirs et j'aurais aimé être béni.</li>
+  <li>Très bien, son temple est sous la maison communale.</li>
+  <li>Elle viendra à vous quand vous serez prêt. Bonne journée.</li>
+  <li>Je suis ici pour enquêter sur ses agissements.</li>
+  <li>Je n'ai rien à vous dire. Bonne journée.</li>
+  <li>Je désire rencontrer le chef du village.</li>
+  <li>Le bourgmestre a disparu depuis trois nuits. Tout le village est très inquiet. Pourriez-vous nous aider à la retrouver ?</li>
+  <li>Je vais voir ce que je peux faire.</li>
+  <li>(désolé) Je suis désolé mais je ne peux pas vous aider.</li>
+  <li>Cela ne fait rien. Bonne route étranger.</li>
+  <li>(méprisant) Cela ne m'intéresse pas.</li>
+  <li>J'ai besoin de soin.</li>
+  <li>Vous trouverez le shaman dans sa hutte, à la lisière des bois.</li>
+  <li>Merci, au revoir.</li>
 </ol>
 <h3 id="i.c-internationalisation">I.C Internationalisation</h3>
 <p>Ce système de dialogue doit être pensé pour être facilement internationalisable : traduisible en de nombreuses langues, sans nécessiter de recompiler ou recoder une partie du système spécifiquement pour une langue. La division effectuée dans le chapitre précédent facilite grandement cette étape : la structure de l'arbre ne change pas d'une langue à l'autre, seuls les lignes de textes changent. Il suffit de faire traduire la ressource contenant toutes les répliques pour traduire le jeu.</p>

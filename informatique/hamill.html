@@ -142,11 +142,18 @@
 <p>On peut forcer un retour à la ligne avec !! entouré d'un espace : ceci est un retour<br>à la ligne.</p>
 <h2 id="modification-de-texte">Modification de texte</h2>
 <ul>
-<li>**<b>gras</b>** : pour mettre en gras</li>
-<li>''<i>italique</i>'' : pour mettre en italique</li>
-<li>--<s>barré</s>-- : pour barré</li>
-<li>__<u>souligné</u>__ : pour souligner</li>
-<li>^^<sup>exposant</sup>^^ : pour mettre en exposant</li>
+  <li>**<b>gras</b>** : pour mettre en gras</li>
+  <li>''<i>italique</i>'' : pour mettre en italique</li>
+  <li>--<s>barré</s>-- : pour barré</li>
+  <li>__<u>souligné</u>__ : pour souligner</li>
+  <li>^^<sup>exposant</sup>^^ : pour mettre en exposant</li>
+</ul>
+<h2 id="div-et-span">Div et span</h2>
+<ul>
+  <li><code>{{<span class="normal">class</span>}}</code> : sur une ligne, seule, permet de définir une div de la classe donnée.</li>
+  <li><code>{{<span class="normal">end</span>}}</code> : sur une ligne, seule, permet de fermer une div ouverte.</li>
+  <li><code>{{<span class="normal">class</span> <span class="normal">content</span>}}</code> : dans un paragraphe, permet de spécifier un span de la classe donnée.</li>
+  <li><code>{{<span class="normal">content</span>}}</code> : dans un paragraphe, permet de spécifier un span.</li>
 </ul>
 <h2 id="code">Code</h2>
 <p>On utilise @@<code><span class="normal">pour</span> <span class="normal">du</span> <span class="normal">code</span> <span class="normal">inline</span></code>@@. Hamill dispose d'un colorisateur syntaxique pour Python et JSON, on précise ainsi : @@python<code> <span class="keyword">def</span> <span class="identifier">function</span><span class="separator">(<span class="normal">par1</span><span class="separator">, <span class="normal">par2</span><span class="separator">)</code>@@.</p>
@@ -182,23 +189,25 @@
 </pre>
 <h2 id="listes">Listes</h2>
 <ul>
-<li>* une liste non numérotée</li>
+  <li>* une liste non numérotée</li>
 </ul>
 <ul>
-<li>- une autre liste non numérotée</li>
+  <li>- une autre liste non numérotée</li>
 </ul>
 <ol>
-<li>% une liste numérotée</li>
+  <li>% une liste numérotée</li>
 </ol>
-<p><b>LIMITATION : Hamill ne gère pas une inclusion d'une liste numérotée dans une non-numérotée et vice-versa.</b></p>
+<ul>
+  <li>| pour continuer un élément d'une liste.</li>
+</ul>
 <h2 id="listes-de-définition">Listes de définition</h2>
 <ul>
-<li>$ indique une liste de définition. On fait suivre directement la définition en la précédant d'espaces.</li>
+  <li>$ indique une liste de définition. On fait suivre directement la définition en la précédant d'espaces.</li>
 </ul>
 <h2 id="tables">Tables</h2>
 <ul>
-<li>Un tableau s'écrit ainsi : |col1|col2|col3|</li>
-<li>La ligne de titre doit être la première et séparée des autres par une ligne de tirets : |----|</li>
+  <li>Un tableau s'écrit ainsi : |col1|col2|col3|</li>
+  <li>La ligne de titre doit être la première et séparée des autres par une ligne de tirets : |----|</li>
 </ul>
 <table>
 <tr><th>Ceci</th><th>est</th><th>un  </th><th>tableau    </th></tr>
@@ -211,30 +220,30 @@
 </table>
 <h2 id="liens">Liens</h2>
 <ul>
-<li>On utilise les crochets [ nom affiché -> lien ]</li>
-<li>Le lien peut être directement http:// ou https://</li>
-<li>Ou le lien peut être une redirection [ nom affiché -> code ] puis une défintion de la forme : [code]: http://...</li>
-<li>Ou le lien peut être seulement <b>#</b>. Dans ce cas, il essaye de faire pointé sur le nom affiché ou, si c'est un titre, le nom affiché transformé <i>(voir ci-dessous)</i></li>
-<li>Les titres sont automatiquement transformés en ancre en remplaçant les espaces par - et en les mettant en minuscules : ainsi <b>Les jeux</b> devient <b>les-jeux</b></li>
+  <li>On utilise les crochets [ nom affiché -> lien ]</li>
+  <li>Le lien peut être directement http:// ou https://</li>
+  <li>Ou le lien peut être une redirection [ nom affiché -> code ] puis une défintion de la forme : [code]: http://...</li>
+  <li>Ou le lien peut être seulement <b>#</b>. Dans ce cas, il essaye de faire pointé sur le nom affiché ou, si c'est un titre, le nom affiché transformé <i>(voir ci-dessous)</i></li>
+  <li>Les titres sont automatiquement transformés en ancre en remplaçant les espaces par - et en les mettant en minuscules : ainsi <b>Les jeux</b> devient <b>les-jeux</b></li>
 </ul>
 <h2 id="constantes">Constantes</h2>
 <p>On peut définir des constantes en mettant <code>!<span class="normal">const</span></code> en début de ligne. Les constantes peuvent être définies n'importe où dans le document et plusieurs fois mais <b><u>seule la dernière valeur définie est prise en compte</u></b>.</p>
 <ul>
-<li><code>!<span class="normal">const</span> <span class="normal">TITLE</span>=<span class="normal">titre</span></code> pour définir le titre de la page</li>
-<li><code>!<span class="normal">const</span> <span class="normal">ICON</span>=<span class="normal">icon</span></code> pour définir une icône pour la page</li>
-<li><code>!<span class="normal">const</span> <span class="normal">LANG</span>=<span class="normal">lang</span></code> pour définir la langue utilisée dans la page</li>
-<li><code>!<span class="normal">const</span> <span class="normal">ENCODING</span>=<span class="normal">encoding</span></code> pour définir la langue utilisée dans la page, par défaut utf-8</li>
-<li><code>!<span class="normal">const</span> <span class="normal">BODY_CLASS</span>=<span class="normal">classe</span></code> pour définir la classe du body</li>
-<li><code>!<span class="normal">const</span> <span class="normal">BODY_ID</span>=<span class="normal">id</span></code> pour définir l'id du body</li>
+  <li><code>!<span class="normal">const</span> <span class="normal">TITLE</span>=<span class="normal">titre</span></code> pour définir le titre de la page</li>
+  <li><code>!<span class="normal">const</span> <span class="normal">ICON</span>=<span class="normal">icon</span></code> pour définir une icône pour la page</li>
+  <li><code>!<span class="normal">const</span> <span class="normal">LANG</span>=<span class="normal">lang</span></code> pour définir la langue utilisée dans la page</li>
+  <li><code>!<span class="normal">const</span> <span class="normal">ENCODING</span>=<span class="normal">encoding</span></code> pour définir la langue utilisée dans la page, par défaut utf-8</li>
+  <li><code>!<span class="normal">const</span> <span class="normal">BODY_CLASS</span>=<span class="normal">classe</span></code> pour définir la classe du body</li>
+  <li><code>!<span class="normal">const</span> <span class="normal">BODY_ID</span>=<span class="normal">id</span></code> pour définir l'id du body</li>
 </ul>
 <h2 id="variables">Variables</h2>
 <p>On peut définir des variables en mettant <code>!<span class="normal">var</span></code> en début de ligne. On peut changer sa valeur en la redéfinissant dans le document plusieurs fois. Au contraire des constantes, les variables sont lues au fur et à mesure de l'émission du HTML.</p>
 <ul>
-<li><code>!<span class="normal">var</span> <span class="normal">EXPORT_COMMENT</span>=<span class="normal">true</span>/<span class="normal">false</span></code> spécifie si les commentaires seront exportés en HTML ou pas</li>
-<li><code>!<span class="normal">var</span> <span class="normal">PARAGRAPH_DEFINITION</span>=<span class="normal">true</span>/<span class="normal">false</span></code> spécifie si les dd doivent être mis dans des balises p</li>
-<li><code>!<span class="normal">var</span> <span class="normal">DEFAULT_CODE</span>=<span class="normal">python</span>/<span class="normal">json</span></code> définit la coloration syntaxique par défaut du code (text par défaut)</li>
-<li><code>!<span class="normal">var</span> <span class="normal">NEXT_PAR_CLASS</span>=<span class="normal">cls</span></code> spécifie la classe du <b>prochain</b> paragraphe</li>
-<li><code>!<span class="normal">var</span> <span class="normal">DEFAULT_PAR_CLASS</span>=<span class="normal">cls</span></code> spécifie la classe par défaut de <b>tous les paragraphes qui suivent</b></li>
+  <li><code>!<span class="normal">var</span> <span class="normal">EXPORT_COMMENT</span>=<span class="normal">true</span>/<span class="normal">false</span></code> spécifie si les commentaires seront exportés en HTML ou pas</li>
+  <li><code>!<span class="normal">var</span> <span class="normal">PARAGRAPH_DEFINITION</span>=<span class="normal">true</span>/<span class="normal">false</span></code> spécifie si les dd doivent être mis dans des balises p</li>
+  <li><code>!<span class="normal">var</span> <span class="normal">DEFAULT_CODE</span>=<span class="normal">python</span>/<span class="normal">json</span></code> définit la coloration syntaxique par défaut du code (text par défaut)</li>
+  <li><code>!<span class="normal">var</span> <span class="normal">NEXT_PAR_CLASS</span>=<span class="normal">cls</span></code> spécifie la classe du <b>prochain</b> paragraphe</li>
+  <li><code>!<span class="normal">var</span> <span class="normal">DEFAULT_PAR_CLASS</span>=<span class="normal">cls</span></code> spécifie la classe par défaut de <b>tous les paragraphes qui suivent</b></li>
 </ul>
 <h2 id="inclusion-de-fichier-html">Inclusion de fichier HTML</h2>
 <p>On peut inclure un fichier HTML avec <code>!<span class="normal">include</span></code> en début de ligne. Le contenu du fichier sera copié directement le document produit.</p>
@@ -244,8 +253,8 @@
 <p>Le lien vers un fichier JavaScript requis est placé là ou se trouve le <code>!<span class="normal">require</span></code>. <b>LIMITATION : Hamill ne peut pas mettre un lien vers un fichier JavaScript dans la tête pour l'instant</b>.</p>
 <h2 id="spécial">Spécial</h2>
 <ul>
-<li><code>!<span class="normal">css</span> <span class="normal">css</span>-<span class="normal">code</span></code> permet de rajouter du code css</li>
-<li><code>!<span class="normal">html</span> <span class="normal">html</span>-<span class="normal">code</span></code> permet de rajouter du code html</li>
+  <li><code>!<span class="normal">css</span> <span class="normal">css</span>-<span class="normal">code</span></code> permet de rajouter du code css</li>
+  <li><code>!<span class="normal">html</span> <span class="normal">html</span>-<span class="normal">code</span></code> permet de rajouter du code html</li>
 </ul>
 </div>
   </div>
