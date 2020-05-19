@@ -10,9 +10,9 @@
   <link href="https://xitog.github.io/dgx/css/palatino.css" rel="stylesheet">
 </head>
 <body>
-  <div id="main" class="container">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<div id="main" class="container">
       <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -134,12 +134,30 @@
 <div id="content-div">
 <h1 id="hamill">Hamill</h1>
 <hr>
-<p>Ce document décrit le langage <b>Hamill</b>. Comme <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> ou <a href="https://en.wikipedia.org/wiki/Textile_(markup_language)">Textile</a>, c'est un <a href="https://en.wikipedia.org/wiki/Lightweight_markup_language">langage de balisage léger</a> pour écrire de la documentation dans un fichier texte, directement lisible sans transformation, mais pouvant également être transformé en HTML.</p>
-<p>On peut faire des commentaires en commençant une ligne par --.</p>
-<!-- Ceci est un commentaire il sera exporté en HTML -->
-<p><b>LIMITATION : les commentaires doivent être sur une ligne séparée et non à la fin d'une ligne. Hamill risque de se tromper</b> (mélange entre <code>!<span class="normal">require</span></code> qui teste la fin de la ligne)</p>
+<p>Ce document décrit le langage <b>Hamill</b>. Comme <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>, <a href="https://en.wikipedia.org/wiki/Textile_(markup_language)">Textile</a>, <a href="http://asciidoc.org/">AsciiDoc</a> ou <a href="https://docutils.sourceforge.io/rst.html">reStructuredText</a>, c'est un <a href="https://en.wikipedia.org/wiki/Lightweight_markup_language">langage de balisage léger</a> pour écrire de la documentation dans un fichier texte, directement lisible sans transformation, mais pouvant également être transformé en HTML.</p>
+<h2 id="sommaire">Sommaire</h2>
+<ul>
+  <li><a href="#commentaires">Commentaires</a></li>
+  <li><a href="#titres">Titres</a></li>
+  <li><a href="#modification-de-texte">Modification de texte</a></li>
+  <li><a href="#div,-p-et-span">Div, p et span</a></li>
+  <li><a href="#code">Code</a></li>
+  <li><a href="#listes">Listes</a></li>
+  <li><a href="#tables">Tables</a></li>
+  <li><a href="#liens">Liens</a></li>
+  <li><a href="#images">Images</a></li>
+  <li><a href="#constantes">Constantes</a></li>
+  <li><a href="#variables">Variables</a></li>
+  <li><a href="#inclusion-de-fichier-html">Inclusion de fichier HTML</a></li>
+  <li><a href="#liens-vers-un-fichier-css-ou-javascript">Liens vers un fichier CSS ou JavaScript</a></li>
+  <li><a href="#spécial">Spécial</a></li>
+</ul>
+<h2 id="commentaires">Commentaires</h2>
+<p>On peut faire des commentaires avec</p>
 <p>On peut faire une ligne horizontale avec une ligne constituée uniquement de - d'une longueur supérieure ou égale à 3.</p>
 <p>On peut forcer un retour à la ligne avec !! entouré d'un espace : ceci est un retour<br>à la ligne.</p>
+<h2 id="titres">Titres</h2>
+<p>On met en début de ligne un nombre de # correspondant au niveau du titre que l'on veut.</p>
 <h2 id="modification-de-texte">Modification de texte</h2>
 <ul>
   <li>**<b>gras</b>** : pour mettre en gras</li>
@@ -148,12 +166,12 @@
   <li>__<u>souligné</u>__ : pour souligner</li>
   <li>^^<sup>exposant</sup>^^ : pour mettre en exposant</li>
 </ul>
-<h2 id="div-et-span">Div et span</h2>
+<h2 id="div,-p-et-span">Div, p et span</h2>
 <ul>
-  <li><code>{{<span class="normal">class</span>}}</code> : sur une ligne, seule, permet de définir une div de la classe donnée.</li>
+  <li><code>{{#<span class="normal">id</span> .<span class="normal">class</span>}}</code> : sur une ligne, seule, permet de définir une div avec un id et/ou une classe.</li>
   <li><code>{{<span class="normal">end</span>}}</code> : sur une ligne, seule, permet de fermer une div ouverte.</li>
-  <li><code>{{<span class="normal">class</span> <span class="normal">content</span>}}</code> : dans un paragraphe, permet de spécifier un span de la classe donnée.</li>
-  <li><code>{{<span class="normal">content</span>}}</code> : dans un paragraphe, permet de spécifier un span.</li>
+  <li><code>{{#<span class="normal">id</span> .<span class="normal">class</span> <span class="normal">content</span>}}</code> : dans un paragraphe, permet de spécifier un span avec un id et/ou une classe.</li>
+  <li><code>{{#<span class="normal">id</span> .<span class="normal">class</span>}} ...</code> : dans un paragraphe, permet de spécifier l'id et/ou la classe du paragraphe.</li>
 </ul>
 <h2 id="code">Code</h2>
 <p>On utilise @@<code><span class="normal">pour</span> <span class="normal">du</span> <span class="normal">code</span> <span class="normal">inline</span></code>@@. Hamill dispose d'un colorisateur syntaxique pour Python et JSON, on précise ainsi : @@python<code> <span class="keyword">def</span> <span class="identifier">function</span><span class="separator">(<span class="normal">par1</span><span class="separator">, <span class="normal">par2</span><span class="separator">)</code>@@.</p>
@@ -189,13 +207,16 @@
 </pre>
 <h2 id="listes">Listes</h2>
 <ul>
-  <li>* une liste non numérotée</li>
-</ul>
-<ul>
-  <li>- une autre liste non numérotée</li>
+  <li>* pour une liste non numérotée</li>
 </ul>
 <ol>
-  <li>% une liste numérotée</li>
+  <li>% pour une liste numérotée</li>
+</ol>
+<ol>
+  <li>+ pour une liste numérotée</li>
+</ol>
+<ol reversed>
+  <li>- pour une liste numérotée inversée</li>
 </ol>
 <ul>
   <li>| pour continuer un élément d'une liste.</li>
@@ -213,18 +234,24 @@
 <tr><th>Ceci</th><th>est</th><th>un  </th><th>tableau    </th></tr>
 <tr><td>Il  </td><td>est</td><td>beau</td><td>mon tableau</td></tr>
 </table>
-<p>On peut mettre bien sûr des modificateurs de textes dans un tableau mais <b>LIMITATION : pas de listes dans un tableau pour l'instant</b> :</p>
+<p>On peut mettre bien sûr des modificateurs de textes, des liens ou une image dans un tableau.</p>
 <table>
-<tr><th><sup>Ceci</sup></th><th><b>est</b></th><th><u>un</u>            </th><th><i>tableau</i></th></tr>
-<tr><td>Il      </td><td>est    </td><td><s>beau</s> différent</td><td>ce tableau.</td></tr>
+<tr><th><sup>Ceci</sup>                   </th><th><b>est</b></th><th><u>un</u>            </th><th><i>tableau</i>                                </th></tr>
+<tr><td>Il <img src="..\img\background-green.png"></img> </td><td>est    </td><td><s>beau</s> différent</td><td>ce <a href="https://xitog.github.io/dgx/">tableau</a>.</td></tr>
 </table>
+<p><b>LIMITATION : pas de listes dans un tableau pour l'instant</b> :</p>
 <h2 id="liens">Liens</h2>
 <ul>
-  <li>On utilise les crochets [ nom affiché -> lien ]</li>
-  <li>Le lien peut être directement http:// ou https://</li>
-  <li>Ou le lien peut être une redirection [ nom affiché -> code ] puis une défintion de la forme : [code]: http://...</li>
-  <li>Ou le lien peut être seulement <b>#</b>. Dans ce cas, il essaye de faire pointé sur le nom affiché ou, si c'est un titre, le nom affiché transformé <i>(voir ci-dessous)</i></li>
+  <li>On utilise les crochets <code>[ <span class="normal">nom</span> <span class="normal">affiché</span> -&gt; <span class="normal">lien</span> ]</code></li>
+  <li>Le lien peut être directement <code>[ <span class="normal">http</span>:// ... ]</code> ou <code>[ <span class="normal">https</span>:// ... ]</code></li>
+  <li>Ou le lien peut être une redirection <code>[ <span class="normal">nom</span> <span class="normal">affiché</span> -&gt; <span class="normal">code</span> ]</code> puis une défintion de la forme : <code>[<span class="normal">code</span>]: <span class="normal">http</span>://...</code><code></code></li>
+  <li>Ou le lien peut être seulement <code>[ <span class="normal">nom</span> <span class="normal">affiché</span> -&gt; # ]</code>. Dans ce cas, il essaye de faire pointer sur le nom affiché ou, si c'est un titre, le nom affiché transformé <i>(voir ci-dessous)</i></li>
   <li>Les titres sont automatiquement transformés en ancre en remplaçant les espaces par - et en les mettant en minuscules : ainsi <b>Les jeux</b> devient <b>les-jeux</b></li>
+</ul>
+<h2 id="images">Images</h2>
+<ul>
+  <li>On utilise les crochets [ avec ! comme : [!mon_image.png]</li>
+  <li>On peut définir un répertoire par défaut où les images seront prises avec la variable <code><span class="normal">DEFAULT_FIND_IMAGE</span></code></li>
 </ul>
 <h2 id="constantes">Constantes</h2>
 <p>On peut définir des constantes en mettant <code>!<span class="normal">const</span></code> en début de ligne. Les constantes peuvent être définies n'importe où dans le document et plusieurs fois mais <b><u>seule la dernière valeur définie est prise en compte</u></b>.</p>
@@ -242,20 +269,23 @@
   <li><code>!<span class="normal">var</span> <span class="normal">EXPORT_COMMENT</span>=<span class="normal">true</span>/<span class="normal">false</span></code> spécifie si les commentaires seront exportés en HTML ou pas</li>
   <li><code>!<span class="normal">var</span> <span class="normal">PARAGRAPH_DEFINITION</span>=<span class="normal">true</span>/<span class="normal">false</span></code> spécifie si les dd doivent être mis dans des balises p</li>
   <li><code>!<span class="normal">var</span> <span class="normal">DEFAULT_CODE</span>=<span class="normal">python</span>/<span class="normal">json</span></code> définit la coloration syntaxique par défaut du code (text par défaut)</li>
+  <li><code>!<span class="normal">var</span> <span class="normal">NEXT_PAR_ID</span>=<span class="normal">ids</span></code> spécifie l'id du <b>prochain</b> paragraphe</li>
   <li><code>!<span class="normal">var</span> <span class="normal">NEXT_PAR_CLASS</span>=<span class="normal">cls</span></code> spécifie la classe du <b>prochain</b> paragraphe</li>
   <li><code>!<span class="normal">var</span> <span class="normal">DEFAULT_PAR_CLASS</span>=<span class="normal">cls</span></code> spécifie la classe par défaut de <b>tous les paragraphes qui suivent</b></li>
+  <li><code>!<span class="normal">var</span> <span class="normal">DEFAULT_FIND_IMAGE</span>=<span class="normal">path</span></code> spécifie un répertoire où aller chercher les images par défaut</li>
 </ul>
 <h2 id="inclusion-de-fichier-html">Inclusion de fichier HTML</h2>
 <p>On peut inclure un fichier HTML avec <code>!<span class="normal">include</span></code> en début de ligne. Le contenu du fichier sera copié directement le document produit.</p>
 <h2 id="liens-vers-un-fichier-css-ou-javascript">Liens vers un fichier CSS ou JavaScript</h2>
 <p>On peut lier notre document à fichier CSS ou JavaScript avec la commande <code>!<span class="normal">require</span></code> en début de ligne.</p>
 <p>Le lien vers un fichier CSS requis est <b>automatiquement</b> placé dans la tête du document HTML.</p>
-<p>Le lien vers un fichier JavaScript requis est placé là ou se trouve le <code>!<span class="normal">require</span></code>. <b>LIMITATION : Hamill ne peut pas mettre un lien vers un fichier JavaScript dans la tête pour l'instant</b>.</p>
+<p>Le lien vers un fichier JavaScript requis est placé là ou se trouve le <code>!<span class="normal">require</span></code>.</p>
+<p><b>LIMITATION : Hamill ne peut pas mettre un lien vers un fichier JavaScript dans la tête pour l'instant</b>.</p>
 <h2 id="spécial">Spécial</h2>
 <ul>
   <li><code>!<span class="normal">css</span> <span class="normal">css</span>-<span class="normal">code</span></code> permet de rajouter du code css</li>
   <li><code>!<span class="normal">html</span> <span class="normal">html</span>-<span class="normal">code</span></code> permet de rajouter du code html</li>
 </ul>
 </div>
-  </div>
+</div>
 </body>
