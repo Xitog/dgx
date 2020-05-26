@@ -1,0 +1,164 @@
+<html lang="en">
+<head>
+  <meta charset=utf-8>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Raycasting</title>
+  <link rel="icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
+  <link href="https://xitog.github.io/dgx/css/simplex.bootstrap.css" rel="stylesheet">
+  <link href="https://xitog.github.io/dgx/css/palatino.css" rel="stylesheet">
+<style type="text/css">
+code {color: #006FDD; border: 1px solid rgb(225, 228, 229); padding-left: 3px; padding-right: 5px;}
+</style>
+</head>
+<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<div id="main" class="container">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+             <a class="navbar-brand" href="#">Menu</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li id="Accueil"><a href="https://xitog.github.io/dgx/index.html">Accueil</a></li>
+              <li id="Blog"><a href="https://xitog.github.io/dgx/blog.html">Blog</a></li>
+              <li class="dropdown">
+                <a id="Langues" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Langues <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                <li class="dropdown-header">Français</li>
+                  <li><a href="https://xitog.github.io/dgx/francais/fiche_api_fr.html">Fiche sur les phonèmes du français</a></li>
+                  <li><a href="https://xitog.github.io/dgx/francais/outil_stats_fr.html">Outil d'analyse textuelle</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Italien</li>
+                  <li><a href="https://xitog.github.io/dgx/italien/beatrice.html">Beatrice : grammaire</a></li>
+                  <li><a href="https://xitog.github.io/dgx/italien/jeu_conjugaison.html">Jeu sur la conjugaison</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Anglais</li>
+                  <li><a href="https://xitog.github.io/dgx/anglais/jeu_vocabulaire.html">Jeu sur le vocabulaire</a></li>
+                  <li><a href="https://xitog.github.io/dgx/anglais/verbes.html">Verbes fréquents</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Interlingua</li>
+                  <li><a href="https://xitog.github.io/dgx/interlingua/conjugueur.html">Conjugueur</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Linguistique</li>
+                  <li><a href="https://xitog.github.io/dgx/linguistique/informations.html">Informations générales</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Informatique" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Informatique <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Programmation</li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/syntaxes.html">Syntaxes comparées</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/python.html">Aide-mémoire Python</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/ruby.html">Aide-mémoire Ruby</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/lua.html">Aide-mémoire Lua</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/ruby_guide.html">Guide Ruby</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/ash_guide.html">Guide Ash</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Modélisation</li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/bnf.html">Aide-mémoire BNF et EBNF</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/json.html">Aide-mémoire JSON</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/hamill.html">Aide-mémoire Hamill</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Autres</li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/tools_langs.html">Logiciels utiles et autres langages</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Histoire" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Histoire <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Méthode</li>
+                  <li><a href="https://xitog.github.io/dgx/histoire/methode.html">Généralités</a></li>
+                  <li><a href="https://xitog.github.io/dgx/histoire/bibliographie.html">Bibliographie</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Aide-mémoires</li>
+                  <li><a href="https://xitog.github.io/dgx/histoire/france19eme.html">France au XIX<sup>e</sup></a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Jeux" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Passe-temps <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Présentations générales</i></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/pres_jeux.html">Les jeux</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/pres_jeuxvideo.html">Les jeux vidéo</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/pres_favoris.html">Favoris artistiques</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Jeux de rôles</i></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/systemes_rpg.html">Systèmes des RPG</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Livres-jeux</li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/compagnon_talisman.html">Le Compagnon du Talisman</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/compagnon_sorcier.html">Le Compagnon du Sorcier</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Histoire des jeux vidéo</li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/history_rts.html">Les enfants de Dune : les RTS</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/history_fps.html">Les enfants de Doom : les FPS</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Techniques des jeux vidéo</i></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_raycasting_fr.html">Le raycasting : la 2.5D</a>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_transitions.html">Cartes et transitions</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_dialogues.html">Dialogues</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Jeux vidéo et outils maison</i></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/project_teddy.html">Éditeur de carte</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/project_rts.html">Jouer à mon RTS</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/project_fps.html">Jouer à mon FPS</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Autres" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Autres <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Musique</li>
+                  <li><a href="https://xitog.github.io/dgx/concerts_classiques/index.html">Concerts classiques</a></li>
+                  <li><a href="https://xitog.github.io/dgx/favoris/musiques.html">Musiques favorites</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Collections</li>
+                  <li><a href="https://xitog.github.io/dgx/data/outil_collections.html#prenoms">Prénoms</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Liens</li>
+                  <li><a href="https://xitog.github.io/dgx/plan.html">Plan du site</a></li>
+                  <li><a href="https://xitog.github.io/dgx/liens.html">Barre de liens</a></li>
+                  <li><a href="https://xitog.github.io/dgx/liste_liens.html">Collection de liens</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+<div id="content-div">
+<h1 id="table-of-contents">Table of Contents</h1>
+<ul>
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#historical-information">Historical information</a></li>
+  <li><a href="#technical-information">Technical information</a></li>
+  <li><a href="#references">References</a></li>
+</ul>
+<h1 id="introduction">Introduction</h1>
+<p><b><a href="https://en.wikipedia.org/wiki/Ray_casting">Raycasting</a> is a <u>rendering technique</u> to create a 3D perspective from a 2D map.</b> [1] The main advantage of this technique is to be <i>fast</i> and affordable in real time for the PCs of the early 90's. This technique is also called <a href="https://en.wikipedia.org/wiki/2.5D">2.5D</a> to differentiate it from the first true 3D engine such as the <code><span class="normal">Quake</span></code> engine (aka ID Tech 1), but 2.5D can also reference other rendering technique not discussed here, such as <a href="https://en.wikipedia.org/wiki/Axonometric_projection">axonometric projections</a> like the <a href="https://en.wikipedia.org/wiki/Isometric_video_game_graphics">isometric projection</a>.</p>
+<p><i>Raycasting</i> must not be confused with <i>raytracing</i>. Raytracing is another rendering technique which is much heavier and slower in term of computation. Raytracing computes the path of each ray of light of a given source to determine the lightning of the scene. However, since 2019, the power of the newest graphical processing units tends to offer raytracing in real time.</p>
+<p>Finally, if raycasting is really fast for the screen resolution of the early 90's, such as 320x200, 640x400 or 640x480, its performances are very bad for higher, modern resolution. The 3D computing API such as OpenGL, Vulkan or DirectX must rather be used for that.</p>
+<h1 id="historical-information">Historical information</h1>
+<p>The game which put this techique at the center stage was id Software smash hit <code><span class="normal">Wolfenstein</span> <span class="normal">3<span class="normal">D</code>.</p>
+<h1 id="technical-information">Technical information</h1>
+<p>Build:</p>
+<p>Sloped ceilings and floors</p>
+<p>High-res SVGA and VESA support</p>
+<p>True rooms above rooms</p>
+<p>Moving vehicles</p>
+<p>Transparent sprites</p>
+<p>Underwater swimming</p>
+<p>Map sectors can move during game play</p>
+<h1 id="references">References</h1>
+<p>[1] : Lode's Computer Graphics Tutorial</p>
+</div>
+</div>
+</body>
