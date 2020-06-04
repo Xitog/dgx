@@ -153,7 +153,7 @@ p { text-align: justify; }
       <li><a href="#3.1-principe">Principe</a></li>
     </ol>
   </li>
-  <li><a href="4.-index-des-moteurs-de-raycasting-et-des-jeux">Index des moteurs de raycasting et des jeux</a></li>
+  <li><a href="#4.-index-des-moteurs-de-raycasting,-des-jeux-et-des-tutoriels">Index des moteurs de raycasting et des jeux</a></li>
   <li><a href="#5.-références">Références</a></li>
 </ol>
 <p>A version in English of this page is <a href="https://xitog.github.io/dgx/passetemps/tech_raycasting_en.html">available here</a>.</p>
@@ -181,21 +181,25 @@ p { text-align: justify; }
 <p>Un raycaster dessine les textures colonnes par colonnes, il est donc plus efficace de les stocker ainsi en mémoire, c'est-à-dire faire un tableau de tableaux, ces derniers représentent les colonnes.</p>
 <p>Une technique simple pour simuler l'effet de la lumière est de dessiner les textures de façon plus claire, pour simuler une forte luminosité, ou plus sombre, pour l'obscurité. Deux techniques existent : avoir en mémoire plusieurs versions de la texture, le calcul est donc déjà fait, ou calculer à la volée la couleur définitive à partir d'une seule texture de départ. Pour obscurir, il suffit de diminuer les valeurs RGB de chaque pixel et pour illuminer, il faut augmenter ces mêmes valeurs.</p>
 <h1 id="4.-index-des-moteurs-de-raycasting,-des-jeux-et-des-tutoriels">4. Index des moteurs de raycasting, des jeux et des tutoriels</h1>
+<p>Ceci est un aperçu rapide des principaux moteurs et jeux. Pour une liste plus complète, vous pouvez consulter mon index.</p>
+<table>
+<tr><th>Année</th><th align="center"> Autres moteurs                                                                           </th><th align="center"> Wolfenstein Engine (Carmack)                                                                                                                                                                     </th><th align="center"> Doom Engine (Carmack)                                                              </th><th align="center"> Build Engine (Silverman)                                                                                </th></tr>
+<tr><td>1991</td><td> <a href="https://www.mobygames.com/game/dos/hovertank-one">Hovertank 3-D</a><br><a href="https://www.mobygames.com/game/dos/catacomb-3-d">Catacomb 3-D</a>                                     </td><td>                                                                                                                                                                                                   </td><td>                                                                                     </td><td>                                                                                                          </td></tr>
+<tr><td>1992</td><td> <a href="https://www.mobygames.com/game/ultima-underworld-the-stygian-abyss">Ultima Underworld: The Stygian Abyss</a>                                             </td><td> <b><a href="https://www.mobygames.com/game/wolfenstein-3d">Wolfenstein 3D</a></b><br><a href="https://www.mobygames.com/game/spear-of-destiny">Spear of Destiny</a>                                                                                                                                  </td><td>                                                                                     </td><td>                                                                                                          </td></tr>
+<tr><td>1993</td><td> <a href="https://www.mobygames.com/game/ultima-underworld-ii-labyrinth-of-worlds">Ultima Underworld II: Labyrinth of Worlds</a><br><a href="https://www.mobygames.com/game/terminator-rampage">The Terminator: Rampage</a> </td><td> <a href="https://www.mobygames.com/game/blake-stone-aliens-of-gold">Blake Stone: Aliens of Gold</a>                                                                                                                                                         </td><td> <b><a href="https://www.mobygames.com/game/dos/doom">Doom</a></b>                                                                         </td><td>                                                                                                          </td></tr>
+<tr><td>1994</td><td> <a href="https://www.mobygames.com/game/dos/elder-scrolls-arena">The Elder Scrolls: Arena</a>                                                          </td><td> <a href="https://www.mobygames.com/game/rise-of-the-triad-dark-war">Rise of the Triad: Dark War</a><br><a href="https://www.mobygames.com/game/blake-stone-planet-strike">Blake Stone: Planet Strike!</a><br><a href="https://www.mobygames.com/game/operation-body-count">Operation Body Count</a><br><a href="https://www.mobygames.com/game/corridor-7-alien-invasion">Corridor 7: Alien Invasion</a><br><a href="https://www.mobygames.com/game/super-noahs-ark-3-d">Super Noah's Ark 3-D</a> </td><td> <a href="https://www.mobygames.com/game/doom-ii_">Doom II: Hell on Earth</a><br><a href="https://www.mobygames.com/game/heretic">Heretic</a>                                       </td><td> <a href="https://www.mobygames.com/game/euijeok-im-kkeokjeong">Legend of the Seven Paladins 3D</a><br>(Euijeok: Im Kkeokjeong)                                    </td></tr>
+<tr><td>1995</td><td> <a href="https://www.mobygames.com/game/star-wars-dark-forces">Dark Forces</a> <i>(Jedi)</i>                                                       </td><td>                                                                                                                                                                                                   </td><td> <a href="https://www.mobygames.com/game/ultimate-doom">The Ultimate DOOM</a><br><a href="https://www.mobygames.com/game/hexen-beyond-heretic">Hexen: Beyond Heretic</a>                 </td><td> <a href="https://www.mobygames.com/game/william-shatners-tekwar">William Shatner's TekWar</a><br><a href="https://www.mobygames.com/game/witchaven">Witchaven</a>                                                       </td></tr>
+<tr><td>1996</td><td>                                                                                            </td><td>                                                                                                                                                                                                   </td><td> <a href="https://www.mobygames.com/game/final-doom">Final DOOM</a><br><a href="https://www.mobygames.com/game/chex-quest">Chex Quest</a><br><a href="https://www.mobygames.com/game/chex-quest-2">Chex Quest 2</a><br><a href="https://www.mobygames.com/game/strife">Strife</a> </td><td> <a href="http://www.mobygames.com/game/dos/duke-nukem-3d">Duke Nukem 3D</a><br><a href="https://www.mobygames.com/game/powerslave">Witchaven II: Blood Vengeance</a><br><a href="https://www.mobygames.com/game/powerslave">Powerslave/Exhumed</a> </td></tr>
+<tr><td>1997</td><td> <a href="https://www.mobygames.com/game/outlaws">Outlaws</a> <i>(Jedi)</i>                                                                      </td><td>                                                                                                                                                                                                   </td><td>                                                                                     </td><td> <a href="https://www.mobygames.com/game/dos/blood">Blood</a><br><a href="https://www.mobygames.com/game/dos/redneck-rampage">Redneck Rampagne</a><br><a href="https://www.mobygames.com/game/shadow-warrior">Shadow Warrior</a>                                      </td></tr>
+<tr><td>1998</td><td>                                                                                            </td><td>                                                                                                                                                                                                   </td><td>                                                                                     </td><td> <a href="https://www.mobygames.com/game/nam">NAM</a><br><a href="https://www.mobygames.com/game/extreme-paintbrawl">Extreme Paintbrawl</a>                                                                  </td></tr>
+<tr><td>1999</td><td>                                                                                            </td><td>                                                                                                                                                                                                   </td><td>                                                                                     </td><td> <a href="https://www.mobygames.com/game/wwii-gi">WW2</a>                                                                                                   </td></tr>
+<tr><td>2018</td><td>                                                                                            </td><td>                                                                                                                                                                                                   </td><td>                                                                                     </td><td> <a href="https://www.mobygames.com/game/ion-maiden">Ion Maiden</a>                                                                                        </td></tr>
+<tr><td>2019</td><td>                                                                                            </td><td>                                                                                                                                                                                                   </td><td> <a href="https://www.mobygames.com/game/hedon">Hedon</a>                                                                            </td><td>                                                                                                          </td></tr>
+</table>
 <ul>
-  <li>Avant Wolfenstein par John Carmack <i>(2 jeux publiés)</i>
-    <ul>
-      <li>1991 : <a href="https://www.mobygames.com/game/dos/hovertank-one">Hovertank 3-D</a>, <a href="https://www.mobygames.com/game/dos/catacomb-3-d">Catacomb 3-D</a></li>
-    </ul>
-  </li>
+  <li>Avant Wolfenstein par John Carmack</li>
   <li><a href="https://www.mobygames.com/game-group/3d-engine-wolf3d">Wolfenstein Engine</a> par John Carmack
     <ul>
-      <li>Jeux commerciaux publiés <i>(3)</i>
-        <ul>
-          <li>1992 : <a href="https://www.mobygames.com/game/wolfenstein-3d">Wolfenstein 3D</a>, <a href="https://www.mobygames.com/game/spear-of-destiny">Spear of Destiny</a></li>
-          <li>1993 : <a href="https://www.mobygames.com/game/blake-stone-aliens-of-gold">Blake Stone: Aliens of Gold</a></li>
-          <li>1994 : <a href="https://www.mobygames.com/game/rise-of-the-triad-dark-war">Rise of the Triad: Dark War</a>, <a href="https://www.mobygames.com/game/blake-stone-planet-strike">Blake Stone: Planet Strike!</a>, <a href="https://www.mobygames.com/game/operation-body-count">Operation Body Count</a>, <a href="https://www.mobygames.com/game/corridor-7-alien-invasion">Corridor 7: Alien Invasion</a>, <a href="https://www.mobygames.com/game/super-noahs-ark-3-d">Super Noah's Ark 3-D</a></li>
-        </ul>
-      </li>
       <li>Liens
         <ul>
           <li>Le jeu est <a href="http://3d.wolfenstein.com/game_EU.php">jouable en ligne</a> dans une version codée en JavaScript.</li>
@@ -203,15 +207,7 @@ p { text-align: justify; }
       </li>
     </ul>
   </li>
-  <li><a href="https://www.mobygames.com/game-group/3d-engine-id-tech-1/">Doom Engine/id Tech 1</a> par John Carmack <i>(10 jeux publiés)</i>
-    <ul>
-      <li>1993 : <a href="https://www.mobygames.com/game/dos/doom">Doom</a></li>
-      <li>1994 : <a href="https://www.mobygames.com/game/doom-ii_">Doom II: Hell on Earth</a>, <a href="https://www.mobygames.com/game/heretic">Heretic</a></li>
-      <li>1995 : <a href="https://www.mobygames.com/game/ultimate-doom">The Ultimate DOOM</a>, <a href="https://www.mobygames.com/game/hexen-beyond-heretic">Hexen: Beyond Heretic</a></li>
-      <li>1996 : <a href="https://www.mobygames.com/game/final-doom">Final DOOM</a>, <a href="https://www.mobygames.com/game/chex-quest">Chex Quest</a>, <a href="https://www.mobygames.com/game/chex-quest-2">Chex Quest 2</a>, <a href="https://www.mobygames.com/game/strife">Strife</a></li>
-      <li>2019 : <a href="https://www.mobygames.com/game/hedon">Hedon</a></li>
-    </ul>
-  </li>
+  <li><a href="https://www.mobygames.com/game-group/3d-engine-id-tech-1/">Doom Engine/id Tech 1</a> par John Carmack <i>(10 jeux publiés)</i></li>
   <li><a href="https://www.mobygames.com/game-group/25d-engine-build">Build Engine</a> par Ken Silverman
     <ul>
       <li>Technologiquement, le Build Engine apporta :
@@ -232,17 +228,6 @@ p { text-align: justify; }
           <li><a href="https://www.youtube.com/watch?v=3qtmkkdND6M">Description du Build 2</a> par CuteFloor</li>
         </ul>
       </li>
-      <li>Jeux commerciaux publiés <i>(13)</i>
-        <ul>
-          <li>1994 : <a href="https://www.mobygames.com/game/euijeok-im-kkeokjeong">Legend of the Seven Paladins 3D/Euijeok: Im Kkeokjeong</a></li>
-          <li>1995 : <a href="https://www.mobygames.com/game/william-shatners-tekwar">William Shatner's TekWar</a>, <a href="https://www.mobygames.com/game/witchaven">Witchaven</a></li>
-          <li>1996 : <a href="http://www.mobygames.com/game/dos/duke-nukem-3d">Duke Nukem 3D</a>, <a href="https://www.mobygames.com/game/powerslave">Witchaven II: Blood Vengeance</a>, <a href="https://www.mobygames.com/game/powerslave">Powerslave/Exhumed</a></li>
-          <li>1997 : <a href="https://www.mobygames.com/game/dos/blood">Blood</a>, <a href="https://www.mobygames.com/game/dos/redneck-rampage">Redneck Rampagne</a>, <a href="https://www.mobygames.com/game/shadow-warrior">Shadow Warrior</a></li>
-          <li>1998 : <a href="https://www.mobygames.com/game/nam">NAM</a>, <a href="https://www.mobygames.com/game/extreme-paintbrawl">Extreme Paintbrawl</a></li>
-          <li>1999 : <a href="https://www.mobygames.com/game/wwii-gi">WW2</a></li>
-          <li>2018 : <a href="https://www.mobygames.com/game/ion-maiden">Ion Maiden</a></li>
-        </ul>
-      </li>
       <li>Jeux non publiés
         <ul>
           <li>Fate (~1996), Corridor 8: Galactic Wars (~1996)</li>
@@ -250,26 +235,6 @@ p { text-align: justify; }
       </li>
     </ul>
   </li>
-  <li><a href="https://www.mobygames.com/game-group/game-engine-jedi">Jedi Engine</a> par Ray Gresko <i>(2 jeux publiés)</i>
-    <ul>
-      <li>1995 : <a href="https://www.mobygames.com/game/star-wars-dark-forces">Dark Forces</a></li>
-      <li>1997 : <a href="https://www.mobygames.com/game/outlaws">Outlaws</a></li>
-    </ul>
-  </li>
-  <li>La série des Ultima Underworld <i>(2 jeux publiés)</i>
-    <ul>
-      <li>1992 : <a href="https://www.mobygames.com/game/ultima-underworld-the-stygian-abyss">Ultima Underworld: The Stygian Abyss</a></li>
-      <li>1993 : <a href="https://www.mobygames.com/game/ultima-underworld-ii-labyrinth-of-worlds">Ultima Underworld II: Labyrinth of Worlds</a></li>
-    </ul>
-  </li>
-  <li>La série de jeux Bethesda <i>(2 jeux publiés)</i>
-    <ul>
-      <li>1993 : <a href="https://www.mobygames.com/game/terminator-rampage">The Terminator: Rampage</a></li>
-      <li>1994 : <a href="https://www.mobygames.com/game/dos/elder-scrolls-arena">The Elder Scrolls: Arena</a></li>
-    </ul>
-  </li>
-</ul>
-<ul>
   <li>Tutoriels
     <ul>
       <li>Tutoriel de <a href="https://lodev.org/cgtutor/">Lode Vandevenne</a>
