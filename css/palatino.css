@@ -1,15 +1,18 @@
 /*-----------------------------------------------------------------------------
  * Created: 2 april 2018 transfered from free.fr to github but it's older
- * Revised: 17 april 2020
+ * Revised: 17 april 2020 and 12 june 2020
  * Author: Damien Gouteux
  * Unused:
  *     content: "» ";
  *     a:visited
  *     rgb(0, 111, 221); un bleu sympa ou 006fdd
  *     text-decoration: underline;
+ *-----------------------------------------------------------------------------
  * Fusion of style2018 created on Mar 2, 2018 and modified only on Mar 5, 2018.
+ * Customisation of .jumbotron added on 12 june 2020.
  *-----------------------------------------------------------------------------
  * Summary:
+ *     customisation .jumbotron
  *     body
  *     title: h1, h2, h3, h4
  *     paragraph
@@ -24,6 +27,37 @@
  *     hr
  *     blockquote
  *---------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------
+ *
+ * Customisation jumbotron
+ *
+ *---------------------------------------------------------------------------*/
+
+.jumbotron {
+    padding-top: 30px;
+}
+.jumbotron p, .jumbotron li {
+    color: rgb(119, 119, 119);
+    font-family: "Palatino Linotype";
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 25.7167px;
+    margin-bottom: 10px;
+}
+.jumbotron h1 {
+    font-size: 58.5px;
+    font-weight: 300;
+    line-height: 64.35px;
+    margin-bottom: 9px;
+    margin-top: 9px;
+}
+.jumbotron hr {
+    border-top-color: #dbdbdb;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    border: 0;
+}
 
 /*-----------------------------------------------------------------------------
  *
