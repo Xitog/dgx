@@ -1,0 +1,6 @@
+wyrmsun project:
+    tiles\01_water_deep
+    tiles\02_mud_water
+    tiles\03_dry_mud
+    tiles\04_grass_mud
+    tiles\05_dark_grass
