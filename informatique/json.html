@@ -175,28 +175,28 @@
 <ul>
   <li>Les types <i>atomiques</i><sup>1</sup> de données :
     <ul>
-      <li>Number (entiers et réels) : <code><span class="number">1.<span class="number">2 <span class="number">23</span></code>,</li>
-      <li>String <code><span class="string">"bonjour"</span></code>,</li>
-      <li>Boolean <code><span class="boolean">true</span> <span class="boolean">false</span></code>,</li>
-      <li>et la valeur <code><span class="keyword">null</span></code>.</li>
+      <li>Number (entiers et réels) : <code><span class="json-number">1.2</span><span class="json-blank"> </span><span class="json-number">23</span></code>,</li>
+      <li>String <code><span class="json-string">"bonjour"</span></code>,</li>
+      <li>Boolean <code><span class="json-boolean">true</span><span class="json-blank"> </span><span class="json-boolean">false</span></code>,</li>
+      <li>et la valeur <code><span class="json-keyword">null</span></code>.</li>
     </ul>
   </li>
   <li>Les types <i>composés</i><sup>1</sup> de données :
     <ul>
-      <li>Object <code>{ <span class="normal">clé</span> : <span class="normal">value</span>, ... }</code>,</li>
-      <li>Array <code>[ <span class="normal">val1</span>, ...]</code>.</li>
+      <li>Object <code><span class="json-separator">{</span><span class="json-blank"> </span><span class="json-identifier">clé</span><span class="json-blank"> </span><span class="json-separator">:</span><span class="json-blank"> </span><span class="json-identifier">value</span><span class="json-separator">,</span><span class="json-blank"> </span><span class="json-separator">.</span><span class="json-separator">.</span><span class="json-separator">.</span><span class="json-blank"> </span><span class="json-separator">}</span></code>,</li>
+      <li>Array <code><span class="json-separator">[</span><span class="json-blank"> </span><span class="json-identifier">val1</span><span class="json-separator">,</span><span class="json-blank"> </span><span class="json-separator">.</span><span class="json-separator">.</span><span class="json-separator">.</span><span class="json-separator">]</span></code>.</li>
     </ul>
   </li>
 </ul>
 <p><sup>1</sup>: atomiques et composés sont des termes personnels.</p>
 <p>Remarques :</p>
 <ul>
-  <li><b>La clé ne peut être que de type</b> <code><span class="normal">String</span></code>, pas de nombres, pas d'identifiant.</li>
+  <li><b>La clé ne peut être que de type</b> <code><span class="json-identifier">String</span></code>, pas de nombres, pas d'identifiant.</li>
   <li>JSON est un sous-ensemble du langage <a href="http://yaml.org/">YAML</a>, plus particulièrement de sa syntaxe compacte.</li>
   <li>JSON est un sous-ensemble de <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript">JavaScript</a>.</li>
-  <li>Pas de guillemet simple <code><span class="string">'</code> pour encadrer les chaînes de caractères seulement le double <code><span class="string">"</code>.</li>
+  <li>Pas de guillemet simple <code><span class="text-normal">'</span></code> pour encadrer les chaînes de caractères seulement le double <code><span class="text-normal">"</span></code>.</li>
   <li>Les chaînes de caractères doivent être en <a href="http://unicode.org/fr/">Unicode</a>, plus précisément, encodées en <a href="https://tools.ietf.org/html/rfc8259#section-8.1">UTF-8</a>.</li>
-  <li><b>Pas de virgule <code>,</code> après l'élément final d'un Object ou d'une Array</b>.</li>
+  <li><b>Pas de virgule <code><span class="json-separator">,</span></code> après l'élément final d'un Object ou d'une Array</b>.</li>
   <li><b>On ne peut pas faire de commentaires en JSON</b>.</li>
 </ul>
 <h2 id="textes-de-référence">Textes de référence</h2>
@@ -218,19 +218,19 @@
 </ul>
 <h2 id="exemple">Exemple</h2>
 <pre class="code">
-    {<span class="newline">
-        <span class="string">"type"</span> : <span class="string">"Voiture"</span>,<span class="newline">
-        <span class="string">"marque"</span> : <span class="string">"Hyundai"</span>,<span class="newline">
-        <span class="string">"modèle"</span> : <span class="string">"Getz"</span>,<span class="newline">
-        <span class="string">"annéeConstruction"</span> : <span class="number">2005</span>,<span class="newline">
-        <span class="string">"nomConducteurs"</span> : [<span class="newline">
-            <span class="string">"Damien"</span>,<span class="newline">
-            <span class="string">"Charles"</span>,<span class="newline">
-            <span class="string">"Gustave"</span><span class="newline">
-        ],<span class="newline">
-        <span class="string">"madeInEurope"</span> : <span class="boolean">false</span><span class="newline">
-    }<span class="newline">
-</pre>
+<span class="json-blank">    </span><span class="json-separator">{</span><span class="json-newline">
+</span><span class="json-blank">        </span><span class="json-string">"type"</span><span class="json-blank"> </span><span class="json-separator">:</span><span class="json-blank"> </span><span class="json-string">"Voiture"</span><span class="json-separator">,</span><span class="json-newline">
+</span><span class="json-blank">        </span><span class="json-string">"marque"</span><span class="json-blank"> </span><span class="json-separator">:</span><span class="json-blank"> </span><span class="json-string">"Hyundai"</span><span class="json-separator">,</span><span class="json-newline">
+</span><span class="json-blank">        </span><span class="json-string">"modèle"</span><span class="json-blank"> </span><span class="json-separator">:</span><span class="json-blank"> </span><span class="json-string">"Getz"</span><span class="json-separator">,</span><span class="json-newline">
+</span><span class="json-blank">        </span><span class="json-string">"annéeConstruction"</span><span class="json-blank"> </span><span class="json-separator">:</span><span class="json-blank"> </span><span class="json-number">2005</span><span class="json-separator">,</span><span class="json-newline">
+</span><span class="json-blank">        </span><span class="json-string">"nomConducteurs"</span><span class="json-blank"> </span><span class="json-separator">:</span><span class="json-blank"> </span><span class="json-separator">[</span><span class="json-newline">
+</span><span class="json-blank">            </span><span class="json-string">"Damien"</span><span class="json-separator">,</span><span class="json-newline">
+</span><span class="json-blank">            </span><span class="json-string">"Charles"</span><span class="json-separator">,</span><span class="json-newline">
+</span><span class="json-blank">            </span><span class="json-string">"Gustave"</span><span class="json-newline">
+</span><span class="json-blank">        </span><span class="json-separator">]</span><span class="json-separator">,</span><span class="json-newline">
+</span><span class="json-blank">        </span><span class="json-string">"madeInEurope"</span><span class="json-blank"> </span><span class="json-separator">:</span><span class="json-blank"> </span><span class="json-boolean">false</span><span class="json-newline">
+</span><span class="json-blank">    </span><span class="json-separator">}</span><span class="json-newline">
+</span></pre>
 <h2 id="autres-formats">Autres formats</h2>
 <p>Il existe d'autres formats qui remplisse les mêmes fonctions que JSON :</p>
 <ul>

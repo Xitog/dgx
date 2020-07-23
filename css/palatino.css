@@ -135,6 +135,7 @@ p {
     font-weight: normal;
     font-style: normal;
     color: #111111;
+    text-align: justify;
 }
 p.first:first-letter {
     font-size:18;
@@ -256,7 +257,7 @@ code {
     padding-right: 2px;
 }
 
-code, span.identifier, span.keyword, span.string, span.number, span.special, span.boolean {
+code {
     font-family: "Consolas";
     font-size: 14px;
     background-color: #F9F9F9;
@@ -265,23 +266,23 @@ code, span.identifier, span.keyword, span.string, span.number, span.special, spa
 span.identifier {
     color: rgb(0, 0, 255);
 }
-span.keyword {
+span.keyword, span[class$="-keyword"] {
     color: rgb(255, 119, 0); /* orange */
 }
-span.string {
+span.string, span[class$="-string"] {
     color: rgb(0, 170, 0);
 }
-span.number {
+span.number, span[class$="-number"], span[class$="-integer"] {
     color: rgb(255, 0, 0);
 }
-span.special {
+span.special, span[class$="-special"] {
     color: rgb(144, 0, 144); /* purple */
 }
-span.comment {
+span.comment, span[class$="-comment"] {
     color: grey;
     font-style: italic;
 }
-span.boolean {
+span.boolean, span[class$="-boolean"] {
     color: rgb(255, 119, 0); /* orange */
 }
 

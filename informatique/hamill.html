@@ -168,13 +168,13 @@
 </ul>
 <h2 id="div,-p-et-span">Div, p et span</h2>
 <ul>
-  <li><code>{{#<span class="normal">id</span> .<span class="normal">class</span>}}</code> : sur une ligne, seule, permet de définir une div avec un id et/ou une classe.</li>
-  <li><code>{{<span class="normal">end</span>}}</code> : sur une ligne, seule, permet de fermer une div ouverte.</li>
-  <li><code>{{#<span class="normal">id</span> .<span class="normal">class</span> <span class="normal">content</span>}}</code> : dans un paragraphe, permet de spécifier un span avec un id et/ou une classe.</li>
-  <li><code>{{#<span class="normal">id</span> .<span class="normal">class</span>}} ...</code> : dans un paragraphe, permet de spécifier l'id et/ou la classe du paragraphe.</li>
+  <li><code><span class="hamill-separator">{</span><span class="hamill-separator">{</span><span class="hamill-separator">#</span><span class="hamill-identifier">id</span><span class="hamill-blank"> </span><span class="hamill-separator">.</span><span class="hamill-identifier">class</span><span class="hamill-separator">}</span><span class="hamill-separator">}</span></code> : sur une ligne, seule, permet de définir une div avec un id et/ou une classe.</li>
+  <li><code><span class="hamill-separator">{</span><span class="hamill-separator">{</span><span class="hamill-identifier">end</span><span class="hamill-separator">}</span><span class="hamill-separator">}</span></code> : sur une ligne, seule, permet de fermer une div ouverte.</li>
+  <li><code><span class="hamill-separator">{</span><span class="hamill-separator">{</span><span class="hamill-separator">#</span><span class="hamill-identifier">id</span><span class="hamill-blank"> </span><span class="hamill-separator">.</span><span class="hamill-identifier">class</span><span class="hamill-blank"> </span><span class="hamill-identifier">content</span><span class="hamill-separator">}</span><span class="hamill-separator">}</span></code> : dans un paragraphe, permet de spécifier un span avec un id et/ou une classe.</li>
+  <li><code><span class="hamill-separator">{</span><span class="hamill-separator">{</span><span class="hamill-separator">#</span><span class="hamill-identifier">id</span><span class="hamill-blank"> </span><span class="hamill-separator">.</span><span class="hamill-identifier">class</span><span class="hamill-separator">}</span><span class="hamill-separator">}</span><span class="hamill-blank"> </span><span class="hamill-separator">.</span><span class="hamill-separator">.</span><span class="hamill-separator">.</span></code> : dans un paragraphe, permet de spécifier l'id et/ou la classe du paragraphe.</li>
 </ul>
 <h2 id="code">Code</h2>
-<p>On utilise @@<code><span class="normal">pour</span> <span class="normal">du</span> <span class="normal">code</span> <span class="normal">inline</span></code>@@. Hamill dispose d'un colorisateur syntaxique pour Python et JSON, on précise ainsi : @@python<code> <span class="keyword">def</span> <span class="identifier">function</span><span class="separator">(</span><span class="normal">par1</span><span class="separator">,</span> <span class="normal">par2</span><span class="separator">)</span></code>@@.</p>
+<p>On utilise @@<code><span class="hamill-identifier">pour</span><span class="hamill-blank"> </span><span class="hamill-identifier">du</span><span class="hamill-blank"> </span><span class="hamill-identifier">code</span><span class="hamill-blank"> </span><span class="hamill-identifier">inline</span></code>@@. Hamill dispose d'un colorisateur syntaxique pour Python et JSON, on précise ainsi : @@python<code><span class="python-keyword">def</span><span class="python-blank"> </span><span class="python-identifier">function</span><span class="python-separator">(</span><span class="python-identifier">par1</span><span class="python-separator">,</span><span class="python-blank"> </span><span class="python-identifier">par2</span><span class="python-separator">)</span></code>@@.</p>
 <p>Pour un bloc de code, il ya deux solutions :</p>
 <p>On peut faire une ligne avec seulement @@ suivi éventuellement du langage qu'on souhaite puis des lignes avec @@ au début jusqu'à une ligne ne comportant que @@. Ainsi :</p>
 <pre>
@@ -186,10 +186,10 @@
 </pre>
 <p>Donnera :</p>
 <pre class="code">
-    <span class="comment"># Ceci est un commentaire</span><span class="newline">
-</span>    <span class="keyword">def</span> <span class="identifier">function</span><span class="separator">(</span><span class="normal">par1</span><span class="separator">,</span> <span class="normal">par2</span><span class="separator">)</span><span class="operator">:</span><span class="newline">
-</span>        <span class="keyword">return</span> <span class="string">"Ceci est une fonction"</span><span class="newline">
-</span><span class="newline">
+<span class="python-blank">    </span><span class="python-line_comment"># Ceci est un commentaire
+</span><span class="python-blank">    </span><span class="python-keyword">def</span><span class="python-blank"> </span><span class="python-identifier">function</span><span class="python-separator">(</span><span class="python-identifier">par1</span><span class="python-separator">,</span><span class="python-blank"> </span><span class="python-identifier">par2</span><span class="python-separator">)</span><span class="python-operator">:</span><span class="python-newline">
+</span><span class="python-blank">        </span><span class="python-keyword">return</span><span class="python-blank"> </span><span class="python-string">"Ceci est une fonction"</span><span class="python-newline">
+</span><span class="python-newline">
 </span></pre>
 <p>On peut également faire une ligne avec seulement @@@ suivi éventuellement du langage qu'on souhaite puis des lignes <u>sans rien</u> jusqu'à une ligne ne comportant que @@@. Ainsi :</p>
 <pre>
@@ -201,9 +201,9 @@
 </pre>
 <p>Donnera :</p>
 <pre class="code">
-    <span class="comment"># Ceci est un commentaire</span><span class="newline">
-</span>    <span class="keyword">def</span> <span class="identifier">function</span><span class="separator">(</span><span class="normal">par1</span><span class="separator">,</span> <span class="normal">par2</span><span class="separator">)</span><span class="operator">:</span><span class="newline">
-</span>        <span class="keyword">return</span> <span class="string">"Ceci est une fonction"</span><span class="newline">
+<span class="python-blank">    </span><span class="python-line_comment"># Ceci est un commentaire
+</span><span class="python-blank">    </span><span class="python-keyword">def</span><span class="python-blank"> </span><span class="python-identifier">function</span><span class="python-separator">(</span><span class="python-identifier">par1</span><span class="python-separator">,</span><span class="python-blank"> </span><span class="python-identifier">par2</span><span class="python-separator">)</span><span class="python-operator">:</span><span class="python-newline">
+</span><span class="python-blank">        </span><span class="python-keyword">return</span><span class="python-blank"> </span><span class="python-string">"Ceci est une fonction"</span><span class="python-newline">
 </span></pre>
 <h2 id="listes">Listes</h2>
 <ul>
@@ -242,12 +242,12 @@
 <tr><th><sup>Ceci</sup>                   </th><th><b>est</b></th><th><u>un</u>            </th><th><i>tableau</i>                                </th></tr>
 <tr><td>Il <img src="..\img\background-green.png"></img> </td><td>est    </td><td><s>beau</s> différent</td><td>ce <a href="https://xitog.github.io/dgx/">tableau</a>.</td></tr>
 </table>
-<p>On peut également centré une case en faisant suivre la colonne ouvrante par <code>=</code> et d'aligner à droite avec <code>&gt;</code> :</p>
+<p>On peut également centré une case en faisant suivre la colonne ouvrante par <code><span class="hamill-separator">=</span></code> et d'aligner à droite avec <code><span class="hamill-separator">></span></code> :</p>
 <table>
 <tr><th>A gauche  </th><th align="center"> Centré  </th><th align="right"> A droite</th></tr>
 <tr><td align="right"> A droite</td><td align="center"> Centré  </td><td>A gauche  </td></tr>
 </table>
-<p>On peut également préciser un colspan avec #cVALEUR# par exemple : <code>#<span class="normal">c3</span>#</code> et combiné avec centrer <code>=#<span class="normal">c3</span>#</code> :</p>
+<p>On peut également préciser un colspan avec #cVALEUR# par exemple : <code><span class="hamill-separator">#</span><span class="hamill-identifier">c3</span><span class="hamill-separator">#</span></code> et combiné avec centrer <code><span class="hamill-separator">=</span><span class="hamill-separator">#</span><span class="hamill-identifier">c3</span><span class="hamill-separator">#</span></code> :</p>
 <table>
 <tr><th>Colonne 1</th><th>Colonne 2</th><th>Colonne 3</th></tr>
 <tr><td align="center" colspan=3> Centré et colspan=3    </td></tr>
@@ -256,53 +256,53 @@
 <h2 id="liens">Liens</h2>
 <ul>
   <li>On utilise les crochets</li>
-  <li>La première forme dite <i>directe</i> est <code>[&gt; <span class="normal">URL</span>]</code> ou <code>[&gt; <span class="normal">REF</span>]</code>. L'URL ou la REF sera affichée</li>
-  <li>La seconde forme dite <i>nommée</i> s'écrit <code>[ <span class="normal">nom</span> <span class="normal">affiché</span> -&gt; <span class="normal">URL</span> ]</code> ou <code>[ <span class="normal">nom</span> <span class="normal">affiché</span> -&gt; <span class="normal">REF</span> ]</code></li>
-  <li>Une URL commence par <code><span class="normal">http</span><span class="operator">:</span>//</code> ou <code><span class="normal">https</span><span class="operator">:</span>//</code></li>
-  <li>Une REF est définie par une ligne de la forme <code>[<span class="normal">code</span>]<span class="operator">:</span> <span class="normal">http</span><span class="operator">:</span>//...</code>@@</li>
-  <li>Une forme spéciale de la nommée est si REF est seulement <code>#</code> comme <code>[ <span class="normal">nom</span> <span class="normal">affiché</span> -&gt; # ]</code> : il essaye de faire sur le nom affiché transformé ou, si l'ancre n'existe pas, le nom affiché directement</li>
+  <li>La première forme dite <i>directe</i> est <code><span class="hamill-separator">[</span><span class="hamill-separator">></span><span class="hamill-blank"> </span><span class="hamill-identifier">URL</span><span class="hamill-separator">]</span></code> ou <code><span class="hamill-separator">[</span><span class="hamill-separator">></span><span class="hamill-blank"> </span><span class="hamill-identifier">REF</span><span class="hamill-separator">]</span></code>. L'URL ou la REF sera affichée</li>
+  <li>La seconde forme dite <i>nommée</i> s'écrit <code><span class="hamill-separator">[</span><span class="hamill-blank"> </span><span class="hamill-identifier">nom</span><span class="hamill-blank"> </span><span class="hamill-identifier">affiché</span><span class="hamill-blank"> </span><span class="hamill-separator">-</span><span class="hamill-separator">></span><span class="hamill-blank"> </span><span class="hamill-identifier">URL</span><span class="hamill-blank"> </span><span class="hamill-separator">]</span></code> ou <code><span class="hamill-separator">[</span><span class="hamill-blank"> </span><span class="hamill-identifier">nom</span><span class="hamill-blank"> </span><span class="hamill-identifier">affiché</span><span class="hamill-blank"> </span><span class="hamill-separator">-</span><span class="hamill-separator">></span><span class="hamill-blank"> </span><span class="hamill-identifier">REF</span><span class="hamill-blank"> </span><span class="hamill-separator">]</span></code></li>
+  <li>Une URL commence par <code><span class="hamill-identifier">http</span><span class="hamill-operator">:</span><span class="hamill-separator">/</span><span class="hamill-separator">/</span></code> ou <code><span class="hamill-identifier">https</span><span class="hamill-operator">:</span><span class="hamill-separator">/</span><span class="hamill-separator">/</span></code></li>
+  <li>Une REF est définie par une ligne de la forme <code><span class="hamill-separator">[</span><span class="hamill-identifier">code</span><span class="hamill-separator">]</span><span class="hamill-operator">:</span><span class="hamill-blank"> </span><span class="hamill-identifier">http</span><span class="hamill-operator">:</span><span class="hamill-separator">/</span><span class="hamill-separator">/</span><span class="hamill-separator">.</span><span class="hamill-separator">.</span><span class="hamill-separator">.</span></code>@@</li>
+  <li>Une forme spéciale de la nommée est si REF est seulement <code><span class="hamill-separator">#</span></code> comme <code><span class="hamill-separator">[</span><span class="hamill-blank"> </span><span class="hamill-identifier">nom</span><span class="hamill-blank"> </span><span class="hamill-identifier">affiché</span><span class="hamill-blank"> </span><span class="hamill-separator">-</span><span class="hamill-separator">></span><span class="hamill-blank"> </span><span class="hamill-separator">#</span><span class="hamill-blank"> </span><span class="hamill-separator">]</span></code> : il essaye de faire sur le nom affiché transformé ou, si l'ancre n'existe pas, le nom affiché directement</li>
   <li>Les titres sont automatiquement transformés en ancre en remplaçant les espaces par - et en les mettant en minuscules : ainsi <b>Les jeux</b> devient <b>les_jeux</b></li>
 </ul>
 <h2 id="images">Images</h2>
 <ul>
   <li>On utilise les crochets [ avec ! comme : [!mon_image.png]</li>
-  <li>On peut définir un répertoire par défaut où les images seront prises avec la variable <code><span class="normal">DEFAULT_FIND_IMAGE</span></code></li>
+  <li>On peut définir un répertoire par défaut où les images seront prises avec la variable <code><span class="hamill-identifier">DEFAULT_FIND_IMAGE</span></code></li>
 </ul>
 <h2 id="constantes">Constantes</h2>
-<p>On peut définir des constantes en mettant <code>!<span class="keyword">const</span></code> en début de ligne. Les constantes peuvent être définies n'importe où dans le document et plusieurs fois mais <b><u>seule la dernière valeur définie est prise en compte</u></b>.</p>
+<p>On peut définir des constantes en mettant <code><span class="hamill-separator">!</span><span class="hamill-keyword">const</span></code> en début de ligne. Les constantes peuvent être définies n'importe où dans le document et plusieurs fois mais <b><u>seule la dernière valeur définie est prise en compte</u></b>.</p>
 <ul>
-  <li><code>!<span class="keyword">const</span> <span class="identifier">TITLE</span>=<span class="normal">titre</span></code> pour définir le titre de la page</li>
-  <li><code>!<span class="keyword">const</span> <span class="identifier">ICON</span>=<span class="normal">icon</span></code> pour définir une icône pour la page</li>
-  <li><code>!<span class="keyword">const</span> <span class="identifier">LANG</span>=<span class="normal">lang</span></code> pour définir la langue utilisée dans la page</li>
-  <li><code>!<span class="keyword">const</span> <span class="identifier">ENCODING</span>=<span class="normal">encoding</span></code> pour définir la langue utilisée dans la page, par défaut utf-8</li>
-  <li><code>!<span class="keyword">const</span> <span class="identifier">BODY_CLASS</span>=<span class="normal">classe</span></code> pour définir la classe du body</li>
-  <li><code>!<span class="keyword">const</span> <span class="identifier">BODY_ID</span>=<span class="normal">id</span></code> pour définir l'id du body</li>
+  <li><code><span class="hamill-separator">!</span><span class="hamill-keyword">const</span><span class="hamill-blank"> </span><span class="hamill-identifier">TITLE</span><span class="hamill-separator">=</span><span class="hamill-identifier">titre</span></code> pour définir le titre de la page</li>
+  <li><code><span class="hamill-separator">!</span><span class="hamill-keyword">const</span><span class="hamill-blank"> </span><span class="hamill-identifier">ICON</span><span class="hamill-separator">=</span><span class="hamill-identifier">icon</span></code> pour définir une icône pour la page</li>
+  <li><code><span class="hamill-separator">!</span><span class="hamill-keyword">const</span><span class="hamill-blank"> </span><span class="hamill-identifier">LANG</span><span class="hamill-separator">=</span><span class="hamill-identifier">lang</span></code> pour définir la langue utilisée dans la page</li>
+  <li><code><span class="hamill-separator">!</span><span class="hamill-keyword">const</span><span class="hamill-blank"> </span><span class="hamill-identifier">ENCODING</span><span class="hamill-separator">=</span><span class="hamill-identifier">encoding</span></code> pour définir la langue utilisée dans la page, par défaut utf-8</li>
+  <li><code><span class="hamill-separator">!</span><span class="hamill-keyword">const</span><span class="hamill-blank"> </span><span class="hamill-identifier">BODY_CLASS</span><span class="hamill-separator">=</span><span class="hamill-identifier">classe</span></code> pour définir la classe du body</li>
+  <li><code><span class="hamill-separator">!</span><span class="hamill-keyword">const</span><span class="hamill-blank"> </span><span class="hamill-identifier">BODY_ID</span><span class="hamill-separator">=</span><span class="hamill-identifier">id</span></code> pour définir l'id du body</li>
 </ul>
 <h2 id="variables">Variables</h2>
-<p>On peut définir des variables en mettant <code>!<span class="keyword">var</span></code> en début de ligne. On peut changer sa valeur en la redéfinissant dans le document plusieurs fois. Au contraire des constantes, les variables sont lues au fur et à mesure de l'émission du HTML.</p>
+<p>On peut définir des variables en mettant <code><span class="hamill-separator">!</span><span class="hamill-keyword">var</span></code> en début de ligne. On peut changer sa valeur en la redéfinissant dans le document plusieurs fois. Au contraire des constantes, les variables sont lues au fur et à mesure de l'émission du HTML.</p>
 <ul>
-  <li><code>!<span class="keyword">var</span> <span class="identifier">EXPORT_COMMENT</span>=<span class="boolean">true</span>/<span class="boolean">false</span></code> spécifie si les commentaires seront exportés en HTML ou pas</li>
-  <li><code>!<span class="keyword">var</span> <span class="identifier">PARAGRAPH_DEFINITION</span>=<span class="boolean">true</span>/<span class="boolean">false</span></code> spécifie si les dd doivent être mis dans des balises p</li>
-  <li><code>!<span class="keyword">var</span> <span class="identifier">DEFAULT_CODE</span>=<span class="normal">python</span>/<span class="normal">json</span></code> définit la coloration syntaxique par défaut du code (text par défaut)</li>
-  <li><code>!<span class="keyword">var</span> <span class="identifier">NEXT_PAR_ID</span>=<span class="normal">ids</span></code> spécifie l'id du <b>prochain</b> paragraphe</li>
-  <li><code>!<span class="keyword">var</span> <span class="identifier">NEXT_PAR_CLASS</span>=<span class="normal">cls</span></code> spécifie la classe du <b>prochain</b> paragraphe</li>
-  <li><code>!<span class="keyword">var</span> <span class="identifier">NEXT_TAB_ID</span>=<span class="normal">ids</span></code> spécifie l'id du <b>prochain</b> tableau</li>
-  <li><code>!<span class="keyword">var</span> <span class="identifier">NEXT_TAB_CLASS</span>=<span class="normal">cls</span></code> spécifie la classe du <b>prochain</b> tableau</li>
-  <li><code>!<span class="keyword">var</span> <span class="identifier">DEFAULT_PAR_CLASS</span>=<span class="normal">cls</span></code> spécifie la classe par défaut de <b>tous les paragraphes qui suivent</b></li>
-  <li><code>!<span class="keyword">var</span> <span class="identifier">DEFAULT_TAB_CLASS</span>=<span class="normal">cls</span></code> spécifie la classe par défaut de <b>tous les tableaux qui suivent</b></li>
-  <li><code>!<span class="keyword">var</span> <span class="identifier">DEFAULT_FIND_IMAGE</span>=<span class="normal">path</span></code> spécifie un répertoire où aller chercher les images par défaut</li>
+  <li><code><span class="hamill-separator">!</span><span class="hamill-keyword">var</span><span class="hamill-blank"> </span><span class="hamill-identifier">EXPORT_COMMENT</span><span class="hamill-separator">=</span><span class="hamill-boolean">true</span><span class="hamill-separator">/</span><span class="hamill-boolean">false</span></code> spécifie si les commentaires seront exportés en HTML ou pas</li>
+  <li><code><span class="hamill-separator">!</span><span class="hamill-keyword">var</span><span class="hamill-blank"> </span><span class="hamill-identifier">PARAGRAPH_DEFINITION</span><span class="hamill-separator">=</span><span class="hamill-boolean">true</span><span class="hamill-separator">/</span><span class="hamill-boolean">false</span></code> spécifie si les dd doivent être mis dans des balises p</li>
+  <li><code><span class="hamill-separator">!</span><span class="hamill-keyword">var</span><span class="hamill-blank"> </span><span class="hamill-identifier">DEFAULT_CODE</span><span class="hamill-separator">=</span><span class="hamill-identifier">python</span><span class="hamill-separator">/</span><span class="hamill-identifier">json</span></code> définit la coloration syntaxique par défaut du code (text par défaut)</li>
+  <li><code><span class="hamill-separator">!</span><span class="hamill-keyword">var</span><span class="hamill-blank"> </span><span class="hamill-identifier">NEXT_PAR_ID</span><span class="hamill-separator">=</span><span class="hamill-identifier">ids</span></code> spécifie l'id du <b>prochain</b> paragraphe</li>
+  <li><code><span class="hamill-separator">!</span><span class="hamill-keyword">var</span><span class="hamill-blank"> </span><span class="hamill-identifier">NEXT_PAR_CLASS</span><span class="hamill-separator">=</span><span class="hamill-identifier">cls</span></code> spécifie la classe du <b>prochain</b> paragraphe</li>
+  <li><code><span class="hamill-separator">!</span><span class="hamill-keyword">var</span><span class="hamill-blank"> </span><span class="hamill-identifier">NEXT_TAB_ID</span><span class="hamill-separator">=</span><span class="hamill-identifier">ids</span></code> spécifie l'id du <b>prochain</b> tableau</li>
+  <li><code><span class="hamill-separator">!</span><span class="hamill-keyword">var</span><span class="hamill-blank"> </span><span class="hamill-identifier">NEXT_TAB_CLASS</span><span class="hamill-separator">=</span><span class="hamill-identifier">cls</span></code> spécifie la classe du <b>prochain</b> tableau</li>
+  <li><code><span class="hamill-separator">!</span><span class="hamill-keyword">var</span><span class="hamill-blank"> </span><span class="hamill-identifier">DEFAULT_PAR_CLASS</span><span class="hamill-separator">=</span><span class="hamill-identifier">cls</span></code> spécifie la classe par défaut de <b>tous les paragraphes qui suivent</b></li>
+  <li><code><span class="hamill-separator">!</span><span class="hamill-keyword">var</span><span class="hamill-blank"> </span><span class="hamill-identifier">DEFAULT_TAB_CLASS</span><span class="hamill-separator">=</span><span class="hamill-identifier">cls</span></code> spécifie la classe par défaut de <b>tous les tableaux qui suivent</b></li>
+  <li><code><span class="hamill-separator">!</span><span class="hamill-keyword">var</span><span class="hamill-blank"> </span><span class="hamill-identifier">DEFAULT_FIND_IMAGE</span><span class="hamill-separator">=</span><span class="hamill-identifier">path</span></code> spécifie un répertoire où aller chercher les images par défaut</li>
 </ul>
 <h2 id="inclusion-de-fichier-html">Inclusion de fichier HTML</h2>
-<p>On peut inclure un fichier HTML avec <code>!<span class="keyword">include</span></code> en début de ligne. Le contenu du fichier sera copié directement le document produit.</p>
+<p>On peut inclure un fichier HTML avec <code><span class="hamill-separator">!</span><span class="hamill-keyword">include</span></code> en début de ligne. Le contenu du fichier sera copié directement le document produit.</p>
 <h2 id="liens-vers-un-fichier-css-ou-javascript">Liens vers un fichier CSS ou JavaScript</h2>
-<p>On peut lier notre document à fichier CSS ou JavaScript avec la commande <code>!<span class="keyword">require</span></code> en début de ligne.</p>
+<p>On peut lier notre document à fichier CSS ou JavaScript avec la commande <code><span class="hamill-separator">!</span><span class="hamill-keyword">require</span></code> en début de ligne.</p>
 <p>Le lien vers un fichier CSS requis est <b>automatiquement</b> placé dans la tête du document HTML.</p>
-<p>Le lien vers un fichier JavaScript requis est placé là ou se trouve le <code>!<span class="keyword">require</span></code>.</p>
+<p>Le lien vers un fichier JavaScript requis est placé là ou se trouve le <code><span class="hamill-separator">!</span><span class="hamill-keyword">require</span></code>.</p>
 <p><b>LIMITATION : Hamill ne peut pas mettre un lien vers un fichier JavaScript dans la tête pour l'instant</b>.</p>
 <h2 id="spécial">Spécial</h2>
 <ul>
-  <li><code>!<span class="keyword">css</span> <span class="keyword">css</span>-<span class="normal">code</span></code> permet de rajouter du code css</li>
-  <li><code>!<span class="keyword">html</span> <span class="keyword">html</span>-<span class="normal">code</span></code> permet de rajouter du code html</li>
+  <li><code><span class="hamill-separator">!</span><span class="hamill-keyword">css</span><span class="hamill-blank"> </span><span class="hamill-keyword">css</span><span class="hamill-separator">-</span><span class="hamill-identifier">code</span></code> permet de rajouter du code css</li>
+  <li><code><span class="hamill-separator">!</span><span class="hamill-keyword">html</span><span class="hamill-blank"> </span><span class="hamill-keyword">html</span><span class="hamill-separator">-</span><span class="hamill-identifier">code</span></code> permet de rajouter du code html</li>
 </ul>
 </div>
 </div>

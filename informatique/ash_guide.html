@@ -209,24 +209,24 @@
 <p>writeln("Hello World!")</p>
 <p>Une autre tradition est le calcul d'une factorielle. Ouvrez un fichier texte, enregistrez-le sous le nom de fact.ash puis tapez dedans :</p>
 <pre class="code">
--- <span class="normal">fonction</span> <span class="normal">factorielle</span> <span class="normal">récursive</span><span class="newline">
-</span><span class="normal">fun</span> <span class="normal">fact</span>(<span class="normal">nb</span> : <span class="normal">int</span>)<span class="newline">
-</span>    <span class="normal">if</span> <span class="normal">nb</span> == <span class="normal">0</span> <span class="normal">then</span><span class="newline">
-</span>        <span class="normal">return</span> <span class="normal">1</span><span class="newline">
-</span>    <span class="normal">elif</span> <span class="normal">nb</span> &amp;<span class="normal">gt</span>; <span class="normal">0</span> <span class="normal">then</span><span class="newline">
-</span>        <span class="normal">return</span> <span class="normal">nb</span> * <span class="normal">fact</span>(<span class="normal">nb</span> - <span class="normal">1</span>)<span class="newline">
-</span>    <span class="normal">else</span><span class="newline">
-</span>        <span class="normal">raise</span> <span class="normal">Exception</span>("<span class="normal">Invalid</span> <span class="normal">number</span>")<span class="newline">
-</span>    <span class="normal">end</span><span class="newline">
-</span><span class="normal">end</span><span class="newline">
-</span><span class="normal">nb</span> = <span class="normal">input</span>('<span class="normal">enter</span> <span class="normal">a</span> <span class="normal">number</span>:')<span class="newline">
-</span><span class="normal">writeln</span>(<span class="normal">fact</span>(<span class="normal">nb</span>))<span class="newline">
+<span class="text-normal">-- fonction factorielle récursive</span><span class="text-newline">
+</span><span class="text-normal">fun fact(nb : int)</span><span class="text-newline">
+</span><span class="text-normal">    if nb == 0 then</span><span class="text-newline">
+</span><span class="text-normal">        return 1</span><span class="text-newline">
+</span><span class="text-normal">    elif nb &gt; 0 then</span><span class="text-newline">
+</span><span class="text-normal">        return nb * fact(nb - 1)</span><span class="text-newline">
+</span><span class="text-normal">    else</span><span class="text-newline">
+</span><span class="text-normal">        raise Exception("Invalid number")</span><span class="text-newline">
+</span><span class="text-normal">    end</span><span class="text-newline">
+</span><span class="text-normal">end</span><span class="text-newline">
+</span><span class="text-normal">nb = input('enter a number:')</span><span class="text-newline">
+</span><span class="text-normal">writeln(fact(nb))</span><span class="text-newline">
 </span></pre>
 <h3 id="1.3-commentaires">1.3 Commentaires</h3>
 <pre class="code">
--- <span class="normal">comment</span><span class="newline">
-</span>--[[ <span class="normal">start</span> <span class="normal">of</span> <span class="normal">multi</span> <span class="normal">line</span><span class="newline">
-</span>]] <span class="normal">end</span> <span class="normal">of</span> <span class="normal">multi</span> <span class="normal">line</span><span class="newline">
+<span class="text-normal">-- comment</span><span class="text-newline">
+</span><span class="text-normal">--[[ start of multi line</span><span class="text-newline">
+</span><span class="text-normal">]] end of multi line</span><span class="text-newline">
 </span></pre>
 <h3 id="1.4-constantes-et-variables">1.4 Constantes et variables</h3>
 <p>nom de variable : (@/_A-Za-z)(0-9A-Za-z)</p>
@@ -234,13 +234,13 @@
 <p>following word are reserved because they are keyword.</p>
 <p>Ash is case sensitive.</p>
 <pre class="code">
-<span class="normal">defined?</span>(<span class="normal">tst</span>) --&gt; <span class="normal">nil</span><span class="newline">
-</span><span class="normal">tst</span> = <span class="normal">nil</span> --&gt; <span class="normal">variable</span> <span class="normal">defined</span> <span class="normal">with</span> <span class="normal">value</span><span class="newline">
-</span><span class="normal">if</span> <span class="normal">tst</span> <span class="normal">is</span> <span class="normal">nil</span> <span class="normal">then</span><span class="newline">
-</span>    <span class="normal">writeln</span>('<span class="normal">tst</span> <span class="normal">is</span> <span class="normal">nil</span>')<span class="newline">
-</span><span class="normal">end</span><span class="newline">
-</span><span class="normal">tst</span> = <span class="normal">22</span><span class="newline">
-</span><span class="normal">writeln</span>(<span class="normal">tst</span>)  --&gt; <span class="normal">2</span><span class="newline">
+<span class="text-normal">defined?(tst) --> nil</span><span class="text-newline">
+</span><span class="text-normal">tst = nil --> variable defined with value</span><span class="text-newline">
+</span><span class="text-normal">if tst is nil then</span><span class="text-newline">
+</span><span class="text-normal">    writeln('tst is nil')</span><span class="text-newline">
+</span><span class="text-normal">end</span><span class="text-newline">
+</span><span class="text-normal">tst = 22</span><span class="text-newline">
+</span><span class="text-normal">writeln(tst)  --> 2</span><span class="text-newline">
 </span></pre>
 <p>A variable is automatically cleaned after its containing scope is destroy (function or prog body).</p>
 <h3 id="1.5-expressions-et-instructions">1.5 Expressions et instructions</h3>
@@ -255,10 +255,10 @@
 <h3 id="3.1-séquence">3.1 Séquence</h3>
 <p>Un bloc est un ensemble d'instructions ou d'expressions. Les instructions et expressions sont séparées par des nouvelles lignes ou des points virgules.</p>
 <pre class="code">
-<span class="normal">a</span> = <span class="normal">1</span> + <span class="normal">4</span><span class="newline">
-</span><span class="normal">2</span>              -- <span class="normal">valide</span><span class="newline">
-</span><span class="normal">a</span> = <span class="normal">1</span> + <span class="normal">4</span> ; <span class="normal">2</span>  -- <span class="normal">valide</span> (<span class="normal">équivalent</span> <span class="normal">aux</span> <span class="normal">2</span> <span class="normal">lignes</span> <span class="normal">du</span> <span class="normal">dessus</span>)<span class="newline">
-</span><span class="normal">a</span> = <span class="normal">1</span> + <span class="normal">4</span> <span class="normal">2</span>    -- <span class="normal">ceci</span> <span class="normal">n</span>'<span class="normal">est</span> <span class="normal">pas</span> <span class="normal">valide</span> <span class="normal">en</span> <span class="normal">ash</span><span class="newline">
+<span class="text-normal">a = 1 + 4</span><span class="text-newline">
+</span><span class="text-normal">2              -- valide</span><span class="text-newline">
+</span><span class="text-normal">a = 1 + 4 ; 2  -- valide (équivalent aux 2 lignes du dessus)</span><span class="text-newline">
+</span><span class="text-normal">a = 1 + 4 2    -- ceci n'est pas valide en ash</span><span class="text-newline">
 </span></pre>
 <h3 id="3.2-sélection">3.2 Sélection</h3>
 <h3 id="3.3-boucle">3.3 Boucle</h3>
