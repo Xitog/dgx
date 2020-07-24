@@ -1,47 +1,57 @@
-<!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Aide-mémoire Lua</title>
-    <link rel="icon" href="../img/favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon" />
-    <link href="../css/simplex.bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="../css/flashy.css" rel="styleSheet" type="text/css">
-    <style type="text/css">
-      body {
-        /* font-size: 16px;
-        color: black;
-        font-family: "Palatino Linotype"; */
-      }
-      span.type {
-        color: purple;
-        font-family: "Consolas";
-      }
-      span.number {
-        color: red;
-        font-family: "Consolas";
-      }
-      span.comment {
-        color: grey;
-        font-style: italic;
-        font-family: "Consolas";
-      }
-      span.string {
-        color: orange;
-        font-family: "Consolas";
-      }
-      span.keyword {
-        color: blue;
-        font-weight: bold;
-        font-family: "Consolas";
-      }
-    </style>
-  </head>
-  <body>
-    <div id="main" class="container">
-      
+<head>
+  <meta charset=utf-8>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aide-mémoire Lua</title>
+  <link rel="icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
+  <link href="https://xitog.github.io/dgx/css/simplex.bootstrap.css" rel="stylesheet">
+  <link href="https://xitog.github.io/dgx/css/flashy.css" rel="stylesheet">
+<style type="text/css">
+p { text-align: justify; }
+</style>
+<style type="text/css">
+span.type    { color: purple; font-family: "Consolas"; }
+</style>
+<style type="text/css">
+span.lua-number  { color: red;    font-family: "Consolas"; }
+</style>
+<style type="text/css">
+span.lua-line_comment { color: grey;   font-family: "Consolas"; font-style: italic; }
+</style>
+<style type="text/css">
+span.lua-string  { color: orange; font-family: "Consolas"; }
+</style>
+<style type="text/css">
+span.lua-keyword { color: #1479cc;   font-family: "Consolas"; font-weight: bold; }
+</style>
+<style type="text/css">
+span.lua-special { color: purple; font-family: "Consolas"; }
+</style>
+<style type="text/css">
+h1 { color: #14cc67; font-family: "Palatino Linotype"; font-size: 22px; border-bottom: 1px solid #14cc67; font-weight: bold; margin-top: 18px; margin-bottom: 18px; }
+</style>
+<style type="text/css">
+h2 { color: #6714cc; font-family: "Palatino Linotype"; font-size: 18px; font-weight: bold; margin-top: 18px; margin-bottom: 18px; border-bottom: none;}
+</style>
+<style type="text/css">
+h3 { color: #cc6714; font-family: "Palatino Linotype"; font-size: 16px; font-weight: bold; margin-top:  6px; margin-bottom:  6px; }
+</style>
+<style type="text/css">
+li a { color: #6714cc; font-size: 16px; font-family: "Palatino Linotype"; }
+</style>
+<style type="text/css">
+li   { font-size: 16px; color: black; font-family: "Palatino Linotype"; }
+</style>
+<style type="text/css">
+p.back { text-align: center; }
+</style>
+</head>
+<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<div id="main" class="container">
       <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -55,408 +65,396 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li id="Accueil"><a href="../index.html">Accueil</a></li>
-              <li id="Blog"><a href="../blog.html">Blog</a></li>
+              <li id="Accueil"><a href="https://xitog.github.io/dgx/index.html">Accueil</a></li>
+              <li id="Blog"><a href="https://xitog.github.io/dgx/blog.html">Blog</a></li>
               <li class="dropdown">
                 <a id="Langues" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Langues <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                 <li class="dropdown-header">Français</li>
-                  <li><a href="../francais/fiche_api_fr.html">Fiche sur les phonèmes du français</a></li>
-                  <li><a href="../francais/outil_stats_fr.html">Outil d'analyse textuelle</a></li>
+                  <li><a href="https://xitog.github.io/dgx/francais/fiche_api_fr.html">Fiche sur les phonèmes du français</a></li>
+                  <li><a href="https://xitog.github.io/dgx/francais/outil_stats_fr.html">Outil d'analyse textuelle</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Italien</li>
-                  <li><a href="../italien/beatrice.html">Beatrice : grammaire</a></li>
-                  <li><a href="../italien/jeu_conjugaison.html">Jeu sur la conjugaison</a></li>
+                  <li><a href="https://xitog.github.io/dgx/italien/beatrice.html">Beatrice : grammaire</a></li>
+                  <li><a href="https://xitog.github.io/dgx/italien/jeu_conjugaison.html">Jeu sur la conjugaison</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Anglais</li>
-                  <li><a href="../anglais/jeu_vocabulaire.html">Jeu sur le vocabulaire</a></li>
+                  <li><a href="https://xitog.github.io/dgx/anglais/jeu_vocabulaire.html">Jeu sur le vocabulaire</a></li>
+                  <li><a href="https://xitog.github.io/dgx/anglais/verbes.html">Verbes fréquents</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Interlingua</li>
+                  <li><a href="https://xitog.github.io/dgx/interlingua/conjugueur.html">Conjugueur</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Linguistique</li>
-                  <li><a href="../linguistique/informations.html">Informations générales</a></li>
+                  <li><a href="https://xitog.github.io/dgx/linguistique/informations.html">Informations générales</a></li>
                 </ul>
               </li>
-              <li class="dropdown active">
+              <li class="dropdown">
                 <a id="Informatique" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Informatique <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li class="dropdown-header">Programmation</li>
-                  <li><a href="../informatique/syntaxes.html">Syntaxes comparées</a></li>
-                  <li><a href="../informatique/python.html">Aide-mémoire Python</a></li>
-                  <li><a href="../informatique/ruby.html">Aide-mémoire Ruby</a></li>
-                  <li><a href="../informatique/lua.html" class="active">Aide-mémoire Lua</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/syntaxes.html">Syntaxes comparées</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/python.html">Aide-mémoire Python</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/ruby.html">Aide-mémoire Ruby</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/lua.html">Aide-mémoire Lua</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/ruby_guide.html">Guide Ruby</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/ash_guide.html">Guide Ash</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Modélisation</li>
-                  <li><a href="../informatique/json.html">Aide-mémoire JSON</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/bnf.html">Aide-mémoire BNF et EBNF</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/json.html">Aide-mémoire JSON</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/hamill.html">Aide-mémoire Hamill</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Autres</li>
-                  <li><a href="../informatique/outils.html">Logiciels utiles</a></li>
-                  <li><a href="../data/outil_collections.html#langages">Liste de langages</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/tools_langs.html">Logiciels utiles et autres langages</a></li>
                 </ul>
               </li>
               <li class="dropdown">
                 <a id="Histoire" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Histoire <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li class="dropdown-header">Méthode</li>
-                  <li><a href="../histoire/methode.html">Généralités</a></li>
-                  <li><a href="../histoire/bibliographie.html">Bibliographie</a></li>
+                  <li><a href="https://xitog.github.io/dgx/histoire/methode.html">Généralités</a></li>
+                  <li><a href="https://xitog.github.io/dgx/histoire/bibliographie.html">Bibliographie</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Aide-mémoires</li>
-                  <li><a href="../histoire/france19eme.html">France au XIXe</a></li>
+                  <li><a href="https://xitog.github.io/dgx/histoire/france19eme.html">France au XIX<sup>e</sup></a></li>
                 </ul>
               </li>
               <li class="dropdown">
-                <a id="Jeux" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Jeux <span class="caret"></span></a>
+                <a id="Jeux" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Passe-temps <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Présentations générales</i></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/pres_jeux.html">Les jeux</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/pres_jeuxvideo.html">Les jeux vidéo</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/pres_favoris.html">Favoris artistiques</a></li>
+                  <li class="divider"></li>
                   <li class="dropdown-header">Jeux de rôles</i></li>
-                  <li><a href="../jeux/systeme_rpg_un.html">Essai de système</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/systemes_rpg.html">Systèmes des RPG</a></li>
                   <li class="divider"></li>
-                  <li class="dropdown-header">Livres dont VOUS êtes le héros</li>
-                  <li><a href="../jeux/compagnon_talisman.html">Le Compagnon du Talisman</a></li>
-                  <li><a href="../jeux/compagnon_sorcier.html">Le Compagnon du Sorcier</a></li>
+                  <li class="dropdown-header">Livres-jeux</li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/compagnon_talisman.html">Le Compagnon du Talisman</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/compagnon_sorcier.html">Le Compagnon du Sorcier</a></li>
                   <li class="divider"></li>
-                  <li class="dropdown-header">Jeux vidéo</li>
-                  <li><a href="../jeux/rts.html">Les enfants de Dune : les RTS</a></li>
-                  <li><a href="../jeux/raycasting.html">Le raycasting : la 2.5D</a></li>
-                  <li><a href="../jeux/play_rts.html">Jouer à mon RTS</a></li>
-                  <li><a href="../jeux/play_fps.html">Jouer à mon FPS</a></li>
-                  <li><a href="../data/outil_collections.html#jv">Jeux vidéo favoris</a></li>
+                  <li class="dropdown-header">Histoire des jeux vidéo</li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/history_rts.html">Les enfants de Dune : les RTS</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/history_fps.html">Les enfants de Doom : les FPS</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Techniques des jeux vidéo</i></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_raycasting_fr.html">Le raycasting : la 2.5D</a>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_transitions.html">Cartes et transitions</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_dialogues.html">Dialogues</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Jeux vidéo et outils maison</i></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/project_teddy.html">Éditeur de carte</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/project_rts.html">Jouer à mon RTS</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/project_fps.html">Jouer à mon FPS</a></li>
                 </ul>
               </li>
               <li class="dropdown">
                 <a id="Autres" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Autres <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li class="dropdown-header">Musique</li>
-                  <li><a href="../concerts_classiques/index.html">Concerts classiques</a></li>
+                  <li><a href="https://xitog.github.io/dgx/concerts_classiques/index.html">Concerts classiques</a></li>
+                  <li><a href="https://xitog.github.io/dgx/favoris/musiques.html">Musiques favorites</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Collections</li>
-                  <li><a href="../data/outil_collections.html#prenoms">Prénoms</a></li>
-                  <li><a href="../data/outil_collections.html#livres">Livres lus</a></li>
-                  <li><a href="../data/outil_collections.html#favoris_artistiques">Favoris artistiques</a></li>
-                  <li><a href="../liens.html">Liens</a></li>
+                  <li><a href="https://xitog.github.io/dgx/data/outil_collections.html#prenoms">Prénoms</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Liens</li>
+                  <li><a href="https://xitog.github.io/dgx/plan.html">Plan du site</a></li>
+                  <li><a href="https://xitog.github.io/dgx/liens.html">Barre de liens</a></li>
+                  <li><a href="https://xitog.github.io/dgx/liste_liens.html">Collection de liens</a></li>
                 </ul>
               </li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
-      
-      <div class="jumbotron">
-        <h1 id="lua">Aide-mémoire Lua</h1>
-        <hr>
-        <p>Cet aide-mémoire expose la syntaxe <strong>Lua</strong> et quelques opérations de base. Idéal pour se rafraîchir la mémoire, il peut également servir à un apprentissage de ce langage pour des personnes qui connaissent déjà un ou plusieurs langages de programmation. Pour les débutants en programmation, un véritable guide serait préférable. Parfois, des différences notables avec le langage <strong>Python</strong> sont soulignées.</p>
-        <p class="sign">Damien Gouteux,<br> mis à jour le 21 avril 2017,<br>créé le 4 avril 2017.</p>
-      </div>
-      
-      <div id="content">
-      
-        <!-- ========================================== SOMMAIRE PAGE ========================================== -->
-        
-        <h2 id="sommaire">Sommaire</h2>
-        <ol class="menu">
-          <li><a href="#bases">Bases</a>
-            <ol class="menu">
-              <li><a href="#bas_aff">Affichage</a></li>
-              <li><a href="#bas_key">Mots réservés</a></li>
-              <li><a href="#bas_com">Commentaires</a></li>
-            </ol>
-          </li>
-          <li><a href="#sites">Sites web</a>
-            <ol class="menu">
-              <li><a href="#sit_bib">Bibliothèques</a></li>
-              <li><a href="#sit_tools">Outils</a></li>
-            </ol>
-          </li>
-          <li><a href="#types">Types de base</a>
-            <ol class="menu">
-              <li><a href="#numbers">Nombres</a></li>
-              <li><a href="#strings">Chaînes de caractères</a></li>
-              <li><a href="#booleans">Booléens</a></li>
-              <li><a href="#nil">Valeur nil</a></li>
-              <li><a href="#table">Tables</a>
-                <ol class="menu">
-                  <li><a href="#table_def">Définition</a></li>
-                  <li><a href="#table_acc">Accès</a></li>
-                  <li><a href="#table_meta">Métatable</a></li>
-                </ol>
-              </li>
-            </ol>
-          </li>
-          <li><a href="#operators">Opérateurs</a>
-            <ol class="menu">
-              <li><a href="#op_bin">Opérateurs binaires</a>
-                <ol class="menu">
-                  <li><a href="#ari">Opérateurs arithmétiques</a></li>
-                  <li><a href="#cmp">Opérateurs de comparaisons</a></li>
-                  <li><a href="#boo">Opérateurs booléens</a></li>
-                  <li><a href="#oth">Autres opérateurs</a></li>
-                </ol>
-              </li>
-              <li><a href="#op_una">Opérateurs unaires</a>
-                <ol class="menu">
-                  <li><a href="#ari">Opérateurs arithmétiques</a></li>
-                  <li><a href="#boo">Opérateurs booléens</a></li>
-                </ol>
-              </li>
-            </ol>
-          </li>
-          <li><a href="#flux">Contrôle du flux</a>
-            <ol class="menu">
-              <li><a href="#seq">Séquence</a></li>
-              <li><a href="#cond">Conditions</a></li>
-              <li><a href="#loop">Répétitions</a></li>
-            </ol>
-          </li>
-          <li><a href="#functions">Fonctions</a>
-            <ol class="menu">
-              <li><a href="#def">Définition</a></li>
-              <li><a href="#call">Appel</a></li>
-              <li><a href="#closure">Closure</a></li>
-            </ol>
-          </li>
-          <li><a href="#spe">Gestion des exceptions</a>
-            <ol class="menu">
-              <li><a href="#exp">Appels protégés</a></li>
-            </ol>
-          </li>
-          <li><a href="#base">Fonctions de base</a>
-            <ol class="menu">
-              <li><a href="#lib_io">Sortie et entrée console</a></li>
-              <li><a href="#lib_numbers">Nombres</a></li>
-              <li><a href="#lib_strings">Chaînes de caractères</a></li>
-              <li><a href="#lib_tables">Tables</a></li>
-              <li><a href="#lib_file">Fichiers</a></li>
-            </ol>
-          </li>
-        </ol>
-        
-        <!-- ========================================== CONTENT PAGE ========================================== -->
-        
-        <h2 id="bases">1. Bases</h2>
-        
-        <h3 id="description">1.1 Description</h3>
-        
-        <p>Lua est un langage de script, gratuit, concis et simple :</p>
+<div id="content-div">
+<h1 id="sommaire">Sommaire</h1>
+<ul>
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#1.-bases-du-langage">1. Bases du langage</a>
+    <ul>
+      <li><a href="#1.1-description">1.1 Description</a></li>
+      <li><a href="#1.2-historique-et-influences">1.2 Historique et influences</a></li>
+      <li><a href="#1.3-désavantages">1.3 Désavantages</a></li>
+      <li><a href="#1.4-utilisations">1.4 Utilisations</a></li>
+      <li><a href="#1.5-bonjour-le-monde-!">1.5 Bonjour le monde !</a></li>
+      <li><a href="#1.6-affichage">1.6 Affichage</a></li>
+      <li><a href="#1.7-mots-réservés">1.7 Mots réservés</a></li>
+      <li><a href="#1.8-commentaires">1.8 Commentaires</a></li>
+      <li><a href="#1.9-variables">1.9 Variables</a></li>
+    </ul>
+  </li>
+  <li><a href="#2.-sites-web">2. Sites web</a>
+    <ul>
+      <li><a href="#2.1-bibliothèques">2.1 Bibliothèques</a></li>
+      <li><a href="#2.2-outils">2.2 Outils</a></li>
+    </ul>
+  </li>
+  <li><a href="#3.-types-de-base">3. Types de base</a>
+    <ul>
+      <li>Nombres</li>
+      <li>Chaînes de caractères</li>
+      <li>Booléens</li>
+      <li>Valeur nil</li>
+      <li>Tables
         <ul>
-          <li>Concis car le langage est assez petit aussi bien dans son nombre de mots-clés que les concepts qu'il met en jeu. Il n'y a par exemple qu'un type de données structurées, les tables, alors que de Python utilisent des tuples, des sets, des listes, des dictionnaires. L'orientation objet n'est pas supportée par des mots-clés dans le langage, il faut la reprogrammer à la main mais Lua offre des facilités pour développer les capacités du langage.</li>
-          <li>Simple car Lua a une syntaxe assez standard et très permissive : on peut appeler une fonction sans respecter le nombre de paramètres demandés, on peut simplement concaténer deux expressions à la suite, il n'y pas de système de typage des variables.</li>
+          <li>Définition</li>
+          <li>Accès</li>
+          <li>Métatable</li>
         </ul>
-        <p>La version majeure actuelle (au 28/02/2018) est la version 5 et est disponible selon les termes de la licence MIT.</p>
-        <p>Version actuelle à la date d'écriture : 5.3.4 (2018)</p>
-        
-        <p>Date d'apparition du langage : 1993</p>
-        <p>Créateurs : Roberto Ierusalimschy, Luiz Henrique de Figueiredo, Waldemar Celes (Brésil)</p>
-        
-        <p>Extension d'un fichier Lua : <span class="code">lua</span></p>
-        <p>Exécuter mon_fichier.lua : <span class="code"><b>lua</b> </i>mon_fichier.lua</i></span></p>
-        
-        <h3 id="historique">1.2 Historique et influences</h3>
-        <p>Lua a été développé au Brésil à partir de 1993 par Roberto Ierusalimschy, Waldemar Celes et Luiz Henrique de Figueiredo au sein du groupe de recherche <em>Computer Graphics Technology Group</em> (<a href="https://www.tecgraf.puc-rio.br/">TeCGraf</a> <sup>[pt, en]</sup>), de l'université pontificale catholique de Rio de Janeiro avec l'aide du géant industriel <a href="http://www.petrobras.com.br/en/">Petrobras</a> <sup>[en]</sup>.</p>
-        <p>Sa syntaxe emprunte au langage Modula, un langage développé dans les années 70 en Suisse par Niklaus Wirth, le créateur de Pascal. Elle présente des similarités avec le langage de script Ruby (sans la partie orientée objet).</p>
-        <p>Lua signifie lune en portugais et se prononce dans cette langue "loua".</p>
-  
-        <h3 id="desavantages">1.3 Désavantages</h3>
-        <p>Le revers des deux traits principaux est que Lua a des manques ou des difficultés qui n'existent pas dans des langages plus complets :</p>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#4.-opérateurs">4. Opérateurs</a>
+    <ul>
+      <li>Opérateurs binaires
         <ul>
-          <li>L'absence de mécanisme d'orientation objet de base par exemple,</li>
-          <li>La difficulté à connaître la longueur d'une liste et s'assurer de sa continuité,</li>
-          <li>Le danger de pouvoir concaténer deux expressions à la suite, sans avoir besoin de séparateurs : 3+5 2 est valide en Lua !</li>
+          <li>Opérateurs arithmétiques</li>
+          <li>Opérateurs de comparaisons</li>
+          <li>Opérateurs booléens</li>
+          <li>Autres opérateurs</li>
         </ul>
-  
-        <h3 id="utilisations">1.4 Utilisations</h3>
-        <p>Lua peut être utilisé de deux façons :</p>
+      </li>
+      <li>Opérateurs unaires
         <ul>
-          <li>Via l'interpréteur en tant qu'API C embarqué dans une <strong>application hôte</strong>. il permet de piloter celle-ci via des scripts en utilisant les fonctions supplémentaires qu'elle met à leur disposition et les bibliothèques Lua. Sa concision fait qu'il ne prend pas trop de place dans l'application hôte. On parle alors de <strong>langage d'extension</strong> (<em>extension language</em>) ou <strong>embarqué</strong> (<em>embedded</em>).</li>
-          <li>Via l'interpréteur en tant qu'application, appelé <strong>lua</strong>, on ne peut alors utiliser que les bibliothèques en Lua mais celles-ci sont nombreuses. On parle alors d'utilisation en tant que <strong>langage principal</strong> (<em>stand alone</em>). On peut utiliser ce dernier pour exécuter d'un coup des scripts Lua ou en mode interactif via une boucle REPL (<em>read-eval-print-loop</em>) en entrant au fur et à mesure des instructions qui sont exécutées au fur et à mesure qu'elles sont entrées dans l'interpréteur. L'interpréteur est programmé en C.</li>
+          <li>Opérateurs arithmétiques</li>
+          <li>Opérateurs booléens</li>
         </ul>
-        <p>L'interpréteur n'interprète pas directement le script mais le compile en bytecode et envoi celui-ci à la machine virtuelle Lua.</p>
-        <p>Lua est utilisée de façon embarquée dans de nombreux applications, en particulier des jeux vidéo. On peut citer le lecteur multimédia VLC et le jeu World of Warcraft.</p>
-  
-        <h3 id="helloworld">1.5 Bonjour le monde !</h3>
-        <p>La tradition veut que l'on commence par écrire "Bonjour le monde !" lorsque l'on découvre un nouveau langage de programmation. Nous ne dérogeons pas à la règle :</p>
-        <div class="code">
-          <i>-- Ceci est un commentaire jusqu'à la fin de la ligne</i><br>
-          <span class="function">print</span>(<span class="string">"Bonjour le monde !"</span>)
-        </div>
-  
-        <h3 id="bas_aff">1.6 Affichage</h3>
-        <p>Affichage sur la sortie standard (console) : <span class="code"><span class="function">print</span></span>
-        <p>Le programme le plus simple en Lua : <span class="code"><span class="function">print</span>(<span class="string">"Hello World!"</span>)</span></p>
-          
-        <h3 id="bas_key">1.7 Mots réservés</h3>
-        <p>Mots réservés (22) : and, break, do, else, elseif, end, false, for, function, goto, if, in, local, nil, not, or, repeat, return, then, true, until, while</p>
-        
-        <h3 id="bas_com">1.8 Commentaires</h3>
-        <p>Commentaires en Lua : <span class="code"><i>-- mon commentaire jusqu'à la fin de la ligne</i></span></p>
-        <p>Commentaires sur plusieurs lignes : 
-        <div class="code">
-          <b>--[[</b><br>
-          <i>&nbsp;&nbsp;vos lignes</i><br>
-          <b>--]]</b>
-        </div>
-        
-        <h3 id="variables">1.9 Variables</h3>
-  
-        <p>Une variable est une référence vers une valeur. Une valeur a un type, pas la variable. L'exemple suivant établie une référence entre la variable a et la valeur 5 de type number.</p>
-        <div class="code">a = <span class="number">5</span></div>
-        <p>Il n'y a pas de constantes en Lua : une variable peut référencer ensuite une autre valeur.</p>
-        <p>Une variable peut référencer n'importe quel type de valeur.</p>
-  
-        <p class="back"><a href="#sommaire">Retour sommaire</a></p>
-        
-        <h2 id="sites">2. Sites web</h2>
-        
-        <ul class="normale">
-          <li>Site officiel du langage, il contient tout ce qu'il faut pour débuter : une distribution standard avec notamment l'interpréteur officiel et la bibliothèque standard : <a href="https://www.lua.org">https://www.lua.org</a></li>
-          <li>Le livre électronique <em>Programming in Lua</em>, appelé le "PIL", est un livre d'introduction Lua avec de nombreux exemples. La première édition est gratuitement disponible en ligne mais ne correspond plus à la version actuelle du langage : <a href="https://www.lua.org/pil/contents.html">https://www.lua.org/pil/contents.html</a></li>
-          <li>Le wiki des utilisateurs de Lua : <a href="http://lua-users.org/wiki/">http://lua-users.org/wiki/</a></li>
-          <li>Lua binaries, distributions de Lua pour différents systèmes d'exploitation : <a href="http://luabinaries.sourceforge.net/">http://luabinaries.sourceforge.net/</a></li>
-          <li>Löve, une VM Lua mettant à disposition une bibliothèque pour faire des jeux : <a href="https://love2d.org/">https://love2d.org/</a></li>
-          <li>MoonSharp, un intérpréteur Lua écrit en C# pour les plates-formes .Net, Mono et Unity : <a href="http://www.moonsharp.org/">http://www.moonsharp.org/</a></li>
-          <li>Page de Wikipédia sur Lua : <a href="https://en.wikipedia.org/wiki/Lua_(programming_language)">https://en.wikipedia.org/wiki/Lua_(programming_language)</a></li>
-          <li>Boutique officielle pour supporter Lua via l'achat de goodies : <a href="https://www.zazzle.com/Lua_Store">https://www.zazzle.com/Lua_Store</a></li>
-       </ul>
-        
-        <h3 id="sit_bib">Bibliothèques</h3>
-        <ul class="normale">
-          <li>LuaRocks, le gestionnaire de bibliothèques pour Lua : <a href="https://luarocks.org/">https://luarocks.org/</a></li>
-          <li>Penlight, une librairie fondamentale pour Lua : <a href="http://stevedonovan.github.io/Penlight/api/index.html">http://stevedonovan.github.io/Penlight/api/index.html</a></li>
-          <li>Bibliothèque de « parsing » : <a href="http://www.inf.puc-rio.br/~roberto/lpeg/">http://www.inf.puc-rio.br/~roberto/lpeg/</a></li>
-          <li>Bibliothèque d'interface graphique : <a href="http://webserver2.tecgraf.puc-rio.br/iup/">http://webserver2.tecgraf.puc-rio.br/iup/</a></li>
-        </ul>
-        
-        <h3 id="sit_tools">Outils</h3>
-        <ul class="normale">
-          <li>ZeroBrane Studio un IDE léger, gratuit, simple et efficace pour Lua : <a href="https://studio.zerobrane.com/">https://studio.zerobrane.com/</a></li>
-          <li>Coder en Lua en ligne avec REPL.it et Moonlight (VM Lua en JavaScript) : <a href="https://repl.it/languages/lua">https://repl.it/languages/lua</a> et <a href="http://moonshinejs.org/">http://moonshinejs.org/</a></li>
-        </ul>
-        
-        <p class="back"><a href="#sommaire">Retour sommaire</a></p>
-        
-        <h2 id="types">3. Types de base</h2>
-   
-        <p>Les types possibles pour les valeurs sont au nombre de <b>8</b> :</p>
-        <ul>
-          <li><span class="type">nil</span>,</li>
-          <li><span class="type">boolean</span>,</li>
-          <li><span class="type">number</span>,</li>
-          <li><span class="type">string</span>,</li>
-          <li><span class="type">function</span>,</li>
-          <li><span class="type">userdata</span>,</li>
-          <li><span class="type">thread</span>,</li>
-          <li><span class="type">table</span>.</li>
-        </ul>
-        <p>Le type <span class="type">nil</span> n'a qu'une seule valeur, <span class="keyword">nil</span>. Le type <span class="type">boolean</span> a deux valeurs, <span class="keyword">true</span> et <span class="keyword">false</span>.</p>
-        <p>Le type <span class="type">number</span> a pour valeurs les entiers et les réels (ou flottants). Les conversions de l'un vers l'autre type sont automatiques. Par défaut, entiers et réels sont stockés sur 64 bits.</p>
-        <p>Le type <span class="type">function</span> sera plus étudié dans le chapitre suivant. Il s'agit de bloc de code écrit en Lua ou en C.</p>
-        <p>Le type <span class="type">string</span> unifie les caractères et les chaînes de caractères. Lua peut stocker les chaînes en UTF-8 mais ne sait pas comment les gérer.</p>
-        <p>Remarques importantes :</p>
-        <ul>
-          <li>Les valeurs <span class="keyword">nil</span> et <span class="keyword">false</span> sont les deux seules valeurs qui sont considérées comme fausse par les tests. Toutes les autres valeurs, y compris <span class="number">0</span> et la chaîne vide <span class="string">""</span> sont vraies.</p></li>
-          <li>Les chaînes sont immutables en Lua.</li>
-        </ul>
-
-        <h3 id="numbers">Nombres</h3>
-        <h3 id="strings">Chaînes de caractères</h3>
-        <h3 id="booleans">Booléens</h3>
-        <h3 id="nil">Valeur nil</h3>
-        <h3 id="table">Tables</h3>
-        <h4 id="table_def">Définition</h4>
-        <h4 id="table_acc">Accès</h4>
-        <h4 id="table_meta">Métatable</h4>
-    
-        <h2 id="operators">4. Opérateurs</h2>
-    
-        <h3 id="op_bin">Opérateurs binaires</h3>
-        <h4 id="ari">Opérateurs arithmétiques</h4>
-        <h4 id="cmp">Opérateurs de comparaisons</h4>
-        <h4 id="boo">Opérateurs booléens</h4>
-        <h4 id="oth">Autres opérateurs</h4>
-    
-        <h3 id="op_una">Opérateurs unaires</h3>
-        <h4 id="ari">Opérateurs arithmétiques</h4>
-        <h4 id="boo">Opérateurs booléens</h4>
-        
-        <h2 id="flux">5. Contrôle du flux</h2>
-        
-        <h3 id="seq">Séquence</h3>
-        
-        <p>En Lua, le symbole pour terminer les instructions est <span class="code">;</span> mais il est totalement optionnel. Ce code est donc valide : <span class="code">a = 5 b = 6</span>
-        
-        <h3 id="cond">Conditions</h3>
-        
-        <p>Pour qu'une partie du code ne soit exécutée que si une condition est vrai, on utilisera <span class="code"><b>if</b></span> :</p>
-        <div class="code">
-          <b>if</b> condition <b>then</b><br />
-          &nbsp;&nbsp; actions<br />
-          [ <b>elseif</b> condition <b>then</b><br />
-          &nbsp;&nbsp; actions ] <b>*</b><br />
-          [ <b>else</b><br />
-          &nbsp;&nbsp; actions ] <b>?</b><br />
-          <b>end</b>
-        </div>
-        <p>Sont considérées fausses les valeurs <span class="code"><b>false</b></span> et <span class="code"><b>nil</b></span>. Toutes les autres valeurs sont vraies (dont <span class="code">{} "" 0</span>).</p>
-        
-        <h3 id="loop">Répétitions</h3>
-        
-        <p>Boucle qui s'exécute <em>tant que</em> la condition est vraie avec <span class="code"><b>while</b></span> :</p>
-        <div class="code">
-          <b>while</b> condition <b>do</b><br />
-          &nbsp;&nbsp; actions<br />
-          <b>end</b>
-        </div>
-        <p>Le corps de la boucle (ses actions) sera exécuté entre 0 et n fois.</p>
-        
-        <p>Avec <span class="code"><b>repeat</b></span>, le corps de la boucle sera exécuté au moins une fois car la condition est testée après :</p>
-        <div class="code">
-          <b>repeat</b><br />
-          &nbsp;&nbsp; actions<br />
-          <b>until</b> condition
-        </div>
-        
-        <p>Autre grand classique des boucles, <span class="code"><b>for</b></span> qui peut-être utilisé avec un intervalle numérique :</p>
-        <div class="code">
-          <b>for</b> identifiant = début, fin [ , pas ] <b>do</b><br />
-          &nbsp;&nbsp; actions<br />
-          <b>end</b>
-        </div>
-        <p>Par défaut le pas est égal à 1 (si fin &lt; début, la boucle ne s'exécutera pas une seule fois).</p>
-        
-        <p>Ou avec une table indexée par des nombres :</p>
-        <div class="code">
-          <b>for</b> indice, valeur <b>in</b> ipairs(table) <b>do</b><br />
-          &nbsp;&nbsp; actions<br />
-          <b>end</b>
-        </div>
-        
-        <p>Ou avec une table indexée par des chaînes :</p>
-        <div class="code">
-          <b>for</b> clé, valeur <b>in</b> pairs(table) <b>do</b><br />
-          &nbsp;&nbsp; actions<br />
-          <b>end</b>
-        </div>
-        
-        <p>Dans les trois cas, on peut utiliser le mot-clé <span class="code"><b>break</b></span> pour sortir de la boucle.</p>
-        <p>Il n'y a pas de mot-clé <em>continue</em> ou <em>next</em> en Lua pour passer à l'itération suivante.</p>
-        
-        <h2 id="functions">6. Fonctions</h2>
-        <h3 id="def">Définition</h3>
-        <h3 id="call">Appel</h3>
-        <h3 id="closure">Closure</h3>
-    
-        <h2 id="spe">7. Gestion des exceptions</h2>
-        <h3 id="exp">Appels protégés</h3>
-  
-        <h2 id="base">8. Fonctions de base</h2>
-        <h3 id="lib_io">Sortie et entrée console</h3>
-        <h3 id="lib_numbers">Nombres</h3>
-        <h3 id="lib_strings">Chaînes de caractères</h3>
-        <h3 id="lib_tables">Tables</h3>
-        <h3 id="lib_file">Fichiers</h3>
-      
-      </div>
-      
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-
-    </div>
-  </body>
-</html>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#5.-contrôle-du-flux">5. Contrôle du flux</a>
+    <ul>
+      <li>Séquence</li>
+      <li>Conditions</li>
+      <li>Répétitions</li>
+    </ul>
+  </li>
+  <li><a href="#6.-fonctions">6. Fonctions</a>
+    <ul>
+      <li>Définition</li>
+      <li>Appel</li>
+      <li>Closure</li>
+    </ul>
+  </li>
+  <li><a href="#7.-gestion-des-exceptions">7. Gestion des exceptions</a>
+    <ul>
+      <li>Appels protégés</li>
+    </ul>
+  </li>
+  <li><a href="#8.-bibliothèque-de-base">8. Bibliothèque de base</a>
+    <ul>
+      <li>Sortie et entrée console</li>
+      <li>Nombres</li>
+      <li>Chaînes de caractères</li>
+      <li>Tables</li>
+      <li>Fichiers</li>
+    </ul>
+  </li>
+</ul>
+<h1 id="introduction">Introduction</h1>
+<p>Cet aide-mémoire expose la syntaxe du langage de programmation *Lua* et quelques opérations de base. Idéal pour se rafraîchir la mémoire, il peut également servir à un apprentissage de ce langage pour des personnes qui connaissent déjà un ou plusieurs langages de programmation. Pour les débutants en programmation, un véritable guide serait préférable. Parfois, des différences notables avec le langage *Python* sont soulignées.</p>
+<p>mis à jour le 21 avril 2017, créé le 4 avril 2017, converti en HML le 24 juillet 2020.</p>
+<p class="sign">Damien Gouteux</p>
+<h1 id="1.-bases-du-langage">1. Bases du langage</h1>
+<h2 id="1.1-description">1.1 Description</h2>
+<p>Lua est un langage de script, gratuit, concis et simple :</p>
+<ul>
+  <li>Concis car le langage est assez petit aussi bien dans son nombre de mots-clés que les concepts qu'il met en jeu. Il n'y a par exemple qu'un type de données structurées, les tables, alors que de Python utilisent des tuples, des sets, des listes, des dictionnaires. L'orientation objet n'est pas supportée par des mots-clés dans le langage, il faut la reprogrammer à la main mais Lua offre des facilités pour développer les capacités du langage.</li>
+  <li>Simple car Lua a une syntaxe assez standard et très permissive : on peut appeler une fonction sans respecter le nombre de paramètres demandés, on peut simplement concaténer deux expressions à la suite, il n'y pas de système de typage des variables.</li>
+</ul>
+<p>La version majeure actuelle (juillet 2020) est la version 5 et est disponible selon les termes de la licence MIT.</p>
+<p>Version actuelle à la date d'écriture : 5.4 (2020)</p>
+<p>Date d'apparition du langage : 1993</p>
+<p>Créateurs : Roberto Ierusalimschy, Luiz Henrique de Figueiredo, Waldemar Celes (Brésil)</p>
+<p>Extension d'un fichier Lua : <code><span class="text-normal">lua</span></code></p>
+<p>Exécuter mon_fichier.lua : <code><span class="text-normal">lua mon_fichier.lua</span></code></p>
+<h2 id="1.2-historique-et-influences">1.2 Historique et influences</h2>
+<p>Lua a été développé au Brésil à partir de 1993 par Roberto Ierusalimschy, Waldemar Celes et Luiz Henrique de Figueiredo au sein du groupe de recherche <i>Computer Graphics Technology Group</i> ([<a href="https://www.tecgraf.puc-rio.br/">TeCGraf</a>] <sup>[pt, en]</sup>), de l'université pontificale catholique de Rio de Janeiro avec l'aide du géant industriel [<a href="http://www.petrobras.com.br/en/">Petrobras</a>] <sup>[en]</sup>.</p>
+<p>Sa syntaxe emprunte au langage Modula, un langage développé dans les années 70 en Suisse par Niklaus Wirth, le créateur de Pascal. Elle présente des similarités avec le langage de script Ruby (sans la partie orientée objet).</p>
+<p>Lua signifie lune en portugais et se prononce dans cette langue "loua".</p>
+<h2 id="1.3-désavantages">1.3 Désavantages</h2>
+<p>Le revers des deux traits principaux est que Lua a des manques ou des difficultés qui n'existent pas dans des langages plus complets :</p>
+<ul>
+  <li>L'absence de mécanisme d'orientation objet de base,</li>
+  <li>Le danger de pouvoir concaténer deux expressions à la suite, sans avoir besoin de séparateurs : 3+5 2 est valide en Lua !</li>
+  <li>Une bibliothèque standard minimaliste (mais permet une taille réduite)</li>
+  <li>Il n'y a pas de mot clé continue ou next pour avancer une itération</li>
+  <li>l'opérateur de différence ~= au lieu du standard de facto !=</li>
+  <li>La usion du concept de liste et de dictionnaire</li>
+  <li>La difficulté à connaître la longueur d'une liste et s'assurer de sa continuité,</li>
+</ul>
+<h2 id="1.4-utilisations">1.4 Utilisations</h2>
+<p>Lua peut être utilisé de deux façons :</p>
+<ul>
+  <li>Via l'interpréteur en tant qu'API C embarqué dans une <b>application hôte</b>. il permet de piloter celle-ci via des scripts en utilisant les fonctions supplémentaires qu'elle met à leur disposition et les bibliothèques Lua. Sa concision fait qu'il ne prend pas trop de place dans l'application hôte. On parle alors de <b>langage d'extension</b> (<i>extension language</i>) ou <b>embarqué</b> (<i>embedded</i>).</li>
+  <li>Via l'interpréteur en tant qu'application, appelé <b>lua</b>, on ne peut alors utiliser que les bibliothèques en Lua mais celles-ci sont nombreuses. On parle alors d'utilisation en tant que <b>langage principal</b> (<i>stand alone</i>). On peut utiliser ce dernier pour exécuter d'un coup des scripts Lua ou en mode interactif via une boucle REPL (<i>read-eval-print-loop</i>) en entrant au fur et à mesure des instructions qui sont exécutées au fur et à mesure qu'elles sont entrées dans l'interpréteur. L'interpréteur est programmé en C.</li>
+</ul>
+<p>L'interpréteur n'interprète pas directement le script mais le compile en bytecode et envoi celui-ci à la machine virtuelle Lua.</p>
+<p>Lua est utilisée de façon embarquée dans de nombreux applications, en particulier des jeux vidéo. On peut citer le lecteur multimédia VLC et le jeu World of Warcraft.</p>
+<h2 id="1.5-bonjour-le-monde-!">1.5 Bonjour le monde !</h2>
+<p>La tradition veut que l'on commence par écrire "Bonjour le monde !" lorsque l'on découvre un nouveau langage de programmation. Nous ne dérogeons pas à la règle :</p>
+<pre class="code">
+<span class="lua-line_comment">-- Ceci est un commentaire jusqu'à la fin de la ligne
+</span><span class="lua-special">print</span><span class="lua-separator">(</span><span class="lua-string">"Bonjour le monde !"</span><span class="lua-separator">)</span><span class="lua-newline">
+</span></pre>
+<h2 id="1.6-affichage">1.6 Affichage</h2>
+<p>Affichage sur la sortie standard (console) : <code><span class="lua-special">print</span></code></p>
+<p>Le programme le plus simple en Lua : <code><span class="lua-special">print</span><span class="lua-separator">(</span><span class="lua-string">"Hello World!"</span><span class="lua-separator">)</span></code></p>
+<h2 id="1.7-mots-réservés">1.7 Mots réservés</h2>
+<p>Mots réservés (22) : and, break, do, else, elseif, end, false, for, function, goto, if, in, local, nil, not, or, repeat, return, then, true, until, while.</p>
+<h2 id="1.8-commentaires">1.8 Commentaires</h2>
+<p>Commentaires en Lua : <code><span class="lua-line_comment">-- mon commentaire jusqu'à la fin de la ligne</span></code></p>
+<p>Commentaires sur plusieurs lignes :</p>
+<pre class="code">
+<span class="lua-line_comment">--[[
+</span><span class="lua-blank">    </span><span class="lua-identifier">vos</span><span class="lua-blank"> </span><span class="lua-identifier">lignes</span><span class="lua-newline">
+</span><span class="lua-line_comment">--]]
+</span></pre>
+<h2 id="1.9-variables">1.9 Variables</h2>
+<p>Une variable est une référence vers une valeur. Une valeur a un type, pas la variable. L'exemple suivant établie une référence entre la variable a et la valeur 5 de type number.</p>
+<pre class="code">
+<span class="lua-identifier">a</span><span class="lua-blank"> </span><span class="lua-operator">=</span><span class="lua-blank"> </span><span class="lua-number">5</span><span class="lua-newline">
+</span></pre>
+<p>Il n'y a pas de constantes en Lua : une variable peut référencer ensuite une autre valeur.</p>
+<p>Une variable peut référencer n'importe quel type de valeur.</p>
+<p class="back"><a href="#sommaire">Retour sommaire</a></p>
+<h1 id="2.-sites-web">2. Sites web</h1>
+<ul>
+  <li>Site officiel du langage, il contient tout ce qu'il faut pour débuter : une distribution standard avec notamment l'interpréteur officiel et la bibliothèque standard : <a href="https://www.lua.org">https://www.lua.org</a></li>
+  <li>Le livre électronique <i>Programming in Lua</i>, appelé le "PIL", est un livre d'introduction Lua avec de nombreux exemples. La première édition est gratuitement disponible en ligne mais ne correspond plus à la version actuelle du langage : <a href="https://www.lua.org/pil/contents.html">https://www.lua.org/pil/contents.html</a></li>
+  <li>Le wiki des utilisateurs de Lua : <a href="http://lua-users.org/wiki/">http://lua-users.org/wiki/</a></li>
+  <li>Lua binaries, distributions de Lua pour différents systèmes d'exploitation : <a href="http://luabinaries.sourceforge.net/">http://luabinaries.sourceforge.net/</a></li>
+  <li>Löve, une VM Lua mettant à disposition une bibliothèque pour faire des jeux : <a href="https://love2d.org/">https://love2d.org/</a></li>
+  <li>MoonSharp, un intérpréteur Lua écrit en C# pour les plates-formes .Net, Mono et Unity : <a href="http://www.moonsharp.org/">http://www.moonsharp.org/</a></li>
+  <li>Teal, un dérivé de Lua avec des types : <a href="https://github.com/teal-language/tl">https://github.com/teal-language/tl</a></li>
+  <li>Page de Wikipédia sur Lua : <a href="https://en.wikipedia.org/wiki/Lua_(programming_language)">https://en.wikipedia.org/wiki/Lua_(programming_language)</a></li>
+  <li>Boutique officielle pour supporter Lua via l'achat de goodies : <a href="https://www.zazzle.com/Lua_Store">https://www.zazzle.com/Lua_Store</a></li>
+</ul>
+<h2 id="2.1-bibliothèques">2.1 Bibliothèques</h2>
+<ul>
+  <li>LuaRocks, le gestionnaire de bibliothèques pour Lua : <a href="https://luarocks.org/">https://luarocks.org/</a></li>
+  <li>Penlight, une librairie fondamentale pour Lua : <a href="http://stevedonovan.github.io/Penlight/api/index.html">http://stevedonovan.github.io/Penlight/api/index.html</a></li>
+  <li>Bibliothèque de « parsing » : <a href="http://www.inf.puc-rio.br/~roberto/lpeg/">http://www.inf.puc-rio.br/~roberto/lpeg/</a></li>
+  <li>Bibliothèque d'interface graphique : <a href="http://webserver2.tecgraf.puc-rio.br/iup/">http://webserver2.tecgraf.puc-rio.br/iup/</a></li>
+</ul>
+<h2 id="2.2-outils">2.2 Outils</h2>
+<ul>
+  <li>ZeroBrane Studio un IDE léger, gratuit, simple et efficace pour Lua : <a href="https://studio.zerobrane.com/">https://studio.zerobrane.com/</a></li>
+  <li>Coder en Lua en ligne avec REPL.it et Moonlight (VM Lua en JavaScript) : <a href="https://repl.it/languages/lua">https://repl.it/languages/lua</a> et <a href="http://moonshinejs.org/">http://moonshinejs.org/</a></li>
+</ul>
+<p class="back"><a href="#sommaire">Retour sommaire</a></p>
+<h1 id="3.-types-de-base">3. Types de base</h1>
+<p>Les types possibles pour les valeurs sont au nombre de <b>8</b> :</p>
+<ul>
+  <li><span class="type">nil</span>,</li>
+  <li><span class="type">boolean</span>,</li>
+  <li><span class="type">number</span>,</li>
+  <li><span class="type">string</span>,</li>
+  <li><span class="type">function</span>,</li>
+  <li><span class="type">userdata</span>,</li>
+  <li><span class="type">thread</span>,</li>
+  <li><span class="type">table</span>.</li>
+</ul>
+<p>Le type <span class="type">nil</span> n'a qu'une seule valeur, <code><span class="lua-nil">nil</span></code>. Le type <span class="type">boolean</span> a deux valeurs, <code><span class="lua-boolean">true</span></code> et <code><span class="lua-boolean">false</span></code>.</p>
+<p>Le type <span class="type">number</span> a pour valeurs les entiers et les réels (ou flottants). Les conversions de l'un vers l'autre type sont automatiques. Par défaut, entiers et réels sont stockés sur 64 bits.</p>
+<p>Le type <span class="type">function</span> sera plus étudié dans le chapitre suivant. Il s'agit de bloc de code écrit en Lua ou en C.</p>
+<p>Le type <span class="type">string</span> unifie les caractères et les chaînes de caractères. Lua peut stocker les chaînes en UTF-8 mais ne sait pas comment les gérer.</p>
+<p>Remarques importantes :</p>
+<ul>
+  <li>Les valeurs <code><span class="lua-nil">nil</span></code> et <code><span class="lua-boolean">false</span></code> sont les deux seules valeurs qui sont considérées comme fausse par les tests. Toutes les autres valeurs, y compris <code><span class="lua-number">0</span></code> et la chaîne vide <code><span class="lua-string">""</span></code> sont vraies.</li>
+</ul>
+<ul>
+  <li>Les chaînes sont immutables en Lua.</li>
+</ul>
+<h2 id="nombres">Nombres</h2>
+<h2 id="chaînes-de-caractères">Chaînes de caractères</h2>
+<h2 id="booléens">Booléens</h2>
+<h2 id="valeur-nil">Valeur nil</h2>
+<h2 id="tables">Tables</h2>
+<h3 id="définition">Définition</h3>
+<h3 id="accès">Accès</h3>
+<h3 id="métatable">Métatable</h3>
+<p class="back"><a href="#sommaire">Retour sommaire</a></p>
+<h1 id="4.-opérateurs">4. Opérateurs</h1>
+<h2 id="opérateurs-binaires">Opérateurs binaires</h2>
+<h3 id="opérateurs-arithmétiques">Opérateurs arithmétiques</h3>
+<h3 id="opérateurs-de-comparaisons">Opérateurs de comparaisons</h3>
+<h3 id="opérateurs-booléens">Opérateurs booléens</h3>
+<h3 id="autres-opérateurs">Autres opérateurs</h3>
+<h2 id="opérateurs-unaires">Opérateurs unaires</h2>
+<h3 id="opérateurs-arithmétiques">Opérateurs arithmétiques</h3>
+<h3 id="opérateurs-booléens">Opérateurs booléens</h3>
+<p><a href="#sommaire">Retour sommaire</a></p>
+<h1 id="5.-contrôle-du-flux">5. Contrôle du flux</h1>
+<h2 id="séquence">Séquence</h2>
+<p>En Lua, le symbole pour terminer les instructions est <code><span class="lua-separator">;</span></code> mais il est totalement optionnel. Ce code est donc valide : <code><span class="lua-identifier">a</span><span class="lua-blank"> </span><span class="lua-operator">=</span><span class="lua-blank"> </span><span class="lua-number">5</span><span class="lua-blank"> </span><span class="lua-identifier">b</span><span class="lua-blank"> </span><span class="lua-operator">=</span><span class="lua-blank"> </span><span class="lua-number">6</span></code></p>
+<h2 id="conditions">Conditions</h2>
+<p>Pour qu'une partie du code ne soit exécutée que si une condition est vrai, on utilisera <code><span class="lua-keyword">if</span></code> :</p>
+<pre class="code">
+<span class="lua-keyword">if</span><span class="lua-blank"> </span><span class="lua-identifier">condition</span><span class="lua-blank"> </span><span class="lua-keyword">then</span><span class="lua-newline">
+</span><span class="lua-blank">    </span><span class="lua-identifier">actions</span><span class="lua-newline">
+</span><span class="lua-separator">[</span><span class="lua-blank"> </span><span class="lua-keyword">elseif</span><span class="lua-blank"> </span><span class="lua-identifier">condition</span><span class="lua-blank"> </span><span class="lua-keyword">then</span><span class="lua-newline">
+</span><span class="lua-blank">    </span><span class="lua-identifier">actions</span><span class="lua-blank"> </span><span class="lua-separator">]</span><span class="lua-blank"> </span><span class="lua-operator">*</span><span class="lua-newline">
+</span><span class="lua-separator">[</span><span class="lua-blank"> </span><span class="lua-keyword">else</span><span class="lua-newline">
+</span><span class="lua-blank">    </span><span class="lua-identifier">actions</span><span class="lua-blank"> </span><span class="lua-separator">]</span><span class="lua-blank"> </span><span class="lua-special">?</span><span class="lua-newline">
+</span><span class="lua-keyword">end</span><span class="lua-newline">
+</span></pre>
+<p>Sont considérées fausses les valeurs <code><span class="lua-boolean">false</span></code> et <code><span class="lua-nil">nil</span></code>. Toutes les autres valeurs sont vraies (dont <code><span class="lua-separator">{</span><span class="lua-separator">}</span><span class="lua-blank"> </span><span class="lua-string">""</span><span class="lua-blank"> </span><span class="lua-number">0</span></code>).</p>
+<h2 id="répétitions">Répétitions</h2>
+<p>Boucle qui s'exécute <i>tant que</i> la condition est vraie avec <code><span class="lua-keyword">while</span></code> :</p>
+<pre class="code">
+<span class="lua-keyword">while</span><span class="lua-blank"> </span><span class="lua-identifier">condition</span><span class="lua-blank"> </span><span class="lua-keyword">do</span><span class="lua-newline">
+</span><span class="lua-blank">    </span><span class="lua-identifier">actions</span><span class="lua-newline">
+</span><span class="lua-keyword">end</span><span class="lua-newline">
+</span></pre>
+<p>Le corps de la boucle (ses actions) sera exécuté entre 0 et n fois.</p>
+<p>Avec <code><span class="lua-keyword">repeat</span></code>, le corps de la boucle sera exécuté au moins une fois car la condition est testée après :</p>
+<pre class="code">
+<span class="lua-keyword">repeat</span><span class="lua-newline">
+</span><span class="lua-blank">    </span><span class="lua-identifier">actions</span><span class="lua-newline">
+</span><span class="lua-keyword">until</span><span class="lua-blank"> </span><span class="lua-identifier">condition</span><span class="lua-newline">
+</span></pre>
+<p>Autre grand classique des boucles, <code><span class="lua-keyword">for</span></code> qui peut-être utilisé avec un intervalle numérique :</p>
+<pre class="code">
+<span class="lua-keyword">for</span><span class="lua-blank"> </span><span class="lua-identifier">identifiant</span><span class="lua-blank"> </span><span class="lua-operator">=</span><span class="lua-blank"> </span><span class="lua-identifier">début</span><span class="lua-separator">,</span><span class="lua-blank"> </span><span class="lua-identifier">fin</span><span class="lua-blank"> </span><span class="lua-separator">[</span><span class="lua-blank"> </span><span class="lua-separator">,</span><span class="lua-blank"> </span><span class="lua-identifier">pas</span><span class="lua-blank"> </span><span class="lua-separator">]</span><span class="lua-blank"> </span><span class="lua-keyword">do</span><span class="lua-newline">
+</span><span class="lua-blank">    </span><span class="lua-identifier">actions</span><span class="lua-newline">
+</span><span class="lua-keyword">end</span><span class="lua-newline">
+</span></pre>
+<p>Par défaut le pas est égal à 1 (si fin &amp;lt; début, la boucle ne s'exécutera pas une seule fois).</p>
+<p>Ou avec une table indexée par des nombres :</p>
+<pre class="code">
+<span class="lua-keyword">for</span><span class="lua-blank"> </span><span class="lua-identifier">indice</span><span class="lua-separator">,</span><span class="lua-blank"> </span><span class="lua-identifier">valeur</span><span class="lua-blank"> </span><span class="lua-keyword">in</span><span class="lua-blank"> </span><span class="lua-special">ipairs</span><span class="lua-separator">(</span><span class="lua-identifier">table</span><span class="lua-separator">)</span><span class="lua-blank"> </span><span class="lua-keyword">do</span><span class="lua-newline">
+</span><span class="lua-blank">    </span><span class="lua-identifier">actions</span><span class="lua-newline">
+</span><span class="lua-keyword">end</span><span class="lua-newline">
+</span></pre>
+<p>Ou avec une table indexée par des chaînes :</p>
+<pre class="code">
+<span class="lua-keyword">for</span><span class="lua-blank"> </span><span class="lua-identifier">clé</span><span class="lua-separator">,</span><span class="lua-blank"> </span><span class="lua-identifier">valeur</span><span class="lua-blank"> </span><span class="lua-keyword">in</span><span class="lua-blank"> </span><span class="lua-special">pairs</span><span class="lua-separator">(</span><span class="lua-identifier">table</span><span class="lua-separator">)</span><span class="lua-blank"> </span><span class="lua-keyword">do</span><span class="lua-newline">
+</span><span class="lua-blank">    </span><span class="lua-identifier">actions</span><span class="lua-newline">
+</span><span class="lua-keyword">end</span><span class="lua-newline">
+</span></pre>
+<p>Dans les trois cas, on peut utiliser le mot-clé <code><span class="lua-keyword">break</span></code> pour sortir de la boucle.</p>
+<p>Il n'y a pas de mot-clé <i>continue</i> ou <i>next</i> en Lua pour passer à l'itération suivante.</p>
+<p class="back"><a href="#sommaire">Retour sommaire</a></p>
+<h1 id="6.-fonctions">6. Fonctions</h1>
+<h2 id="définition">Définition</h2>
+<h2 id="appel">Appel</h2>
+<h2 id="closure">Closure</h2>
+<p class="back"><a href="#sommaire">Retour sommaire</a></p>
+<h1 id="7.-gestion-des-exceptions">7. Gestion des exceptions</h1>
+<h2 id="appels-protégés">Appels protégés</h2>
+<p class="back"><a href="#sommaire">Retour sommaire</a></p>
+<h1 id="8.-bibliothèque-de-base">8. Bibliothèque de base</h1>
+<h2 id="sortie-et-entrée-console">Sortie et entrée console</h2>
+<h2 id="nombres">Nombres</h2>
+<h2 id="chaînes-de-caractères">Chaînes de caractères</h2>
+<h2 id="tables">Tables</h2>
+<h2 id="fichiers">Fichiers</h2>
+<p class="back"><a href="#sommaire">Retour sommaire</a></p>
+</div>
+</div>
+</body>
