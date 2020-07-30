@@ -12,7 +12,19 @@
 i { color: blue; }
 </style>
 <style type="text/css">
-code {color: #006FDD; border: 1px solid rgb(225, 228, 229); padding-left: 3px; padding-right: 5px;}
+code {color: #006FDD; border: 1px solid rgb(225, 228, 229); padding-left: 3px; padding-right: 5px; }
+</style>
+<style type="text/css">
+form { padding: 2 px; font-size: 14px; color: black; }
+</style>
+<style type="text/css">
+div#entry { border: 1px #CCCCCC black; background: #EEEEEE; padding: 10px; }
+</style>
+<style type="text/css">
+div#entry a {font-size: 14px; }
+</style>
+<style type="text/css">
+div#footer p { text-align: center; font-size: 14px; color: #CCCCCC; margin: 10px; }
 </style>
 </head>
 <body>
@@ -142,21 +154,15 @@ code {color: #006FDD; border: 1px solid rgb(225, 228, 229); padding-left: 3px; p
 <hr>
 <h2 id="sommaire">Sommaire</h2>
 <ul>
-  <li><a href="#i.-un-système-de-dialogues">I. Un système de dialogues</a>
-    <ul>
-      <li><a href="#i.a-modélisation-des-dialogues-en-arbre">I.A Modélisation des dialogues en arbre</a></li>
-      <li><a href="#i.b-séparation-de-la-structure-et-des-données">I.B Séparation de la structure et des données</a></li>
-      <li><a href="#i.c-internationalisation">I.C Internationalisation</a></li>
-      <li><a href="#i.d-parcours">I.D Parcours</a></li>
-      <li><a href="#i.e-exemples-de-résultats">I.E Exemples de résultats</a></li>
-    </ul>
-  </li>
-  <li><a href="#ii.-historique">II. Historique</a></li>
-  <li><a href="#iii.-crédits">III. Crédits</a></li>
+  <li><a href="#i.-un-système-de-dialogues">I. Un système de dialogues</a></li>
+  <li><a href="#ii.-modélisation-des-dialogues-en-arbre">II. Modélisation des dialogues en arbre</a></li>
+  <li><a href="#iii.-séparation-de-la-structure-et-des-données">III. Séparation de la structure et des données</a></li>
+  <li><a href="#iv.-internationalisation">IV. Internationalisation</a></li>
+  <li><a href="#v.-exemple-de-parcours">V. Exemple de parcours</a></li>
 </ul>
 <h2 id="i.-un-système-de-dialogues">I. Un système de dialogues</h2>
 <p>Un système de dialogue permet de gérer les échanges entre le personnage du joueur et des personnages non-joueurs (PNJ). Le joueur choisir les réponses de son personnage. Dans les systèmes classiques, comme celui de <code><span class="text-normal">Baldur's Gate</span></code>, les choix proposent la réponse complète qui sera prononcée une fois qu'elle sera choisie. Dans d’autres, comme <code><span class="text-normal">Mass Effect</span></code>, seul une idée générale de la réponse est donnée, avec parfois des effets d’incompréhension. Notre système se veut classique.</p>
-<h3 id="i.a-modélisation-des-dialogues-en-arbre">I.A Modélisation des dialogues en arbre</h3>
+<h3 id="ii.-modélisation-des-dialogues-en-arbre">II. Modélisation des dialogues en arbre</h3>
 <p>La première étape est de séparer la structure des dialogues, les enchaînements et les choix, du texte des dialogues. Pour cela, les dialogues vont être enregistrés sous la forme d'arbre. Nous présentons ci-dessous un exemple d'arbre avec le texte, en utilisant le codage suivant :</p>
 <ul>
   <li>Les phrases en noir indiquent les dialogues du PNJ,</li>
@@ -190,9 +196,13 @@ code {color: #006FDD; border: 1px solid rgb(225, 228, 229); padding-left: 3px; p
       </li>
       <li><i>Je désire rencontrer le chef du village.</i>
         <ul>
-          <li>Le bourgmestre a disparu depuis trois nuits. Tout le village est très inquiet. Pourriez-vous nous aider à la retrouver ?
+          <li>La bourgmestre a disparu depuis trois nuits. Tout le village est très inquiet. Pourriez-vous nous aider à la retrouver ?
             <ol>
-              <li><i>Je vais voir ce que je peux faire.</i></li>
+              <li><i>Je vais voir ce que je peux faire.</i>
+                <ul>
+                  <li>Merci Messire !</li>
+                </ul>
+              </li>
               <li><i>(désolé) Je suis désolé mais je ne peux pas vous aider.</i>
                 <ul>
                   <li>Cela ne fait rien. Bonne route étranger.</li>
@@ -216,85 +226,334 @@ code {color: #006FDD; border: 1px solid rgb(225, 228, 229); padding-left: 3px; p
   </li>
 </ul>
 <p>On voit que la structure de données applicable ici est <b>un arbre</b>.</p>
-<h3 id="i.b-séparation-de-la-structure-et-des-données">I.B Séparation de la structure et des données</h3>
-<p>On va séparer les données, le texte, de la structure. On a d'un côté la structure qui garde, en plus de l'arborescence des réponses indiquant les enchaînements et les choix possibles, la personne qui parle et les tests associés. On indique le texte par un simple identifiant numérique. Pour ne pas confondre, les nombres indiquant un choix sont en rouge :</p>
+<h2 id="iii.-séparation-de-la-structure-et-des-données">III. Séparation de la structure et des données</h2>
+<p>On va séparer les données : d'un côté le texte, de l'autre la structure. Le texte sera indiqué par un simple identifiant numérique. La structure c'est l'arborescence des réponses, indiquant les enchaînements et les choix possibles. Elle est constituée de nœuds, chaque nœud peut être un nœud simple ou nœud de choix. Un nœud simple contient :</p>
 <ul>
-  <li>1
-    <ol>
-      <li><i>2</i>
+  <li>une éventuelle action (prendre ou donner un objet ou de l'argent, faire baisser ou monter la réputation, attaquer le joueur)</li>
+  <li>un texte</li>
+  <li>un ou plusieurs embranchements.</li>
+</ul>
+<p>Un embranchement est constitué d'une suite de conditions avec à chaque fois le nœud suivant si la condition est vraie. La première condition vraie détermine le nœud suivant.</p>
+<p>Un nœud de choix contient :</p>
+<ul>
+  <li>un texte</li>
+  <li>au moins une option de réponse (s'il n'y en a qu'une cela permet de simuler une parole échangée).</li>
+</ul>
+<p>Chaque option contient :</p>
+<ul>
+  <li>une éventuelle condition pour que ce choix soit accessible</li>
+  <li>un texte</li>
+  <li>un ou plusieurs embranchements si ce choix est fait</li>
+</ul>
+<p>On peut transformer ainsi notre dialogue, le chiffre entre parenthèses indique son numéro de référence, les conditions sont entre crochets, et le type d'objet (nœud simple, nœud choix, texte, option, embranchement) est indiqué entre accolades, nous le reconstruisons ainsi :</p>
+<ul>
+  <li><b><span id="nœud-n°1">Nœud n°1</span></b> {choix}
+    <ul>
+      <li>{texte} (1) Bonjour, étranger, que puis-je pour vous ?</li>
+      <li>{options}
         <ul>
-          <li>3</li>
-          <li>[Charisme &gt; 14] 4
-            <ol>
-              <li><i>[Intelligence &gt; 14] 5</i>
-                <ul>
-                  <li>[Charisme &gt; 16] 6</li>
-                  <li>7</li>
-                </ul>
-              </li>
-              <li><i>8</i>
-                <ul>
-                  <li>9</li>
-                </ul>
-              </li>
-            </ol>
-          </li>
-        </ul>
-      </li>
-      <li><i>10</i>
-        <ul>
-          <li>11
-            <ol>
-              <li><i>12</i></li>
-              <li><i>13</i>
-                <ul>
-                  <li>14</li>
-                </ul>
-              </li>
-              <li><i>15</i></li>
-            </ol>
-          </li>
-        </ul>
-      </li>
-      <li><i>16</i>
-        <ul>
-          <li>17
+          <li>{option}
             <ul>
-              <li><i>18</i></li>
+              <li>{condition} aucune</li>
+              <li>{texte} <i>(2) Je cherche Siriah Anrir, où puis la trouver ?</i></li>
+              <li>{embranchements}
+                <ul>
+                  <li>{embranchement}
+                    <ul>
+                      <li>{condition} [Charisme &lt;= 14]</li>
+                      <li>{suite} va à <a href="#nœud-n°1-1">nœud n°1-1</a></li>
+                    </ul>
+                  </li>
+                  <li>{embranchement}
+                    <ul>
+                      <li>{condition} [Charisme &gt; 14]</li>
+                      <li>{suite} va à <a href="#nœud-n°1-2">nœud n°1-2</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>{option}
+            <ul>
+              <li>{condition} aucune</li>
+              <li>{texte} <i>(3) Je désire rencontrer le chef du village.</i></li>
+              <li>{embranchements}
+                <ul>
+                  <li>{embranchement}
+                    <ul>
+                      <li>{condition} aucune</li>
+                      <li>{suite} va à <a href="#nœud-n°1-3">nœud n°1-3</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>{option}
+            <ul>
+              <li>{condition} aucune</li>
+              <li>{texte} <i>(4) J'ai besoin de soin.</i></li>
+              <li>{embranchements}
+                <ul>
+                  <li>{embranchement}
+                    <ul>
+                      <li>{condition} aucune</li>
+                      <li>{suite} va à <a href="#nœud-n°1-4">nœud n°1-4</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
             </ul>
           </li>
         </ul>
       </li>
-    </ol>
+    </ul>
   </li>
+  <li><b><span id="nœud-n°1-1">Nœud n°1-1</span></b> {simple}
+    <ul>
+      <li>{action} aucune</li>
+      <li>{texte} (5) Je ne connais pas cette Dame.</li>
+      <li>{embranchements}
+        <ul>
+          <li>{embranchement}
+            <ul>
+              <li>{condition} aucune</li>
+              <li>{suite} <a href="#fin-du-dialogue">fin du dialogue</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><b><span id="nœud-n°1-2">Nœud n°1-2</span></b> {choix}
+    <ul>
+      <li>{texte} (6) Pourquoi voulez-vous rencontrer notre Dame ?</li>
+      <li>{options}
+        <ul>
+          <li>{option}
+            <ul>
+              <li>{condition} [Intelligence &gt; 14]</li>
+              <li>{texte} <i>(7) (mensonge) On m'a vanté ses pouvoirs et j'aurais aimé être béni.</i></li>
+              <li>{embranchements}
+                <ul>
+                  <li>{embranchement}
+                    <ul>
+                      <li>{condition} [Charisme &gt; 16]</li>
+                      <li>{suite} va à <a href="#nœud-n°1-2-1">nœud n°1-2-1</a></li>
+                    </ul>
+                  </li>
+                  <li>{embranchement}
+                    <ul>
+                      <li>{condition} aucune</li>
+                      <li>{suite} va à <a href="#nœud-n°1-2-2">nœud n°1-2-2</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>{option}
+            <ul>
+              <li>{condition} aucune</li>
+              <li>{texte} <i>(8) Je suis ici pour enquêter sur ses agissements.</i></li>
+              <li>{embranchements}
+                <ul>
+                  <li>{embranchement}
+                    <ul>
+                      <li>{condition} aucune</li>
+                      <li>{suite} va à <a href="#nœud-n°1-2-3">nœud n°1-2-3</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><b><span id="nœud-n°1-2-1">Nœud n°1-2-1</span></b> {simple}
+    <ul>
+      <li>{action} ajouter temple sur la carte</li>
+      <li>{texte} (9) Très bien, son temple est sous la maison communale.</li>
+      <li>{embranchements}
+        <ul>
+          <li>{embranchement}
+            <ul>
+              <li>{condition} aucune</li>
+              <li>{suite} <a href="#fin-du-dialogue">fin du dialogue</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><b><span id="nœud-n°1-2-2">Nœud n°1-2-2</span></b> {simple}
+    <ul>
+      <li>{action} aucune</li>
+      <li>{texte} (10) Elle viendra à vous quand vous serez prêt. Bonne journée.</li>
+      <li>{embranchements}
+        <ul>
+          <li>{embranchement}
+            <ul>
+              <li>{condition} aucune</li>
+              <li>{suite} <a href="#fin-du-dialogue">fin du dialogue</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><b><span id="nœud-n°1-2-3">Nœud n°1-2-3</span></b> {simple}
+    <ul>
+      <li>{action} aucune</li>
+      <li>{texte} (11) Je n'ai rien à vous dire. Bonne journée.</li>
+      <li>{embranchements}
+        <ul>
+          <li>{embranchement}
+            <ul>
+              <li>{condition} aucune</li>
+              <li>{suite} <a href="#fin-du-dialogue">fin du dialogue</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><b><span id="nœud-n°1-3">Nœud n°1-3</span></b> {choix}
+    <ul>
+      <li>{texte} (12) La bourgmestre a disparu depuis trois nuits. Tout le village est très inquiet. Pourriez-vous nous aider à la retrouver ?</li>
+      <li>{options}
+        <ul>
+          <li>{option}
+            <ul>
+              <li>{condition} aucune</li>
+              <li>{texte} <i>(13) Je vais voir ce que je peux faire.</i></li>
+              <li>{embranchements}
+                <ul>
+                  <li>{embranchement}
+                    <ul>
+                      <li>{condition} aucune</li>
+                      <li>{suite} va à <a href="#nœud-n°1-3-1">nœud n°1-3-1</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>{option}
+            <ul>
+              <li>{texte} <i>(14) (désolé) Je suis désolé mais je ne peux pas vous aider.</i></li>
+              <li>{embranchements}
+                <ul>
+                  <li>{embranchement}
+                    <ul>
+                      <li>{condition} aucune</li>
+                      <li>{suite} va à <a href="#nœud-n°1-3-2">nœud n°1-3-2</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>{option}
+            <ul>
+              <li>{texte} <i>(15) (méprisant) Cela ne m'intéresse pas.</i></li>
+              <li>{embranchements}
+                <ul>
+                  <li>{embranchement}
+                    <ul>
+                      <li>{condition} aucune</li>
+                      <li>{suite} <a href="#fin-du-dialogue">fin du dialogue</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><b><span id="nœud-n°1-3-1">Nœud n°1-3-1</span></b> {simple}
+    <ul>
+      <li>{action} ajouter quête "retrouver le bourgmestre" au journal</li>
+      <li>{texte} (16) Merci Messire !</li>
+      <li>{embranchements}
+        <ul>
+          <li>{embranchement}
+            <ul>
+              <li>{condition} aucune</li>
+              <li>{suite} <a href="#fin-du-dialogue">fin du dialogue</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><b><span id="nœud-n°1-3-2">Nœud n°1-3-2</span></b> {simple}
+    <ul>
+      <li>{action} ajouter au journal la mention "le bourgmestre a disparu"</li>
+      <li>{texte} (17) Cela ne fait rien. Bonne route étranger.</li>
+      <li>{embranchements}
+        <ul>
+          <li>{embranchement}
+            <ul>
+              <li>{condition} aucune</li>
+              <li>{suite} <a href="#fin-du-dialogue">fin du dialogue</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><b><span id="nœud-n°1-4">Nœud n°1-4</span></b> {simple}
+    <ul>
+      <li>{action} ajouter la hutte du shaman sur la carte</li>
+      <li>{texte} (18) Vous trouverez le shaman dans sa hutte, à la lisière des bois.</li>
+      <li>{embranchements}
+        <ul>
+          <li>{embranchement}
+            <ul>
+              <li>{condition} aucune</li>
+              <li>{suite} <a href="#fin-du-dialogue">fin du dialogue</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><b><span id="fin-du-dialogue">Fin du dialogue</span></b></li>
 </ul>
-<p>Et le texte, qu'on peut stocker dans un fichier texte, XML, JSON ou binaire, qui est de la forme clé =&gt; texte :</p>
+<h3 id="iv.-internationalisation">IV. Internationalisation</h3>
+<p>Ce système de dialogue doit être pensé pour être facilement internationalisable : traduisible en de nombreuses langues, sans nécessiter de recompiler ou recoder une partie du système spécifiquement pour une langue donnée.</p>
+<p>On peut extraire de la partie précédente le texte de la structure des dialogues pour ne garder que son identifiant. On stocke ensuite dans un fichier texte, XML, JSON ou binaire des couples associant une clé, auquel correspond une ou plusieurs références, et un texte :</p>
 <ol>
   <li>Bonjour, étranger, que puis-je pour vous ?</li>
   <li>Je cherche Siriah Anrir, où puis la trouver ?</li>
-  <li>Je ne connais pas cette Dame.</li>
-  <li>Pourquoi voulez-vous rencontrer notre Dame ?</li>
-  <li>(mensonge) On m'a vanté ses pouvoirs et j'aurais aimé être béni.</li>
-  <li>Très bien, son temple est sous la maison communale.</li>
-  <li>Elle viendra à vous quand vous serez prêt. Bonne journée.</li>
-  <li>Je suis ici pour enquêter sur ses agissements.</li>
-  <li>Je n'ai rien à vous dire. Bonne journée.</li>
-  <li>Je désire rencontrer le chef du village.</li>
-  <li>Le bourgmestre a disparu depuis trois nuits. Tout le village est très inquiet. Pourriez-vous nous aider à la retrouver ?</li>
-  <li>Je vais voir ce que je peux faire.</li>
-  <li>(désolé) Je suis désolé mais je ne peux pas vous aider.</li>
-  <li>Cela ne fait rien. Bonne route étranger.</li>
-  <li>(méprisant) Cela ne m'intéresse pas.</li>
-  <li>J'ai besoin de soin.</li>
-  <li>Vous trouverez le shaman dans sa hutte, à la lisière des bois.</li>
-  <li>Merci, au revoir.</li>
+  <li>...</li>
 </ol>
-<h3 id="i.c-internationalisation">I.C Internationalisation</h3>
-<p>Ce système de dialogue doit être pensé pour être facilement internationalisable : traduisible en de nombreuses langues, sans nécessiter de recompiler ou recoder une partie du système spécifiquement pour une langue. La division effectuée dans le chapitre précédent facilite grandement cette étape : la structure de l'arbre ne change pas d'une langue à l'autre, seuls les lignes de textes changent. Il suffit de faire traduire la ressource contenant toutes les répliques pour traduire le jeu.</p>
-<h3 id="i.d-parcours">I.D Parcours</h3>
-<h3 id="i.e-exemples-de-résultats">I.E Exemples de résultats</h3>
-<h2 id="ii.-historique">II. Historique</h2>
-<h2 id="iii.-crédits">III. Crédits</h2>
+<p>Cette division facilite grandement cette étape : la structure de l'arbre ne change pas d'une langue à l'autre, seuls les lignes de textes changent. Il suffit de faire traduire la ressource contenant toutes les répliques pour traduire le jeu. Il faut néanmoins faire attention à :</p>
+<ul>
+  <li>Si le jeu de caractère utilisé par le jeu est prévu pour la langue (caractères accentuées).</li>
+  <li>Si l'espace dans lequel s'affiche les textes est assez grand (une traduction pouvant être beaucoup plus longue que le texte d'origine).</li>
+</ul>
+<h3 id="v.-exemple-de-parcours">V. Exemple de parcours</h3>
+<p>Cette petite implémentation en JavaScript illustre tous les principes exposés ci-dessus en reprenant les mêmes données.</p>
+<p>Votre personnage :</p>
+<form>
+Intelligence <input type="text" id="int" name="int" required minlength="2" maxlength="2" size="2" value="10"/>
+Charisme <input type="text" id="chr" name="chr" required minlength="2" maxlength="2" size="2" value="10"/>
+</form>
+<div id="entry">
+<p>Vous êtes l'inquisiteur Larius et vous arrivez dans le petit village où vous devez enquêter sur les agissements d'une mystérieuse sorcière hérétique.</p>
+<a onclick="start('n1'); false;">Démarrer le dialogue</a>
+</div>
+  <script src="tech_dialogues.js"></script>
+<div id="footer">
+<p>Damien Gouteux, 30 juillet 2020</p>
+</div>
 </div>
 </div>
 </body>
