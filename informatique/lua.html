@@ -30,10 +30,13 @@ li a       { color: #6714cc; font-size: 16px; }
 li         { font-size: 16px; color: black; }
 </style>
 <style type="text/css">
-.row       { display: flex; }
+@media screen and (min-width: 600px) { .row    { display: flex; } }
 </style>
 <style type="text/css">
-.column    { flex: 50%; margin-left: 0.5em; margin-right: 0.5em; }
+@media screen and (min-width: 600px) { .column { flex: 50%; margin-left: 0.5em; margin-right: 0.5em; } }
+</style>
+<style type="text/css">
+@media screen and (max-width: 599px) { .row    { padding-left: 15px; padding-right: 15px; } }
 </style>
 <style type="text/css">
 p          { text-align: justify; margin-top: 12px; margin-bottom: 12px;}
