@@ -300,8 +300,10 @@ p.back { text-align: center; }
 <p>Un fichier de script Python porte l'extension .py qui s'ajoute au nom que vous lui aurez donné. Il est important que dans le nom que vous avez choisi ne figure pas d'espace, utilisez des tirets bas à la place, ni de caractères accentués ou spéciaux. Vous pouvez également, sans passer par IDLE, programmer en Python ou lancer un programme depuis la console. Ouvrez une console, puis tapez python. Une boucle REPL qui ressemble au Shell d'IDLE s'ouvrira alors où vous pourrez taper des instructions. De même, si vous tapez dans la console python suivi du nom de votre programme (python premiers_essais.py par exemple), il s'exécutera directement dans la console où il affichera ses résultats. Sous Unix, Linux, BSD et Mac, vous pouvez rendre exécutable vos fichiers de scripts en mettant en première ligne #!/usr/bin/env python et en faisant chmod +x sur ceux-ci.</p>
 <pre class="code">
 <span class="python-line_comment"># Ceci est un commentaire jusqu&#x27;à la fin de la ligne
-</span><span class="python-special">print</span><span class="python-separator">(</span><span class="python-string">&quot;Bonjour le monde !&quot;</span><span class="python-separator">)</span><span class="python-newline">
-</span></pre>
+</span>
+<span class="python-special">print</span><span class="python-separator">(</span><span class="python-string">&quot;Bonjour le monde !&quot;</span><span class="python-separator">)</span><span class="python-newline">
+</span>
+</pre>
 <p>Vous venez de voir une première instruction valide en Python. Celle-ci affiche à l'écran les mots Hello World! C'est une tradition dans l'informatique de commencer par ce petit exemple.</p>
 <p>Nous utiliserons une police et un formatage particuliers quand nous écrirons du code.</p>
 <h2 id="1.7-affichage">1.7 Affichage</h2>
@@ -314,21 +316,27 @@ p.back { text-align: center; }
 <p>Commentaires en Python :</p>
 <pre class="code">
 <span class="python-line_comment"># mon commentaire jusqu&#x27;à la fin de la ligne
-</span></pre>
+</span>
+</pre>
 <pre class="code">
 </pre>
 <p>Commentaires sur plusieurs lignes :</p>
 <pre class="code">
 <span class="python-string">&quot;&quot;&quot;</span><span class="python-newline">
-</span><span class="python-blank">   </span><span class="python-identifier">un</span><span class="python-blank"> </span><span class="python-identifier">commentaire</span><span class="python-blank"> </span><span class="python-identifier">long</span><span class="python-newline">
-</span><span class="python-blank">   </span><span class="python-identifier">sur</span><span class="python-blank"> </span><span class="python-identifier">de</span><span class="python-blank"> </span><span class="python-identifier">nombreuses</span><span class="python-blank"> </span><span class="python-identifier">lignes</span><span class="python-newline">
-</span><span class="python-string">&quot;&quot;&quot;</span><span class="python-newline">
-</span></pre>
+</span>
+<span class="python-blank">   </span><span class="python-identifier">un</span><span class="python-blank"> </span><span class="python-identifier">commentaire</span><span class="python-blank"> </span><span class="python-identifier">long</span><span class="python-newline">
+</span>
+<span class="python-blank">   </span><span class="python-identifier">sur</span><span class="python-blank"> </span><span class="python-identifier">de</span><span class="python-blank"> </span><span class="python-identifier">nombreuses</span><span class="python-blank"> </span><span class="python-identifier">lignes</span><span class="python-newline">
+</span>
+<span class="python-string">&quot;&quot;&quot;</span><span class="python-newline">
+</span>
+</pre>
 <h2 id="1.10-variables">1.10 Variables</h2>
 <p>Une variable est une référence vers une valeur. Une valeur a un type, pas la variable. L'exemple suivant établie une référence entre la variable a et la valeur 5 de type number.</p>
 <pre class="code">
 <span class="python-identifier">a</span><span class="python-blank"> </span><span class="python-operator">=</span><span class="python-blank"> </span><span class="python-integer">5</span><span class="python-newline">
-</span></pre>
+</span>
+</pre>
 <p>Il n'y a pas de constantes en Python : une variable peut référencer ensuite une autre valeur.</p>
 <p>Une variable peut référencer n'importe quel type de valeur.</p>
 <p class="back"><a href="#sommaire">Retour sommaire</a></p>
@@ -406,25 +414,35 @@ p.back { text-align: center; }
 <p>Pour qu'une partie du code ne soit exécutée que si une condition est vrai, on utilisera <code><span class="python-keyword">if</span></code> :</p>
 <pre class="code">
 <span class="python-keyword">if</span><span class="python-blank"> </span><span class="python-identifier">condition</span><span class="python-operator">:</span><span class="python-newline">
-</span><span class="python-blank">    </span><span class="python-identifier">actions</span><span class="python-newline">
-</span><span class="python-separator">[</span><span class="python-blank"> </span><span class="python-keyword">elif</span><span class="python-blank"> </span><span class="python-identifier">condition</span><span class="python-operator">:</span><span class="python-newline">
-</span><span class="python-blank">    </span><span class="python-identifier">actions</span><span class="python-blank"> </span><span class="python-separator">]</span><span class="python-blank"> </span><span class="python-operator">*</span><span class="python-newline">
-</span><span class="python-separator">[</span><span class="python-blank"> </span><span class="python-keyword">else</span><span class="python-operator">:</span><span class="python-newline">
-</span><span class="python-blank">    </span><span class="python-identifier">actions</span><span class="python-blank"> </span><span class="python-separator">]</span><span class="python-newline">
-</span></pre>
+</span>
+<span class="python-blank">    </span><span class="python-identifier">actions</span><span class="python-newline">
+</span>
+<span class="python-separator">[</span><span class="python-blank"> </span><span class="python-keyword">elif</span><span class="python-blank"> </span><span class="python-identifier">condition</span><span class="python-operator">:</span><span class="python-newline">
+</span>
+<span class="python-blank">    </span><span class="python-identifier">actions</span><span class="python-blank"> </span><span class="python-separator">]</span><span class="python-blank"> </span><span class="python-operator">*</span><span class="python-newline">
+</span>
+<span class="python-separator">[</span><span class="python-blank"> </span><span class="python-keyword">else</span><span class="python-operator">:</span><span class="python-newline">
+</span>
+<span class="python-blank">    </span><span class="python-identifier">actions</span><span class="python-blank"> </span><span class="python-separator">]</span><span class="python-newline">
+</span>
+</pre>
 <p>Sont considérées fausses les valeurs <code><span class="python-identifier">false</span></code> et <code><span class="python-identifier">nil</span></code>. Toutes les autres valeurs sont vraies (dont <code><span class="python-separator">{</span><span class="python-separator">}</span><span class="python-blank"> </span><span class="python-string">&quot;&quot;</span><span class="python-blank"> </span><span class="python-integer">0</span></code>).</p>
 <h2 id="répétitions">Répétitions</h2>
 <p>Boucle qui s'exécute <i>tant que</i> la condition est vraie avec <code><span class="python-keyword">while</span></code> :</p>
 <pre class="code">
 <span class="python-keyword">while</span><span class="python-blank"> </span><span class="python-identifier">condition</span><span class="python-operator">:</span><span class="python-newline">
-</span><span class="python-blank">    </span><span class="python-identifier">actions</span><span class="python-newline">
-</span></pre>
+</span>
+<span class="python-blank">    </span><span class="python-identifier">actions</span><span class="python-newline">
+</span>
+</pre>
 <p>Le corps de la boucle (ses actions) sera exécuté entre 0 et n fois.</p>
 <p>Autre grand classique des boucles, <code><span class="python-keyword">for</span></code> qui peut-être utilisé avec un intervalle numérique :</p>
 <pre class="code">
 <span class="python-keyword">for</span><span class="python-blank"> </span><span class="python-identifier">identifiant</span><span class="python-blank"> </span><span class="python-keyword">in</span><span class="python-blank"> </span><span class="python-identifier">iterable</span><span class="python-operator">:</span><span class="python-newline">
-</span><span class="python-blank">    </span><span class="python-identifier">actions</span><span class="python-newline">
-</span></pre>
+</span>
+<span class="python-blank">    </span><span class="python-identifier">actions</span><span class="python-newline">
+</span>
+</pre>
 <p>On peut faire un iterable avec la fonction <code><span class="python-blank"> </span><span class="python-identifier">range</span><span class="python-separator">(</span><span class="python-identifier">stop</span><span class="python-separator">)</span></code> qui va jusqu'à de 0 à stop-1. Par défaut le pas est égal à 1.</p>
 <p>Pour parcourir une liste on fera simplement <code><span class="python-blank"> </span><span class="python-keyword">for</span><span class="python-blank"> </span><span class="python-identifier">value</span><span class="python-blank"> </span><span class="python-keyword">in</span><span class="python-blank"> </span><span class="python-identifier">liste</span><span class="python-operator">:</span><span class="python-blank"> </span></code> et pour avoir l'index et la valeur <code><span class="python-blank"> </span><span class="python-keyword">for</span><span class="python-blank"> </span><span class="python-identifier">index</span><span class="python-separator">,</span><span class="python-blank"> </span><span class="python-identifier">value</span><span class="python-blank"> </span><span class="python-keyword">in</span><span class="python-blank"> </span><span class="python-identifier">enumerable</span><span class="python-separator">(</span><span class="python-identifier">liste</span><span class="python-separator">)</span><span class="python-operator">:</span><span class="python-blank"> </span></code>.</p>
 <p>Pour parcourir un dictionnaire on fera simplement <code><span class="python-blank"> </span><span class="python-keyword">for</span><span class="python-blank"> </span><span class="python-identifier">key</span><span class="python-blank"> </span><span class="python-keyword">in</span><span class="python-blank"> </span><span class="python-identifier">dictionnaire</span><span class="python-operator">:</span><span class="python-blank"> </span></code> et pour la clé et la valeur <code><span class="python-blank"> </span><span class="python-keyword">for</span><span class="python-blank"> </span><span class="python-identifier">key</span><span class="python-separator">,</span><span class="python-blank"> </span><span class="python-identifier">value</span><span class="python-blank"> </span><span class="python-keyword">in</span><span class="python-blank"> </span><span class="python-identifier">dictionnaire</span><span class="python-operator">.</span><span class="python-identifier">items</span><span class="python-separator">(</span><span class="python-separator">)</span><span class="python-blank"> </span></code>.</p>
