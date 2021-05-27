@@ -1,0 +1,145 @@
+!const TITLE=Méthodologie d'Histoire
+!const LANG=fr
+!const ICON=https://xitog.github.io/dgx/img/favicon.ico
+!require https://xitog.github.io/dgx/css/simplex.bootstrap.css
+!require https://xitog.github.io/dgx/css/palatino.css
+!require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+!require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+!var PARAGRAPH_DEFINITION=true
+
+!css #content-div li { margin-bottom: 9px; }
+
+{{#main .container}}
+
+!include menu.html
+
+{{#content-div}}
+
+# Méthodologie d'Histoire
+---
+
+## I. Commentaire historique de document
+
+* Pas une dissertation illustrée par des citations du texte !
+* Pas de paraphrase du texte. Il faut expliquer !
+
+$ Base
+    on part du texte (et on se limite à celui-ci)
+$ C'est
+    éclaire le doc en y ajoutant nos connaissances
+$ CàD
+    * expliquer (expliciter les allusions rapport texte-évènements)
+    * interpréter (comment il le dit et pourquoi et ce qu'il ne dit pas)
+    * critiquer en montrant l'intérêt du texte
+
+### I.A. Méthode / Travail préparatoire
+
+% __Lire et relire__
+% __Élucider__ les allusions, le vocabulaire, définir son contexte : auteur, destinataire, évènement. !! Attention : possiblement 2 contextes si texte pas contemporain : celui des évènements relatés et celui d'écriture.
+% __Analyse externe et interne__ (organisation du texte) !! Que dit-il ? Quoi ? Comment ? Pourquoi ? But ? (= centres d'intérêts)
+% __Formuler__ la problématique
+% __Élaborer__ le plan
+
+### I.B. Introduction
+
+% __Présentation du doc__ (quoi ? type - pourquoi ? but - quand ? date)
+% __Présentation de l'auteur__ (qui ?)
+% __Présentation du contexte / Délimiter__ (voir des 2 : écritures / évnts relatés)
+% Explication de __l'enjeu historique__ (contexte) !! __Pts essentiels soulevés__ par le texte -> __Problématique__ (intérêt du doc)
+% __Plan__ (regroupement des pts par thème)
+
+### I.C. Développement
+
+% __annoncer__ | __citer__ | __expliquer__ | __commenter__ | __conclure__
+% __au moins 1 citation par paragraphe__
+% mêmes consiques que pour la dissertation
+
+### I.D. Conclusion
+
+Ne pas la bâcler !
+
+% Bilan synthétique répondant à la pb !! ''(ex : exposer la pb suivie, rassembler les enseignements du texte) (sans répéter la pb) (pas obliger de tout résumer)''
+% Mise en perspective et ouverture intelligente !! ''(dépasser ces enseignements en indiquant la portée, la valeur du texte) (ouverture sans faux suspense) (conséquences, sujets voisins)''
+
+Pas de nouveaux éléments !
+
+### I.E. Plan alternatif pour l'introduction
+
+% Qui ? auteur
+% Quoi ? document (nature, date, but)
+% Pourqui ? destinataires
+% Contexte général (seulement ce qui est utile pour le texte)
+% Problématique
+% Plan
+
+### I.F. Plan
+
+Commentaire composé ou commentaire linéaire (déconseillé).
+
+Pour le commentaire, si le texte suit déjà un ordre logique, on peut suivre le texte (plan chronologique, logique), sinon plan dialectique ou thématique de la forme : T1, T2, Approche critique (silences, contradictions, limites du texte).
+
+Type de plan :
+
+* chronologique(voir les césures = rupture et les périodes cohérentes) si pas de césure mais constance on choisira plutôt le :
+* thématique
+% % plan bilan : 1 phénomène : bilan économique, militaire, ...
+% % plan explicatif : 1 phénomène : causes, moyens, conséquences/résultats
+% % plan dialectique : 1 question : thèse, antithèse, résolution et dépassement
+
+Titres d'ouvrage en italique sur l'ordinateur et soulignés sur papier.
+
+## II. Disseration
+
+* Pas d'énumération !
+* Pas des questions de cours, de récitation !
+* Être précis (dans le vocabulaire et les idées)
+* Bien rédiger, éviter les parenthèses, ne pas citer ses sources
+* Ne pas tout rédiger au brouillon mais relire
+
+$ Base
+    le sujet
+$ C'est
+    raisonnement pour résoudre un problème historique via une argumentation.
+$ Càd
+    arguments expliqués et illustrés dans un ordre logique et cohérent, du plus simple au plus complexe.
+
+### II.A. Méthode / Travail préparatoire
+
+% __Analyser__ les mots du sujet dont les mots de liaison, les pluriels
+% __Délimiter__ (les notions, géographiquement, temporellement)
+% __Mobiliser__ les connaissances précises : idées, arguments
+% __Structurer__ : hiérarchiser, sélectionner, axes de réflexion, plannifier -> formuler un plan (2 ou 3 parties)
+% __Élaborer__ la problématique : trouver le pourquoi le sujet se pose ? (pb / paradoxe / enjeux)
+
+Il peut y avoir un va et vient entre le 4 et le 5
+
+### II.B. Introduction
+
+% Entonnoir (on ramène à notre sujet via phrase d'accroche)
+% Définition des termes du sujet (définition littéralle, par l'image laissée, par opposition) !! ''Ex : Gaulois = origine, zone de peuplement : Gaule''
+% Délimiter le sujet (notions + limites)
+% Problématique : question soulevée par le sujet (différent du sujet), axe reliant toutes les parties !! ''Ex : Pourquoi ?''
+% Plan
+
+### II.C. Développement
+
+* 3 parties structurées !! mini intro !! mini conclu (ce qui a été dit) !! mini transition (ce qui reste à faire)
+* 1 idée par argument développé par paragraphe, illustré par un exemple
+* 10-15 lignes par paragraphe. Pas de titre !
+* Sauter des lignes entre les parties
+
+### II.D. Conclusion
+
+Ne pas la bâcler !
+
+% Bilan synthétique répondant à la pb !! (ex : exposer la pb suivie, rassembler les enseignements du texte) (sans répéter la pb)
+% Mise en perspective et ouverture intelligente !! (dépasser ces enseignements en indiquant la portée, la valeur du texte) (ouverture sans faux suspense) (conséquences, sujets voisins)
+
+Pas de nouveaux éléments !
+
+Pas de téléologie ! (interpréter un évènement passé en fonction de ce qui viendra après)
+
+Mais mise en perspective par rapport aux autres pays, au caractère exceptionnel ou banal, changement décisif ou prolongation ou amplification de qqchose de plus ancien ?
+
+{{end}}
+{{end}}

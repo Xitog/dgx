@@ -67,6 +67,7 @@
                   <li><a href="https://xitog.github.io/dgx/informatique/hamill.html">Aide-mémoire Hamill</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Autres</li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/version_control.html">Gestion de versions</a></li>
                   <li><a href="https://xitog.github.io/dgx/informatique/tools_langs.html">Logiciels utiles et autres langages</a></li>
                 </ul>
               </li>
@@ -176,7 +177,7 @@
   <li>Les types <i>atomiques</i><sup>1</sup> de données :
     <ul>
       <li>Number (entiers et réels) : <code><span class="json-number">1.2</span><span class="json-blank"> </span><span class="json-number">23</span></code>,</li>
-      <li>String <code><span class="json-string">"bonjour"</span></code>,</li>
+      <li>String <code><span class="json-string">&quot;bonjour&quot;</span></code>,</li>
       <li>Boolean <code><span class="json-boolean">true</span><span class="json-blank"> </span><span class="json-boolean">false</span></code>,</li>
       <li>et la valeur <code><span class="json-keyword">null</span></code>.</li>
     </ul>
@@ -194,7 +195,7 @@
   <li><b>La clé ne peut être que de type</b> <code><span class="json-identifier">String</span></code>, pas de nombres, pas d'identifiant.</li>
   <li>JSON est un sous-ensemble du langage <a href="http://yaml.org/">YAML</a>, plus particulièrement de sa syntaxe compacte.</li>
   <li>JSON est un sous-ensemble de <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript">JavaScript</a>.</li>
-  <li>Pas de guillemet simple <code><span class="text-normal">'</span></code> pour encadrer les chaînes de caractères seulement le double <code><span class="text-normal">"</span></code>.</li>
+  <li>Pas de guillemet simple <code><span class="text-normal">&#x27;</span></code> pour encadrer les chaînes de caractères seulement le double <code><span class="text-normal">&quot;</span></code>.</li>
   <li>Les chaînes de caractères doivent être en <a href="http://unicode.org/fr/">Unicode</a>, plus précisément, encodées en <a href="https://tools.ietf.org/html/rfc8259#section-8.1">UTF-8</a>.</li>
   <li><b>Pas de virgule <code><span class="json-separator">,</span></code> après l'élément final d'un Object ou d'une Array</b>.</li>
   <li><b>On ne peut pas faire de commentaires en JSON</b>.</li>
@@ -219,16 +220,16 @@
 <h2 id="exemple">Exemple</h2>
 <pre class="code">
 <span class="json-blank">    </span><span class="json-separator">{</span><span class="json-newline">
-</span><span class="json-blank">        </span><span class="json-string">"type"</span><span class="json-blank"> </span><span class="json-separator">:</span><span class="json-blank"> </span><span class="json-string">"Voiture"</span><span class="json-separator">,</span><span class="json-newline">
-</span><span class="json-blank">        </span><span class="json-string">"marque"</span><span class="json-blank"> </span><span class="json-separator">:</span><span class="json-blank"> </span><span class="json-string">"Hyundai"</span><span class="json-separator">,</span><span class="json-newline">
-</span><span class="json-blank">        </span><span class="json-string">"modèle"</span><span class="json-blank"> </span><span class="json-separator">:</span><span class="json-blank"> </span><span class="json-string">"Getz"</span><span class="json-separator">,</span><span class="json-newline">
-</span><span class="json-blank">        </span><span class="json-string">"annéeConstruction"</span><span class="json-blank"> </span><span class="json-separator">:</span><span class="json-blank"> </span><span class="json-number">2005</span><span class="json-separator">,</span><span class="json-newline">
-</span><span class="json-blank">        </span><span class="json-string">"nomConducteurs"</span><span class="json-blank"> </span><span class="json-separator">:</span><span class="json-blank"> </span><span class="json-separator">[</span><span class="json-newline">
-</span><span class="json-blank">            </span><span class="json-string">"Damien"</span><span class="json-separator">,</span><span class="json-newline">
-</span><span class="json-blank">            </span><span class="json-string">"Charles"</span><span class="json-separator">,</span><span class="json-newline">
-</span><span class="json-blank">            </span><span class="json-string">"Gustave"</span><span class="json-newline">
+</span><span class="json-blank">        </span><span class="json-string">&quot;type&quot;</span><span class="json-blank"> </span><span class="json-separator">:</span><span class="json-blank"> </span><span class="json-string">&quot;Voiture&quot;</span><span class="json-separator">,</span><span class="json-newline">
+</span><span class="json-blank">        </span><span class="json-string">&quot;marque&quot;</span><span class="json-blank"> </span><span class="json-separator">:</span><span class="json-blank"> </span><span class="json-string">&quot;Hyundai&quot;</span><span class="json-separator">,</span><span class="json-newline">
+</span><span class="json-blank">        </span><span class="json-string">&quot;modèle&quot;</span><span class="json-blank"> </span><span class="json-separator">:</span><span class="json-blank"> </span><span class="json-string">&quot;Getz&quot;</span><span class="json-separator">,</span><span class="json-newline">
+</span><span class="json-blank">        </span><span class="json-string">&quot;annéeConstruction&quot;</span><span class="json-blank"> </span><span class="json-separator">:</span><span class="json-blank"> </span><span class="json-number">2005</span><span class="json-separator">,</span><span class="json-newline">
+</span><span class="json-blank">        </span><span class="json-string">&quot;nomConducteurs&quot;</span><span class="json-blank"> </span><span class="json-separator">:</span><span class="json-blank"> </span><span class="json-separator">[</span><span class="json-newline">
+</span><span class="json-blank">            </span><span class="json-string">&quot;Damien&quot;</span><span class="json-separator">,</span><span class="json-newline">
+</span><span class="json-blank">            </span><span class="json-string">&quot;Charles&quot;</span><span class="json-separator">,</span><span class="json-newline">
+</span><span class="json-blank">            </span><span class="json-string">&quot;Gustave&quot;</span><span class="json-newline">
 </span><span class="json-blank">        </span><span class="json-separator">]</span><span class="json-separator">,</span><span class="json-newline">
-</span><span class="json-blank">        </span><span class="json-string">"madeInEurope"</span><span class="json-blank"> </span><span class="json-separator">:</span><span class="json-blank"> </span><span class="json-boolean">false</span><span class="json-newline">
+</span><span class="json-blank">        </span><span class="json-string">&quot;madeInEurope&quot;</span><span class="json-blank"> </span><span class="json-separator">:</span><span class="json-blank"> </span><span class="json-boolean">false</span><span class="json-newline">
 </span><span class="json-blank">    </span><span class="json-separator">}</span><span class="json-newline">
 </span></pre>
 <h2 id="autres-formats">Autres formats</h2>

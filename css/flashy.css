@@ -7,6 +7,14 @@ body {
 
 /* div */
 
+#content-div {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(238, 238, 238);
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 div.block {
     margin-left: 10px;
     border-left: 3px solid #EEEEEE;
@@ -223,5 +231,5 @@ ul.normale a {
 /* Spécifiques */
 
 #intro {
-    style="text-align:justify";
+    text-align: justify;
 }

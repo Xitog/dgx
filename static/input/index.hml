@@ -1,0 +1,87 @@
+!const TITLE=DG
+!const ICON=https://xitog.github.io/dgx/img/favicon.ico
+!require https://xitog.github.io/dgx/css/simplex.bootstrap.css
+!require https://xitog.github.io/dgx/css/palatino.css
+!require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+!require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+!css .jumbotron ol ul li { margin-bottom: 0px; }
+!css .jumbotron ol li { margin-bottom: 1em; }
+
+{{#main .container}}
+
+!include menu.html
+
+{{.jumbotron}}
+
+# Bienvenue
+---
+
+Bonjour visiteur !
+
+Mon site web personnel présente mes centres d'intérêts et différents projets.
+
+J'aime particulièrement la linguistique, l'informatique et l'histoire.
+
+Vous trouvez donc sur ce site :
+
++ Des outils informatiques comme :
+* * [Ash->ash] : un langage de programmation,
+* * [Hamill->hamill] : un langage de balisage léger pour produire du HTML,
+* * Jyx : un éditeur de texte,
+* * Teddy : un éditeur de carte.
++ Des prototypes et des moteurs de jeux vidéo :
+* * un [RTS->rts] et son moteur de transitions,
+* * un [FPS 2.5D->fps] et son moteur de raycasting,
+* * un RPG et son moteur de dialogue,
+* * un Action-RPG et son moteur de génération procédurale.
++ Des guides, des fiches ou des jeux pour apprendre ou réviser :
+* * les technologies informatiques :
+* * * langages de programmation comme [Python->python], [Ruby->ruby] et [Lua->lua],
+* * * langages de description comme [BNF->bnf] et [JSON->json],
+* * * [liste de liens vers des outils pratiques->tools],
+* * les langues et la linguistique :
+* * * français : [phonèmes->frphon] et [outil d'analyse->frana],
+* * * italien : [grammaire->beatrice] et [jeu sur la conjugaison->itagame],
+* * * anglais : [liste de verbes fréquents->enverbs] et [jeu sur le vocabulaire->engame],
+* * * interlingua : [conjugueur->iaconj],
+* * l'histoire : [méthodologie->metodo], [bibliographie->biblio] et [France du XIX^^e^^->xix],
+* * l'histoire des jeux vidéo, celle des [FPS->earlyFPS] et des [RTS->earlyRTS],
+* * mes passe-temps, [jeux classiques->jeux], [jeux vidéo->jv], et [favoris->favoris].
+
+[ash]: https://xitog.github.io/dgx/informatique/ash_guide.html
+[hamill]: https://xitog.github.io/dgx/informatique/hamill.html
+[rts]: https://xitog.github.io/dgx/passetemps/project_rts.html
+[fps]: https://xitog.github.io/dgx/passetemps/project_fps.html
+[python]: https://xitog.github.io/dgx/informatique/python.html
+[ruby]: https://xitog.github.io/dgx/informatique/ruby.html
+[lua]: https://xitog.github.io/dgx/informatique/lua.html
+[bnf]: https://xitog.github.io/dgx/informatique/bnf.html
+[json]: https://xitog.github.io/dgx/informatique/json.html
+[tools]: https://xitog.github.io/dgx/informatique/tools_langs.html
+[frphon]: https://xitog.github.io/dgx/francais/fiche_api_fr.html
+[frana]: https://xitog.github.io/dgx/francais/outil_stats_fr.html
+[enverbs]: https://xitog.github.io/dgx/anglais/verbes.html
+[engame]: https://xitog.github.io/dgx/anglais/jeu_vocabulaire.html
+[beatrice]: https://xitog.github.io/dgx/italien/beatrice.html
+[itagame]: https://xitog.github.io/dgx/italien/jeu_conjugaison.html
+[iaconj]: https://xitog.github.io/dgx/interlingua/conjugueur.html
+[metodo]: https://xitog.github.io/dgx/histoire/methode.html
+[biblio]: https://xitog.github.io/dgx/histoire/bibliographie.html
+[xix]: https://xitog.github.io/dgx/histoire/france19eme.html
+[earlyFPS]: https://xitog.github.io/dgx/passetemps/history_fps.html
+[earlyRTS]: https://xitog.github.io/dgx/passetemps/history_rts.html
+[jeux]: https://xitog.github.io/dgx/passetemps/pres_jeux.html
+[jv]: https://xitog.github.io/dgx/passetemps/pres_jeuxvideo.html
+[favoris]: https://xitog.github.io/dgx/passetemps/pres_favoris.html
+
+J'espère que que ce site pourra vous être utile et que la Force soit avec vous.
+
+À jamais.
+
+{{.sign}}Damien Gouteux, dernière mise à jour le [=GENDATE].
+
+{{end}}
+
+!html <div style="width: 50%; margin: auto; text-align: center;">2005 ❤ 2020</div>
+
+{{end}}

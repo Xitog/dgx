@@ -1,0 +1,264 @@
+!const TITLE=La France au 19ème siècle
+!const LANG=fr
+!const ICON=https://xitog.github.io/dgx/img/favicon.ico
+!require https://xitog.github.io/dgx/css/simplex.bootstrap.css
+!require https://xitog.github.io/dgx/css/palatino.css
+!require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+!require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+
+{{#main .container}}
+
+!include menu.html
+
+{{#content-div}}
+
+# La France au 19ème siècle
+---
+
+Quelques notes sur la France au 19ème siècle (''pour l'instant surtout sur la période de la Restauration, de 1815 à 1830'').
+
+## Sommaire
+
+* [Les questions->#]
+* [Chronologie->#]
+* [Personnages->#]
+* [Les grands thèmes->#]
+* [Société->#]
+* [Références->#]
+
+## Les questions
+
+* Le rapport de force entre le roi et la représentation nationale.
+* Le droit de vote et son élargissement.
+* ''(mineure)'' La centralisation.
+
+## Chronologie
+
+**4 juin 1814** établissement de [la Charte->#], Constitution qui n'ose dire son nom, sur laquelle reposera la politique des années à venir.
+
+**18 juin 1815 à la bataille de Waterloo**, Napoléon est défait finalement après l'épisode des Cent-Jours.
+
+**20 novembre 1815, le second traité de Paris** entérine formellement la défaite. La France retrouve ses frontières de 1790. C'est le vrai départ de la **Restauration** des Bourbons.
+
+**De juillet à septembre 1815, ministère Talleyrand** qui dirige le ministère et s'occupe des Affaires étrangères. Fouché est à la Police. Tous les deux sont des traîtres à leur précédent maître.
+
+**Août 1815, élection de la ''Chambre introuvable''**, en grande majorité constituée de royalistes ultras mais pas de vieille noblesse. Cette élection survient dans le contexte de la ''Terreur blanche'' (meurtres, bandes d'assassins) s'abattant sur les véritables ou supposés jacobins et bonapartistes. Les lois votées par cette chambre attaquent violemment ces mêmes catégories.
+
+**Septembre 1815, le [duc de Richelieu->#] président du Conseil**. Il fait voter la loi Laîné en janvier 1817 (réorganisation des élections législatives favorisant la bourgeoisie urbaine plutôt libérale) et la loi Gouvion-Saint-Cyr en mars 1818 (organisation du recrutement en contradiction avec l'abolitation de conscription de la Charte). **Fin de l'occupation du territoire de la France par les troupes étrangères en novembre 1818**.
+
+**Septembre 1816, dissolution de la Chambre** par le roi lassé des excès de la Chambre introuvable. Les constitutionnels tirent leur épingle du jeu.
+
+**1816-1817 Crises frumentaires**
+
+**Décembre 1818, le [duc Decazes->#] au pouvoir** suite à la démission du [duc de Richelieu->#]. Il sera nommé président du Conseil en novembre 1819. Plutôt libéral mais critiqué par eux pour sa timidité. Il essaye de se rapprocher alors des ultras, sans véritable succès, et la ire que déclenche la mort du duc de Berry contre lui le contraint à démissionner.
+
+**Février 1820-Décembre 1821, rappelle du [duc de Richelieu->#]** : la liberté individuelle et la liberté de la presse sont suspendues. Jeunesse étudiante en révolte. Universités mises au pas. Système du double vote pour les plus imposés. L'enseignement secondaire est placé sous le contrôle du clergé.
+
+**Élections de 1820, nette victoire ultra.** Devant leurs demandes croissantes, le [duc de Richelieu->#] démissionne.
+
+**Décembre 1821, [Villèle->#] président du conseil**, ancien maire de Toulouse, très lié au comte d'Artois. Épuration de l'Université, fusion des ministères des Affaires ecclésistiques et de l'Instruction publique placés sous l'autorité d'un religieux. Presse muselée. Lutte avec succès contre la ''Charbonnerie'', organisation insurectionnelle, fonctionnant en ''ventes'', recrutant parmi la jeunesse (des casernes, étudiantes) (affaire des quatre sergents de la Rochelle). Intervention en Espagne en 1823 pour appuyer le roi absolutiste Ferdinand VII contre les constitutionnels (prise du fort du Trocadéro).
+
+**Dissolution en décembre 1823 puis élections en février-mars 1824, les ultras sortent vainqueurs.** C'est la Chambre retrouvée.
+
+**Septembre 1824, mort de Louis XVIII, Charles X monte sur le trône, sacre à Reims en mai 1825.**
+
+**[Villèle->#] continue**, renforcement du poids de l'Église (loi punissant de mort le sacrilège), indemnisation des émigrés (avril 1825) - le milliard des émigrés, tentative d'une loi avantageant l'aîné dans l'héritage pour protéger les grandes propriétés des nobles mais échec à la Chambre des pairs (en contradiction flagrante avec l'égalité affichée par la Charte). Intervention en Grèce pour aider les insurgés en 1827-28. Rétablissement de la censure en 1827
+
+**Novembre 1827, dissolution et élections** face au mécontentement qui gronde. Net désaveux de [Villèle->#], beaucoup de libéraux élus, démission de Villèle en janvier 1828.
+
+**Le [vicomte Martignac->#], président**. Rescinde l'Instruction publique et les Affaires ecclésiastiques. Essaye de travailler avec une majorité du centre, pour un projet plutôt libéral. Censure supprimée.
+
+**Août 1829, [Jules de Polignac->#] remplace le [vicomte Martignac->#]**, qui chute sur la réforme des conseillers généraux qu'il voulait faire élire et non plus nommés. Son action était jugée trop timide par les libéraux, trop libérale pour les ultras.
+
+**Mars 1830 : discours du Trône du roi**, qui est vu comme l'annonce d'un coup d'État par les libéraux majoritaires. En effet la pression augmente entre le roi et la Chambre des députés. Ceux-ci font une Adresse au roi, qui dissout la chambre en mai.
+
+**5 juillet 1830 chute d'Alger.** Décidé par le gouvernement pour faire distraction sur la base de vieux différents. Sera le départ du second empire colonial français.
+
+La **crise économique depuis 1827 provoque des troubles**. La grande bourgeoise, évincée des postes clés, voient leurs activités frappées par la récession. La libéralisation de 1828 a vu un essor d'une gauche antimonarchique, et l'image de la République devient meilleure.
+
+**Élections de juin-juillet 1830, majorité libérale renforcée.** Cristallisation du problème constitutionnel : soit le roi accepte les vues de la Chambre et un gouvernement libéral est nommé (-> monarchie parlementaire), soit le conflit éclate et le roi passe outre (-> monarchie absolutiste). Le roi choisit la deuxième solution, utilise l'article 14 pour promouvoir des ordonnances, considérant que la sûreté de l'État est en danger - comme elle ne l'est pas, c'est d'un véritable coup d'État dont-il s'agit.
+
+L**es Trois Glorieuses journées des 27, 28 et 29 juillet 1830.** Mise à bas de la Restauration, début de la monarchie de Juillet portée par les orléanistes (Thiers). Les députés proposent au duc d'Orléans de devenir lieutenant-général du royaume. Fuite de Charles X en Angleterre. La révolution est essentiellement parisienne. Une charte modifiée est concoctée par les parlementaires.
+
+**9 août 1830**, intronisation de Louis-Philippe 1er, ''roi des Français''. De nombreux officiers, membres de l'administration refuse de prêter serment au nouveau roi et démissionne, laissant leur place vacante, ce qui donnera lieu à la ''curée''.
+
+## Personnages
+
+### Les rois et la famille royale
+
+**Louis XVIII** roi obèse de 59 ans revenant d'exil, plutôt souple politiquement, sans enfant. Roi de 1814 à septembre 1824 (sauf durant la parenthèse des Cent-Jours).
+
+Son frère dit Monsieur, le **comte d'Artois**, futur **Charles X** chef des ultras (royalistes), roi de septembre 1824 à juillet 1830. En tant que comte, sa couleur est le vert d'où le nom de verdets des bandes d'assassins de la Terreur blanche). Populaire au début de son règne (septembre 1824-juillet 1830) qui débute par son sacre à Reims en mai 1825.
+
+Les fils du comte d'Artois : le **duc d'Angoulême** et le **duc de Berry**, héritié présumé de la dynastie, assassiné par un ouvrier en février 1820. De lui il naîtra un fils posthume, ''l'enfant du miracle'', en septembre 1820, Henri d'Artois, le **duc de Bordeaux**.
+
+Le **duc d'Orléans**, grand gagnant de loi d'indemnisation des émigrés, fils de Philippe-Égalité, roi des français de juillet 1830 à février 1848.
+
+Arbre généalogique des derniers Bourbons :
+
+* Charles-Philippe de France, comte d'Artois, roi de France sous le nom de **Charles X** (abdique en 1830)
+* * Louis-Antoine d'Artois, Duc d'Angoulême (renonce à ses droits en 1830 au profit d'Henri)
+* * Charles-Ferdinand d'Artois, duc de Berry (assassiné en 1820)
+* * * Louise d'Artois,
+* * * Henri d'Artois, duc de Bordeaux
+
+### Autres
+
+**François Guizot**, libéral, créateur de la société "Aide-toi, le ciel d'aidera" en 1827 qui publie brochure, et "travaille" l'électorat. Avec Villemain et Cousin, ils forment ''"la trilogie pensante du quartier latin"'' [[1->#]].
+
+**Joseph de Maistre**, royaliste ardent, théoricien.
+
+**Victor Hugo**, royaliste ultra, évoluera vers la démocratie sous Louis-Philippe. Engagé contre la peine de mort, puis la République contre Napoléon III. Ces frasques amoureuses sont piquantes.
+
+**Alfred de Vigny**, royaliste ultra.
+
+**Alphonse de Lamartine**, royaliste ultra, évoluera vers la république.
+
+**François-René de Chateaubriand**, royaliste ultra.
+
+### Les présidents du conseil de 1815 à 1830
+
+Le **[#duc de Richelieu]**, président du conseil par deux fois, de septembre 1815 à décembre 1818 puis de février 1820 à décembre 1821.
+
+Le **[#duc Decazes]**, président du conseil de novembre 1819 à février 1820 (donc entre les deux mandats de Richelieu). Entre décembre 1818 et novembre 1819, c'est le Marquis Dessolles qui occupe cette fonction, mais le pouvoir est déjà entre les mains de Decazes.
+
+**Joseph de [#Villèle]**, président du conseil de décembre 1821 à janvier 1828, proche du comte d'Artois, né et mort à Toulouse.
+
+Le **[#vicomte Martignac]**, président du conseil entre Villèle et Polignac.
+
+**[#Jules de Polignac]**, fils de la favorite de Marie-Antoinette, ami du comte d'Artois. Refusa de prêter sermant à la Charte, président du conseil de août 1829 à la chute de Charles X.
+
+## Les grands thèmes
+
+**[#La Charte]**, signée le 4 juin 1814, est une Constitution qui n'ose dire son nom, un mélange entre un retour à la monarchie et certains acquis de la Révolution. Le système est bicaméral (= deux chambres). D'un côté, il y a une véritable représentation nationale, la **Chambre des députés**, élue au [suffrage censitaire->#] (et se renouvelle en partie annuellement) et de l'autre, la **Chambre des pairs** (dite Chambre haute), héréditaires ou nommés à vie par le roi. Le pouvoir législatif est dans les mains des Chambres mais partagé avec le roi, qui peut proposer des lois, tout en détenant le pouvoir exécutif. L'article 14 lui confère de plus la possibilité d'émettre des ordonnances nécessaires à la sûreté de l'État. La religion catholique est religion d'État mais la liberté de conscience et de culte est assurée. Les français sont égaux devant la loi et les impôts. La Charte ne met pas en place une monarchie parlementaire (où le roi se plie à la chambre des députés) mais ce n'est pas non plus une monarchie absolue. Les ministres sont nommés par le roi et responsable seulement devant lui, ils forment le Conseil, doté d'un président. Six principaux ministères : Justice, Guerre, Finances, Marine et Colonies, Affaires étrangères et Intérieur, les deux derniers étant les plus prestigieux. De plus elle abolie la circonscription. Il fallait lui prêter serment, ce que certains ultras refusèrent. Une nouvelle version est écrite à la révolution de 1830.
+
+Le **[#suffrage censitaire]** conditionne le droit de vote et d'éligibilité à la somme des contributions directs payées (le cens) par la personne. Il est de 300F pour le droit de vote, et de 1000F pour l'égibilité, réduisant à moins de 100000 les votants.
+
+**Les constitutionnels** : Plutôt conservateurs, attachés à la Charte. Journaux : ''Le Courrier'', ''le Journal de Paris''.
+
+**Les ultras** : famille politique, (on parle d'ultracisme) royaliste, anti-Charte. Journaux : ''Le Drapeau blanc'', ''La Gazette de France'', ''le Journal des Débats'', ''La Quotidienne''. Ils sont liés à l'organisation des Chevaliers de la Foi, organisation secrète sous l'Empire en faveur de la restauration, et à la Congrégation, avec à sa tête le duc de Montmorency, organisation pour la défense de la Foi catholique.
+
+**Les libéraux** : famille politique, anti-ultra, anti-Ancien Régime, anticléricaux, proche de la philosophie des Lumières (Raison et Liberté). Journaux : ''Le Mercure'', ''La Minerve'', ''Le Constitutionnel''. D'inspiration économique libérale, veulent plus d'importance pour la Chambre des députés.
+
+**Les bonapartistes** : famille politique, non représentée à la Chambre. Légende dorée du grand-homme qui se développe.
+
+**Les républicains** : famille politique, non représentée à la Chambre. Mauvaise réputation de la République, liée à la Terreur.
+
+**L'armée** : la Restauration est dure avec l'armée : de nombreux soldats sont licenciés, certains officiers ralliés à Napoléon pendant les Cent-Jours sont condamnés (Ney).
+
+**L'administration** : il y a épuration à la Restauration mais globalement le système napoléonien est conservé avec sa centralisation. Le gouvernement nomme les conseillers généraux (départements) et les maires.
+
+## Société
+
+Émergence d'un sentiment national (cadre administratif, monnaie, représentation nationale) mais contrastes régionaux (langues).
+
+population : jeune, rurale (mais le poids des villes augmente), exception de Paris, transition démographique (restriction volontaire des naissances). Début timide d'exode rurale vers les villes (qui explosera au Second Empire et plus tard).
+
+### La campagne
+
+La France est encore très agricole encore dans l'emploi.
+
+Il existe différents systèmes :
+
+* Faire valoir-direct (exploitant = propriétaire)
+* Faire valoir-indirect (exploitant != propriétaire), deux sous-types :
+* * métayage (le locataire/métayer paye le proriétaire/bailleur avec une part de la récole)
+* * fermage (le locataire/fermier paye en argent)
+
+L'argent mis en jeu par le fermage permet : propriétaire : épargne & investissement | fermier : d'entrer un circuit commercial
+
+Émiettement des parcelles via héritage.
+
+Hiérarchie selon sa relation avec la propriété foncière (possession/location, taille) + la bourgeoisie des villages (prof. libérales), artisans, commerçants
+
+On constante entre 1815 et 1848 une paupérisation des paysans.
+
+Déchristianisation des campagnes (inégales selon l'aire géographique) -> limitation des naissances.
+
+Privé du droit de vote, ils n'ont que la révolte suscitée par la misère généralement. Mais diffusion de la démocratie : cens à 200F en 1830 au lieu de 300F avant, 1848 : suffrage universel masculin.
+
+Intérêt pour l'agronomie (mais diffusion lente face aux résistances paysannes) on parle "d'agromanie".
+
+Crises : 1815-17, 1846-47.
+
+Prix à la baisse (sauf pendant les crises).
+
+### La ville
+
+1/4 en 1848 des fr urbains. En augmentation.
+
+1846 : définition de la ville : seuil de 2000 hbts.
+
+centre administratif, politique, culturel. Espace francophone a contrario des campagnes.
+
+Exode rural (-> vulnérabilité) qui peuple les villes.
+
+Renaissance de l'urbanisme (salubrité, intérêt pour les monuments, gares, éclairage) politique municipale volontariste sous la monarchie de Juillet.
+
+Dev de la spéculation immobilière
+
+Ségrégation horizontale (beaux quartiers / faubourgs) et verticale (immeuble)
+
+Balzac : "La France, au XIXème siècle, est partagée en deux grandes zones : Paris et la province"
+
+Paris : par sa population, sa concentration du pouvoir politique, puissance éco et culturelle, elle est inégalée.
+
+Hiérarchie sociale : bourgeoisie conquérante / employé / artisants / ouvriers / domestique / petits métiers.
+
+Signe de la bourgeoisie : la domesticité (surtout féminine).
+
+Lieu d'ascension sociale, mais aussi de peur (ville invisible du crime) et de révolutions.
+
+### Éducation
+
+Loi Guizot de 1833 : obligation pour les communes >500 hbts d'avoir une école primaire (pour les garçons).
+
+### Le cas de la noblesse
+
+La noblesse. Terres à la campagne, mais vie surtout à la ville (selon la richesse).
+
+Pas de fusion entre noblesse d'Ancien Régime et d'Empire.
+
+Restauration : soutien de la noblesse, mais pas la Monarchie de Juillet.
+
+Richesse écornée (-> loi de 1825 du milliard des émigrés).
+
+Obligation de constituer un majorat pour les pairs de France (ensemble de biens inaliénables, indivisibles assurant un revenu) pour le fils aînés.
+
+Échec du rétablissement du droit d'aînesse contraire à l'égalité promise par la Charte en 1826.
+
+Volonté de distinction par le mode de vie.
+
+Agromanie, carrière militaire, revenus surtout basés sur le foncier, vie sociale (philantropie, politique, culture : salons).
+
+Carrière cléricale moins séduisante, mais lien avec l'Église (alliance Trône-Autel).
+
+Participation des femmes dans la gestion des finances et du domaine.
+
+Mœurs copiées par les bourgeois.
+
+## Références
+
+### Historiens
+
+* David Higgs
+* Alain Corbin
+* Maurice Agulhon
+* Jean-Claude Caron
+* Louis Chevalier
+* John Merriman
+* Adeline Daumard
+* Philippe Vigier
+* Jean-Pierre Chaline
+* Anne Martin-Fugier
+
+### Bibliographie
+
+[[#1]] Caron, Jean-Claude. La France de 1815 à 1848. A. Colin, 1993.
+
+### Sites web
+
+[>http://www.19e.org]
+
+{{end}}
+{{end}}

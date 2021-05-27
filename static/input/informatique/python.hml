@@ -1,0 +1,374 @@
+!const TITLE=Aide-mémoire Lua
+!const LANG=fr
+!const ICON=https://xitog.github.io/dgx/img/favicon.ico
+!require https://xitog.github.io/dgx/css/simplex.bootstrap.css
+!require https://xitog.github.io/dgx/css/flashy.css
+!require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+!require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+
+!var DEFAULT_CODE=python
+
+!css p { text-align: justify; }
+!css span.type    { color: purple; font-family: "Consolas"; }
+!css span.lua-number  { color: red;    font-family: "Consolas"; }
+!css span.lua-line_comment { color: grey;   font-family: "Consolas"; font-style: italic; }
+!css span.lua-string  { color: orange; font-family: "Consolas"; }
+!css span.lua-keyword { color: #1479cc;   font-family: "Consolas"; font-weight: bold; }
+!css span.lua-special { color: purple; font-family: "Consolas"; }
+
+!css h1 { color: #14cc67; font-family: "Palatino Linotype"; font-size: 22px; border-bottom: 1px solid #14cc67; font-weight: bold; margin-top: 18px; margin-bottom: 18px; }
+!css h2 { color: #6714cc; font-family: "Palatino Linotype"; font-size: 18px; font-weight: bold; margin-top: 18px; margin-bottom: 18px; border-bottom: none;}
+!css h3 { color: #cc6714; font-family: "Palatino Linotype"; font-size: 16px; font-weight: bold; margin-top:  6px; margin-bottom:  6px; }
+
+!css li a { color: #6714cc; font-size: 16px; font-family: "Palatino Linotype"; }
+!css li   { font-size: 16px; color: black; font-family: "Palatino Linotype"; }
+
+!css p.back { text-align: center; }
+
+{{#main .container}}
+
+!include menu.html
+
+{{#content-div}}
+
+# Sommaire
+
+* [Introduction->#]
+* [1. Bases du langage->#]
+* * [1.1 Description->#]
+* * [1.2 Historique et influences->#]
+* * [1.3 Désavantages->#]
+* * [1.4 Utilisations->#]
+* * [1.5 Bonjour le monde !->#]
+* * [1.6 Affichage->#]
+* * [1.7 Mots réservés->#]
+* * [1.8 Commentaires->#]
+* * [1.9 Variables->#]
+* [2. Sites web->#]
+* * [2.1 Bibliothèques->#]
+* * [2.2 Outils->#]
+* [3. Types de base->#]
+* * Nombres
+* * Chaînes de caractères
+* * Booléens
+* * Valeur nil
+* * Tables
+* * * Définition
+* * * Accès
+* * * Métatable
+* [4. Opérateurs->#]
+* * Opérateurs binaires
+* * * Opérateurs arithmétiques
+* * * Opérateurs de comparaisons
+* * * Opérateurs booléens
+* * * Autres opérateurs
+* * Opérateurs unaires
+* * * Opérateurs arithmétiques
+* * * Opérateurs booléens
+* [5. Contrôle du flux->#]
+* * Séquence
+* * Conditions
+* * Répétitions
+* [6. Fonctions->#]
+* * Définition
+* * Appel
+* * Closure
+* [7. Gestion des exceptions->#]
+* * Appels protégés
+* [8. Bibliothèque de base->#]
+* * Sortie et entrée console
+* * Nombres
+* * Chaînes de caractères
+* * Tables
+* * Fichiers
+
+# Introduction
+
+Cet aide-mémoire expose la syntaxe du langage de programmation *python* et quelques opérations de base. Idéal pour se rafraîchir la mémoire, il peut également servir à un apprentissage de ce langage pour des personnes qui connaissent déjà un ou plusieurs langages de programmation.
+
+Programmer consiste à donner des ordres à un ordinateur. Ces ordres sont très simples : "met une valeur à 5", "additionne deux valeurs", "affiche une valeur". C'est la combinaison de ces ordres qui permet de faire des choses très complexes. Un **programme** est un ensemble autonome d'ordres constitué dans un but précis : éditer du texte, une image, une photo, contacter des personnes... Un équivalent très utilisé en informatique pour le mot ordre est le mot **instruction**, et de façon plus générale, pour les désigner on parle de **code**. Pour écrire ces instructions, il faut utiliser un **langage de programmation** que l'ordinateur comprend. Le programmeur doit donc apprendre un langage et c'est l'objet de cette fiche. Il existe des milliers de langage de programmation. Nous nous intéresserons ici au langage Python qui est à la fois simple et puissant. En Python, les programmes sont également appelés des **scripts**.
+
+mis à jour le 15 mars 2021, créé le 4 avril 2017, converti en HML le 15 mars 2021.
+
+{{.sign}} Damien Gouteux
+
+# 1. Bases du langage
+
+## 1.1 Description
+
+Python est apparu en 1990, créé par Guido Van Rossum, un néerlandais. Les principales caractéristiques du langage sont :
+
+* Un typage fort et dynamique (duck/latent typing).
+* Interprété mais le code source est transformé en bytecode. 
+* Cross-platform (windows, linux, macos).
+* Il existe plusieurs implémentations : la principale est CPython (C), mais il existe aussi Jython (JVM), IronPython (.Net) et PyPy (Python).
+* Il existe plusieurs sous-langages :
+* * Stackless Python (sans pile C),
+* * RPython (sous ensemble de Python compilé pour PyPy),
+* * Pyrex et son remplaçant moderne Cython qui transpile en C.
+* Les fichiers python portent le suffixe @@.py@@, @@.pyc@@ pour le bytecode et @@.pyx@@ pour Pyrex.
+
+La version majeure actuelle (mars 2021) est la version 3 et est disponible selon les termes de la licence ''Python Software Foundation License (PSFL)'' semblable à la BSD.
+
+À l'heure où j'écris ces lignes (mars 2021), la version actuelle est la 3.9, mais tous les versions supérieures marcheront aussi pour ce tutoriel. À chaque version, le langage s'améliore, mais aussi parfois, il change son fonctionnement, surtout entre les versions majeures (le premier chiffre). Ainsi, un script écrit pour les versions de Python 2.x (où x est compris entre 0 et 7) a de fortes chances de ne plus marcher pour les versions de Python 3.
+ 
+Date d'apparition du langage : 1990
+
+Créateurs : Guido Van Rossum (Pays-Bas)
+
+Extension d'un fichier Python : @@text py@@
+
+Exécuter mon_fichier.py : @@text python mon_fichier.py@@
+
+## 1.2 Historique et influences
+
+Python est un hommage aux groupes d'humoristes britanniques les ''Monthy Pythons''.
+
+## 1.3 Désavantages
+
+TODO
+
+## 1.4 Utilisations
+
+TODO
+
+## 1.5 Installation
+
+La première chose à faire est de vérifier que vous avez les outils nécessaires pour le langage Python installés sur votre machine. Pour cela, ouvrez une console. Sous Windows, il faut faire aller dans Exécuter et taper cmd. Une console s'ouvre. Dedans tapez python. Si vous avez un message d'erreur, c'est que les outils ne sont pas installés sur votre machine. Rendez-vous sur [[https://www.python.org/downloads/]] pour télécharger la dernière version.
+
+Pour les utilisateurs sous Unix, Linux et BSD, Python est souvent de base installé sur vos machines. Vérifiez juste la version et si c'est une version 2.x, mettez la à jour. Vous pouvez également, si vous êtes un utilisateur avec de bonnes connaissances d'informatique, recompiler les outils Python à partir de leur code source. Pour les utilisateurs Mac, vous devez également avoir une version de base qui peut être ancienne, n'hésitez pas à télécharger une version plus récente sur le site officiel.
+
+La suite d'outil se compose d'un interpréteur qui transmet vos instructions en Python à l'ordinateur et d'un éditeur de texte spécial, IDLE. Dans IDLE vous pouvez taper vos instructions et il les transmet à l'interpréteur puis affiche le résultat de vos instructions. Une fois installé, trouvez IDLE et lancez-le. Une fenêtre s'ouvre, intitulée Python 3.5.0 Shell. Elle indique des informations détaillées sur la version que vous utilisez et affiche >>>. Il s'agit du symbole qui vous invite à entrer des instructions. Vous pouvez taper des instructions directement à la suite de ce symbole comme l'exemple plus haut, taper sur entrée et voir le résultat.
+
+Le Shell d'IDLE est ce qu'on appelle un REPL pour read-eval-print-loop. C'est-à-dire que le Shell attend puis lit votre instruction, la transmet à l'ordinateur, affiche son résultat et recommence. C'est pratique pour tester rapidement quelque chose mais pour programmer des scripts plus longs, il faut les écrire dans un fichier. Dans IDLE, cliquez sur File puis New File. Une seconde fenêtre s'ouvre, c'est dans celle-ci que vous taperez votre script, nous l'appellerons la fenêtre d'édition pour la différencier de la fenêtre de Shell. Tapez dedans à nouveau la première instruction et cliquer sur Run puis Run Module (ou tapez F5). Il vous demandera la première fois de sauvegarder ce fichier. Cliquez sur OK et enregistrez votre fichier dans un endroit où vous le retrouverez avec un nom qui explique de quoi il s'agit, comme premiers_essais ou apprentissage. IDLE bascule ensuite sur la fenêtre de Shell et affiche le résultat de l'exécution de votre programme.
+
+## 1.6 Bonjour le monde !
+
+La tradition veut que l'on commence par écrire "Bonjour le monde !" lorsque l'on découvre un nouveau langage de programmation. Nous ne dérogeons pas à la règle.
+
+Un fichier de script Python porte l'extension .py qui s'ajoute au nom que vous lui aurez donné. Il est important que dans le nom que vous avez choisi ne figure pas d'espace, utilisez des tirets bas à la place, ni de caractères accentués ou spéciaux. Vous pouvez également, sans passer par IDLE, programmer en Python ou lancer un programme depuis la console. Ouvrez une console, puis tapez python. Une boucle REPL qui ressemble au Shell d'IDLE s'ouvrira alors où vous pourrez taper des instructions. De même, si vous tapez dans la console python suivi du nom de votre programme (python premiers_essais.py par exemple), il s'exécutera directement dans la console où il affichera ses résultats. Sous Unix, Linux, BSD et Mac, vous pouvez rendre exécutable vos fichiers de scripts en mettant en première ligne #!/usr/bin/env python et en faisant chmod +x sur ceux-ci.
+
+@@@
+# Ceci est un commentaire jusqu'à la fin de la ligne
+print("Bonjour le monde !")
+@@@
+
+Vous venez de voir une première instruction valide en Python. Celle-ci affiche à l'écran les mots Hello World! C'est une tradition dans l'informatique de commencer par ce petit exemple. 
+
+Nous utiliserons une police et un formatage particuliers quand nous écrirons du code.
+
+## 1.7 Affichage
+
+Affichage sur la sortie standard (console) : @@print@@
+
+@@print@@ est une fonction, les parenthèses sont obligatoires. Dans la version 2 de Python, @@print@@ était un mot-clé et on ne mettait pas de parenthèses. C'est une manière rapide et facile de déterminer en quelle version on est.
+
+## 1.8 Mots réservés
+
+Mots réservés (29) : and, as, assert, break, class, continue, def, del, elif, else, except, finally, for, from, global, if, import, in, is, lambda, not, or, pass, raise, return, try, while, with, yield.
+
+## 1.9 Commentaires
+
+Commentaires en Python : 
+@@@
+# mon commentaire jusqu'à la fin de la ligne
+@@@
+
+@@print("Hello, World!") # Ceci est un commentaire@@
+
+Commentaires sur plusieurs lignes : 
+
+@@@python
+"""
+   un commentaire long
+   sur de nombreuses lignes
+"""
+@@@
+
+## 1.10 Variables
+
+Une variable est une référence vers une valeur. Une valeur a un type, pas la variable. L'exemple suivant établie une référence entre la variable a et la valeur 5 de type number.
+
+@@@python
+a = 5
+@@@
+
+Il n'y a pas de constantes en Python : une variable peut référencer ensuite une autre valeur.
+
+Une variable peut référencer n'importe quel type de valeur.
+
+{{.back}} [Retour sommaire->Sommaire]
+
+# 2. Sites web
+
+* Site officiel du langage, il contient tout ce qu'il faut pour débuter : une distribution standard avec notamment l'interpréteur officiel et la bibliothèque standard : [>https://www.lua.org]
+* Le livre électronique ''Programming in Lua'', appelé le "PIL", est un livre d'introduction Lua avec de nombreux exemples. La première édition est gratuitement disponible en ligne mais ne correspond plus à la version actuelle du langage : [>https://www.lua.org/pil/contents.html]
+* Le wiki des utilisateurs de Lua : [>http://lua-users.org/wiki/]
+* Lua binaries, distributions de Lua pour différents systèmes d'exploitation : [>http://luabinaries.sourceforge.net/]
+* Löve, une VM Lua mettant à disposition une bibliothèque pour faire des jeux : [>https://love2d.org/]
+* MoonSharp, un intérpréteur Lua écrit en C# pour les plates-formes .Net, Mono et Unity : [>http://www.moonsharp.org/]
+* Teal, un dérivé de Lua avec des types : [>https://github.com/teal-language/tl]
+* Page de Wikipédia sur Lua : [>https://en.wikipedia.org/wiki/Lua_(programming_language)]
+* Boutique officielle pour supporter Lua via l'achat de goodies : [>https://www.zazzle.com/Lua_Store]
+
+## 2.1 Bibliothèques
+
+* LuaRocks, le gestionnaire de bibliothèques pour Lua : [>https://luarocks.org/]
+* Penlight, une librairie fondamentale pour Lua : [>http://stevedonovan.github.io/Penlight/api/index.html]
+* Bibliothèque de « parsing » : [>http://www.inf.puc-rio.br/~roberto/lpeg/]
+* Bibliothèque d'interface graphique : [>http://webserver2.tecgraf.puc-rio.br/iup/]
+
+## 2.2 Outils
+
+* ZeroBrane Studio un IDE léger, gratuit, simple et efficace pour Lua : [>https://studio.zerobrane.com/]
+* Coder en Lua en ligne avec REPL.it et Moonlight (VM Lua en JavaScript) : [>https://repl.it/languages/lua] et [>http://moonshinejs.org/]
+
+{{.back}} [Retour sommaire->Sommaire]
+
+# 3. Types de base
+
+Les types possibles pour les valeurs sont au nombre de **8** :
+
+* {{.type None}},
+* {{.type boolean}},
+* {{.type number}},
+* {{.type string}},
+* {{.type function}},
+* {{.type userdata}},
+* {{.type thread}},
+* {{.type table}}.
+
+Le type {{.type None}} n'a qu'une seule valeur, @@None@@. Le type {{.type boolean}} a deux valeurs, @@True@@ et @@False@@.
+
+Le type {{.type number}} a pour valeurs les entiers et les réels (ou flottants). Les conversions de l'un vers l'autre type sont automatiques. Par défaut, entiers et réels sont stockés sur 64 bits.
+
+Le type {{.type function}} sera plus étudié dans le chapitre suivant. Il s'agit de bloc de code écrit en Lua ou en C.
+
+Le type {{.type string}} unifie les caractères et les chaînes de caractères. Lua peut stocker les chaînes en UTF-8 mais ne sait pas comment les gérer.
+
+Remarques importantes :
+
+* Les valeurs @@None@@, @@False@@, @@0@@ et la chaîne vide @@""@@ sont les quatre seules valeurs qui sont considérées comme fausse par les tests. Toutes les autres valeurs sont vraies.
+
+* Les chaînes sont immutables en Python.
+
+## Nombres
+
+## Chaînes de caractères
+
+## Booléens
+
+## Valeur nil
+
+## Tables
+
+### Définition
+
+### Accès
+
+### Métatable
+
+{{.back}} [Retour sommaire->Sommaire]
+
+# 4. Opérateurs
+
+## Opérateurs binaires
+
+### Opérateurs arithmétiques
+
+### Opérateurs de comparaisons
+
+### Opérateurs booléens
+
+### Autres opérateurs
+
+## Opérateurs unaires
+
+### Opérateurs arithmétiques
+
+### Opérateurs booléens
+
+[Retour sommaire->Sommaire]
+
+# 5. Contrôle du flux
+
+## Séquence
+
+En Python, il suffit de retourner à la ligne pour terminer une instruction. Pour séparer deux instructions sans retour à ligne, on utilise @@;@@.
+
+## Conditions
+
+Pour qu'une partie du code ne soit exécutée que si une condition est vrai, on utilisera @@if@@ :
+
+@@@
+if condition:
+    actions
+[ elif condition:
+    actions ] *
+[ else:
+    actions ]
+@@@
+
+Sont considérées fausses les valeurs @@false@@ et @@nil@@. Toutes les autres valeurs sont vraies (dont @@{} "" 0@@).
+
+## Répétitions
+
+Boucle qui s'exécute ''tant que'' la condition est vraie avec @@while@@ :
+
+@@@
+while condition:
+    actions
+@@@
+
+Le corps de la boucle (ses actions) sera exécuté entre 0 et n fois.
+
+Autre grand classique des boucles, @@for@@ qui peut-être utilisé avec un intervalle numérique :
+
+@@@
+for identifiant in iterable:
+    actions
+@@@
+
+On peut faire un iterable avec la fonction @@ range(stop)@@ qui va jusqu'à de 0 à stop-1. Par défaut le pas est égal à 1.
+
+Pour parcourir une liste on fera simplement @@ for value in liste: @@ et pour avoir l'index et la valeur @@ for index, value in enumerable(liste): @@.
+
+Pour parcourir un dictionnaire on fera simplement @@ for key in dictionnaire: @@ et pour la clé et la valeur @@ for key, value in dictionnaire.items() @@.
+ 
+On peut utiliser le mot-clé @@break@@ pour sortir de la boucle.
+On peut utiliser le mot-clé @@continue@@ pour passer à l'itération suivante.
+
+{{.back}} [Retour sommaire->Sommaire]
+
+# 6. Fonctions
+
+## Définition
+
+## Appel
+
+## Closure
+
+{{.back}} [Retour sommaire->Sommaire]
+
+# 7. Gestion des exceptions
+
+## Appels protégés
+
+{{.back}} [Retour sommaire->Sommaire]
+
+# 8. Bibliothèque de base
+
+## Sortie et entrée console
+
+## Nombres
+
+## Chaînes de caractères
+
+## Tables
+
+## Fichiers
+
+{{.back}} [Retour sommaire->Sommaire]
+
+{{end}}
+{{end}}

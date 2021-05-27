@@ -1,0 +1,58 @@
+!const TITLE=Les enfants de Dune II
+!const LANG=fr
+!const ICON=https://xitog.github.io/dgx/img/favicon.ico
+!require https://xitog.github.io/dgx/css/simplex.bootstrap.css
+!require https://xitog.github.io/dgx/css/palatino.css
+!require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+!require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+
+{{#main .container}}
+
+!include menu.html
+
+{{#content-div}}
+
+# Cartes de carreaux, Transitions et Variations
+---
+
+## Sommaire
+
+* [I. Les ressources->#]
+
+## I. Les ressources
+
+Le nerf de la guerre dans les STR est la récolte des ressources.
+
+Le **nombre** de ressources varie selon les jeux :
+
+|= Jeu|= Nombre|= Noms                                           |
+|----------------------------------------------------------------|
+|TAK  |      1 | mana                                            |
+|C&C  |      2 | tiberium et électricité                         |
+|TA   |      2 | énergie et métal                                |
+|WC2  |      3 | or, bois et nourriture                          |
+|SC   |      3 | minerai, gaz vespene et population              |
+|AoA  |      3 | crédits, aluminium et terres rares              |
+|SWGB |      4 | nourriture, minerai, crystal de nova et carbone |
+
+Leur **mode de génération** se répartie entre deux modes :
+
+* Le mode localisé : la ressource doit être récoltée à un emplacement précis, un gisement. Il faut parfois construire un bâtiment spécifique dessus (l'extracteur pour le métal dans ), occupé un lieu (les banques pour le crédit dans ) ou envoyer un récolteur (moissonneuse pour le tiberium dans , paysan pour le bois et l'or dans ) qui fait alors un va-et-vient entre le et le .
+* Le mode non localisé : la ressource peut être produite n'importe où. Il suffit de construire un : un capteur solaire pour l'énergie dans , une centrale électrique pour l'électricité dans qui en produira. Généralement, il n'y a pas besoin de transporter la ressource.
+
+Une ressource peut-être :
+
+* localisée (elle se récolte à un endroit particulier) ou non localisée
+* en quantité limitée (elle finit par s'épuiser) ou infinie
+* à revenu variable (ce qu'elle donne varie dans le temps) ou fixe
+* stockable virtuellement, physiquement ou non stockable
+
+Le récolteur de la ressource peut-être :
+
+* Une unité reliée à un bâtiment (moissonneur)
+* Un bâtiment (extracteur TA)
+* Une unité seule
+* Un bâtiment relié à un autre bâtiment par une unité (Act of Aggression)
+
+{{end}}
+{{end}}

@@ -319,7 +319,7 @@ span.people.border, span.date.border, span.game.border {
  
 a {
     font-family: "Palatino Linotype", "Palatino", "Georgia";
-    color: #CC6714; #929497;
+    color: #CC6714; /*#929497;*/
 }
 a:hover {
     background-color: #CC6714;

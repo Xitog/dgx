@@ -1,0 +1,61 @@
+!const TITLE=References on early FPS
+!const LANG=en
+!const ICON=https://xitog.github.io/dgx/img/favicon.ico
+!require https://xitog.github.io/dgx/css/simplex.bootstrap.css
+!require https://xitog.github.io/dgx/css/palatino.css
+!require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+!require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+
+!css code {color: #006FDD; border: none; padding: 0px; background-color: transparent; font-family: inherit;}
+!css code span.normal { color: inherit; background-color: transparent; }
+!css code span.number { color: inherit; background-color: transparent; }
+!css p { text-align: justify; }
+
+!css table { margin-left:auto; margin-right:auto; }
+!css table#main tr:nth-child(10)  { font-weight: bold; background-color: rgb(0, 0, 0);       color: white; text-align: center; }
+!css table#main tr:nth-child(13)  { font-weight: bold; background-color: rgb(0, 0, 0);       color: white; text-align: center; }
+!css table#main tr:nth-child(18)  { font-weight: bold; background-color: rgb(0, 0, 0);       color: white; text-align: center; }
+!css table#main tr:nth-child(22)  { font-weight: bold; background-color: rgb(0, 0, 0);       color: white; text-align: center; }
+!css table#main tr:nth-child(29)  { font-weight: bold; background-color: rgb(0, 0, 0);       color: white; text-align: center; }
+!css table#main tr:nth-child(34)  { font-weight: bold; background-color: rgb(0, 0, 0);       color: white; text-align: center; }
+!css table#main tr:nth-child(39)  { font-weight: bold; background-color: rgb(0, 0, 0);       color: white; text-align: center; }
+
+§§ !css code {color: #006FDD; border: 1px solid rgb(225, 228, 229); padding-left: 3px; padding-right: 5px;}
+
+{{#main .container}}
+
+!include menu.html
+
+{{#content-div}}
+
+# References on early FPS
+---
+
+## Sommaire
+
+* [I. General->#]
+* * [I.1 The birth of FPS->#]
+* [II. Games->#]
+* * [II.1 Wolfenstein 3-D->#]
+* * [II.2 Doom->#]
+* [III. People and compagnies->#]
+* * [III.1 id Software->#]
+
+## I. General
+
+### I.1 The birth of FPS
+
+* [>https://sublimeconfusionblog.wordpress.com/2018/04/07/the-birth-of-3d-gaming/]
+
+## II. Games
+
+### II.1 Wolfenstein 3-D
+
+### II.2 Doom
+
+## III. People and compagnies
+
+### III.1 id Software
+
+{{end}}
+{{end}}

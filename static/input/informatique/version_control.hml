@@ -1,0 +1,57 @@
+!const TITLE=Aide-mémoire gestion de versions
+!const LANG=fr
+!const ICON=https://xitog.github.io/dgx/img/favicon.ico
+!require https://xitog.github.io/dgx/css/simplex.bootstrap.css
+!require https://xitog.github.io/dgx/css/flashy.css
+!require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+!require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+
+!css body, div, p, span, li, a, td {font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13px;}
+!css h1, h2, h3 {font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: normal;}
+!css th {font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: bold;}
+!css td {padding-left: 15px; padding-right: 15px;}
+!css p {text-align: justify;}
+!css code, code span, pre, pre span {font-family: "Courier New"; font-size: 13px;}
+!css b {color: #777777;}
+!css i b {color: #FF0000;}
+!css #intro {background-color: white; border: 1px solid #eeeeee; padding-left: 15px; padding-right: 15px;}
+
+{{#main .container}}
+
+!include menu.html
+
+{{#content-div}}
+
+# Gestion de versions
+
+{{#intro}}
+''Un gestionnaire de versions (version control ou source control en anglais) permet de garder la trace des modifications apportées à des fichiers. Indispensable pour suivre l'évolution d'un projet, il permet aussi à l'aide de branches de développer en parallèle plusieurs fonctionnalités avec plusieurs personnes sans se marcher dessus. On peut tout aussi bien l'utiliser pour du code source que pour des données, tant qu'elles sont dans un format textuel.''
+{{end}}
+
+## SVN
+
+SVN fonctionne avec deux étages : la copie de travail et le dépôt distant.
+
+|= Commande                                   | Description                                                                                            |
+|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| svn status -u	                              | Affiche les fichiers modifiés dans la copie par rapport au dépôt. Format : statut / révision / fichier |
+| svn diff                                    | Visualise les modifications effectuées dans la copie par rapport au dépôt                              |
+| svn update                                  | Envoie les modifications du dépôt vers la copie                                                        |
+| svn commit -m "message" [liste de fichiers] | Envoie les modifications de la copie vers le dépôt                                                     |
+| svn log [-r debut:fin][-v]                  |	Affiche le journal de modifications                                                                    |
+| svn add (liste de fichiers)                 | Ajoute un fichier dans la copie à suivre dans le système de gestion de version                         |
+
+## Git
+
+Git fonctionne avec trois étages : la copie de travail, un dépôt local et un dépôt distant.
+
+|= Commande                                   | Description                                                                                            |
+|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| git status                                  | Affiche les fichiers modifiés dans la copie                                                            |
+| git diff                                    | Visualise les modifications effectuées dans la copie par rapport au dépôt local                        |
+| git add (liste de fichiers)                 | Ajoute un fichier à inclure dans le prochain commit (. pour tous)                                      |
+| git commit -m "message"                     | Enregistre les modifications dans le dépôt local                                                       |
+| git push                                    | Envoie les modifications du dépôt local vers le dépot distant                                          |
+
+{{end}}
+{{end}}

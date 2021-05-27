@@ -1,0 +1,130 @@
+!const TITLE=Jeux
+!const LANG=fr
+!const ICON=https://xitog.github.io/dgx/img/favicon.ico
+!require https://xitog.github.io/dgx/css/simplex.bootstrap.css
+!require https://xitog.github.io/dgx/css/palatino.css
+!require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+!require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+
+{{#main .container}}
+
+!include menu.html
+
+{{#content-div}}
+
+# Jeux
+---
+
+Cette page concerne mes passe-temps ludiques. Ce qui suit présente rapidement les différents types de jeux auxquels je m'adonne :
+
++ [Les jeux de figurines->#] : Warhammer, X-Wing
++ [Les jeux de cartes->#] : Magic: The Gathering
++ [Les jeux de rôles->#] : D&D, Star Wars d20
++ [Les livres-jeux->#] : Les défis fantastiques
++ [Les jeux de plateau et de société->#] : Diplomacy, Stratego, etc.
++ [Les jeux vidéo->#] : surtout les FPS, les RPG et les RTS
+
+## Les jeux de figurines
+
+Les jeux de figurines consistent à représenter des scénarios, généralement des batailles entre plusieurs factions, à l'aide de figurines en plastique ou en métal. On peut utiliser pour représenter le terrain de jeu un plateau, parfois divisé en cases ou en hexagones, ou une simple table avec des décors. Chaque jeu propose un système de règle pour résoudre les situations et un univers qui peut reprendre une licence connue. Voici une liste des jeux que j'ai pratiqué :
+
+|Titre|Abréviation|Depuis|Création|Statut|Lien|
+|-----|-----|-----|-----|-----|-----|
+|**Warhammer 40 000**|WH40K|1997|1987|Actif, 8e éd. en 2017|[Wikipedia->1]|
+|**Warhammer Fantasy Battle**|WFB|1998|1983|Abandonné, 8e éd. en 2010|[Wikipedia->2]|
+|**X-Wing**|X-Wing|2012|2012|Actif, 2e éd. en 2018|[Wikipedia->3] ''(en)''|
+|**Age of Sigmar**|AoS|2020|2015|Actif, 2e éd. en 2018|[Wikipedia->4] ''(en)''|
+
+J'ai hésité entre WH40K et WFB mais les figurines des Space Marines, des sortes de chevaliers du futur, ont été déterminantes dans mon choix de commencer par ce jeu de science-fiction. C'est d'ailleurs le produit d'appel du jeu et la faction la plus jouée. L'univers du jeu ne m'a pas déçu : space opera très sombre avec des influences bibliques, des guerres épiques et une humanité perdue entre une théocratie et les profondeurs de l'espace habité par des entités abominables.
+
+L'appel de WFB été très fort aussi, avec son univers proche du ''Seigneur des Anneaux'' de Tolkien, mais étendu en puisant à de nombreuses sources, avec des apports comme les momies et vampires, les soldats de la Renaissance, des armes à feu et même le mythique ''Tank à vapeur''. Bien avant 1997, un premier jeu dans le même univers, ''Seigneurs de Guerre'', m'avait introduit au passe-temps du jeu de figurine, avec des règles beaucoup plus simples et un tapis immense divisé en hexagones.
+
+WFB a été arrêté par son créateur, au profit de ''Age of Sigmar'' et poursuivi par des passionnés qui ont fait ''[>Le neuvième âge]'', des règles et un univers disponibles gratuitement. Si les règles d'AoS sont rafraîchissantes, apprisent vite et beaucoup plus simples que celles de son prédecesseur, son univers m'attirent beaucoup moins : très kitsch, avec des elfes qui chevauchent des requins volants, moins cohérents, avec des armées qui lorgent vers le steampunk et d'autres vers la high-fantasy.
+
+X-Wing, utilisant la licence ''Star Wars'', était une évidence. Ce jeu représente les combats spatiaux et aériens des vaisseaux de la célèbre saga. J'ai d'abord fait la collection des figurines des différents TIE, les vaisseaux du sinistre Empire. J'adore ce concept de variations autour d'un même modèle : on a le TIE Advanced, le TIE Defender, le TIE Phantom, etc. 
+
+[1]: https://fr.wikipedia.org/wiki/Warhammer_40,000
+[2]: https://fr.wikipedia.org/wiki/Warhammer_le_jeu_des_batailles_fantastiques
+[3]: https://en.wikipedia.org/wiki/Star_Wars:_X-Wing_Miniatures_Game
+[4]: https://en.wikipedia.org/wiki/Warhammer_Age_of_Sigmar
+[Le neuvième âge]: https://www.the-ninth-age.com/?lang=en
+
+## Les jeux de cartes
+
+Le jeu de cartes auquel j'ai le plus joué, c'est le plus vieux, celui qui a créé le genre des jeux de cartes à jouer à collectionner (JCC) : ''[>Magic: the Gathering]''. Des règles simples, des illustrations superbes, des mondes intéressants, bref, un succès qui ne se dément pas, malgré l'arrêt du magazine spécialisé qui en parlait en France, ''Lotus Noir''.
+
+|Titre|Abréviation|Depuis|Création|Statut|Lien|
+|-----|-----|-----|-----|-----|-----|
+|**Magic: the Gathering**|MTG|1996|1993|Actif, Core Set 2021|[Wikipedia->7]|
+
+J'ai joué ponctuellement à d'autres jeux comme ''Behind'', ''[>Star Wars: The Trading Card Game]'' (2002-2005), et fait une partie mémorable du ''[>Middle-earth CCG]'' aux illustrations merveilleuses mais aux règles assez complexes. MTG reste une valeur sûre, pratiquée par de nombreux joueurs aussi bien dans des tournois internationaux que dans des tournois locaux organisés par les boutiques de passe-temps. Les avant-premières, au lancement de chaque nouvelle extension, permettent ainsi de découvrir les nouvelles cartes et tournoyer dans une ambiance sympathique.
+
+[Magic: the Gathering]: https://magic.wizards.com/fr
+[Star Wars: The Trading Card Game]: https://en.wikipedia.org/wiki/Star_Wars_Trading_Card_Game
+[Middle-earth CCG]: https://en.wikipedia.org/wiki/Middle-earth_Collectible_Card_Game
+[7]: https://en.wikipedia.org/wiki/Magic:_The_Gathering
+
+## Les jeux de rôles
+
+Je n'ai jamais vraiment ''joué'' aux jeux de rôle. À part une partie du jeu français ''[>Shaan]'', j'ai surtout exploré les règles et les univers des différents jeux, dont le plus célèbre et celui qui a créé ce passe-temps: ''[>Dungeons & Dragons]''. Il a connu [>cinq éditions] :
+
+* L'originale, la 1^^ère^^ édition, en 1974
+* L'Advanced Dungeons & Dragons, ou **AD&D**, la 2^^ème^^ édition, dont les trois livres de base ont été édités en 1977, 1978 et 1979
+* L'Advanced Dungeons & Dragons 2^^nd^^ édition en 1989 (ou 2.5)
+* Cette seconde édition d'AD&D sera rééditée en 1995 avec des règles inchangées mais une nouvelle mise en page. Ceux sont les ''livres noirs''.
+* La 3^^ème^^ édition, en 2000.
+* L'édition 3.5 en 2003 qui est une révision de la 3.
+* La 4^^ème^^ édition, en 2008.
+* La 5^^ème^^ édition, en 2014.
+
+Il existe également les gammes de règles ''Basic et Expert D&D'' et ''D&D Essentials''.
+
+Les règles que j'ai le plus étudiées sont celles de l'édition ''Advance Dungeons & Dragons seconde édition'' sur lesquelles sont basés de nombreux jeux vidéo et celle de la troisième édition.
+
+Donjons & Dragons possède également plusieurs univers, dont  deux que j'apprécie particulièrement : ''Forgotten Realms'' et ''Planescape''. Plusieurs romans en français avaient pour cadre ce premier univers, notamment les aventures de l'elfe noir ''[>Drizzt Do'Urden]'' par R.A. Salvatore, que j'ai dévorées pendant mes années collèges. Les deux univers ont été utilisés comme cadre pour des jeux vidéo: la série des ''Baldur's Gate'' et ''Icewind Dale'' pour le premier et ''Planescape: Torment'' pour le second.
+
+|Titre|Abréviation|Depuis|Création|Statut|Liens|
+|-----|-----|-----|-----|-----|-----|
+|**Dungeons & Dragons**|D&D|200x|1974|Actif, 5e éd. en 2014|[Wikipedia->Dungeons & Dragons] [GROG->DDGROG] [ADDGROG->ADDGROG]|
+|**Star Wars D20**|SWD20|200x|2000|Abandonné en 2010, Saga éd. en 2007|[Wikipedia->Star Wars D20] [GROG->SWGROG]|
+
+J'ai beaucoup étudié les règles du jeu ''[>Star Wars D20]'', basée sur celles de D&D 3^^ème^^ édition, qui n'existaient qu'en anglais, essayant de les traduire en français dans les années 2002-2004, une entreprise de longue haleine jamais finie.
+
+J'ai également écrit des règles maisons pour un jeu de rôle dans l'univers de ''Jurassic Parc'' en 1997,  et un autre dans univers médiéval-fantastique générique, ''les Terres Sauvages'', en 1998.
+
+[cinq éditions]: https://en.wikipedia.org/wiki/Editions_of_Dungeons_%26_Dragons
+[Shaan]: https://fr.wikipedia.org/wiki/Shaan
+[Dungeons & Dragons]: https://fr.wikipedia.org/wiki/Donjons_et_Dragons
+[Drizzt Do'Urden]: https://fr.wikipedia.org/wiki/Drizzt_Do%27Urden
+[Star Wars D20]: https://fr.wikipedia.org/wiki/Star_Wars_(jeux_de_r%C3%B4le)
+[D&Ded]: https://en.wikipedia.org/wiki/Editions_of_Dungeons_%26_Dragons
+[DDGROG]: http://www.legrog.org/jeux/donjons-et-dragons
+[ADDGROG]: http://www.legrog.org/jeux/ad-d-regles-avancees-officielles-de-donjons-et-dragons
+[SWGROG]: http://www.legrog.org/jeux/star-wars-d20
+
+## Les livres-jeux
+
+Il s'agit de livres divisés en plusieurs parties composées d'un ou plusieurs paragraphes. Chaque partie est numérotée et le lecteur-joueur, qui commence à la première partie, est invité ensuite à faire des choix qui le conduise à une partie ou une autre. Parfois, il rencontre un ennemi qu'il combat avec des règles semblables à celles des RPG.
+
+Les livres-jeux ont connu un grand succès dans les années 80-90 à partir de la publication du ''Sorcier de la Montagne de feu'' en 1982 avec les séries des ''Défis fantastiques'' et ''Loup Solitaire''. [Wikipédia->livrejeuwikipedia] a une fiche qui explique tout cela. Il existe des sites de fans qui répertorient les livres-jeux comme [la Taverne des Aventuriers->taverne] et [la Bibliothèque des Aventuriers->biblio].
+
+Je jouais généralement à ces jeux pendant les grandes vacances d'été, où le supermarché local en avait un bon stock à l'époque, disparu depuis. Mon premier fut ''Le justicier de l'univers'' qui se déroulait, de façon originale, dans un univers de science-fiction plutôt que médiéval-fantastique. Finalement, j'ai toujours préféré le futur au passé, aussi fantastique soit-il, et d'ailleurs je préfère que l'aspect fantastique soit limité, comme au début du ''Trône de fer'', plutôt que les délires rutilants de la ''High Fantasy''.
+
+J'ai écrit beaucoup plus tard deux ''compagnons'' pour décrire deux d'entre eux, [''Le Talisman de la Mort''->talisman] et [''Le Sorcier de la Montagne de feu''->sorcier].
+
+[livrejeuwikipedia]: https://fr.wikipedia.org/wiki/Livre-jeu
+[taverne]: http://www.la-taverne-des-aventuriers.com/
+[biblio]: http://www.bibliotheque-des-aventuriers.com/
+[talisman]: https://xitog.github.io/dgx/passetemps/compagnon_talisman.html
+[sorcier]: https://xitog.github.io/dgx/passetemps/compagnon_sorcier.html
+
+## Les jeux de plateau et de société
+
+Le jeu qui m'a le plus marqué est sans conteste ''Diplomacy''. La chance y est présente uniquement par la conjonction des différentes actions des joueurs : votre mouvement sera génial ou désastreux en fonction de ceux de vos adversaires. Il faut aussi citer le classique ''Stratego'', ''Les Aventuriers du Rail'', ''Les Colons de Catan'' et ''Seigneurs de Guerre'' qui me mettra sur la voie du jeu de figurines.
+
+## Les jeux vidéo
+
+Les jeux vidéo ont leur [propre page->https://xitog.github.io/dgx/passetemps/pres_jeuxvideo.html].
+
+{{end}}
+{{end}}

@@ -1,0 +1,63 @@
+!const TITLE=Tests
+!const ICON=https://xitog.github.io/dgx/img/favicon.ico
+!require https://xitog.github.io/dgx/css/palatino.css
+!var EXPORT_COMMENT=true
+
+{{#main .container}}
+
+# Tests
+
+## Title 2
+
+### Title 3
+
+## Comments
+
+§§ Tests
+
+## Paragraphs
+
+This is a paragraph.
+
+This is another one.
+
+## Spans
+
+* **bold**
+* ''italic''
+* --strikethrough--
+* __underlined__
+* ^^exponent^^
+
+## Lists
+
+* List 1, Item 1
+* List 1, Item 2
+
+% Un premier item numéroté
+% Un deuxième item numéroté
+
+* Un item sans chiffre
+* Un autre item sans chiffre
+* * Un sous item de l'autre item
+* * Un autre sous item !
+
+- - Mad list
+- - - - Truly
+- No
+- - - it is !
+
+## Table
+
+|Header One|Header Two|Header Three|
+|----------|----------|------------|
+| 1.1      | 2.1      | 3.1        |
+| 1.2      | 2.2      | 3.2        |
+| 1.3      | 2.3      | 3.3        |
+
+## Escaping special characters
+
+\ Un antislah
+\* ceci n'est pas une liste mais un paragraphe avec une étoile
+
+{{end}}

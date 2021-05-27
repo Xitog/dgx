@@ -1,0 +1,77 @@
+!const TITLE=Bibliographie
+!const LANG=fr
+!const ICON=https://xitog.github.io/dgx/img/favicon.ico
+!require https://xitog.github.io/dgx/css/simplex.bootstrap.css
+!require https://xitog.github.io/dgx/css/palatino.css
+!require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+!require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+
+{{#main .container}}
+
+!include menu.html
+
+{{#content-div}}
+
+# Bibliographie
+---
+
+Notes rapides pour constituer sa bibliographie. Description du format utilisé :
+
+* Les symboles entre crochets indiquent un élément optionnel.
+* Les symboles \[x*] indiquent la possibilité de répéter l'élément précédent (un autre auteur), en les séparant par le symbole x. 
+
+Bien sûr, il existe plusieurs normes (que serait le monde sinon ?) qui sont plus au moins compatibles :
+
+* La norme international [ISO-690->http://fr.wikipedia.org/wiki/ISO_690].
+* La norme MLA pour [Modern Language Association of America->http://www.mla.org/]. Utilisée dans les sciences humaines aux USA.
+* La norme APA pour [American Psychological Association->http://www.apa.org/]. Utilisée pour la psychologie aux USA, se rapproche de la norme ISO 690.
+* La norme dite ["de Chicago"->http://www.chicagomanualofstyle.org/tools_citationguide.html]. 
+
+Les trois dernières sont américaines et employées par le moteur de recherche [Google Scholar->http://scholar.google.com/]. Livrons nous à une comparaison sur [un exemple simple->http://scholar.google.com/scholar?hl=en&as_sdt=0,5&q=harry+potter+et+la+pierre+philosophale] :
+
+* ISO 690 : ROWLING, Joanne K. ''Harry Potter à l'école des sorciers''. Traduit de l'anglais par Jean-François Ménard. Gallimard jeunesse, 2000.
+* MLA : Rowling, Joanne K., and Jean-François Ménard. ''Harry Potter à l'école des sorciers''. Gallimard jeunesse, 2000.
+* APA : Rowling, J. K., & Ménard, J. F. (2000). ''Harry Potter à l'école des sorciers''. Gallimard jeunesse.
+* Chicago : Rowling, Joanne K., and Jean-François Ménard. ''Harry Potter à l'école des sorciers''. Gallimard jeunesse, 2000.
+
+Les principales différences sont :
+
+* La place du traducteur : il est en second auteur alors que la norme ISO 690 le place dans les autres auteurs,
+* l'année qui est pour l'APA juste après les noms,
+* l'abréviation des prénoms pour l'APA,
+* l'usage de & pour lier le dernier auteur pour l'APA.
+
+Nous prendrons la norme ISO 690 comme référence car elle est la seule norme internationale des quatre.
+
+## Référencer un ouvrage entier
+
+__Attention__ : une telle référence est peu pratique pour le lecteur ! Une bonne référence est une référence précise, citer les 40 volumes d'universalis, si on parle d'un seul article, n'aide pas.
+
+Exemples simples :
+
+* GAFFIOT, Félix, FLOBERT Pierre (direction). ''Le Gaffiot de poche : dictionnaire latin-français''. Paris : Hachette, 2001, 820 p. ISBN 2-01-167940-0.
+* RASTIER, François. ''Sens et textualité''. Paris : Hachette, 1989, 286 p. Collection Langue, Linguistique, Communication. ISBN 2-01-014453-8.
+* ROWLING, Joanne K. ''Harry Potter à l'école des sorciers''. Traduit de l'anglais par Jean-François Ménard. Paris : Gallimard jeunesse, 2000. ISBN 2-07-051842-6.
+
+Format
+
+NOM, Prénom \[(responsabilité)] \[,*]. Titre \[: sous-titre]. \[Volume.] \[Autres auteurs : traduit de L par X.] \[Edition.] \[Lieu d'édition :] éditeur, année de publication\[-année de fin]\[, nb volumes ou nb pages]. \[Collection.] \[ISBN.]
+
+L'année de fin s'applique pour un ouvrage en plusieurs volumes. Si la publication est en cours, on laisse l'année de début avec un tiret : 2000- .
+
+## Référencer une partie d'ouvrage
+
+## Référencer une thèse non publiée
+
+## Référencer un site web
+
+## Sources
+
+Je mets ici au format "brut" (en attendant de les formater) les différents sites internet que j'ai consulté pour constituer cette fiche :
+
+* [Excellente référence complète et claire de Rossitza Kyheng.->http://www.revue-texto.net/Reperes/Themes/Kyheng_References.html]
+* [Exemples pour l'APA.->http://flash1r.apa.org/apastyle/basics/data/resources/sample-references2.pdf]
+* [Page wikipédia pour BibTex.->http://en.wikipedia.org/wiki/BibTeX]
+
+{{end}}
+{{end}}

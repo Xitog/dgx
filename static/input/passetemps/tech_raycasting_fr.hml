@@ -1,0 +1,292 @@
+!const TITLE=Raycasting
+!const LANG=fr
+!const ICON=https://xitog.github.io/dgx/img/favicon.ico
+!require https://xitog.github.io/dgx/css/simplex.bootstrap.css
+!require https://xitog.github.io/dgx/css/palatino.css
+!require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+!require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+
+!css code {color: #006FDD; border: none; padding: 0px; background-color: transparent; font-family: inherit;}
+!css code span.normal { color: inherit; background-color: transparent; }
+!css code span.number { color: inherit; background-color: transparent; }
+!css p { text-align: justify; }
+
+!css table { margin-left:auto; margin-right:auto; }
+!css table#main tr:nth-child(10)  { font-weight: bold; background-color: rgb(0, 0, 0);       color: white; text-align: center; }
+!css table#main tr:nth-child(13)  { font-weight: bold; background-color: rgb(0, 0, 0);       color: white; text-align: center; }
+!css table#main tr:nth-child(18)  { font-weight: bold; background-color: rgb(0, 0, 0);       color: white; text-align: center; }
+!css table#main tr:nth-child(22)  { font-weight: bold; background-color: rgb(0, 0, 0);       color: white; text-align: center; }
+!css table#main tr:nth-child(29)  { font-weight: bold; background-color: rgb(0, 0, 0);       color: white; text-align: center; }
+!css table#main tr:nth-child(34)  { font-weight: bold; background-color: rgb(0, 0, 0);       color: white; text-align: center; }
+!css table#main tr:nth-child(39)  { font-weight: bold; background-color: rgb(0, 0, 0);       color: white; text-align: center; }
+
+§§ !css code {color: #006FDD; border: 1px solid rgb(225, 228, 229); padding-left: 3px; padding-right: 5px;}
+
+{{#main .container}}
+
+!include menu.html
+
+{{#content-div}}
+
+# Sommaire
+
++ [Introduction->1.-introduction]
++ [Historique->2.-historique]
++ [Technique->3.-technique]
++ + [Principe et initialisation->3.1-principe-et-initialisation]
++ + [Émission des rayons->3.2-émission-des-rayons]
++ + [Intersections des rayons avec la grille->3.3-intersections-des-rayons-avec-la-grille]
++ + [Construction du rendu->3.4-construction-du-rendu]
++ + [Texturation->3.5-texturation]
++ [Index des moteurs de raycasting et des jeux->4.-index-des-moteurs-de-raycasting-et-des-jeux]
++ [Comparaison des moteurs d'id Software->5.-comparaison-des-moteurs-d'id-software]
++ [Références->6.-références]
+
+A version in English of this page is [available here->https://xitog.github.io/dgx/passetemps/tech_raycasting_en.html].
+
+''Je tiens à remercier Lode Vandevenne pour sa [série d'articles->http://lodev.org/cgtutor/] sur le Raycasting et les contributeurs anonymes de Wikipédia.''
+
+# 1. Introduction
+
+Le [raycasting->https://en.wikipedia.org/wiki/Ray_casting] (lancer de rayons) est une technique de rendu dans les jeux vidéo pour, à partir d'une carte en 2D, afficher en temps réel un environnement qui à l'apparence d'une 3D rudimentaire [1]. Le principal avantage de cette technique est d'être rapide et abordable en termes de calcul temps réel pour les ordinateurs du début des années 90. Cette technique est également appelée parfois « [2.5D->https://en.wikipedia.org/wiki/2.5D] » pour la différencier des premiers moteurs de rendu en vraie 3D, comme le moteur de @@Quake@@, mais cette appellation recouvre également d'autres techniques de représentation d'un environnement 3D en 2D comme les [projections axonométriques->https://en.wikipedia.org/wiki/Axonometric_projection] dont la [perspective isométrique->https://en.wikipedia.org/wiki/Isometric_video_game_graphics].
+
+Il ne faut pas confondre ''raycasting'' et ''raytracing''. Le raytracing est une autre technique de rendu qui est beaucoup plus coûteuse en temps de calcul et simule le parcours des rayons de lumière de différentes sources pour éclairer la scène en essayant d'atteindre une qualité photoréaliste. Depuis la fin 2019, la puissance des cartes graphiques est telle que certains proposent du raytracing en temps réel.
+
+Notons enfin que si le raycasting est rapide sur les résolutions de l'écran de l'époque, 320x200, 640x400 ou 640x480, ses performances sont très mauvaises sur nos grandes résolutions modernes et il vaut mieux passer par des techniques plus modernes comme les API 3D OpenGL, Vulkan ou DirectX.
+
+# 2. Historique
+
+Le jeu qui a popularisé cette technique est @@Wolfenstein 3D@@, d'id Software, sorti le 5 mai 1992. Le raycasting était une technique bien adaptée à la puissance des machines de l'époque, codée avec brio par [John Carmack->https://twitter.com/id_aa_carmack], et mis au service d'un jeu avec un gameplay simple et rapide, dans une direction artistique faisant la part belle à la violence (pour l'époque) et aux décorations nazies, les ennemis du jeu.
+
+Le moteur qui implémente le raycasting dans Wolfenstein 3D propose néanmoins des fonctionnalités très rudimentaires : le niveau est stocké dans un tableau, une grille. La valeur d'une case indique s'il la case est pleine ou creuse. Tous les murs ont la même hauteur, ont une longueur qui est toujours un multiple d'une valeur de base, ils se croisent toujours perpendiculairement, le sol et le plafond ne sont pas texturés, la lumière est statique. Le moteur offre néanmoins des murs texturés, des portes, des sprites pour les ennemis, les objets et les lumières statiques.
+
+Avant Wolfenstein 3D, John Carmack avait développé en 1991 le moteur de @@Hovertank 3D@@ pour son précédent employeur, Softdisk. Celui-ci fut amélioré pour @@Catacomb 3-D@@, sorti en 1991. Un autre développeur, Blue Sky Productions était lui en train de programmer @@Ultima Underworld: The Stygian Abyss@@, un autre jeu utilisant le raycasting comme principe mais doté d'un moteur beaucoup plus avancé.
+
+id Software a vendu le moteur de Wolfenstein 3D à différentes équipes de développement, qui en retour l'ont utilisé dans différents jeux, parfois en le changeant profondément pour lui rajouter des capacités.
+
+Avec la sortie du jeu suivant d'id Software, @@Doom@@, en 1993, le moteur de Wolfenstein 3D prend un sérieux coup de vieux. Le moteur de Doom, connu sous le nom de @@id Tech 1@@ permet d'afficher des murs non perpendiculaires, de longueurs et de hauteurs variées, avec des sols et des plafonds texturés avec des hauteurs différentes et des effets de lumière dynamique.
+
+Mais c'est encore le jeu suivant d'id Software, @@Quake@@, sorti en 1996, qui rangera le raycasting au rang des technologies obsolètes. Le moteur de Quake, nommé plus tard @@id Tech 2@@, ne part plus d'un plan 2D pour en construire une vision 3D mais bel et bien d'un environnement 3D. Les derniers feux du raycasting brilleront avec les jeux @@Dark Forces@@, @@Duke Nukem 3D@@, @@Shadow Warrior@@ et @@Blood@@, ces trois derniers utilisant le @@Build engine@@ comme moteur, développé par [Ken Silverman->http://advsys.net/ken/].
+
+A la fin des années dix, on constate un retour d'engouement pour les jeux de cette période avec le développement du ''rétrogaming''. De nouveaux jeux sortent également qui utilisent de vieux moteurs ou en construisent de nouveaux émulant le rendu d'époque pour offrir aux joueurs d'aujourd'hui un retour vers le passé du FPS avec des titres comme @@GUN GODZ@@, @@Project Warlock@@ ou @@Ion Fury@@.
+
+# 3. Technique
+
+## 3.1 Principe et initialisation
+
+La plupart des jeux en raycasting sont divisés en épisodes qui sont eux-mêmes divisés en niveaux ''(level)'' ou cartes ''(map)'' dans lesquels le joueur évolue. Un niveau est représenté par une ''grille'' dans Wolfenstein ou par un ensemble de ''secteurs'', eux-mêmes constitués de murs dans Doom ou Build. Nous traiterons ici du cas le plus ancien, celui de la grille.
+
+Tout d’abord, on part d’un environnement 2D. En termes mathématiques, on a un plan affine euclidien avec une base orthonormée : les deux axes de coordonnées sont orthogonaux et possèdent une norme égale à un. Chaque point dans ce plan est défini par deux coordonnées cartésiennes : son abscisse, notée x, et son ordonnée, notée y, les deux sont notées (x, y). Dans ce plan, on a deux éléments centraux :
+
+* La grille représente le monde, le niveau, la carte dans laquelle évolue le joueur. Elle a une longueur et une largeur. La grille est constituée de cases qui sont des carrés avec des côtés d’une longueur égale à un. La case notée (0, 0) s’étend donc jusqu’au point (1, 1).
+* Le joueur qui évolue dans cette grille, représenté d’abord par un point (x, y), sa position. On notera les coordonnées du joueur joueur.x et joueur.y dans le texte et les calculs. Le joueur peut avoir une position entre deux entiers : (1.5, 2.4).
+
+Chaque case de la grille peut avoir comme valeur 0, elle est alors vide, ou 1, elle est alors pleine. Une case pleine a quatre murs, un sur chaque face, qui bloquent la visibilité et les déplacements du joueur.
+
+On veut obtenir une image qui représente en pseudo-3D, ou 2.5D, le monde décrit en 2D. C’est cette image que verra le joueur. Pour cela, on attribue à notre joueur :
+
+* Une direction vers laquelle il regarde. Elle s’exprime par un angle qui peut se représenter par un vecteur dont les coordonnées sont (cos angle, sin angle). Sa norme est égale à un.
+* Un « segment caméra » : il s’agit d’un segment représentant la position de l’image 2.5D qui va être affichée au joueur dans le monde en 2D. On construit un vecteur caméra qui doit être perpendiculaire au vecteur de direction, ses coordonnées sont donc (-sin angle * n, cos angle * n) où n est la norme de ce vecteur. Ce vecteur va décrire la moitié du segment caméra. En le multipliant par -1 on obtiendra son opposé qui décrire l’autre moitié du segment caméra.
+* Un angle de vision, ou ''field of view'' en anglais (FOV). Cela détermine l’angle autour du vecteur de direction dans lequel le joueur voit quelque chose. Il est directement relié à la norme du vecteur caméra, la valeur n. Arbitrairement, le FOV est fixé à un angle de 66°, ce qui signifie que le joueur voit 33° à gauche du vecteur de direction et 33° à sa droite. On obtient n par tan(FOV / 2).
+
+Nous pouvons conclure en reprenant nos deux éléments avec toutes leurs propriétés :
+
+* La grille : longueur, largeur, et longueur x largeur cases qui chacune ont une valeur 0 ou 1.
+* Le joueur : position (x, y), direction (cos angle, sin angle), caméra (-sin angle * n, cos angle * n) 
+
+## 3.2 Émission des rayons
+
+Nous allons donc créer une image qui représente en 2.5D le monde en 2D. Cet affichage sera affiché à l’écran, qui possède une largeur et une hauteur : les vieilles résolutions de l’époque étaient par exemple 320x200, 640x400 ou 640x480. Nous prenons 640x480.
+
+Nous allons donc émettre 640 rayons, un par colonne. Pour calculer les coordonnées de chaque rayon, nous additionnons au vecteur direction une fraction du vecteur caméra. La valeur de la fraction va de -1 à +1 et augmente linéairement avec l’indice de la colonne que nous dessinons. La formule est la suivante : ( indice de la colonne / largeur de l’écran ) * 2 - 1. La division  va de 0 à 1, nous multiplions par 2 pour aller de 0 à 2 et faisons -1 pour décrire de -1 à +1.
+
+Nous avons donc 640 rayons avec leurs coordonnées à lancer. Nous devons maintenant savoir quand et où ils rencontrent un obstacle, une case avec une valeur différente de 0.
+
+## 3.3 Intersections des rayons avec la grille
+
+Nous allons nous concentrer sur un seul rayon, sachant que ce que nous allons expliquer vaut pour tous. Un rayon est émis à partir de la position du joueur et va croiser la route de plusieurs cases, c’est-à-dire franchir plusieurs fois des axes qui correspondent à une valeur entière : par exemple pour les abscisses, x = 1, x = 2, x = 3, et pour les ordonnées y = 1, y =2 ,y =3, etc., nous parlerons pour les désigner d’axes X et Y.
+
+La question centrale est comment testée chaque case traversée par le rayon, qui est une demi-droite, dont l’origine est le joueur et la direction et le sens sont donnés par le vecteur rayon. Le premier croisement avec chaque axe se fait à une distance initiale diX et diY qu’il faut calculer. Mais ensuite, la distance entre chaque intersection pour un axe donnée est constante. C’est la clé de cet algorithme qui s’apparente à un « analyseur différentiel numérique » (ADN) ou « digital differential analyzer » (DDA) en anglais.
+
+On ne fait que des additions en avançant sur la demi-droite décrite par le rayon en testant à chaque fois la prochaine case que nous rencontrons : soit elle est égale à 0 et on avance, soit elle est différente de 0 et on s’arrête car on a touché un mur. Pour chaque intersection, suivant le dernier axe traversé on est en mesure de savoir si c’est un mur horizontal ou vertical (par rapport au plan 2D) que l’on a touché et on est en mesure de savoir si c’est le mur du haut ou du bas pour les horizontaux et si c’est le mur de gauche ou de droite pour les verticaux en regardant le sens du rayon. Par exemple, si ray.x est négatif et que l’on touche un mur vertical, cela ne peut être que le mur de droite de la case.
+
+Il faut ensuite calculer la distance orthogonale entre ce point et le segment caméra. Notre algorithme le donne directement. Nous avons donc les coordonnées de la case touchée, lequel de ces quatre murs nous avons touché, et la distance orthogonale. On peut à présent construire notre représentation en pseudo-3D.
+
+## 3.4 Construction du rendu
+
+XXX
+
+## 3.5 Texturation
+        
+Une texture est une image qui va être appliqué à un objet de l'environnement, on dit dans ce cas que l'objet est texturé. Un calcul est effectué pour savoir quel pixel de la texture dessiner sur un pixel représentant l'objet à l'écran. En anglais on parle de ''texture mapping''.
+
+Les premiers jeux utilisant le raycasting n'avait pas d'objets texturés (Hovertank 3D, 1991). Puis il y eu des jeux avec les murs texturés (Catacomb 3D, 1991). Et enfin des jeux avec également les sols et les plafonds texturés (Blake Stone: Aliens of Gold, 1993).
+
+Un raycaster dessine les textures colonnes par colonnes, il est donc plus efficace de les stocker ainsi en mémoire, c'est-à-dire faire un tableau de tableaux, ces derniers représentent les colonnes.
+
+Une technique simple pour simuler l'effet de la lumière est de dessiner les textures de façon plus claire, pour simuler une forte luminosité, ou plus sombre, pour l'obscurité. Deux techniques existent : avoir en mémoire plusieurs versions de la texture, le calcul est donc déjà fait, ou calculer à la volée la couleur définitive à partir d'une seule texture de départ. Pour obscurcir, il suffit de diminuer les valeurs RGB de chaque pixel et pour illuminer, il faut augmenter ces mêmes valeurs.
+
+# 4. Index des moteurs de raycasting et des jeux
+
+Ceci est un aperçu rapide des principaux moteurs et jeux. Pour une liste plus complète, vous pouvez consulter mon index.
+
+|Année|= Autres moteurs                                                                           |= Wolfenstein Engine (Carmack)                                                                                                                                                                     |= Doom Engine (Carmack)                                                              |= Build Engine (Silverman)                                                                                |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|1991| [Hovertank 3-D->Hovertank] !! [Catacomb 3-D->Catacomb]                                     |                                                                                                                                                                                                   |                                                                                     |                                                                                                          |
+|1992| [Ultima Underworld: The Stygian Abyss->Ultima]                                             | **[Wolfenstein 3D->Wolfenstein3D]** !! [Spear of Destiny->Spear]                                                                                                                                  |                                                                                     |                                                                                                          |
+|1993| [Ultima Underworld II: Labyrinth of Worlds->Ultima2] !! [The Terminator: Rampage->Rampage] | [Blake Stone: Aliens of Gold->BlakeStone]                                                                                                                                                         | **[>Doom]**                                                                         |                                                                                                          |
+|1994| [The Elder Scrolls: Arena->Arena]                                                          | [Rise of the Triad: Dark War->ROTT] !! [Blake Stone: Planet Strike!->BlakeStone2] !! [Operation Body Count->BodyCount] !! [Corridor 7: Alien Invasion->Corridor7] !! [Super Noah's Ark 3-D->Noah] | [Doom II: Hell on Earth->Doom2] !! [>Heretic]                                       | [Legend of the Seven Paladins 3D->Legend] !! (Euijeok: Im Kkeokjeong)                                    |
+|1995| [Dark Forces->DarkForces] ''(Jedi)''                                                       |                                                                                                                                                                                                   | [The Ultimate DOOM->UltimateDoom] !! [Hexen: Beyond Heretic->Hexen]                 | [William Shatner's TekWar->TekWar] !! [>Witchaven]                                                       |
+|1996|                                                                                            |                                                                                                                                                                                                   | [Final DOOM->FinalDoom] !! [Chex Quest->Chex] !! [Chex Quest 2->Chex2] !! [>Strife] | [Duke Nukem 3D->Duke3D] !! [Witchaven II: Blood Vengeance->Witchhaven2] !! [Powerslave/Exhumed->Exhumed] |
+|1997| [>Outlaws] ''(Jedi)''                                                                      |                                                                                                                                                                                                   |                                                                                     | [>Blood] !! [Redneck Rampagne->Redneck] !! [Shadow Warrior->Shadow]                                      |
+|1998|                                                                                            |                                                                                                                                                                                                   |                                                                                     | [>NAM] !! [Extreme Paintbrawl->Extreme]                                                                  |
+|1999|                                                                                            |                                                                                                                                                                                                   |                                                                                     | [>WW2]                                                                                                   |
+|2018|                                                                                            |                                                                                                                                                                                                   |                                                                                     | [Ion Maiden->Ion]                                                                                        |
+|2019|                                                                                            |                                                                                                                                                                                                   | [>Hedon]                                                                            |                                                                                                          |
+
+* Avant Wolfenstein par John Carmack
+* [Wolfenstein Engine->IdTech0] par John Carmack
+* * Liens
+* * * Le jeu est [jouable en ligne->http://3d.wolfenstein.com/game_EU.php] dans une version codée en JavaScript.
+* [Doom Engine/id Tech 1->IdTech1] par John Carmack ''(10 jeux publiés)''
+* [Build Engine->Build] par Ken Silverman
+* * Technologiquement, le Build Engine apporta :
+* * * Plafonds et pentes inclinés Sloped ceilings and floors
+* * * Support pour les résolutions hautes SVGA et VESA
+* * * ''Rooms above rooms'' si elles ne se voient pas
+* * * Secteurs en mouvement
+* * * Sprites transparentes
+* * * Secteurs sous-marins où on peut nager
+* * Liens
+* * * [Site sur le Build par son créateur->http://advsys.net/ken/buildsrc/]
+* * * [Le Build 2, un moteur jamais utilisé->http://advsys.net/ken/buildsrc/build2.htm]
+* * * [Histoire du Build->https://www.youtube.com/watch?v=VSVzn0F3pyQ] par CuteFloor
+* * * [Description du Build 2->https://www.youtube.com/watch?v=3qtmkkdND6M] par CuteFloor
+* * Jeux non publiés
+* * * Fate (~1996), Corridor 8: Galactic Wars (~1996)
+* Tutoriels
+* * Tutoriel de [Lode Vandevenne->https://lodev.org/cgtutor/]
+* * * [Vidéo d'un moteur avancé->https://www.youtube.com/watch?v=-5nhdEDGaws] basé sur le tutoriel de Lode Vandevenne qui rajoute des plusieurs niveaux, des murs fins, un ciel panoramique et du brouillard.
+
+§§ Avant
+
+[Hovertank]: https://www.mobygames.com/game/dos/hovertank-one
+[Catacomb]: https://www.mobygames.com/game/dos/catacomb-3-d
+
+§§ Wolfenstein Engine
+
+[IdTech0]: https://www.mobygames.com/game-group/3d-engine-wolf3d
+[Wolfenstein3D]: https://www.mobygames.com/game/wolfenstein-3d
+[Spear]: https://www.mobygames.com/game/spear-of-destiny
+[BlakeStone]: https://www.mobygames.com/game/blake-stone-aliens-of-gold
+[ROTT]: https://www.mobygames.com/game/rise-of-the-triad-dark-war
+[BlakeStone2]: https://www.mobygames.com/game/blake-stone-planet-strike
+[BodyCount]: https://www.mobygames.com/game/operation-body-count
+[Corridor7]: https://www.mobygames.com/game/corridor-7-alien-invasion
+[Noah]: https://www.mobygames.com/game/super-noahs-ark-3-d
+
+§§ Doom Engine
+
+[IdTech1]: https://www.mobygames.com/game-group/3d-engine-id-tech-1/
+[Doom]: https://www.mobygames.com/game/dos/doom
+[Doom2]: https://www.mobygames.com/game/doom-ii_
+[Heretic]: https://www.mobygames.com/game/heretic
+[UltimateDoom]: https://www.mobygames.com/game/ultimate-doom
+[Hexen]: https://www.mobygames.com/game/hexen-beyond-heretic
+[FinalDoom]: https://www.mobygames.com/game/final-doom
+[Chex]: https://www.mobygames.com/game/chex-quest
+[Chex2]: https://www.mobygames.com/game/chex-quest-2
+[Strife]: https://www.mobygames.com/game/strife
+[Hedon]: https://www.mobygames.com/game/hedon
+
+§§ Build Engine
+
+[Build]: https://www.mobygames.com/game-group/25d-engine-build
+[Legend]: https://www.mobygames.com/game/euijeok-im-kkeokjeong
+[TekWar]: https://www.mobygames.com/game/william-shatners-tekwar
+[Witchaven]: https://www.mobygames.com/game/witchaven
+[Duke3D]: http://www.mobygames.com/game/dos/duke-nukem-3d
+[Witchhaven2]: https://www.mobygames.com/game/powerslave
+[Exhumed]: https://www.mobygames.com/game/powerslave
+[Blood]: https://www.mobygames.com/game/dos/blood
+[Redneck]: https://www.mobygames.com/game/dos/redneck-rampage
+[Shadow]: https://www.mobygames.com/game/shadow-warrior
+[NAM]: https://www.mobygames.com/game/nam
+[Extreme]: https://www.mobygames.com/game/extreme-paintbrawl
+[WW2]: https://www.mobygames.com/game/wwii-gi
+[Ion]: https://www.mobygames.com/game/ion-maiden
+
+§§ Autres
+
+[JediEngine]: https://www.mobygames.com/game-group/game-engine-jedi
+[DarkForces]: https://www.mobygames.com/game/star-wars-dark-forces
+[Outlaws]: https://www.mobygames.com/game/outlaws
+[Ultima]: https://www.mobygames.com/game/ultima-underworld-the-stygian-abyss
+[Ultima2]: https://www.mobygames.com/game/ultima-underworld-ii-labyrinth-of-worlds
+[Rampage]: https://www.mobygames.com/game/terminator-rampage
+[Arena]: https://www.mobygames.com/game/dos/elder-scrolls-arena
+[ShadowCaster]: https://www.mobygames.com/game/dos/shadowcaster
+
+# 5. Comparaison des moteurs d'id Software
+
+!var NEXT_TAB_ID=main
+
+|Game name         |Hovertank 3D       |Catacomb 3D       |Wolfenstein 3D     |ShadowCaster !! ''(Raven Engine)''|Doom !! ''(id Tech 1)'' |
+|-----------------------------------------------------------------------------------------------------------------------------------------|
+|Genre             |Science Fiction    |Fantasy           |War                |Fantasy                           |Science Fiction         |
+|Mobygames         |[>Hovertank]       |[>Catacomb]       |[>Wolfenstein3D]   |[>ShadowCaster]                   |[>Doom]                 |
+|Wikipedia         |[>WikiHovertank]   |[>WikiCatacomb]   |[>WikiWolfenstein] |[>WikiShadowCaster]               |[>WikiDoom]             |
+|=#c6#Source Code                                                                                                                         |
+|Release Date      |April, **1991**    |November, **1991**|May 5, **1992**    |**1993**                          |December 10, **1993**   |
+|Release Source    |June, **2014**     |June, **2014**    |July 21, **1995**  |                                  |December 23, **1997**   |
+|Programmer        |John Carmack       |John Carmack      |John Carmack       |John Carmack                      |John Carmack            |
+|Editing tool      |TEd?               |TEd               |TEd                |TEd                               |DoomEd                  |
+|=#c6#Display                                                                                                                             |
+|Resolution        |320x200            |320x200           |320x200            |320x200                           |320x200                 |
+|Colors            |16-color EGA       |16-color EGA      |256-color VGA      |256-color VGA                     |256-color VGA           |
+|=#c6#Levels                                                                                                                              |
+|Level form        |grid?              |grid              |grid               |grid                              |sectors                 |
+|Rendering         |wall span?         |wall span?        |raycasting         |raycasting                        |raycasting              |
+|Automap           |no                 |no                |no                 |yes                               |yes                     |
+|Hub               |no                 |yes               |no                 |yes                               |no                      |
+|=#c6#Things                                                                                                                              |
+|Scalable sprites  |yes                |yes               |yes                |yes                               |yes                     |
+|Multiangle sprites|no                 |yes               |yes                |yes                               |yes                     |
+|Polygonal things  |no                 |no                |no                 |no                                |no                      |
+|=#c6#Walls                                                                                                                               |
+|Orthogonal walls  |yes                |yes               |yes                |yes                               |yes                     |
+|Non-ortho. walls  |no                 |no                |no                 |no                                |yes                     |
+|Free length       |no                 |no                |no                 |no                                |yes                     |
+|Doors             |no                 |Disappearing walls|yes                |yes                               |yes                     |
+|Transparent walls |no                 |no                |no                 |no                                |yes                     |
+|Breaking glass    |no                 |no                |no                 |no                                |no                      |
+|=#c6#3rd Dimension                                                                                                                       |
+|!= heights/levels |no                 |no                |no                 |yes                               |yes                     |
+|!= heights/walls  |no                 |no                |no                 |no                                |yes                     |
+|Sloped floors/ceil|no                 |no                |no                 |yes                               |no                      |
+|Elevators         |no                 |no                |no                 |no                                |yes                     |
+|=#c6#Texture-mapping                                                                                                                     |
+|Textured walls    |no                 |yes               |yes                |yes                               |yes                     |
+|Textured floors/ce|no                 |no                |no                 |yes                               |yes                     |
+|Animated textures |no                 |no                |no                 |yes                               |yes                     |
+|Skybox            |no                 |no                |no                 |yes                               |yes                     |
+|=#c6#Lighting                                                                                                                            |
+
+[WikiHovertank]: https://en.wikipedia.org/wiki/Hovertank_3D
+[WikiCatacomb]: https://en.wikipedia.org/wiki/Catacomb_3-D
+[WikiWolfenstein]: https://en.wikipedia.org/wiki/Wolfenstein_3D
+[WikiShadowCaster]: https://en.wikipedia.org/wiki/ShadowCaster 
+[WikiDoom]: https://en.wikipedia.org/wiki/Doom_(1993_video_game)
+
+[SourceHovertank]: https://github.com/FlatRockSoft/Hovertank3D
+[SourceCatacomb]: https://github.com/CatacombGames/Catacomb3DGithub
+[SourceWolfenstein]: https://github.com/id-Software/wolf3d
+[SourceShadowCaster]: https://drive.google.com/open?id=0B3gIcilDnsOPakdzNWNMZ1hNWUE&amp;authuser=0
+[SourceDoom]: https://github.com/id-Software/DOOM
+
+# 6. Références
+
+[1] : Lode's Computer Graphics Tutorial
+
+{{end}}
+{{end}}

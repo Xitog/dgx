@@ -1,0 +1,278 @@
+!const TITLE=Tools & Languages
+!const LANG=fr
+!const ICON=https://xitog.github.io/dgx/img/favicon.ico
+!require https://xitog.github.io/dgx/css/simplex.bootstrap.css
+!require https://xitog.github.io/dgx/css/palatino.css
+!require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+!require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+!var PARAGRAPH_DEFINITION=true
+
+{{#main .container}}
+
+!include menu.html
+
+{{#content-div}}
+
+# Tools & Languages
+---
+
+Une liste de logiciels utiles et de langages de programmation.
+
+Pour les langages que j'utilise le plus, [Python->#], [C->#], je détaille :
+
+* IDE, interpréteurs ou compilateurs
+* Bibliothèques
+* Documentation
+
+Sur un nouveau PC, j'installe généralement comme base de travail :
+
+* Python (interpréteur + IDLE)
+* Pelles C (IDE + compilateur)
+* Git (pour le contrôle de version)
+* Winmerge (pour comparer deux versions)
+* Firefox ou Chrome (pour exécuter JavaScript et afficher du HTML et du CSS)
+
+## Summary
+
+* Programming
+* * Computer Languages
+* * Python
+* * C
+* * JavaScript
+* * Ruby
+* * Lua
+* * List of languages
+* * Game programming
+* Publishing
+
+## Programming
+
+* **Version control**
+* * [Git->https://git-scm.com/]
+* * [GitHub->https://github.com/]
+* * [Winmerge->https://winmerge.org/?lang=fr]
+* **Data description language**
+* * [JSON->http://www.json.org/json-fr.html]
+* * [JSON Schema->http://json-schema.org/]
+* * [XML->https://developer.mozilla.org/fr/docs/Web/XML]
+* * [XSD->https://tecfa.unige.ch/guides/tie/html/xml-schema/xml-schema-3.html]
+* **General documentation**
+* * [Cheat sheets->http://www.cheat-sheets.org/]
+* **List of libraries**
+* * [SFML->https://www.sfml-dev.org/] for C, Crystal, D, Go, Nim, OCaml, Python, Ruby, Rust
+* * [Kha->http://kha.tech/] : multimedia framework based on Haxe
+
+### Computer Languages
+
+* **[Syntax across languages->http://rigaux.org/language-study/syntax-across-languages.html]** by Pascal Rigaux 
+* **[Let’s Build A Simple Interpreter->https://ruslanspivak.com/lsbasi-part1/]** by Ruslan Spivak
+* **[BNF/EBNF variants->http://www.cs.man.ac.uk/~pjj/bnf/ebnf.html]** by Pete Jinks
+
+### Python
+
+* **Implementations**
+* * [Official C intepreter->https://www.python.org/] : the classic Python
+* * [Jython->http://www.jython.org/] : Python on the JVM
+* * [Cython->http://cython.org/] : Compile Python to C
+* * [IronPython->http://ironpython.net/] : Python on .Net
+* * [PyJS->http://pyjs.org/] : Python to JavaScript (ex-Pyjama)
+* * [Brython->https://brython.info/] : Client-side Python on JavaScript
+* **Libraries**
+* * ''Repositories''
+* * * [PyPI->https://pypi.org/] : Python Package Index
+* * * [Pythonlibs->http://www.lfd.uci.edu/~gohlke/pythonlibs/] : Repository of compiled libraries
+* * ''Media''
+* * * [Pygame->https://www.pygame.org/news] : Multimedia library for Python based on [SDL->https://www.libsdl.org/]
+* * * [Pillow->http://python-pillow.org/] : Images, fork of the older --[PIL->http://www.pythonware.com/products/pil/]--
+* * ''GUI''
+* * * [PyFLTK->http://pyfltk.sourceforge.net/] : FLTK GUI
+* * * [Kivy->https://kivy.org/#home] : Kivy Multitouch GUI
+* **Documentation**
+* * [Official->https://docs.python.org/3/]
+* * * [What's new->https://docs.python.org/3/whatsnew/index.html]
+* * * [4. Standard types->https://docs.python.org/3/library/stdtypes.html]
+* * * [6. Expressions->https://docs.python.org/3/reference/expressions.html]
+* * * [7. Statements->https://docs.python.org/3/reference/simple_stmts.html]
+* * * [8. Collections->https://docs.python.org/3/library/collections.html]
+* * * [17. Threading->https://docs.python.org/3/library/threading.html]
+* * * [17. Queue->https://docs.python.org/3/library/queue.html]
+* * * [18. Coroutine->https://docs.python.org/3/library/asyncio-task.html]
+* * * [19. JSON->https://docs.python.org/3/library/json.html]
+* * * [20. ElementTree->https://docs.python.org/3/library/xml.etree.elementtree.html]
+* * * [21. Socket server->https://docs.python.org/3/library/socketserver.html]
+* * Tkinter GUI
+* * * [Effbot->http://effbot.org/tkinterbook/tkinter-index.htm]
+* * * [FDEX->http://tkinter.fdex.eu/]
+* * * --[New Mexico Tech->http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/index.html]-- [archived->https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/index.html]
+* * --[PQR 2.7->http://rgruet.free.fr/PQR27/PQR2.7.html]-- Cheat sheet for Py 2.7
+* * [GUI Programming->https://wiki.python.org/moin/GuiProgramming]
+
+### C
+
+* **Compilers and IDE**
+* * [Pelles C->http://www.smorgasbordet.com/pellesc/]
+* * [MinGW->http://www.mingw.org/] : Linux tools including GCC
+* **Libraries**
+* * ''Media''
+* * * [Allegro->http://liballeg.org/]
+* * * [SDL->http://libsdl.org/]
+
+### JavaScript
+
+* **Implementations**
+* * [Duktape->https://duktape.org/] : Javascript engine in C embeddable in C
+* * [tinyJS->https://github.com/gfwilliams/tiny-js] : a tiny Javascript interpreter in C++ embeddable in C/C++
+* **Libraries**
+* * ''Media''
+* * * [D3JS->https://d3js.org/]
+* * [TogetherJS->https://togetherjs.com/] : real time collaboration
+
+### Ruby
+
+* **Implementations**
+* * [Official C intepreter->https://www.ruby-lang.org/] : the classic Ruby interpreter
+* * [JRuby->https://www.jruby.org/] : Ruby on the JVM
+* * [IronRuby->http://ironruby.net/] : Ruby on .Net
+* * [Ruby Installer->https://rubyinstaller.org/] Binary Windows distribution
+* **Libraries**
+* * ''Repositories''
+* * * [Ruby Gems->https://rubygems.org/]
+* * * [Ruby Toolbox->https://www.ruby-toolbox.com/]
+* * ''Media''
+* * * [Gosu->https://www.libgosu.org/]
+
+### Lua
+
+* **Platforms**
+* * [Official C interpreter->https://www.lua.org/]
+* * [Corona->https://docs.coronalabs.com/daily/guide/start/introLua/index.html]
+* * [Zerobrane IDE->https://studio.zerobrane.com/]
+* **Libraries**
+* * ''Media''
+* * * [LÖVE->https://love2d.org/]
+* **Documentation**
+* * [Programming in Lua (PIL)->https://www.lua.org/pil/contents.html]^^1st edition^^, slightly outdated
+
+### List of languages
+
+$ Transpile
+    Transformation of the code source to another language of the same level of abstraction (Vala to C for example).
+$ Compile
+    Transformation of the code source to another language of a lesser level of abstraction (C to ASM for example).
+
+% [ActionScript->https://www.adobe.com/devnet/actionscript/learning.html] : {} family
+% [Ada->https://fr.wikipedia.org/wiki/Ada_(langage)] : begin/end family, compile to ASM
+% Algol
+% [Amber->http://www.amber-lang.net/] : transpile to JS
+% [AngelScript->https://www.angelcode.com/angelscript/] : {} family [doc->https://www.angelcode.com/angelscript/sdk/docs/manual/index.html]
+% Bash
+% [Boo->http://boo-lang.org/] : tab family, compile to CLR bytecode
+% C [Microsoft->https://docs.microsoft.com/fr-fr/cpp/c-language/c-language-reference?view=vs-2019] : {} family, compile to ASM
+% C++ [Microsoft->https://msdn.microsoft.com/en-us/library/3bstk3k5.aspx] : {} family, compile to ASM
+% C# [Github->https://github.com/dotnet/csharplang] : {} family, compile to CLR bytecode
+% [Cω->https://msdn.microsoft.com/en-us/library/ms974195.aspx] : {} family, compile to CLR bytecode 
+% Cayenne
+% [Ceylon->https://ceylon-lang.org/] : {} family, compile to JVM bytecode 
+% [Ch->http://www.softintegration.com/] : {} family, C script 
+% [Ciao->https://ciao-lang.org/],
+% Clean
+% [Clojure->https://clojure.org/] : compile to JVM bytecode
+% Cobol
+% CoffeeScript : transpile to JS
+% [Common Lisp->https://common-lisp.net/]
+% [Crystal->https://crystal-lang.org/] : begin/end family, compile to ASM
+% [D->https://dlang.org/] : {} family, compile to ASM
+% Dart
+% Delphi
+% Dylan
+% [E->http://erights.org/] : {} family
+% ECMA Script
+% [Elixir->https://elixir-lang.org/] : begin/end family, compile to Erlang VM bytecode
+% Elm : transpile to JS
+% [Erlang->http://www.erlang.org/]
+% [Euphoria->http://openeuphoria.org/] : transpile to C
+% [Falcon->http://falconpl.org/] : begin/end family
+% [Fantom->http://fantom.org/] : {} family, compile to CLR and JVM bytecodes ''(ex-Fan)''
+% [Ferite->http://ferite.sourceforge.net/] : {} family, no update since 2004
+% Fortran
+% [Free Pascal->http://www.freepascal.org/]
+% [Genie->https://wiki.gnome.org/Projects/Genie] : tab family, transpile to C
+% [Go->https://golang.org/] : {} family, compile to ASM
+% Gofer
+% [Gosu->http://gosu-lang.github.io/] : {} family, compile to JVM bytecode  ''(ex-GScript)''
+% [Groovy->http://groovy-lang.org/] : tab family, compile to JVM bytecode
+% [Haskell->https://www.haskell.org/]
+% [Haxe->https://haxe.org/] : transpile to Java, C++, C#, Lua, PHP, JavaScript, Python
+% [Io->https://iolanguage.org/] : minimaliste language
+% [Ioke->https://ioke.org/] : to CLR and JVM bytecodes
+% [Jai->https://inductive.no/jai/] : {} family [doc->https://github.com/BSVino/JaiPrimer/blob/master/JaiPrimer.md]
+% [Java->http://www.oracle.com/technetwork/java/index.html] ([doc->https://docs.oracle.com/javase/9/]) : {} family, compile to JVM bytecode
+% JavaScript [Mozilla->https://developer.mozilla.org/fr/docs/Web/JavaScript]
+% JScript
+% [Julia->https://julialang.org/]
+% [Jython->http://www.jython.org/] : tab family, compile to JVM bytecode
+% [Kotlin->https://kotlinlang.org/] : {} family, compile to JVM bytecode
+% Lisp
+% Logo
+% [Lua->https://www.lua.org/] : begin/end family
+% [Mirah->http://www.mirah.org/] : begin/end family, compile to JVM bytecode ''(ex-Duby)''
+% [Miranda->http://miranda.org.uk/]
+% [Moonscript->https://moonscript.org/] : transpile to Lua
+% [Nim->https://nim-lang.org/] ''(ex-Nimrod)''
+% Objective-C
+% [OCaml->https://ocaml.org/]
+% --[Oden->https://oden-lang.github.io/]--
+% [ooc->https://ooc-lang.org/]
+% Pascal : begin/end family, compile to ASM
+% [Perl->https://www.perl.org/] : {} family
+% [Pike->https://pike.lysator.liu.se/] : {} family 
+% PHP
+% [PureScript->http://www.purescript.org/]
+% [Python->https://www.python.org/] : tab family
+% --[Reia->http://reia-lang.org/]--
+% [Ruby->https://www.ruby-lang.org/] : begin/end family
+% [Rust->https://www.rust-lang.org/] : {} family, compile to ASM
+% [Scala->http://www.scala-lang.org/] : {} family, compile to JVM bytecode
+% [Scheme->http://www.schemers.org/]
+% Self
+% Simula
+% Squeak
+% [Squirrel->http://www.squirrel-lang.org/] : {} family
+% Smalltalk
+% [Swift->http://www.apple.com/fr/swift/]
+% [TypeScript->https://www.typescriptlang.org/] : {} family, transpile to JS 
+% [Vala->https://wiki.gnome.org/Projects/Vala] : {} family, transpile to C
+% [Zig->http://ziglang.org/]
+
+### Game programming
+
+In order to develop a game you need 1) a language 2) a media library, sometimes several for handling sound, graphic, video, net... I put here some combination I used:
+
+* [C->https://en.cppreference.com/w/c]
+* * [Allegro->http://liballeg.org/]
+* * [SDL 1->https://www.libsdl.org/release/SDL-1.2.15/docs/] and [SDL 2->https://www.libsdl.org/]
+* * [SFML->https://www.sfml-dev.org/]
+* [Lua->https://www.lua.org/]
+* * [Löve->https://love2d.org/]
+* [Python->https://www.python.org/]
+* * [Pygame->http://www.pygame.org/]
+* * [SFML->https://www.sfml-dev.org/]
+* [Ruby->https://www.ruby-lang.org/en/]
+* * [Gosu->https://www.libgosu.org/]
+* * [SFML->https://www.sfml-dev.org/]
+* [Java->https://www.java.com/fr/]
+* * [libGDX->https://libgdx.badlogicgames.com/]
+
+Here are some tech, tools or spec linked to games:
+
+* [War2Tools->https://github.com/war2/war2tools] : set of tools for the PUD map format and resources of Warcraft II
+* [War2Edit->https://war2.github.io/war2edit/] : a free tool for producing PUD map
+* [PUD unofficial format spec->http://cade.datamax.bg/war2x/pudspec.html] : the unofficial specification of the PUD map format
+* [BSP Dungeon->http://www.roguebasin.com/index.php?title=Basic_BSP_Dungeon_generation] : BSP dungeon generation
+
+## Publishing
+
+* [GitHub Pages->https://pages.github.com/]
+
+{{end}}
+{{end}}

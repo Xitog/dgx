@@ -1,0 +1,257 @@
+!const TITLE=Dialogues
+!const LANG=fr
+!const ICON=https://xitog.github.io/dgx/img/favicon.ico
+!require https://xitog.github.io/dgx/css/simplex.bootstrap.css
+!require https://xitog.github.io/dgx/css/palatino.css
+!require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+!require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+
+!css i { color: blue; }
+!css code {color: #006FDD; border: 1px solid rgb(225, 228, 229); padding-left: 3px; padding-right: 5px; }
+!css form { padding: 2 px; font-size: 14px; color: black; }
+!css div#entry { border: 1px #CCCCCC black; background: #EEEEEE; padding: 10px; }
+!css div#entry a {font-size: 14px; }
+!css div#footer p { text-align: center; font-size: 14px; color: #CCCCCC; margin: 10px; }
+
+{{#main .container}}
+
+!include menu.html
+
+{{#content-div}}
+
+# Dialogues
+---
+
+## Sommaire
+
+* [I. Un système de dialogues->#]
+* [II. Modélisation des dialogues en arbre->#]
+* [III. Séparation de la structure et des données->#]
+* [IV. Internationalisation->#]
+* [V. Exemple de parcours->#]
+
+## I. Un système de dialogues
+
+Un système de dialogue permet de gérer les échanges entre le personnage du joueur et des personnages non-joueurs (PNJ). Le joueur choisir les réponses de son personnage. Dans les systèmes classiques, comme celui de @@Baldur's Gate@@, les choix proposent la réponse complète qui sera prononcée une fois qu'elle sera choisie. Dans d’autres, comme @@Mass Effect@@, seul une idée générale de la réponse est donnée, avec parfois des effets d’incompréhension. Notre système se veut classique.
+
+### II. Modélisation des dialogues en arbre
+
+La première étape est de séparer la structure des dialogues, les enchaînements et les choix, du texte des dialogues. Pour cela, les dialogues vont être enregistrés sous la forme d'arbre. Nous présentons ci-dessous un exemple d'arbre avec le texte, en utilisant le codage suivant :
+
+* Les phrases en noir indiquent les dialogues du PNJ,
+* les phrases en ''italique et bleu'' sont les réponses que le personnage du joueur peut prononcer,
+* entre parenthèses le ton des réponses du joueur pour aider à leur compréhension,
+* entre crochets des tests nécessaires pour avoir accès à une réponse du joueur ou obtenir une réponse d'un PNJ.
+
+Exemple d'arbre de dialogue avec texte, le joueur incarne un inquisiteur chargé de trouver une certaine Siriah Anrir, qui réussirait des miracles à l'aide d'arts sombres. Pour cela, il se rend dans le village où elle serait située et entrepend un villageois :
+
+* Bonjour, étranger, que puis-je pour vous ?
+% % ''Je cherche Siriah Anrir, où puis la trouver ?''
+* * * Je ne connais pas cette Dame.
+* * * \[Charisme > 14] Pourquoi voulez-vous rencontrer notre Dame ?
+% % % % ''\[Intelligence > 14] (mensonge) On m'a vanté ses pouvoirs et j'aurais aimé être béni.''
+* * * * * \[Charisme > 16] Très bien, son temple est sous la maison communale.
+* * * * * Elle viendra à vous quand vous serez prêt. Bonne journée.
+% % % % ''Je suis ici pour enquêter sur ses agissements.''
+* * * * * Je n'ai rien à vous dire. Bonne journée.
+% % ''Je désire rencontrer le chef du village.''
+* * * La bourgmestre a disparu depuis trois nuits. Tout le village est très inquiet. Pourriez-vous nous aider à la retrouver ?
+% % % % ''Je vais voir ce que je peux faire.''
+* * * * * Merci Messire !
+% % % % ''(désolé) Je suis désolé mais je ne peux pas vous aider.''
+* * * * * Cela ne fait rien. Bonne route étranger.
+% % % % ''(méprisant) Cela ne m'intéresse pas.''
+% % ''J'ai besoin de soin.''
+* * * Vous trouverez le shaman dans sa hutte, à la lisière des bois.
+* * * * ''Merci, au revoir.''
+
+On voit que la structure de données applicable ici est **un arbre**.
+
+## III. Séparation de la structure et des données
+
+On va séparer les données : d'un côté le texte, de l'autre la structure. Le texte sera indiqué par un simple identifiant numérique. La structure c'est l'arborescence des réponses, indiquant les enchaînements et les choix possibles. Elle est constituée de nœuds, chaque nœud peut être un nœud simple ou nœud de choix. Un nœud simple contient :
+
+* une éventuelle action (prendre ou donner un objet ou de l'argent, faire baisser ou monter la réputation, attaquer le joueur)
+* un texte
+* un ou plusieurs embranchements.
+
+Un embranchement est constitué d'une suite de conditions avec à chaque fois le nœud suivant si la condition est vraie. La première condition vraie détermine le nœud suivant.
+
+Un nœud de choix contient :
+
+* un texte
+* au moins une option de réponse (s'il n'y en a qu'une cela permet de simuler une parole échangée).
+
+Chaque option contient :
+
+* une éventuelle condition pour que ce choix soit accessible
+* un texte
+* un ou plusieurs embranchements si ce choix est fait
+
+On peut transformer ainsi notre dialogue, le chiffre entre parenthèses indique son numéro de référence, les conditions sont entre crochets, et le type d'objet (nœud simple, nœud choix, texte, option, embranchement) est indiqué entre accolades, nous le reconstruisons ainsi :
+
+* **[#Nœud n°1]** {choix}
+* * {texte} (1) Bonjour, étranger, que puis-je pour vous ?
+* * {options}
+* * * {option}
+* * * * {condition} aucune
+* * * * {texte} ''(2) Je cherche Siriah Anrir, où puis la trouver ?''
+* * * * {embranchements}
+* * * * * {embranchement}
+* * * * * * {condition} \[Charisme <= 14] 
+* * * * * * {suite} va à [nœud n°1-1->#]
+* * * * * {embranchement}
+* * * * * * {condition} \[Charisme > 14]
+* * * * * * {suite} va à [nœud n°1-2->#]
+* * * {option}
+* * * * {condition} aucune
+* * * * {texte} ''(3) Je désire rencontrer le chef du village.''
+* * * * {embranchements}
+* * * * * {embranchement}
+* * * * * * {condition} aucune
+* * * * * * {suite} va à [nœud n°1-3->#]
+* * * {option}
+* * * * {condition} aucune
+* * * * {texte} ''(4) J'ai besoin de soin.''
+* * * * {embranchements}
+* * * * * {embranchement}
+* * * * * * {condition} aucune
+* * * * * * {suite} va à [nœud n°1-4->#]
+* **[#Nœud n°1-1]** {simple}
+* * {action} aucune
+* * {texte} (5) Je ne connais pas cette Dame.
+* * {embranchements}
+* * * {embranchement}
+* * * * {condition} aucune
+* * * * {suite} [fin du dialogue->#]
+* **[#Nœud n°1-2]** {choix}
+* * {texte} (6) Pourquoi voulez-vous rencontrer notre Dame ?
+* * {options}
+* * * {option}
+* * * * {condition} \[Intelligence > 14]
+* * * * {texte} ''(7) (mensonge) On m'a vanté ses pouvoirs et j'aurais aimé être béni.''
+* * * * {embranchements}
+* * * * * {embranchement}
+* * * * * * {condition} \[Charisme > 16]
+* * * * * * {suite} va à [nœud n°1-2-1->#]
+* * * * * {embranchement}
+* * * * * * {condition} aucune
+* * * * * * {suite} va à [nœud n°1-2-2->#]
+* * * {option}
+* * * * {condition} aucune
+* * * * {texte} ''(8) Je suis ici pour enquêter sur ses agissements.''
+* * * * {embranchements}
+* * * * * {embranchement}
+* * * * * * {condition} aucune
+* * * * * * {suite} va à [nœud n°1-2-3->#]
+* **[#Nœud n°1-2-1]** {simple}
+* * {action} ajouter temple sur la carte
+* * {texte} (9) Très bien, son temple est sous la maison communale.
+* * {embranchements}
+* * * {embranchement}
+* * * * {condition} aucune
+* * * * {suite} [fin du dialogue->#]
+* **[#Nœud n°1-2-2]** {simple}
+* * {action} aucune
+* * {texte} (10) Elle viendra à vous quand vous serez prêt. Bonne journée.
+* * {embranchements}
+* * * {embranchement}
+* * * * {condition} aucune
+* * * * {suite} [fin du dialogue->#]
+* **[#Nœud n°1-2-3]** {simple}
+* * {action} aucune
+* * {texte} (11) Je n'ai rien à vous dire. Bonne journée.
+* * {embranchements}
+* * * {embranchement}
+* * * * {condition} aucune
+* * * * {suite} [fin du dialogue->#]
+* **[#Nœud n°1-3]** {choix}
+* * {texte} (12) La bourgmestre a disparu depuis trois nuits. Tout le village est très inquiet. Pourriez-vous nous aider à la retrouver ?
+* * {options}
+* * * {option}
+* * * * {condition} aucune
+* * * * {texte} ''(13) Je vais voir ce que je peux faire.''
+* * * * {embranchements}
+* * * * * {embranchement}
+* * * * * * {condition} aucune
+* * * * * * {suite} va à [nœud n°1-3-1->#]
+* * * {option}
+* * * * {texte} ''(14) (désolé) Je suis désolé mais je ne peux pas vous aider.''
+* * * * {embranchements}
+* * * * * {embranchement}
+* * * * * * {condition} aucune
+* * * * * * {suite} va à [nœud n°1-3-2->#]
+* * * {option}
+* * * * {texte} ''(15) (méprisant) Cela ne m'intéresse pas.''
+* * * * {embranchements}
+* * * * * {embranchement}
+* * * * * * {condition} aucune
+* * * * * * {suite} [fin du dialogue->#]
+* **[#Nœud n°1-3-1]** {simple}
+* * {action} ajouter quête "retrouver le bourgmestre" au journal
+* * {texte} (16) Merci Messire !
+* * {embranchements}
+* * * {embranchement}
+* * * * {condition} aucune
+* * * * {suite} [fin du dialogue->#]
+* **[#Nœud n°1-3-2]** {simple}
+* * {action} ajouter au journal la mention "le bourgmestre a disparu"
+* * {texte} (17) Cela ne fait rien. Bonne route étranger.
+* * {embranchements}
+* * * {embranchement}
+* * * * {condition} aucune
+* * * * {suite} [fin du dialogue->#]
+* **[#Nœud n°1-4]** {simple}
+* * {action} ajouter la hutte du shaman sur la carte
+* * {texte} (18) Vous trouverez le shaman dans sa hutte, à la lisière des bois.
+* * {embranchements}
+* * * {embranchement}
+* * * * {condition} aucune
+* * * * {suite} [fin du dialogue->#]
+* **[#Fin du dialogue]**
+
+### IV. Internationalisation
+
+Ce système de dialogue doit être pensé pour être facilement internationalisable : traduisible en de nombreuses langues, sans nécessiter de recompiler ou recoder une partie du système spécifiquement pour une langue donnée.
+
+On peut extraire de la partie précédente le texte de la structure des dialogues pour ne garder que son identifiant. On stocke ensuite dans un fichier texte, XML, JSON ou binaire des couples associant une clé, auquel correspond une ou plusieurs références, et un texte :
+
+% Bonjour, étranger, que puis-je pour vous ?
+% Je cherche Siriah Anrir, où puis la trouver ?
+% ...
+
+Cette division facilite grandement cette étape : la structure de l'arbre ne change pas d'une langue à l'autre, seuls les lignes de textes changent. Il suffit de faire traduire la ressource contenant toutes les répliques pour traduire le jeu. Il faut néanmoins faire attention à :
+
+* Si le jeu de caractère utilisé par le jeu est prévu pour la langue (caractères accentuées).
+* Si l'espace dans lequel s'affiche les textes est assez grand (une traduction pouvant être beaucoup plus longue que le texte d'origine).
+
+### V. Exemple de parcours
+
+Cette petite implémentation en JavaScript illustre tous les principes exposés ci-dessus en reprenant les mêmes données.
+
+Votre personnage :
+
+!html <form>
+
+!html Intelligence <input type="text" id="int" name="int" required minlength="2" maxlength="2" size="2" value="10"/>
+
+!html Charisme <input type="text" id="chr" name="chr" required minlength="2" maxlength="2" size="2" value="10"/>
+
+!html </form>
+
+{{#entry}}
+
+Vous êtes l'inquisiteur Larius et vous arrivez dans le petit village où vous devez enquêter sur les agissements d'une mystérieuse sorcière hérétique.
+
+!html <a onclick="start('n1'); false;">Démarrer le dialogue</a>
+
+{{end}}
+
+!require tech_dialogues.js
+
+{{#footer}}
+Damien Gouteux, 30 juillet 2020
+{{end}}
+
+{{end}}
+{{end}}

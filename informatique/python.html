@@ -1,39 +1,57 @@
-<!DOCTYPE html>
-<html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Aide-mémoire Python</title>
-    <link rel="icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
-    <link href="https://xitog.github.io/dgx/css/simplex.bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="https://xitog.github.io/dgx/css/flashy.css" rel="styleSheet" type="text/css">
-    <style type="text/css">
-      p {
-        text-align: justify;
-      }
-      p.info {
-        border: 1px solid #777777;
-        background-color: #ffeaee; //rgb(250, 240, 240);
-        padding-left: 0.7em;
-        padding-right: 0.7em;
-        padding-bottom: 0.7em;
-      }
-      p.subtitle {
-        color: #777777;
-        font-size: 13px;
-        margin-top: 0px;
-      }
-      h3 {
-        color: #9564b3; //#a175bb; //#b897cc; //#dbcae5; //#f4e1ff;
-      }
-    </style>
-  </head>
- <body>
-    <div id="main" class="container">
+<head>
+  <meta charset=utf-8>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aide-mémoire Lua</title>
+  <link rel="icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
+  <link href="https://xitog.github.io/dgx/css/simplex.bootstrap.css" rel="stylesheet">
+  <link href="https://xitog.github.io/dgx/css/flashy.css" rel="stylesheet">
+<style type="text/css">
+p { text-align: justify; }
+</style>
+<style type="text/css">
+span.type    { color: purple; font-family: "Consolas"; }
+</style>
+<style type="text/css">
+span.lua-number  { color: red;    font-family: "Consolas"; }
+</style>
+<style type="text/css">
+span.lua-line_comment { color: grey;   font-family: "Consolas"; font-style: italic; }
+</style>
+<style type="text/css">
+span.lua-string  { color: orange; font-family: "Consolas"; }
+</style>
+<style type="text/css">
+span.lua-keyword { color: #1479cc;   font-family: "Consolas"; font-weight: bold; }
+</style>
+<style type="text/css">
+span.lua-special { color: purple; font-family: "Consolas"; }
+</style>
+<style type="text/css">
+h1 { color: #14cc67; font-family: "Palatino Linotype"; font-size: 22px; border-bottom: 1px solid #14cc67; font-weight: bold; margin-top: 18px; margin-bottom: 18px; }
+</style>
+<style type="text/css">
+h2 { color: #6714cc; font-family: "Palatino Linotype"; font-size: 18px; font-weight: bold; margin-top: 18px; margin-bottom: 18px; border-bottom: none;}
+</style>
+<style type="text/css">
+h3 { color: #cc6714; font-family: "Palatino Linotype"; font-size: 16px; font-weight: bold; margin-top:  6px; margin-bottom:  6px; }
+</style>
+<style type="text/css">
+li a { color: #6714cc; font-size: 16px; font-family: "Palatino Linotype"; }
+</style>
+<style type="text/css">
+li   { font-size: 16px; color: black; font-family: "Palatino Linotype"; }
+</style>
+<style type="text/css">
+p.back { text-align: center; }
+</style>
+</head>
+<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<div id="main" class="container">
       <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -47,633 +65,387 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li id="Accueil"><a href="../index.html">Accueil</a></li>
-              <li id="Blog"><a href="../blog.html">Blog</a></li>
+              <li id="Accueil"><a href="https://xitog.github.io/dgx/index.html">Accueil</a></li>
+              <li id="Blog"><a href="https://xitog.github.io/dgx/blog.html">Blog</a></li>
               <li class="dropdown">
                 <a id="Langues" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Langues <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                 <li class="dropdown-header">Français</li>
-                  <li><a href="../francais/fiche_api_fr.html">Fiche sur les phonèmes du français</a></li>
-                  <li><a href="../francais/outil_stats_fr.html">Outil d'analyse textuelle</a></li>
+                  <li><a href="https://xitog.github.io/dgx/francais/fiche_api_fr.html">Fiche sur les phonèmes du français</a></li>
+                  <li><a href="https://xitog.github.io/dgx/francais/outil_stats_fr.html">Outil d'analyse textuelle</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Italien</li>
-                  <li><a href="../italien/beatrice.html">Beatrice : grammaire</a></li>
-                  <li><a href="../italien/jeu_conjugaison.html">Jeu sur la conjugaison</a></li>
+                  <li><a href="https://xitog.github.io/dgx/italien/beatrice.html">Beatrice : grammaire</a></li>
+                  <li><a href="https://xitog.github.io/dgx/italien/jeu_conjugaison.html">Jeu sur la conjugaison</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Anglais</li>
-                  <li><a href="../anglais/jeu_vocabulaire.html">Jeu sur le vocabulaire</a></li>
+                  <li><a href="https://xitog.github.io/dgx/anglais/jeu_vocabulaire.html">Jeu sur le vocabulaire</a></li>
+                  <li><a href="https://xitog.github.io/dgx/anglais/verbes.html">Verbes fréquents</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Interlingua</li>
+                  <li><a href="https://xitog.github.io/dgx/interlingua/conjugueur.html">Conjugueur</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Linguistique</li>
-                  <li><a href="../linguistique/informations.html">Informations générales</a></li>
+                  <li><a href="https://xitog.github.io/dgx/linguistique/informations.html">Informations générales</a></li>
                 </ul>
               </li>
-              <li class="dropdown active">
+              <li class="dropdown">
                 <a id="Informatique" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Informatique <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li class="dropdown-header">Programmation</li>
-                  <li><a href="../informatique/syntaxes.html">Syntaxes comparées</a></li>
-                  <li><a href="../informatique/python.html" class="active">Aide-mémoire Python</a></li>
-                  <li><a href="../informatique/ruby.html">Aide-mémoire Ruby</a></li>
-                  <li><a href="../informatique/lua.html">Aide-mémoire Lua</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/syntaxes.html">Syntaxes comparées</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/python.html">Aide-mémoire Python</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/ruby.html">Aide-mémoire Ruby</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/lua.html">Aide-mémoire Lua</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/ruby_guide.html">Guide Ruby</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/ash_guide.html">Guide Ash</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Modélisation</li>
-                  <li><a href="../informatique/json.html">Aide-mémoire JSON</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/bnf.html">Aide-mémoire BNF et EBNF</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/json.html">Aide-mémoire JSON</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/hamill.html">Aide-mémoire Hamill</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Autres</li>
-                  <li><a href="../informatique/outils.html">Logiciels utiles</a></li>
-                  <li><a href="../data/outil_collections.html#langages">Liste de langages</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/version_control.html">Gestion de versions</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/tools_langs.html">Logiciels utiles et autres langages</a></li>
                 </ul>
               </li>
               <li class="dropdown">
                 <a id="Histoire" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Histoire <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li class="dropdown-header">Méthode</li>
-                  <li><a href="../histoire/methode.html">Généralités</a></li>
-                  <li><a href="../histoire/bibliographie.html">Bibliographie</a></li>
+                  <li><a href="https://xitog.github.io/dgx/histoire/methode.html">Généralités</a></li>
+                  <li><a href="https://xitog.github.io/dgx/histoire/bibliographie.html">Bibliographie</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Aide-mémoires</li>
-                  <li><a href="../histoire/france19eme.html">France au XIXe</a></li>
+                  <li><a href="https://xitog.github.io/dgx/histoire/france19eme.html">France au XIX<sup>e</sup></a></li>
                 </ul>
               </li>
               <li class="dropdown">
-                <a id="Jeux" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Jeux <span class="caret"></span></a>
+                <a id="Jeux" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Passe-temps <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Présentations générales</i></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/pres_jeux.html">Les jeux</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/pres_jeuxvideo.html">Les jeux vidéo</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/pres_favoris.html">Favoris artistiques</a></li>
+                  <li class="divider"></li>
                   <li class="dropdown-header">Jeux de rôles</i></li>
-                  <li><a href="../jeux/systeme_rpg_un.html">Essai de système</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/systemes_rpg.html">Systèmes des RPG</a></li>
                   <li class="divider"></li>
-                  <li class="dropdown-header">Livres dont VOUS êtes le héros</li>
-                  <li><a href="../jeux/compagnon_talisman.html">Le Compagnon du Talisman</a></li>
-                  <li><a href="../jeux/compagnon_sorcier.html">Le Compagnon du Sorcier</a></li>
+                  <li class="dropdown-header">Livres-jeux</li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/compagnon_talisman.html">Le Compagnon du Talisman</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/compagnon_sorcier.html">Le Compagnon du Sorcier</a></li>
                   <li class="divider"></li>
-                  <li class="dropdown-header">Jeux vidéo</li>
-                  <li><a href="../jeux/rts.html">Les enfants de Dune : les RTS</a></li>
-                  <li><a href="../jeux/raycasting.html">Le raycasting : la 2.5D</a></li>
-                  <li><a href="../jeux/play_rts.html">Jouer à mon RTS</a></li>
-                  <li><a href="../jeux/play_fps.html">Jouer à mon FPS</a></li>
-                  <li><a href="../data/outil_collections.html#jv">Jeux vidéo favoris</a></li>
+                  <li class="dropdown-header">Histoire des jeux vidéo</li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/history_rts.html">Les enfants de Dune : les RTS</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/history_fps.html">Les enfants de Doom : les FPS</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Techniques des jeux vidéo</i></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_raycasting_fr.html">Le raycasting : la 2.5D</a>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_transitions.html">Cartes et transitions</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_dialogues.html">Dialogues</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Jeux vidéo et outils maison</i></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/project_teddy.html">Éditeur de carte</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/project_rts.html">Jouer à mon RTS</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/project_fps.html">Jouer à mon FPS</a></li>
                 </ul>
               </li>
               <li class="dropdown">
                 <a id="Autres" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Autres <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li class="dropdown-header">Musique</li>
-                  <li><a href="../concerts_classiques/index.html">Concerts classiques</a></li>
+                  <li><a href="https://xitog.github.io/dgx/concerts_classiques/index.html">Concerts classiques</a></li>
+                  <li><a href="https://xitog.github.io/dgx/favoris/musiques.html">Musiques favorites</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Collections</li>
-                  <li><a href="../data/outil_collections.html#prenoms">Prénoms</a></li>
-                  <li><a href="../data/outil_collections.html#livres">Livres lus</a></li>
-                  <li><a href="../data/outil_collections.html#favoris_artistiques">Favoris artistiques</a></li>
-                  <li><a href="../liens.html">Liens</a></li>
+                  <li><a href="https://xitog.github.io/dgx/data/outil_collections.html#prenoms">Prénoms</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Liens</li>
+                  <li><a href="https://xitog.github.io/dgx/plan.html">Plan du site</a></li>
+                  <li><a href="https://xitog.github.io/dgx/liens.html">Barre de liens</a></li>
+                  <li><a href="https://xitog.github.io/dgx/liste_liens.html">Collection de liens</a></li>
                 </ul>
               </li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
-      <div id="content">
-      
-        <h2 id="sommaire">Sommaire</h2>
-        <p class="subtitle">Guide pour Python 3.x. Dernière modification le 21 décembre 2018. Statut : incomplet.</p>
-        <ol class="menu">
-          <li><a href="#intro">Introduction</a>
-            <ol class="menu">
-              <li><a href="#intro_carac">Caractéristiques générales</a></li>
-              <li><a href="#intro_aff">Affichage</a></li>
-              <li><a href="#intro_key">Mots réservés</a></li>
-              <li><a href="#intro_com">Commentaires</a></li>
-            </ol>
-          </li>
-          <li><a href="#types">Types de base</a>
-            <ol class="menu">
-              <li>Scalaires</a>
-                <ol>
-                  <li><a href="#typ_int">Entiers</a></li>
-                  <li><a href="#typ_float">Nombres réels</a></li>
-                  <li>Nombres complexes</li>
-                  <li><a href="#typ_booleans">Booléens</a></li>
-                  <li>Règles de grammaire associées aux littéraux</li>
-                  <li>Énumérations</li>
-                </ol>
-              </li>
-              <li>Séquences Immutables
-                <ol>
-                  <li><a href="#typ_strings">Chaînes de caractères</a></li>
-                  <li><a href="#typ_tuple">Tuples</a></li>
-                  <li>Sets immutables</li>
-                </ol>
-              </li>
-              <li>Séquences Mutables
-                <ol>
-                  <li><a href="#typ_list">Listes</a>
-                    <ol class="menu">
-                      <li><a href="#typ_list_def">Définition</a></li>
-                      <li><a href="#typ_list_acc">Accès</a></li>
-                      <li><a href="#typ_list_iter">Itération</a></li>
-                    </ol>
-                  </li>
-                  <li><a href="#typ_dict">Dictionnaires</a>
-                    <ol class="menu">
-                      <li><a href="#typ_dict_def">Définition</a></li>
-                      <li><a href="#typ_dict_acc">Accès</a></li>
-                      <li><a href="#typ_dict_iter">Itération</a></li>
-                    </ol>
-                  </li>
-                  <li><a href="#typ_set">Ensembles</a>
-                    <ol class="menu">
-                      <li><a href="#typ_set_def">Définition</a></li>
-                    </ol>
-                  </li>
-                </ol>
-              </li>
-              <li><a href="#typ_others">Autres</a>
-                <ol>
-                  <li><a href="#typ_others_nil">Type vide</a></li>
-                </ol>
-              </li>
-            </ol>
-          </li>
-          <li><a href="#operators">Opérateurs</a>
-            <ol class="menu">
-              <li><a href="#op_bin">Opérateurs binaires</a>
-                <ol class="menu">
-                  <li><a href="#op_bin_ari">Opérateurs arithmétiques</a></li>
-                  <li><a href="#op_bin_cmp">Opérateurs de comparaisons</a></li>
-                  <li><a href="#op_bin_boo">Opérateurs booléens</a></li>
-                  <li><a href="#op_bin_oth">Autres opérateurs</a></li>
-                </ol>
-              </li>
-              <li><a href="#op_una">Opérateurs unaires</a>
-                <ol class="menu">
-                  <li><a href="#op_una_ari">Opérateurs arithmétiques</a></li>
-                  <li><a href="#op_una_boo">Opérateurs booléens</a></li>
-                </ol>
-              </li>
-            </ol>
-          </li>
-          <li><a href="#flux">Contrôle du flux</a>
-            <ol class="menu">
-              <li><a href="#flux_seq">Séquence</a></li>
-              <li><a href="#flux_cond">Condition</a></li>
-              <li><a href="#flux_loop">Répétition</a></li>
-            </ol>
-          </li>
-          <li><a href="#fun">Fonctions</a>
-            <ol class="menu">
-              <li><a href="#fun_def">Définition</a></li>
-              <li><a href="#fun_call">Appel</a></li>
-              <li><a href="#fun_closure">Closure</a></li>
-              <li><a href="#fun_lambda">Fonctions anonymes</a></li>
-            </ol>
-          </li>
-          <li><a href="#oo">Programmation orientée objet</a>
-            <ol class="menu">
-              <li><a href="#oo_class">Définition de classes</a></li>
-              <li><a href="#oo_new">Instanciation d'objets</a></li>
-              <li><a href="#oo_attribute">Attributs</a></li>
-              <li><a href="#oo_method">Méthodes</a></li>
-              <li><a href="#oo_prop">Propriété</a></li>
-              <li><a href="#oo_extends">Héritage et polymorphisme</a></li>
-              <li><a href="#oo_abstract">Classe abstraite</a></li>
-              <li><a href="#oo_data">Dataclass</a></li>
-            </ol>
-          </li>
-          <li><a href="#try">Gestion des exceptions</a>
-            <ol class="menu">
-              <li><a href="#try_try">Bloc try / except / else / finally</a></li>
-              <li><a href="#try_raise">Lever une exception</a></li>
-            </ol>
-          </li>
-          <li><a href="#mod">Modules</a></li>
-          <li><a href="#lib">Bibliothèque standard</a>
-            <ol class="menu">
-              <li><a href="#lib_files">Gestion des fichiers</a></li>
-            </ol>
-          </li>
-          <li><a href="#cli">Construire des applications en ligne de commande</a></li>
-          <li><a href="#gui">Construire des applications avec un GUI</a></li>
-          <li><a href="#web">Construire des applications web</a></li>
-          <li><a href="#quicktips">Focus sur des points particuliers</a>
-            <ol class="menu">
-              <li><a href="#formatdecimal">Formatage rapide des décimaux</a></li>
-              <li><a href="#enumerations">Énumérations en Python</a></li>
-              <li><a href="#tryelse">Mot clé else dans try</a></li>
-              <li><a href="#tryopenfile">Essayer d'ouvrir un fichier</a></li>
-            </ol>
-          </li>
-          <li><a href="#liens">Bibliographie et webographie</a>
-            <ol class="menu">
-              <li><a href="#sit_bib">Bibliothèques</a></li>
-              <li><a href="#sit_tools">Outils</a></li>
-            </ol>
-          </li>
-        </ol>
-        
-        <h2 id="intro">1. Introduction</h2>
-        
-        <h3 id="intro_carac">Caractéristiques générales</h3>
-        
-        <p>Date d'apparition du langage : 1990</p>
-        
-        <p>Créateur : Guido van Rossum (Pays-Bas).</p>
-        
-        <p>Ceci est un brouillon d’une éventuelle feuille de notes pour Python.</p>
-        
-        <ul class="normale">
-          <li>Typage Fort + Dynamique (duck/latent typing)</li>
-          <li>Interprété, Cross-platform</li>
-          <li>Implémentations : CPython (C), Jython (JVM), IronPython (.Net), PyPy (Python)</li>
-          <li>Sous-langages   :
-            <ul>
-              <li>Stackless Python (sans pile C)</li>
-              <li>RPython (sous ensemble de Python compilé pour PyPy)</li>
-              <li>Pyrex[->Cython] (type C + Python)</li>
-              <li>Extensions : .py, .pyc (bytecode), .pyx (Pyrex)</li>
-            </ul>
-          </li>
-        </ul>
-  
-        <h3 id="intro_aff">Affichage</h3>
-        
-        <p>Une fonction à connaître en Python est <span class="code function">print</span>. Elle permet d'afficher sur la sortie standard. Ainsi, l'application standard lorsqu'on apprend un nouveau langage de programmation s'écrira :</p>
-        
-        <div class="code">
-<span class="function">print</span>(<span class="string">"Hello, World!"</span>)
-        </div>
-        
-        <h3 id="intro_key">Mots-clés</h3>
-        
-        <h3 id="intro_com">Commentaires</h3>
-        
-        <p>En Python, tout texte situé après un <span class="code comment">#</span> sur une ligne est ignoré jusqu'à la prochaine ligne.</p>
-        
-        <div class="code">
-<span class="function">print</span>(<span class="string">"Hello, World!"</span>) <span class="comment"># Ceci est un commentaire</span>
-        </div>
-
-        <h2>2. Types de base</h2>
-
-        <h3>1. Scalaires</h3>
-
-        <h4>A) Entiers</h4>
-
-        <p>Ils peuvent être définis selon trois formats : hexadécimal (en base 16) en précédant le nombre avec 0x ou 0X, octal (en base 8 ) en précédant le nombre d’un 0 et en base 10. Il faut donc faire bien attention à repérer si le littéral commence par un 0 ou pas pour ne pas confondre base octale et décimale. Les chiffres supplémentaires en base 16 sont représentés par les lettres A à F (indifféremment de la casse).</p>
-
-        <p>Exemple : 8 (base 10), 010 (8 en base octale), 0xA (10 en base hexadécimale).</p>
-
-        <p>Un entier sera convertit en long si besoin est de façon automatique. Le long permet de ne pas avoir de limite relative à la grandeur du nombre représenté – celle-ci est en effet illimité. Le suffixe « L » ou « l » permet de déclarer d’office un long, même si Python se charge complètement et d’une manière transparente de la conversion.</p>
-
-        <p>Exemple : 8L</p>
-
-        <p>Règles de grammaire associées :</p>
-        <pre class="code">
-digit ::=
-             "0"..."9"
-
-longinteger ::=
-             integer ("l" | "L")
-
-integer ::=
-             decimalinteger | octinteger | hexinteger
-
-decimalinteger ::=
-             nonzerodigit digit* | "0"
-
-octinteger ::=
-             "0" octdigit+
-
-hexinteger ::=
-             "0" ("x" | "X") hexdigit+
-
-nonzerodigit ::=
-             "1"..."9"
-
-octdigit ::=
-             "0"..."7"
-
-hexdigit ::=
-             digit | "a"..."f" | "A"..."F"
-
-        </pre>
-
-        <p class="info"><span class="notabene" id="formatdecimal"/>Pour contrôler sur combien de position s'affiche un entier décimal, on peut utiliser les puissantes possibilités de formatage de Python. Pour afficher ainsi le chiffre 5 sur 2 positions, en mettant 0 dans les positions inoccupées par le chiffre, il suffira d'écrire :</p>
-        
-        <div class="code">
-<span class="function">print</span>(f<span class="string">"{5:02d}"</span>)
-        </div>
-        
-        <p>Le formatage commence par <span class="code">:</span> puis le 0 indique le caractère à mettre dans les positions inoccupées, le 2 indique le nombre de positions, et enfin <span class="code">d</span> qu'il s'agit d'un affichage décimal.</p>
-        
-        <h4>B) Nombres réels</h4>
-
-        <p>Les nombres réels n’utilisent que la base décimale, est le « . » pour séparer la partie entière de la décimale. Le « . » est nécessaire, même sans partie décimale, pour différencier un entier ou un flottant. De même la partie entière, si elle est égale à 0, peut être omise. Un exposant peu être spécifié avec la lettre E (indifféremment de la casse).</p>
-
-        <p>Exemple : 3.4, 3., .3, 3.e20</p>
-
-        <p>Règles de grammaire associées :</p>
-        <pre class="code">
-floatnumber ::=
-             pointfloat | exponentfloat
-
-pointfloat ::=
-             [intpart] fraction | intpart "."
-
-exponentfloat ::=
-             (intpart | pointfloat)
-              exponent
-
-intpart ::=
-             digit+
-
-fraction ::=
-             "." digit+
-
-exponent ::=
-             ("e" | "E") ["+" | "-"] digit+
-
-        </pre>
-      
-        <h4>C) Nombres complexes</h4>
-
-        <p>Il suffit d’utiliser le suffixe J (casse indifférente) pour indiquer une partie imaginaire. L’addition d’une partie réelle et imaginaire permet d’exprimer un nombre complexe.</p>
-
-        <p>Exemples : 3+2j, 3-2j</p>
-
-        <p>Règles de grammaire associée :</p>
-        <pre class="code">
-imagnumber ::= (floatnumber | intpart) ("j" | "J")
-        </pre>
-
-        <h4>D) Booléens</h4>
-
-        <p>Il n’y a que deux valeurs.</p>
-
-        <p>Exemples : True, False</p>
-
-        <h4>E) Règles de grammaire associées aux littéraux</h4>
-        <pre class="code">
-atom ::=
-             identifier | literal | enclosure
-
-literal ::=
-             stringliteral | integer | longinteger
-                | floatnumber | imagnumber
-
-        </pre>
-        
-        <h4>F) Énumérations</h4>
-    
-        <p class="info"><span class="notabene" id="enumerations">Il est possible de déclarer des énumérations en Python. Une énumération est un type dont l'ensemble des valeurs possibles est connu.</p>
-        
-        <div class="code">
-<span class="keyword">from</span> enum <span class="keyword">import</span> Enum<br>
-<span class="keyword">class</span> MyEnum(Enum):<br>
-&nbsp;&nbsp;&nbsp;&nbsp;V1 = 1<br>
-&nbsp;&nbsp;&nbsp;&nbsp;V2 = 2<br>
-        </div>
-        
-        <p>L'affichage d'une énumération n'est pas simplement sa valeur.</p>
-        <p>Une valeur d'énumération est hashable donc utilisable comme clé dans un dictionnaire.<p>
-        <p>On peut itérer sur les différentes valeurs d'une itération avec un <span class="code keyword">for</span>.
-    
-        <h3>Séquences Immutables</h3>
-        <ul class="normale">
-          <li>str   ’Hello’ | « Hello »    immutable séquence de caractère</li>
-          <li>unicode  u’Hello’ | u »Hello »    immutable séquence de caractère</li>
-          <li>tuple  (4.0, ‘a’, ‘b’) | (3,)   immutable, on peut mixé les types</li>
-          <li>frozenset frozenset([4.0, 'a', True])  immutable, sans ordre, sans doublon</li>
-        </ul>
-
-        <h3>Séquences Mutables</h3>
-        <ul class="normale">
-          <li>list  [1, 'a', True]     mutable, on peut mixer les types</li>
-          <li>dict  {‘key1' : 1.0, ‘key2' : False} paire clé / valeur</li>
-          <li>set   set([4.0, 'a', True])   mutable, sans ordre, sans doublon</li>
-        </ul>
-
-        <h3 id="typ_others">Autres</h3>
-        
-        <h4 id="typ_others_nil">Type vide</h4>
-        
+<div id="content-div">
+<h1 id="sommaire">Sommaire</h1>
+<ul>
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#1.-bases-du-langage">1. Bases du langage</a>
+    <ul>
+      <li><a href="#1.1-description">1.1 Description</a></li>
+      <li><a href="#1.2-historique-et-influences">1.2 Historique et influences</a></li>
+      <li><a href="#1.3-désavantages">1.3 Désavantages</a></li>
+      <li><a href="#1.4-utilisations">1.4 Utilisations</a></li>
+      <li><a href="1.5 Bonjour le monde !">1.5 Bonjour le monde !</a></li>
+      <li><a href="1.6 Affichage">1.6 Affichage</a></li>
+      <li><a href="1.7 Mots réservés">1.7 Mots réservés</a></li>
+      <li><a href="1.8 Commentaires">1.8 Commentaires</a></li>
+      <li><a href="1.9 Variables">1.9 Variables</a></li>
+    </ul>
+  </li>
+  <li><a href="#2.-sites-web">2. Sites web</a>
+    <ul>
+      <li><a href="#2.1-bibliothèques">2.1 Bibliothèques</a></li>
+      <li><a href="#2.2-outils">2.2 Outils</a></li>
+    </ul>
+  </li>
+  <li><a href="#3.-types-de-base">3. Types de base</a>
+    <ul>
+      <li>Nombres</li>
+      <li>Chaînes de caractères</li>
+      <li>Booléens</li>
+      <li>Valeur nil</li>
+      <li>Tables
         <ul>
-          <li>NoneType  None</li>
+          <li>Définition</li>
+          <li>Accès</li>
+          <li>Métatable</li>
         </ul>
-        
-        <h2 id="operators">3. Opérateurs</h2>
-        
-        <h3 id="op_bin">3.1 Opérateurs binaires</h3>
-        <h4 id="op_bin_ari">3.1.1 Opérateurs arithmétiques</h4>
-        <h4 id="op_bin_cmp">3.1.2 Opérateurs de comparaisons</h4>
-        <h4 id="op_bin_boo">3.1.3 Opérateurs booléens</h4>
-        <h4 id="op_bin_oth">3.1.4 Autres opérateurs</h4>
-        <h3 id="op_una">3.2 Opérateurs unaires</h3>
-        <h4 id="op_una_ari">3.2.1 Opérateurs arithmétiques</h4>
-        <h4 id="op_una_boo">3.2.2 Opérateurs booléens</h4>
-
-        <h2 id="flux">4. Contrôle du flux</h2>
-
-        <p>Il existe trois structures de contrôle fondamentales : séquence, sélection et répétition, appelée aussi itération.</p>
-
-        <p>En Python, l’instruction ‘nulle’ est « pass » et est obligatoire !</p>
-
-        <h3 id="flux_seq">4.1 Séquence</h3>
-        
-        <h3 id="flux_cond">4.2 Condition</h3>
-
-        <pre class="code">
-<b>if</b> condition :
-  action
-<b>elif</b> condition :
-  action
-<b>else</b> :
-  action
-        </pre>
-
-        <h3 id="flux_loop">4.3 Répétition</h3>
-
-        <pre class="code">
-<b>for</b> var in</b> list :
-  action
-
-<b>while</b> condition :
-  action
-        </pre>
-
-        <p>Et voilà !</p>
-        
-        <h2>5. Fonctions</h2>
-        
-        <pre class="code">
-def Nom ( arg1, arg2, ... ) :
-   action
-return var1, var2, ...
-        </pre>
-
-        <p>Si il n’y a pas de return, None est renvoyé. (!= Ruby)</p>
-      
-        <p>Même si il n’y pas d’arguments, les parenthères sont obligatoires, dans la définition et l’appel. (!= Ruby)</p>
-
-        <h2 id="oo">6. Programmation orientée objet</h2>
-
-        <h3 id="oo_class">Définition de classes</h3>
-        <h3 id="oo_new">Instanciation d'objets</h3>
-        <h3 id="oo_attribute">Attributs</h3>
-        <h3 id="oo_method">Méthodes</h3>
-        
-        <p>Classe et objets</p>
-        <pre class="code">
-class Nom(ClasseMère) :
- action
-        </pre>
-
-        <p>Méthodes et instances</p>
-        <ul class="normale">
-          <li>Encapsulation</li>
-          <li>Polymorphisme</li>
-          <li>Héritage simple</li>
-          <li>Héritage multiple</li>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#4.-opérateurs">4. Opérateurs</a>
+    <ul>
+      <li>Opérateurs binaires
+        <ul>
+          <li>Opérateurs arithmétiques</li>
+          <li>Opérateurs de comparaisons</li>
+          <li>Opérateurs booléens</li>
+          <li>Autres opérateurs</li>
         </ul>
-
-        <h3 id="oo_prop">Propriété</h3>
-        <p>http://adam.gomaa.us/blog/2008/aug/11/the-python-property-builtin/</p>
-
-        <p>On peut faire des properties en Python, à la manière de Ruby :</p>
-        <pre class="code">
-class Pipo(object):
-    ...
-    myProp = property(getter, setter, deleter, doc)
-        </pre>
-
-        <p>où chacun des éléments est une fonction. ActiveState a pondu un truc infâme pour éviter d’encombrer l’espace de nom de la classe des fonctions de getter/setter/etc. :</p>
-        <pre class="code">
-    def Property(func)
-      return property(**func())
-    class Person(object):
-      @Property
-      def name():
-          doc = "The person's name"
-          def fget(self):
-              return "%s %s" % (self.first_name, self.last_name)
-          def fset(self, name):
-              self.first_name, self.last_name = name.split()
-          def fdel(self):
-              del self.first_name
-              del self.last_name
-          return locals()
-        </pre>
-        
-        <h3 id="oo_extends">Héritage et polymorphisme</h3>
-        
-        <h3 id="oo_abstract">Classe abstraite</h3>
-
-        <p>http://docs.python.org/dev/library/abc.html#module-abc</p>
-        
-        <h3 id="oo_data">Dataclass</h3>
-        
-        <h2 id="exceptions">7. Gestion des exceptions</h2>
-        
-        <h3 id="try">Bloc try / except / else / finally</h3>
-        
-        <div class="code">
-<span class="keyword">try</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;actions<br>
-<span class="keyword">except</span> TypeException1 <span class="keyword">as</span> Identifiant:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;actions<br>
-<span class="keyword">except</span> TypeException2:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;actions<br>
-<span class="keyword">else</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;actions si pas d'exception<br>
-<span class="keyword">finally</span>:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;actions toujours exécutées<br>
-        </div>
-        
-        <p>On peut attraper un type d'exception et mettre l'exception dans une variable avec <span class="code keyword">as</span>.</p>
-        <p class="info"><span class="notabene" id="tryelse"/>Le code défini dans <span class="code keyword">else</span> n'est exécuté que s'il n'y a pas eu d'exceptions et qu'il n'y a pas d'instructions comme <span class="code keyword">break</span>, <span class="code keyword">continue</span> ou <span class="code keyword">return</span> dans le code du <span class="code keyword">try</span>. Cela permet de garder le code gérant l'exception dans le bloc <span class="code keyword">except</span> proche de la ligne pouvant lever l'exception.</p>
-        <p>Le code défini dans <span class="code keyword">finally</span> est toujours exécuté, qu'il y ait eu une exception ou non.</p>
-        <p>Un bloc try
-        
-        <h2 id="mod">8. Modules</h2>
-
-        <p>Principes</p>
-        <ul class="normale">
-          <li>Module re : expressions régulières</li>
-          <li>Module os,sys : services du systèmes d’exploitation</li>
-          <li>Module csv : traitement de fichiers structurés par séparateurs</li>
+      </li>
+      <li>Opérateurs unaires
+        <ul>
+          <li>Opérateurs arithmétiques</li>
+          <li>Opérateurs booléens</li>
         </ul>
-        <p>et organisation du code</p>
-        
-        <h2 id="lib">9. Bibliothèque standard</h2>
-        
-        <h3 id="lib_files">9.1 Gestion des fichiers</h3>
-        
-        <p class="info"><span class="notabene" id="tryopenfile"/>La meilleure façon de vérifier qu'un fichier existe au moment de l'ouvrir est de tenter de l'ouvrir dans un bloc try et de guetter l'exception <span class="function">FileNotFound</span>. En effet, tout test d'existence préalable à l'ouverture est insuffisant : entre le test et le moment où on ouvre véritablement le fichier, celui-ci peut avoir été détruit ou déplacé.</p>
-        
-        <p><a href="https://docs.python.org/3/library/difflib.html">Difflib</a> pour comparer des séquences, par exemple des mots, et proposer des séquences proches.</p>
-        
-        <h2 id="cli">10. Construire des applications en ligne de commande</h2>
-        
-        <p>Une application en ligne de commande se lance depuis un terminal. Elle prend en entrée des paramètres et des options. Elle doit prendre en compte l'absence de paramètres, un mauvais paramètre ou une mauvaise valeur d'option. Pour les gérer, il y a plusieurs façons :</p>
-        <ul class="normale">
-          <li>En gérant directement sys.argv,</li>
-          <li>En utilisant le module <a href="https://docs.python.org/2/library/optparse.html">optparse</a> de la bibliothèque standard mais cette solution est obsolète depuis la version 2.7,</li>En utilisant <a href="https://docs.python.org/3/library/getopt.html">getopt</a> de la bibliothèque standard qui imite la fonction C getopt(), assez verbeuse,</li>
-          <li>En utilisant le module <a href="https://docs.python.org/3/library/argparse.html">argparse</a> de la bibliothèque standard recommandé pour cette tâche,</li>
-          <li>En utilisant le module <a href="http://docopt.org/">docopt</a> qui utilise une chaîne pour décrire les options et gère le reste automatiquement,</li>
-          <li>En utilisant le module <a href="https://click.palletsprojects.com/en/7.x/">click</a> qui utilise une myriade de décorateurs.</li>
-        </ul>
-        <p>Docopt, en se basant sur un simple texte dans le microlangage du même nom, est très amusant à utiliser. Click permet d'aller beaucoup plus loin pour des interfaces très complexes. Enfin, argparse est le module recommandé livré de base avec la bibliothèque standard.</p>
-        
-        <p>Enfin, un module sympathique qui permet d'ajouter très facilement une barre de progression, <a href="https://pypi.org/project/tqdm/">tqdm</a>, et autre pour avoir de la couleur dans la console windows, <a href="https://pypi.org/project/colorama/">colorama</a>.</p>
-        
-        <h2 id="gui">11. Construire des applications avec un GUI</h2>
-        
-        <p>Pour développer rapidement une application avec une interface utilisateur graphique pour les systèmes d'exploitation classiques, on peut utiliser :</p>
-        <ul class="normale">
-          <li><a href="https://www.qt.io/qt-for-python">Qt for Python (PySide2),</a></li>
-          <lI><a href="http://infohost.nmt.edu/tcc/help/pubs/tkinter/web/index.html">Tkinter</a> (<a href="http://tkinter.fdex.eu/">doc en français</a>), livré avec la bibliothèque standard,</li>
-        </ul>
-        
-        <h2 id="web">12. Construire des applications web</h2>
-        
-        <p>Pour développer rapidement une application web, trois cadriciels se distinguent :</p>
-        <ul class="normale">
-          <li><a href="https://bottlepy.org/docs/dev/">Bottle.py</a>, le plus simple, il tient en un seul fichier,</li>
-          <li><a href="http://flask.pocoo.org/">Flask</a>, un peu plus complexe, mais reste simple,</li>
-          <li><a href="https://www.djangoproject.com/">Django</a>, le plus complet et complexe.</li>
-        </ul>
-        
-        <p>Pour du templating de page web : <a href="http://jinja.pocoo.org/docs/2.10/">Jinja2</a>.</p>
-        
-        <p>Pour gérer les requêtes, on peut citer l'excellente bibliothèque <a href="http://docs.python-requests.org/en/master/">Requests</a>.</p>
-        
-        <p>Pour parcourir du HTML, <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">BeautifulSoup</a> est excellent.</p>
-        
-        <ul class="normale">
-          <li>Architecture générale : mécanisme de publication</li>
-          <li>Interaction DHTML-Python : Exemples</li>
-          <li>Notes diverses</li>
-        </ul>
-
-        <p>8b. Python et le Web : Introduction à Zope</p>
-        
-        <p>Un bon « duck programmer » utilisera hasattr() plutôt que type() ou isinstance()
-      http://en.wikipedia.org/wiki/Category:Type_theory</p>
-        
-        <h2 id="liens">9. Bibliographie et webographie</h2>
-            
-        <ul class="normale">
-            <li><a href="https://www.python.org/">Site officiel</a></li>
-            <li><a href="https://pypi.python.org/pypi">PYPI</a> dépôt de bibliothèques Python</a></li>
-            <li><a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">Dépôt non officiel de binaires pour Windows</a></li>
-            <li>Page française de <a href="https://fr.wikipedia.org/wiki/Python_(langage)">Wikipedia</a> sur Python</li>
-            <li><a href="https://realpython.com">Real Python</a>, excellent site abordant en profondeur ses sujets pour débuter ou renforcer ses connaissances</li>
-        </ul>
-
-        <center>Damien Gouteux - 2018</center>
-      </div>
-    </div>
-    
-        
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    
-  </body>
-</html>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#5.-contrôle-du-flux">5. Contrôle du flux</a>
+    <ul>
+      <li>Séquence</li>
+      <li>Conditions</li>
+      <li>Répétitions</li>
+    </ul>
+  </li>
+  <li><a href="#6.-fonctions">6. Fonctions</a>
+    <ul>
+      <li>Définition</li>
+      <li>Appel</li>
+      <li>Closure</li>
+    </ul>
+  </li>
+  <li><a href="#7.-gestion-des-exceptions">7. Gestion des exceptions</a>
+    <ul>
+      <li>Appels protégés</li>
+    </ul>
+  </li>
+  <li><a href="#8.-bibliothèque-de-base">8. Bibliothèque de base</a>
+    <ul>
+      <li>Sortie et entrée console</li>
+      <li>Nombres</li>
+      <li>Chaînes de caractères</li>
+      <li>Tables</li>
+      <li>Fichiers</li>
+    </ul>
+  </li>
+</ul>
+<h1 id="introduction">Introduction</h1>
+<p>Cet aide-mémoire expose la syntaxe du langage de programmation *python* et quelques opérations de base. Idéal pour se rafraîchir la mémoire, il peut également servir à un apprentissage de ce langage pour des personnes qui connaissent déjà un ou plusieurs langages de programmation.</p>
+<p>Programmer consiste à donner des ordres à un ordinateur. Ces ordres sont très simples : "met une valeur à 5", "additionne deux valeurs", "affiche une valeur". C'est la combinaison de ces ordres qui permet de faire des choses très complexes. Un <b>programme</b> est un ensemble autonome d'ordres constitué dans un but précis : éditer du texte, une image, une photo, contacter des personnes... Un équivalent très utilisé en informatique pour le mot ordre est le mot <b>instruction</b>, et de façon plus générale, pour les désigner on parle de <b>code</b>. Pour écrire ces instructions, il faut utiliser un <b>langage de programmation</b> que l'ordinateur comprend. Le programmeur doit donc apprendre un langage et c'est l'objet de cette fiche. Il existe des milliers de langage de programmation. Nous nous intéresserons ici au langage Python qui est à la fois simple et puissant. En Python, les programmes sont également appelés des <b>scripts</b>.</p>
+<p>mis à jour le 15 mars 2021, créé le 4 avril 2017, converti en HML le 15 mars 2021.</p>
+<p class="sign">Damien Gouteux</p>
+<h1 id="1.-bases-du-langage">1. Bases du langage</h1>
+<h2 id="1.1-description">1.1 Description</h2>
+<p>Python est apparu en 1990, créé par Guido Van Rossum, un néerlandais. Les principales caractéristiques du langage sont :</p>
+<ul>
+  <li>Un typage fort et dynamique (duck/latent typing).</li>
+  <li>Interprété mais le code source est transformé en bytecode.</li>
+  <li>Cross-platform (windows, linux, macos).</li>
+  <li>Il existe plusieurs implémentations : la principale est CPython (C), mais il existe aussi Jython (JVM), IronPython (.Net) et PyPy (Python).</li>
+  <li>Il existe plusieurs sous-langages :
+    <ul>
+      <li>Stackless Python (sans pile C),</li>
+      <li>RPython (sous ensemble de Python compilé pour PyPy),</li>
+      <li>Pyrex et son remplaçant moderne Cython qui transpile en C.</li>
+    </ul>
+  </li>
+  <li>Les fichiers python portent le suffixe <code><span class="python-operator">.</span><span class="python-identifier">py</span></code>, <code><span class="python-operator">.</span><span class="python-identifier">pyc</span></code> pour le bytecode et <code><span class="python-operator">.</span><span class="python-identifier">pyx</span></code> pour Pyrex.</li>
+</ul>
+<p>La version majeure actuelle (mars 2021) est la version 3 et est disponible selon les termes de la licence <i>Python Software Foundation License (PSFL)</i> semblable à la BSD.</p>
+<p>À l'heure où j'écris ces lignes (mars 2021), la version actuelle est la 3.9, mais tous les versions supérieures marcheront aussi pour ce tutoriel. À chaque version, le langage s'améliore, mais aussi parfois, il change son fonctionnement, surtout entre les versions majeures (le premier chiffre). Ainsi, un script écrit pour les versions de Python 2.x (où x est compris entre 0 et 7) a de fortes chances de ne plus marcher pour les versions de Python 3.</p>
+<p>Date d'apparition du langage : 1990</p>
+<p>Créateurs : Guido Van Rossum (Pays-Bas)</p>
+<p>Extension d'un fichier Python : <code><span class="text-normal">py</span></code></p>
+<p>Exécuter mon_fichier.py : <code><span class="text-normal">python mon_fichier.py</span></code></p>
+<h2 id="1.2-historique-et-influences">1.2 Historique et influences</h2>
+<p>Python est un hommage aux groupes d'humoristes britanniques les <i>Monthy Pythons</i>.</p>
+<h2 id="1.3-désavantages">1.3 Désavantages</h2>
+<p>TODO</p>
+<h2 id="1.4-utilisations">1.4 Utilisations</h2>
+<p>TODO</p>
+<h2 id="1.5-installation">1.5 Installation</h2>
+<p>La première chose à faire est de vérifier que vous avez les outils nécessaires pour le langage Python installés sur votre machine. Pour cela, ouvrez une console. Sous Windows, il faut faire aller dans Exécuter et taper cmd. Une console s'ouvre. Dedans tapez python. Si vous avez un message d'erreur, c'est que les outils ne sont pas installés sur votre machine. Rendez-vous sur [[https://www.python.org/downloads/]] pour télécharger la dernière version.</p>
+<p>Pour les utilisateurs sous Unix, Linux et BSD, Python est souvent de base installé sur vos machines. Vérifiez juste la version et si c'est une version 2.x, mettez la à jour. Vous pouvez également, si vous êtes un utilisateur avec de bonnes connaissances d'informatique, recompiler les outils Python à partir de leur code source. Pour les utilisateurs Mac, vous devez également avoir une version de base qui peut être ancienne, n'hésitez pas à télécharger une version plus récente sur le site officiel.</p>
+<p>La suite d'outil se compose d'un interpréteur qui transmet vos instructions en Python à l'ordinateur et d'un éditeur de texte spécial, IDLE. Dans IDLE vous pouvez taper vos instructions et il les transmet à l'interpréteur puis affiche le résultat de vos instructions. Une fois installé, trouvez IDLE et lancez-le. Une fenêtre s'ouvre, intitulée Python 3.5.0 Shell. Elle indique des informations détaillées sur la version que vous utilisez et affiche &gt;&gt;&gt;. Il s'agit du symbole qui vous invite à entrer des instructions. Vous pouvez taper des instructions directement à la suite de ce symbole comme l'exemple plus haut, taper sur entrée et voir le résultat.</p>
+<p>Le Shell d'IDLE est ce qu'on appelle un REPL pour read-eval-print-loop. C'est-à-dire que le Shell attend puis lit votre instruction, la transmet à l'ordinateur, affiche son résultat et recommence. C'est pratique pour tester rapidement quelque chose mais pour programmer des scripts plus longs, il faut les écrire dans un fichier. Dans IDLE, cliquez sur File puis New File. Une seconde fenêtre s'ouvre, c'est dans celle-ci que vous taperez votre script, nous l'appellerons la fenêtre d'édition pour la différencier de la fenêtre de Shell. Tapez dedans à nouveau la première instruction et cliquer sur Run puis Run Module (ou tapez F5). Il vous demandera la première fois de sauvegarder ce fichier. Cliquez sur OK et enregistrez votre fichier dans un endroit où vous le retrouverez avec un nom qui explique de quoi il s'agit, comme premiers_essais ou apprentissage. IDLE bascule ensuite sur la fenêtre de Shell et affiche le résultat de l'exécution de votre programme.</p>
+<h2 id="1.6-bonjour-le-monde-!">1.6 Bonjour le monde !</h2>
+<p>La tradition veut que l'on commence par écrire "Bonjour le monde !" lorsque l'on découvre un nouveau langage de programmation. Nous ne dérogeons pas à la règle.</p>
+<p>Un fichier de script Python porte l'extension .py qui s'ajoute au nom que vous lui aurez donné. Il est important que dans le nom que vous avez choisi ne figure pas d'espace, utilisez des tirets bas à la place, ni de caractères accentués ou spéciaux. Vous pouvez également, sans passer par IDLE, programmer en Python ou lancer un programme depuis la console. Ouvrez une console, puis tapez python. Une boucle REPL qui ressemble au Shell d'IDLE s'ouvrira alors où vous pourrez taper des instructions. De même, si vous tapez dans la console python suivi du nom de votre programme (python premiers_essais.py par exemple), il s'exécutera directement dans la console où il affichera ses résultats. Sous Unix, Linux, BSD et Mac, vous pouvez rendre exécutable vos fichiers de scripts en mettant en première ligne #!/usr/bin/env python et en faisant chmod +x sur ceux-ci.</p>
+<pre class="code">
+<span class="python-line_comment"># Ceci est un commentaire jusqu&#x27;à la fin de la ligne
+</span><span class="python-special">print</span><span class="python-separator">(</span><span class="python-string">&quot;Bonjour le monde !&quot;</span><span class="python-separator">)</span><span class="python-newline">
+</span></pre>
+<p>Vous venez de voir une première instruction valide en Python. Celle-ci affiche à l'écran les mots Hello World! C'est une tradition dans l'informatique de commencer par ce petit exemple.</p>
+<p>Nous utiliserons une police et un formatage particuliers quand nous écrirons du code.</p>
+<h2 id="1.7-affichage">1.7 Affichage</h2>
+<p>Affichage sur la sortie standard (console) : <code><span class="python-special">print</span></code></p>
+<pre class="code">
+</pre>
+<h2 id="1.8-mots-réservés">1.8 Mots réservés</h2>
+<p>Mots réservés (29) : and, as, assert, break, class, continue, def, del, elif, else, except, finally, for, from, global, if, import, in, is, lambda, not, or, pass, raise, return, try, while, with, yield.</p>
+<h2 id="1.9-commentaires">1.9 Commentaires</h2>
+<p>Commentaires en Python :</p>
+<pre class="code">
+<span class="python-line_comment"># mon commentaire jusqu&#x27;à la fin de la ligne
+</span></pre>
+<pre class="code">
+</pre>
+<p>Commentaires sur plusieurs lignes :</p>
+<pre class="code">
+<span class="python-string">&quot;&quot;&quot;</span><span class="python-newline">
+</span><span class="python-blank">   </span><span class="python-identifier">un</span><span class="python-blank"> </span><span class="python-identifier">commentaire</span><span class="python-blank"> </span><span class="python-identifier">long</span><span class="python-newline">
+</span><span class="python-blank">   </span><span class="python-identifier">sur</span><span class="python-blank"> </span><span class="python-identifier">de</span><span class="python-blank"> </span><span class="python-identifier">nombreuses</span><span class="python-blank"> </span><span class="python-identifier">lignes</span><span class="python-newline">
+</span><span class="python-string">&quot;&quot;&quot;</span><span class="python-newline">
+</span></pre>
+<h2 id="1.10-variables">1.10 Variables</h2>
+<p>Une variable est une référence vers une valeur. Une valeur a un type, pas la variable. L'exemple suivant établie une référence entre la variable a et la valeur 5 de type number.</p>
+<pre class="code">
+<span class="python-identifier">a</span><span class="python-blank"> </span><span class="python-operator">=</span><span class="python-blank"> </span><span class="python-integer">5</span><span class="python-newline">
+</span></pre>
+<p>Il n'y a pas de constantes en Python : une variable peut référencer ensuite une autre valeur.</p>
+<p>Une variable peut référencer n'importe quel type de valeur.</p>
+<p class="back"><a href="#sommaire">Retour sommaire</a></p>
+<h1 id="2.-sites-web">2. Sites web</h1>
+<ul>
+  <li>Site officiel du langage, il contient tout ce qu'il faut pour débuter : une distribution standard avec notamment l'interpréteur officiel et la bibliothèque standard : <a href="https://www.lua.org">https://www.lua.org</a></li>
+  <li>Le livre électronique <i>Programming in Lua</i>, appelé le "PIL", est un livre d'introduction Lua avec de nombreux exemples. La première édition est gratuitement disponible en ligne mais ne correspond plus à la version actuelle du langage : <a href="https://www.lua.org/pil/contents.html">https://www.lua.org/pil/contents.html</a></li>
+  <li>Le wiki des utilisateurs de Lua : <a href="http://lua-users.org/wiki/">http://lua-users.org/wiki/</a></li>
+  <li>Lua binaries, distributions de Lua pour différents systèmes d'exploitation : <a href="http://luabinaries.sourceforge.net/">http://luabinaries.sourceforge.net/</a></li>
+  <li>Löve, une VM Lua mettant à disposition une bibliothèque pour faire des jeux : <a href="https://love2d.org/">https://love2d.org/</a></li>
+  <li>MoonSharp, un intérpréteur Lua écrit en C# pour les plates-formes .Net, Mono et Unity : <a href="http://www.moonsharp.org/">http://www.moonsharp.org/</a></li>
+  <li>Teal, un dérivé de Lua avec des types : <a href="https://github.com/teal-language/tl">https://github.com/teal-language/tl</a></li>
+  <li>Page de Wikipédia sur Lua : <a href="https://en.wikipedia.org/wiki/Lua_(programming_language)">https://en.wikipedia.org/wiki/Lua_(programming_language)</a></li>
+  <li>Boutique officielle pour supporter Lua via l'achat de goodies : <a href="https://www.zazzle.com/Lua_Store">https://www.zazzle.com/Lua_Store</a></li>
+</ul>
+<h2 id="2.1-bibliothèques">2.1 Bibliothèques</h2>
+<ul>
+  <li>LuaRocks, le gestionnaire de bibliothèques pour Lua : <a href="https://luarocks.org/">https://luarocks.org/</a></li>
+  <li>Penlight, une librairie fondamentale pour Lua : <a href="http://stevedonovan.github.io/Penlight/api/index.html">http://stevedonovan.github.io/Penlight/api/index.html</a></li>
+  <li>Bibliothèque de « parsing » : <a href="http://www.inf.puc-rio.br/~roberto/lpeg/">http://www.inf.puc-rio.br/~roberto/lpeg/</a></li>
+  <li>Bibliothèque d'interface graphique : <a href="http://webserver2.tecgraf.puc-rio.br/iup/">http://webserver2.tecgraf.puc-rio.br/iup/</a></li>
+</ul>
+<h2 id="2.2-outils">2.2 Outils</h2>
+<ul>
+  <li>ZeroBrane Studio un IDE léger, gratuit, simple et efficace pour Lua : <a href="https://studio.zerobrane.com/">https://studio.zerobrane.com/</a></li>
+  <li>Coder en Lua en ligne avec REPL.it et Moonlight (VM Lua en JavaScript) : <a href="https://repl.it/languages/lua">https://repl.it/languages/lua</a> et <a href="http://moonshinejs.org/">http://moonshinejs.org/</a></li>
+</ul>
+<p class="back"><a href="#sommaire">Retour sommaire</a></p>
+<h1 id="3.-types-de-base">3. Types de base</h1>
+<p>Les types possibles pour les valeurs sont au nombre de <b>8</b> :</p>
+<ul>
+  <li><span class="type">None</span>,</li>
+  <li><span class="type">boolean</span>,</li>
+  <li><span class="type">number</span>,</li>
+  <li><span class="type">string</span>,</li>
+  <li><span class="type">function</span>,</li>
+  <li><span class="type">userdata</span>,</li>
+  <li><span class="type">thread</span>,</li>
+  <li><span class="type">table</span>.</li>
+</ul>
+<p>Le type <span class="type">None</span> n'a qu'une seule valeur, <code><span class="python-nil">None</span></code>. Le type <span class="type">boolean</span> a deux valeurs, <code><span class="python-boolean">True</span></code> et <code><span class="python-boolean">False</span></code>.</p>
+<p>Le type <span class="type">number</span> a pour valeurs les entiers et les réels (ou flottants). Les conversions de l'un vers l'autre type sont automatiques. Par défaut, entiers et réels sont stockés sur 64 bits.</p>
+<p>Le type <span class="type">function</span> sera plus étudié dans le chapitre suivant. Il s'agit de bloc de code écrit en Lua ou en C.</p>
+<p>Le type <span class="type">string</span> unifie les caractères et les chaînes de caractères. Lua peut stocker les chaînes en UTF-8 mais ne sait pas comment les gérer.</p>
+<p>Remarques importantes :</p>
+<ul>
+  <li>Les valeurs <code><span class="python-nil">None</span></code>, <code><span class="python-boolean">False</span></code>, <code><span class="python-integer">0</span></code> et la chaîne vide <code><span class="python-string">&quot;&quot;</span></code> sont les quatre seules valeurs qui sont considérées comme fausse par les tests. Toutes les autres valeurs sont vraies.</li>
+</ul>
+<ul>
+  <li>Les chaînes sont immutables en Python.</li>
+</ul>
+<h2 id="nombres">Nombres</h2>
+<h2 id="chaînes-de-caractères">Chaînes de caractères</h2>
+<h2 id="booléens">Booléens</h2>
+<h2 id="valeur-nil">Valeur nil</h2>
+<h2 id="tables">Tables</h2>
+<h3 id="définition">Définition</h3>
+<h3 id="accès">Accès</h3>
+<h3 id="métatable">Métatable</h3>
+<p class="back"><a href="#sommaire">Retour sommaire</a></p>
+<h1 id="4.-opérateurs">4. Opérateurs</h1>
+<h2 id="opérateurs-binaires">Opérateurs binaires</h2>
+<h3 id="opérateurs-arithmétiques">Opérateurs arithmétiques</h3>
+<h3 id="opérateurs-de-comparaisons">Opérateurs de comparaisons</h3>
+<h3 id="opérateurs-booléens">Opérateurs booléens</h3>
+<h3 id="autres-opérateurs">Autres opérateurs</h3>
+<h2 id="opérateurs-unaires">Opérateurs unaires</h2>
+<h3 id="opérateurs-arithmétiques">Opérateurs arithmétiques</h3>
+<h3 id="opérateurs-booléens">Opérateurs booléens</h3>
+<p><a href="#sommaire">Retour sommaire</a></p>
+<h1 id="5.-contrôle-du-flux">5. Contrôle du flux</h1>
+<h2 id="séquence">Séquence</h2>
+<p>En Python, il suffit de retourner à la ligne pour terminer une instruction. Pour séparer deux instructions sans retour à ligne, on utilise <code><span class="python-separator">;</span></code>.</p>
+<h2 id="conditions">Conditions</h2>
+<p>Pour qu'une partie du code ne soit exécutée que si une condition est vrai, on utilisera <code><span class="python-keyword">if</span></code> :</p>
+<pre class="code">
+<span class="python-keyword">if</span><span class="python-blank"> </span><span class="python-identifier">condition</span><span class="python-operator">:</span><span class="python-newline">
+</span><span class="python-blank">    </span><span class="python-identifier">actions</span><span class="python-newline">
+</span><span class="python-separator">[</span><span class="python-blank"> </span><span class="python-keyword">elif</span><span class="python-blank"> </span><span class="python-identifier">condition</span><span class="python-operator">:</span><span class="python-newline">
+</span><span class="python-blank">    </span><span class="python-identifier">actions</span><span class="python-blank"> </span><span class="python-separator">]</span><span class="python-blank"> </span><span class="python-operator">*</span><span class="python-newline">
+</span><span class="python-separator">[</span><span class="python-blank"> </span><span class="python-keyword">else</span><span class="python-operator">:</span><span class="python-newline">
+</span><span class="python-blank">    </span><span class="python-identifier">actions</span><span class="python-blank"> </span><span class="python-separator">]</span><span class="python-newline">
+</span></pre>
+<p>Sont considérées fausses les valeurs <code><span class="python-identifier">false</span></code> et <code><span class="python-identifier">nil</span></code>. Toutes les autres valeurs sont vraies (dont <code><span class="python-separator">{</span><span class="python-separator">}</span><span class="python-blank"> </span><span class="python-string">&quot;&quot;</span><span class="python-blank"> </span><span class="python-integer">0</span></code>).</p>
+<h2 id="répétitions">Répétitions</h2>
+<p>Boucle qui s'exécute <i>tant que</i> la condition est vraie avec <code><span class="python-keyword">while</span></code> :</p>
+<pre class="code">
+<span class="python-keyword">while</span><span class="python-blank"> </span><span class="python-identifier">condition</span><span class="python-operator">:</span><span class="python-newline">
+</span><span class="python-blank">    </span><span class="python-identifier">actions</span><span class="python-newline">
+</span></pre>
+<p>Le corps de la boucle (ses actions) sera exécuté entre 0 et n fois.</p>
+<p>Autre grand classique des boucles, <code><span class="python-keyword">for</span></code> qui peut-être utilisé avec un intervalle numérique :</p>
+<pre class="code">
+<span class="python-keyword">for</span><span class="python-blank"> </span><span class="python-identifier">identifiant</span><span class="python-blank"> </span><span class="python-keyword">in</span><span class="python-blank"> </span><span class="python-identifier">iterable</span><span class="python-operator">:</span><span class="python-newline">
+</span><span class="python-blank">    </span><span class="python-identifier">actions</span><span class="python-newline">
+</span></pre>
+<p>On peut faire un iterable avec la fonction <code><span class="python-blank"> </span><span class="python-identifier">range</span><span class="python-separator">(</span><span class="python-identifier">stop</span><span class="python-separator">)</span></code> qui va jusqu'à de 0 à stop-1. Par défaut le pas est égal à 1.</p>
+<p>Pour parcourir une liste on fera simplement <code><span class="python-blank"> </span><span class="python-keyword">for</span><span class="python-blank"> </span><span class="python-identifier">value</span><span class="python-blank"> </span><span class="python-keyword">in</span><span class="python-blank"> </span><span class="python-identifier">liste</span><span class="python-operator">:</span><span class="python-blank"> </span></code> et pour avoir l'index et la valeur <code><span class="python-blank"> </span><span class="python-keyword">for</span><span class="python-blank"> </span><span class="python-identifier">index</span><span class="python-separator">,</span><span class="python-blank"> </span><span class="python-identifier">value</span><span class="python-blank"> </span><span class="python-keyword">in</span><span class="python-blank"> </span><span class="python-identifier">enumerable</span><span class="python-separator">(</span><span class="python-identifier">liste</span><span class="python-separator">)</span><span class="python-operator">:</span><span class="python-blank"> </span></code>.</p>
+<p>Pour parcourir un dictionnaire on fera simplement <code><span class="python-blank"> </span><span class="python-keyword">for</span><span class="python-blank"> </span><span class="python-identifier">key</span><span class="python-blank"> </span><span class="python-keyword">in</span><span class="python-blank"> </span><span class="python-identifier">dictionnaire</span><span class="python-operator">:</span><span class="python-blank"> </span></code> et pour la clé et la valeur <code><span class="python-blank"> </span><span class="python-keyword">for</span><span class="python-blank"> </span><span class="python-identifier">key</span><span class="python-separator">,</span><span class="python-blank"> </span><span class="python-identifier">value</span><span class="python-blank"> </span><span class="python-keyword">in</span><span class="python-blank"> </span><span class="python-identifier">dictionnaire</span><span class="python-operator">.</span><span class="python-identifier">items</span><span class="python-separator">(</span><span class="python-separator">)</span><span class="python-blank"> </span></code>.</p>
+<p>On peut utiliser le mot-clé <code><span class="python-keyword">break</span></code> pour sortir de la boucle.</p>
+<p>On peut utiliser le mot-clé <code><span class="python-keyword">continue</span></code> pour passer à l'itération suivante.</p>
+<p class="back"><a href="#sommaire">Retour sommaire</a></p>
+<h1 id="6.-fonctions">6. Fonctions</h1>
+<h2 id="définition">Définition</h2>
+<h2 id="appel">Appel</h2>
+<h2 id="closure">Closure</h2>
+<p class="back"><a href="#sommaire">Retour sommaire</a></p>
+<h1 id="7.-gestion-des-exceptions">7. Gestion des exceptions</h1>
+<h2 id="appels-protégés">Appels protégés</h2>
+<p class="back"><a href="#sommaire">Retour sommaire</a></p>
+<h1 id="8.-bibliothèque-de-base">8. Bibliothèque de base</h1>
+<h2 id="sortie-et-entrée-console">Sortie et entrée console</h2>
+<h2 id="nombres">Nombres</h2>
+<h2 id="chaînes-de-caractères">Chaînes de caractères</h2>
+<h2 id="tables">Tables</h2>
+<h2 id="fichiers">Fichiers</h2>
+<p class="back"><a href="#sommaire">Retour sommaire</a></p>
+</div>
+</div>
+</body>

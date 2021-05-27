@@ -1,0 +1,149 @@
+!const TITLE=Timeline of early FPS
+!const LANG=en
+!const ICON=https://xitog.github.io/dgx/img/favicon.ico
+!require https://xitog.github.io/dgx/css/simplex.bootstrap.css
+!require https://xitog.github.io/dgx/css/palatino.css
+!require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+!require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+
+!css code {color: #006FDD; border: none; padding: 0px; background-color: transparent; font-family: inherit;}
+!css code span.normal { color: inherit; background-color: transparent; }
+!css code span.number { color: inherit; background-color: transparent; }
+!css p { text-align: justify; }
+
+!css table { margin-left:auto; margin-right:auto; }
+!css table#main tr:nth-child(10)  { font-weight: bold; background-color: rgb(0, 0, 0);       color: white; text-align: center; }
+!css table#main tr:nth-child(13)  { font-weight: bold; background-color: rgb(0, 0, 0);       color: white; text-align: center; }
+!css table#main tr:nth-child(18)  { font-weight: bold; background-color: rgb(0, 0, 0);       color: white; text-align: center; }
+!css table#main tr:nth-child(22)  { font-weight: bold; background-color: rgb(0, 0, 0);       color: white; text-align: center; }
+!css table#main tr:nth-child(29)  { font-weight: bold; background-color: rgb(0, 0, 0);       color: white; text-align: center; }
+!css table#main tr:nth-child(34)  { font-weight: bold; background-color: rgb(0, 0, 0);       color: white; text-align: center; }
+!css table#main tr:nth-child(39)  { font-weight: bold; background-color: rgb(0, 0, 0);       color: white; text-align: center; }
+
+§§ !css code {color: #006FDD; border: 1px solid rgb(225, 228, 229); padding-left: 3px; padding-right: 5px;}
+
+{{#main .container}}
+
+!include menu.html
+
+{{#content-div}}
+
+# Games by years and engines
+---
+
+## Table of early FPS games released for PC
+
+|Year|= Other engines                                                                                                                                                             |= Wolfenstein engine                                                                                                                                                                               |= Doom/id Tech 1 engine                                   |= Build engine                                                                                            | Pie in the Sky engine ^^1^^                                                                                                                                                                                                                  |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|1991| [Hovertank 3-D->Hovertank] !! [Catacomb 3-D->Catacomb]                                                                                                                     |                                                                                                                                                                                                   |                                                          |                                                                                                          |                                                                                                                                                                                                                                              |
+|1992| [Ultima Underworld: The Stygian Abyss->Ultima1]                                                                                                                            | [Wolfenstein 3D->Wolfenstein3D] !! [Spear of Destiny->Spear]                                                                                                                                      |                                                          |                                                                                                          |                                                                                                                                                                                                                                              |
+|1993| [Ken's Labyrinth->KensLabyrinth] ^^2^^ !! [Ultima Underworld II: Labyrinth of Worlds->Ultima2] ^^3^^ !! [The Terminator: Rampage->Rampage] !! [ShadowCaster->ShadowCaster] | [Blake Stone: Aliens of Gold->BlakeStone]                                                                                                                                                         | [>Doom]                                                  |                                                                                                          | [Lethal Tender->LethalTender]                                                                                                                                                                                                                |
+|1994| [The Elder Scrolls: Arena->Arena] ^^4^^                                                                                                                                    | [Rise of the Triad: Dark War->ROTT] !! [Blake Stone: Planet Strike!->BlakeStone2] !! [Operation Body Count->BodyCount] !! [Corridor 7: Alien Invasion->Corridor7] !! [Super Noah's Ark 3-D->Noah] | [Doom II: Hell on Earth->Doom2] !! [>Heretic]            | [Legend of the Seven Paladins 3D->Legend] ^^5, 6^^                                                       | [Terminal Terror->TerminalTerror] !! [Red Babe->RedBabe]                                                                                                                                                                                     |
+|1995| [Dark Forces->DarkForces] ''(Jedi engine)''                                                                                                                                |                                                                                                                                                                                                   | [Hexen: Beyond Heretic->Hexen]                           | [William Shatner's TekWar->TekWar] !! [>Witchaven]                                                       | [Castaway: The Ordeal Begins->Castaway] !! [La Cosa Nostra->LaCosaNostra] !! [Deer Napped->DeerNapped] !! [Despair 2->Despair2] !! [Despair 3->Despair3] !! [Terror in Christmas Town->Terror] !! [Space Station Escape->SpaceStationEscape] |
+|1996|                                                                                                                                                                            |                                                                                                                                                                                                   | [Chex Quest->Chex] !! [Chex Quest 2->Chex2] !! [>Strife] | [Duke Nukem 3D->Duke3D] !! [Witchaven II: Blood Vengeance->Witchhaven2] !! [Powerslave/Exhumed->Exhumed] | [Continuum->Continuum] !! [Escape from Dr. Colosso->Colosso1] !! [The Maze!->TheMaze] !! [Secret Agent: The Escape->SecretAgent]                                                                                                             |
+|1997| [>Outlaws] ''(Jedi engine)''                                                                                                                                               |                                                                                                                                                                                                   |                                                          | [>Blood] !! [Redneck Rampagne->Redneck] !! [Shadow Warrior->Shadow]                                      | [Chemical Warfare->ChemicalWarfare]                                                                                                                                                                                                          |
+|1998|                                                                                                                                                                            |                                                                                                                                                                                                   |                                                          | [>NAM] !! [Extreme Paintbrawl->Extreme]                                                                  |                                                                                                                                                                                                                                              |
+|1999|                                                                                                                                                                            |                                                                                                                                                                                                   |                                                          | [>WW2]                                                                                                   |                                                                                                                                                                                                                                              |
+|=#c6# [...] |
+|2018|                                                                                                                                                                            |                                                                                                                                                                                                   |                                                          | [Ion Maiden->Ion]                                                                                        |                                                                                                                                                                                                                                              |
+|2019|                                                                                                                                                                            |                                                                                                                                                                                                   | [>Hedon]                                                 |                                                                                                          |                                                                                                                                                                                                                                              |
+
+## Notes
+
++ Only games made with the MS-DOS version of the Pie in the Sky 3D Game Creation System are listed here.
++ Ken's Labyrinth was coded by Ken Silverman who later coded the Build engine.
++ The engine of Ultima Underworld II (1993) is obviously derivated from the engine used in Ultima Underworld I (1992).
++ The engine of The Elder Scrolls: Arena (1994) is derivated from the engine used in The Terminator: Rampage (1993).
++ The original name of the Legend of the Seven Paladins 3D game (1994) is ''Euijeok: Im Kkeokjeong''.
++ Legend of the Seven Paladins 3D (1994), the first game released with the Build engine, was only released in South Korea.
+
+§§ Avant
+
+[Hovertank]: https://www.mobygames.com/game/dos/hovertank-one
+[Catacomb]: https://www.mobygames.com/game/dos/catacomb-3-d
+
+§§ Wolfenstein Engine
+
+[IdTech0]: https://www.mobygames.com/game-group/3d-engine-wolf3d
+
+[Wolfenstein3D]: https://www.mobygames.com/game/wolfenstein-3d
+[Spear]: https://www.mobygames.com/game/spear-of-destiny
+[BlakeStone]: https://www.mobygames.com/game/blake-stone-aliens-of-gold
+[ROTT]: https://www.mobygames.com/game/rise-of-the-triad-dark-war
+[BlakeStone2]: https://www.mobygames.com/game/blake-stone-planet-strike
+[BodyCount]: https://www.mobygames.com/game/operation-body-count
+[Corridor7]: https://www.mobygames.com/game/corridor-7-alien-invasion
+[Noah]: https://www.mobygames.com/game/super-noahs-ark-3-d
+
+§§ Doom Engine
+
+[IdTech1]: https://www.mobygames.com/game-group/3d-engine-id-tech-1/
+
+[Doom]: https://www.mobygames.com/game/dos/doom
+[Doom2]: https://www.mobygames.com/game/doom-ii_
+[Heretic]: https://www.mobygames.com/game/heretic
+[UltimateDoom]: https://www.mobygames.com/game/ultimate-doom
+[Hexen]: https://www.mobygames.com/game/hexen-beyond-heretic
+[FinalDoom]: https://www.mobygames.com/game/final-doom
+[Chex]: https://www.mobygames.com/game/chex-quest
+[Chex2]: https://www.mobygames.com/game/chex-quest-2
+[Strife]: https://www.mobygames.com/game/strife
+[Hedon]: https://www.mobygames.com/game/hedon
+
+§§ Build Engine
+
+[Build]: https://www.mobygames.com/game-group/25d-engine-build
+
+[Legend]: https://www.mobygames.com/game/euijeok-im-kkeokjeong
+[TekWar]: https://www.mobygames.com/game/william-shatners-tekwar
+[Witchaven]: https://www.mobygames.com/game/witchaven
+[Duke3D]: http://www.mobygames.com/game/dos/duke-nukem-3d
+[Witchhaven2]: https://www.mobygames.com/game/powerslave
+[Exhumed]: https://www.mobygames.com/game/powerslave
+[Blood]: https://www.mobygames.com/game/dos/blood
+[Redneck]: https://www.mobygames.com/game/dos/redneck-rampage
+[Shadow]: https://www.mobygames.com/game/shadow-warrior
+[NAM]: https://www.mobygames.com/game/nam
+[Extreme]: https://www.mobygames.com/game/extreme-paintbrawl
+[WW2]: https://www.mobygames.com/game/wwii-gi
+[Ion]: https://www.mobygames.com/game/ion-maiden
+
+§§ Autres
+
+[JediEngine]: https://www.mobygames.com/game-group/game-engine-jedi
+
+[DarkForces]: https://www.mobygames.com/game/star-wars-dark-forces
+[Outlaws]: https://www.mobygames.com/game/outlaws
+
+[KensLabyrinth]: https://www.mobygames.com/game/dos/kens-labyrinth
+
+[Ultima1]: https://www.mobygames.com/game/ultima-underworld-the-stygian-abyss
+[Ultima2]: https://www.mobygames.com/game/ultima-underworld-ii-labyrinth-of-worlds
+
+[Rampage]: https://www.mobygames.com/game/terminator-rampage
+[Arena]: https://www.mobygames.com/game/dos/elder-scrolls-arena
+
+[ShadowCaster]: https://www.mobygames.com/game/dos/shadowcaster
+
+§§ Pie in the sky
+
+[PieInTheSky]: https://www.mobygames.com/company/pie-in-the-sky-software
+
+[LethalTender]: https://www.mobygames.com/game/lethal-tender
+[TerminalTerror]: https://www.mobygames.com/game/terminal-terror
+[RedBabe]: https://www.mobygames.com/game/red-babe
+[Castaway]: https://www.mobygames.com/game/castaway-the-ordeal-begins
+[LaCosaNostra]: https://www.mobygames.com/game/la-cosa-nostra
+[DeerNapped]: https://www.mobygames.com/game/deer-napped
+[Despair2]: https://www.mobygames.com/game/despair-2
+[Despair3]: https://www.mobygames.com/game/despair-3
+[Terror]: https://www.mobygames.com/
+[SpaceStationEscape]: https://www.mobygames.com/game/space-station-escape
+[Continuum]: https://www.mobygames.com/
+[Colosso1]: https://www.mobygames.com/
+[TheMaze]: https://www.mobygames.com/game/maze_
+[SecretAgent]: https://www.mobygames.com/game/secret-agent-the-escape
+[ChemicalWarfare]: https://www.mobygames.com/game/chemical-warfare
+
+{{end}}
+{{end}}

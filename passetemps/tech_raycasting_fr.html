@@ -21,6 +21,9 @@ code span.number { color: inherit; background-color: transparent; }
 p { text-align: justify; }
 </style>
 <style type="text/css">
+table { margin-left:auto; margin-right:auto; }
+</style>
+<style type="text/css">
 table#main tr:nth-child(10)  { font-weight: bold; background-color: rgb(0, 0, 0);       color: white; text-align: center; }
 </style>
 <style type="text/css">
@@ -100,6 +103,7 @@ table#main tr:nth-child(39)  { font-weight: bold; background-color: rgb(0, 0, 0)
                   <li><a href="https://xitog.github.io/dgx/informatique/hamill.html">Aide-mémoire Hamill</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Autres</li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/version_control.html">Gestion de versions</a></li>
                   <li><a href="https://xitog.github.io/dgx/informatique/tools_langs.html">Logiciels utiles et autres langages</a></li>
                 </ul>
               </li>
@@ -171,11 +175,16 @@ table#main tr:nth-child(39)  { font-weight: bold; background-color: rgb(0, 0, 0)
   <li><a href="#2.-historique">Historique</a></li>
   <li><a href="#3.-technique">Technique</a>
     <ol>
-      <li><a href="#3.1-principe-et-initialisation">Principe</a></li>
+      <li><a href="#3.1-principe-et-initialisation">Principe et initialisation</a></li>
+      <li><a href="#3.2-émission-des-rayons">Émission des rayons</a></li>
+      <li><a href="#3.3-intersections-des-rayons-avec-la-grille">Intersections des rayons avec la grille</a></li>
+      <li><a href="#3.4-construction-du-rendu">Construction du rendu</a></li>
+      <li><a href="#3.5-texturation">Texturation</a></li>
     </ol>
   </li>
   <li><a href="#4.-index-des-moteurs-de-raycasting-et-des-jeux">Index des moteurs de raycasting et des jeux</a></li>
-  <li><a href="#5.-références">Références</a></li>
+  <li><a href="#5.-comparaison-des-moteurs-d'id-software">Comparaison des moteurs d'id Software</a></li>
+  <li><a href="#6.-références">Références</a></li>
 </ol>
 <p>A version in English of this page is <a href="https://xitog.github.io/dgx/passetemps/tech_raycasting_en.html">available here</a>.</p>
 <p><i>Je tiens à remercier Lode Vandevenne pour sa <a href="http://lodev.org/cgtutor/">série d'articles</a> sur le Raycasting et les contributeurs anonymes de Wikipédia.</i></p>
@@ -334,9 +343,8 @@ table#main tr:nth-child(39)  { font-weight: bold; background-color: rgb(0, 0, 0)
 <tr><td>Skybox            </td><td>no                 </td><td>no                </td><td>no                 </td><td>yes                               </td><td>yes                     </td></tr>
 <tr><td align="center" colspan=6>Lighting                                                                                                                            </td></tr>
 </table>
-<h1 id="5.-références">5. Références</h1>
+<h1 id="6.-références">6. Références</h1>
 <p>[1] : Lode's Computer Graphics Tutorial</p>
-<div id="content-div">
 </div>
 </div>
 </body>
