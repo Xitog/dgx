@@ -179,9 +179,10 @@ td {
  *****************************************************************************/
 
 code {
-    font-size: 12px;
+    font-size: 16px;
     background-color: #F9F9F9;
     font-family: "Inconsolata", "Consolas", "Arial", "Monospace";
+    border: 1px solid #AAA;
 }
 
 span.notabene:before {
@@ -189,16 +190,6 @@ span.notabene:before {
     margin-right: 6px;
     color: orange;
     font-size: 32px;
-}
-
-span.code {
-    background-color: #F9F9F9; /* #efefef; */
-    border: 1px solid #AAA;
-    padding-left: 3px;
-    padding-right: 4px;
-    padding-top : 2px;
-    padding-bottom : 2px;
-    font-family: "Consolas";
 }
 
 span.keyword {
@@ -219,13 +210,6 @@ span.comment {
     font-style: italic;
 }
 
-h2 span.titlecode {
-    font-family: "Consolas";
-    background-color: transparent;
-    border: none;
-    color: #AAA;
-}
-
 span.type {
     color: #14cc67;
 }
@@ -234,15 +218,10 @@ span.type {
  * Text elements
  *****************************************************************************/
 
-/* on utilise b et i uniquement pour le code, strong et em sinon */
-strong {
-    color: #1479cc;
-}
-
+ /* Strong and em are not used */
+ 
 b {
     color: #1479cc;
-    font-family: "Palatino Linotype";
-    font-size: 16px;
 }
 b.green {
     color: #55AA55;
@@ -256,14 +235,10 @@ b.orange {
 
 i {
     color: #AAA;
-    font-size: 16px;
 }
 
 u {
     color: #cc141d;
-    font-family: "Consolas";
-    text-decoration: none;
-    font-size: 16px;
 }
 
 /******************************************************************************
@@ -302,7 +277,6 @@ ol, ul {
 
 li a {
     color: #6714cc;
-    text-decoration: underline;
 }
 
 li {
