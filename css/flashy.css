@@ -1,11 +1,41 @@
-﻿/* === Specific === */
+﻿
+/******************************************************************************
+ * Page layout 
+ *****************************************************************************/
 
-/* body */
-
-body {
+@media screen and (min-width: 600px) { 
+    .row { 
+        display: flex;
+    } 
 }
 
-/* div */
+@media screen and (min-width: 600px) {
+    .column {
+        flex: 50%;
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+    }
+}
+
+@media screen and (max-width: 599px) {
+    .row {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+/******************************************************************************
+ * Body 
+ *****************************************************************************/
+
+body {
+    font-family: "Palatino Linotype";
+    font-size: 16px;
+}
+
+/******************************************************************************
+ * Div, pre et blockquote
+ *****************************************************************************/
 
 #content-div {
     background-color: rgb(255, 255, 255);
@@ -19,7 +49,8 @@ div.block {
     margin-left: 10px;
     border-left: 3px solid #EEEEEE;
     padding-left: 3px;
-}  
+}
+
 div.code, pre.code {
     background-color: #F9F9F9; /* #efefef; */
     border: 1px solid #AAA;
@@ -27,23 +58,65 @@ div.code, pre.code {
     padding-right: 3px;
     padding-top : 2px;
     padding-bottom : 2px;
-    font-family: "Consolas"; 
+    font-family: "Inconsolata", "Consolas", "Arial", "Monospace"; 
     color: black;
-    font-size: 16px;
+    font-size: 12px;
 }
 
 blockquote {
     background-color: #efefef;
 }
 
-/* paragraph */
+/******************************************************************************
+ * Titres
+ *****************************************************************************/
+
+h1, h2, h3, h4, h5 {
+    font-family: "Palatino Linotype";
+    font-weight: bold;
+}
+
+h1 {
+    color: #14cc67; 
+    font-size: 22px; 
+    margin-top: 18px; 
+    margin-bottom: 6px;
+    border-bottom: 1px solid #14cc67;
+}
+
+h2 {
+    color: #6714cc;
+    font-size: 20px;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    border-bottom: none; /* 1px solid #6714cc; */
+}
+
+h3 {
+    color: #cc6714;
+    font-size: 18px;
+    margin-top: 6px;
+    margin-bottom: 4px;
+}
+
+h4 {
+    color: #7a49a5;
+    font-size: 16px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+/******************************************************************************
+ * Paragraphs
+ *****************************************************************************/
 
 p {
     font-size: 16px;
     color: black;
-    margin-top: 16px;
-    margin-bottom: 16px;
+    margin-top: 12px;
+    margin-bottom: 12px;
     font-family: "Palatino Linotype";
+    text-align: justify;
 }
 
 p a {
@@ -52,43 +125,22 @@ p a {
     text-decoration: underline;
     font-family: "Palatino Linotype";
 }
-/* Retour */
 
+/* Retour */
 p.back {
     text-align: center;
 }
 
-/* titres */
-
-h2 {
-    color: #14cc67;
-    font-family: "Palatino Linotype";
-    font-size: 22px;
-    border-bottom: 1px solid #14cc67;
-    font-weight: bold;
-    margin-top: 18px;
-    margin-bottom: 18px;
+/* Signature */
+p.sign {
+    text-align: center; 
+    color: grey;
+    font-size: 12px;
 }
 
-h3 {
-    color: #6714cc;
-    font-family: "Palatino Linotype";
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 18px;
-    margin-bottom: 18px;
-}
-
-h4 {
-    color: #cc6714;
-    font-family: "Palatino Linotype";
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 6px;
-    margin-bottom: 6px;
-}
-
-/* table */
+/******************************************************************************
+ * Tables
+ *****************************************************************************/
 
 table {
     border: 1px solid #AAA;
@@ -122,7 +174,16 @@ td {
     font-size: 16px;
 }
 
-/* span */
+/******************************************************************************
+ * Span et code
+ *****************************************************************************/
+
+code {
+    font-size: 12px;
+    background-color: #F9F9F9;
+    font-family: "Inconsolata", "Consolas", "Arial", "Monospace";
+}
+
 span.notabene:before {
     content: "☞";
     margin-right: 6px;
@@ -165,14 +226,22 @@ h2 span.titlecode {
     color: #AAA;
 }
 
-/* text elements */
+span.type {
+    color: #14cc67;
+}
+
+/******************************************************************************
+ * Text elements
+ *****************************************************************************/
+
 /* on utilise b et i uniquement pour le code, strong et em sinon */
 strong {
     color: #1479cc;
 }
+
 b {
     color: #1479cc;
-    font-family: "Consolas";
+    font-family: "Palatino Linotype";
     font-size: 16px;
 }
 b.green {
@@ -184,10 +253,12 @@ b.blue {
 b.orange {
     color: #FF6600;
 }
+
 i {
     color: #AAA;
     font-size: 16px;
 }
+
 u {
     color: #cc141d;
     font-family: "Consolas";
@@ -195,40 +266,52 @@ u {
     font-size: 16px;
 }
 
+/******************************************************************************
+ * Lists
+ *****************************************************************************/
+
 /* Menu */
 
 ol.menu { 
     counter-reset: item 
 }
+
 ol.menu li { 
     display: block 
 }
+
 ol.menu li:before { 
     content: counters(item, ".") " "; 
     counter-increment: item ;
     font-size: 14px;
 }
+
 ol.menu a {
     color: #6714cc;
     font-size: 16px;
     font-family: "Palatino Linotype";
 }
 
-/* Lists */
+/* Liste normale */
 
-ul.normale {
+ol, ul {
     font-family: "Palatino Linotype";
     font-size: 16px;
     color: black;
 }
 
-ul.normale a {
+li a {
     color: #6714cc;
-    font-size: 16px;
     text-decoration: underline;
-}  
+}
 
-/* Spécifiques */
+li {
+    color: black;
+}
+
+/******************************************************************************
+ * Spécifiques
+ *****************************************************************************/
 
 #intro {
     text-align: justify;
