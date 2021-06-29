@@ -52,13 +52,22 @@ Sa syntaxe emprunte au langage Modula, un langage développé dans les années 7
 
 ## Désavantages
 
-* L'absence de mécanisme d'orientation objet de base,
-* Le danger de pouvoir concaténer deux expressions à la suite, sans avoir besoin de séparateurs : 3+5 2 est valide en Lua !
-* Une bibliothèque standard minimaliste (mais permet une taille réduite)
-* Il n'y a pas de mot clé continue ou next pour avancer une itération
-* L'opérateur de différence ~= au lieu du standard de facto !=
-* La fusion du concept de liste et de dictionnaire
-* La difficulté à connaître la longueur d'une liste et s'assurer de sa continuité
+* Absence de mécanisme d'orientation objet de base,
+* Danger de pouvoir concaténer deux expressions à la suite, car il n'y a ni séparateur, ni terminateur : @@3+5 2@@ est valide en Lua !
+* [bib] Une bibliothèque standard minimaliste (mais de taille réduite)
+* [flux] Il n'y a pas de mot clé @@python continue@@ pour avancer d'une itération
+* [flux] in ne s'utilise qu'avec pairs ou ipairs dans un for
+* [opé] Opérateur de différence @@~=@@ au lieu du standard de facto @@python !=@@
+* [opé] Pas d'opérateurs combinés : @@python += -= *= /=@@
+* [fun] Aucun vérification du nombre de paramètres
+* [type] Aucune déclaration de type possible
+* [type] Fusion des types int et float en number
+* [type] Fusion du concept de liste et de dictionnaire en table
+* [table] Difficulté à connaître la longueur d'une liste et s'assurer de la continuité de ses index
+* [table] On ne peut pas différencier la clé existe et sa valeur est nil et la clé n'existe pas
+* [table] Clés string devant être entourées de guillemets @@['key'] = val@@
+* [const] Pas moyen de déclarer des constantes
+* [scope] Toute variable sans @@local@@ est globale même dans fonctions
 
 {{end}}
 

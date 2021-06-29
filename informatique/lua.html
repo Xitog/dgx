@@ -185,13 +185,22 @@ p code span.lua-keyword,      pre.code span.lua-keyword        { color: #1479cc;
 <p>Sa syntaxe emprunte au langage Modula, un langage développé dans les années 70 en Suisse par Niklaus Wirth, le créateur de Pascal. Elle présente des similarités avec le langage de script Ruby (sans la partie orientée objet).</p>
 <h2 id="désavantages">Désavantages</h2>
 <ul>
-  <li>L'absence de mécanisme d'orientation objet de base,</li>
-  <li>Le danger de pouvoir concaténer deux expressions à la suite, sans avoir besoin de séparateurs : 3+5 2 est valide en Lua !</li>
-  <li>Une bibliothèque standard minimaliste (mais permet une taille réduite)</li>
-  <li>Il n'y a pas de mot clé continue ou next pour avancer une itération</li>
-  <li>L'opérateur de différence ~= au lieu du standard de facto !=</li>
-  <li>La fusion du concept de liste et de dictionnaire</li>
-  <li>La difficulté à connaître la longueur d'une liste et s'assurer de sa continuité</li>
+  <li>Absence de mécanisme d'orientation objet de base,</li>
+  <li>Danger de pouvoir concaténer deux expressions à la suite, car il n'y a ni séparateur, ni terminateur : <code><span class="lua-number">3</span><span class="lua-operator">+</span><span class="lua-number">5</span><span class="lua-blank"> </span><span class="lua-number">2</span></code> est valide en Lua !</li>
+  <li>[bib] Une bibliothèque standard minimaliste (mais de taille réduite)</li>
+  <li>[flux] Il n'y a pas de mot clé <code><span class="python-keyword">continue</span></code> pour avancer d'une itération</li>
+  <li>[flux] in ne s'utilise qu'avec pairs ou ipairs dans un for</li>
+  <li>[opé] Opérateur de différence <code><span class="lua-operator">~=</span></code> au lieu du standard de facto <code><span class="python-operator">!=</span></code></li>
+  <li>[opé] Pas d'opérateurs combinés : <code><span class="python-operator">+=</span><span class="python-blank"> </span><span class="python-operator">-=</span><span class="python-blank"> </span><span class="python-operator">*=</span><span class="python-blank"> </span><span class="python-operator">/=</span></code></li>
+  <li>[fun] Aucun vérification du nombre de paramètres</li>
+  <li>[type] Aucune déclaration de type possible</li>
+  <li>[type] Fusion des types int et float en number</li>
+  <li>[type] Fusion du concept de liste et de dictionnaire en table</li>
+  <li>[table] Difficulté à connaître la longueur d'une liste et s'assurer de la continuité de ses index</li>
+  <li>[table] On ne peut pas différencier la clé existe et sa valeur est nil et la clé n'existe pas</li>
+  <li>[table] Clés string devant être entourées de guillemets <code><span class="lua-separator">[</span><span class="lua-string">&#x27;key&#x27;</span><span class="lua-separator">]</span><span class="lua-blank"> </span><span class="lua-operator">=</span><span class="lua-blank"> </span><span class="lua-identifier">val</span></code></li>
+  <li>[const] Pas moyen de déclarer des constantes</li>
+  <li>[scope] Toute variable sans <code><span class="lua-keyword">local</span></code> est globale même dans fonctions</li>
 </ul>
 </div>
 <div class="column">
