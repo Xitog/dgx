@@ -6,56 +6,20 @@
 !require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
 !require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
 
-!css body       { font-family: "Palatino Linotype"; font-size: 16px; }
+!html <link href="https://fonts.googleapis.com/css2?family=Inconsolata" rel="stylesheet"> 
 
-!css h1, h2, h3 { font-family: "Palatino Linotype"; font-weight: bold; }
-!css h1         { color: #14cc67; font-size: 22px; margin-top: 18px; margin-bottom: 6px;border-bottom: 1px solid #14cc67; }
-!css h2         { color: #6714cc; font-size: 18px; margin-top: 12px; margin-bottom: 6px; border-bottom: none;}
-!css h3         { color: #cc6714; font-size: 16px; margin-top:  6px; margin-bottom: 4px; }
-
-!css li a       { color: #6714cc; font-size: 16px; }
-!css li         { font-size: 16px; color: black; }
-
-!css @media screen and (min-width: 600px) { .row    { display: flex; } }
-!css @media screen and (min-width: 600px) { .column { flex: 50%; margin-left: 0.5em; margin-right: 0.5em; } }
-!css @media screen and (max-width: 599px) { .row    { padding-left: 15px; padding-right: 15px; } }
-
-!css p          { text-align: justify; margin-top: 12px; margin-bottom: 12px;}
-!css p.sign     { text-align: center; color: grey; font-size: 12px;}
-
-!css b          { text-size: 12px; font-weight: normal; font-family: "Palatino Linotype"; }
-
-!css p code                         { font-size: 12px; background-color: #F9F9F9; }
-!css p code span                    { font-family: "Monospace"; }
-!css p code span.type               { color: purple;  }
-!css p code span.lua-identifier     { color: black;   }
-!css p code span.lua-operator       { color: black;   }
-!css p code span.lua-separator      { color: black;   }
-!css p code span.lua-special        { color: purple;  }
-!css p code span.lua-nil            { color: #1479cc; }
-!css p code span.lua-boolean        { color: #1479cc; }
-!css p code span.lua-number         { color: red;     }
-!css p code span.lua-comment        { color: grey;    font-style: italic; }
-!css p code span.lua-line_comment   { color: grey; font-style: italic; }
-!css p code span.lua-string         { color: orange;  }
-!css p code span.lua-keyword        { color: #1479cc; }
-
-!css pre.code                       { font-size: 12px }
-!css pre.code span                  { font-family: "Monospace"; }
-!css pre.code span.type             { color: purple;  }
-!css pre.code span.lua-identifier   { color: black;   }
-!css pre.code span.lua-operator     { color: black;   }
-!css pre.code span.lua-separator    { color: black;   }
-!css pre.code span.lua-special      { color: purple;  }
-!css pre.code span.lua-nil          { color: #1479cc; }
-!css pre.code span.lua-boolean      { color: #1479cc; }
-!css pre.code span.lua-number       { color: red;     }
-!css pre.code span.lua-comment      { color: grey; font-style: italic; }
-!css pre.code span.lua-line_comment { color: grey; font-style: italic; }
-!css pre.code span.lua-string       { color: orange;  }
-!css pre.code span.lua-keyword      { color: #1479cc; }
-
-!css span.type                      { color: #14cc67; }
+!css p code span.type,             pre.code span.type               { color: purple;  }
+!css p code span.lua-identifier,   pre.code span.lua-identifier     { color: black;   }
+!css p code span.lua-operator,     pre.code span.lua-operator       { color: black;   }
+!css p code span.lua-separator,    pre.code span.lua-separator      { color: black;   }
+!css p code span.lua-special,      pre.code span.lua-special        { color: purple;  }
+!css p code span.lua-nil,          pre.code span.lua-nil            { color: #1479cc; }
+!css p code span.lua-boolean,      pre.code span.lua-boolean        { color: #1479cc; }
+!css p code span.lua-number,       pre.code span.lua-number         { color: red;     }
+!css p code span.lua-comment,      pre.code span.lua-comment        { color: grey; font-style: italic; }
+!css p code span.lua-line_comment, pre.code span.lua-line_comment   { color: grey; font-style: italic; }
+!css p code span.lua-string,       pre.code span.lua-string         { color: orange;  }
+!css p code span.lua-keyword,      pre.code span.lua-keyword        { color: #1479cc; }
 
 !var DEFAULT_CODE=lua
 
