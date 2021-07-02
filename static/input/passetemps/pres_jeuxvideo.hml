@@ -22,8 +22,8 @@
 
 #Sommaire
 
-* [Les machines->#]
-* [Les jeux->#]
+* [Mes machines->#]
+* [Mes jeux vidéo favoris->#]
 * [Critiques de jeux->#]
 + + [Hexen: Beyond Heretic->#]
 + + [Soldier of Fortune->#]
@@ -32,10 +32,10 @@
 + + [Dead Space->#]
 + + [The Settlers 2->#]
 + + [Call of Duty: Modern Warfare (2007)->#]
++ + [Sacred->#]
 * [La musique de jeux vidéo->#]
-* [Index des jeux cités->#]
 
-# Les machines
+# Mes machines
 
 Les jeux vidéo sont avant tout associés à une machine. Voici la liste de mes ordinateurs au fil du temps, avec à chaque fois le jeu qui a "mis à genoux" cette machine et m'a obligé à passer à la suivante.
 
@@ -55,7 +55,7 @@ Les jeux vidéo sont avant tout associés à une machine. Voici la liste de mes 
 [Cibox]: https://fr.wikipedia.org/wiki/Cibox
 [Cyrix]: https://fr.wikipedia.org/wiki/Cyrix
 
-# Les jeux
+# Mes jeux vidéo favoris
 
 J'ai surtout joué à trois grands types de jeux vidéo :
 
@@ -77,44 +77,55 @@ Pour chacun de ces types, on peut dater ma rencontre avec un jeu initiateur, par
 
 À côté de ces jeux cultes, j'ai également joué à deux autres jeux à la fin 1996 / début 1997 : le premier était @@Nitemare 3D@@ dont j'avais eu le shareware sur un CD accompagnant un magazine. Un shareware est une version amputée d'un jeu ne comportant que le premier épisode, comme une grande démo. C'était un jeu reprenant le concept de @@Wolfenstein 3D@@, auquel je jouerai bien plus tard, avec un thème gentiment horrifique inspiré des monstres de la Hammer comme une momie ou le monstre de Frankenstein. Le jeu était bien moins beau et plaisant que Duke Nukem 3D mais ce dernier me faisait peur, j'avais 12 ans à l'époque, surtout avec son épisode 2 prenant place dans l'espace : son réalisme (pour l'époque) des environnements, les lumières clignotantes, les aliens surgissants à l'improviste. Nitemare 3D, malgré son thème horrifique, était d'une réalisation déjà dépassée et permettait une mise à distance beaucoup plus grande. L'autre jeu auquel je jouais était un jeu d'aventure, le seul auquel j'ai joué : @@Woodruff et le Schnibble d'Azimuth@@.
 Je découvris plus tard qu'avec Duke Nukem 3D venait une collection de sharewares dont @@Realms of Chaos@@ un jeu de plate-forme médiéval-fantastique, un jeu de course loufoque, @@Wacky Wheels@@, inspiré de Mario Kart, et surtout un autre FPS du nom de @@Rise of the Triad@@.
-Par la suite, je n'explorais ni le genre du jeu d'aventure, ni celui du jeu de course, ni celui du jeu de plate-forme. Je m'aventurais par contre dans une exploration plus ou moins méticuleuse de mes trois genres favoris, FPS, RPG et RTS. Certains jeux découverts après les "fondateurs" ont même laissé une empreinte tout aussi forte, voire supérieure à ceux-ci. Voici une liste plus complète, avec en **gras** les jeux les plus importants et en ''italique'' ceux que je n'ai pas finis :
+Par la suite, je n'explorais ni le genre du jeu d'aventure, ni celui du jeu de course, ni celui du jeu de plate-forme. Je m'aventurais par contre dans une exploration plus ou moins méticuleuse de mes trois genres favoris, FPS, RPG et RTS. Certains jeux découverts après les "fondateurs" ont même laissé une empreinte tout aussi forte, voire supérieure à ceux-ci. Voici une liste plus complète de mes favoris, avec en **gras** les jeux les plus importants et en ''italique'' ceux que je n'ai pas finis :
 
-|Type       | Jeux                              | Année |
-|-------------------------------------------------------|
-|FPS        | **Doom**                          | 1993  |
-|FPS        | Doom 2                            | 1994  |
-|FPS-RPG    | ''System Shock''                  | 1994  |
-|FPS        | Rise of the Triad                 | 1994  |
-|RTS        | Command & Conquer                 | 1995  |
-|RTS        | **Warcraft 2**                    | 1995  |
-|FPS        | HeXen                             | 1995  |
-|FPS        | Dark Forces                       | 1995  |
-|FPS        | **Quake**                         | 1996  |
-|FPS        | **Duke Nukem 3D**                 | 1996  |
-|Gestion    | **The Settlers 2**                | 1996  |
-|RTS        | **Red Alert**                     | 1996  |
-|Action-RPG | **Diablo**                        | 1997  |
-|RTS        | **Total Annihilation**            | 1997  |
-|FPS        | Blood                             | 1997  |
-|RPG        | ''Fallout''                       | 1997  |
-|RTS        | **Stracraft**                     | 1998  |
-|RPG        | **Baldur's Gate**                 | 1998  |
-|RPG        | ''Fallout 2''                     | 1998  |
-|FPS-RPG    | **System Shock 2**                | 1999  |
-|RPG        | **Planescape Torment**            | 1999  |
-|Action-RPG | **Diablo 2**                      | 2000  |
-|FPS-RPG    | Deus Ex                           | 2000  |
-|RPG        | **Knights of the Old Republic**   | 2003  |
-|Action-RPG | ''Sacred''                        | 2004  |
-|FPS-RPG    | Deus Ex 2: Invisible War          | 2004  |
-|RPG        | **Knights of the Old Republic 2** | 2003  |
-|FPS-RPG    | **BioShock**                      | 2007  |
-|TPS        | Dead Space                        | 2008  |
-|FPS-RPG    | BioShock 2                        | 2010  |
-|FPS-RPG    | Deus Ex 3: Human Revolution       | 2011  |
-|Action-RPG | Diablo 3                          | 2012  |
-|FPS-RPG    | **BioShock Infinite**             | 2012  |
-|FPS        | Ion Fury                          | 2018  |
+|= Type     |= Jeux                             |= Année|= Développeur           |= Éditeurs               |=  Critique                  | Site                        |
+|-------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+|FPS        | **Doom**                          | 1993  |                        |                         |                             |                             |
+|FPS        | Nitemare 3D                       | 1994  | Gray Design Associates | Accurate Research, Inc. |                             |[Wiki->1], [Site Officiel->2]|
+|FPS        | Doom 2                            | 1994  |                        |                         |                             |                             |
+|FPS-RPG    | ''System Shock''                  | 1994  |                        |                         |                             |                             |
+|FPS        | Rise of the Triad                 | 1994  |                        |                         |                             |                             |
+|Course     | Wacky Wheels                      | 1994  | Beavis Soft            | Apogee Software         |                             |[Wiki->4]                    |
+|Aventure   | Woodruff et le Schnibble d'Azimuth| 1994  | Coktel Vision          | Sierra On-Line          |                             |[Wiki->5]                    |
+|Plate-forme| Realms of Chaos                   | 1995  | Apogee Software        | Apogee Software         |                             |[Wiki->3]                    |
+|RTS        | Command & Conquer                 | 1995  | Blizzard               |                         |                             |                             |
+|RTS        | **Warcraft 2**                    | 1995  | Blizzard               |                         |                             |                             |
+|FPS        | HeXen                             | 1995  | Raven                  |                         | [Hexen: Beyond Heretic->#]  |                             |
+|FPS        | Dark Forces                       | 1995  |                        |                         |                             |                             |
+|FPS        | **Quake**                         | 1996  |                        |                         |                             |                             |
+|FPS        | **Duke Nukem 3D**                 | 1996  |                        |                         |                             |                             |
+|Gestion    | **The Settlers 2**                | 1996  |                        |                         | [The Settlers 2->#]         |                             |
+|RTS        | **Red Alert**                     | 1996  |                        |                         |                             |                             |
+|Action-RPG | **Diablo**                        | 1997  |                        |                         |                             |                             |
+|RTS        | **Total Annihilation**            | 1997  |                        |                         |                             |                             |
+|FPS        | Blood                             | 1997  |                        |                         |                             |                             |
+|RPG        | ''Fallout''                       | 1997  |                        |                         |                             |                             |
+|RTS        | **Stracraft**                     | 1998  |                        |                         |                             |                             |
+|RPG        | **Baldur's Gate**                 | 1998  |                        |                         |                             |                             |
+|RPG        | ''Fallout 2''                     | 1998  |                        |                         |                             |                             |
+|FPS-RPG    | **System Shock 2**                | 1999  |                        |                         |                             |                             |
+|RPG        | **Planescape Torment**            | 1999  |                        |                         |                             |                             |
+|Action-RPG | **Diablo 2**                      | 2000  |                        |                         |                             |                             |
+|FPS-RPG    | Deus Ex                           | 2000  |                        |                         |                             |                             |
+|RPG        | **Knights of the Old Republic**   | 2003  |                        |                         |                             |                             |
+|Action-RPG |  Sacred                           | 2004  |                        |                         | [Sacred->#]                 |                             |
+|FPS-RPG    | Deus Ex 2: Invisible War          | 2004  |                        |                         |                             |                             |
+|RPG        | **Knights of the Old Republic 2** | 2003  |                        |                         |                             |                             |
+|FPS-RPG    | **BioShock**                      | 2007  |                        |                         |                             |                             |
+|TPS        | Dead Space                        | 2008  |                        |                         | [Dead Space->#]             |                             |
+|FPS-RPG    | BioShock 2                        | 2010  |                        |                         |                             |                             |
+|FPS-RPG    | Deus Ex 3: Human Revolution       | 2011  |                        |                         |                             |                             |
+|Action-RPG | Diablo 3                          | 2012  |                        |                         |                             |                             |
+|FPS-RPG    | **BioShock Infinite**             | 2012  |                        |                         |                             |                             |
+|FPS-RPG    | Prey                              | 2017  |                        |                         |                             |                             |
+|FPS        | Ion Fury                          | 2018  |                        |                         | [Ion Fury->#]               |                             |
+
+[1]: https://en.wikipedia.org/wiki/Nitemare_3D
+[2]: http://www.dgray.com/n3dpage.htm
+[3]: https://en.wikipedia.org/wiki/Realms_of_Chaos_(video_game)
+[4]: https://en.wikipedia.org/wiki/Wacky_Wheels
+[5]: https://fr.wikipedia.org/wiki/Woodruff_et_le_Schnibble_d%27Azimuth
 
 Pour ce qui concerne les FPS/RPG, après @@System Shock II@@, ce fut @@Deus Ex@@. J'ai eu beaucoup du mal à le finir, son univers de complot m'intéressant beaucoup moins que l'univers spatial de System Shock II. J'ai même fini @@Deus Ex II@@ avant le premier. Ce dernier était très beau, surtout les niveaux arctiques. Puis vint la série culte des @@BioShock@@, @@BioShock II@@ et @@BioShock Infinite@@. L'univers des deux premiers, imprégné d'Art Déco, est bien glauque, tout le contraire du dernier, lumineux, aérien, lorgnant vers la Belle Époque. Bien plus tard, je repris la saga Deus Ex avec @@Deus Ex III: Human Revolution@@ qui possède une véritable identité visuelle, notamment par un travail sur les couleurs.
 
@@ -275,6 +286,34 @@ Pour la **difficulté** et la **durée de vie**, j’ai mis 5 heures pour compl�
 [cod42]: https://www.mobygames.com/game/windows/call-of-duty-4-modern-warfare
 [cod43]: https://callofduty.fandom.com
 
+## Sacred
+
+**Ascaron**, 2004 ''(joué en 2004, retenté plusieurs fois autour de 2016, recommencé et fini en mai-juin 2021)''
+
+Sacred est un action-rpg dans la droite ligne de Diablo : très peu de dialogues ou de choix à faire, on peut seulement refuser ou accepter les quêtes mineures qui sont très nombreuses et souvent très peu intéressantes. L'essentiel du **gameplay** consiste à résoudre ces quêtes simples, faire avancer la quête principale, tuer des monstres qui donnent or, expérience et équipements, les trois mamelles de l'action-rpg, équiper et améliorer son personnage pour le rendre de plus en plus puissant. La boucle est simple et addictive car on cherche toujours à aller un peu loin, obtenir un objet ou un personnage un peu plus puissant et explorer plus avant le monde du jeu.
+
+Et c'est cela le point fort de Sacred : une carte immense, accessible dès le départ, avec plusieurs biomes : forêt tempérée européenne, désert de sable, marais lugubres ou monts enneigés sans compter, des ruines, des villages et de grandes villes avec plusieurs architectures différentes. Même si les rivières, les falaises, les forêts, et parfois d'autres obstacles liés aux quêtes, forment des barrières infranchissables entre les différentes régions de la carte, l'impression de liberté est très forte. Il n'y a aucun temps de chargement ni même de divisions visibles directement. Une carte du monde permet de zoomer n'importe où et de voir en miniature les différents endroits déjà explorés par le joueur.
+
+Pour l'amélioration de son personnage, on attribue des points à des compétences et un unique point à ses attributs. On peut également récupérer après une quête ou avoir défait un monstre des objets qui améliorent d'un point nos techniques de combats. Il n'y a pas d'arbres où on les débloque selon un chemin différent, permettant de varier la construction de notre personnage. Elles sont toutes à plat et accessibles dès le départ, si on trouve le bon objet. Et c'est cela qui rend frustrant notre progression : elle ne dépend pas de nos choix mais des objets que le hasard mettra sur notre chemin. Et elles ne sont pas toutes intéressantes : j'ai terminé la campagne en bronze, le niveau le plus facile, en utilisant uniquement la technique tirs multiples de l'elfe des bois. De plus, Sacred n'utilise pas une ressource magique mais un temps de rechargement : il faut faire attention de ne pas ''trop'' augmenter une technique sinon elle met un temps infini à se recharger et en devient inutilisable. Bon c'est toujours mieux que @@game Dungeon Siege@@ est son système de progression automatique sans compétences ni techniques, mais cela ne vaut pas le système de @@game Diablo II@@.
+
+L'**ambiance** bénéficie vraiment de cette carte, comme si toutes les cartes de @@game Baldur's Gate@@ avaient été fusionnées en une seule, énorme, décrivant la totalité du monde sauf quelques passages dans des grottes ou des souterrains dangereux. Parfois, une rivière, une statue perdue ou de vieilles ruines évoquent l'aventure et les joies de l'exploration. La grande ville de Braverock est vraiment impressionnante avec ses nombreuses maisons à colombage et sa taille. Mais malheureusement, Sacred n'a pas l'ambiance gothique, sombre et désespérée des Diablo, ni la consistance de Baldur's Gate. Je me rappele encore de l'école de magie ruinée d'Ulcaster dans ce dernier jeu, où le fantôme errant de l'ancien directeur garde l'entrée et supplie le joueur d'aller y chercher un livre. Dans Sacred, tout semble plus fade, même si la nuit tombée les villageois brandissent des torches, même si de nombreux animaux gambadent allègrement dans la nature, tout semble plus creux.
+
+L'**histoire** est des plus banales : un méchant nécromancien invoque un démon qui est libéré sur le monde d'Ancaria, réveillant à sa suite une armée de morts-vivants qui poussent les orcs à attaquer les humains. Il y a deux twists, le classique traître qui veut en profiter pour devenir roi à la place du roi, et un autre un peu plus surprenant vers la fin, totalement imprévisible et incohérent. La quête principale se divise en quatre actes dont le dernier peut se terminer en cinq minutes contrairement au troisième, très très long, pour une **durée de vie** très correcte.
+
+**Techniquement**, j'ai rencontré un problème avec ma machine sous Windows 8 : quelque chose défaille dans le système d'affichage et le résultat est illisible avec des effets de rémanence des textures. Peut-être était-ce mes pilotes qui n'étaient pas compatibles. Sous deux autres PC en Windows 10 par contre, le résultat était impeccable avec zéro problème à signaler. Les décors sont beaux, sans atteindre la beauté de ceux de Baldur's Gate, les monstres en 3D plutôt bien modélisés pour un résultat agréable à l'œil. La **musique** est agréable mais ne m'a pas marqué. Les **effets sonores** sont bien faits et retranscrivent bien les différents environnements.
+
+**Au final**, Sacred est une bonne expérience, mais ne joue pas dans la même ligue que le fondateur du genre, @@game Diablo@@, et son génial successeur @@game Diablo II@@. Sa carte immense m'a laissé un souvenir marquant, mais son monde et son histoire clichés ainsi que son système de progression frustrant le place en dessous des sombres dieux de l'action-rpg.
+
+§§ Ce dont-il faut parler :
+§§ - gameplay
+§§ - ambiance
+§§ - histoire
+§§ - technique
+§§ - durée de vie
+§§ - musique
+§§ - effets sonores
+§§ - en définitive/au final
+
 # La musique de jeux vidéo
 
 Quelque chose qui m'a toujours intéressé, c'est la musique des jeux vidéo. Voici quelqu'uns des compositeurs m'ayant marqué et leurs compositions :
@@ -284,21 +323,6 @@ Quelque chose qui m'a toujours intéressé, c'est la musique des jeux vidéo. Vo
 |Robert Prince|Doom (1993) !! Rise of the Triad: Dark War (1994) !! Duke Nukem 3D (1996)|
 |Mark Morgan  |Fallout (1997) !! Fallout 2 (1998) !! Planescape: Torment (1999)         |
 |Jeremy Soule |Total Annihilation (1997) !! Icewind Dale (2000) !! Dungeon Siege (2002)  !! Guild Wars (2005) !! Prey (2006) !! Supreme Commander (2007)|
-
-# Index des jeux cités
-
-|Jeux           |Année|Développeur           |Éditeur                |Genre      |Wikipédia|Site|
-|---------------|-----|----------------------|-----------------------|-----------|---------|----|
-|Nitemare 3D    |1994 |Gray Design Associates|Accurate Research, Inc.|FPS        |[Wiki->1]|[Site Officiel->2]|
-|Realms of Chaos|1995 |Apogee Software       |Apogee Software        |Plate-forme|[Wiki->3]|    | 
-|Wacky Wheels   |1994 |Beavis Soft           |Apogee Software        |Course     |[Wiki->4]|    |
-|Woodruff et le Schnibble d'Azimuth|1994|Coktel Vision|Sierra On-Line|Aventure   |[Wiki->5]|    |
-
-[1]: https://en.wikipedia.org/wiki/Nitemare_3D
-[2]: http://www.dgray.com/n3dpage.htm
-[3]: https://en.wikipedia.org/wiki/Realms_of_Chaos_(video_game)
-[4]: https://en.wikipedia.org/wiki/Wacky_Wheels
-[5]: https://fr.wikipedia.org/wiki/Woodruff_et_le_Schnibble_d%27Azimuth
 
 {{end}}
 {{end}}

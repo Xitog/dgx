@@ -15,7 +15,7 @@
 # Favoris
 ---
 
-Cette page présente 43 films cultes, dont 19 archicultes en **gras**, ainsi que des musiques et des livres que j'aime particulièrement.
+Cette page présente 65 films cultes, dont 32 archicultes en **gras**, ainsi que des musiques et des livres que j'aime particulièrement.
 
 ## Sommaire
 
@@ -29,77 +29,108 @@ Cette page présente 43 films cultes, dont 19 archicultes en **gras**, ainsi que
 
 ### Récurrences
 
-On note quelques récurrences intéressantes parmi les films archicultes :
+On note quelques récurrences intéressantes parmi mes films cultes :
 
-* 5 films du réalisateur ''John McTiernan'' : Predator, Le 13^^e^^ guerrier, Piège de cristal, Une journée en enfer et À la poursuite d'Octobre Rouge.
-* 3 films du réalisateur ''Paul Verhoeven'' : Robocop, Starship Troopers et Total Recall.
-* 2 films du réalisateur ''James Cameron'' : Terminator et Aliens.
-* 4 films avec le compositeur ''Basil Poledouris'' : Robocop, Starship Troopers, Conan le Barbare et À la poursuite d'Octobre Rouge.
-* 3 films avec le compositeur ''John Williams'' : Star Wars, Jurassic Park et Indiana Jones et la dernière croisade.
-* 2 films avec le compositeur ''James Horner'' : Aliens, le retour et Willow.
-* 10 films dans les années 80
-* Quelques acteurs : Sean Connery, Tom Cruise, Bruce Willis, Tilda Swinton, Arnold Schwarzenegger.
+| Propriétés                            | Total | dont archicultes | Remarques                                                                                                    |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Films réalisés par John McTiernan     |     5 |                5 | Predator, Le 13^^e^^ guerrier, Piège de cristal, Une journée en enfer et À la poursuite d'Octobre Rouge      |
+| Films réalisés par Paul Verhoeven     |     3 |                3 | Robocop, Starship Troopers et Total Recall                                                                   |
+| Films réalisés par James Cameron      |     3 |                2 | Terminator et Aliens ainsi que Terminator 2                                                                  |
+| Musique composée par Basil Poledouris |     4 |                4 | Robocop, Starship Troopers, Conan le Barbare et À la poursuite d'Octobre Rouge                               |
+| Musique composée par John Williams    |     4 |                3 | Star Wars, Jurassic Park et Indiana Jones et la dernière croisade ainsi que La guerre des mondes             |
+| Musique composée par James Horner     |     3 |                3 | Aliens, le retour, Le nom de la rose et Willow                                                               |
+| Musique composée par Hans Zimmer      |     2 |                2 | La Chute du faucon noir et La ligne rouge                                                                    |
+| Musique composée par Klaus Badelt     |     2 |                1 | Equilibrium ainsi que Constantine                                                                            |
+| Musique composée par Brian Tyler      |     1 |                0 | Constantine                                                                                                  |
+| Musique composée par Trevor Jones     |     2 |                1 | Le Dernier des Mohicans ainsi que Excalibur                                                                  |
+| Musique composée par Michael Giacchino|     3 |                0 | Rogue One, Star Trek et Star Trek: Into Darkness                                                             |
+| Musique composée par Alan Silvestri   |     2 |                1 | Predator ainsi que Judge Dredd                                                                               |
+| Musique composée par Jerry Goldsmith  |     5 |                1 | Le Treizième Guerrier ainsi que Alien, Outland, Rambo et Total Recall                                        |
+| Films des années 80                   |    18 |               13 |                                                                                                              |
+| Films des années 90                   |    14 |                7 |                                                                                                              |
+| Films des années 2000                 |    16 |                7 |                                                                                                              |
+| Films des années 2010                 |     9 |                3 |                                                                                                              |
+| Films avec Sean Connery               |     4 |                3 | À la poursuite d'Octobre Rouge, Le nom de la rose et Indiana Jones et la dernière croisade ainsi que Outland |
+| Films avec Tom Cruise                 |     2 |                0 | La guerre des mondes et Oblivion                                                                             |
+| Films avec Jeff Bridges               |     1 |                1 | Tron : L'Héritage                                                                                            |
+| Films avec Sam Neil                   |     2 |                2 | À la poursuite d'Octobre Rouge et Jurassic Park                                                              |
+| Films avec Keanu Reeves               |     3 |                0 | Matrix, Matrix Reloaded et Speed                                                                             |
+| Films avec Arnold Schwarzenegger      |     5 |                3 | Conan le barbare, Terminator, Predator ainsi que Terminator 2, Total Recall                                  |
+| Films avec Tilda Swinton              |     1 |                0 | Constantine                                                                                                  |
+| Films avec Bruce Willis               |     2 |                2 | Piège de cristal, Une journée en enfer                                                                       |
+| Films avec Max von Sydow              |     3 |                3 | Conan le barbare, Dune et Flash Gordon                                                                       |
+| Films de Science-Fiction              |    21 |                9 |                                                                                                              |
 
 ### Liste des films
 
-|C| Titre                                                                         | Année | Genre              | Réalisateur       | Compositeur                                          |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|*| **À la poursuite d'Octobre Rouge / The Hunt for Red October**                 |  1990 | Techno-Thriller    | John McTiernan    | Basil Poledouris                                     |
-| | Alien, le 8e passager / Alien                                                 |  1979 | Science-Fiction    | Ridley Scott      | Jerry Goldsmith                                      |
-|*| **Aliens, le retour / Aliens**                                                |  1986 | Science-Fiction    | James Cameron     | James Horner                                         |
-| | Au service secret de Sa Majesté / On Her Majesty's Secret Service             |  1969 | Action             | Peter Hunt        | John Barry                                           | 
-|*| **(La) Chute du faucon noir / Black Hawk Down**                               |  2001 | Guerre             | Ridley Scott      | Hans Zimmer                                          |
-| | Black Swan                                                                    |  2010 | Thriller           | Darren Aronofsky  | Clint Mansell et Piotr Ilitch Tchaïkovski            |
-| | (Le) Bon, la Brute et le Truand / Il buono, il brutto, il cattivo             |  1966 | Western            | Sergio Leone      | Ennio Morricone                                      |
-| | Cashback                                                                      |  2006 | ?                  | Sean Ellis        | Guy Farley                                           |
-|*| **Les fils de l'homme / Children of Men**                                     |  2006 | Science-Fiction    | Alfonso Cuarón    |                                                      |
-|*| **Cloverfield**                                                               |  2008 | Science-Fiction    | Matt Reeves       | Michael Giacchino                                    |
-|*| **Conan le Barbare / Conan the barbarian **                                   |  1982 | Fantastique        | John Milius       | Basil Poledouris                                     |
-|*| **(Le) Dernier des Mohicans / The Last of the Mohicans**                      |  1992 | Historique         | Michael Mann      | Trevor Jones et Randy Edelman                        |
-|*| **Piège de cristal / Die Hard**                                               |  1988 | Action             | John McTiernan    | Michael Kamen                                        |
-|*| **Une journée en enfer / Die Hard with a Vengeance**                          |  1995 | Action             | John McTiernan    | Michael Kamen                                        |
-|*| **Dune**                                                                      |  1984 | Space-Opera        | David Lynch       | Toto                                                 |
-| | Edge of Tomorrow                                                              |  2014 | Science-Fiction    | Doug Liman        | Christophe Beck                                      |
-|*| **Equilibrium**                                                               |  2002 | Science-Fiction    | Kurt Wimmer       | Klaus Badelt                                         |
-|*| **(The) Fountain**                                                            |  2006 | Drame              | Darren Aronofsky  | Clint Mansell                                        |
-| | Good Morning England                                                          |  2009 | Comédie            | Richard Curtis    |                                                      |
-| | (La) guerre des mondes                                                        |  2005 | Science-Fiction    | Steven Spielberg  | John Williams                                        |
-| | Harry Potter et la coupe de feu                                               |  2005 | Fantastique        | Mike Newell       |                                                      |
-| | Hot Shots!                                                                    |  1991 | Comédie            | Jim Abrahams      |                                                      |
-| | Il était une fois dans l'Ouest / C'era una volta il West                      |  1968 | Western            | Sergio Leone      | Ennio Morricone                                      |
-|*| **Indiana Jones et la dernière croisade / Indiana Jones and the Last Crusade**|  1989 | Aventures          | Steven Spielberg  | John Williams                                        |
-|*| **Jurassic Park**                                                             |  1993 | Techno-Thriller    | Steven Spielberg  | John Williams                                        |
-|*| **(La) ligne rouge / The Thin Red Line**                                      |  1998 | Guerre             | Terrence Malick   | Hans Zimmer                                          |
-| | Mad Max                                                                       |  1979 | Post-apocalyptique | George Miller     |                                                      |
-|*| **Mad Max 2 : Le défi**                                                       |  1981 | Post-apocalyptique | George Miller     | Brian May                                            |
-|*| **Mad Max 4 : Fury Road**                                                     |  2015 | Post-apocalyptique | George Miller     |  Tom Holkenborg aka Junkie XL                         |
-| | Matrix                                                                        |  1999 | Science-Fiction    | Les Wachowski     |                                                      |
-| | Matrix Reloaded                                                               |  2003 | Science-Fiction    | Les Wachowski     |                                                      |
-| | Moonraker                                                                     |  1979 | Action             | Lewis Gilbert     | John Barry                                           |
-|*| **Moonrise Kingdom**                                                          |  2012 | Comédie            | Wes Anderson      |                                                      |
-|*| **Moulin Rouge!**                                                             |  2001 | Comédie musicale   | Baz Luhrmann      | Craig Armstrong                                      |
-| | Oblivion                                                                      |  2013 | Science-Fiction    | Joseph Kosinski   | Anthony Gonzalez, Joseph Trapanese                   |
-| | Papy fait de la résistance                                                    |  1983 | Comédie            | Jean-Marie Poiré  |                                                      |
-|*| **(Les) Parapluies de Cherbourg**                                             |  1964 | Comédie musicale   | Jacques Demy      | Michel Legrand                                       |
-|*| **Predator**                                                                  |  1987 | Science-Fiction    | John McTiernan    | Alan Silvestri                                       |
-|*| **Ran** (乱)                                                                  |  1985 | Historique         | Akira Kurosawa    | Tōru Takemitsu                                       |
-|*| **Robocop**                                                                   |  1987 | Science-Fiction    | Paul Verhoeven    | Basil Poledouris                                     |
-| | Rogue One                                                                     |  2016 | Space-Opera        | Gareth Edwards    | Michael Giacchino                                    |
-| | Samsara                                                                       |  2011 | Documentaire       | Ron Fricke        | Michael Stearns, Lisa Gerrard, Marcello de Francisci |
-|*| **Starship Troopers**                                                         |  1997 | Science-Fiction    | Paul Verhoeven    | Basil Poledouris                                     |
-| | Star Trek                                                                     |  2009 | Space-Opera        | J. J. Abrams      | Michael Giacchino                                    |
-| | Star Trek: Into Darkness                                                      |  2013 | Space-Opera        | J. J. Abrams      | Michael Giacchino                                    |
-|*| **Star wars: Un nouvel espoir / A new hope**                                  |  1977 | Space-Opera        | Georges Lucas     | John Williams                                        |
-|*| **Terminator**                                                                |  1984 | Science-Fiction    | James Cameron     | Brad Fiedel                                          |
-| | Terminator 2                                                                  |  1991 | Science-Fiction    | James Cameron     | Brad Fiedel                                          |
-| | Total Recall                                                                  |  1990 | Science-Fiction    | Paul Verhoeven    | Jerry Goldsmith                                      |
-|*| **(Le) Treizième Guerrier / The 13th Warrior**                                |  1999 | Fantastique        | John McTiernan    | Jerry Goldsmith                                      |
-| | Tron                                                                          |  1982 | Science-Fiction    | Steven Lisberger  | Wendy Carlos                                         |
-|*| **Tron: L'Héritage / Legacy**                                                 |  2010 | Science-Fiction    | Joseph Kosinski   | Daft Punk                                            |
-|*| **V pour Vendetta**                                                           |  2006 | Dystopie           | James McTeigue    | Dario Marianelli                                     |
-| | Watchmen : Les Gardiens                                                       |  2009 | Super-héros        | Zack Snyder       | Tyler Bates                                          |
-|*| **Willow**                                                                    |  1988 | Fantastique        | Ron Howard        | James Horner                                         |
-| | Zoulou / Zulu                                                                 |  1964 | Historique         | Cyril R. Endfield | John Barry                                           |
+|C| Titre                                                                         | Année | Genre              | Réalisateur         | Compositeur                                          |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|*| **À la poursuite d'Octobre Rouge / The Hunt for Red October**                 |  1990 | Techno-Thriller    | John McTiernan      | Basil Poledouris                                     |
+| | Alien, le 8e passager / Alien                                                 |  1979 | Science-Fiction    | Ridley Scott        | Jerry Goldsmith                                      |
+|*| **Aliens, le retour / Aliens**                                                |  1986 | Science-Fiction    | James Cameron       | James Horner                                         |
+| | Au service secret de Sa Majesté / On Her Majesty's Secret Service             |  1969 | Action             | Peter Hunt          | John Barry                                           | 
+|*| **(La) Chute du faucon noir / Black Hawk Down**                               |  2001 | Guerre             | Ridley Scott        | Hans Zimmer                                          |
+| | Black Swan                                                                    |  2010 | Thriller           | Darren Aronofsky    | Clint Mansell et Piotr Ilitch Tchaïkovski            |
+| | Blade                                                                         |  1998 | Fantastique        | Stephen Norrington  | Mark Isham                                           |
+| | Blade 2                                                                       |  2002 | Fantastique        | Guillermo del Toro  | Marco Beltrami                                       |
+| | (Le) Bon, la Brute et le Truand / Il buono, il brutto, il cattivo             |  1966 | Western            | Sergio Leone        | Ennio Morricone                                      |
+| | Cashback                                                                      |  2006 | ?                  | Sean Ellis          | Guy Farley                                           |
+| | Constantine                                                                   |  2005 | Fantastique        | Francis Lawrence    | Brian Tyler + Klaus Badelt                           |
+|*| **Les fils de l'homme / Children of Men**                                     |  2006 | Science-Fiction    | Alfonso Cuarón      |                                                      |
+|*| **Cloverfield**                                                               |  2008 | Science-Fiction    | Matt Reeves         | Michael Giacchino                                    |
+|*| **Conan le Barbare / Conan the barbarian **                                   |  1982 | Fantastique        | John Milius         | Basil Poledouris                                     |
+|*| **(Le) Dernier des Mohicans / The Last of the Mohicans**                      |  1992 | Historique         | Michael Mann        | Trevor Jones et Randy Edelman                        |
+|*| **Piège de cristal / Die Hard**                                               |  1988 | Action             | John McTiernan      | Michael Kamen                                        |
+|*| **Une journée en enfer / Die Hard with a Vengeance**                          |  1995 | Action             | John McTiernan      | Michael Kamen                                        |
+|*| **Dune**                                                                      |  1984 | Space-Opera        | David Lynch         | Toto                                                 |
+| | Edge of Tomorrow                                                              |  2014 | Science-Fiction    | Doug Liman          | Christophe Beck                                      |
+|*| **Equilibrium**                                                               |  2002 | Science-Fiction    | Kurt Wimmer         | Klaus Badelt                                         |
+| | Excalibur                                                                     |  1981 | Fantastique        | John Boorman        | Trevor Jones, Richard Wagner et Carl Orff            |
+|*| Flash Gordon                                                                  |  1980 | Science-Fiction    | Mike Hodges         | Queen et Howard Blake                                |
+|*| **(The) Fountain**                                                            |  2006 | Drame              | Darren Aronofsky    | Clint Mansell                                        |
+| | Good Morning England / The Boat That Rocked                                   |  2009 | Comédie            | Richard Curtis      |                                                      |
+| | (La) guerre des mondes                                                        |  2005 | Science-Fiction    | Steven Spielberg    | John Williams                                        |
+| | Harry Potter et la coupe de feu                                               |  2005 | Fantastique        | Mike Newell         |                                                      |
+| | Hot Shots!                                                                    |  1991 | Comédie            | Jim Abrahams        |                                                      |
+| | Judge Dredd                                                                   |  1995 | Science-Fiction    | Danny Cannon        | Alan Silvestri                                       |
+| | Il était une fois dans l'Ouest / C'era una volta il West                      |  1968 | Western            | Sergio Leone        | Ennio Morricone                                      |
+|*| **Indiana Jones et la dernière croisade / Indiana Jones and the Last Crusade**|  1989 | Aventures          | Steven Spielberg    | John Williams                                        |
+|*| **Jurassic Park**                                                             |  1993 | Techno-Thriller    | Steven Spielberg    | John Williams                                        |
+|*| **(La) ligne rouge / The Thin Red Line**                                      |  1998 | Guerre             | Terrence Malick     | Hans Zimmer                                          |
+| | Mad Max                                                                       |  1979 | Post-apocalyptique | George Miller       |                                                      |
+|*| **Mad Max 2 : Le défi**                                                       |  1981 | Post-apocalyptique | George Miller       | Brian May                                            |
+|*| **Mad Max 4 : Fury Road**                                                     |  2015 | Post-apocalyptique | George Miller       | Tom Holkenborg aka Junkie XL                         |
+| | Matrix                                                                        |  1999 | Science-Fiction    | Les Wachowski       |                                                      |
+| | Matrix Reloaded                                                               |  2003 | Science-Fiction    | Les Wachowski       |                                                      |
+| | Moonraker                                                                     |  1979 | Action             | Lewis Gilbert       | John Barry                                           |
+|*| **Moonrise Kingdom**                                                          |  2012 | Comédie            | Wes Anderson        |                                                      |
+|*| **Moulin Rouge!**                                                             |  2001 | Comédie musicale   | Baz Luhrmann        | Craig Armstrong                                      |
+|*| **(Le) nom de la rose / The Name of the Rose**                                |  1986 | Historique         | Jean-Jacques Annaud | James Horner                                         |
+| | Oblivion                                                                      |  2013 | Science-Fiction    | Joseph Kosinski     | Anthony Gonzalez, Joseph Trapanese                   |
+| | Outland... Loin de la Terre / Outland                                         |  1981 | Science-Fiction    | Peter Hyams         | Jerry Goldsmith                                      |
+| | Papy fait de la résistance                                                    |  1983 | Comédie            | Jean-Marie Poiré    |                                                      |
+|*| **(Les) Parapluies de Cherbourg**                                             |  1964 | Comédie musicale   | Jacques Demy        | Michel Legrand                                       |
+|*| **Predator**                                                                  |  1987 | Science-Fiction    | John McTiernan      | Alan Silvestri                                       |
+| | Rambo / First Blood                                                           |  1982 | Guerre             | Ted Kotcheff        | Jerry Goldsmith                                      |
+|*| **Ran** (乱)                                                                  |  1985 | Historique         | Akira Kurosawa      | Tōru Takemitsu                                       |
+|*| **Robocop**                                                                   |  1987 | Science-Fiction    | Paul Verhoeven      | Basil Poledouris                                     |
+| | Rogue One                                                                     |  2016 | Space-Opera        | Gareth Edwards      | Michael Giacchino                                    |
+| | Samsara                                                                       |  2011 | Documentaire       | Ron Fricke          | Michael Stearns, Lisa Gerrard, Marcello de Francisci |
+| | Speed                                                                         |  1994 | Thriller           | Jan de Bont         | Mark Mancina                                         |
+|*| **Starship Troopers**                                                         |  1997 | Science-Fiction    | Paul Verhoeven      | Basil Poledouris                                     |
+| | Star Trek                                                                     |  2009 | Space-Opera        | J. J. Abrams        | Michael Giacchino                                    |
+| | Star Trek: Into Darkness                                                      |  2013 | Space-Opera        | J. J. Abrams        | Michael Giacchino                                    |
+|*| **Star wars: Un nouvel espoir / A new hope**                                  |  1977 | Space-Opera        | Georges Lucas       | John Williams                                        |
+|*| **Terminator**                                                                |  1984 | Science-Fiction    | James Cameron       | Brad Fiedel                                          |
+| | Terminator 2                                                                  |  1991 | Science-Fiction    | James Cameron       | Brad Fiedel                                          |
+| | Total Recall                                                                  |  1990 | Science-Fiction    | Paul Verhoeven      | Jerry Goldsmith                                      |
+|*| **(Le) Treizième Guerrier / The 13th Warrior**                                |  1999 | Fantastique        | John McTiernan      | Jerry Goldsmith                                      |
+| | Tron                                                                          |  1982 | Science-Fiction    | Steven Lisberger    | Wendy Carlos                                         |
+|*| **Tron: L'Héritage / Legacy**                                                 |  2010 | Science-Fiction    | Joseph Kosinski     | Daft Punk                                            |
+|*| **V pour Vendetta**                                                           |  2006 | Dystopie           | James McTeigue      | Dario Marianelli                                     |
+| | Watchmen : Les Gardiens                                                       |  2009 | Super-héros        | Zack Snyder         | Tyler Bates                                          |
+|*| **Willow**                                                                    |  1988 | Fantastique        | Ron Howard          | James Horner                                         |
+| | Zoulou / Zulu                                                                 |  1964 | Historique         | Cyril R. Endfield   | John Barry                                           |
 
 ## Livres
 
