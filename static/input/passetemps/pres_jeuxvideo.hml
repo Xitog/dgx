@@ -33,6 +33,7 @@
 + + [The Settlers 2->#]
 + + [Call of Duty: Modern Warfare (2007)->#]
 + + [Sacred->#]
++ + [StarCraft->#]
 * [La musique de jeux vidéo->#]
 
 # Mes machines
@@ -156,16 +157,20 @@ Après l'avoir fini, je peux dire qu'Hexen est un bon, sinon grand, jeu. Sorti f
 
 **Raven**, 2000 ''(joué de la fin 2019 à mai 2020, fini en medium)'' **Quake II engine**
 
-Soldier of Fortune commençait mal pour moi. Les trois premiers niveaux, le métro de New-York, que j'avais déjà fait il y a bien longtemps dans une démo, un train en Ouganda et une ligne de front au Kosovo, ne m'ont pas beaucoup emballé. Le message répété « ceci est un jeu pour adulte », le moteur GHOUL qui permet de démembrer les ennemis selon là où on tire, le fait qu’il utilise le nom et la licence d’un véritable magazine pour mercenaires, le fait qu’on se retrouve en Irak et que l’on y croise Saddam Hussein, toutes ces choses donnent un côté malsain fort déplaisant au jeu, racoleur : « viens jouer à un vrai jeu de mecs et de guerre petit ». Je doute que la plupart de ses joueurs avaient plus de 18 ans.
+Soldier of Fortune commençait mal pour moi. Les trois premiers niveaux, que j'avais déjà fait il y a bien longtemps grâce à une démo, le métro de New-York, un train en Ouganda et une ligne de front au Kosovo, ne m'ont pas beaucoup emballé. Le message répété « ceci est un jeu pour adulte », le moteur GHOUL qui permet de démembrer les ennemis selon là où on tire, l'utilisation sous licence du nom d’un véritable magazine pour mercenaires, ou encore se retrouver en Irak et y croiser Saddam Hussein, toutes ces choses lui donnent une **ambiance** malsaine fort déplaisant et très racoleuse du genre : ''« viens jouer à un vrai jeu de mecs et de guerre, petit »''. Je doute que la plupart de ses joueurs avaient plus de 18 ans et la promo du jeu, mettant en avant John Mullins, véritable mercernaire et ''conseiller technique'' sur le jeu, était carrément gerbante.
 
-Après, à partir de la Sibérie, les missions s’enchaînent et on entre dans le jeu : récupérer une énième tête nucléaire, débusquer les méchants, trouver leur base secrète, que du classique, bien fait néanmoins, comme d’habitude avec Raven. On sent dans ce jeu les germes de ce qui deviendra la recette des Call of Duty modernes, à partir de @@CoD IV: Modern Warfare@@ : un côté cinématographique avec beaucoup d’actions, un discours militariste manichéen entre les bons et les méchants. Ici, un revanchard de l’apartheid qui veut détruire New York avec une bombe à neutron. Les environnements sont variés : décors citadins ruinés par la guerre, métro, la Sibérie enneigée, le Japon futuriste qui lorgne vers Blade Runner, un château médiéval dans les environs d'Hanovre qui rappelle celui d’@@Hexen@@ et annonce celui de @@Return to Castle Wolfenstein@@, un abattoir au Soudan… 
+Après, à partir de la Sibérie, les missions s’enchaînent et on entre dans le jeu : récupérer une énième tête nucléaire, débusquer les méchants, trouver leur base secrète, que du classique, mais avec un **gameplay** bien fait, comme d’habitude avec Raven et pour l'époque novateur. On sent les germes de ce qui deviendra la recette des Call of Duty modernes, à partir de @@CoD IV: Modern Warfare@@ : un côté cinématographique avec beaucoup d’actions, une fétichisation des armes directement inspirées de modèles authentiques, et pour l'**histoire**, un discours militariste et manichéen opposant les bons et les méchants. Ici, un revanchard de l’apartheid qui veut détruire New York avec une bombe à neutron. 
 
-Techniquement on reconnaît bien l’aspect anguleux du moteur de @@Quake II@@, sans les excès d’éclairage disco d’un @@Daikatana@@. SoF se veut réaliste, même s’il lorgne vers le fantastique et la science-fiction parfois. Bref, je suis content de l’avoir fait, en tant qu’étape dans l’industrie des FPS, je peux comprendre qu’il fut important lors de sa sortie, mais il ne m’a pas autant marqué que d’autres jeux du même genre ou du même développeur.
+Les **environnements** traversés sont variés : décors citadins ruinés par la guerre, le métro de New York, la Sibérie enneigée, un Japon futuriste qui lorgne vers Blade Runner, un château médiéval dans les environs d'Hanovre qui rappelle celui d’@@Hexen@@ et annonce celui de @@Return to Castle Wolfenstein@@, ou encore un abattoir au Soudan…  La **durée de vie** est plutôt courte, 6h en difficulté moyenne. Les **effets sonores** ne m'ont pas marqué, ni en mal ni en bien, et je pense que le jeu est dénué de toute **musique** ou alors, elle ne m'a laissé aucun souvenir. **Techniquement**, on reconnaît bien l’aspect anguleux du moteur de @@Quake II@@, sans les excès d’éclairage disco d’un @@Daikatana@@ : on est plutôt dans les tons bruns et verts kaki. SoF se veut réaliste, même s’il lorgne vers le fantastique et la science-fiction parfois.
+
+En définitve, je suis content de l’avoir fait même s'il a fallu s'accrocher un peu. En tant qu’étape dans l’industrialisation des FPS, je peux comprendre que SoF fut important lors de sa sortie, mais clairement il ne m’a pas autant marqué que d’autres jeux du même genre ou du même développeur.
 
 * SoF sur [Wikipedia->sof1], [Mobygames->sof2]
+* Rétrospective dans Canard PC n°420, p42-44 (juillet 2021)
 
 [sof1]: https://fr.wikipedia.org/wiki/Soldier_of_Fortune_(jeu_vid%C3%A9o)
 [sof2]: https://www.mobygames.com/game/soldier-of-fortune
+[sof3]: https://www.canardpc.com/retrogaming/l-oeil-dans-le-retro/soldier-of-fortune/
 
 ## Ion Fury
 
@@ -300,14 +305,23 @@ L'**ambiance** bénéficie vraiment de cette carte, comme si toutes les cartes d
 
 L'**histoire** est des plus banales : un méchant nécromancien invoque un démon qui est libéré sur le monde d'Ancaria, réveillant à sa suite une armée de morts-vivants qui poussent les orcs à attaquer les humains. Il y a deux twists, le classique traître qui veut en profiter pour devenir roi à la place du roi, et un autre un peu plus surprenant vers la fin, totalement imprévisible et incohérent. La quête principale se divise en quatre actes dont le dernier peut se terminer en cinq minutes contrairement au troisième, très très long, pour une **durée de vie** très correcte.
 
-**Techniquement**, j'ai rencontré un problème avec ma machine sous Windows 8 : quelque chose défaille dans le système d'affichage et le résultat est illisible avec des effets de rémanence des textures. Peut-être était-ce mes pilotes qui n'étaient pas compatibles. Sous deux autres PC en Windows 10 par contre, le résultat était impeccable avec zéro problème à signaler. Les décors sont beaux, sans atteindre la beauté de ceux de Baldur's Gate, les monstres en 3D plutôt bien modélisés pour un résultat agréable à l'œil. La **musique** est agréable mais ne m'a pas marqué. Les **effets sonores** sont bien faits et retranscrivent bien les différents environnements.
+**Techniquement**, j'ai rencontré un problème avec ma machine sous Windows 8 : quelque chose défaille dans le système d'affichage et le résultat est illisible avec des effets de rémanence des textures. Peut-être étaient-ce mes pilotes qui n'étaient pas compatibles. Sous deux autres PC en Windows 10 par contre, le résultat était impeccable avec zéro problème à signaler. Les décors sont beaux, sans atteindre la beauté de ceux de Baldur's Gate, les monstres en 3D plutôt bien modélisés pour un résultat agréable à l'œil. La **musique** est agréable mais ne m'a pas marqué. Les **effets sonores** sont bien faits et retranscrivent bien les différents environnements.
 
 **Au final**, Sacred est une bonne expérience, mais ne joue pas dans la même ligue que le fondateur du genre, @@game Diablo@@, et son génial successeur @@game Diablo II@@. Sa carte immense m'a laissé un souvenir marquant, mais son monde et son histoire clichés ainsi que son système de progression frustrant le place en dessous des sombres dieux de l'action-rpg.
+
+## StarCraft
+
+**Blizzard**, 1998 et 2017 pour le remastered ''(joué en 1999, tenté le remaster en 2017, recommencé et fini en juin-juillet 2021)''
+
+Culte. StarCraft a été ma porte d'entrée dans le monde du jeu de stratégie en temps réel (STR ou RTS en anglais). C'est lors d'un voyage en avion pour aller en Grèce qu'un camarade de classe me détailla ce jeu. A l'atterrissage, je n'avais qu'une envie : y jouer.
+
+On peut aborder StarCraft par son **histoire**. Elle adopte les codes du Space Opera avec des héros plongés au cœur de guerres interstellaires où s’affrontent plusieurs factions extraterrestres et humaines, avec des pouvoirs mystiques qui font pencher la balance d’un côté ou de l’autre. Amitiés, amours, trahisons, sacrifices font avancer une histoire épique riche en rebondissements, narrée à travers des cinématiques, des briefings avant les missions et des dialogues durant celles-ci. L’influence des univers d’’’Alien’’, ‘’Star Wars’’ et ‘’Warhammer 40 000’’ se font clairement sentir dans le design des véhicules ou des accessoires. Néanmoins, le recyclage s'efface devant la maestria et StarCraft arrive à constituer son propre univers doté d'une forte identité.
 
 §§ Ce dont-il faut parler :
 §§ - gameplay
 §§ - ambiance
 §§ - histoire
+$$ - level design
 §§ - technique
 §§ - durée de vie
 §§ - musique
