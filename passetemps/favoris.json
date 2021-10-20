@@ -80,6 +80,38 @@
 			"death": 0,
 			"country": "uk",
 			"class": "soundtrack"
+		},
+		"mccann":
+		{
+			"name": "Michael McCann",
+			"born": 0,
+			"death": 0,
+			"country": "ca",
+			"class": "soundtrack"
+		},
+		"wall":
+		{
+			"name": "Jack Wall",
+			"born": "",
+			"death": "",
+			"country": "us",
+			"class": "soundtrack"
+		},
+		"tweaker":
+		{
+			"name": "Tweaker",
+			"born": "",
+			"death": "",
+			"country": "us",
+			"class": "soundtrack"
+		},
+		"porter":
+		{
+			"name": "Cole Porter",
+			"born": "",
+			"death": "",
+			"country": "us",
+			"class": ""
 		}
 	},
 	"titles":
@@ -87,78 +119,212 @@
 		{
 			"author": "bizet",
 			"title": "Carmen",
-			"year": 1875
+			"year": 1875,
+			"class": "classic",
+			"subclass": "opera"
 		},
 		{
 			"author": "bizet",
 			"title": "L’Arlésienne – Suites n°1 et n°2",
-			"year": 1872
+			"year": 1872,
+			"class": "classic",
+			"subclass": "opera"
 		},
 		{
 			"author": "dvorak",
 			"title": "Symphonie n°7",
-			"year": 1885
+			"year": 1885,
+			"class": "classic",
+			"subclass": "symphony"
 		},
 		{
 			"author": "dvorak",
 			"title": "Danses slaves",
-			"year": [1878, 1886]
+			"year": [1878, 1886],
+			"class": "classic"
 		},
 		{
 			"author": "dvorak",
 			"title": "Symphonie n°8",
-			"year": 1890
+			"year": 1890,
+			"class": "classic",
+			"subclass": "symphony"
 		},
 		{
 			"author": "dvorak",
 			"title": "Symphonie n°9 « du Nouveau Monde »",
-			"year": 1893
+			"year": 1893,
+			"class": "classic",
+			"subclass": "symphony"
 		},
 		{
 			"author": "dvorak",
 			"title": "Concerto pour violoncelle",
-			"year": 1895
+			"year": 1895,
+			"class": "classic",
+			"subclass": "concerto"
 		},
 		{
 			"author": "dvorak",
 			"title": "Rusalka",
-			"year": 1901
+			"year": 1901,
+			"class": "classic",
+			"subclass": "opera"
+		},
+		{
+			"author": "tchaikovski",
+			"title": "Le Lac des cygnes",
+			"year": 1877,
+			"class": "classic",
+			"subclass": "ballet"
+		},
+		{
+			"author": "tchaikovski",
+			"title": "Concerto pour violon",
+			"year": 1881,
+			"class": "classic",
+			"subclass": "concerto"
+		},
+		{
+			"author": "tchaikovski",
+			"title": "Ouverture 1812",
+			"year": 1882,
+			"class": "classic"
+		},
+		{
+			"author": "tchaikovski",
+			"title": "La belle au bois dormant",
+			"year": 1890,
+			"class": "classic",
+			"subclass": "ballet"
+		},
+		{
+			"author": "tchaikovski",
+			"title": "Casse-Noisette",
+			"year": 1892,
+			"class": "classic",
+			"subclass": "ballet"
+		},
+		{
+			"author": "verdi",
+			"title": "Rigoletto",
+			"year": 1851,
+			"class": "classic",
+			"subclass": "opera"
+		},
+		{
+			"author": "verdi",
+			"title": "Il trovatore",
+			"year": 1853,
+			"class": "classic",
+			"subclass": "opera"
+		},
+		{
+			"author": "verdi",
+			"title": "Messa da requiem",
+			"year": 1874,
+			"class": "classic",
+			"subclass": "requiem"
+		},
+		{
+			"author": "wagner",
+			"title": "Tannhäuser",
+			"year": 1845,
+			"class": "classic",
+			"subclass": "opera"
+		},
+		{
+			"author": "mccann",
+			"title": "Icarus/Main theme",
+			"year": 2011,
+			"class": "ost",
+			"subclass": "videogame",
+			"work": "Deus Ex: Human Revolution"
+		},
+		{
+			"author": "wall",
+			"title": "Suicide Mission",
+			"year": 2010,
+			"class": "ost",
+			"subclass": "videogame",
+			"work": "Mass Effect 2"
+		},
+		{
+			"author": "fiedel",
+			"title": "Theme",
+			"year": 1984,
+			"class": "ost",
+			"subclass": "movie",
+			"work": "The Terminator"
+		},
+		{
+			"author": "poledouris",
+			"title": "album",
+			"year": 1997,
+			"class": "ost",
+			"subclass": "movie",
+			"work": "Starship Troopers"
+		},
+		{
+			"author": "poledouris",
+			"title": "album",
+			"year": 1990,
+			"class": "ost",
+			"subclass": "movie",
+			"work": "À la poursuite d'Octobre rouge"
+		},
+		{
+			"author": "poledouris",
+			"title": "album",
+			"year": 1982,
+			"class": "ost",
+			"subclass": "movie",
+			"work": "Conan le barbare"
+		},
+		{
+			"author": "poledouris",
+			"title": "album",
+			"year": 1987,
+			"class": "ost",
+			"subclass": "movie",
+			"work": "RoboCop"
 		},
 		{
 			"author": "",
 			"title": "",
-			"year": 0
+			"year": 0,
+			"class": "",
+			"subclass": "",
+			"work": ""
+		},
+		{
+			"author": "",
+			"title": "",
+			"year": 0,
+			"class": "",
+			"subclass": "",
+			"work": ""
+		},
+		{
+			"author": "tweaker",
+			"title": "Theme",
+			"year": 2004,
+			"class": "ost",
+			"subclass": "videogame",
+			"work": "Doom 3"
+		},
+		{
+			"author": "porter",
+			"title": "Anything goes",
+			"year": 1934,
+			"class": "",
+			"subclass": "",
+			"work": ""
 		}
 	]
 }
 
-<li>Le Lac des cygnes (1877)</li>
-<li>Concerto pour violon (1881)</li>
-<li>Ouverture 1812 (1882)</li>
-<li>La belle au bois dormant (1890)</li>
-<li>Casse-Noisette (1892)</li>
-
-<li>Rigoletto (1851)</li>
-<li>Il trovatore (1853)</li>
-<li>Messa da requiem (1874)</li>
-
-<li>Tannhäuser (1845)</li>
-
-<li id="ost"><button class="tree" id="btost" type="button" onclick="set_visible('btost', 'ost')">+</button> Musique de films et de jeux par compositeurs
-<ul class="sub">
-<li id="autres"><button class="tree" id="btautres" type="button" onclick="set_visible('btautres', 'autres')">+</button> <b>Autres compositeurs par œuvres</b>
-<ul class="sub">
-<li>2011 <b>JV</b> Deus Ex: Human Revolution: Icarus/Main theme - Michael McCann (ca)</li>
-<li>2010 <b>JV</b> Mass Effect 2: Suicide Mission - Jack Wall (us)</li>
-<li>2004 <b>JV</b> Doom 3: Theme - Tweaker (us)</li>
 <li>2002 <b>JV</b> Battlefield 1942: Theme - Joel Eriksson (sv)</li>
-
-<li>1997 <b>F</b> <i>Starship Troopers</i></li>
-<li>1990 <b>F</b> <i>À la poursuite d'Octobre rouge</i></li>
-<li>1987 <b>F</b> <i>RoboCop</i></li>
-<li>1982 <b>F</b> <i>Conan le barbare</i></li>
-
-<li>1984 <b>F</b> <i>The Terminator</i>: Theme</li>
 
 <li>2012 <b>JV</b> <i>Far Cry 3</i></li>
 <li>2011 <b>JV</b> <i>Call of Duty: Modern Warfare 3</i>: Main Theme, I Stand Alone</li>
@@ -169,112 +335,73 @@
 <li>1973 <b>F</b> <i>La Nuit américaine</i> : Grand choral</li>
 <li>1963 <b>F</b> <i>Le Mépris</i> : Camille</li>
 <li>1962 <b>F</b> <i>Cartouche</i> : Générique, Au revoir mon amour</li>
-</ul>
+
 <li id="zimmer"><button class="tree" id="btzimmer" type="button" onclick="set_visible('btzimmer', 'zimmer')">+</button> <b>Hans Zimmer</b> (de)
-<ul class="sub">
 <li>2011 <b>JV</b> <i>Crysis 2</i>: Epilogue / Main Theme</li>
 <li>2009 <b>JV</b> <i>Call of Duty: Modern Warfare 2</i>: Opening Titles
-</li>
-</ul>
-</li>
+
 <li id="horner"><button class="tree" id="bthorner" type="button" onclick="set_visible('bthorner', 'horner')">+</button> <b>James Horner</b>
-<ul class="sub">
 <li>1995 <b>F</b> <i>Braveheart</i></li>
 <li>1988 <b>F</b> <i>Willow</i></li>
 <li>1986 <b>F</b> <i>Aliens, le retour</i></li>
 <li>1985 <b>F</b> <i>Commando</i></li>
-</ul>
-</li>
+
 <li id="goldsmith"><button class="tree" id="btgoldsmith" type="button" onclick="set_visible('btgoldsmith', 'goldsmith')">+</button> <b>Jerry Goldsmith</b> (us)
-<ul class="sub">
 <li>1999 <b>F</b> <i>The 13th Warrior</i></li>
 <li>1998 <b>F</b> <i>Small Soldiers</i>: Assembly line</li>
-</ul>
-</li>
+
 <li id="barry"><button class="tree" id="btbarry" type="button" onclick="set_visible('btbarry', 'barry')">+</button> <b>John Barry</b> (us)
-<ul class="sub">
 <li>1979 <b>F</b> <i>Moonraker</i>: Flight into Space</li>
 <li>1969 <b>F</b> <i>Au service secret de Sa Majesté</i> : On Her Majesty's Secret Service</li>
 <li>1964 <b>F</b> <i>Zoulou</i></li>
 <li>1962 <b>F</b> <i>James Bond 007 contre Dr No</i> (arrangement d'une composition de Monty Norman)</li>
-</ul>
-</li>
+
 <li id="williams"><button class="tree" id="btwilliams" type="button" onclick="set_visible('btwilliams', 'williams')">+</button> <b>John Williams</b> (us)
-<ul class="sub">
 <li>1977-2019 <b>F</b> <i>Star Wars</i></li>
 <li>2001, 2002 et 2004 <b>F</b> <i>Harry Potter I-III</i></li>
 <li>1993 <b>F</b> <i>Jurassic Park</i></li>
 <li>1981, 1984 et 1989 <b>F</b> <i>Indiana Jones</i></li>
-</ul>
-</li>
+
 <li id="jablonsky"><button class="tree" id="btjablonsky" type="button" onclick="set_visible('btjablonsky', 'jablonsky')">+</button> <b>Steve Jablonsky</b> (us)
-<ul class="sub">
-<li>2008 <b>JV</b> <i>Gears Of War 2</i>: Heroic Assault</li>
-<li>2007 <b>F</b> <i>Transformers</i>: Arrival on Earth</li>
-</ul>
-</li>
-</ul>
-</li>
-<li id="pop"><button class="tree" id="btpop" type="button" onclick="set_visible('btpop', 'pop')">+</button> Pop
-<ul class="sub">
-<li></li>
-</ul>
-</li>
-<li id="rock"><button class="tree" id="btrock" type="button" onclick="set_visible('btrock', 'rock')">+</button> Rock/Métal
-<ul class="sub">
-<li>2004 Nightwish - Ghost Love Score, Once (fi)</li>
-<li>2001 Rammstein - Mutter (album) (de)</li>
-<li>1992 Pantera - This Love, Vulgar display of power (us)</li>
-</ul>
-</li>
-<li id="tech"><button class="tree" id="bttech" type="button" onclick="set_visible('bttech', 'tech')">+</button> Techno/Électro
-<ul class="sub">
-<li>1976 Oxygène (album) - Jean-Michel Jarre (fr)</li>
-</ul>
-</li>
-<li id="1970"><button class="tree" id="bt1970" type="button" onclick="set_visible('bt1970', '1970')">+</button> 1970s
-<ul class="sub">
-<li>1971 Get It On - T. Rex (uk)</li>
-<li>1970 Lola - The Kinks (uk)</li>
-<li>1970 War - Edwin Starr (us)</li>
-<li>1970 I Heard It Through the Grapevine - Creedence Clearwater Revival (reprise) (us)</li>
-</ul>
-</li>
-<li id="1960"><button class="tree" id="bt1960" type="button" onclick="set_visible('bt1960', '1960')">+</button> 1960s
-<ul class="sub">
-<li>1969 Space Oddity - David Bowie (uk)</li>
-<li>1969 Fortunate Son - Creedence Clearwater Revival (us)</li>
-<li>1968 L'Opportuniste - Jacques Dutronc (fr)</li>
-<li>1968 Proverbes - Jacques Dutronc (fr)</li>
-<li>1968 Il est cinq heures, Paris s'éveille - Jacques Dutronc (fr)</li>
-<li>1968 Angel of the Morning - Merrilee Rush (1981 for the Juice Newton's version) (us)</li>
-<li>1968 Sympathy for the Devil - the Rolling Stones</li>
-<li>1967 Some Velvet Morning - Lee Hazlewood &amp; Nancy Sinatra (us)</li>
-<li>1967 Somebody to Love - Jefferson Airplane (us)</li>
-<li>1967 White Rabbit - Jefferson Airplane (us)</li>
-<li>1967 For What It's Worth - Buffalo Springfield (us)</li>
-<li>1966 Paint It Black - the Rolling Stones (uk)</li>
-<li>1966 L'Idole - Jacques Dutronc (fr)</li>
-<li>1965 Wild Thing - The Troggs (uk)</li>
-<li>1965 California Dreamin - The Mamas and the Papas (us)</li>
-<li>1964 House of the Rising Sun - The Animals (uk)</li>
-<li>1962 End of the World - Skeeter Davis (us)</li>
-</ul>
-</li>
-<li id="1950"><button class="tree" id="bt1950" type="button" onclick="set_visible('bt1950', '1950')">+</button> 1950s
-<ul class="sub">
-<li>1959 Big Iron - Marty Robbins (us)</li>
-<li>1954 Johnny Guitar - Peggy Lee (us)</li>
-</ul>
-</li>
-<li id="1940"><button class="tree" id="bt1940" type="button" onclick="set_visible('bt1940', '1940')">+</button> 1940s
-<ul class="sub">
-<li>1947 Civilization (Bongo, Bongo, Bongo) - The Andrew Sisters &amp; Danny Kaye (us)</li>
-<li>1944 Into Each Life Some Rain Must Fall - The Ink Spots &amp; Bill Kenny &amp; Ella Fitzgerald (us)</li>
-<li>1941 I Don't Want to Set the World on Fire - The Ink Spots (us)</li>
-</ul>
-</li>
-<li id="1930"><button class="tree" id="bt1930" type="button" onclick="set_visible('bt1930', '1930')">+</button> 1930s
-<ul class="sub">
-<li>1934 Anything goes - Cole Porter (us)</li>
-</ul>
+2008 <b>JV</b> <i>Gears Of War 2</i>: Heroic Assault</li>
+2007 <b>F</b> <i>Transformers</i>: Arrival on Earth</li>
+
+Pop
+
+Rock/Métal
+2004 Nightwish - Ghost Love Score, Once (fi)
+2001 Rammstein - Mutter (album) (de)
+1992 Pantera - This Love, Vulgar display of power (us)
+
+Techno/Électro
+1976 Oxygène (album) - Jean-Michel Jarre (fr)
+
+1971 Get It On - T. Rex (uk)
+1970 Lola - The Kinks (uk)
+1970 War - Edwin Starr (us)
+1970 I Heard It Through the Grapevine - Creedence Clearwater Revival (reprise) (us)
+
+1969 Space Oddity - David Bowie (uk)
+1969 Fortunate Son - Creedence Clearwater Revival (us)
+1968 L'Opportuniste - Jacques Dutronc (fr)
+1968 Proverbes - Jacques Dutronc (fr)
+1968 Il est cinq heures, Paris s'éveille - Jacques Dutronc (fr)
+1968 Angel of the Morning - Merrilee Rush (1981 for the Juice Newton's version) (us)
+1968 Sympathy for the Devil - the Rolling Stones
+1967 Some Velvet Morning - Lee Hazlewood & Nancy Sinatra (us)
+1967 Somebody to Love - Jefferson Airplane (us)
+1967 White Rabbit - Jefferson Airplane (us)
+1967 For What It's Worth - Buffalo Springfield (us)
+1966 Paint It Black - the Rolling Stones (uk)
+1966 L'Idole - Jacques Dutronc (fr)
+1965 Wild Thing - The Troggs (uk)
+1965 California Dreamin - The Mamas and the Papas (us)
+1964 House of the Rising Sun - The Animals (uk)
+1962 End of the World - Skeeter Davis (us)
+
+1959 Big Iron - Marty Robbins (us)
+1954 Johnny Guitar - Peggy Lee (us)
+
+1947 Civilization (Bongo, Bongo, Bongo) - The Andrew Sisters &amp; Danny Kaye (us)
+1944 Into Each Life Some Rain Must Fall - The Ink Spots &amp; Bill Kenny &amp; Ella Fitzgerald (us)
+1941 I Don't Want to Set the World on Fire - The Ink Spots (us)
