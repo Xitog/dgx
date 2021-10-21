@@ -92,25 +92,97 @@
 		"wall":
 		{
 			"name": "Jack Wall",
-			"born": "",
-			"death": "",
+			"born": 0,
+			"death": 0,
 			"country": "us",
 			"class": "soundtrack"
 		},
 		"tweaker":
 		{
 			"name": "Tweaker",
-			"born": "",
-			"death": "",
+			"born": 0,
+			"death": 0,
 			"country": "us",
 			"class": "soundtrack"
 		},
 		"porter":
 		{
 			"name": "Cole Porter",
-			"born": "",
-			"death": "",
+			"born": 0,
+			"death": 0,
 			"country": "us",
+			"class": ""
+		},
+		"eriksson":
+		{
+			"name": "Joel Eriksson",
+			"born": 0,
+			"death": 0,
+			"country": "sv",
+			"class": "soundtrack"
+		},
+		"zimmer":
+		{
+			"name": "Hans Zimmer",
+			"born": 0,
+			"death": 0,
+			"country": "",
+			"class": "soundtrack"
+		},
+		"horner":
+		{
+			"name": "James Horner",
+			"born": 0,
+			"death": 0,
+			"country": "",
+			"class": "soundtrack"
+		},
+		"jarre":
+		{
+			"name": "Jean-Michel Jarre",
+			"born": 0,
+			"death": 0,
+			"country": "fr",
+			"class": "électro"
+		},
+		"pantera":
+		{
+			"name": "Pantera",
+			"born": 0,
+			"death": 0,
+			"country": "us",
+			"class": "métal"
+		},
+		"rammstein":
+		{
+			"name": "Rammstein",
+			"born": 0,
+			"death": 0,
+			"country": "de",
+			"class": "métal"
+		},
+		"nightwish":
+		{
+			"name": "Nightwish",
+			"born": 0,
+			"death": 0,
+			"country": "fi",
+			"class": "métal"
+		},
+		"dutronc":
+		{
+			"name": "Jacques Dutronc",
+			"born": 0,
+			"death": 0,
+			"country": "fr",
+			"class": ""
+		},
+		"":
+		{
+			"name": "",
+			"born": 0,
+			"death": 0,
+			"country": "",
 			"class": ""
 		}
 	},
@@ -259,7 +331,7 @@
 		},
 		{
 			"author": "poledouris",
-			"title": "album",
+			"title": "<album>",
 			"year": 1997,
 			"class": "ost",
 			"subclass": "movie",
@@ -267,7 +339,7 @@
 		},
 		{
 			"author": "poledouris",
-			"title": "album",
+			"title": "<album>",
 			"year": 1990,
 			"class": "ost",
 			"subclass": "movie",
@@ -275,7 +347,7 @@
 		},
 		{
 			"author": "poledouris",
-			"title": "album",
+			"title": "<album>",
 			"year": 1982,
 			"class": "ost",
 			"subclass": "movie",
@@ -283,27 +355,11 @@
 		},
 		{
 			"author": "poledouris",
-			"title": "album",
+			"title": "<album>",
 			"year": 1987,
 			"class": "ost",
 			"subclass": "movie",
 			"work": "RoboCop"
-		},
-		{
-			"author": "",
-			"title": "",
-			"year": 0,
-			"class": "",
-			"subclass": "",
-			"work": ""
-		},
-		{
-			"author": "",
-			"title": "",
-			"year": 0,
-			"class": "",
-			"subclass": "",
-			"work": ""
 		},
 		{
 			"author": "tweaker",
@@ -314,94 +370,447 @@
 			"work": "Doom 3"
 		},
 		{
+			"author": "eriksson",
+			"title": "Theme",
+			"year": 2002,
+			"class": "ost",
+			"subclass": "videogame",
+			"work": "Battlefield 1942"
+		},
+		{
+			"author": "tyler",
+			"title": "Theme",
+			"year": 2012,
+			"class": "ost",
+			"subclass": "videogame",
+			"work": "Far Cry 3"
+		},
+		{
+			"author": "tyler",
+			"title": "Main Theme",
+			"year": 2011,
+			"class": "ost",
+			"subclass": "videogame",
+			"work": "Call of Duty: Modern Warfare 3"
+		},
+		{
+			"author": "tyler",
+			"title": "I Stand Alone",
+			"year": 2011,
+			"class": "ost",
+			"subclass": "videogame",
+			"work": "Call of Duty: Modern Warfare 3"
+		},
+		{
+			"author": "zimmer",
+			"title": "<album>",
+			"year": 2009,
+			"class": "ost",
+			"subclass": "videogame",
+			"work": "Call of Duty: Modern Warfare 2"
+		},
+		{
+			"author": "zimmer",
+			"title": "Epilogue / Main Theme",
+			"year": 2011,
+			"class": "ost",
+			"subclass": "videogame",
+			"work": "Crysis 2"
+		},
+		{
+			"author": "mansell",
+			"title": "Death is the Road to Awe",
+			"year": 2006,
+			"class": "ost",
+			"subclass": "film",
+			"work": "The Fountain"
+		},
+		{
+			"author": "mansell",
+			"title": "Lux æterna",
+			"year": 2000,
+			"class": "ost",
+			"subclass": "film",
+			"work": "Requiem for a Dream"
+		},
+		{
+			"author": "delerue",
+			"title": "Grand choral",
+			"year": 1973,
+			"class": "ost",
+			"subclass": "film",
+			"work": "La Nuit américaine"
+		},
+		{
+			"author": "delerue",
+			"title": "Camille",
+			"year": 1963,
+			"class": "ost",
+			"subclass": "film",
+			"work": "Le Mépris"
+		},
+		{
+			"author": "delerue",
+			"title": "Générique",
+			"year": 1962,
+			"class": "ost",
+			"subclass": "film",
+			"work": "Cartouche"
+		},
+		{
+			"author": "delerue",
+			"title": "Au revoir mon amour",
+			"year": 1962,
+			"class": "ost",
+			"subclass": "film",
+			"work": "Cartouche"
+		},
+		{
+			"author": "horner",
+			"title": "<album>",
+			"year": 1995,
+			"class": "ost",
+			"subclass": "film",
+			"work": "Braveheart"
+		},
+		{
+			"author": "horner",
+			"title": "<album>",
+			"year": 1988,
+			"class": "ost",
+			"subclass": "film",
+			"work": "Willow"
+		},
+		{
+			"author": "horner",
+			"title": "<album>",
+			"year": 1986,
+			"class": "ost",
+			"subclass": "film",
+			"work": "Aliens, le retour"
+		},
+		{
+			"author": "horner",
+			"title": "Générique",
+			"year": 1985,
+			"class": "ost",
+			"subclass": "film",
+			"work": "Commando"
+		},
+		{
+			"author": "goldsmith",
+			"title": "<album>",
+			"year": 1999,
+			"class": "ost",
+			"subclass": "film",
+			"work": "The 13th Warrior"
+		},
+		{
+			"author": "goldsmith",
+			"title": "Assembly line",
+			"year": 1998,
+			"class": "ost",
+			"subclass": "film",
+			"work": "Small Soldier"
+		},
+		{
+			"author": "barry",
+			"title": "Flight into Space",
+			"year": 1979,
+			"class": "ost",
+			"subclass": "film",
+			"work": "Moonraker"
+		},
+		{
+			"author": "barry",
+			"title": "On Her Majesty's Secret Service",
+			"year": 1969,
+			"class": "ost",
+			"subclass": "film",
+			"work": "Au service secret de Sa Majesté"
+		},
+		{
+			"author": "barry",
+			"title": "<album>",
+			"year": 1964,
+			"class": "ost",
+			"subclass": "film",
+			"work": "Zoulou"
+		},
+		{
+			"author": "barry",
+			"title": "Theme",
+			"year": 1962,
+			"class": "ost",
+			"subclass": "film",
+			"work": "James Bond 007 contre Dr No",
+			"comment": "arrangement d'une composition de Monty Norman"
+		},
+		{
+			"author": "williams",
+			"title": "<album>",
+			"year": 1977,
+			"class": "ost",
+			"subclass": "film",
+			"work": "Star Wars"
+		},
+		{
+			"author": "williams",
+			"title": "<album>",
+			"year": 2001,
+			"class": "ost",
+			"subclass": "film",
+			"work": "Harry Potter I",
+			"comment": "a fait aussi les BO du II (2002) et du III (2004)"
+		},
+		{
+			"author": "williams",
+			"title": "<album>",
+			"year": 1993,
+			"class": "ost",
+			"subclass": "film",
+			"work": "Jurassic Park"
+		},
+		{
+			"author": "williams",
+			"title": "<album>",
+			"year": 1989,
+			"class": "ost",
+			"subclass": "film",
+			"work": "Indiana Jones et la dernière croisade",
+			"comment": "a fait aussi les BO du I (1981) et du II (1984)"
+		},
+		{
+			"author": "jablonsky",
+			"title": "Heroic Assault",
+			"year": 2008,
+			"class": "ost",
+			"subclass": "videogame",
+			"work": "Gears Of War 2"
+		},
+		{
+			"author": "jablonsky",
+			"title": "Arrival on Earth",
+			"year": 2007,
+			"class": "ost",
+			"subclass": "film",
+			"work": "Transformers"
+		},
+		{
+			"author": "nightwish",
+			"title": "Ghost Love Score",
+			"year": 2004,
+			"class": "métal",
+			"subclass": "métal symphonique",
+			"work": "Once"
+		},
+		{
+			"author": "rammstein",
+			"title": "<album>",
+			"year": 2001,
+			"class": "métal",
+			"subclass": "métal industriel",
+			"work": "Mutter"
+		},
+		{
+			"author": "pantera",
+			"title": "This Love",
+			"year": 1992,
+			"class": "métal",
+			"subclass": "",
+			"work": "Vulgar display of power"
+		},
+		{
+			"author": "jarre",
+			"title": "<album>",
+			"year": 1976,
+			"class": "électro",
+			"subclass": "",
+			"work": "Oxygène"
+		},
+		{
+			"author": "T. Rex (uk)",
+			"title": "Get It On",
+			"year": 1971,
+			"class": "",
+			"subclass": "",
+			"work": ""
+		},
+		{
+			"author": "The Kinks (uk)",
+			"title": "Lola",
+			"year": 1970,
+			"class": "",
+			"subclass": "",
+			"work": ""
+		},
+		{
+			"author": "Edwin Starr (us)",
+			"title": "War",
+			"year": 1970,
+			"class": "",
+			"subclass": "",
+			"work": ""
+		},
+		{
+			"author": "Creedence Clearwater Revival (reprise) (us)",
+			"title": "I Heard It Through the Grapevine",
+			"year": 1970,
+			"class": "",
+			"subclass": "",
+			"work": ""
+		},
+		{
+			"author": "David Bowie (uk)",
+			"title": "Space Oddity",
+			"year": 1969
+		},
+		{
+			"author": "Creedence Clearwater Revival (us)",
+			"title": "Fortunate Son",
+			"year": 1969
+		},
+		{
+			"author": "dutronc",
+			"title": "L'Opportuniste",
+			"year": 1968
+		},
+		{
+			"author": "dutronc",
+			"title": "Proverbes",
+			"year": 1968
+		},
+		{
+			"author": "dutronc",
+			"title": "Il est cinq heures, Paris s'éveille",
+			"year": 1968
+		},
+		{
+			"author": "Juice Newton's",
+			"title": "Angel of the Morning",
+			"year": 1981
+		},
+		{
+			"author": "Merrilee Rush (us)",
+			"title": "Angel of the Morning",
+			"year": 1968
+		},
+		{
+			"author": "the Rolling Stones",
+			"title": "Sympathy for the Devil",
+			"year": 1968
+		},
+		{
+			"author": "Lee Hazlewood & Nancy Sinatra (us)",
+			"title": " Some Velvet Morning",
+			"year": 1967
+		},
+		{
+			"author": "Jefferson Airplane (us)",
+			"title": "Somebody to Love",
+			"year": 1967
+		},
+		{
+			"author": "Jefferson Airplane (us)",
+			"title": "White Rabbit",
+			"year": 1967
+		},
+		{
+			"author": "Buffalo Springfield (us)",
+			"title": "For What It's Worth",
+			"year": 1967
+		},
+		{
+			"author": "the Rolling Stones (uk)",
+			"title": "Paint It Black",
+			"year": 1966
+		},
+		{
+			"author": "dutronc",
+			"title": "L'Idole",
+			"year": 1966
+		},
+		{
+			"author": "The Troggs (uk)",
+			"title": "Wild Thing",
+			"year": 1965
+		},
+		{
+			"author": "The Mamas and the Papas (us)",
+			"title": "California Dreamin",
+			"year": 1965
+		},
+		{
+			"author": " The Animals (uk)",
+			"title": "House of the Rising Sun",
+			"year": 1964,
+			"class": "",
+			"subclass": "",
+			"work": ""
+		},
+		{
+			"author": "Skeeter Davis (us)",
+			"title": "End of the World",
+			"year": 1962,
+			"class": "",
+			"subclass": "",
+			"work": ""
+		},
+		{
+			"author": "Marty Robbins (us)",
+			"title": "Big Iron",
+			"year": 1959,
+			"class": "",
+			"subclass": "",
+			"work": ""
+		},
+		{
+			"author": "Peggy Lee (us)",
+			"title": "Johnny Guitar",
+			"year": 1954,
+			"class": "",
+			"subclass": "",
+			"work": ""
+		},
+		{
+			"author": "The Andrew Sisters & Danny Kaye (us)",
+			"title": "Civilization (Bongo, Bongo, Bongo)",
+			"year": 1947,
+			"class": "",
+			"subclass": "",
+			"work": ""
+		},
+		{
+			"author": "The Ink Spots & Bill Kenny & Ella Fitzgerald (us)",
+			"title": "Into Each Life Some Rain Must Fall",
+			"year": 1944,
+			"class": "",
+			"subclass": "",
+			"work": ""
+		},
+		{
+			"author": "The Ink Spots (us)",
+			"title": "I Don't Want to Set the World on Fire",
+			"year": 1941,
+			"class": "",
+			"subclass": "",
+			"work": ""
+		},
+		{
 			"author": "porter",
 			"title": "Anything goes",
 			"year": 1934,
 			"class": "",
 			"subclass": "",
 			"work": ""
+		},
+		{
+			"author": "",
+			"title": "",
+			"year": 0,
+			"class": "",
+			"subclass": "",
+			"work": ""
 		}
 	]
 }
-
-<li>2002 <b>JV</b> Battlefield 1942: Theme - Joel Eriksson (sv)</li>
-
-<li>2012 <b>JV</b> <i>Far Cry 3</i></li>
-<li>2011 <b>JV</b> <i>Call of Duty: Modern Warfare 3</i>: Main Theme, I Stand Alone</li>
-
-<li>2006 <i>The Fountain</i>: Death is the Road to Awe</li>
-<li>2000 <i>Requiem for a Dream</i>: Lux æterna</li>
-
-<li>1973 <b>F</b> <i>La Nuit américaine</i> : Grand choral</li>
-<li>1963 <b>F</b> <i>Le Mépris</i> : Camille</li>
-<li>1962 <b>F</b> <i>Cartouche</i> : Générique, Au revoir mon amour</li>
-
-<li id="zimmer"><button class="tree" id="btzimmer" type="button" onclick="set_visible('btzimmer', 'zimmer')">+</button> <b>Hans Zimmer</b> (de)
-<li>2011 <b>JV</b> <i>Crysis 2</i>: Epilogue / Main Theme</li>
-<li>2009 <b>JV</b> <i>Call of Duty: Modern Warfare 2</i>: Opening Titles
-
-<li id="horner"><button class="tree" id="bthorner" type="button" onclick="set_visible('bthorner', 'horner')">+</button> <b>James Horner</b>
-<li>1995 <b>F</b> <i>Braveheart</i></li>
-<li>1988 <b>F</b> <i>Willow</i></li>
-<li>1986 <b>F</b> <i>Aliens, le retour</i></li>
-<li>1985 <b>F</b> <i>Commando</i></li>
-
-<li id="goldsmith"><button class="tree" id="btgoldsmith" type="button" onclick="set_visible('btgoldsmith', 'goldsmith')">+</button> <b>Jerry Goldsmith</b> (us)
-<li>1999 <b>F</b> <i>The 13th Warrior</i></li>
-<li>1998 <b>F</b> <i>Small Soldiers</i>: Assembly line</li>
-
-<li id="barry"><button class="tree" id="btbarry" type="button" onclick="set_visible('btbarry', 'barry')">+</button> <b>John Barry</b> (us)
-<li>1979 <b>F</b> <i>Moonraker</i>: Flight into Space</li>
-<li>1969 <b>F</b> <i>Au service secret de Sa Majesté</i> : On Her Majesty's Secret Service</li>
-<li>1964 <b>F</b> <i>Zoulou</i></li>
-<li>1962 <b>F</b> <i>James Bond 007 contre Dr No</i> (arrangement d'une composition de Monty Norman)</li>
-
-<li id="williams"><button class="tree" id="btwilliams" type="button" onclick="set_visible('btwilliams', 'williams')">+</button> <b>John Williams</b> (us)
-<li>1977-2019 <b>F</b> <i>Star Wars</i></li>
-<li>2001, 2002 et 2004 <b>F</b> <i>Harry Potter I-III</i></li>
-<li>1993 <b>F</b> <i>Jurassic Park</i></li>
-<li>1981, 1984 et 1989 <b>F</b> <i>Indiana Jones</i></li>
-
-<li id="jablonsky"><button class="tree" id="btjablonsky" type="button" onclick="set_visible('btjablonsky', 'jablonsky')">+</button> <b>Steve Jablonsky</b> (us)
-2008 <b>JV</b> <i>Gears Of War 2</i>: Heroic Assault</li>
-2007 <b>F</b> <i>Transformers</i>: Arrival on Earth</li>
-
-Pop
-
-Rock/Métal
-2004 Nightwish - Ghost Love Score, Once (fi)
-2001 Rammstein - Mutter (album) (de)
-1992 Pantera - This Love, Vulgar display of power (us)
-
-Techno/Électro
-1976 Oxygène (album) - Jean-Michel Jarre (fr)
-
-1971 Get It On - T. Rex (uk)
-1970 Lola - The Kinks (uk)
-1970 War - Edwin Starr (us)
-1970 I Heard It Through the Grapevine - Creedence Clearwater Revival (reprise) (us)
-
-1969 Space Oddity - David Bowie (uk)
-1969 Fortunate Son - Creedence Clearwater Revival (us)
-1968 L'Opportuniste - Jacques Dutronc (fr)
-1968 Proverbes - Jacques Dutronc (fr)
-1968 Il est cinq heures, Paris s'éveille - Jacques Dutronc (fr)
-1968 Angel of the Morning - Merrilee Rush (1981 for the Juice Newton's version) (us)
-1968 Sympathy for the Devil - the Rolling Stones
-1967 Some Velvet Morning - Lee Hazlewood & Nancy Sinatra (us)
-1967 Somebody to Love - Jefferson Airplane (us)
-1967 White Rabbit - Jefferson Airplane (us)
-1967 For What It's Worth - Buffalo Springfield (us)
-1966 Paint It Black - the Rolling Stones (uk)
-1966 L'Idole - Jacques Dutronc (fr)
-1965 Wild Thing - The Troggs (uk)
-1965 California Dreamin - The Mamas and the Papas (us)
-1964 House of the Rising Sun - The Animals (uk)
-1962 End of the World - Skeeter Davis (us)
-
-1959 Big Iron - Marty Robbins (us)
-1954 Johnny Guitar - Peggy Lee (us)
-
-1947 Civilization (Bongo, Bongo, Bongo) - The Andrew Sisters &amp; Danny Kaye (us)
-1944 Into Each Life Some Rain Must Fall - The Ink Spots &amp; Bill Kenny &amp; Ella Fitzgerald (us)
-1941 I Don't Want to Set the World on Fire - The Ink Spots (us)
