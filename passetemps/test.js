@@ -18,11 +18,11 @@ function callback(status, response)
     class_by_genre(response);
 }
 
-function getNameAuthor(code, data)
+function getProperty(code, type, property, data)
 {
-    if (data['authors'].hasOwnProperty(code))
+    if (data[type].hasOwnProperty(code) && data[type][code].hasOwnProperty(property))
     {
-        return data['authors'][code]["name"];
+        return data[type][code][property];
     } else {
         return code;
     }
@@ -46,7 +46,8 @@ function class_by_genre(data)
     for (let genre of Object.keys(genres))
     {
         let li = document.createElement("li");
-        li.innerText = genre;
+        console.log(getProperty(genre, "genres", "name", data));
+        li.innerText = getProperty(genre, "genres", "name", data);
         let ul = document.createElement("ul");
         li.appendChild(ul);
         for (let song of genres[genre])
@@ -59,7 +60,7 @@ function class_by_genre(data)
                 lis.innerText = song["work"];
             }
             lis.innerText += " (" + song["year"] + ")";
-            lis.innerText += " - " + getNameAuthor(song["author"], data);
+            lis.innerText += " - " + getProperty(song["author"], "authors", "name", data);
             ul.appendChild(lis);
         }
         tree.appendChild(li);
