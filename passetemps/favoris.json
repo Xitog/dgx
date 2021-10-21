@@ -1,4 +1,21 @@
 {
+	"genres":{
+		"classical":{
+			"name": "Musique classique"
+		},
+		"ost":{
+			"name": "Bande originale"
+		},
+		"metal":{
+			"name": "Métal"
+		},
+		"electro":{
+			"name": "Musique électronique"
+		},
+		"poprock":{
+			"name": "Musique Pop/Rock"
+		}
+	},
 	"authors":{
 	   "dvorak":{
 		  "name":"Antonín Dvořák",
@@ -131,34 +148,27 @@
 		  "born":0,
 		  "death":0,
 		  "country":"us",
-		  "class":"métal"
+		  "class":"metal"
 	   },
 	   "rammstein":{
 		  "name":"Rammstein",
 		  "born":0,
 		  "death":0,
 		  "country":"de",
-		  "class":"métal"
+		  "class":"metal"
 	   },
 	   "nightwish":{
 		  "name":"Nightwish",
 		  "born":0,
 		  "death":0,
 		  "country":"fi",
-		  "class":"métal"
+		  "class":"metal"
 	   },
 	   "dutronc":{
 		  "name":"Jacques Dutronc",
 		  "born":0,
 		  "death":0,
 		  "country":"fr",
-		  "class":""
-	   },
-	   "":{
-		  "name":"",
-		  "born":0,
-		  "death":0,
-		  "country":"",
 		  "class":""
 	   }
 	},
@@ -602,7 +612,7 @@
 		  "author":"jarre",
 		  "title":"<album>",
 		  "year":1976,
-		  "class":"électro",
+		  "class":"electro",
 		  "subclass":"",
 		  "work":"Oxygène"
 	   },
@@ -610,7 +620,7 @@
 		  "author":"T. Rex (uk)",
 		  "title":"Get It On",
 		  "year":1971,
-		  "class":"",
+		  "class":"poprock",
 		  "subclass":"",
 		  "work":""
 	   },
@@ -618,7 +628,7 @@
 		  "author":"The Kinks (uk)",
 		  "title":"Lola",
 		  "year":1970,
-		  "class":"",
+		  "class":"poprock",
 		  "subclass":"",
 		  "work":""
 	   },
@@ -626,7 +636,7 @@
 		  "author":"Edwin Starr (us)",
 		  "title":"War",
 		  "year":1970,
-		  "class":"",
+		  "class":"poprock",
 		  "subclass":"",
 		  "work":""
 	   },
@@ -634,95 +644,111 @@
 		  "author":"Creedence Clearwater Revival (reprise) (us)",
 		  "title":"I Heard It Through the Grapevine",
 		  "year":1970,
-		  "class":"",
+		  "class":"poprock",
 		  "subclass":"",
 		  "work":""
 	   },
 	   {
 		  "author":"David Bowie (uk)",
 		  "title":"Space Oddity",
-		  "year":1969
+		  "year":1969,
+		  "class":"poprock"
 	   },
 	   {
 		  "author":"Creedence Clearwater Revival (us)",
 		  "title":"Fortunate Son",
-		  "year":1969
+		  "year":1969,
+		  "class":"poprock"
 	   },
 	   {
 		  "author":"dutronc",
 		  "title":"L'Opportuniste",
-		  "year":1968
+		  "year":1968,
+		  "class":"poprock"
 	   },
 	   {
 		  "author":"dutronc",
 		  "title":"Proverbes",
-		  "year":1968
+		  "year":1968,
+		  "class":"poprock"
 	   },
 	   {
 		  "author":"dutronc",
 		  "title":"Il est cinq heures, Paris s'éveille",
-		  "year":1968
+		  "year":1968,
+		  "class":"poprock"
 	   },
 	   {
 		  "author":"Juice Newton's",
 		  "title":"Angel of the Morning",
-		  "year":1981
+		  "year":1981,
+		  "class":"poprock"
 	   },
 	   {
 		  "author":"Merrilee Rush (us)",
 		  "title":"Angel of the Morning",
-		  "year":1968
+		  "year":1968,
+		  "class":"poprock"
 	   },
 	   {
 		  "author":"the Rolling Stones",
 		  "title":"Sympathy for the Devil",
-		  "year":1968
+		  "year":1968,
+		  "class":"poprock"
 	   },
 	   {
 		  "author":"Lee Hazlewood & Nancy Sinatra (us)",
 		  "title":" Some Velvet Morning",
-		  "year":1967
+		  "year":1967,
+		  "class":"poprock"
 	   },
 	   {
 		  "author":"Jefferson Airplane (us)",
 		  "title":"Somebody to Love",
-		  "year":1967
+		  "year":1967,
+		  "class":"poprock"
 	   },
 	   {
 		  "author":"Jefferson Airplane (us)",
 		  "title":"White Rabbit",
-		  "year":1967
+		  "year":1967,
+		  "class":"poprock"
 	   },
 	   {
 		  "author":"Buffalo Springfield (us)",
 		  "title":"For What It's Worth",
-		  "year":1967
+		  "year":1967,
+		  "class":"poprock"
 	   },
 	   {
 		  "author":"the Rolling Stones (uk)",
 		  "title":"Paint It Black",
-		  "year":1966
+		  "year":1966,
+		  "class":"poprock"
 	   },
 	   {
 		  "author":"dutronc",
 		  "title":"L'Idole",
-		  "year":1966
+		  "year":1966,
+		  "class":"poprock"
 	   },
 	   {
 		  "author":"The Troggs (uk)",
 		  "title":"Wild Thing",
-		  "year":1965
+		  "year":1965,
+		  "class":"poprock"
 	   },
 	   {
 		  "author":"The Mamas and the Papas (us)",
 		  "title":"California Dreamin",
-		  "year":1965
+		  "year":1965,
+		  "class":"poprock"
 	   },
 	   {
 		  "author":" The Animals (uk)",
 		  "title":"House of the Rising Sun",
 		  "year":1964,
-		  "class":"",
+		  "class":"poprock",
 		  "subclass":"",
 		  "work":""
 	   },
@@ -730,7 +756,7 @@
 		  "author":"Skeeter Davis (us)",
 		  "title":"End of the World",
 		  "year":1962,
-		  "class":"",
+		  "class":"poprock",
 		  "subclass":"",
 		  "work":""
 	   },
@@ -738,7 +764,7 @@
 		  "author":"Marty Robbins (us)",
 		  "title":"Big Iron",
 		  "year":1959,
-		  "class":"",
+		  "class":"poprock",
 		  "subclass":"",
 		  "work":""
 	   },
@@ -746,7 +772,7 @@
 		  "author":"Peggy Lee (us)",
 		  "title":"Johnny Guitar",
 		  "year":1954,
-		  "class":"",
+		  "class":"poprock",
 		  "subclass":"",
 		  "work":""
 	   },
@@ -754,7 +780,7 @@
 		  "author":"The Andrew Sisters & Danny Kaye (us)",
 		  "title":"Civilization (Bongo, Bongo, Bongo)",
 		  "year":1947,
-		  "class":"",
+		  "class":"poprock",
 		  "subclass":"",
 		  "work":""
 	   },
@@ -762,7 +788,7 @@
 		  "author":"The Ink Spots & Bill Kenny & Ella Fitzgerald (us)",
 		  "title":"Into Each Life Some Rain Must Fall",
 		  "year":1944,
-		  "class":"",
+		  "class":"poprock",
 		  "subclass":"",
 		  "work":""
 	   },
@@ -770,7 +796,7 @@
 		  "author":"The Ink Spots (us)",
 		  "title":"I Don't Want to Set the World on Fire",
 		  "year":1941,
-		  "class":"",
+		  "class":"poprock",
 		  "subclass":"",
 		  "work":""
 	   },
@@ -778,15 +804,7 @@
 		  "author":"porter",
 		  "title":"Anything goes",
 		  "year":1934,
-		  "class":"",
-		  "subclass":"",
-		  "work":""
-	   },
-	   {
-		  "author":"",
-		  "title":"",
-		  "year":0,
-		  "class":"",
+		  "class":"poprock",
 		  "subclass":"",
 		  "work":""
 	   }
