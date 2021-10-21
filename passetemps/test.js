@@ -13,9 +13,11 @@ function getData(url, callback)
 
 function callback(status, response)
 {
-    console.log(status);
-    console.log(response);
-    class_by(response, 'class');
+    //console.log(status);
+    //console.log(response);
+    class_by(response, 'genre');
+    class_by(response, 'author');
+    class_by(response, 'year');
 }
 
 function getProperty(code, type, property, data)
@@ -30,37 +32,53 @@ function getProperty(code, type, property, data)
 
 function class_by(data, criterion)
 {
+    //console.log('class by: ' + criterion)
     // Classify
-    let genres = {};
+    let values = {};
     for (let song of data['titles'])
     {
-        if (!genres.hasOwnProperty(song[criterion]))
+        if (!values.hasOwnProperty(song[criterion]))
         {
-            genres[song[criterion]] = [];
+            values[song[criterion]] = [];
         }
-        genres[song[criterion]].push(song);
+        values[song[criterion]].push(song);
     }
     // Display
     let tree = document.getElementById("tree");
-    console.log(genres);
-    for (let genre of Object.keys(genres))
+    for (let val of Object.keys(values).sort())
     {
+
+        // <b>Auteur</b> (naissance-mort) (code iso 2 nationalité)
         let li = document.createElement("li");
-        console.log(getProperty(genre, criterion, "name", data));
-        li.innerText = getProperty(genre, criterion, "name", data);
+        li.setAttribute('id', val);
+        //console.log(getProperty(genre, criterion + "s", "name", data));
+        let bt = document.createElement("button");
+        bt.setAttribute('class', 'tree');
+        bt.setAttribute('id', 'bt' + val);
+        bt.setAttribute('type', 'button');
+        bt.setAttribute('onclick', "set_visible('bt" + val + "', '"+ val + "')");
+        bt.innerText = '+';
+        li.appendChild(bt);
+        let span = document.createElement("span");
+        span.innerText = getProperty(val, criterion + "s", "name", data) + " (" + values[val].length + ")";
+        li.appendChild(span);
         let ul = document.createElement("ul");
+        ul.setAttribute('class', 'sub');
         li.appendChild(ul);
-        for (let song of genres[genre])
+        for (let song of values[val])
         {
             let lis = document.createElement("li");
             if (song["title"] !== "<album>")
             {
-                lis.innerText = song["title"];
+                lis.innerText = song["title"] + " from " + song["work"];
             } else {
                 lis.innerText = song["work"];
             }
             lis.innerText += " (" + song["year"] + ")";
-            lis.innerText += " - " + getProperty(song["author"], "authors", "name", data);
+            if (criterion !== 'author')
+            {
+                lis.innerText += " - " + getProperty(song["author"], "authors", "name", data);
+            }
             ul.appendChild(lis);
         }
         tree.appendChild(li);

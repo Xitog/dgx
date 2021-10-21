@@ -1,812 +1,826 @@
 {
-	"genres":{
-		"classical":{
-			"name": "Musique classique"
+	"genres": {
+		"classical": {
+			"name":  "Musique classique"
 		},
-		"ost":{
-			"name": "Bande originale"
+		"ost": {
+			"name":  "Bande originale"
 		},
-		"metal":{
-			"name": "Métal"
+		"metal": {
+			"name":  "Métal"
 		},
-		"electro":{
-			"name": "Musique électronique"
+		"electro": {
+			"name":  "Musique électronique"
 		},
-		"poprock":{
-			"name": "Musique Pop/Rock"
+		"poprock": {
+			"name":  "Musique Pop/Rock"
 		}
 	},
-	"authors":{
-	   "dvorak":{
-		  "name":"Antonín Dvořák",
-		  "born":1841,
-		  "death":1904,
-		  "country":"cs",
-		  "genre":"classical"
+	"authors": {
+	   "dvorak": {
+		  "name": "Antonín Dvořák",
+		  "born": 1841,
+		  "death": 1904,
+		  "country": "cs",
+		  "genre": "classical"
 	   },
-	   "tchaikovski":{
-		  "name":"Piotr Ilitch Tchaïkovski",
-		  "born":1840,
-		  "death":1893,
-		  "country":"ru",
-		  "genre":"classical"
+	   "tchaikovski": {
+		  "name": "Piotr Ilitch Tchaïkovski",
+		  "born": 1840,
+		  "death": 1893,
+		  "country": "ru",
+		  "genre": "classical"
 	   },
-	   "verdi":{
-		  "name":"Giuseppe Verdi",
-		  "born":1813,
-		  "death":1901,
-		  "country":"it",
-		  "genre":"classical"
+	   "verdi": {
+		  "name": "Giuseppe Verdi",
+		  "born": 1813,
+		  "death": 1901,
+		  "country": "it",
+		  "genre": "classical"
 	   },
-	   "wagner":{
-		  "name":"Richard Wagner",
-		  "born":1813,
-		  "death":1883,
-		  "country":"de",
-		  "genre":"classical"
+	   "wagner": {
+		  "name": "Richard Wagner",
+		  "born": 1813,
+		  "death": 1883,
+		  "country": "de",
+		  "genre": "classical"
 	   },
-	   "bizet":{
-		  "name":"Georges Bizet",
-		  "born":0,
-		  "death":0,
-		  "country":"fr",
-		  "genre":"classical"
+	   "bizet": {
+		  "name": "Georges Bizet",
+		  "born": 0,
+		  "death": 0,
+		  "country": "fr",
+		  "genre": "classical"
 	   },
-	   "poledouris":{
-		  "name":"Basil Poledouris",
-		  "born":0,
-		  "death":0,
-		  "country":"us",
-		  "genre":"soundtrack"
+	   "poledouris": {
+		  "name": "Basil Poledouris",
+		  "born": 0,
+		  "death": 0,
+		  "country": "us",
+		  "genre": "soundtrack"
 	   },
-	   "fiedel":{
-		  "name":"Brad Fiedel",
-		  "born":0,
-		  "death":0,
-		  "country":"us",
-		  "genre":"soundtrack"
+	   "fiedel": {
+		  "name": "Brad Fiedel",
+		  "born": 0,
+		  "death": 0,
+		  "country": "us",
+		  "genre": "soundtrack"
 	   },
-	   "tyler":{
-		  "name":"Brian Tyler",
-		  "born":0,
-		  "death":0,
-		  "country":"us",
-		  "genre":"soundtrack"
+	   "tyler": {
+		  "name": "Brian Tyler",
+		  "born": 0,
+		  "death": 0,
+		  "country": "us",
+		  "genre": "soundtrack"
 	   },
-	   "mansell":{
-		  "name":"Clint Mansell",
-		  "born":0,
-		  "death":0,
-		  "country":"uk",
-		  "genre":"soundtrack"
+	   "mansell": {
+		  "name": "Clint Mansell",
+		  "born": 0,
+		  "death": 0,
+		  "country": "uk",
+		  "genre": "soundtrack"
 	   },
-	   "delerue":{
-		  "name":"Georges Delerue",
-		  "born":0,
-		  "death":0,
-		  "country":"uk",
-		  "genre":"soundtrack"
+	   "delerue": {
+		  "name": "Georges Delerue",
+		  "born": 0,
+		  "death": 0,
+		  "country": "uk",
+		  "genre": "soundtrack"
 	   },
-	   "mccann":{
-		  "name":"Michael McCann",
-		  "born":0,
-		  "death":0,
-		  "country":"ca",
-		  "genre":"soundtrack"
+	   "mccann": {
+		  "name": "Michael McCann",
+		  "born": 0,
+		  "death": 0,
+		  "country": "ca",
+		  "genre": "soundtrack"
 	   },
-	   "wall":{
-		  "name":"Jack Wall",
-		  "born":0,
-		  "death":0,
-		  "country":"us",
-		  "genre":"soundtrack"
+	   "wall": {
+		  "name": "Jack Wall",
+		  "born": 0,
+		  "death": 0,
+		  "country": "us",
+		  "genre": "soundtrack"
 	   },
-	   "tweaker":{
-		  "name":"Tweaker",
-		  "born":0,
-		  "death":0,
-		  "country":"us",
-		  "genre":"soundtrack"
+	   "tweaker": {
+		  "name": "Tweaker",
+		  "born": 0,
+		  "death": 0,
+		  "country": "us",
+		  "genre": "soundtrack"
 	   },
-	   "porter":{
-		  "name":"Cole Porter",
-		  "born":0,
-		  "death":0,
-		  "country":"us",
-		  "genre":""
+	   "porter": {
+		  "name": "Cole Porter",
+		  "born": 0,
+		  "death": 0,
+		  "country": "us",
+		  "genre": ""
 	   },
-	   "eriksson":{
-		  "name":"Joel Eriksson",
-		  "born":0,
-		  "death":0,
-		  "country":"sv",
-		  "genre":"soundtrack"
+	   "eriksson": {
+		  "name": "Joel Eriksson",
+		  "born": 0,
+		  "death": 0,
+		  "country": "sv",
+		  "genre": "soundtrack"
 	   },
-	   "zimmer":{
-		  "name":"Hans Zimmer",
-		  "born":0,
-		  "death":0,
-		  "country":"",
-		  "genre":"soundtrack"
+	   "zimmer": {
+		  "name": "Hans Zimmer",
+		  "born": 0,
+		  "death": 0,
+		  "country": "",
+		  "genre": "soundtrack"
 	   },
-	   "horner":{
-		  "name":"James Horner",
-		  "born":0,
-		  "death":0,
-		  "country":"",
-		  "genre":"soundtrack"
+	   "horner": {
+		  "name": "James Horner",
+		  "born": 0,
+		  "death": 0,
+		  "country": "",
+		  "genre": "soundtrack"
 	   },
-	   "jarre":{
-		  "name":"Jean-Michel Jarre",
-		  "born":0,
-		  "death":0,
-		  "country":"fr",
-		  "genre":"électro"
+	   "jarre": {
+		  "name": "Jean-Michel Jarre",
+		  "born": 0,
+		  "death": 0,
+		  "country": "fr",
+		  "genre": "électro"
 	   },
-	   "pantera":{
-		  "name":"Pantera",
-		  "born":0,
-		  "death":0,
-		  "country":"us",
-		  "genre":"metal"
+	   "pantera": {
+		  "name": "Pantera",
+		  "born": 0,
+		  "death": 0,
+		  "country": "us",
+		  "genre": "metal"
 	   },
-	   "rammstein":{
-		  "name":"Rammstein",
-		  "born":0,
-		  "death":0,
-		  "country":"de",
-		  "genre":"metal"
+	   "rammstein": {
+		  "name": "Rammstein",
+		  "born": 0,
+		  "death": 0,
+		  "country": "de",
+		  "genre": "metal"
 	   },
-	   "nightwish":{
-		  "name":"Nightwish",
-		  "born":0,
-		  "death":0,
-		  "country":"fi",
-		  "genre":"metal"
+	   "nightwish": {
+		  "name": "Nightwish",
+		  "born": 0,
+		  "death": 0,
+		  "country": "fi",
+		  "genre": "metal"
 	   },
-	   "dutronc":{
-		  "name":"Jacques Dutronc",
-		  "born":0,
-		  "death":0,
-		  "country":"fr",
-		  "genre":""
+	   "dutronc": {
+		  "name": "Jacques Dutronc",
+		  "born": 0,
+		  "death": 0,
+		  "country": "fr",
+		  "genre": ""
+	   },
+	   "williams": {
+		   "name": "John Williams",
+		   "born": 0,
+		   "death": 0,
+		   "country": "us",
+		   "genre": ""
+	   },
+	   "goldsmith": {
+		   "name": "Jerry Goldsmith",
+		   "born":  0,
+		   "death":  0,
+		   "country":  "",
+		   "genre":  ""
 	   }
 	},
-	"titles":[
+	"titles": [
 	   {
-		  "author":"bizet",
-		  "title":"Carmen",
-		  "year":1875,
-		  "genre":"classical",
-		  "subgenre":"opera"
+		  "author": "bizet",
+		  "title": "Carmen",
+		  "year": 1875,
+		  "genre": "classical",
+		  "subgenre": "opera"
 	   },
 	   {
-		  "author":"bizet",
-		  "title":"L’Arlésienne – Suites n°1 et n°2",
-		  "year":1872,
-		  "genre":"classical",
-		  "subgenre":"opera"
+		  "author": "bizet",
+		  "title": "L’Arlésienne – Suites n°1 et n°2",
+		  "year": 1872,
+		  "genre": "classical",
+		  "subgenre": "opera"
 	   },
 	   {
-		  "author":"dvorak",
-		  "title":"Symphonie n°7",
-		  "year":1885,
-		  "genre":"classical",
-		  "subgenre":"symphony"
+		  "author": "dvorak",
+		  "title": "Symphonie n°7",
+		  "year": 1885,
+		  "genre": "classical",
+		  "subgenre": "symphony"
 	   },
 	   {
-		  "author":"dvorak",
-		  "title":"Danses slaves",
-		  "year":[
+		  "author": "dvorak",
+		  "title": "Danses slaves",
+		  "year": [
 			 1878,
 			 1886
 		  ],
-		  "genre":"classical"
+		  "genre": "classical"
 	   },
 	   {
-		  "author":"dvorak",
-		  "title":"Symphonie n°8",
-		  "year":1890,
-		  "genre":"classical",
-		  "subgenre":"symphony"
+		  "author": "dvorak",
+		  "title": "Symphonie n°8",
+		  "year": 1890,
+		  "genre": "classical",
+		  "subgenre": "symphony"
 	   },
 	   {
-		  "author":"dvorak",
-		  "title":"Symphonie n°9 « du Nouveau Monde »",
-		  "year":1893,
-		  "genre":"classical",
-		  "subgenre":"symphony"
+		  "author": "dvorak",
+		  "title": "Symphonie n°9 « du Nouveau Monde »",
+		  "year": 1893,
+		  "genre": "classical",
+		  "subgenre": "symphony"
 	   },
 	   {
-		  "author":"dvorak",
-		  "title":"Concerto pour violoncelle",
-		  "year":1895,
-		  "genre":"classical",
-		  "subgenre":"concerto"
+		  "author": "dvorak",
+		  "title": "Concerto pour violoncelle",
+		  "year": 1895,
+		  "genre": "classical",
+		  "subgenre": "concerto"
 	   },
 	   {
-		  "author":"dvorak",
-		  "title":"Rusalka",
-		  "year":1901,
-		  "genre":"classical",
-		  "subgenre":"opera"
+		  "author": "dvorak",
+		  "title": "Rusalka",
+		  "year": 1901,
+		  "genre": "classical",
+		  "subgenre": "opera"
 	   },
 	   {
-		  "author":"tchaikovski",
-		  "title":"Le Lac des cygnes",
-		  "year":1877,
-		  "genre":"classical",
-		  "subgenre":"ballet"
+		  "author": "tchaikovski",
+		  "title": "Le Lac des cygnes",
+		  "year": 1877,
+		  "genre": "classical",
+		  "subgenre": "ballet"
 	   },
 	   {
-		  "author":"tchaikovski",
-		  "title":"Concerto pour violon",
-		  "year":1881,
-		  "genre":"classical",
-		  "subgenre":"concerto"
+		  "author": "tchaikovski",
+		  "title": "Concerto pour violon",
+		  "year": 1881,
+		  "genre": "classical",
+		  "subgenre": "concerto"
 	   },
 	   {
-		  "author":"tchaikovski",
-		  "title":"Ouverture 1812",
-		  "year":1882,
-		  "genre":"classical"
+		  "author": "tchaikovski",
+		  "title": "Ouverture 1812",
+		  "year": 1882,
+		  "genre": "classical"
 	   },
 	   {
-		  "author":"tchaikovski",
-		  "title":"La belle au bois dormant",
-		  "year":1890,
-		  "genre":"classical",
-		  "subgenre":"ballet"
+		  "author": "tchaikovski",
+		  "title": "La belle au bois dormant",
+		  "year": 1890,
+		  "genre": "classical",
+		  "subgenre": "ballet"
 	   },
 	   {
-		  "author":"tchaikovski",
-		  "title":"Casse-Noisette",
-		  "year":1892,
-		  "genre":"classical",
-		  "subgenre":"ballet"
+		  "author": "tchaikovski",
+		  "title": "Casse-Noisette",
+		  "year": 1892,
+		  "genre": "classical",
+		  "subgenre": "ballet"
 	   },
 	   {
-		  "author":"verdi",
-		  "title":"Rigoletto",
-		  "year":1851,
-		  "genre":"classical",
-		  "subgenre":"opera"
+		  "author": "verdi",
+		  "title": "Rigoletto",
+		  "year": 1851,
+		  "genre": "classical",
+		  "subgenre": "opera"
 	   },
 	   {
-		  "author":"verdi",
-		  "title":"Il trovatore",
-		  "year":1853,
-		  "genre":"classical",
-		  "subgenre":"opera"
+		  "author": "verdi",
+		  "title": "Il trovatore",
+		  "year": 1853,
+		  "genre": "classical",
+		  "subgenre": "opera"
 	   },
 	   {
-		  "author":"verdi",
-		  "title":"Messa da requiem",
-		  "year":1874,
-		  "genre":"classical",
-		  "subgenre":"requiem"
+		  "author": "verdi",
+		  "title": "Messa da requiem",
+		  "year": 1874,
+		  "genre": "classical",
+		  "subgenre": "requiem"
 	   },
 	   {
-		  "author":"wagner",
-		  "title":"Tannhäuser",
-		  "year":1845,
-		  "genre":"classical",
-		  "subgenre":"opera"
+		  "author": "wagner",
+		  "title": "Tannhäuser",
+		  "year": 1845,
+		  "genre": "classical",
+		  "subgenre": "opera"
 	   },
 	   {
-		  "author":"mccann",
-		  "title":"Icarus/Main theme",
-		  "year":2011,
-		  "genre":"ost",
-		  "subgenre":"videogame",
-		  "work":"Deus Ex: Human Revolution"
+		  "author": "mccann",
+		  "title": "Icarus/Main theme",
+		  "year": 2011,
+		  "genre": "ost",
+		  "subgenre": "videogame",
+		  "work": "Deus Ex: Human Revolution"
 	   },
 	   {
-		  "author":"wall",
-		  "title":"Suicide Mission",
-		  "year":2010,
-		  "genre":"ost",
-		  "subgenre":"videogame",
-		  "work":"Mass Effect 2"
+		  "author": "wall",
+		  "title": "Suicide Mission",
+		  "year": 2010,
+		  "genre": "ost",
+		  "subgenre": "videogame",
+		  "work": "Mass Effect 2"
 	   },
 	   {
-		  "author":"fiedel",
-		  "title":"Theme",
-		  "year":1984,
-		  "genre":"ost",
-		  "subgenre":"movie",
-		  "work":"The Terminator"
+		  "author": "fiedel",
+		  "title": "Theme",
+		  "year": 1984,
+		  "genre": "ost",
+		  "subgenre": "movie",
+		  "work": "The Terminator"
 	   },
 	   {
-		  "author":"poledouris",
-		  "title":"<album>",
-		  "year":1997,
-		  "genre":"ost",
-		  "subgenre":"movie",
-		  "work":"Starship Troopers"
+		  "author": "poledouris",
+		  "title": "<album>",
+		  "year": 1997,
+		  "genre": "ost",
+		  "subgenre": "movie",
+		  "work": "Starship Troopers"
 	   },
 	   {
-		  "author":"poledouris",
-		  "title":"<album>",
-		  "year":1990,
-		  "genre":"ost",
-		  "subgenre":"movie",
-		  "work":"À la poursuite d'Octobre rouge"
+		  "author": "poledouris",
+		  "title": "<album>",
+		  "year": 1990,
+		  "genre": "ost",
+		  "subgenre": "movie",
+		  "work": "À la poursuite d'Octobre rouge"
 	   },
 	   {
-		  "author":"poledouris",
-		  "title":"<album>",
-		  "year":1982,
-		  "genre":"ost",
-		  "subgenre":"movie",
-		  "work":"Conan le barbare"
+		  "author": "poledouris",
+		  "title": "<album>",
+		  "year": 1982,
+		  "genre": "ost",
+		  "subgenre": "movie",
+		  "work": "Conan le barbare"
 	   },
 	   {
-		  "author":"poledouris",
-		  "title":"<album>",
-		  "year":1987,
-		  "genre":"ost",
-		  "subgenre":"movie",
-		  "work":"RoboCop"
+		  "author": "poledouris",
+		  "title": "<album>",
+		  "year": 1987,
+		  "genre": "ost",
+		  "subgenre": "movie",
+		  "work": "RoboCop"
 	   },
 	   {
-		  "author":"tweaker",
-		  "title":"Theme",
-		  "year":2004,
-		  "genre":"ost",
-		  "subgenre":"videogame",
-		  "work":"Doom 3"
+		  "author": "tweaker",
+		  "title": "Theme",
+		  "year": 2004,
+		  "genre": "ost",
+		  "subgenre": "videogame",
+		  "work": "Doom 3"
 	   },
 	   {
-		  "author":"eriksson",
-		  "title":"Theme",
-		  "year":2002,
-		  "genre":"ost",
-		  "subgenre":"videogame",
-		  "work":"Battlefield 1942"
+		  "author": "eriksson",
+		  "title": "Theme",
+		  "year": 2002,
+		  "genre": "ost",
+		  "subgenre": "videogame",
+		  "work": "Battlefield 1942"
 	   },
 	   {
-		  "author":"tyler",
-		  "title":"Theme",
-		  "year":2012,
-		  "genre":"ost",
-		  "subgenre":"videogame",
-		  "work":"Far Cry 3"
+		  "author": "tyler",
+		  "title": "Theme",
+		  "year": 2012,
+		  "genre": "ost",
+		  "subgenre": "videogame",
+		  "work": "Far Cry 3"
 	   },
 	   {
-		  "author":"tyler",
-		  "title":"Main Theme",
-		  "year":2011,
-		  "genre":"ost",
-		  "subgenre":"videogame",
-		  "work":"Call of Duty: Modern Warfare 3"
+		  "author": "tyler",
+		  "title": "Main Theme",
+		  "year": 2011,
+		  "genre": "ost",
+		  "subgenre": "videogame",
+		  "work": "Call of Duty: Modern Warfare 3"
 	   },
 	   {
-		  "author":"tyler",
-		  "title":"I Stand Alone",
-		  "year":2011,
-		  "genre":"ost",
-		  "subgenre":"videogame",
-		  "work":"Call of Duty: Modern Warfare 3"
+		  "author": "tyler",
+		  "title": "I Stand Alone",
+		  "year": 2011,
+		  "genre": "ost",
+		  "subgenre": "videogame",
+		  "work": "Call of Duty: Modern Warfare 3"
 	   },
 	   {
-		  "author":"zimmer",
-		  "title":"<album>",
-		  "year":2009,
-		  "genre":"ost",
-		  "subgenre":"videogame",
-		  "work":"Call of Duty: Modern Warfare 2"
+		  "author": "zimmer",
+		  "title": "<album>",
+		  "year": 2009,
+		  "genre": "ost",
+		  "subgenre": "videogame",
+		  "work": "Call of Duty: Modern Warfare 2"
 	   },
 	   {
-		  "author":"zimmer",
-		  "title":"Epilogue / Main Theme",
-		  "year":2011,
-		  "genre":"ost",
-		  "subgenre":"videogame",
-		  "work":"Crysis 2"
+		  "author": "zimmer",
+		  "title": "Epilogue / Main Theme",
+		  "year": 2011,
+		  "genre": "ost",
+		  "subgenre": "videogame",
+		  "work": "Crysis 2"
 	   },
 	   {
-		  "author":"mansell",
-		  "title":"Death is the Road to Awe",
-		  "year":2006,
-		  "genre":"ost",
-		  "subgenre":"film",
-		  "work":"The Fountain"
+		  "author": "mansell",
+		  "title": "Death is the Road to Awe",
+		  "year": 2006,
+		  "genre": "ost",
+		  "subgenre": "film",
+		  "work": "The Fountain"
 	   },
 	   {
-		  "author":"mansell",
-		  "title":"Lux æterna",
-		  "year":2000,
-		  "genre":"ost",
-		  "subgenre":"film",
-		  "work":"Requiem for a Dream"
+		  "author": "mansell",
+		  "title": "Lux æterna",
+		  "year": 2000,
+		  "genre": "ost",
+		  "subgenre": "film",
+		  "work": "Requiem for a Dream"
 	   },
 	   {
-		  "author":"delerue",
-		  "title":"Grand choral",
-		  "year":1973,
-		  "genre":"ost",
-		  "subgenre":"film",
-		  "work":"La Nuit américaine"
+		  "author": "delerue",
+		  "title": "Grand choral",
+		  "year": 1973,
+		  "genre": "ost",
+		  "subgenre": "film",
+		  "work": "La Nuit américaine"
 	   },
 	   {
-		  "author":"delerue",
-		  "title":"Camille",
-		  "year":1963,
-		  "genre":"ost",
-		  "subgenre":"film",
-		  "work":"Le Mépris"
+		  "author": "delerue",
+		  "title": "Camille",
+		  "year": 1963,
+		  "genre": "ost",
+		  "subgenre": "film",
+		  "work": "Le Mépris"
 	   },
 	   {
-		  "author":"delerue",
-		  "title":"Générique",
-		  "year":1962,
-		  "genre":"ost",
-		  "subgenre":"film",
-		  "work":"Cartouche"
+		  "author": "delerue",
+		  "title": "Générique",
+		  "year": 1962,
+		  "genre": "ost",
+		  "subgenre": "film",
+		  "work": "Cartouche"
 	   },
 	   {
-		  "author":"delerue",
-		  "title":"Au revoir mon amour",
-		  "year":1962,
-		  "genre":"ost",
-		  "subgenre":"film",
-		  "work":"Cartouche"
+		  "author": "delerue",
+		  "title": "Au revoir mon amour",
+		  "year": 1962,
+		  "genre": "ost",
+		  "subgenre": "film",
+		  "work": "Cartouche"
 	   },
 	   {
-		  "author":"horner",
-		  "title":"<album>",
-		  "year":1995,
-		  "genre":"ost",
-		  "subgenre":"film",
-		  "work":"Braveheart"
+		  "author": "horner",
+		  "title": "<album>",
+		  "year": 1995,
+		  "genre": "ost",
+		  "subgenre": "film",
+		  "work": "Braveheart"
 	   },
 	   {
-		  "author":"horner",
-		  "title":"<album>",
-		  "year":1988,
-		  "genre":"ost",
-		  "subgenre":"film",
-		  "work":"Willow"
-	   },
+		  "author": "horner",
+		  "title": "<album>",
+		  "year": 1988,
+		  "genre": "ost",
+		  "subgenre": "film",
+		  "work": "Willow"
+	   },
 	   {
-		  "author":"horner",
-		  "title":"<album>",
-		  "year":1986,
-		  "genre":"ost",
-		  "subgenre":"film",
-		  "work":"Aliens, le retour"
-	   },
+		  "author": "horner",
+		  "title": "<album>",
+		  "year": 1986,
+		  "genre": "ost",
+		  "subgenre": "film",
+		  "work": "Aliens, le retour"
+	   },
 	   {
-		  "author":"horner",
-		  "title":"Générique",
-		  "year":1985,
-		  "genre":"ost",
-		  "subgenre":"film",
-		  "work":"Commando"
-	   },
+		  "author": "horner",
+		  "title": "Générique",
+		  "year": 1985,
+		  "genre": "ost",
+		  "subgenre": "film",
+		  "work": "Commando"
+	   },
 	   {
-		  "author":"goldsmith",
-		  "title":"<album>",
-		  "year":1999,
-		  "genre":"ost",
-		  "subgenre":"film",
-		  "work":"The 13th Warrior"
-	   },
+		  "author": "goldsmith",
+		  "title": "<album>",
+		  "year": 1999,
+		  "genre": "ost",
+		  "subgenre": "film",
+		  "work": "The 13th Warrior"
+	   },
 	   {
-		  "author":"goldsmith",
-		  "title":"Assembly line",
-		  "year":1998,
-		  "genre":"ost",
-		  "subgenre":"film",
-		  "work":"Small Soldier"
-	   },
+		  "author": "goldsmith",
+		  "title": "Assembly line",
+		  "year": 1998,
+		  "genre": "ost",
+		  "subgenre": "film",
+		  "work": "Small Soldier"
+	   },
 	   {
-		  "author":"barry",
-		  "title":"Flight into Space",
-		  "year":1979,
-		  "genre":"ost",
-		  "subgenre":"film",
-		  "work":"Moonraker"
-	   },
+		  "author": "barry",
+		  "title": "Flight into Space",
+		  "year": 1979,
+		  "genre": "ost",
+		  "subgenre": "film",
+		  "work": "Moonraker"
+	   },
 	   {
-		  "author":"barry",
-		  "title":"On Her Majesty's Secret Service",
-		  "year":1969,
-		  "genre":"ost",
-		  "subgenre":"film",
-		  "work":"Au service secret de Sa Majesté"
-	   },
+		  "author": "barry",
+		  "title": "On Her Majesty's Secret Service",
+		  "year": 1969,
+		  "genre": "ost",
+		  "subgenre": "film",
+		  "work": "Au service secret de Sa Majesté"
+	   },
 	   {
-		  "author":"barry",
-		  "title":"<album>",
-		  "year":1964,
-		  "genre":"ost",
-		  "subgenre":"film",
-		  "work":"Zoulou"
-	   },
+		  "author": "barry",
+		  "title": "<album>",
+		  "year": 1964,
+		  "genre": "ost",
+		  "subgenre": "film",
+		  "work": "Zoulou"
+	   },
 	   {
-		  "author":"barry",
-		  "title":"Theme",
-		  "year":1962,
-		  "genre":"ost",
-		  "subgenre":"film",
-		  "work":"James Bond 007 contre Dr No",
-		  "comment":"arrangement d'une composition de Monty Norman"
+		  "author": "barry",
+		  "title": "Theme",
+		  "year": 1962,
+		  "genre": "ost",
+		  "subgenre": "film",
+		  "work": "James Bond 007 contre Dr No",
+		  "comment": "arrangement d'une composition de Monty Norman"
 	   },
-	   {
-		  "author":"williams",
-		  "title":"<album>",
-		  "year":1977,
-		  "genre":"ost",
-		  "subgenre":"film",
-		  "work":"Star Wars"
+	   {
+		  "author": "williams",
+		  "title": "<album>",
+		  "year": 1977,
+		  "genre": "ost",
+		  "subgenre": "film",
+		  "work": "Star Wars"
 	   },
-	   {
-		  "author":"williams",
-		  "title":"<album>",
-		  "year":2001,
-		  "genre":"ost",
-		  "subgenre":"film",
-		  "work":"Harry Potter I",
-		  "comment":"a fait aussi les BO du II (2002) et du III (2004)"
-	   },
-	   {
-		  "author":"williams",
-		  "title":"<album>",
-		  "year":1993,
-		  "genre":"ost",
-		  "subgenre":"film",
-		  "work":"Jurassic Park"
-	   },
-	   {
-		  "author":"williams",
-		  "title":"<album>",
-		  "year":1989,
-		  "genre":"ost",
-		  "subgenre":"film",
-		  "work":"Indiana Jones et la dernière croisade",
-		  "comment":"a fait aussi les BO du I (1981) et du II (1984)"
+	   {
+		  "author": "williams",
+		  "title": "<album>",
+		  "year": 2001,
+		  "genre": "ost",
+		  "subgenre": "film",
+		  "work": "Harry Potter I",
+		  "comment": "a fait aussi les BO du II (2002) et du III (2004)"
+	   },
+	   {
+		  "author": "williams",
+		  "title": "<album>",
+		  "year": 1993,
+		  "genre": "ost",
+		  "subgenre": "film",
+		  "work": "Jurassic Park"
+	   },
+	   {
+		  "author": "williams",
+		  "title": "<album>",
+		  "year": 1989,
+		  "genre": "ost",
+		  "subgenre": "film",
+		  "work": "Indiana Jones et la dernière croisade",
+		  "comment": "a fait aussi les BO du I (1981) et du II (1984)"
 	   },
 	   {
-		  "author":"jablonsky",
-		  "title":"Heroic Assault",
-		  "year":2008,
-		  "genre":"ost",
-		  "subgenre":"videogame",
-		  "work":"Gears Of War 2"
+		  "author": "jablonsky",
+		  "title": "Heroic Assault",
+		  "year": 2008,
+		  "genre": "ost",
+		  "subgenre": "videogame",
+		  "work": "Gears Of War 2"
 	   },
 	   {
-		  "author":"jablonsky",
-		  "title":"Arrival on Earth",
-		  "year":2007,
-		  "genre":"ost",
-		  "subgenre":"film",
-		  "work":"Transformers"
+		  "author": "jablonsky",
+		  "title": "Arrival on Earth",
+		  "year": 2007,
+		  "genre": "ost",
+		  "subgenre": "film",
+		  "work": "Transformers"
 	   },
 	   {
-		  "author":"nightwish",
-		  "title":"Ghost Love Score",
-		  "year":2004,
-		  "genre":"metal",
-		  "subgenre":"métal symphonique",
-		  "work":"Once"
+		  "author": "nightwish",
+		  "title": "Ghost Love Score",
+		  "year": 2004,
+		  "genre": "metal",
+		  "subgenre": "métal symphonique",
+		  "work": "Once"
 	   },
 	   {
-		  "author":"rammstein",
-		  "title":"<album>",
-		  "year":2001,
-		  "genre":"metal",
-		  "subgenre":"métal industriel",
-		  "work":"Mutter"
+		  "author": "rammstein",
+		  "title": "<album>",
+		  "year": 2001,
+		  "genre": "metal",
+		  "subgenre": "métal industriel",
+		  "work": "Mutter"
 	   },
 	   {
-		  "author":"pantera",
-		  "title":"This Love",
-		  "year":1992,
-		  "genre":"metal",
-		  "subgenre":"",
-		  "work":"Vulgar display of power"
+		  "author": "pantera",
+		  "title": "This Love",
+		  "year": 1992,
+		  "genre": "metal",
+		  "subgenre": "",
+		  "work": "Vulgar display of power"
 	   },
 	   {
-		  "author":"jarre",
-		  "title":"<album>",
-		  "year":1976,
-		  "genre":"electro",
-		  "subgenre":"",
-		  "work":"Oxygène"
+		  "author": "jarre",
+		  "title": "<album>",
+		  "year": 1976,
+		  "genre": "electro",
+		  "subgenre": "",
+		  "work": "Oxygène"
 	   },
 	   {
-		  "author":"T. Rex (uk)",
-		  "title":"Get It On",
-		  "year":1971,
-		  "genre":"poprock",
-		  "subgenre":"",
-		  "work":""
+		  "author": "T. Rex (uk)",
+		  "title": "Get It On",
+		  "year": 1971,
+		  "genre": "poprock",
+		  "subgenre": "",
+		  "work": ""
 	   },
 	   {
-		  "author":"The Kinks (uk)",
-		  "title":"Lola",
-		  "year":1970,
-		  "genre":"poprock",
-		  "subgenre":"",
-		  "work":""
+		  "author": "The Kinks (uk)",
+		  "title": "Lola",
+		  "year": 1970,
+		  "genre": "poprock",
+		  "subgenre": "",
+		  "work": ""
 	   },
 	   {
-		  "author":"Edwin Starr (us)",
-		  "title":"War",
-		  "year":1970,
-		  "genre":"poprock",
-		  "subgenre":"",
-		  "work":""
+		  "author": "Edwin Starr (us)",
+		  "title": "War",
+		  "year": 1970,
+		  "genre": "poprock",
+		  "subgenre": "",
+		  "work": ""
 	   },
 	   {
-		  "author":"Creedence Clearwater Revival (reprise) (us)",
-		  "title":"I Heard It Through the Grapevine",
-		  "year":1970,
-		  "genre":"poprock",
-		  "subgenre":"",
-		  "work":""
+		  "author": "Creedence Clearwater Revival (reprise) (us)",
+		  "title": "I Heard It Through the Grapevine",
+		  "year": 1970,
+		  "genre": "poprock",
+		  "subgenre": "",
+		  "work": ""
 	   },
 	   {
-		  "author":"David Bowie (uk)",
-		  "title":"Space Oddity",
-		  "year":1969,
-		  "genre":"poprock"
+		  "author": "David Bowie (uk)",
+		  "title": "Space Oddity",
+		  "year": 1969,
+		  "genre": "poprock"
 	   },
 	   {
-		  "author":"Creedence Clearwater Revival (us)",
-		  "title":"Fortunate Son",
-		  "year":1969,
-		  "genre":"poprock"
+		  "author": "Creedence Clearwater Revival (us)",
+		  "title": "Fortunate Son",
+		  "year": 1969,
+		  "genre": "poprock"
 	   },
 	   {
-		  "author":"dutronc",
-		  "title":"L'Opportuniste",
-		  "year":1968,
-		  "genre":"poprock"
+		  "author": "dutronc",
+		  "title": "L'Opportuniste",
+		  "year": 1968,
+		  "genre": "poprock"
 	   },
 	   {
-		  "author":"dutronc",
-		  "title":"Proverbes",
-		  "year":1968,
-		  "genre":"poprock"
+		  "author": "dutronc",
+		  "title": "Proverbes",
+		  "year": 1968,
+		  "genre": "poprock"
 	   },
 	   {
-		  "author":"dutronc",
-		  "title":"Il est cinq heures, Paris s'éveille",
-		  "year":1968,
-		  "genre":"poprock"
+		  "author": "dutronc",
+		  "title": "Il est cinq heures, Paris s'éveille",
+		  "year": 1968,
+		  "genre": "poprock"
 	   },
 	   {
-		  "author":"Juice Newton's",
-		  "title":"Angel of the Morning",
-		  "year":1981,
-		  "genre":"poprock"
+		  "author": "Juice Newton's",
+		  "title": "Angel of the Morning",
+		  "year": 1981,
+		  "genre": "poprock"
 	   },
 	   {
-		  "author":"Merrilee Rush (us)",
-		  "title":"Angel of the Morning",
-		  "year":1968,
-		  "genre":"poprock"
+		  "author": "Merrilee Rush (us)",
+		  "title": "Angel of the Morning",
+		  "year": 1968,
+		  "genre": "poprock"
 	   },
 	   {
-		  "author":"the Rolling Stones",
-		  "title":"Sympathy for the Devil",
-		  "year":1968,
-		  "genre":"poprock"
+		  "author": "the Rolling Stones",
+		  "title": "Sympathy for the Devil",
+		  "year": 1968,
+		  "genre": "poprock"
 	   },
 	   {
-		  "author":"Lee Hazlewood & Nancy Sinatra (us)",
-		  "title":" Some Velvet Morning",
-		  "year":1967,
-		  "genre":"poprock"
+		  "author": "Lee Hazlewood & Nancy Sinatra (us)",
+		  "title": " Some Velvet Morning",
+		  "year": 1967,
+		  "genre": "poprock"
 	   },
 	   {
-		  "author":"Jefferson Airplane (us)",
-		  "title":"Somebody to Love",
-		  "year":1967,
-		  "genre":"poprock"
+		  "author": "Jefferson Airplane (us)",
+		  "title": "Somebody to Love",
+		  "year": 1967,
+		  "genre": "poprock"
 	   },
 	   {
-		  "author":"Jefferson Airplane (us)",
-		  "title":"White Rabbit",
-		  "year":1967,
-		  "genre":"poprock"
+		  "author": "Jefferson Airplane (us)",
+		  "title": "White Rabbit",
+		  "year": 1967,
+		  "genre": "poprock"
 	   },
 	   {
-		  "author":"Buffalo Springfield (us)",
-		  "title":"For What It's Worth",
-		  "year":1967,
-		  "genre":"poprock"
+		  "author": "Buffalo Springfield (us)",
+		  "title": "For What It's Worth",
+		  "year": 1967,
+		  "genre": "poprock"
 	   },
 	   {
-		  "author":"the Rolling Stones (uk)",
-		  "title":"Paint It Black",
-		  "year":1966,
-		  "genre":"poprock"
+		  "author": "the Rolling Stones (uk)",
+		  "title": "Paint It Black",
+		  "year": 1966,
+		  "genre": "poprock"
 	   },
 	   {
-		  "author":"dutronc",
-		  "title":"L'Idole",
-		  "year":1966,
-		  "genre":"poprock"
+		  "author": "dutronc",
+		  "title": "L'Idole",
+		  "year": 1966,
+		  "genre": "poprock"
 	   },
 	   {
-		  "author":"The Troggs (uk)",
-		  "title":"Wild Thing",
-		  "year":1965,
-		  "genre":"poprock"
+		  "author": "The Troggs (uk)",
+		  "title": "Wild Thing",
+		  "year": 1965,
+		  "genre": "poprock"
 	   },
 	   {
-		  "author":"The Mamas and the Papas (us)",
-		  "title":"California Dreamin",
-		  "year":1965,
-		  "genre":"poprock"
+		  "author": "The Mamas and the Papas (us)",
+		  "title": "California Dreamin",
+		  "year": 1965,
+		  "genre": "poprock"
 	   },
 	   {
-		  "author":" The Animals (uk)",
-		  "title":"House of the Rising Sun",
-		  "year":1964,
-		  "genre":"poprock",
-		  "subgenre":"",
-		  "work":""
+		  "author": "The Animals (uk)",
+		  "title": "House of the Rising Sun",
+		  "year": 1964,
+		  "genre": "poprock",
+		  "subgenre": "",
+		  "work": ""
 	   },
 	   {
-		  "author":"Skeeter Davis (us)",
-		  "title":"End of the World",
-		  "year":1962,
-		  "genre":"poprock",
-		  "subgenre":"",
-		  "work":""
+		  "author": "Skeeter Davis (us)",
+		  "title": "End of the World",
+		  "year": 1962,
+		  "genre": "poprock",
+		  "subgenre": "",
+		  "work": ""
 	   },
 	   {
-		  "author":"Marty Robbins (us)",
-		  "title":"Big Iron",
-		  "year":1959,
-		  "genre":"poprock",
-		  "subgenre":"",
-		  "work":""
+		  "author": "Marty Robbins (us)",
+		  "title": "Big Iron",
+		  "year": 1959,
+		  "genre": "poprock",
+		  "subgenre": "",
+		  "work": ""
 	   },
 	   {
-		  "author":"Peggy Lee (us)",
-		  "title":"Johnny Guitar",
-		  "year":1954,
-		  "genre":"poprock",
-		  "subgenre":"",
-		  "work":""
+		  "author": "Peggy Lee (us)",
+		  "title": "Johnny Guitar",
+		  "year": 1954,
+		  "genre": "poprock",
+		  "subgenre": "",
+		  "work": ""
 	   },
 	   {
-		  "author":"The Andrew Sisters & Danny Kaye (us)",
-		  "title":"Civilization (Bongo, Bongo, Bongo)",
-		  "year":1947,
-		  "genre":"poprock",
-		  "subgenre":"",
-		  "work":""
+		  "author": "The Andrew Sisters & Danny Kaye (us)",
+		  "title": "Civilization (Bongo, Bongo, Bongo)",
+		  "year": 1947,
+		  "genre": "poprock",
+		  "subgenre": "",
+		  "work": ""
 	   },
 	   {
-		  "author":"The Ink Spots & Bill Kenny & Ella Fitzgerald (us)",
-		  "title":"Into Each Life Some Rain Must Fall",
-		  "year":1944,
-		  "genre":"poprock",
-		  "subgenre":"",
-		  "work":""
+		  "author": "The Ink Spots & Bill Kenny & Ella Fitzgerald (us)",
+		  "title": "Into Each Life Some Rain Must Fall",
+		  "year": 1944,
+		  "genre": "poprock",
+		  "subgenre": "",
+		  "work": ""
 	   },
 	   {
-		  "author":"The Ink Spots (us)",
-		  "title":"I Don't Want to Set the World on Fire",
-		  "year":1941,
-		  "genre":"poprock",
-		  "subgenre":"",
-		  "work":""
+		  "author": "The Ink Spots (us)",
+		  "title": "I Don't Want to Set the World on Fire",
+		  "year": 1941,
+		  "genre": "poprock",
+		  "subgenre": "",
+		  "work": ""
 	   },
 	   {
-		  "author":"porter",
-		  "title":"Anything goes",
-		  "year":1934,
-		  "genre":"poprock",
-		  "subgenre":"",
-		  "work":""
+		  "author": "porter",
+		  "title": "Anything goes",
+		  "year": 1934,
+		  "genre": "poprock",
+		  "subgenre": "",
+		  "work": ""
 	   }
 	]
  }
