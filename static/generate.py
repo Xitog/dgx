@@ -25,31 +25,37 @@ logging.getLogger().setLevel(logging.DEBUG)
 
 # Mono file
 
-do('blog.hml')
-do('index.hml')
-do('plan.hml')
-do('tests.hml')
+targets = ['blog.hml',
+           'index.hml',
+           'plan.hml',
+           'tests.hml',
 
-do('histoire/bibliographie.hml')
-do('histoire/france19eme.hml')
-do('histoire/methode.hml')
+           'histoire/bibliographie.hml',
+           'histoire/france19eme.hml',
+           'histoire/methode.hml',
 
-do('informatique/ash_guide.hml')
-do('informatique/bnf.hml')
-do('informatique/hamill.hml')
-do('informatique/json.hml')
-do('informatique/lua.hml')
-do('informatique/python.hml')
-do('informatique/tools_langs.hml')
-do('informatique/version_control.hml')
+           'informatique/ash_guide.hml',
+           'informatique/bnf.hml',
+           'informatique/hamill.hml',
+           'informatique/json.hml',
+           'informatique/lua.hml',
+           'informatique/python.hml',
+           'informatique/tools_langs.hml',
+           'informatique/version_control.hml',
 
-do('passetemps/history_fps_references_en.hml')
-do('passetemps/history_fps_tables_en.hml')
-do('passetemps/history_rts.hml')
-do('passetemps/pres_favoris.hml')
-do('passetemps/pres_jeux.hml')
-do('passetemps/pres_jeuxvideo.hml')
-do('passetemps/tech_dialogues.hml')
-do('passetemps/tech_raycasting_en.hml')
-do('passetemps/tech_raycasting_fr.hml')
-do('passetemps/tech_transitions.hml')
+           'passetemps/history_fps_references_en.hml',
+           'passetemps/history_fps_tables_en.hml',
+           'passetemps/history_rts.hml',
+           'passetemps/pres_favoris.hml',
+           'passetemps/pres_jeux.hml',
+           'passetemps/pres_jeuxvideo.hml',
+           'passetemps/tech_dialogues.hml',
+           'passetemps/tech_raycasting_en.hml',
+           'passetemps/tech_raycasting_fr.hml',
+           'passetemps/tech_transitions.hml'
+           ]
+
+targets = ['passetemps/pres_jeuxvideo.hml']
+
+for t in targets:
+    do(t)
