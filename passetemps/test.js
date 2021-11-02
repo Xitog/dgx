@@ -15,9 +15,9 @@ function callback(status, response)
 {
     //console.log(status);
     //console.log(response);
-    class_by(response, 'genre');
-    class_by(response, 'author');
-    class_by(response, 'year');
+    class_by('t1', response, 'genre');
+    class_by('t2', response, 'author');
+    class_by('t3', response, 'year');
 }
 
 function getProperty(code, type, property, data)
@@ -30,52 +30,70 @@ function getProperty(code, type, property, data)
     }
 }
 
-function class_by(data, criterion)
+function class_by(target, data, criterion1, criterion2 = null)
 {
     //console.log('class by: ' + criterion)
     // Classify
     let values = {};
     for (let song of data['titles'])
     {
-        if (!values.hasOwnProperty(song[criterion]))
+        if (!values.hasOwnProperty(song[criterion1]))
         {
-            values[song[criterion]] = [];
+            values[song[criterion1]] = [];
         }
-        values[song[criterion]].push(song);
+        values[song[criterion1]].push(song);
+    }
+    if (criterion2 !== null)
+    {
+        //for (let val of Object.keys(values).sort())
+        //{
+        //    
+        //}
     }
     // Display
-    let tree = document.getElementById("tree");
-    for (let val of Object.keys(values).sort())
+    let tree = document.getElementById(target);
+    // Order
+    let values_names = {};
+    for (let val of Object.keys(values))
     {
-
+        let o = getProperty(val, criterion1 + "s", "name", data);
+        values_names[o] = val;
+    }
+    for (let name of Object.keys(values_names).sort())
+    {
+        let key =values_names[name];
         // <b>Auteur</b> (naissance-mort) (code iso 2 nationalité)
         let li = document.createElement("li");
-        li.setAttribute('id', val);
-        //console.log(getProperty(genre, criterion + "s", "name", data));
+        li.setAttribute('id', key);
         let bt = document.createElement("button");
         bt.setAttribute('class', 'tree');
-        bt.setAttribute('id', 'bt' + val);
+        bt.setAttribute('id', 'bt' + key);
         bt.setAttribute('type', 'button');
-        bt.setAttribute('onclick', "set_visible('bt" + val + "', '"+ val + "')");
+        bt.setAttribute('onclick', "set_visible('bt" + key + "', '"+ key + "')");
         bt.innerText = '+';
         li.appendChild(bt);
         let span = document.createElement("span");
-        span.innerText = getProperty(val, criterion + "s", "name", data) + " (" + values[val].length + ")";
+        span.innerText = getProperty(key, criterion1 + "s", "name", data) + " (" + values[key].length + ")";
         li.appendChild(span);
         let ul = document.createElement("ul");
         ul.setAttribute('class', 'sub');
         li.appendChild(ul);
-        for (let song of values[val])
+        for (let song of values[key])
         {
             let lis = document.createElement("li");
             if (song["title"] !== "<album>")
             {
-                lis.innerText = song["title"] + " from " + song["work"];
+                let txt = song["title"];
+                if (song["work" !== ""])
+                {
+                    txt += " from " + song["work"];
+                }
+                lis.innerText = txt;
             } else {
                 lis.innerText = song["work"];
             }
             lis.innerText += " (" + song["year"] + ")";
-            if (criterion !== 'author')
+            if (criterion1 !== 'author')
             {
                 lis.innerText += " - " + getProperty(song["author"], "authors", "name", data);
             }

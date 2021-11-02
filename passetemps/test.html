@@ -3,7 +3,7 @@
         <meta charset="utf8">
         <script type="text/javascript" src="test.js"></script>
         <style>
-            #tree {
+            ul.root {
                 list-style-type: none;
             }
 
@@ -83,8 +83,13 @@
         </script>
     </head>
     <body onload="main()">
-        <ul id="tree">
-
-        </ul>
+        <div id="trees">
+            <h1>Par genre</h1>
+            <ul class="root" id="t1"></ul>
+            <h1>Par compositeur ou interprète</h1>
+            <ul class="root" id="t2"></ul>
+            <h1>Par année</h1>
+            <ul class="root" id="t3"></ul>
+        </div>
     </body>
 </html>

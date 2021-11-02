@@ -9,80 +9,6 @@
     <link rel="shortcut icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
     <link href="https://xitog.github.io/dgx/css/simplex.bootstrap.css" rel="stylesheet">
     <link href="https://xitog.github.io/dgx/css/palatino.css" rel="styleSheet" type="text/css">
-    <style>
-        ul.sub {
-            display: none;
-        }
-
-        button.tree {
-            background-color:#7892c2;
-            border:1px solid #4e6096;
-            display:inline-block;
-            cursor:pointer;
-            color:#ffffff;
-            font-family:Arial;
-            font-size:10px;
-            padding:0px 4px;
-            text-decoration:none;
-            height: 16px;
-            width: 16px;
-        }
-        button.tree:hover {
-            background-color:#476e9e;
-        }
-        button.tree:active {
-            position:relative;
-            top:1px;
-        }
-
-    </style>
-    <script>
-        function change(e, val, sub) {
-            if (e.hasChildNodes()) {
-                for (var i = 0; i < e.children.length; i++) {
-                    if (e.children[i].localName === "ul") {
-                        e.children[i].style.display = val;
-                        if (!sub) { break; }
-                    } else if (e.children[i].localName == "button" && e.children[i].className == "tree") {
-                        if (val == 'block') {
-                            e.children[i].innerHTML = '-';
-                        } else {
-                            e.children[i].innerHTML = '+';
-                        }
-                    }
-                    if (sub) {
-                        change(e.children[i], val, true);
-                    }
-                }
-            }
-        }
-
-        function set_visible_all(bt, id) {
-            var bt = document.getElementById(bt);
-            var val = 'block';
-            if (bt.innerHTML === '+') {
-                bt.innerHTML = '-';
-            } else {
-                bt.innerHTML = '+';
-                val = 'none';
-            }
-            var root = document.getElementById(id);
-            change(root, val, true);
-        }
-
-        function set_visible(bt, id) {
-            var bt = document.getElementById(bt);
-            var val = 'block';
-            if (bt.innerHTML === '+') {
-                bt.innerHTML = '-';
-            } else {
-                bt.innerHTML = '+';
-                val = 'none';
-            }
-            var root = document.getElementById(id);
-            change(root, val, false);
-        }
-    </script>
   </head>
   <body>
     <div id="main" class="container">
@@ -90,13 +16,6 @@
         <h1 id="collection">Favoris musicaux</h1>
         <p id="intro">Une présentation des musiques.</p>
         <p>Création : le 17 octobre 2019 | Dernière mise-à-jour : le 15 janvier 2020 | Auteur : Damien Gouteux</p>
-
-
-        <li id="code"><button class="tree" id="btcode" type="button" onclick="set_visible('btcode', 'code')">+</button><b>Auteur</b> (naissance-mort) (code iso 2 nationalité)
-          <ul class="sub">
-            <li>Titre (année)</li>
-          </ul>
-        </li>
 
         <button class="tree" id="btall" type="button" onclick="set_visible_all('btall', 'all')">+</button> Afficher tout
         <ul id="all">

@@ -184,7 +184,14 @@
 		   "death":  0,
 		   "country":  "",
 		   "genre":  ""
-	   }
+	   },
+       "rolling_stones": {
+		   "name": "The Rolling Stones",
+		   "born":  0,
+		   "death":  0,
+		   "country":  "uk",
+		   "genre":  ""
+       }
 	},
 	"titles": [
 	   {
@@ -705,7 +712,7 @@
 		  "genre": "poprock"
 	   },
 	   {
-		  "author": "the Rolling Stones",
+		  "author": "rolling_stones",
 		  "title": "Sympathy for the Devil",
 		  "year": 1968,
 		  "genre": "poprock"
@@ -735,7 +742,7 @@
 		  "genre": "poprock"
 	   },
 	   {
-		  "author": "the Rolling Stones (uk)",
+		  "author": "rolling_stones",
 		  "title": "Paint It Black",
 		  "year": 1966,
 		  "genre": "poprock"
