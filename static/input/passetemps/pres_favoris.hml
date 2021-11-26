@@ -5,6 +5,12 @@
 !require https://xitog.github.io/dgx/css/palatino.css
 !require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
 !require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+!require pres_favoris.js
+
+!css ul.root { list-style-type: none; }
+!css button.tree { background-color:#7892c2; border:1px solid #4e6096; display:inline-block; cursor:pointer; color:#ffffff; font-family:Arial; font-size:10px; padding:0px 4px; text-decoration:none; height: 16px; width: 16px; margin-right: 1em; }
+!css button.tree:hover { background-color:#476e9e; }
+!css button.tree:active { position:relative; top:1px; }
 
 {{#main .container}}
 
@@ -68,7 +74,7 @@ On note quelques récurrences intéressantes parmi mes films cultes :
 |*| **À la poursuite d'Octobre Rouge / The Hunt for Red October**                 |  1990 | Techno-Thriller    | John McTiernan      | Basil Poledouris                                     |
 | | Alien, le 8e passager / Alien                                                 |  1979 | Science-Fiction    | Ridley Scott        | Jerry Goldsmith                                      |
 |*| **Aliens, le retour / Aliens**                                                |  1986 | Science-Fiction    | James Cameron       | James Horner                                         |
-| | Au service secret de Sa Majesté / On Her Majesty's Secret Service             |  1969 | Action             | Peter Hunt          | John Barry                                           | 
+| | Au service secret de Sa Majesté / On Her Majesty's Secret Service             |  1969 | Action             | Peter Hunt          | John Barry                                           |
 |*| **(La) Chute du faucon noir / Black Hawk Down**                               |  2001 | Guerre             | Ridley Scott        | Hans Zimmer                                          |
 | | Black Swan                                                                    |  2010 | Thriller           | Darren Aronofsky    | Clint Mansell et Piotr Ilitch Tchaïkovski            |
 | | Blade                                                                         |  1998 | Fantastique        | Stephen Norrington  | Mark Isham                                           |
@@ -140,35 +146,20 @@ On note quelques récurrences intéressantes parmi mes films cultes :
 
 ## Musiques
 
-* Mes compositeurs préférés :
-* * Tchaïkovski
-* * Dvorák
-* Musiques préférées :
-* * Classique
-* * * Concerto pour violon en ré majeur (1878), concerto, Tchaïkovski, op. 35
-* * * Le Lac des cygnes (1876), ballet, Tchaïkovski, op. 20
-* * * Symphonie no 9 en mi mineur « du Nouveau Monde », B. 178 (1893), symphonie, Dvorák, 95
-* * * Concerto pour violoncelle en si mineur, B. 191 (1895), concerto, Dvorák, 104
-* * * Un requiem allemand, requiem, Brahms
-* * * Requiem (Dies Irae), requiem, Verdi
-* * * Symphonie Fantastique, symphonie, Berlioz
-* * * Suite de l'Arlésienne, symphonique, Bizet
-* * * La Jeune fille de Perth (Marche), symphonique, Bizet
-* * * Carmen, opéra, Bizet
-* * * 1812 overture, symphonique, Tchaïkovsky
-* * * Symphonie no 7, symphonique, Dvorák
-* * * Symphonie no 8, symphonique, Dvorák
-* * * Danse Salves 5, 6, 7, symphonique, Dvorák
-* * * Symphonie 7, 9, symphonique, Beethoven
-* * * Les 4 Saisons, symphonique, Vivaldi
-* * * Concerto pour violon, concerto, Mendelssohn, 64
-* * Pop
-* * * C'est une poupée qui fait non, Polnaref
-* * * Maxime le Forestier
-* * * Night, Zola Jesus
-* * * No End, The Ark
-* * * Seraphim, Dead Can Dance
-* * * Mr PT1000, Soap & Skin
+Pour la musique classique, mes compositeurs favoris sont le russe Tchaïkovski et le tchèque Dvorák, tous les deux ayant donné de belles très œuvres dans le genre de la musique symphonique du XIX^^e^^.
+
+Pour la musique de films, je voue un véritable culte à Basil Poledouris (1945-2006) et John Williams (1932-), dont les compositions transcendent les films pour être de véritables œuvres indépendantes.
+
+!html <script>document.body.onload = main;</script>
+!html <button onclick="hide_all();">Tout masquer</button> <button onclick="show_all();">Tout montrer</button>
+!html <div id="trees">
+!html     <h3>Par genre</h3>
+!html     <ul class="root" id="t1"></ul>
+!html     <h3>Par compositeur ou interprète</h3>
+!html     <ul class="root" id="t2"></ul>
+!html     <h3>Par année</h3>
+!html     <ul class="root" id="t3"></ul>
+!html </div>
 
 {{end}}
 {{end}}

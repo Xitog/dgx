@@ -17,203 +17,443 @@
 		}
 	},
 	"authors": {
-	   "dvorak": {
-		  "name": "Antonín Dvořák",
-		  "born": 1841,
-		  "death": 1904,
-		  "country": "cs",
-		  "genre": "classical"
-	   },
-	   "tchaikovski": {
-		  "name": "Piotr Ilitch Tchaïkovski",
-		  "born": 1840,
-		  "death": 1893,
-		  "country": "ru",
-		  "genre": "classical"
-	   },
-	   "verdi": {
-		  "name": "Giuseppe Verdi",
-		  "born": 1813,
-		  "death": 1901,
-		  "country": "it",
-		  "genre": "classical"
-	   },
-	   "wagner": {
-		  "name": "Richard Wagner",
-		  "born": 1813,
-		  "death": 1883,
-		  "country": "de",
-		  "genre": "classical"
-	   },
-	   "bizet": {
+		"dvorak": {
+			"name": "Antonín Dvořák",
+			"born": 1841,
+			"death": 1904,
+			"country": "cs",
+			"genre": "classical"
+		},
+		"tchaikovski": {
+			"name": "Piotr Ilitch Tchaïkovski",
+			"born": 1840,
+			"death": 1893,
+			"country": "ru",
+			"genre": "classical"
+		},
+		"verdi": {
+			"name": "Giuseppe Verdi",
+			"born": 1813,
+			"death": 1901,
+			"country": "it",
+			"genre": "classical"
+		},
+		"wagner": {
+			"name": "Richard Wagner",
+			"born": 1813,
+			"death": 1883,
+			"country": "de",
+			"genre": "classical"
+		},
+		"bizet": {
 		  "name": "Georges Bizet",
-		  "born": 0,
-		  "death": 0,
+		  "born": 1838,
+		  "death": 1875,
 		  "country": "fr",
 		  "genre": "classical"
 	   },
-	   "poledouris": {
-		  "name": "Basil Poledouris",
-		  "born": 0,
-		  "death": 0,
-		  "country": "us",
-		  "genre": "soundtrack"
+		"beethoven": {
+			"name": "Beethoven",
+			"born": 0,
+			"death": 0,
+			"country": "de",
+			"genre": "classical"
+		},
+		"berlioz": {
+			"name": "Hector Berlioz",
+			"born": 1803,
+			"death": 1869,
+			"country": "fr",
+			"genre": "classical"
+		},
+		"brahms": {
+			"name": "Brahms",
+			"born": 0,
+			"death": 0,
+			"country": "de",
+			"genre": "classical"
+		},
+		"mendelssohn": {
+			"name": "Mendelssohn",
+			"born": 0,
+			"death": 0,
+			"country": "",
+			"genre": "classical"
+		},
+		"vivaldi": {
+			"name": "Vivaldi",
+			"born": 0,
+			"death": 0,
+			"country": "",
+			"genre": "classical"
+		},
+		"poledouris": {
+			"name": "Basil Poledouris",
+			"born": 0,
+			"death": 0,
+			"country": "us",
+			"genre": "soundtrack"
+		},
+		"fiedel": {
+			"name": "Brad Fiedel",
+			"born": 0,
+			"death": 0,
+			"country": "us",
+			"genre": "soundtrack"
+		},
+		"tyler": {
+			"name": "Brian Tyler",
+			"born": 0,
+			"death": 0,
+			"country": "us",
+			"genre": "soundtrack"
+		},
+		"mansell": {
+			"name": "Clint Mansell",
+			"born": 0,
+			"death": 0,
+			"country": "uk",
+			"genre": "soundtrack"
+		},
+		"delerue": {
+			"name": "Georges Delerue",
+			"born": 0,
+			"death": 0,
+			"country": "uk",
+			"genre": "soundtrack"
+		},
+		"mccann": {
+			"name": "Michael McCann",
+			"born": 0,
+			"death": 0,
+			"country": "ca",
+			"genre": "soundtrack"
+		},
+		"wall": {
+			"name": "Jack Wall",
+			"born": 0,
+			"death": 0,
+			"country": "us",
+			"genre": "soundtrack"
+		},
+		"tweaker": {
+			"name": "Tweaker",
+			"born": 0,
+			"death": 0,
+			"country": "us",
+			"genre": "soundtrack"
+		},
+		"porter": {
+			"name": "Cole Porter",
+			"born": 0,
+			"death": 0,
+			"country": "us",
+			"genre": ""
+		},
+		"eriksson": {
+			"name": "Joel Eriksson",
+			"born": 0,
+			"death": 0,
+			"country": "sv",
+			"genre": "soundtrack"
+		},
+		"zimmer": {
+			"name": "Hans Zimmer",
+			"born": 0,
+			"death": 0,
+			"country": "",
+			"genre": "soundtrack"
+		},
+		"horner": {
+			"name": "James Horner",
+			"born": 0,
+			"death": 0,
+			"country": "",
+			"genre": "soundtrack"
+		},
+		"jarre": {
+			"name": "Jean-Michel Jarre",
+			"born": 0,
+			"death": 0,
+			"country": "fr",
+			"genre": "électro"
+		},
+		"pantera": {
+			"name": "Pantera",
+			"born": 0,
+			"death": 0,
+			"country": "us",
+			"genre": "metal"
+		},
+		"rammstein": {
+			"name": "Rammstein",
+			"born": 0,
+			"death": 0,
+			"country": "de",
+			"genre": "metal"
+		},
+		"nightwish": {
+			"name": "Nightwish",
+			"born": 0,
+			"death": 0,
+			"country": "fi",
+			"genre": "metal"
+		},
+		"dutronc": {
+			"name": "Jacques Dutronc",
+			"born": 0,
+			"death": 0,
+			"country": "fr",
+			"genre": ""
+		},
+		"williams": {
+			"name": "John Williams",
+			"born": 0,
+			"death": 0,
+			"country": "us",
+			"genre": ""
+		},
+		"goldsmith": {
+			"name": "Jerry Goldsmith",
+			"born":  0,
+			"death":  0,
+			"country":  "",
+			"genre":  ""
+		},
+		"rolling_stones": {
+			"name": "The Rolling Stones",
+			"born":  0,
+			"death":  0,
+			"country":  "uk",
+			"genre":  ""
+		},
+		"ccr": {
+			"name": "Creedence Clearwater Revival",
+			"born": 0,
+			"death": 0,
+			"country": "us",
+			"genre": ""
+		},
+		"rex": {
+			"name": "T. Rex",
+			"born": 0,
+			"death": 0,
+			"country": "uk",
+			"genre": ""
+		},
+		"kinks": {
+			"name": "The Kinks",
+			"born": 0,
+			"death": 0,
+			"country": "uk",
+			"genre": ""
 	   },
-	   "fiedel": {
-		  "name": "Brad Fiedel",
-		  "born": 0,
-		  "death": 0,
-		  "country": "us",
-		  "genre": "soundtrack"
+		"starr": {
+			"name": "Edwin Starr",
+			"born": 0,
+			"death": 0,
+			"country": "us",
+			"genre": ""
 	   },
-	   "tyler": {
-		  "name": "Brian Tyler",
-		  "born": 0,
-		  "death": 0,
-		  "country": "us",
-		  "genre": "soundtrack"
+		"bowie": {
+			"name": "David Bowie",
+			"born": 0,
+			"death": 0,
+			"country": "uk",
+			"genre": ""
+		},
+		"newton": {
+			"name": "Juice Newton",
+			"born": 0,
+			"death": 0,
+			"country": "",
+			"genre": ""
+		},
+		"rush": {
+			"name": "Merrilee Rush",
+			"born": 0,
+			"death": 0,
+			"country": "us",
+			"genre": ""
+		},
+		"hazlewood_sinatra": {
+			"name": "Lee Hazlewood & Nancy Sinatra",
+			"born": 0,
+			"death": 0,
+			"country": "us",
+			"genre": ""
+		},
+		"jefferson_airplane": {
+			"name": "Jefferson Airplane",
+			"born": 0,
+			"death": 0,
+			"country": "us",
+			"genre": ""
+		},
+		"buffalo_springfield": {
+			"name": "Buffalo Springfield",
+			"born": 0,
+			"death": 0,
+			"country": "us",
+			"genre": ""
+		},
+		"troggs": {
+			"name": "The Troggs",
+			"born": 0,
+			"death": 0,
+			"country": "",
+			"genre": "uk"
+		},
+		"mamas_and_papas": {
+			"name": "The Mamas and the Papas",
+			"born": 0,
+			"death": 0,
+			"country": "us",
+			"genre": ""
+		},
+		"animals": {
+			"name": "The Animals",
+			"born": 0,
+			"death": 0,
+			"country": "uk",
+			"genre": ""
+		},
+		"davis": {
+			"name": "Skeeter Davis",
+			"born": 0,
+			"death": 0,
+			"country": "us",
+			"genre": ""
+		},
+		"robbins": {
+			"name": "Marty Robbins",
+			"born": 0,
+			"death": 0,
+			"country": "us",
+			"genre": ""
+		},
+		"lee": {
+			"name": "Peggy Lee",
+			"born": 0,
+			"death": 0,
+			"country": "us",
+			"genre": ""
+		},
+		"andrew_sisters": {
+			"name": "The Andrew Sisters & Danny Kaye",
+			"born": 0,
+			"death": 0,
+			"country": "us",
+			"genre": ""
+		},
+		"ink_spots": {
+			"name": "The Ink Spots",
+			"born": 0,
+			"death": 0,
+			"country": "us",
+			"genre": ""
 	   },
-	   "mansell": {
-		  "name": "Clint Mansell",
-		  "born": 0,
-		  "death": 0,
-		  "country": "uk",
-		  "genre": "soundtrack"
-	   },
-	   "delerue": {
-		  "name": "Georges Delerue",
-		  "born": 0,
-		  "death": 0,
-		  "country": "uk",
-		  "genre": "soundtrack"
-	   },
-	   "mccann": {
-		  "name": "Michael McCann",
-		  "born": 0,
-		  "death": 0,
-		  "country": "ca",
-		  "genre": "soundtrack"
-	   },
-	   "wall": {
-		  "name": "Jack Wall",
-		  "born": 0,
-		  "death": 0,
-		  "country": "us",
-		  "genre": "soundtrack"
-	   },
-	   "tweaker": {
-		  "name": "Tweaker",
-		  "born": 0,
-		  "death": 0,
-		  "country": "us",
-		  "genre": "soundtrack"
-	   },
-	   "porter": {
-		  "name": "Cole Porter",
-		  "born": 0,
-		  "death": 0,
-		  "country": "us",
-		  "genre": ""
-	   },
-	   "eriksson": {
-		  "name": "Joel Eriksson",
-		  "born": 0,
-		  "death": 0,
-		  "country": "sv",
-		  "genre": "soundtrack"
-	   },
-	   "zimmer": {
-		  "name": "Hans Zimmer",
-		  "born": 0,
-		  "death": 0,
-		  "country": "",
-		  "genre": "soundtrack"
-	   },
-	   "horner": {
-		  "name": "James Horner",
-		  "born": 0,
-		  "death": 0,
-		  "country": "",
-		  "genre": "soundtrack"
-	   },
-	   "jarre": {
-		  "name": "Jean-Michel Jarre",
-		  "born": 0,
-		  "death": 0,
-		  "country": "fr",
-		  "genre": "électro"
-	   },
-	   "pantera": {
-		  "name": "Pantera",
-		  "born": 0,
-		  "death": 0,
-		  "country": "us",
-		  "genre": "metal"
-	   },
-	   "rammstein": {
-		  "name": "Rammstein",
-		  "born": 0,
-		  "death": 0,
-		  "country": "de",
-		  "genre": "metal"
-	   },
-	   "nightwish": {
-		  "name": "Nightwish",
-		  "born": 0,
-		  "death": 0,
-		  "country": "fi",
-		  "genre": "metal"
-	   },
-	   "dutronc": {
-		  "name": "Jacques Dutronc",
-		  "born": 0,
-		  "death": 0,
-		  "country": "fr",
-		  "genre": ""
-	   },
-	   "williams": {
-		   "name": "John Williams",
-		   "born": 0,
-		   "death": 0,
-		   "country": "us",
-		   "genre": ""
-	   },
-	   "goldsmith": {
-		   "name": "Jerry Goldsmith",
-		   "born":  0,
-		   "death":  0,
-		   "country":  "",
-		   "genre":  ""
-	   },
-       "rolling_stones": {
-		   "name": "The Rolling Stones",
-		   "born":  0,
-		   "death":  0,
-		   "country":  "uk",
-		   "genre":  ""
-       }
+		"polnaref": {
+			"name": "Polnaref",
+			"born": 0,
+			"death": 0,
+			"country": "fr",
+			"genre": ""
+		},
+		"forestier": {
+			"name": "Maxime le Forester",
+			"born": 0,
+			"death": 0,
+			"country": "fr",
+			"genre": ""
+		},
+		"jesus": {
+			"name": "Zola Jesus",
+			"born": 0,
+			"death": 0,
+			"country": "",
+			"genre": ""
+		},
+		"ark": {
+			"name": "The Ark",
+			"born": 0,
+			"death": 0,
+			"country": "",
+			"genre": ""
+		},
+		"dead_can_dance": {
+			"name": "Dead Can Dance",
+			"born": 0,
+			"death": 0,
+			"country": "",
+			"genre": ""
+		},
+		"soap_skin": {
+			"name": "Soap & Skin",
+			"born": 0,
+			"death": 0,
+			"country": "",
+			"genre": ""
+		}
 	},
 	"titles": [
-	   {
-		  "author": "bizet",
-		  "title": "Carmen",
-		  "year": 1875,
-		  "genre": "classical",
-		  "subgenre": "opera"
-	   },
-	   {
-		  "author": "bizet",
-		  "title": "L’Arlésienne – Suites n°1 et n°2",
-		  "year": 1872,
-		  "genre": "classical",
-		  "subgenre": "opera"
-	   },
-	   {
+		{
+			"author": "beethoven",
+			"title": "Symphonie n°7",
+			"year": 0,
+			"genre": "classical",
+			"subgenre": "symphonic"
+		},
+		{
+			"author": "beethoven",
+			"title": "Symphonie n°9",
+			"year": 0,
+			"genre": "classical",
+			"subgenre": "symphonic"
+		},
+		{
+			"author": "bizet",
+			"title": "Carmen",
+			"year": 1875,
+			"genre": "classical",
+			"subgenre": "opera"
+		},
+		{
+			"author": "bizet",
+			"title": "L’Arlésienne – Suites n°1 et n°2",
+			"year": 1872,
+			"genre": "classical",
+			"subgenre": "opera"
+		},
+		{
+			"author": "bizet",
+			"title": "La Jolie Fille de Perth (Marche)",
+			"year": 1866,
+			"genre": "classical",
+			"subgenre": "opera"
+		},
+		{
+			"author": "berlioz",
+			"title": "Symphonie Fantastique",
+			"opus": 14,
+			"year": 1830,
+			"genre": "classical",
+			"subgenre": "symphonic"
+		},
+		{
+			"author": "brahms",
+			"title": "Un requiem allemand",
+			"opus": 45,
+			"year": 1868,
+			"genre": "classical",
+			"subgenre": "sacred"
+		},
+		{
 		  "author": "dvorak",
 		  "title": "Symphonie n°7",
 		  "year": 1885,
 		  "genre": "classical",
-		  "subgenre": "symphony"
+		  "subgenre": "symphonic"
 	   },
 	   {
 		  "author": "dvorak",
@@ -222,28 +462,45 @@
 			 1878,
 			 1886
 		  ],
-		  "genre": "classical"
+		  "genre": "classical",
+		  "subgenre": "symphonic",
+		  "note": "Surtout les 5, 6 et 7"
 	   },
 	   {
+		"author": "dvorak",
+		"title": "Symphonie n°7 en ré mineur",
+		"opus": 70,
+		"num": ["B. 141"],
+		"year": [1884, 1885],
+		"genre": "classical",
+		"subgenre": "symphonic"
+	 },
+	   {
 		  "author": "dvorak",
-		  "title": "Symphonie n°8",
+		  "title": "Symphonie n°8 en sol majeur",
+		  "opus": 88,
+		  "num": ["B. 163"],
 		  "year": 1890,
 		  "genre": "classical",
-		  "subgenre": "symphony"
+		  "subgenre": "symphonic"
 	   },
 	   {
 		  "author": "dvorak",
-		  "title": "Symphonie n°9 « du Nouveau Monde »",
+		  "title": "Symphonie n°9 en mi mineur « du Nouveau Monde »",
+		  "opus": "95",
+		  "num": ["B. 178"],
 		  "year": 1893,
 		  "genre": "classical",
-		  "subgenre": "symphony"
+		  "subgenre": "symphonic"
 	   },
 	   {
 		  "author": "dvorak",
-		  "title": "Concerto pour violoncelle",
+		  "title": "Concerto pour violoncelle en si mineur",
+		  "opus": "104",
+		  "num": ["B. 191"],
 		  "year": 1895,
 		  "genre": "classical",
-		  "subgenre": "concerto"
+		  "subgenre": "symphonic"
 	   },
 	   {
 		  "author": "dvorak",
@@ -253,24 +510,34 @@
 		  "subgenre": "opera"
 	   },
 	   {
+		   "author": "mendelssohn",
+		   "title": "Concerto pour violon",
+		   "year": "",
+		   "genre": "classical",
+		   "subgenre": "symphonic"
+	   },
+	   {
 		  "author": "tchaikovski",
 		  "title": "Le Lac des cygnes",
-		  "year": 1877,
+		  "opus": 20,
+		  "year": [1875, 1876],
 		  "genre": "classical",
 		  "subgenre": "ballet"
 	   },
 	   {
 		  "author": "tchaikovski",
-		  "title": "Concerto pour violon",
-		  "year": 1881,
+		  "title": "Concerto pour violon en ré majeur",
+		  "opus": 35,
+		  "year": 1878,
 		  "genre": "classical",
-		  "subgenre": "concerto"
+		  "subgenre": "symphonic"
 	   },
 	   {
 		  "author": "tchaikovski",
 		  "title": "Ouverture 1812",
 		  "year": 1882,
-		  "genre": "classical"
+		  "genre": "classical",
+		  "subgenre": "symphonic"
 	   },
 	   {
 		  "author": "tchaikovski",
@@ -302,11 +569,18 @@
 	   },
 	   {
 		  "author": "verdi",
-		  "title": "Messa da requiem",
+		  "title": "Messa da requiem (Dies Irae)",
 		  "year": 1874,
 		  "genre": "classical",
-		  "subgenre": "requiem"
+		  "subgenre": "sacred"
 	   },
+	   {
+		"author": "vivaldi",
+		"title": "Les 4 saisons",
+		"year": 0,
+		"genre": "classical",
+		"subgenre": "symphonic"
+	 },
 	   {
 		  "author": "wagner",
 		  "title": "Tannhäuser",
@@ -388,7 +662,7 @@
 	   },
 	   {
 		  "author": "tyler",
-		  "title": "Theme",
+		  "title": "<album>",
 		  "year": 2012,
 		  "genre": "ost",
 		  "subgenre": "videogame",
@@ -638,7 +912,7 @@
 		  "work": "Oxygène"
 	   },
 	   {
-		  "author": "T. Rex (uk)",
+		  "author": "rex",
 		  "title": "Get It On",
 		  "year": 1971,
 		  "genre": "poprock",
@@ -646,7 +920,7 @@
 		  "work": ""
 	   },
 	   {
-		  "author": "The Kinks (uk)",
+		  "author": "kinks",
 		  "title": "Lola",
 		  "year": 1970,
 		  "genre": "poprock",
@@ -654,7 +928,7 @@
 		  "work": ""
 	   },
 	   {
-		  "author": "Edwin Starr (us)",
+		  "author": "starr",
 		  "title": "War",
 		  "year": 1970,
 		  "genre": "poprock",
@@ -662,21 +936,22 @@
 		  "work": ""
 	   },
 	   {
-		  "author": "Creedence Clearwater Revival (reprise) (us)",
+		  "author": "ccr",
 		  "title": "I Heard It Through the Grapevine",
 		  "year": 1970,
 		  "genre": "poprock",
 		  "subgenre": "",
-		  "work": ""
+		  "work": "",
+		  "note": "reprise"
 	   },
 	   {
-		  "author": "David Bowie (uk)",
+		  "author": "bowie",
 		  "title": "Space Oddity",
 		  "year": 1969,
 		  "genre": "poprock"
 	   },
 	   {
-		  "author": "Creedence Clearwater Revival (us)",
+		  "author": "ccr",
 		  "title": "Fortunate Son",
 		  "year": 1969,
 		  "genre": "poprock"
@@ -700,13 +975,13 @@
 		  "genre": "poprock"
 	   },
 	   {
-		  "author": "Juice Newton's",
+		  "author": "newton",
 		  "title": "Angel of the Morning",
 		  "year": 1981,
 		  "genre": "poprock"
 	   },
 	   {
-		  "author": "Merrilee Rush (us)",
+		  "author": "rush",
 		  "title": "Angel of the Morning",
 		  "year": 1968,
 		  "genre": "poprock"
@@ -718,25 +993,25 @@
 		  "genre": "poprock"
 	   },
 	   {
-		  "author": "Lee Hazlewood & Nancy Sinatra (us)",
+		  "author": "hazlewood_sinatra",
 		  "title": " Some Velvet Morning",
 		  "year": 1967,
 		  "genre": "poprock"
 	   },
 	   {
-		  "author": "Jefferson Airplane (us)",
+		  "author": "jefferson_airplane",
 		  "title": "Somebody to Love",
 		  "year": 1967,
 		  "genre": "poprock"
 	   },
 	   {
-		  "author": "Jefferson Airplane (us)",
+		  "author": "jefferson_airplane",
 		  "title": "White Rabbit",
 		  "year": 1967,
 		  "genre": "poprock"
 	   },
 	   {
-		  "author": "Buffalo Springfield (us)",
+		  "author": "buffalo_springfield",
 		  "title": "For What It's Worth",
 		  "year": 1967,
 		  "genre": "poprock"
@@ -754,19 +1029,19 @@
 		  "genre": "poprock"
 	   },
 	   {
-		  "author": "The Troggs (uk)",
+		  "author": "troggs",
 		  "title": "Wild Thing",
 		  "year": 1965,
 		  "genre": "poprock"
 	   },
 	   {
-		  "author": "The Mamas and the Papas (us)",
+		  "author": "mamas_and_papas",
 		  "title": "California Dreamin",
 		  "year": 1965,
 		  "genre": "poprock"
 	   },
 	   {
-		  "author": "The Animals (uk)",
+		  "author": "animals",
 		  "title": "House of the Rising Sun",
 		  "year": 1964,
 		  "genre": "poprock",
@@ -774,7 +1049,7 @@
 		  "work": ""
 	   },
 	   {
-		  "author": "Skeeter Davis (us)",
+		  "author": "davis",
 		  "title": "End of the World",
 		  "year": 1962,
 		  "genre": "poprock",
@@ -782,7 +1057,7 @@
 		  "work": ""
 	   },
 	   {
-		  "author": "Marty Robbins (us)",
+		  "author": "robbins",
 		  "title": "Big Iron",
 		  "year": 1959,
 		  "genre": "poprock",
@@ -790,7 +1065,7 @@
 		  "work": ""
 	   },
 	   {
-		  "author": "Peggy Lee (us)",
+		  "author": "lee",
 		  "title": "Johnny Guitar",
 		  "year": 1954,
 		  "genre": "poprock",
@@ -798,7 +1073,7 @@
 		  "work": ""
 	   },
 	   {
-		  "author": "The Andrew Sisters & Danny Kaye (us)",
+		  "author": "andrew_sisters",
 		  "title": "Civilization (Bongo, Bongo, Bongo)",
 		  "year": 1947,
 		  "genre": "poprock",
@@ -806,15 +1081,16 @@
 		  "work": ""
 	   },
 	   {
-		  "author": "The Ink Spots & Bill Kenny & Ella Fitzgerald (us)",
+		  "author": "ink_sports",
 		  "title": "Into Each Life Some Rain Must Fall",
 		  "year": 1944,
 		  "genre": "poprock",
 		  "subgenre": "",
-		  "work": ""
+		  "work": "",
+		  "notes": "The Ink Spots & Bill Kenny & Ella Fitzgerald"
 	   },
 	   {
-		  "author": "The Ink Spots (us)",
+		  "author": "ink_spots",
 		  "title": "I Don't Want to Set the World on Fire",
 		  "year": 1941,
 		  "genre": "poprock",
@@ -828,6 +1104,54 @@
 		  "genre": "poprock",
 		  "subgenre": "",
 		  "work": ""
-	   }
+	   },
+		{
+			"author": "polnaref",
+			"title": "C'est une poupée qui fait non",
+			"year": 0,
+			"genre": "poprock",
+			"subgenre": "",
+			"work": ""
+	 	},
+		{
+			"author": "forestier",
+			"title": "<album>",
+			"year": 0,
+			"genre": "poprock",
+			"subgenre": "",
+			"work": "Mon frère"
+	 	},
+		{
+			 "author": "jesus",
+			 "title": "Night",
+			 "year": 0,
+			 "genre": "poprock",
+			 "subgenre": "",
+			 "work": ""
+		},
+		{
+			 "author": "ark",
+			 "title": "No End",
+			 "year": 0,
+			 "genre": "poprock",
+			 "subgenre": "",
+			 "work": ""
+		},
+		{
+			 "author": "dead_can_dance",
+			 "title": "Seraphim",
+			 "year": 0,
+			 "genre": "poprock",
+			 "subgenre": "",
+			 "work": ""
+		},
+		{
+			 "author": "soap_skin",
+			 "title": "Mr PT 1000",
+			 "year": 0,
+			 "genre": "poprock",
+			 "subgenre": "",
+			 "work": ""
+		}
 	]
  }
