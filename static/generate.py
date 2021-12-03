@@ -56,7 +56,9 @@ targets = ['blog.hml',
            ]
 
 #targets = ['passetemps/pres_jeuxvideo.hml']
-targets = ['passetemps/pres_favoris.hml']
+targets = ['passetemps/pres_favoris.hml',
+           'passetemps/pres_jeuxvideo.hml',
+           'passetemps/tech_dialogues.hml']
 
 for t in targets:
     do(t)

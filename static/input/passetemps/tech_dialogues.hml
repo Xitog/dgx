@@ -10,7 +10,7 @@
 !css code {color: #006FDD; border: 1px solid rgb(225, 228, 229); padding-left: 3px; padding-right: 5px; }
 !css form { padding: 2 px; font-size: 14px; color: black; }
 !css div#entry { border: 1px #CCCCCC black; background: #EEEEEE; padding: 10px; }
-!css div#entry a {font-size: 14px; }
+!css div#entry a {font-size: 14px; cursor: pointer;}
 !css div#footer p { text-align: center; font-size: 14px; color: #CCCCCC; margin: 10px; }
 
 {{#main .container}}
