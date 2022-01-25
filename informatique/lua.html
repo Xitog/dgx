@@ -179,28 +179,29 @@ p code span.lua-keyword,      pre.code span.lua-keyword        { color: #1479cc;
   <li>Concis car le langage est assez petit aussi bien dans son nombre de mots-clés que les concepts qu'il met en jeu. Il n'y a par exemple qu'un type de données structurées, les tables, alors que de Python utilisent des tuples, des sets, des listes, des dictionnaires. L'orientation objet n'est pas supportée par des mots-clés dans le langage, il faut la reprogrammer à la main mais Lua offre des facilités pour développer les capacités du langage.</li>
   <li>Simple car Lua a une syntaxe assez standard et très permissive : on peut appeler une fonction sans respecter le nombre de paramètres demandés, on peut simplement concaténer deux expressions à la suite, il n'y pas de système de typage des variables.</li>
 </ul>
-<p>La version actuelle (mars 2021) est la version 5.4 disponible selon les termes de la licence MIT. Ses fichiers portent l'extension <code><span class="text-normal">.lua</span></code>.</p>
+<p>La version actuelle (janvier 2022) est la version 5.4 disponible selon les termes de la licence MIT. Ses fichiers portent l'extension <code><span class="text-normal">.lua</span></code>.</p>
 <h2 id="historique-et-influences">Historique et influences</h2>
 <p>Lua a été développé au Brésil à partir de 1993 par Roberto Ierusalimschy, Waldemar Celes et Luiz Henrique de Figueiredo au sein du groupe de recherche <i>Computer Graphics Technology Group</i> (<a href="https://www.tecgraf.puc-rio.br/">TeCGraf</a> <sup>[pt, en]</sup>), de l'université pontificale catholique de Rio de Janeiro avec l'aide du géant industriel <a href="http://www.petrobras.com.br/en/">Petrobras</a> <sup>[en]</sup>.</p>
-<p>Sa syntaxe emprunte au langage Modula, un langage développé dans les années 70 en Suisse par Niklaus Wirth, le créateur de Pascal. Elle présente des similarités avec le langage de script Ruby (sans la partie orientée objet).</p>
+<p>Sa syntaxe emprunte au langage Modula, un langage développé dans les années 70 en Suisse par Niklaus Wirth, le créateur de Pascal. Elle présente des similarités avec le langage de script Ruby mais sans sa partie orientée objet.</p>
 <h2 id="désavantages">Désavantages</h2>
 <ul>
   <li>Absence de mécanisme d'orientation objet de base,</li>
-  <li>Danger de pouvoir concaténer deux expressions à la suite, car il n'y a ni séparateur, ni terminateur : <code><span class="lua-number">3</span><span class="lua-operator">+</span><span class="lua-number">5</span><span class="lua-blank"> </span><span class="lua-number">2</span></code> est valide en Lua !</li>
-  <li>[bib] Une bibliothèque standard minimaliste (mais de taille réduite)</li>
-  <li>[flux] Il n'y a pas de mot clé <code><span class="python-keyword">continue</span></code> pour avancer d'une itération</li>
-  <li>[flux] in ne s'utilise qu'avec pairs ou ipairs dans un for</li>
-  <li>[opé] Opérateur de différence <code><span class="lua-operator">~=</span></code> au lieu du standard de facto <code><span class="python-operator">!=</span></code></li>
-  <li>[opé] Pas d'opérateurs combinés : <code><span class="python-operator">+=</span><span class="python-blank"> </span><span class="python-operator">-=</span><span class="python-blank"> </span><span class="python-operator">*=</span><span class="python-blank"> </span><span class="python-operator">/=</span></code></li>
-  <li>[fun] Aucun vérification du nombre de paramètres</li>
-  <li>[type] Aucune déclaration de type possible</li>
-  <li>[type] Fusion des types int et float en number</li>
-  <li>[type] Fusion du concept de liste et de dictionnaire en table</li>
-  <li>[table] Difficulté à connaître la longueur d'une liste et s'assurer de la continuité de ses index</li>
-  <li>[table] On ne peut pas différencier la clé existe et sa valeur est nil et la clé n'existe pas</li>
-  <li>[table] Clés string devant être entourées de guillemets <code><span class="lua-separator">[</span><span class="lua-string">&#x27;key&#x27;</span><span class="lua-separator">]</span><span class="lua-blank"> </span><span class="lua-operator">=</span><span class="lua-blank"> </span><span class="lua-identifier">val</span></code></li>
-  <li>[const] Pas moyen de déclarer des constantes</li>
-  <li>[scope] Toute variable sans <code><span class="lua-keyword">local</span></code> est globale même dans fonctions</li>
+  <li>Danger de pouvoir concaténer deux expressions à la suite, car il n'y a ni séparateur, ni terminateur : <code><span class="lua-number">3+5</span> <span class="lua-number">2</span></code> est valide en Lua !</li>
+  <li>Une bibliothèque standard minimaliste où il manque beaucoup de choses mais de taille réduite</li>
+  <li>Il n'y a pas de mot clé <code><span class="python-keyword">continue</span></code> pour avancer une boucle d'une itération</li>
+  <li><code><span class="lua-keyword">in</span></code> ne s'utilise qu'avec pairs ou ipairs dans un <code><span class="lua-keyword">for</span></code></li>
+  <li>Opérateur de différence est <code><span class="lua-operator">~=</span></code> au lieu du standard de facto <code><span class="python-operator">!=</span></code></li>
+  <li>Opérateur de puissance est <code><span class="lua-operator">^</span></code> au lieu de <code><span class="lua-operator">*</span><span class="lua-operator">*</span></code></li>
+  <li>Pas d'opérateurs combinés : <code><span class="python-operator">+=</span> <span class="python-operator">-=</span> <span class="python-operator">*=</span> <span class="python-operator">/=</span></code></li>
+  <li>Aucune vérification du nombre de paramètres des fonctions</li>
+  <li>Aucune déclaration de type possible</li>
+  <li>Fusion des types int et float en <span class="type">number</span></li>
+  <li>Fusion du concept de liste et de dictionnaire en celui de table</li>
+  <li>Difficulté à connaître la longueur d'une liste et à s'assurer de la continuité de ses index</li>
+  <li>On ne peut pas différencier une clé existante avec sa valeur à nil et une clé qui n'existe pas</li>
+  <li>Les clés de type <span class="type">string</span> doivent être entourées de guillemets <code><span class="lua-separator">[</span><span class="lua-string">'key'</span><span class="lua-separator">]</span> <span class="lua-operator">=</span> <span class="lua-identifier">val</span></code></li>
+  <li>Pas moyen de déclarer des constantes</li>
+  <li>Toute variable sans <code><span class="lua-keyword">local</span></code> est globale même dans les fonctions</li>
 </ul>
 </div>
 <div class="column">
@@ -211,59 +212,65 @@ p code span.lua-keyword,      pre.code span.lua-keyword        { color: #1479cc;
   <li>Via l'interpréteur en tant qu'application, appelé <b>lua</b>, on ne peut alors utiliser que les bibliothèques en Lua mais celles-ci sont nombreuses. On parle alors d'utilisation en tant que <b>langage principal</b> (<i>stand alone</i>). On peut utiliser ce dernier pour exécuter d'un coup des scripts Lua ou en mode interactif via une boucle REPL (<i>read-eval-print-loop</i>) en entrant au fur et à mesure des instructions qui sont exécutées au fur et à mesure qu'elles sont entrées dans l'interpréteur. L'interpréteur est programmé en C.</li>
 </ul>
 <p>L'interpréteur n'interprète pas directement le script mais le compile en bytecode et envoi celui-ci à la machine virtuelle Lua.</p>
-<p>Lua est utilisée de façon embarquée dans de nombreux applications, en particulier des jeux vidéo. On peut citer le lecteur multimédia VLC et le jeu World of Warcraft.</p>
+<p>Lua est utilisée de façon embarquée dans de nombreux applications, en particulier des jeux vidéo. On peut citer le lecteur multimédia VLC et le jeu vidéo World of Warcraft.</p>
 <h2 id="bonjour-le-monde-!">Bonjour le monde !</h2>
 <p>La tradition veut que l'on commence par écrire "Bonjour le monde !" sur la sortie standard (console) lorsque l'on découvre un nouveau langage de programmation.</p>
 <pre class="code">
-<span class="lua-line_comment">-- Ceci est un commentaire jusqu&#x27;à la fin de la ligne
-</span><span class="lua-special">print</span><span class="lua-separator">(</span><span class="lua-string">&quot;Bonjour le monde !&quot;</span><span class="lua-separator">)</span><span class="lua-newline">
+<span class="lua-comment">-- Ceci est un commentaire jusqu'à la fin de la ligne
+</span><span class="lua-special">print</span><span class="lua-separator">(</span><span class="lua-string">"Bonjour le monde !"</span><span class="lua-separator">)</span><span class="lua-newline">
 </span></pre>
 <h2 id="mots-réservés-(22)">Mots réservés (22)</h2>
 <pre class="code">
-<span class="lua-keyword">and</span><span class="lua-blank">   </span><span class="lua-keyword">break</span><span class="lua-blank"> </span><span class="lua-keyword">do</span><span class="lua-blank">    </span><span class="lua-keyword">else</span><span class="lua-blank">  </span><span class="lua-keyword">elseif</span><span class="lua-blank"> </span><span class="lua-keyword">end</span><span class="lua-blank"> </span><span class="lua-boolean">false</span><span class="lua-blank"> </span><span class="lua-keyword">for</span><span class="lua-blank">    </span><span class="lua-keyword">function</span><span class="lua-blank"> </span><span class="lua-newline">
-</span><span class="lua-keyword">goto</span><span class="lua-blank">  </span><span class="lua-keyword">if</span><span class="lua-blank">    </span><span class="lua-keyword">in</span><span class="lua-blank">    </span><span class="lua-keyword">local</span><span class="lua-blank"> </span><span class="lua-nil">nil</span><span class="lua-blank">    </span><span class="lua-keyword">not</span><span class="lua-blank"> </span><span class="lua-keyword">or</span><span class="lua-blank">    </span><span class="lua-keyword">repeat</span><span class="lua-blank"> </span><span class="lua-keyword">return</span><span class="lua-newline">
-</span><span class="lua-keyword">then</span><span class="lua-blank">  </span><span class="lua-boolean">true</span><span class="lua-blank">  </span><span class="lua-keyword">until</span><span class="lua-blank"> </span><span class="lua-keyword">while</span><span class="lua-newline">
+<span class="lua-keyword">and</span>   <span class="lua-keyword">break</span> <span class="lua-keyword">do</span>    <span class="lua-keyword">else</span>  <span class="lua-keyword">elseif</span> <span class="lua-keyword">end</span> <span class="lua-boolean">false</span> <span class="lua-keyword">for</span>    <span class="lua-keyword">function</span><span class="lua-newline">
+</span><span class="lua-keyword">goto</span>  <span class="lua-keyword">if</span>    <span class="lua-keyword">in</span>    <span class="lua-keyword">local</span> <span class="lua-nil">nil</span>    <span class="lua-keyword">not</span> <span class="lua-keyword">or</span>    <span class="lua-keyword">repeat</span> <span class="lua-keyword">return</span><span class="lua-newline">
+</span><span class="lua-keyword">then</span>  <span class="lua-boolean">true</span>  <span class="lua-keyword">until</span> <span class="lua-keyword">while</span><span class="lua-newline">
 </span></pre>
 <h2 id="commentaires">Commentaires</h2>
-<p>Commentaires en Lua : <code><span class="lua-line_comment">-- mon commentaire jusqu&#x27;à la fin de la ligne</span></code></p>
+<p>Commentaires en Lua : <code><span class="lua-comment">-- mon commentaire jusqu'à la fin de la ligne</span></code></p>
 <p>Commentaires sur plusieurs lignes :</p>
 <pre class="code">
-<span class="lua-line_comment">--[[
-</span><span class="lua-blank">    </span><span class="lua-identifier">vos</span><span class="lua-blank"> </span><span class="lua-identifier">lignes</span><span class="lua-newline">
-</span><span class="lua-line_comment">--]]
+<span class="lua-comment">--[[
+    vos lignes
+--]]
 </span></pre>
 <h2 id="variables">Variables</h2>
-<p>Une variable est une référence vers une valeur. Une valeur a un type, pas la variable. L'exemple suivant établie une référence entre la variable a et la valeur 5 de type number.</p>
+<p>Une variable est une référence vers une valeur. Une valeur a un type, pas la variable. L'exemple suivant établie une référence entre la variable a et la valeur 5 de type <span class="type">number</span>.</p>
 <pre class="code">
-<span class="lua-identifier">a</span><span class="lua-blank"> </span><span class="lua-operator">=</span><span class="lua-blank"> </span><span class="lua-number">5</span><span class="lua-newline">
+<span class="lua-identifier">a</span> <span class="lua-operator">=</span> <span class="lua-number">5</span><span class="lua-newline">
 </span></pre>
-<p>Il n'y a pas de constantes en Lua : une variable peut référencer ensuite une autre valeur.</p>
-<p>Une variable peut référencer n'importe quel type de valeur.</p>
+<p>Il n'y a pas de constantes en Lua : une variable peut référencer ensuite une autre valeur, du même type ou d'un autre.</p>
 </div>
 </div>
 <h1 id="2.-types-de-base-(8)">2. Types de base (8)</h1>
 <div class="row">
 <div class="column">
+<p>En Lua, il y a 8 types de base.</p>
 <h2 id="nil">nil</h2>
 <p>Le type <span class="type">nil</span> n'a qu'une seule valeur, <code><span class="lua-nil">nil</span></code>.</p>
 <h2 id="booléens-:-boolean">Booléens : boolean</h2>
 <p>Le type <span class="type">boolean</span> a deux valeurs, <code><span class="lua-boolean">true</span></code> et <code><span class="lua-boolean">false</span></code>.</p>
-<p>Les valeurs <code><span class="lua-nil">nil</span></code> et <code><span class="lua-boolean">false</span></code> sont les deux seules valeurs qui sont considérées comme fausse par les tests. Toutes les autres valeurs, y compris <code><span class="lua-number">0</span></code> et la chaîne vide <code><span class="lua-string">&quot;&quot;</span></code> sont vraies.</p>
+<p>Les valeurs <code><span class="lua-nil">nil</span></code> et <code><span class="lua-boolean">false</span></code> sont les deux seules valeurs qui sont considérées comme fausse par les tests. Toutes les autres valeurs, y compris <code><span class="lua-number">0</span></code> et la chaîne vide <code><span class="lua-string">""</span></code> sont vraies.</p>
 <h2 id="nombres-:-number">Nombres : number</h2>
-<p>Le type <span class="type">number</span> a pour valeurs les entiers et les réels (ou flottants). Les conversions de l'un vers l'autre type sont automatiques. Par défaut, entiers et réels sont stockés sur 64 bits.</p>
-</div>
-<div class="column">
+<p>Le type <span class="type">number</span> a pour valeurs les entiers et les réels (ou flottants). Les conversions de l'un vers l'autre type sont automatiques. Par défaut, entiers et réels sont stockés sur 64 bits et selon la norme IEEE 754 pour les réels.</p>
 <h2 id="chaînes-de-caractères-:-string">Chaînes de caractères : string</h2>
 <p>Le type <span class="type">string</span> unifie les caractères et les chaînes de caractères. Lua peut stocker les chaînes en UTF-8 mais ne sait pas comment les gérer.</p>
-<p>Les chaînes sont immutables en Lua.</p>
+<p>Les chaînes sont <b>immutables</b> en Lua.</p>
+</div>
+<div class="column">
 <h2 id="fonctions-:-function">Fonctions : function</h2>
 <p>Le type <span class="type">function</span> sera plus étudié dans le chapitre suivant. Il s'agit de bloc de code écrit en Lua ou en C.</p>
 <h2 id="données-utilisateurs-:-userdata">Données utilisateurs : userdata</h2>
+<p>Le type <span class="type">userdata</span> permet de stocker des données binaires venant du code C avec lequel lua s'interface.</p>
 <h2 id="processus-légers-:-thread">Processus légers : thread</h2>
+<p>Lua utilise le type <span class="type">thread</span> pour ses coroutines. Ce type est indépendant des threads du système d'exploitation.</p>
 <h2 id="tables-:-table">Tables : table</h2>
-<h3 id="définition">Définition</h3>
-<h3 id="accès">Accès</h3>
-<h3 id="métatable">Métatable</h3>
+<p>Lua a fusionné les listes et les tables associatives (ou dictionnaires) dans le type table : une clé désigne une valeur.</p>
+<p>Une clé ne peut avoir pour valeur <code><span class="lua-nil">nil</span></code> ou <code><span class="lua-identifier">NaN</span></code>.</p>
+<pre class="code">
+<span class="lua-identifier">t</span> <span class="lua-operator">=</span> <span class="lua-separator">{</span> <span class="lua-separator">[</span><span class="lua-string">"k1"</span><span class="lua-separator">]</span> <span class="lua-operator">=</span> <span class="lua-number">5</span><span class="lua-separator">,</span> <span class="lua-separator">[</span><span class="lua-string">"k2"</span><span class="lua-separator">]</span> <span class="lua-operator">=</span> <span class="lua-string">"v"</span><span class="lua-separator">,</span> <span class="lua-separator">[</span><span class="lua-number">4</span><span class="lua-separator">]</span> <span class="lua-operator">=</span> <span class="lua-number">6</span> <span class="lua-separator">}</span> <span class="lua-comment">-- Définition
+</span><span class="lua-special">print</span><span class="lua-separator">(</span><span class="lua-identifier">t</span><span class="lua-separator">[</span><span class="lua-string">"k1"</span><span class="lua-separator">]</span><span class="lua-separator">)</span> <span class="lua-comment">-- Accès
+</span><span class="lua-special">print</span><span class="lua-separator">(</span><span class="lua-identifier">t</span><span class="lua-operator">.</span><span class="lua-identifier">k1</span><span class="lua-separator">)</span> <span class="lua-comment">-- Accès avec sucre syntaxique
+</span></pre>
 </div>
 </div>
 <h1 id="3.-opérateurs">3. Opérateurs</h1>
@@ -271,6 +278,15 @@ p code span.lua-keyword,      pre.code span.lua-keyword        { color: #1479cc;
 <div class="column">
 <h2 id="opérateurs-binaires">Opérateurs binaires</h2>
 <h3 id="opérateurs-arithmétiques">Opérateurs arithmétiques</h3>
+<ul>
+  <li>+ addition</li>
+  <li>- soustraction ou signe négatif</li>
+  <li>* multiplication</li>
+  <li>/ division</li>
+  <li>// division entière</li>
+  <li>% modulo</li>
+  <li>^ puissance</li>
+</ul>
 <h3 id="opérateurs-de-comparaisons">Opérateurs de comparaisons</h3>
 <h3 id="opérateurs-booléens">Opérateurs booléens</h3>
 <h3 id="autres-opérateurs">Autres opérateurs</h3>
@@ -285,24 +301,24 @@ p code span.lua-keyword,      pre.code span.lua-keyword        { color: #1479cc;
 <div class="row">
 <div class="column">
 <h2 id="séquence">Séquence</h2>
-<p>En Lua, le symbole pour terminer les instructions est <code><span class="lua-separator">;</span></code> mais il est totalement optionnel. Ce code est donc valide : <code><span class="lua-identifier">a</span><span class="lua-blank"> </span><span class="lua-operator">=</span><span class="lua-blank"> </span><span class="lua-number">5</span><span class="lua-blank"> </span><span class="lua-identifier">b</span><span class="lua-blank"> </span><span class="lua-operator">=</span><span class="lua-blank"> </span><span class="lua-number">6</span></code></p>
+<p>En Lua, le symbole pour terminer les instructions est <code><span class="lua-separator">;</span></code> mais il est totalement optionnel. Ce code est donc valide : <code><span class="lua-identifier">a</span> <span class="lua-operator">=</span> <span class="lua-number">5</span> <span class="lua-identifier">b</span> <span class="lua-operator">=</span> <span class="lua-number">6</span></code></p>
 <h2 id="conditions">Conditions</h2>
 <p>Pour qu'une partie du code ne soit exécutée que si une condition est vrai, on utilisera <code><span class="lua-keyword">if</span></code> :</p>
 <pre class="code">
-<span class="lua-keyword">if</span><span class="lua-blank"> </span><span class="lua-identifier">condition</span><span class="lua-blank"> </span><span class="lua-keyword">then</span><span class="lua-newline">
-</span><span class="lua-blank">    </span><span class="lua-identifier">actions</span><span class="lua-newline">
-</span><span class="lua-separator">[</span><span class="lua-blank"> </span><span class="lua-keyword">elseif</span><span class="lua-blank"> </span><span class="lua-identifier">condition</span><span class="lua-blank"> </span><span class="lua-keyword">then</span><span class="lua-newline">
-</span><span class="lua-blank">    </span><span class="lua-identifier">actions</span><span class="lua-blank"> </span><span class="lua-separator">]</span><span class="lua-blank"> </span><span class="lua-operator">*</span><span class="lua-newline">
-</span><span class="lua-separator">[</span><span class="lua-blank"> </span><span class="lua-keyword">else</span><span class="lua-newline">
-</span><span class="lua-blank">    </span><span class="lua-identifier">actions</span><span class="lua-blank"> </span><span class="lua-separator">]</span><span class="lua-blank"> </span><span class="lua-special">?</span><span class="lua-newline">
+<span class="lua-keyword">if</span> <span class="lua-identifier">condition</span> <span class="lua-keyword">then</span><span class="lua-newline">
+</span>    <span class="lua-identifier">actions</span><span class="lua-newline">
+</span><span class="lua-separator">[</span> <span class="lua-keyword">elseif</span> <span class="lua-identifier">condition</span> <span class="lua-keyword">then</span><span class="lua-newline">
+</span>    <span class="lua-identifier">actions</span> <span class="lua-separator">]</span> <span class="lua-operator">*</span><span class="lua-newline">
+</span><span class="lua-separator">[</span> <span class="lua-keyword">else</span><span class="lua-newline">
+</span>    <span class="lua-identifier">actions</span> <span class="lua-separator">]</span> <span class="lua-special">?</span><span class="lua-newline">
 </span><span class="lua-keyword">end</span><span class="lua-newline">
 </span></pre>
-<p>Sont considérées fausses les valeurs <code><span class="lua-boolean">false</span></code> et <code><span class="lua-nil">nil</span></code>. Toutes les autres valeurs sont vraies (dont <code><span class="lua-separator">{</span><span class="lua-separator">}</span><span class="lua-blank"> </span><span class="lua-string">&quot;&quot;</span><span class="lua-blank"> </span><span class="lua-number">0</span></code>).</p>
+<p>Sont considérées fausses les valeurs <code><span class="lua-boolean">false</span></code> et <code><span class="lua-nil">nil</span></code>. Toutes les autres valeurs sont vraies (dont <code><span class="lua-separator">{</span><span class="lua-separator">}</span> <span class="lua-string">""</span> <span class="lua-number">0</span></code>).</p>
 <h2 id="répétitions">Répétitions</h2>
 <p>Boucle qui s'exécute <i>tant que</i> la condition est vraie avec <code><span class="lua-keyword">while</span></code> :</p>
 <pre class="code">
-<span class="lua-keyword">while</span><span class="lua-blank"> </span><span class="lua-identifier">condition</span><span class="lua-blank"> </span><span class="lua-keyword">do</span><span class="lua-newline">
-</span><span class="lua-blank">    </span><span class="lua-identifier">actions</span><span class="lua-newline">
+<span class="lua-keyword">while</span> <span class="lua-identifier">condition</span> <span class="lua-keyword">do</span><span class="lua-newline">
+</span>    <span class="lua-identifier">actions</span><span class="lua-newline">
 </span><span class="lua-keyword">end</span><span class="lua-newline">
 </span></pre>
 <p>Le corps de la boucle (ses actions) sera exécuté entre 0 et n fois.</p>
@@ -311,26 +327,26 @@ p code span.lua-keyword,      pre.code span.lua-keyword        { color: #1479cc;
 <p>Avec <code><span class="lua-keyword">repeat</span></code>, le corps de la boucle sera exécuté au moins une fois car la condition est testée après :</p>
 <pre class="code">
 <span class="lua-keyword">repeat</span><span class="lua-newline">
-</span><span class="lua-blank">    </span><span class="lua-identifier">actions</span><span class="lua-newline">
-</span><span class="lua-keyword">until</span><span class="lua-blank"> </span><span class="lua-identifier">condition</span><span class="lua-newline">
+</span>    <span class="lua-identifier">actions</span><span class="lua-newline">
+</span><span class="lua-keyword">until</span> <span class="lua-identifier">condition</span><span class="lua-newline">
 </span></pre>
 <p>Autre grand classique des boucles, <code><span class="lua-keyword">for</span></code> qui peut-être utilisé avec un intervalle numérique :</p>
 <pre class="code">
-<span class="lua-keyword">for</span><span class="lua-blank"> </span><span class="lua-identifier">identifiant</span><span class="lua-blank"> </span><span class="lua-operator">=</span><span class="lua-blank"> </span><span class="lua-identifier">début</span><span class="lua-separator">,</span><span class="lua-blank"> </span><span class="lua-identifier">fin</span><span class="lua-blank"> </span><span class="lua-separator">[</span><span class="lua-blank"> </span><span class="lua-separator">,</span><span class="lua-blank"> </span><span class="lua-identifier">pas</span><span class="lua-blank"> </span><span class="lua-separator">]</span><span class="lua-blank"> </span><span class="lua-keyword">do</span><span class="lua-newline">
-</span><span class="lua-blank">    </span><span class="lua-identifier">actions</span><span class="lua-newline">
+<span class="lua-keyword">for</span> <span class="lua-identifier">identifiant</span> <span class="lua-operator">=</span> <span class="lua-identifier">debut</span><span class="lua-separator">,</span> <span class="lua-identifier">fin</span> <span class="lua-separator">[</span> <span class="lua-separator">,</span> <span class="lua-identifier">pas</span> <span class="lua-separator">]</span> <span class="lua-keyword">do</span><span class="lua-newline">
+</span>    <span class="lua-identifier">actions</span><span class="lua-newline">
 </span><span class="lua-keyword">end</span><span class="lua-newline">
 </span></pre>
-<p>Par défaut le pas est égal à 1 (si fin &amp;lt; début, la boucle ne s'exécutera pas une seule fois).</p>
+<p>Par défaut le pas est égal à 1 (si fin &lt; début, la boucle ne s'exécutera pas une seule fois).</p>
 <p>Ou avec une table indexée par des nombres :</p>
 <pre class="code">
-<span class="lua-keyword">for</span><span class="lua-blank"> </span><span class="lua-identifier">indice</span><span class="lua-separator">,</span><span class="lua-blank"> </span><span class="lua-identifier">valeur</span><span class="lua-blank"> </span><span class="lua-keyword">in</span><span class="lua-blank"> </span><span class="lua-special">ipairs</span><span class="lua-separator">(</span><span class="lua-identifier">table</span><span class="lua-separator">)</span><span class="lua-blank"> </span><span class="lua-keyword">do</span><span class="lua-newline">
-</span><span class="lua-blank">    </span><span class="lua-identifier">actions</span><span class="lua-newline">
+<span class="lua-keyword">for</span> <span class="lua-identifier">indice</span><span class="lua-separator">,</span> <span class="lua-identifier">valeur</span> <span class="lua-keyword">in</span> <span class="lua-special">ipairs</span><span class="lua-separator">(</span><span class="lua-identifier">table</span><span class="lua-separator">)</span> <span class="lua-keyword">do</span><span class="lua-newline">
+</span>    <span class="lua-identifier">actions</span><span class="lua-newline">
 </span><span class="lua-keyword">end</span><span class="lua-newline">
 </span></pre>
 <p>Ou avec une table indexée par des chaînes :</p>
 <pre class="code">
-<span class="lua-keyword">for</span><span class="lua-blank"> </span><span class="lua-identifier">clé</span><span class="lua-separator">,</span><span class="lua-blank"> </span><span class="lua-identifier">valeur</span><span class="lua-blank"> </span><span class="lua-keyword">in</span><span class="lua-blank"> </span><span class="lua-special">pairs</span><span class="lua-separator">(</span><span class="lua-identifier">table</span><span class="lua-separator">)</span><span class="lua-blank"> </span><span class="lua-keyword">do</span><span class="lua-newline">
-</span><span class="lua-blank">    </span><span class="lua-identifier">actions</span><span class="lua-newline">
+<span class="lua-keyword">for</span> <span class="lua-identifier">cle</span><span class="lua-separator">,</span> <span class="lua-identifier">valeur</span> <span class="lua-keyword">in</span> <span class="lua-special">pairs</span><span class="lua-separator">(</span><span class="lua-identifier">table</span><span class="lua-separator">)</span> <span class="lua-keyword">do</span><span class="lua-newline">
+</span>    <span class="lua-identifier">actions</span><span class="lua-newline">
 </span><span class="lua-keyword">end</span><span class="lua-newline">
 </span></pre>
 <p>Dans les trois cas, on peut utiliser le mot-clé <code><span class="lua-keyword">break</span></code> pour sortir de la boucle.</p>
