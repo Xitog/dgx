@@ -202,6 +202,7 @@ p code span.lua-keyword,      pre.code span.lua-keyword        { color: #1479cc;
   <li>Les clés de type <span class="type">string</span> doivent être entourées de guillemets <code><span class="lua-separator">[</span><span class="lua-string">'key'</span><span class="lua-separator">]</span> <span class="lua-operator">=</span> <span class="lua-identifier">val</span></code></li>
   <li>Pas moyen de déclarer des constantes</li>
   <li>Toute variable sans <code><span class="lua-keyword">local</span></code> est globale même dans les fonctions</li>
+  <li>Conversion automatique des chaînes en nombres</li>
 </ul>
 </div>
 <div class="column">
@@ -244,7 +245,7 @@ p code span.lua-keyword,      pre.code span.lua-keyword        { color: #1479cc;
 <h1 id="2.-types-de-base-(8)">2. Types de base (8)</h1>
 <div class="row">
 <div class="column">
-<p>En Lua, il y a 8 types de base.</p>
+<p>En Lua, il y a <b>8</b> types de base.</p>
 <h2 id="nil">nil</h2>
 <p>Le type <span class="type">nil</span> n'a qu'une seule valeur, <code><span class="lua-nil">nil</span></code>.</p>
 <h2 id="booléens-:-boolean">Booléens : boolean</h2>
@@ -276,25 +277,76 @@ p code span.lua-keyword,      pre.code span.lua-keyword        { color: #1479cc;
 <h1 id="3.-opérateurs">3. Opérateurs</h1>
 <div class="row">
 <div class="column">
-<h2 id="opérateurs-binaires">Opérateurs binaires</h2>
+<h2 id="opérateurs">Opérateurs</h2>
 <h3 id="opérateurs-arithmétiques">Opérateurs arithmétiques</h3>
 <ul>
-  <li>+ addition</li>
-  <li>- soustraction ou signe négatif</li>
-  <li>* multiplication</li>
-  <li>/ division</li>
-  <li>// division entière</li>
-  <li>% modulo</li>
-  <li>^ puissance</li>
+  <li><code><span class="lua-operator">+</span></code> addition</li>
+  <li><code><span class="lua-operator">-</span></code> binaire soustraction</li>
+  <li><code><span class="lua-operator">*</span></code> multiplication</li>
+  <li><code><span class="lua-operator">/</span></code> division (converti en float)</li>
+  <li><code><span class="lua-operator">/</span><span class="lua-operator">/</span></code> division entière</li>
+  <li><code><span class="lua-operator">%</span></code> modulo</li>
+  <li><code><span class="lua-operator">^</span></code> puissance (converti en float)</li>
+  <li><code><span class="lua-operator">-</span></code> <i>unaire</i> signe négatif</li>
 </ul>
 <h3 id="opérateurs-de-comparaisons">Opérateurs de comparaisons</h3>
+<ul>
+  <li><code><span class="lua-operator">==</span></code> égalité</li>
+  <li><code><span class="lua-operator">~=</span></code> inégalité</li>
+  <li><code><span class="lua-operator">&lt;</span></code> inférieur à</li>
+  <li><code><span class="lua-operator">&gt;</span></code> supérieur à</li>
+  <li><code><span class="lua-operator">&lt;=</span></code> inférieur ou égal à</li>
+  <li><code><span class="lua-operator">&gt;=</span></code> supérieur ou égal à</li>
+</ul>
+<p>Si les types sont différents, l'égalité renverra toujours <code><span class="lua-boolean">false</span></code>.</p>
 <h3 id="opérateurs-booléens">Opérateurs booléens</h3>
-<h3 id="autres-opérateurs">Autres opérateurs</h3>
+<ul>
+  <li><code><span class="lua-operator">&amp;</span></code> et</li>
+  <li><code><span class="lua-operator">|</span></code> ou</li>
+  <li><code><span class="lua-operator">~</span></code> binaire ou exclusif</li>
+  <li><code><span class="lua-operator">&gt;&gt;</span></code> décalage à droite (rempli avec des zéros)</li>
+  <li><code><span class="lua-operator">&lt;&lt;</span></code> décalage à gauche (rempli avec des zéros)</li>
+  <li><code><span class="lua-operator">~</span></code> <i>unaire</i> non</li>
+</ul>
 </div>
 <div class="column">
-<h2 id="opérateurs-unaires">Opérateurs unaires</h2>
-<h3 id="opérateurs-arithmétiques">Opérateurs arithmétiques</h3>
-<h3 id="opérateurs-booléens">Opérateurs booléens</h3>
+<h3 id="opérateurs-logiques">Opérateurs logiques</h3>
+<ul>
+  <li><code><span class="lua-keyword">or</span></code> ou</li>
+  <li><code><span class="lua-keyword">and</span></code> et</li>
+  <li><code><span class="lua-keyword">not</span></code> <i>unaire</i> non</li>
+</ul>
+<p><b>Tout est faux en Lua sauf <code><span class="lua-boolean">false</span></code> et <code><span class="lua-nil">nil</span></code>.</b></p>
+<table>
+<tr><th>Opérateur </th><th> Opé 1      </th><th> Opé 2       </th><th> Retour </th></tr>
+<tr><td align="center"> and     </td><td> false, nil </td><td> non évaluée </td><td> opé 1  </td></tr>
+<tr><td align="center"> and     </td><td> autre      </td><td> évaluée     </td><td> opé 2  </td></tr>
+<tr><td align="center"> or      </td><td> autre      </td><td> non évaluée </td><td> opé 1  </td></tr>
+<tr><td align="center"> or      </td><td> false, nil </td><td> évaluée     </td><td> opé 2  </td></tr>
+</table>
+<p>Les opérateurs n'évaluent la deuxième opérande que si nécessaire.</p>
+<h3 id="autres-opérateurs">Autres opérateurs</h3>
+<ul>
+  <li><code><span class="lua-operator">..</span></code> concaténation avec conversion</li>
+  <li><code><span class="lua-operator">#</span></code> longueur des chaînes ou bordure des tables</li>
+</ul>
+<p><b>Attention : une table peut avoir des trous, dans ce cas la bordure n'indique pas la longueur de la table</b>.</p>
+<h3 id="précédence-des-opérateurs">Précédence des opérateurs</h3>
+<table>
+<tr><th> Niveau </th><th> Opérateur                </th></tr>
+<tr><td align="center"> 1     </td><td align="center"> <code><span class="lua-operator">^</span></code>                   </td></tr>
+<tr><td align="center"> 2     </td><td align="center"> unaires : <code><span class="lua-keyword">not</span> <span class="lua-operator">#</span> <span class="lua-operator">-</span> <span class="lua-operator">~</span></code> </td></tr>
+<tr><td align="center"> 3     </td><td align="center"> <code><span class="lua-operator">*</span> <span class="lua-operator">/</span> <span class="lua-operator">/</span><span class="lua-operator">/</span> <span class="lua-operator">%</span></code>            </td></tr>
+<tr><td align="center"> 4     </td><td align="center"> <code><span class="lua-operator">+</span> <span class="lua-operator">-</span></code>                 </td></tr>
+<tr><td align="center"> 5     </td><td align="center"> <code><span class="lua-operator">..</span></code>                  </td></tr>
+<tr><td align="center"> 6     </td><td align="center"> <code><span class="lua-operator">&lt;&lt;</span> <span class="lua-operator">&gt;&gt;</span></code>               </td></tr>
+<tr><td align="center"> 7     </td><td align="center"> <code><span class="lua-operator">&amp;</span></code>                   </td></tr>
+<tr><td align="center"> 8     </td><td align="center"> <code><span class="lua-operator">~</span></code>                   </td></tr>
+<tr><td align="center"> 9     </td><td align="center"> <code><span class="lua-operator">|</span></code>                  </td></tr>
+<tr><td align="center"> 10    </td><td align="center"> <code><span class="lua-operator">&lt;</span> <span class="lua-operator">&gt;</span> <span class="lua-operator">&lt;=</span> <span class="lua-operator">&gt;=</span> <span class="lua-operator">~=</span> <span class="lua-operator">==</span></code>     </td></tr>
+<tr><td align="center"> 11    </td><td align="center"> <code><span class="lua-keyword">and</span></code>                 </td></tr>
+<tr><td align="center"> 12    </td><td align="center"> <code><span class="lua-keyword">or</span></code>                  </td></tr>
+</table>
 </div>
 </div>
 <h1 id="4.-contrôle-du-flux">4. Contrôle du flux</h1>
@@ -354,13 +406,39 @@ p code span.lua-keyword,      pre.code span.lua-keyword        { color: #1479cc;
 </div>
 </div>
 <h1 id="5.-fonctions">5. Fonctions</h1>
+<div class="row">
+<div class="column">
 <h2 id="définition">Définition</h2>
+<pre class="code">
+<span class="lua-keyword">function</span> <span class="lua-identifier">id</span> <span class="lua-separator">(</span> <span class="lua-identifier">parametres</span> <span class="lua-separator">)</span><span class="lua-newline">
+</span>    <span class="lua-identifier">corps</span><span class="lua-newline">
+</span><span class="lua-keyword">end</span><span class="lua-newline">
+</span></pre>
+<p>Il s'agit d'un sucre syntaxique pour :</p>
+<pre class="code">
+<span class="lua-identifier">id</span> <span class="lua-operator">=</span> <span class="lua-keyword">function</span> <span class="lua-separator">(</span> <span class="lua-identifier">parametres</span> <span class="lua-separator">)</span><span class="lua-newline">
+</span>    <span class="lua-identifier">corps</span><span class="lua-newline">
+</span><span class="lua-keyword">end</span><span class="lua-newline">
+</span></pre>
+<p>Les paramètres sont séparés par des virgules.</p>
+<p>Le paramètre spécial <code><span class="lua-operator">..</span><span class="lua-operator">.</span></code> indique qu'il y a des paramètres supplémentaires. Ils seront accessibles dans la variable <code><span class="lua-operator">..</span><span class="lua-operator">.</span></code>.</p>
+<p>Le mot-clé <code><span class="lua-keyword">return</span></code> permet de retourner une expression.</p>
+</div>
+<div class="column">
 <h2 id="appel">Appel</h2>
+<p>Pour appeler une fonction on utilise <code><span class="lua-identifier">f</span><span class="lua-separator">(</span><span class="lua-identifier">p1</span><span class="lua-separator">,</span> <span class="lua-identifier">p2</span><span class="lua-separator">,</span> <span class="lua-identifier">p3</span><span class="lua-separator">)</span></code>.</p>
+<p>Le sucre syntaxique <code><span class="lua-identifier">a</span><span class="lua-operator">:</span><span class="lua-identifier">f</span><span class="lua-separator">(</span><span class="lua-identifier">p</span><span class="lua-separator">)</span></code> est équivalent à f(a, p).</p>
+<p>On peut omettre les parenthèses si il y a un argument de type <span class="type">string</span> ou <span class="type">table</span>.</p>
 <h2 id="closure">Closure</h2>
+</div>
+</div>
 <h1 id="6.-gestion-des-exceptions">6. Gestion des exceptions</h1>
 <h2 id="appels-protégés">Appels protégés</h2>
 <h1 id="7.-bibliothèque-de-base">7. Bibliothèque de base</h1>
 <h2 id="sortie-et-entrée-console">Sortie et entrée console</h2>
+<pre class="code">
+<span class="lua-special">print</span><span class="lua-separator">(</span><span class="lua-string">"Hello World!"</span><span class="lua-separator">)</span><span class="lua-newline">
+</span></pre>
 <h2 id="nombres">Nombres</h2>
 <h2 id="chaînes-de-caractères">Chaînes de caractères</h2>
 <h2 id="tables">Tables</h2>
@@ -396,6 +474,7 @@ p code span.lua-keyword,      pre.code span.lua-keyword        { color: #1479cc;
 <h2 id="langages-liés">Langages liés</h2>
 <ul>
   <li><a href="https://github.com/teal-language/tl">Teal</a> surlangage avec des types.</li>
+  <li><a href="https://moonscript.org/">MoonScript</a> un langage qui transpile en Lua.</li>
 </ul>
 <h2 id="outils">Outils</h2>
 <ul>

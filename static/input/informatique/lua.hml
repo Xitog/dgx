@@ -69,6 +69,7 @@ Sa syntaxe emprunte au langage Modula, un langage développé dans les années 7
 * Les clés de type {{.type string}} doivent être entourées de guillemets @@['key'] = val@@
 * Pas moyen de déclarer des constantes
 * Toute variable sans @@local@@ est globale même dans les fonctions
+* Conversion automatique des chaînes en nombres
 
 {{end}}
 
@@ -134,7 +135,7 @@ Il n'y a pas de constantes en Lua : une variable peut référencer ensuite une a
 
 {{.column}}
 
-En Lua, il y a 8 types de base.
+En Lua, il y a **8** types de base.
 
 ## nil
 
@@ -194,33 +195,83 @@ print(t.k1) -- Accès avec sucre syntaxique
 
 {{.column}}
 
-## Opérateurs binaires
+## Opérateurs
 
 ### Opérateurs arithmétiques
 
-* + addition
-* - soustraction ou signe négatif
-* \* multiplication
-* / division
-* // division entière
-* % modulo
-* ^ puissance
+* @@+@@ addition
+* @@-@@ binaire soustraction
+* @@*@@ multiplication
+* @@/@@ division (converti en float)
+* @@//@@ division entière
+* @@%@@ modulo
+* @@^@@ puissance (converti en float)
+* @@-@@ ''unaire'' signe négatif
 
 ### Opérateurs de comparaisons
 
+* @@==@@ égalité
+* @@~=@@ inégalité
+* @@<@@ inférieur à
+* @@>@@ supérieur à
+* @@<=@@ inférieur ou égal à
+* @@>=@@ supérieur ou égal à
+
+Si les types sont différents, l'égalité renverra toujours @@false@@.
+
 ### Opérateurs booléens
 
-### Autres opérateurs
+* @@&@@ et
+* @@|@@ ou
+* @@~@@ binaire ou exclusif
+* @@>>@@ décalage à droite (rempli avec des zéros)
+* @@<<@@ décalage à gauche (rempli avec des zéros)
+* @@~@@ ''unaire'' non
 
 {{end}}
 
 {{.column}}
 
-## Opérateurs unaires
+### Opérateurs logiques
 
-### Opérateurs arithmétiques
+* @@or@@ ou
+* @@and@@ et
+* @@not@@ ''unaire'' non
 
-### Opérateurs booléens
+**Tout est faux en Lua sauf @@false@@ et @@nil@@.**
+
+|Opérateur | Opé 1      | Opé 2       | Retour |
+|----------------------------------------------|
+|= and     | false, nil | non évaluée | opé 1  |
+|= and     | autre      | évaluée     | opé 2  |
+|= or      | autre      | non évaluée | opé 1  |
+|= or      | false, nil | évaluée     | opé 2  |
+
+Les opérateurs n'évaluent la deuxième opérande que si nécessaire.
+
+### Autres opérateurs
+
+* @@..@@ concaténation avec conversion
+* @@#@@ longueur des chaînes ou bordure des tables
+
+**Attention : une table peut avoir des trous, dans ce cas la bordure n'indique pas la longueur de la table**.
+
+### Précédence des opérateurs
+
+| Niveau | Opérateur                |
+|-----------------------------------|
+|= 1     |= @@^@@                   |
+|= 2     |= unaires : @@not # - ~@@ |
+|= 3     |= @@* / // %@@            |
+|= 4     |= @@+ -@@                 |
+|= 5     |= @@..@@                  |
+|= 6     |= @@<< >>@@               |
+|= 7     |= @@&@@                   |
+|= 8     |= @@~@@                   |
+|= 9     |= @@\|@@                  |
+|= 10    |= @@< > <= >= ~= ==@@     |
+|= 11    |= @@and@@                 |
+|= 12    |= @@or@@                  |
 
 {{end}}
 
@@ -312,11 +363,49 @@ Il n'y a pas de mot-clé ''continue'' ou ''next'' en Lua pour passer à l'itéra
 
 # 5. Fonctions
 
+{{.row}}
+
+{{.column}}
+
 ## Définition
+
+@@@lua
+function id ( parametres )
+    corps
+end
+@@@
+
+Il s'agit d'un sucre syntaxique pour :
+
+@@@lua
+id = function ( parametres )
+    corps
+end
+@@@
+
+Les paramètres sont séparés par des virgules.
+
+Le paramètre spécial @@...@@ indique qu'il y a des paramètres supplémentaires. Ils seront accessibles dans la variable @@...@@.
+
+Le mot-clé @@return@@ permet de retourner une expression.
+
+{{end}}
+
+{{.column}}
 
 ## Appel
 
+Pour appeler une fonction on utilise @@f(p1, p2, p3)@@.
+
+Le sucre syntaxique @@a:f(p)@@ est équivalent à f(a, p).
+
+On peut omettre les parenthèses si il y a un argument de type {{.type string}} ou {{.type table}}.
+
 ## Closure
+
+{{end}}
+
+{{end}}
 
 # 6. Gestion des exceptions
 
@@ -325,6 +414,10 @@ Il n'y a pas de mot-clé ''continue'' ou ''next'' en Lua pour passer à l'itéra
 # 7. Bibliothèque de base
 
 ## Sortie et entrée console
+
+@@@lua
+print("Hello World!")
+@@@
 
 ## Nombres
 
@@ -370,11 +463,12 @@ Il n'y a pas de mot-clé ''continue'' ou ''next'' en Lua pour passer à l'itéra
 ## Langages liés
 
 * [Teal->https://github.com/teal-language/tl] surlangage avec des types.
+* [MoonScript->https://moonscript.org/] un langage qui transpile en Lua.
 
 ## Outils
 
 * [ZeroBrane Studio->https://studio.zerobrane.com/] un IDE léger, gratuit, simple et efficace
-
+ 
 {{end}}
 
 {{end}}
