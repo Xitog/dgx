@@ -1,12 +1,12 @@
 ﻿
 /******************************************************************************
- * Page layout 
+ * Page layout
  *****************************************************************************/
 
-@media screen and (min-width: 600px) { 
-    .row { 
+@media screen and (min-width: 600px) {
+    .row {
         display: flex;
-    } 
+    }
 }
 
 @media screen and (min-width: 600px) {
@@ -25,7 +25,7 @@
 }
 
 /******************************************************************************
- * Body 
+ * Body
  *****************************************************************************/
 
 body {
@@ -58,7 +58,7 @@ div.code, pre.code {
     padding-right: 3px;
     padding-top : 2px;
     padding-bottom : 2px;
-    font-family: "Inconsolata", "Consolas", "Arial", "Monospace"; 
+    font-family: "Inconsolata", "Consolas", "Arial", "Monospace";
     color: black;
     font-size: 12px;
 }
@@ -77,9 +77,9 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-    color: #14cc67; 
-    font-size: 22px; 
-    margin-top: 18px; 
+    color: #14cc67;
+    font-size: 22px;
+    margin-top: 18px;
     margin-bottom: 6px;
     border-bottom: 1px solid #14cc67;
 }
@@ -104,6 +104,14 @@ h4 {
     font-size: 16px;
     margin-top: 4px;
     margin-bottom: 4px;
+}
+
+
+h5 {
+    color: #14cc67;
+    font-size: 14px;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 
 /******************************************************************************
@@ -133,7 +141,7 @@ p.back {
 
 /* Signature */
 p.sign {
-    text-align: center; 
+    text-align: center;
     color: grey;
     font-size: 12px;
 }
@@ -144,7 +152,7 @@ p.sign {
 
 table {
     border: 1px solid #AAA;
-    border-collapse: collapse; 
+    border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
     font-family: "Palatino Linotype";
@@ -153,8 +161,9 @@ th {
     border-bottom: 1px solid #AAA;
     text-align: center;
     font-size: 16px;
+    background: #DDDDDD;
 }
-tr:nth-child(odd) {
+tr:nth-child(even) {
     background: #DDDDDD;
 }
 table.def td:nth-child(1) {
@@ -183,6 +192,10 @@ code {
     background-color: #F9F9F9;
     font-family: "Inconsolata", "Consolas", "Arial", "Monospace";
     border: 1px solid #AAA;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 
 span.notabene:before {
@@ -219,7 +232,7 @@ span.type {
  *****************************************************************************/
 
  /* Strong and em are not used */
- 
+
 b {
     color: #1479cc;
 }
@@ -247,16 +260,16 @@ u {
 
 /* Menu */
 
-ol.menu { 
-    counter-reset: item 
+ol.menu {
+    counter-reset: item
 }
 
-ol.menu li { 
-    display: block 
+ol.menu li {
+    display: block
 }
 
-ol.menu li:before { 
-    content: counters(item, ".") " "; 
+ol.menu li:before {
+    content: counters(item, ".") " ";
     counter-increment: item ;
     font-size: 14px;
 }
