@@ -1,4 +1,4 @@
-!const TITLE=Aide-mémoire Lua
+!const TITLE=Aide-mémoire Python
 !const LANG=fr
 !const ICON=https://xitog.github.io/dgx/img/favicon.ico
 !require https://xitog.github.io/dgx/css/simplex.bootstrap.css
@@ -7,23 +7,6 @@
 !require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
 
 !var DEFAULT_CODE=python
-
-!css p { text-align: justify; }
-!css span.type    { color: purple; font-family: "Consolas"; }
-!css span.lua-number  { color: red;    font-family: "Consolas"; }
-!css span.lua-line_comment { color: grey;   font-family: "Consolas"; font-style: italic; }
-!css span.lua-string  { color: orange; font-family: "Consolas"; }
-!css span.lua-keyword { color: #1479cc;   font-family: "Consolas"; font-weight: bold; }
-!css span.lua-special { color: purple; font-family: "Consolas"; }
-
-!css h1 { color: #14cc67; font-family: "Palatino Linotype"; font-size: 22px; border-bottom: 1px solid #14cc67; font-weight: bold; margin-top: 18px; margin-bottom: 18px; }
-!css h2 { color: #6714cc; font-family: "Palatino Linotype"; font-size: 18px; font-weight: bold; margin-top: 18px; margin-bottom: 18px; border-bottom: none;}
-!css h3 { color: #cc6714; font-family: "Palatino Linotype"; font-size: 16px; font-weight: bold; margin-top:  6px; margin-bottom:  6px; }
-
-!css li a { color: #6714cc; font-size: 16px; font-family: "Palatino Linotype"; }
-!css li   { font-size: 16px; color: black; font-family: "Palatino Linotype"; }
-
-!css p.back { text-align: center; }
 
 {{#main .container}}
 
@@ -99,7 +82,7 @@ mis à jour le 15 mars 2021, créé le 4 avril 2017, converti en HML le 15 mars 
 Python est apparu en 1990, créé par Guido Van Rossum, un néerlandais. Les principales caractéristiques du langage sont :
 
 * Un typage fort et dynamique (duck/latent typing).
-* Interprété mais le code source est transformé en bytecode. 
+* Interprété mais le code source est transformé en bytecode.
 * Cross-platform (windows, linux, macos).
 * Il existe plusieurs implémentations : la principale est CPython (C), mais il existe aussi Jython (JVM), IronPython (.Net) et PyPy (Python).
 * Il existe plusieurs sous-langages :
@@ -111,7 +94,7 @@ Python est apparu en 1990, créé par Guido Van Rossum, un néerlandais. Les pri
 La version majeure actuelle (mars 2021) est la version 3 et est disponible selon les termes de la licence ''Python Software Foundation License (PSFL)'' semblable à la BSD.
 
 À l'heure où j'écris ces lignes (mars 2021), la version actuelle est la 3.9, mais tous les versions supérieures marcheront aussi pour ce tutoriel. À chaque version, le langage s'améliore, mais aussi parfois, il change son fonctionnement, surtout entre les versions majeures (le premier chiffre). Ainsi, un script écrit pour les versions de Python 2.x (où x est compris entre 0 et 7) a de fortes chances de ne plus marcher pour les versions de Python 3.
- 
+
 Date d'apparition du langage : 1990
 
 Créateurs : Guido Van Rossum (Pays-Bas)
@@ -153,7 +136,7 @@ Un fichier de script Python porte l'extension .py qui s'ajoute au nom que vous l
 print("Bonjour le monde !")
 @@@
 
-Vous venez de voir une première instruction valide en Python. Celle-ci affiche à l'écran les mots Hello World! C'est une tradition dans l'informatique de commencer par ce petit exemple. 
+Vous venez de voir une première instruction valide en Python. Celle-ci affiche à l'écran les mots Hello World! C'est une tradition dans l'informatique de commencer par ce petit exemple.
 
 Nous utiliserons une police et un formatage particuliers quand nous écrirons du code.
 
@@ -169,14 +152,14 @@ Mots réservés (29) : and, as, assert, break, class, continue, def, del, elif, 
 
 ## 1.9 Commentaires
 
-Commentaires en Python : 
+Commentaires en Python :
 @@@
 # mon commentaire jusqu'à la fin de la ligne
 @@@
 
 @@print("Hello, World!") # Ceci est un commentaire@@
 
-Commentaires sur plusieurs lignes : 
+Commentaires sur plusieurs lignes :
 
 @@@python
 """
@@ -334,7 +317,7 @@ On peut faire un iterable avec la fonction @@ range(stop)@@ qui va jusqu'à de 0
 Pour parcourir une liste on fera simplement @@ for value in liste: @@ et pour avoir l'index et la valeur @@ for index, value in enumerable(liste): @@.
 
 Pour parcourir un dictionnaire on fera simplement @@ for key in dictionnaire: @@ et pour la clé et la valeur @@ for key, value in dictionnaire.items() @@.
- 
+
 On peut utiliser le mot-clé @@break@@ pour sortir de la boucle.
 On peut utiliser le mot-clé @@continue@@ pour passer à l'itération suivante.
 
