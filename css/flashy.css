@@ -205,6 +205,8 @@ span.notabene:before {
 }
 
 span[class$="number"]   { color: red;     font-family: "Consolas"; }
+span[class$="integer"]  { color: red;     font-family: "Consolas"; }
+span[class$="float"]    { color: red;     font-family: "Consolas"; }
 span[class$="comment"]  { color: grey;    font-family: "Consolas"; font-style: italic; }
 span[class$="string"]   { color: #3c891b; font-family: "Consolas"; }
 span[class$="keyword"]  { color: #1479cc; font-family: "Consolas"; font-weight: bold; }
