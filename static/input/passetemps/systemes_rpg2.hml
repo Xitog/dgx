@@ -1,0 +1,201 @@
+!const TITLE=Systèmes de RPG
+!const LANG=fr
+!const ICON=https://xitog.github.io/dgx/img/favicon.ico
+!require https://xitog.github.io/dgx/css/simplex.bootstrap.css
+!require https://xitog.github.io/dgx/css/palatino.css
+!require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+!require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+
+!css #content-div h2 {border-bottom: 1px solid #CEC498;}
+!css #content-div h3::before { content: "—"; }
+!css #content-div { padding-left: 2em; padding-right: 2em; }
+
+{{#main .container}}
+
+!include menu.html
+
+{{#content-div}}
+
+# Systèmes de RPG
+
+## Sommaire
+
++ [Mon système->#]
++ [Dungeons et Dragons->#]
++ [Microlite 20->#]
++ [Ultra Microlite 20->#]
+
+Cette page décrit quelques systèmes de RPG dont le mien.
+
+## Mon système
+
+### Historique du projet
+
+Faire un système de règles pour un jeu de rôle est un très vieux projet pour moi. Mon premier essai remonte à l'été 1997. Je découvrais les possibilités du logiciel Word de Microsoft et je me mettais en tête d'écrire un jeu de rôle pour un de mes films favoris, ''Jurassic Park''. Je mettais même la possibilité de jouer un scénario avec un Predator qui venait chasser sur Isla Nublar pour un peu plus de fun !
+
+L'été suivant, 1998, je mettais au point ''Les Terres Sauvages'', un jeu de rôle dans un univers médiéval-fantastiquer plus classique. En même temps, je gérais pour mes camarades collégiens une campagne située dans l'univers de ''Lanfeust''. Cet intérêt pour les règles ne m'a jamais quitté. Au fil des années, je découvrais de nouveaux systèmes comme ''AD&D'', ''D&D3.x'', ''Vampire, la mascarade'' mais le premier qui exerça une influence considérable sur moi n'était pas papier mais vidéoludique : le magazine ''Generation 4'' avait fait un très long article à la sortie du jeu PC ''Fallout'' (1997), détaillant son système très inspiré de ''GURPS''. Déjà, il utilisait le trio caractéristiques / compétences / traits pour décrire un personnage, trio que je retrouverai bien plus tard dans ''D&D'' 3 (2000).
+
+Modéliser des personnages est forcément arbitraire et très sommaire. Un être humain ne peut pas se définir simplement par une poignée de chiffres dans diverses catégories, c'est encore plus vrai psychiquement que physiquement. Le réalisme ne doit pas se faire au détriment du plaisir de jouer, mais l'irréalisme le plus flagrant provoque quelques irritations.
+
+La découverte de Microlite 20 en février 2017 a été également très importante pour moi : j'ai découvert qu'on ''pouvait'' faire des « mini-système » qui tenait sur une ou deux pages. Libre aux maîtres du jeu d'ajouter et de construire autour. Dans le cas de Microlite 20, ils peuvent piocher dans l'immense gamme de produits conçus pour D&D 3.x. À vrai dire, faire une règle qui tient sur si peu de place tombe sous le sens : on doit pouvoir, pour un jeu fluide, ne pas se réferrer sans cesse à un ou plusieurs épais bouquins de règles. Ces retours aux textes ralentissent la résolution des actions et empêchent les joueurs de s'immerger pleinement. Pour les éviter, le maître du jeu doit faire un gros effort de préparation ''sur les règles'' en plus de celui sur le scénario. Ainsi, il y avait déjà dans les règles de D&D cette ''essence'', ce noyau, caché sous une avalanche de cas particuliers et de redondances, que Microlite 20 saisit et expose. De plus, les nombreux suppléments, passage obligé pour des besoins commerciaux, viennent encore plus alourdir l'ensemble avec toujours plus de classes et de pouvoirs.
+
+OSRIC a été un autre jalon, quelques années plus tôt (entre 2010 et 2013). C'est le fait qu'on pouvait, en modernisant la forme, préserver le fond qui faisait tout le sel de AD&D. D&D 3 voulait faire moderne mais en perdant une partie de l'essence de son aîné, ce que de nombreux joueurs lui ont reproché. Mais il y avait dans cette profonde modernisation de la forme un gain très appréciable de clarté. Le tryptique caractéristique / compétence / trait reste pour moi un moyen simple et puissant de personnaliser son personnage, pour peu que la liste de traits ne devienne pas trop grande.
+
+Je me propose ici de décrire et d'analyser plusieurs systèmes dont le mien qui une synthèse.
+
+### Cœur du système
+
+On reste donc sur le trio caractéristiques / compétences / traits.
+
+On comme par les caractéristiques, au nombre de 5 avec en gras leurs abréviations :
+
+- **For**ce
+- **Coo**rdination
+- **Per**ception
+- **Int**elligence
+- **Soc**ial
+
+## Dungeons et Dragons
+
+### Introduction
+
+Un monument du jeu de rôle, qui a défini ce loisir. Mon but ici est juste de rappeler quelques dates :
+
+* **1974** : **Dungeons & Dragons** : trois livrets dans une boîte par Gary Gygax et Dave Arneson.
+* **1977** (+3) : **Dungeons & Dragons Basic** Set par J. Eric Holmes. Une version pour attirer les nouveaux joueurs. Possibilité d'aller jusqu'au niveau 3 seulement. Il y aura des boîtes supplémentaires pour aller plus loin.
+* **1977** (MM) (+3), **1978** (PB) et **1979** (DMG) : Advanced Dungeons & Dragons. Le plus culte. 3 manuels : Monster Manual, Player's Handbook, Dungeon Master's Guide.
+* **1989** (+12) : **Advanced Dungeons & Dragons**, **2**nd édition dirigée par David "Zeb" Cook. C'est lui figera le test pour toucher : d20 > THAC0 - AC (to hit armor class 0 - armor class) faisant que plus une armure est forte, plus sa valeur est faible.
+* 1991 : Dungeons & Dragons Rules Cyclopedia, dirigé par Aaron Allston, compilation ultime des règles du Basic et ses extensions.
+* 1995 : Réédition de Advanced Dungeons & Dragons, 2nd édition avec des bords noirs.
+* **2000** (+11) : Dungeons & Dragons **3**ème édition. Modernise le tout par Monte Cook, Jonathan Tweet et Skip William en mettant en avant le d20. Propose aussi la licence Open Game License qui permet de réutiliser et modifier des éléments des règles de base, le System Reference Document (SRD).
+* **2003** : Dungeons & Dragons **3.5**
+* **2008** : Dungeons & Dragons **4**ème édition. Concepteur en chef : Rob Heinsoo.
+* 2009 : **Pathfinder** qui est une sorte de D&D 3.5+ en réaction à D&D4
+* 2010 : Dungeons & Dragons Essentials : produit d'appel.
+* **2014** : Dungeons & Dragons **5**ème édition.
+
+Sources :
+
+* [Wikipédia : liste des éditions de D&D->https://en.wikipedia.org/wiki/Editions_of_Dungeons_%26_Dragons]
+* [Wikipédia : HackMaster, une parodie de D&D->https://en.wikipedia.org/wiki/HackMaster] (2001)
+* [Wikipédia : 13ème Âge->https://en.wikipedia.org/wiki/13th_Age] un jeu par deux des concepteurs de la 3ème et la 4ème édition de D&D.
+* ''Donjons & Dragon, le jeu de rôle et de stratégie de la nouvelle génération'', Mathilde Maraninchi, Solar éditions, 1982 : une copie violant la propriété intellectuelle de TSR.
+
+## Microlite 20
+
+### Introduction
+
+Un système très léger qui tient sur 2 pages. Il s'agit d'une version réduite au minimum de la famille D&D 3.x. Il a été écrit par Robin V. Stacey en 2006 sous l'Open Game License. Le product identity couvre son nom et [Microlite20->https://microlite20.org/]. Cette traduction n'est pas officielle ni ne se veut complète.
+
+Sources : Sites web [microlite20.org->https://microlite20.org/] et [retroroleplaying.com->https://retroroleplaying.com/] | Auteur : Robin V. Stacey | Version analysée : datée de 2006
+
+### 1. Caractéristiques
+
+Il utilise les caractéristiques, appelées ''stats'', suivantes :
+
+* **Force / Strength** (FOR / STR)
+* **Dextérité / Dexterity** (DEX)
+* **Esprit / Mind** (ESP / MIND)
+
+Elles sont obtenues en lançant 4D6 dont on ne garde que les 3 meilleurs et on les additionne pour obtenir un score entre 3 et 18.
+
+À la manière de sa famille, à chaque caractéristique est associée un bonus dont la formule de calcul est :
+
+@@text
+@@( STAT - 10 ) / 2 arrondi à l'inférieur
+
+Cela donne des valeurs comprises entre -4 et +4 :
+
+| **Valeur caractéristique** | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 |
+| **Bonus**                  |-4 |-3 |-3 |-2 |-2 |-1 |-1 |  0 |  0 | +1 | +1 | +2 | +2 | +3 | +3 | +4 |
+
+### 2. Races
+
+Il y a 4 races, chacune donnant un bonus :
+
+* **Humans** : +1 à tous les tests de compétences
+* **Elfes** : +2 ESP
+* **Nains** : +2 FOR
+* **Halflings** : +2 DEX
+
+### 3. Classes
+
+Il y a 4 classes, chacune contraignant les types d'armures que l'on peut porter :
+
+* **Fighter(s)** :
+* * Toutes les armures
+* * +3 pour Physique
+* * +(LVL/5)^^arrondi supérieur^^ pour jets d'attaque et de dommages
+* **Rogue(s)** :
+* * Armures légères.
+* * Sur test de Sneak (sub+DEX), dommage+sub sur leur première attaque
+* **Mage (Magi)** :
+* * Pas d'armures
+* * Sorts des arcanes
+* * +3 Connaissance
+* **Clerics** :
+* * Armures moyennes
+* * Sorts divins
+* * +3 Communication
+* * Turn Undead : attaque magique contre DC = points de vie de la cible. Si jet réussi de 10+, la cible est détruite. Utilisable (2 + lvl + Mind bonus) / jour.
+
+### 4. Compétences
+
+4 compétences :
+
+* Physique
+* Subterfuge
+* Connaissance
+* Communication
+
+Niveau de compétence = lvl + bonus
+Test de compétence = d20 + niveau + bonus + contexte
+
+Le bonus est celui de la caractéristique choisie en fonction du contexte.
+
+Il n'y a pas de jets de sauvegarde dans Microlite20, on utilise les compétences.
+
+### 5. Magie
+
+### 6. Combat
+
+### 7. Autres dangers
+
+### 8. Gain de niveaux
+
+### 9. Bestiaire
+
+## Ultra Microlite 20
+
+Une version encore plus légère de Microlite 20 écrite par greywulf en 2008 révisée par Andrew Domino en 2014. Cette traduction n'est pas officielle ni ne se veut complète.
+
+Si on a pas de d20, utiliser 3d6.
+
+**3 caractéristiques** : FOR, DEX, ESP. On partage 5 points parmi celles-ci avec max 4 dans une car. On peut réduire une caractéristique à -1 pour avoir un +1 ailleurs. C'est directement notre bonus.
+
+**4 compétences** : Physique, subterfuge, communication, connaissance. On en choisit une où on a +4. On a +1 dans les autres.
+
+Pour résoudre les **actions** : d20 + bonus de compétence + bonus de caractéristique >= DC ou > jet opposé.
+
+**DC** est généralement 10, 15 pour les actions difficiles.
+
+**Combat** est résolu par :
+
+* Physical + FOR (mêlée) vs CA,
+* Physical + DEX (tir) vs CA,
+* Connaissance + ESP (magie) vs Will save (10 + ESP x2)
+
+**CA** = 10 + DEX + bonus d'armure (cuir : +2, maille : +4, plate : +7 mais sans DEX). Bouclier = +1 CA.
+
+**Initative** = 1D20.
+
+**Blessures** : si on est touché 3 dans un combat, on est inconscient. Après le combat, il faut lancer Physical + FOR vs DC 15 pour récupérer sans séquelles. Sinon : cicatrices, peur panique... On repart à 0 blessures. Les ennemis forts peuvent avoir besoin de plus de 3, les faibles de moins de 3.
+
+**Gains** : si on survit 10 combats, +1 à toutes les compétences.
+
+**Temps modernes** : mailles est un gilet pare-balle et plate une armure anti-émeute. +2 pour les jets d'attaque de tir avec un pistolet, +4 avec un fusil.
+
+Pour les **combats sociaux**, ajouter la caractéristique Charisme (CHA) et on divise 7 points au lieu de 5. On se combat avec la caractéristique et la compétence qui convient. Si le jeu est centré sur le social, tous les autres combats peuvent être résolus par Physical + FOR et laisser tomber CA et Will save. On garde séparé les blessures physiques des blessures sociales. 3 blessures sociales signifient que l'on a été berné/joué par notre adversaire et celui-ci décide de ce qu'il advient.
+
+{{end}}
+{{end}}
