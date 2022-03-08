@@ -162,7 +162,7 @@ On peut également préciser un colspan avec #cVALEUR# par exemple : @@#c3#@@ et
 * La première forme dite ''directe'' est @@[> URL]@@ ou @@[> REF]@@. L'URL ou la REF sera affichée
 * La seconde forme dite ''nommée'' s'écrit @@[ nom affiché -> URL ]@@ ou @@[ nom affiché -> REF ]@@
 * Une URL commence par @@http://@@ ou @@https://@@
-* Une REF est définie par une ligne de la forme @@[code]: http://...@@@
+* Une REF est définie par une ligne de la forme @@[code]: http://...@@
 * Une forme spéciale de la nommée est si REF est seulement @@#@@ comme @@[ nom affiché -> # ]@@ : il essaye de faire sur le nom affiché transformé ou, si l'ancre n'existe pas, le nom affiché directement
 * Les titres sont automatiquement transformés en ancre en remplaçant les espaces par - et en les mettant en minuscules : ainsi **Les jeux** devient **les_jeux**
 

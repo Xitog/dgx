@@ -62,6 +62,7 @@ targets = ['passetemps/pres_favoris.hml',
 targets = ['informatique/lua.hml',
            'passetemps/pres_jeuxvideo.hml']
 targets = ['passetemps/systemes_rpg2.hml']
+targets = ['informatique/hamill.hml']
 
 for t in targets:
     do(t)
