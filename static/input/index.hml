@@ -35,7 +35,7 @@ Ce site web personnel présente mes différents articles et projets écrits ou c
 
 | Articles                                                                       |
 |--------------------------------------------------------------------------------|
-| Gestion de la [transition->rts] dans les grilles de tuiles                     |
+| Gestion de la [transition->#] dans les grilles de tuiles                       |
 | [Explications sur le raycasting->fps] dans les FPS en 2.5D                     |
 | Histoire du jeu vidéo : [FPS->earlyFPS] et [RTS->earlyRTS]                     |
 | Passe-temps : [jeux classiques->jeux], [jeux vidéo->jv], et [favoris->favoris] |
@@ -62,6 +62,7 @@ Ce site web personnel présente mes différents articles et projets écrits ou c
 
 [ash]: https://xitog.github.io/dgx/informatique/ash_guide.html
 [hamill]: https://xitog.github.io/dgx/informatique/hamill.html
+[transition]: https://xitog.github.io/dgx/passetemps/tech_transitions.html
 [rts]: https://xitog.github.io/dgx/passetemps/project_rts.html
 [fps]: https://xitog.github.io/dgx/passetemps/project_fps.html
 [python]: https://xitog.github.io/dgx/informatique/python.html
