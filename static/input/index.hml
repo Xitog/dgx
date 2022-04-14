@@ -4,8 +4,16 @@
 !require https://xitog.github.io/dgx/css/palatino.css
 !require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
 !require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+!css .jumbotron { margin-bottom: 2px; }
 !css .jumbotron ol ul li { margin-bottom: 0px; }
 !css .jumbotron ol li { margin-bottom: 1em; }
+!css table, tr, td { background-color: #f4f4f4; color: rgb(119, 119, 119); font-size: 18px; }
+!css table a { font-size: 18px; }
+!css table td { border: none; }
+!css table th { background-color: #f4f4f4; color: rgb(119, 119, 119); font-size: 18px; border: none; border-bottom: 1px solid #acaeb0; }
+!css p.sign { margin-bottom: none; }
+!css .jumbotron p:last-child { margin-bottom: none; }
+!css .jumbotron { padding-bottom: 1rem; }
 
 {{#main .container}}
 
@@ -18,35 +26,39 @@
 
 Bonjour visiteur !
 
-Mon site web personnel présente mes centres d'intérêts et différents projets.
+Ce site web personnel présente mes différents articles et projets écrits ou codés autour de mes centres d'intérêts que sont la linguistique, l'informatique, l'histoire et les jeux, vidéo ou non, en espérant qu'il vous soit utile.
 
-J'aime particulièrement la linguistique, l'informatique et l'histoire.
+| Projets              |                                                                        |
+|-----------------------------------------------------------------------------------------------|
+| [Ash->ash]           | : un langage de programmation                                          |
+| [Hamill->hamill]     | : un langage de balisage léger pour produire du HTML                   |
 
-Vous trouvez donc sur ce site :
+| Articles                                                                       |
+|--------------------------------------------------------------------------------|
+| Gestion de la [transition->rts] dans les grilles de tuiles                     |
+| [Explications sur le raycasting->fps] dans les FPS en 2.5D                     |
+| Histoire du jeu vidéo : [FPS->earlyFPS] et [RTS->earlyRTS]                     |
+| Passe-temps : [jeux classiques->jeux], [jeux vidéo->jv], et [favoris->favoris] |
+| [Liste de liens vers des outils pratiques->tools]                              |
 
-+ Des outils informatiques comme :
-* * [Ash->ash] : un langage de programmation,
-* * [Hamill->hamill] : un langage de balisage léger pour produire du HTML,
-* * Jyx : un éditeur de texte,
-* * Teddy : un éditeur de carte.
-+ Des prototypes et des moteurs de jeux vidéo :
-* * un [RTS->rts] et son moteur de transitions,
-* * un [FPS 2.5D->fps] et son moteur de raycasting,
-* * un RPG et son moteur de dialogue,
-* * un Action-RPG et son moteur de génération procédurale.
-+ Des guides, des fiches ou des jeux pour apprendre ou réviser :
-* * les technologies informatiques :
-* * * langages de programmation comme [Python->python], [Ruby->ruby] et [Lua->lua],
-* * * langages de description comme [BNF->bnf] et [JSON->json],
-* * * [liste de liens vers des outils pratiques->tools],
-* * les langues et la linguistique :
-* * * français : [phonèmes->frphon] et [outil d'analyse->frana],
-* * * italien : [grammaire->beatrice] et [jeu sur la conjugaison->itagame],
-* * * anglais : [liste de verbes fréquents->enverbs] et [jeu sur le vocabulaire->engame],
-* * * interlingua : [conjugueur->iaconj],
-* * l'histoire : [méthodologie->metodo], [bibliographie->biblio] et [France du XIX^^e^^->xix],
-* * l'histoire des jeux vidéo, celle des [FPS->earlyFPS] et des [RTS->earlyRTS],
-* * mes passe-temps, [jeux classiques->jeux], [jeux vidéo->jv], et [favoris->favoris].
+| Manuels et fiches |                                                                                   |
+|-------------------------------------------------------------------------------------------------------|
+| Programmation     | Manuels [Python->python], [Ruby->Ruby] et [Lua->lua]                              |
+| Modélisation      | Fiches sur [BNF->bnf] et [JSON->json]                                             |
+| Italien           | [Beatrice->beatrice], grammaire de l'italien et [jeu sur la conjugaison->itagame] |
+| Français          | fiche sur les [phonèmes->frphon] et [outil d'analyse->frana]                      |
+| Anglais           | [liste de verbes fréquents->enverbs] et [jeu sur le vocabulaire->engame]          |
+| Interlingua       | [conjugueur->iaconj]                                                              |
+| Histoire          | [méthodologie->metodo], [bibliographie->biblio] et [France du XIX^^e^^->xix]      |
+
+§§ Des outils informatiques comme : Jyx : un éditeur de texte, Teddy : un éditeur de carte
+§§ les langues et la linguistique :
+§§ Des prototypes et des moteurs de jeux vidéo :
+§§ un RPG et son moteur de dialogue,
+§§ un Action-RPG et son moteur de génération procédurale.
+§§ Des guides, des fiches ou des jeux pour apprendre ou réviser :
+§§ les technologies informatiques :
+§§ langages de description comme ,
 
 [ash]: https://xitog.github.io/dgx/informatique/ash_guide.html
 [hamill]: https://xitog.github.io/dgx/informatique/hamill.html
@@ -74,14 +86,13 @@ Vous trouvez donc sur ce site :
 [jv]: https://xitog.github.io/dgx/passetemps/pres_jeuxvideo.html
 [favoris]: https://xitog.github.io/dgx/passetemps/pres_favoris.html
 
-J'espère que que ce site pourra vous être utile et que la Force soit avec vous.
-
-À jamais.
+§§ J'espère que que ce site pourra vous être utile et que la Force soit avec vous.
+§§ À jamais.
 
 {{.sign}}Damien Gouteux, dernière mise à jour le [=GENDATE].
 
 {{end}}
 
-!html <div style="width: 50%; margin: auto; text-align: center;">2005 ❤ 2020</div>
+!html <div style="width: 50%; margin: auto; text-align: center;">2005 ❤ 2022</div>
 
 {{end}}
