@@ -1,0 +1,235 @@
+<html>
+    <head>
+        <title>Ash REPL</title>
+        <meta charset="utf8">
+        <script type="module" src="./weyland.mjs"></script>
+        <script type="module" src="./parser.mjs"></script>
+        <script type="module" src="./interpreter.mjs"></script>
+        <script type="module">
+            //-----------------------------------------------------------------
+            // Imports
+            //-----------------------------------------------------------------
+            import { Lexer } from "./weyland.mjs";
+            import { Parser } from "./parser.mjs";
+            import { Interpreter } from "./interpreter.mjs";
+
+            //-----------------------------------------------------------------
+            // Functions
+            //-----------------------------------------------------------------
+            function $(element)
+            {
+                let obj = document.getElementById(element);
+                if (obj === null)
+                {
+                    let msg = "No element found: " + element;
+                    alert(msg);
+                    throw new Error(msg);
+                }
+                return obj;
+            }
+
+            function react(event)
+            {
+                if (event.key === 'Enter') {
+                    console.log('do validate')
+                    let tx = $("code");
+                    tx.value = tx.value + '\n    ';
+                    event.preventDefault();
+                }
+            }
+
+            function reset()
+            {
+                let code = $("code");
+                code.innerText = "";
+            }
+
+            function find(tokens, start, value, type, before_end_of_line=false)
+            {
+                const NOT_FOUND = -1;
+                for (let i = start; i < tokens.length; i++)
+                {
+                    if (tokens[i].is(value, type))
+                    {
+                        return i;
+                    }
+                    if (before_end_of_line && tokens[i].is(null, 'newline'))
+                    {
+                        return NOT_FOUND;
+                    }
+                }
+                return NOT_FOUND;
+            }
+
+            function write(params)
+            {
+                if (!Array.isArray(params))
+                {
+                    throw new Error("Params should be an array and is: " + typeof(params));
+                }
+                let output_console = $("console");
+                let ret = null;
+                for (let param of params)
+                {
+                    let neo = document.createElement("span");
+                    neo.innerText = param;
+                    output_console.appendChild(neo);
+                    ret = param.length;
+                }
+                return ret;
+            }
+
+            function analyse()
+            {
+                console.clear();
+                let code = $("code");
+                let lex = new Lexer('ash', ['blank']);
+                console.log(lex);
+                let tokens = [];
+                let output_ast = $("ast");
+                let output_console = $("console");
+                let output_result = $("result");
+                output_ast.innerHTML = '';
+                output_console.innerHTML = '';
+                output_result.innerHTML = '';
+                let screen = $("screen");
+                let ctx = screen.getContext("2d");
+                ctx.clearRect(0, 0, screen.width, screen.height);
+                try
+                {
+                    // Get the code as HTML
+                    let text = code.innerHTML;
+                    // Removing all <sup>X</sup>
+                    text = text.replace(/<sup class="info">[^<]+<\/sup>/gi, "");
+                    // Put back the HTML inside the code
+                    code.innerHTML = text;
+                    // Get again the code but as text (delete all html markup)
+                    text = code.innerText.trim();
+                    console.log('Input text   |' + text + '|');
+                    // Tokenizing
+                    tokens = lex.lex(text);
+                    let html = '<div>' + lex.to_html(null, tokens, ['blank', 'newline'], true).replaceAll('\n', '</div><div>')  + '</div>';
+                    code.innerHTML = html;
+                    console.log('HTML         |' + html + '|');
+                    //output.innerHTML = lex.to_html(code.innerText, null, ['blank'], true).replaceAll('\n', '<br>');
+                    console.log('Tokens       :');
+                    //for (let tok of tokens)
+                    for (const [index, tok] of tokens.entries())
+                    {
+                        console.log('    ' + index.toString().padStart(3) + ". " + tok.info());
+                    }
+                } catch (error) {
+                    alert(error);
+                    return;
+                }
+                console.log('Parsing :');
+                let p = new Parser();
+                let ast = p.parse(tokens);
+                //console.log('AST :');
+                let tree = ast.display();
+                console.log('Interpreter :');
+                let interpreter = new Interpreter(write, screen);
+                let result = interpreter.do(ast);
+                if (result === null)
+                {
+                    result = 'nil';
+                }
+                console.log('End of execution');
+                console.log('AST: ', ast);
+                console.log('Scope: ', interpreter.root);
+
+                output_ast.innerHTML = tree;
+                output_result.innerHTML = result;
+            }
+
+            function open_or_close(elem_id)
+            {
+                let elem = $(elem_id);
+                if (elem.style.display === "none")
+                {
+                    elem.style.display = "block";
+                } else {
+                    elem.style.display = "none";
+                }
+            }
+
+            document.getElementById("ast").parentNode.addEventListener('click', ()=>{open_or_close('ast')});
+            document.getElementById("screen").parentNode.addEventListener('click', ()=>{open_or_close('screen')});
+            document.getElementById("console").parentNode.addEventListener('click', ()=>{open_or_close('console')});
+            document.getElementById("result").parentNode.addEventListener('click', ()=>{open_or_close('result')});
+
+            document.querySelectorAll('[class$="_reset"]').forEach(e => e.addEventListener('click', reset));
+            document.querySelectorAll('[class$="_analyse"]').forEach(e => e.addEventListener('click', analyse));
+            //setInterval(analyse, 35);
+        </script>
+        <link href="https://xitog.github.io/dgx/css/flashy.css" rel="stylesheet">
+        <style>
+            #code {
+                width: 95%;
+                height: 90%;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                border: 1px black solid;
+                padding: 12px;
+                overflow: auto;
+                font-family: 'Courier New', Courier, monospace;
+                white-space: pre-wrap;
+            }
+            .grid-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 5px;
+                height: 100%;
+            }
+            div.grid-child:nth-child(2) {
+                margin-top: 30px;
+                font-family: 'Courier New', Courier, monospace;
+            }
+            span[class$=identifier] {
+                color: rgb(2,155,238); /*rgb(156, 220, 254);*/
+            }
+            span[class$=separator] {
+                color: rgb(255, 201, 17); /* 197 121 145 */
+            }
+            pre {
+                border: 1px #e7e7e7 solid;
+                background: #f0f0f0;
+                padding: 0.5em;
+                margin-top: 0;
+            }
+            div.title {
+                /*width: 100%;*/
+                border: 1px #a1a1a1 solid;
+                background: #f0f0f0;
+                padding-left: 1em;
+                margin-bottom: 0;
+            }
+        </style>
+    </head>
+    <body width="100%">
+        <div class="grid-container">
+            <div class="grid-child">
+                <button class="_reset">Reset</button>
+                <button class="_analyse">Parse</button>
+                <div id="code" contenteditable="true"></div>
+                <button class="_reset">Reset</button>
+                <button class="_analyse">Parse</button>
+            </div>
+            <div class="grid-child">
+                <div>
+                    <div class="title">Abstract Syntax tree</div>
+                    <pre id="ast"></pre>
+                </div>
+                <div><div class="title">Screen</div>
+                    <canvas id="screen" width="640px" height="480px"></canvas>
+                </div>
+                <div><div class="title">Console</div>
+                    <pre id="console"></pre>
+                </div>
+                <div><div class="title">Result</div>
+                    <pre id="result"></pre>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

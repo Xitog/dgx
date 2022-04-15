@@ -28,10 +28,10 @@ Bonjour visiteur !
 
 Ce site web personnel présente mes différents articles et projets écrits ou codés autour de mes centres d'intérêts que sont la linguistique, l'informatique, l'histoire et les jeux, vidéo ou non, en espérant qu'il vous soit utile.
 
-| Projets              |                                                                        |
-|-----------------------------------------------------------------------------------------------|
-| [Ash->ash]           | : un langage de programmation                                          |
-| [Hamill->hamill]     | : un langage de balisage léger pour produire du HTML                   |
+| Projets              |                                                                                                                 |
+|----------------------------------------------------------------------------------------------------------------------------------------|
+| [Ash->ash]           | un langage de programmation simple et concis ([manuel->ash], [démo->ash_repl], [source->ashgit])                |
+| [Hamill->hamill]     | un langage de balisage léger pour produire du HTML ([manuel->hamill], [démo->hamill_live], [source->hamillgit]) |
 
 | Articles                                                                       |
 |--------------------------------------------------------------------------------|
@@ -43,8 +43,8 @@ Ce site web personnel présente mes différents articles et projets écrits ou c
 
 | Manuels et fiches |                                                                                   |
 |-------------------------------------------------------------------------------------------------------|
-| Programmation     | Manuels [Python->python], [Ruby->ruby] et [Lua->lua]                              |
-| Modélisation      | Fiches sur [BNF->bnf] et [JSON->json]                                             |
+| Programmation     | manuels [Python->python], [Ruby->ruby] et [Lua->lua]                              |
+| Modélisation      | fiches sur [BNF->bnf] et [JSON->json]                                             |
 | Italien           | [Beatrice->beatrice], grammaire de l'italien et [jeu sur la conjugaison->itagame] |
 | Français          | fiche sur les [phonèmes->frphon] et [outil d'analyse->frana]                      |
 | Anglais           | [liste de verbes fréquents->enverbs] et [jeu sur le vocabulaire->engame]          |
@@ -61,7 +61,11 @@ Ce site web personnel présente mes différents articles et projets écrits ou c
 §§ langages de description comme ,
 
 [ash]: https://xitog.github.io/dgx/informatique/ash_guide.html
+[ash_repl]: https://xitog.github.io/dgx/informatique/ashjs/ash_repl.html
+[ashgit]: https://github.com/Xitog/ash
 [hamill]: https://xitog.github.io/dgx/informatique/hamill.html
+[hamill_live]: https://xitog.github.io/dgx/informatique/hamilljs/hamill_live.html
+[hamillgit]: https://github.com/Xitog/hamill
 [transition]: https://xitog.github.io/dgx/passetemps/tech_transitions.html
 [rts]: https://xitog.github.io/dgx/passetemps/project_rts.html
 [fps]: https://xitog.github.io/dgx/passetemps/project_fps.html
