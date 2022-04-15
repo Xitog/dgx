@@ -1,17 +1,32 @@
 <head>
+  <meta charset=utf-8>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Evolution of early FPS</title>
+  <link rel="icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
+  <link href="https://xitog.github.io/dgx/css/simplex.bootstrap.css" rel="stylesheet">
+  <link href="https://xitog.github.io/dgx/css/palatino.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
   <style>
     p {
         font-family: "Palatino, Palatino Linotype, Georgia";
-        font-size: 1.1em;
+        font-size: 18px;
     }
     table#main {
         border-collapse: collapse;
         font-family: "Arial";
-        font-size: 0.8em;
+        margin: 0 auto;
     }
     table#main td {
         border: 1px black solid;
+        font-family: "Arial";
+        font-size: 12px;
+    }
+    table#main td a {
+        font-family: "Arial";
+        font-size: 12px;
     }
     table#main tr:first-child {
         font-weight: bold;
@@ -42,379 +57,517 @@
         background-color: black;
         color: white;
         text-align: center;
+        font-size: 14px;
     }
     table#main td.h2 {
         font-weight: bold;
         background-color: rgb(238, 236, 225);
         color: black;
         text-align: center;
+        font-size: 14px;
     }
     table#main td.u {
         vertical-align: top;
     }
+    #content {
+        text-align: center;
+        width: 100%;
+    }
+    p.sign {
+        text-align:  right;
+        width: 100%;
+    }
   </style>
 </head>
 <body>
-  <p>This table compares the technical capacities of 5 different games whose engines were developed by John Carmack, from 1991 to 1993.</p>
-  <p>John Carmack, from id Software, was a pioneer in rendering a 3D environment for PC games, as was the team from Blue Sky Productions behind <i>Ultima Underworld</i> (1992).</p>
-  <p>This table shows clearly a rapid evolution, from untextured to textured walls, from orthogonal to non-orthogonal walls and from grid-based to free-form level.</p>
-  <p>Damien Gouteux, 2020-02-21</p>
-  <table id="main">
-    <tbody>
-      <tr>
-        <td>Game name</td>
-        <td>Hovertank 3D</td>
-        <td>Catacomb 3D</td>
-        <td>Wolfenstein 3D</td>
-        <td>ShadowCaster</td>
-        <td>Doom</td>
-      </tr>
-      <tr>
-        <td>Genre</td>
-        <td>Science Fiction</td>
-        <td>Fantasy</td>
-        <td>War</td>
-        <td>Fantasy</td>
-        <td>Science Fiction</td>
-      </tr>
-      <tr>
-        <td>Engine name, offical or <i>not</i></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><i>Raven Engine</i></td>
-        <td>Id Tech 1</td>
-      </tr>
-      <tr>
-        <td>Company</td>
-        <td>id Software</td>
-        <td>id Software</td>
-        <td>id Software</td>
-        <td>Raven Software</td>
-        <td>id Software</td>
-      </tr>
-      <tr>
-        <td>Links</td>
-        <td>
-          <a href="https://www.mobygames.com/game/dos/hovertank-one">Mobygames</a>,
-          <a href="https://en.wikipedia.org/wiki/Hovertank_3D">Hovertank 3D</a>
-        </td>
-        <td>
-          <a href="https://www.mobygames.com/game/dos/catacomb-3-d">Mobygames</a>,
-          <a href="https://en.wikipedia.org/wiki/Catacomb_3-D">Wikipedia</a>
-        </td>
-        <td>
-          <a href="https://www.mobygames.com/game/wolfenstein-3d">Mobygames</a>,
-          <a href="https://en.wikipedia.org/wiki/Wolfenstein_3D">Wikipedia</a>
-        </td>
-        <td>
-          <a href="https://www.mobygames.com/game/dos/shadowcaster">Mobygames</a>,
-          <a href="https://en.wikipedia.org/wiki/ShadowCaster">Wikipedia</a>
-        </td>
-        <td>
-          <a href="https://www.mobygames.com/game/doom">Mobygames</a>,
-          <a href="https://en.wikipedia.org/wiki/Doom_(1993_video_game)">Wikipedia</a>
-        </td>
-      <tr>
-        <td>Source code</td>
-        <td><a href="https://github.com/FlatRockSoft/Hovertank3D">Github FlatRockSoft</a></td>
-        <td><a href="https://github.com/CatacombGames/Catacomb3DGithub">Github CatacombGames</a></td>
-        <td><a href="https://github.com/id-Software/wolf3d">Github id Software</td>
-        <td><a href="https://drive.google.com/open?id=0B3gIcilDnsOPakdzNWNMZ1hNWUE&amp;authuser=0">Red Shadow Software</td>
-        <td><a href="https://github.com/id-Software/DOOM">Git id Software</td>
-      </tr>
-      <tr>
-        <td>Release date</td>
-        <td>April, <b>1991</b></td>
-        <td>November, <b>1991</b></td>
-        <td>May 5, <b>1992</b></td>
-        <td><b>1993</b></td>
-        <td>December 10, <b>1993</b></td>
-      </tr>
-      <tr>
-        <td>Release of the source code</td>
-        <td>June, 2014</td>
-        <td>June, 2014</td>
-        <td>July 21, 1995</td>
-        <td>-</td>
-        <td>December 23, 1997</td>
-      </tr>
-      <tr>
-        <td class="u">Programmers<br>(<b>engine programmer</b>)</td>
-        <td class="u"><b>John Carmack</b><br>John Romero</td>
-        <td class="u"><b>John Carmack</b><br>John Romero<br>Jason Blochowiak</td>
-        <td class="u"><b>John Carmack</b><br>John Romero</td>
-        <td class="u"><b>John Carmack</b><br>Victor Brueggemann<br>Kurt Schallitz<br>Carl Stika<br>Ben Gokey<br>Rick Johnson<br>David Stildolph</td>
-        <td class="u"><b>John Carmack</b><br>Mike Abrash<br>John Romero<br>Dave Taylor</td>
-      </tr>
-      <tr>
-        <td class="u">Artists</td>
-        <td class="u">Adrian Carmack</td>
-        <td class="u">Adrian Carmack</td>
-        <td class="u">Adrian Carmack</td>
-        <td class="u">Shane Gurno<br>Brian Pelletier<br>Scott Rice<br>James Sumwalt</td>
-        <td class="u">Adrian Carmack<br>Kevin Cloud</td>
-      </tr>
-      <tr>
-        <td>Editing Tool</td>
-        <td>TEd</td>
-        <td>TEd</td>
-        <td>TEd</td>
-        <td>TEd</td>
-        <td class=xl72 width=162 style='width:122pt'>DoomEd</td>
-      </tr>
-      <tr>
-        <td class="h1" colspan="6">Technical information</td>
-      </tr>
-      <tr>
-        <td class="h2" colspan="6">General</td>
-      </tr>
-      <tr>
-        <td>Colors</td>
-        <td class="i">16-color EGA</td>
-        <td class="i">16-color EGA</td>
-        <td class="i">256-color VGA</td>
-        <td class="i">256-color VGA</td>
-        <td class="i">256-color VGA</td>
-      </tr>
-      <tr>
-        <td>Resolution</td>
-        <td class="i">320x200</td>
-        <td class="i">320x200</td>
-        <td class="i">320x200</td>
-        <td class="i">320x200</td>
-        <td class="i">320x200</td>
-      </tr>
-      <tr>
-        <td class="h2" colspan="6">Levels</td>
-      </tr>
-      <tr>
-        <td>Level form</td>
-        <td class="i">grid</td>
-        <td class="i">grid</td>
-        <td class="i">grid</td>
-        <td class="i">grid</td>
-        <td class="i">sectors</td>
-      </tr>
-      <tr>
-        <td>Rendering</td>
-        <td class="i">wall span</td>
-        <td class="i">wall span</td>
-        <td class="i">raycasting</td>
-        <td class="i">raycasting</td>
-        <td class="i">raycasting</td>
-      </tr>
-      <tr>
-        <td>Hub</td>
-        <td class="n">no</td>
-        <td class="y">yes</td>
-        <td class="n">no</td>
-        <td class="y">yes</td>
-        <td class="n">no</td>
-      </tr>
-      <tr>
-        <td>Automap</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="y">yes</td>
-        <td class="y">yes</td>
-      <tr>
-        <td class="h2" colspan="6">Things</td>
-      </tr>
-      <tr>
-        <td>Scalable sprites</td>
-        <td class="y">yes</td>
-        <td class="y">yes</td>
-        <td class="y">yes</td>
-        <td class="y">yes</td>
-        <td class="y">yes</td>
-      </tr>
-      <tr>
-        <td>Multiangle sprites</td>
-        <td class="n">no</td>
-        <td class="y">yes</td>
-        <td class="y">yes</td>
-        <td class="y">yes</td>
-        <td class="y">yes</td>
-      </tr>
-      <tr>
-        <td>Polygonal things</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-      </tr>
-      <tr>
-        <td class="h2" colspan="6">Walls</td>
-      </tr>
-      <tr>
-        <td>Orthogonal walls</td>
-        <td class="y">yes</td>
-        <td class="y">yes</td>
-        <td class="y">yes</td>
-        <td class="y">yes</td>
-        <td class="y">yes</td>
-      </tr>
-      <tr>
-        <td>Non-orthogonal walls</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="y">yes</td>
-      </tr>
-      <tr>
-        <td>Free length of walls</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="y">yes</td>
-      </tr>
-      <tr>
-        <td>Doors</td>
-        <td class="n">no</td>
-        <td class="i">Disappearing walls</td>
-        <td class="y">yes</td>
-        <td class="y">yes</td>
-        <td class="y">yes</td>
-      </tr>
-      <tr>
-        <td>Transparent walls</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="y">yes</td>
-      </tr>
-      <tr>
-        <td class="h2" colspan="6">3rd Dimension</td>
-      </tr>
-      <tr>
-        <td>Different heights per levels</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="y">yes</td>
-        <td class="y">yes</td>
-      </tr>
-      <tr>
-        <td>Different heights per walls</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="y">yes</td>
-      </tr>
-      <tr>
-        <td>Sloped floors and ceilings</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="y">yes</td>
-        <td class="n">no</td>
-      </tr>
-      <tr>
-        <td>Elevators</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="y">yes</td>
-      </tr>
-      <tr>
-        <td class="h2" colspan="6">Texture-mapping</td>
-      </tr>
-      <tr>
-        <td>Textured walls</td>
-        <td class="n">no</td>
-        <td class="y">yes</td>
-        <td class="y">yes</td>
-        <td class="y">yes</td>
-        <td class="y">yes</td>
-      </tr>
-      <tr>
-        <td>Textures floors and ceilings</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="y">yes</td>
-        <td class="y">yes</td>
-      </tr>
-      <tr>
-        <td>Animated textures</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="y">yes</td>
-        <td class="y">yes</td>
-      </tr>
-      <tr>
-        <td>Skybox</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="y">yes</td>
-        <td class="y">yes</td>
-      </tr>
-      <tr>
-        <td class="h2" colspan="6">Lighting</td>
-      </tr>
-      <tr>
-        <td>Distance diminished lighting</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="y">yes</td>
-        <td class="y">yes</td>
-      </tr>
-      <tr>
-        <td>Different lighting per levels</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="y">yes</td>
-        <td class="y">yes</td>
-      </tr>
-      <tr>
-        <td>Different lighting per sectors</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="y">yes</td>
-      </tr>
-      <tr>
-        <td>Dynamic lighting</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="n">no</td>
-        <td class="y">yes</td>
-      </tr>
-      <tr>
-        <td class="h1" colspan="6">Usage</td>
-      </tr>
-      <tr>
-        <td class="u">Other games using the engine
-                      <br><i>(with additional capabilities)</i></td>
-        <td class="u">-</td>
-        <td class="u">Catacomb Abyss<br>Catacomb Armageddon<br>Catacomb Apocalypse</td>
-        <td class="u">Blake Stone: Aliens of Gold<br>
-            Blake Stone: Planet Strike<br>
-            Corridor 7<br>
-            Operation Body Count<br>
-            Super 3D Noah's Ark<br>
-            Rise of the Triad</td>
-        <td class="u">In Pursuit of Greed</td>
-        <td class="u">Doom II<br>
-            Heretic<br>
-            Hexen: Beyond Heretic<br>
-            Strife<br>
-            Chex Quest</td>
-      </tr>
-    </tbody>
-  </table>
-</body>
+  <div id="main" class="container">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+             <a class="navbar-brand" href="#">Menu</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li id="Accueil"><a href="https://xitog.github.io/dgx/index.html">Accueil</a></li>
+              <li id="Blog"><a href="https://xitog.github.io/dgx/blog.html">Blog</a></li>
+              <li class="dropdown">
+                <a id="Langues" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Langues <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                <li class="dropdown-header">Français</li>
+                  <li><a href="https://xitog.github.io/dgx/francais/fiche_api_fr.html">Fiche sur les phonèmes du français</a></li>
+                  <li><a href="https://xitog.github.io/dgx/francais/outil_stats_fr.html">Outil d'analyse textuelle</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Italien</li>
+                  <li><a href="https://xitog.github.io/dgx/italien/beatrice.html">Beatrice : grammaire</a></li>
+                  <li><a href="https://xitog.github.io/dgx/italien/jeu_conjugaison.html">Jeu sur la conjugaison</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Anglais</li>
+                  <li><a href="https://xitog.github.io/dgx/anglais/jeu_vocabulaire.html">Jeu sur le vocabulaire</a></li>
+                  <li><a href="https://xitog.github.io/dgx/anglais/verbes.html">Verbes fréquents</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Interlingua</li>
+                  <li><a href="https://xitog.github.io/dgx/interlingua/conjugueur.html">Conjugueur</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Linguistique</li>
+                  <li><a href="https://xitog.github.io/dgx/linguistique/informations.html">Informations générales</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Informatique" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Informatique <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Programmation</li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/syntaxes.html">Syntaxes comparées</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/python.html">Aide-mémoire Python</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/ruby.html">Aide-mémoire Ruby</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/lua.html">Aide-mémoire Lua</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/ruby_guide.html">Guide Ruby</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/ash_guide.html">Guide Ash</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Modélisation</li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/bnf.html">Aide-mémoire BNF et EBNF</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/json.html">Aide-mémoire JSON</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/hamill.html">Aide-mémoire Hamill</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Autres</li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/version_control.html">Gestion de versions</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/tools_langs.html">Logiciels utiles et autres langages</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Histoire" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Histoire <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Méthode</li>
+                  <li><a href="https://xitog.github.io/dgx/histoire/methode.html">Généralités</a></li>
+                  <li><a href="https://xitog.github.io/dgx/histoire/bibliographie.html">Bibliographie</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Aide-mémoires</li>
+                  <li><a href="https://xitog.github.io/dgx/histoire/france19eme.html">France au XIX<sup>e</sup></a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Jeux" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Passe-temps <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Présentations générales</i></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/pres_jeux.html">Les jeux</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/pres_jeuxvideo.html">Les jeux vidéo</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/pres_favoris.html">Favoris artistiques</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Jeux de rôles</i></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/systemes_rpg.html">Systèmes des RPG</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Livres-jeux</li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/compagnon_talisman.html">Le Compagnon du Talisman</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/compagnon_sorcier.html">Le Compagnon du Sorcier</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Histoire des jeux vidéo</li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/history_rts.html">Les enfants de Dune : les RTS</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/history_fps.html">Les enfants de Doom : les FPS</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Techniques des jeux vidéo</i></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_raycasting_fr.html">Le raycasting : la 2.5D</a>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_transitions.html">Cartes et transitions</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_dialogues.html">Dialogues</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Jeux vidéo et outils maison</i></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/project_teddy.html">Éditeur de carte</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/project_rts.html">Jouer à mon RTS</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/project_fps.html">Jouer à mon FPS</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Autres" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Autres <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Applications</li>
+                  <li><a href="https://xitog.github.io/dgx/concerts_classiques/index.html">Concerts classiques</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Collections</li>
+                  <li><a href="https://xitog.github.io/dgx/data/outil_collections.html#prenoms">Prénoms</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Liens</li>
+                  <li><a href="https://xitog.github.io/dgx/plan.html">Plan du site</a></li>
+                  <li><a href="https://xitog.github.io/dgx/liens.html">Barre de liens</a></li>
+                  <li><a href="https://xitog.github.io/dgx/liste_liens.html">Collection de liens</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+      
+      <div id="content">
+        <h1>The early days of FPS</h1>
+        <p>This table compares the technical capacities of 5 different games whose engines were developed by John Carmack, from 1991 to 1993.</p>
+        <p>John Carmack, from id Software, was a pioneer in rendering a 3D environment for PC games, as was the team from Blue Sky Productions behind <i>Ultima Underworld</i> (1992).</p>
+        <p>This table shows clearly a rapid evolution, from untextured to textured walls, from orthogonal to non-orthogonal walls and from grid-based to free-form level.</p>
+        <p class="sign">Damien Gouteux, 2020-02-21</p>
+        <table id="main">
+          <tbody>
+            <tr>
+              <td class="h1" colspan="6">Games and engines</td>
+            </tr>
+            <tr>
+              <td>Game name</td>
+              <td>Hovertank 3D</td>
+              <td>Catacomb 3D</td>
+              <td>Wolfenstein 3D</td>
+              <td>ShadowCaster</td>
+              <td>Doom</td>
+            </tr>
+            <tr>
+              <td>Genre</td>
+              <td>Science Fiction</td>
+              <td>Fantasy</td>
+              <td>War</td>
+              <td>Fantasy</td>
+              <td>Science Fiction</td>
+            </tr>
+            <tr>
+              <td>Engine name, offical or <i>not</i></td>
+              <td></td>
+              <td></td>
+              <td><i>Id Tech 0</i></td>
+              <td><i>Raven Engine</i></td>
+              <td>Id Tech 1</td>
+            </tr>
+            <tr>
+              <td>Company</td>
+              <td>id Software</td>
+              <td>id Software</td>
+              <td>id Software</td>
+              <td>Raven Software</td>
+              <td>id Software</td>
+            </tr>
+            <tr>
+              <td>Links</td>
+              <td>
+                <a href="https://www.mobygames.com/game/dos/hovertank-one">Mobygames</a>,
+                <a href="https://en.wikipedia.org/wiki/Hovertank_3D">Wikipedia</a>
+              </td>
+              <td>
+                <a href="https://www.mobygames.com/game/dos/catacomb-3-d">Mobygames</a>,
+                <a href="https://en.wikipedia.org/wiki/Catacomb_3-D">Wikipedia</a>
+              </td>
+              <td>
+                <a href="https://www.mobygames.com/game/wolfenstein-3d">Mobygames</a>,
+                <a href="https://en.wikipedia.org/wiki/Wolfenstein_3D">Wikipedia</a>
+              </td>
+              <td>
+                <a href="https://www.mobygames.com/game/dos/shadowcaster">Mobygames</a>,
+                <a href="https://en.wikipedia.org/wiki/ShadowCaster">Wikipedia</a>
+              </td>
+              <td>
+                <a href="https://www.mobygames.com/game/doom">Mobygames</a>,
+                <a href="https://en.wikipedia.org/wiki/Doom_(1993_video_game)">Wikipedia</a>
+              </td>
+            <tr>
+              <td>Source code</td>
+              <td><a href="https://github.com/FlatRockSoft/Hovertank3D">Github FlatRockSoft</a></td>
+              <td><a href="https://github.com/CatacombGames/Catacomb3DGithub">Github CatacombGames</a></td>
+              <td><a href="https://github.com/id-Software/wolf3d">Github id Software</td>
+              <td><a href="https://drive.google.com/open?id=0B3gIcilDnsOPakdzNWNMZ1hNWUE&amp;authuser=0">Red Shadow Software</td>
+              <td><a href="https://github.com/id-Software/DOOM">Git id Software</td>
+            </tr>
+            <tr>
+              <td>Release date</td>
+              <td>April, <b>1991</b></td>
+              <td>November, <b>1991</b></td>
+              <td>May 5, <b>1992</b></td>
+              <td><b>1993</b></td>
+              <td>December 10, <b>1993</b></td>
+            </tr>
+            <tr>
+              <td>Release of the source code</td>
+              <td>June, 2014</td>
+              <td>June, 2014</td>
+              <td>July 21, 1995</td>
+              <td>-</td>
+              <td>December 23, 1997</td>
+            </tr>
+            <tr>
+              <td class="u">Programmers<br>(<b>engine programmer</b>)</td>
+              <td class="u"><b>John Carmack</b><br>John Romero</td>
+              <td class="u"><b>John Carmack</b><br>John Romero<br>Jason Blochowiak</td>
+              <td class="u"><b>John Carmack</b><br>John Romero</td>
+              <td class="u"><b>John Carmack</b><br>Victor Brueggemann<br>Kurt Schallitz<br>Carl Stika<br>Ben Gokey<br>Rick Johnson<br>David Stildolph</td>
+              <td class="u"><b>John Carmack</b><br>Mike Abrash<br>John Romero<br>Dave Taylor</td>
+            </tr>
+            <tr>
+              <td class="u">Artists</td>
+              <td class="u">Adrian Carmack</td>
+              <td class="u">Adrian Carmack</td>
+              <td class="u">Adrian Carmack</td>
+              <td class="u">Shane Gurno<br>Brian Pelletier<br>Scott Rice<br>James Sumwalt</td>
+              <td class="u">Adrian Carmack<br>Kevin Cloud</td>
+            </tr>
+            <tr>
+              <td>Editing Tool</td>
+              <td>TEd</td>
+              <td>TEd</td>
+              <td>TEd</td>
+              <td>TEd</td>
+              <td>DoomEd</td>
+            </tr>
+            <tr>
+              <td class="h1" colspan="6">Technical information</td>
+            </tr>
+            <tr>
+              <td class="h2" colspan="6">General</td>
+            </tr>
+            <tr>
+              <td>Colors</td>
+              <td class="i">16-color EGA</td>
+              <td class="i">16-color EGA</td>
+              <td class="i">256-color VGA</td>
+              <td class="i">256-color VGA</td>
+              <td class="i">256-color VGA</td>
+            </tr>
+            <tr>
+              <td>Resolution</td>
+              <td class="i">320x200</td>
+              <td class="i">320x200</td>
+              <td class="i">320x200</td>
+              <td class="i">320x200</td>
+              <td class="i">320x200</td>
+            </tr>
+            <tr>
+              <td class="h2" colspan="6">Levels</td>
+            </tr>
+            <tr>
+              <td>Level form</td>
+              <td class="i">grid</td>
+              <td class="i">grid</td>
+              <td class="i">grid</td>
+              <td class="i">grid</td>
+              <td class="i">sectors</td>
+            </tr>
+            <tr>
+              <td>Rendering</td>
+              <td class="i">wall span</td>
+              <td class="i">wall span</td>
+              <td class="i">raycasting</td>
+              <td class="i">raycasting</td>
+              <td class="i">raycasting</td>
+            </tr>
+            <tr>
+              <td>Hub</td>
+              <td class="n">no</td>
+              <td class="y">yes</td>
+              <td class="n">no</td>
+              <td class="y">yes</td>
+              <td class="n">no</td>
+            </tr>
+            <tr>
+              <td>Automap</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="y">yes</td>
+              <td class="y">yes</td>
+            <tr>
+              <td class="h2" colspan="6">Things</td>
+            </tr>
+            <tr>
+              <td>Scalable sprites</td>
+              <td class="y">yes</td>
+              <td class="y">yes</td>
+              <td class="y">yes</td>
+              <td class="y">yes</td>
+              <td class="y">yes</td>
+            </tr>
+            <tr>
+              <td>Multiangle sprites</td>
+              <td class="n">no</td>
+              <td class="y">yes</td>
+              <td class="y">yes</td>
+              <td class="y">yes</td>
+              <td class="y">yes</td>
+            </tr>
+            <tr>
+              <td>Polygonal things</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+            </tr>
+            <tr>
+              <td class="h2" colspan="6">Walls</td>
+            </tr>
+            <tr>
+              <td>Orthogonal walls</td>
+              <td class="y">yes</td>
+              <td class="y">yes</td>
+              <td class="y">yes</td>
+              <td class="y">yes</td>
+              <td class="y">yes</td>
+            </tr>
+            <tr>
+              <td>Non-orthogonal walls</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="y">yes</td>
+            </tr>
+            <tr>
+              <td>Free length of walls</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="y">yes</td>
+            </tr>
+            <tr>
+              <td>Doors</td>
+              <td class="n">no</td>
+              <td class="i">Disappearing walls</td>
+              <td class="y">yes</td>
+              <td class="y">yes</td>
+              <td class="y">yes</td>
+            </tr>
+            <tr>
+              <td>Transparent walls</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="y">yes</td>
+            </tr>
+            <tr>
+              <td class="h2" colspan="6">3rd Dimension</td>
+            </tr>
+            <tr>
+              <td>Different heights per levels</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="y">yes</td>
+              <td class="y">yes</td>
+            </tr>
+            <tr>
+              <td>Different heights per walls</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="y">yes</td>
+            </tr>
+            <tr>
+              <td>Sloped floors and ceilings</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="y">yes</td>
+              <td class="n">no</td>
+            </tr>
+            <tr>
+              <td>Elevators</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="y">yes</td>
+            </tr>
+            <tr>
+              <td class="h2" colspan="6">Texture-mapping</td>
+            </tr>
+            <tr>
+              <td>Textured walls</td>
+              <td class="n">no</td>
+              <td class="y">yes</td>
+              <td class="y">yes</td>
+              <td class="y">yes</td>
+              <td class="y">yes</td>
+            </tr>
+            <tr>
+              <td>Textures floors and ceilings</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="y">yes</td>
+              <td class="y">yes</td>
+            </tr>
+            <tr>
+              <td>Animated textures</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="y">yes</td>
+              <td class="y">yes</td>
+            </tr>
+            <tr>
+              <td>Skybox</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="y">yes</td>
+              <td class="y">yes</td>
+            </tr>
+            <tr>
+              <td class="h2" colspan="6">Lighting</td>
+            </tr>
+            <tr>
+              <td>Distance diminished lighting</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="y">yes</td>
+              <td class="y">yes</td>
+            </tr>
+            <tr>
+              <td>Different lighting per levels</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="y">yes</td>
+              <td class="y">yes</td>
+            </tr>
+            <tr>
+              <td>Different lighting per sectors</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="y">yes</td>
+            </tr>
+            <tr>
+              <td>Dynamic lighting</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="n">no</td>
+              <td class="y">yes</td>
+            </tr>
+            <tr>
+              <td class="h1" colspan="6">Usage</td>
+            </tr>
+            <tr>
+              <td class="u">Other games using the engine
+                            <br><i>(with additional capabilities)</i></td>
+              <td class="u">-</td>
+              <td class="u">Catacomb Abyss<br>Catacomb Armageddon<br>Catacomb Apocalypse</td>
+              <td class="u">Blake Stone: Aliens of Gold<br>
+                  Blake Stone: Planet Strike<br>
+                  Corridor 7<br>
+                  Operation Body Count<br>
+                  Super 3D Noah's Ark<br>
+                  Rise of the Triad</td>
+              <td class="u">In Pursuit of Greed</td>
+              <td class="u">Doom II<br>
+                  Heretic<br>
+                  Hexen: Beyond Heretic<br>
+                  Strife<br>
+                  Chex Quest</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
