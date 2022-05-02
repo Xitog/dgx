@@ -61,6 +61,7 @@ On met en début de ligne un nombre de # correspondant au niveau du titre que l'
 * \-\---barré--\-\- : pour barré
 * \_\___souligné__\_\_ : pour souligner
 * \^\^^^exposant^^\^\^ : pour mettre en exposant
+* \%\%%%indice%%\%\% : pour mettre en indice
 
 ## Div, p et span
 
