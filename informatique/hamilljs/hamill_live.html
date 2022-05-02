@@ -151,7 +151,7 @@
                             in_superscript = false;
                         }
                         i += 2;
-                    } else if (current === '#' && next === '#' && prev !== "\\") {
+                    } else if (current === '%' && next === '%' && prev !== "\\") {
                         if (!in_subscript) {
                             out += '<sub>';
                             in_subscript = true;
