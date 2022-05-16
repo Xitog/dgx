@@ -55,7 +55,6 @@ targets = ['blog.hml',
            'passetemps/tech_transitions.hml'
            ]
 
-#targets = ['passetemps/pres_jeuxvideo.hml']
 targets = ['passetemps/pres_favoris.hml',
            'passetemps/pres_jeuxvideo.hml',
            'passetemps/tech_dialogues.hml']
@@ -63,7 +62,8 @@ targets = ['informatique/lua.hml',
            'passetemps/pres_jeuxvideo.hml']
 targets = ['passetemps/systemes_rpg2.hml']
 targets = ['informatique/hamill.hml']
-#targets = ['index.hml']
+targets = ['index.hml']
+targets = ['passetemps/pres_jeuxvideo.hml']
 
 for t in targets:
     do(t)
