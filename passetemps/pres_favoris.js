@@ -5,7 +5,7 @@ function main()
     {
         alert("No div 'trees' found!");
     }
-    getData("https://xitog.github.io/dgx/passetemps/favoris.json", callback);
+    getData("https://xitog.github.io/dgx/data/favoris.json", callback);
 }
 
 function getData(url, callback)
