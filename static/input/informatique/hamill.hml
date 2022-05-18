@@ -58,7 +58,7 @@ On met en début de ligne un nombre de # correspondant au niveau du titre que l'
 
 * \*\***gras**\*\* : pour mettre en gras
 * \'\'''italique''\'\' : pour mettre en italique
-* \-\---barré--\-\- : pour barré
+* \-\---barré--\-\- : pour barrer
 * \_\___souligné__\_\_ : pour souligner
 * \^\^^^exposant^^\^\^ : pour mettre en exposant
 * \%\%%%indice%%\%\% : pour mettre en indice
@@ -74,7 +74,7 @@ On met en début de ligne un nombre de # correspondant au niveau du titre que l'
 
 On utilise \@\@@@pour du code inline@@\@\@. Hamill dispose d'un colorisateur syntaxique pour Python et JSON, on précise ainsi : \@\@python@@python def function(par1, par2)@@\@\@.
 
-Pour un bloc de code, il ya deux solutions :
+Pour un bloc de code, il y a deux solutions :
 
 On peut faire une ligne avec seulement \@\@ suivi éventuellement du langage qu'on souhaite puis des lignes avec \@\@ au début jusqu'à une ligne ne comportant que \@\@. Ainsi :
 

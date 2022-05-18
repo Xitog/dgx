@@ -63,7 +63,7 @@ targets = ['informatique/lua.hml',
            'passetemps/pres_jeuxvideo.hml']
 targets = ['passetemps/systemes_rpg2.hml']
 targets = ['informatique/hamill.hml']
-targets = ['index.hml']
+#targets = ['index.hml']
 #targets = ['passetemps/pres_jeuxvideo.hml']
 
 for t in targets:

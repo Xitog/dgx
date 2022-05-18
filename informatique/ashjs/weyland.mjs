@@ -51,7 +51,7 @@ function ln(s)
 
 class Language
 {
-    constructor(name, definitions, wrong=[], specials={})
+    constructor(name, definitions, wrong=[], specials={}, after=null)
     {
         this.name = name;
         if (typeof definitions !== 'object')
@@ -87,6 +87,7 @@ class Language
         }
         this.specials = specials;
         this.wrong = wrong;
+        this.after = after;
     }
 
     isWrong(type)
@@ -129,6 +130,7 @@ class Token
 {
     constructor(type, value, start)
     {
+        console.log(`Creating {Token} type=${type} value=|${value}| start=${start}`);
         this.type = type;
         this.value = value;
         this.start = start;
@@ -307,6 +309,10 @@ class Lexer
             console.log(word.charCodeAt(0));
             throw new Error(`Text not lexed at the end: ${word}`);
         }
+        if (this.lang.after !== null)
+        {
+            tokens = this.lang.after(tokens);
+        }
         return tokens;
     }
 
@@ -397,16 +403,18 @@ class Test
         let tokens = this.lexer.lex(this.text, null, debug);
         if (tokens.length !== this.result.length)
         {
+            console.log('Difference of length, dumping:')
             let longuest = Math.max(tokens.length, this.result.length);
             for (let index = 0; index < longuest; index++)
             {
                 if (index < tokens.length && index < this.result.length)
                 {
-                    console.log(index, this.result[index], tokens[index].getType(), ln(tokens[index].getValue()));
+                    let cmp = (this.result[index] === tokens[index].getType());
+                    console.log(`${index}. ${cmp} Expected=${this.result[index]} vs ${tokens[index].getType()} (${ln(tokens[index].getValue())})`);
                 } else if (index < tokens.length) {
-                    console.log(index, 'null', tokens[index].getType(), ln(tokens[index].getValue()));
+                    console.log(`${index}. Expected=null [null] vs ${tokens[index].getType()}`, ln(tokens[index].getValue()));
                 } else if (index < this.result.length) {
-                    console.log(index, this.result[index], 'null');
+                    console.log(`${index}. Expected=${this.result[index]} vs null`);
                 }
             }
             throw new Error(`Error: expected ${this.result.length} tokens and got ${tokens.length}`);
@@ -551,26 +559,79 @@ const LANGUAGES = {
     'hamill' : new Language('hamill',
         {
             'keyword': ['var', 'const', 'include', 'require', 'css', 'html'],
-            'identifier' : PATTERNS["IDENTIFIER"],
-            'integer' : PATTERNS["INTEGER"],
-            'boolean' : ['true', 'false'],
-            'nil': [],
-            'operator': [':'],
-            'separator' : ['\\{', '\\}', '#', '\\.'],
-            'wrong_int' : PATTERNS["WRONG_INTEGER"],
-            'blank': PATTERNS["BLANKS"],
             'newline' : PATTERNS["NEWLINES"],
             'comment': ['§§.*(\n|$)'],
+            'bold': ['\\*\\*'],
+            'italic': ["''"],
+            'special': ['\\*', "'"],
+            'normal': ["([^\\\\*'§\n]|\\\\\\*\\*|\\\\\\*|\\\\''|\\\\')+"]
         },
         ['wrong_int'],
         // Special
         {
             'ante_identifier': ['var', 'const'],
-            'accept_unknown': true,
             'string_markers': [],
-            'number' : true
+        },
+        function(tokens)
+        {
+            let res = [];
+            // Première passe, fusion des speciaux
+            for (const [index, tok] of tokens.entries())
+            {
+                if (tok.getType() === 'special')
+                {
+                    if (index > 0 && res.length > 0 && res[res.length - 1].getType() === 'normal')
+                    {
+                        res[res.length - 1].value += tok.getValue();
+                    }
+                    else if (index + 1 < tokens.length && tokens[index + 1].getType() === 'normal')
+                    {
+                        tokens[index + 1].value = tok.getValue() + tokens[index + 1].value;
+                        tokens[index + 1].start -= tok.getValue().length;
+                    }
+                } else {
+                    res.push(tok);
+                }
+            }
+            // Seconde passe, fusion des normaux
+            let res2 = [];
+            let index = 0;
+            while (index < res.length)
+            {
+                let tok = res[index];
+                if (tok.getType() === 'normal')
+                {
+                    let futur = index + 1;
+                    let merged_value = tok.getValue();
+                    while (futur < res.length && res[futur].getType() === 'normal')
+                    {
+                        merged_value += res[futur].getValue();
+                        futur += 1;
+                    }
+                    tok.value = merged_value;
+                    res2.push(tok);
+                    index = futur;
+                }
+                else
+                {
+                    res2.push(tok);
+                    index+=1;
+                }
+            }
+            return res2;
         }
     ),
+
+            /*'bold': '[^\\]\*\*',
+        'italic': "[^\\]''",
+        'underline': '[^\\]__',
+        'sup': '[^\\]^^',
+        'sub': '[^\\]%%',
+        'stroke': '[^\\]--',
+        'code': '[^\\]@@',
+        'link_start': '[^\\]\[\[',
+        'link_end': '[^\\]\]\]',*/
+
     'json': new Language('json',
         {
             'boolean': ['true', 'false'],
@@ -690,7 +751,8 @@ const LEXERS = {
     'line': new Lexer(LANGUAGES['line']),
     'lua': new Lexer(LANGUAGES['lua'], ['blank']),
     'python': new Lexer(LANGUAGES['python']),
-    'text': new Lexer(LANGUAGES['text'], ['blank'])
+    'text': new Lexer(LANGUAGES['text'], ['blank']),
+    'hamill': new Lexer(LANGUAGES['hamill']) //, ['blank'])
 }
 
 const TESTS = [
@@ -722,19 +784,19 @@ const TESTS = [
     new Test(LEXERS['lua'], '--[[Ceci est un\ncommentaire multiligne--]]', ['comment']),
 
     new Test(LEXERS['ash'], "a ** 5", ['identifier', 'operator', 'integer']),
-    new Test(LEXERS['ash'], 'writeln("hello")', ['identifier', 'separator', 'string', 'separator']),
+    new Test(LEXERS['ash'], 'writeln("hello")', ['special', 'separator', 'string', 'separator']),
     new Test(LEXERS['ash'], 'if a == 5 then\n    writeln("hello")\nend',
                 ['keyword', 'identifier', 'operator', 'integer', 'keyword', 'newline',
-                 'identifier', 'separator', 'string', 'separator', 'newline',
-                 'keyword'])
-]
+                 'special', 'separator', 'string', 'separator', 'newline',
+                 'keyword']),
 
-//const TESTS2 = [new Test(LEXERS['lua'], '3+5', ['number', 'operator', 'number']),]
+    new Test(LEXERS['hamill'], "**bold * \\** text**", ['bold', 'normal', 'bold']),
+    new Test(LEXERS['hamill'], "**bold ''text''**", ['bold', 'normal', 'italic', 'normal', 'italic', 'bold']),
+]
 
 function tests(debug=false)
 {
     const text = "if a == 5 then\nprintln('hello')\nend\nendly = 5\na = 2.5\nb = 0xAE\nc = 2.5.to_i()\nd = 2.to_s()\n"; //5A";
-    //const text = "if a == 5";
     let lexer = new Lexer(LANGUAGES['test'], ['blank']);
     let tokens = lexer.lex(text);
     console.log('Text:', text);
@@ -751,6 +813,6 @@ function tests(debug=false)
     console.log(LEXERS['lua'].to_html("if a >= 5 then println('hello') end", null, ['blank']));
 }
 
-//tests(true);
+tests(true);
 
 export {ln, Language, Token, Lexer, LANGUAGES, PATTERNS, LEXERS};
