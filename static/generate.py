@@ -63,19 +63,21 @@ targets = ['informatique/lua.hml',
            'passetemps/pres_jeuxvideo.hml']
 targets = ['passetemps/systemes_rpg2.hml']
 targets = ['informatique/hamill.hml']
-#targets = ['index.hml']
+targets = ['index.hml']
 #targets = ['passetemps/pres_jeuxvideo.hml']
 
 for t in targets:
     do(t)
 
-# Regroup files from different projects
-# Hamill
-shutil.copy2('../../hamill/hamilljs/hamill_live.html', '../informatique/hamilljs/hamill_live.html')
-# Ash
-shutil.copy2('../../ash/ashjs/ash_repl.html', '../informatique/ashjs/ash_repl.html')
-shutil.copy2('../../ash/ashjs/interpreter.mjs', '../informatique/ashjs/interpreter.mjs')
-shutil.copy2('../../ash/ashjs/parser.mjs', '../informatique/ashjs/parser.mjs')
-shutil.copy2('../../ash/ashjs/weyland.mjs', '../informatique/ashjs/weyland.mjs')
-# RTS
-# todo
+COPY = False
+if COPY:
+    # Regroup files from different projects
+    # Hamill
+    shutil.copy2('../../hamill/hamilljs/hamill_live.html', '../informatique/hamilljs/hamill_live.html')
+    # Ash
+    shutil.copy2('../../ash/ashjs/ash_repl.html', '../informatique/ashjs/ash_repl.html')
+    shutil.copy2('../../ash/ashjs/interpreter.mjs', '../informatique/ashjs/interpreter.mjs')
+    shutil.copy2('../../ash/ashjs/parser.mjs', '../informatique/ashjs/parser.mjs')
+    shutil.copy2('../../ash/ashjs/weyland.mjs', '../informatique/ashjs/weyland.mjs')
+    # RTS
+    # todo
