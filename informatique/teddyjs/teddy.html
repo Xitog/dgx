@@ -28,6 +28,7 @@
         </style>
         <script>
             // https://moddingwiki.shikadi.net/wiki/GameMaps_Format
+            // https://vpoupet.github.io/wolfenstein/docs/files
 
             //---------------------------------------------
             // Variables globales
@@ -328,12 +329,16 @@
                 //  93 = porte à clé or
                 // 100 = porte d'entrée dans l'ascenceur avec un bouton rouge
                 let images0 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 25, 90, 91, 92, 93, 100];
-                let images1 = {19: "19_player_N", 20: "20_player_E", 21: "21_player_W", 22: "22_player_N",
+                let images1 = {19: "19_player_N", 20: "20_player_E", 21: "21_player_S", 22: "22_player_W",
                             34: "plant",
                             37: "37_lamp",
                             42: "bones",
                             47: "food",
                             49: "clip",
+                            52: "treasure_cross",
+                            53: "treasure_chalice",
+                            54: "treasure_chest",
+                            55: "treasure_crown",
                            124: "dead_guard"};
                 let canvas = document.createElement("canvas");
                 canvas.width = small ? 64 * 16 : 64 * 32;
@@ -488,6 +493,10 @@
                 context.drawImage(textures[filename1], x * FACTOR, y * FACTOR, FACTOR, FACTOR);
                 if (filename2 != null)
                 {
+                    if (textures[filename2] === null || !(filename2 in textures))
+                    {
+                        throw new Error(`Unknown obj: ${filename2} at ${x}x${y} and tex=${filename1}`);
+                    }
                     context.drawImage(textures[filename2], x * FACTOR, y * FACTOR, FACTOR, FACTOR);
                 }
                 if (text != null)
@@ -509,6 +518,7 @@
             {
                 for (let o of document.images)
                 {
+                    console.log('Loading: ', o.id, o);
                     textures[o.id] = o;
                 }
             }
@@ -575,6 +585,10 @@
         <img id="bones" class="hidden" src="plane1/bones.png">
         <img id="food" class="hidden" src="plane1/food.png">
         <img id="clip" class="hidden" src="plane1/clip.png">
+        <img id="treasure_cross" class="hidden" src="plane1/treasure_cross.png">
+        <img id="treasure_chalice" class="hidden" src="plane1/treasure_chalice.png">
+        <img id="treasure_chest" class="hidden" src="plane1/treasure_chest.png">
+        <img id="treasure_crown" class="hidden" src="plane1/treasure_crown.png">
         <img id="dead_guard" class="hidden" src="plane1/dead_guard.png">
     </body>
 </html>
