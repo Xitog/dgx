@@ -29,6 +29,10 @@
             div.container {
                 width: 90%;
             }
+            input[type="checkbox"] {
+                margin-bottom: 8px;
+                margin-right: 1em;
+            }
         </style>
         <script>
             // https://moddingwiki.shikadi.net/wiki/GameMaps_Format
@@ -546,10 +550,10 @@
                 <legend>Fichiers</legend>
                 <label for="fileInput1">En-têtes :</label>&nbsp;<input type="file" id="fileInput1" onchange="handleFiles(this.files, 'header')">
                 <label for="fileInput2">Contenus :</label>&nbsp;<input type="file" id="fileInput2" onchange="handleFiles(this.files, 'content')">
-                <label for="checkunfill">Unfill :</label>&nbsp;<input type="checkbox" id="unfill" onchange="options()">
-                <label for="checkgrid">Grid :</label>&nbsp;<input type="checkbox" id="grid" onchange="options()">
-                <label for="checksmall">Small :</label>&nbsp;<input type="checkbox" id="small" onchange="options()">
-                <label for="checkobject">Object :</label>&nbsp;<input type="checkbox" id="object" onchange="options()" checked>
+                <label for="checkunfill">Unfill </label>&nbsp;<input type="checkbox" id="unfill" onchange="options()">
+                <label for="checkgrid">Grid </label>&nbsp;<input type="checkbox" id="grid" onchange="options()">
+                <label for="checksmall">Small </label>&nbsp;<input type="checkbox" id="small" onchange="options()">
+                <label for="checkobject">Object </label>&nbsp;<input type="checkbox" id="object" class="spe" onchange="options()" checked>
                 &nbsp;&nbsp;
             </fieldset>
             <pre id="console">
