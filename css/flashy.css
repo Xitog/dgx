@@ -160,9 +160,10 @@ th {
     border-bottom: 1px solid #AAA;
     text-align: center;
     font-size: 16px;
-    background: #DDDDDD;
+    background: #6714cc;
+    color: white;
 }
-tr:nth-child(even) {
+tr:nth-child(odd) {
     background: #DDDDDD;
 }
 table.def td:nth-child(1) {
