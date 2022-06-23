@@ -1,7 +1,6 @@
 !const TITLE=Tests
 !const ICON=https://xitog.github.io/dgx/img/favicon.ico
 !require https://xitog.github.io/dgx/css/palatino.css
-!var EXPORT_COMMENT=true
 
 {{#main .container}}
 
@@ -13,13 +12,42 @@
 
 ## Comments
 
+On peut faire des commentaires en commençant une ligne par //.
+
+On peut choisir de les exporter ou non.
+
+!var EXPORT_COMMENT=true
+
 // Tests de commentaire
+
+!var EXPORT_COMMENT=false
+
+// Commentaire non exporté
+
+## Div
+
+{{begin}}
+
+We can make div.
+
+{{end}}
+
+!css div.stranger { background-color: black; }
+!css div.stranger p { color: red; }
+
+{{.stranger}}
+
+We can make ''stranger'' div.
+
+{{end}}
 
 ## Paragraphs
 
 This is a paragraph.
 
 This is another one.
+
+We can include newline !! inside paragraph with \ !! !
 
 ## Spans
 
@@ -61,7 +89,16 @@ This is another one.
 
 ## Picture
 
+Une image sans caption :
+
 ((https://xitog.github.io/dgx/img/background-green.png))
+
+!css figure { text-align: center; }
+!css img.ma_classe_image { width: 64px; height: 64px; }
+
+Une image avec caption :
+
+((.ma_classe_image #mon_id_image mon texte -> https://xitog.github.io/dgx/img/background-green.png))
 
 ## Escaping special characters
 
