@@ -58,6 +58,12 @@ We can include newline !! inside paragraph with \ !! !
 * Texte ^^exponent^^
 * Texte %%indice%%
 
+## Quotes
+
+>> I have spread my dreams under your feet;
+>> Tread softly because you tread on my dreams.
+>> He wishes for the Cloths of Heaven by WB Yeats
+
 ## Lists
 
 * List 1, Item 1
