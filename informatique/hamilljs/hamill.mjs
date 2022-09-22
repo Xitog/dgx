@@ -547,12 +547,11 @@ class Document
     {
         this.name = name;
         this.variables = {
-            'VERSION': new Variable(this, 'VERSION', 'string', 'true', 'Hamill 2.0'),
+            'VERSION': new Variable(this, 'VERSION', 'string', 'true', 'Hamill 2.1'),
             'NOW': new Variable(this, 'NOW', 'string', 'true', ''),
             'PARAGRAPH_DEFINITION': new Variable(this, 'PARAGRAPH_DEFINITION', 'boolean', false, false),
             'EXPORT_COMMENT': new Variable(this, 'EXPORT_COMMENT', 'boolean', false, false),
             'DEFAULT_CODE': new Variable(this, 'DEFAULT_CODE', 'string', 'false'),
-            'VERSION': new Variable(this, 'VERSION', 'number', true, 2.0)
         };
         this.required = [];
         this.css = [];
