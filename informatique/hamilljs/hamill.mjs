@@ -77,7 +77,12 @@ class EmptyNode
             throw new Error("Undefined or null document");
         }
     }
+    toString()
+    {
+        return this.constructor.name;
+    }
 }
+
 class Node extends EmptyNode
 {
     constructor(document, content=null)
@@ -96,6 +101,7 @@ class Node extends EmptyNode
         }
     }
 }
+
 class Text extends Node
 {
     to_html()
@@ -103,6 +109,7 @@ class Text extends Node
         return this.content;
     }
 }
+
 class Start extends Node
 {
     to_html()
@@ -119,6 +126,7 @@ class Start extends Node
         return `<${markups[this.content]}>`;
     }
 }
+
 class Stop extends Node
 {
     to_html()
@@ -135,6 +143,7 @@ class Stop extends Node
         return  `</${markups[this.content]}>`;
     }
 }
+
 class Picture extends Node
 {
     constructor(document, url, text=null, cls=null, ids=null)
@@ -167,6 +176,7 @@ class Picture extends Node
         }
     }
 }
+
 class HR extends EmptyNode
 {
     to_html()
@@ -174,6 +184,7 @@ class HR extends EmptyNode
         return "<hr>\n";
     }
 }
+
 class BR extends EmptyNode
 {
     to_html()
@@ -181,6 +192,7 @@ class BR extends EmptyNode
         return '<br>';
     }
 }
+
 class Span extends EmptyNode
 {
     constructor(document, ids, cls, text)
@@ -206,6 +218,7 @@ class Span extends EmptyNode
         return r;
     }
 }
+
 class ParagraphIndicator extends EmptyNode
 {
     constructor(document, ids, cls)
@@ -230,7 +243,9 @@ class ParagraphIndicator extends EmptyNode
         return r;
     }
 }
+
 class Comment extends Node {}
+
 class Row extends EmptyNode
 {
     constructor(document, node_list_list)
@@ -240,6 +255,7 @@ class Row extends EmptyNode
         this.is_header = false;
     }
 }
+
 class RawHTML extends Node
 {
     to_html()
@@ -247,7 +263,9 @@ class RawHTML extends Node
         return this.content + "\n";
     }
 }
+
 class Include extends Node {}
+
 class Title extends Node
 {
     constructor(document, content, level)
@@ -256,6 +274,7 @@ class Title extends Node
         this.level = level;
     }
 }
+
 class StartDiv extends EmptyNode
 {
     constructor(document, id=null, cls=null)
@@ -285,6 +304,7 @@ class StartDiv extends EmptyNode
         }
     }
 }
+
 class EndDiv extends EmptyNode
 {
     to_html()
@@ -292,6 +312,7 @@ class EndDiv extends EmptyNode
         return "</div>\n";
     }
 }
+
 class Composite extends EmptyNode
 {
     constructor(document, parent=null)
@@ -361,6 +382,7 @@ class Composite extends EmptyNode
         return s;
     }
 }
+
 class TextLine extends Composite
 {
     constructor(document, children=[])
@@ -373,6 +395,7 @@ class TextLine extends Composite
         return this.document.string_to_html('', this.children);
     }
 }
+
 class List extends Composite
 {
     constructor(document, parent, ordered=false, reverse=false, level=0, children=[])
