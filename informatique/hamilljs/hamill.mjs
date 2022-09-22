@@ -559,7 +559,7 @@ class Document
     {
         this.name = name;
         this.variables = {
-            'VERSION': new Variable(this, 'VERSION', 'string', 'true', 'Hamill 2.2'),
+            'VERSION': new Variable(this, 'VERSION', 'string', 'true', 'Hamill 2.0'),
             'NOW': new Variable(this, 'NOW', 'string', 'true', ''),
             'PARAGRAPH_DEFINITION': new Variable(this, 'PARAGRAPH_DEFINITION', 'boolean', false, false),
             'EXPORT_COMMENT': new Variable(this, 'EXPORT_COMMENT', 'boolean', false, false),
