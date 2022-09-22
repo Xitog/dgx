@@ -484,7 +484,19 @@ class Code extends Node
         }
     }
 }
-class GetVar extends Node {}
+
+class GetVar extends Node
+{
+    constructor(document, content)
+    {
+        super(document, content);
+        if (content === null || content === undefined)
+        {
+            throw new Error("A GetVar node must have a content");
+        }
+    }
+}
+
 class SetVar extends EmptyNode
 {
     constructor(document, id, value, type, constant)
@@ -551,7 +563,7 @@ class Document
             'NOW': new Variable(this, 'NOW', 'string', 'true', ''),
             'PARAGRAPH_DEFINITION': new Variable(this, 'PARAGRAPH_DEFINITION', 'boolean', false, false),
             'EXPORT_COMMENT': new Variable(this, 'EXPORT_COMMENT', 'boolean', false, false),
-            'DEFAULT_CODE': new Variable(this, 'DEFAULT_CODE', 'string', 'false'),
+            'DEFAULT_CODE': new Variable(this, 'DEFAULT_CODE', 'string', 'false')
         };
         this.required = [];
         this.css = [];
@@ -669,7 +681,10 @@ class Document
             && !(nodes[0] instanceof ParagraphIndicator)
             && !(nodes[0] instanceof Picture)
             && !(nodes[0] instanceof Code)
-            && (nodes[0] instanceof Code && !nodes[0].inline)) throw new Error(`Parameter nodes should be an array of Start|Stop|Text|Link|GetVar|Code(inline) and is: ${typeof nodes[0]}`);
+            && (nodes[0] instanceof Code && !nodes[0].inline))
+        {
+            throw new Error(`Parameter nodes should be an array of Start|Stop|Text|Link|GetVar|Code(inline) and is: ${typeof nodes[0]}`);
+        }
         for (let node of nodes)
         {
             if (node instanceof Start
@@ -1734,7 +1749,7 @@ class Hamill
                 }
                 let end = str.indexOf('$$', index+2);
                 let content = str.substring(index+2, end);
-                nodes.push(new GetVar(content));
+                nodes.push(new GetVar(doc, content));
                 index = end + 1;
             }
             else if (char === '\\'
@@ -1874,12 +1889,14 @@ var DEBUG = false;
 if (/*DEBUG &&*/ fs !== null)
 {
     //tests();
+    //const test = true;
     const test = false;
     if (test)
     {
         //let doc = Hamill.process_string("* A\n* B [[http://www.gogol.com]]\n  + D\n  + E");
         //let doc = Hamill.process_string("+ Été @@2006@@ Mac, Intel, Mac OS X");
-        let doc = Hamill.process_string("@@Code@@");
+        //let doc = Hamill.process_string("@@Code@@");
+        //let doc = Hamill.process_string("Bonjour $$VERSION$$");
         doc.display_info();
         let output = doc.to_html();
         console.log("RESULT:");
