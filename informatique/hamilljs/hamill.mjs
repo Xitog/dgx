@@ -559,7 +559,7 @@ class Document
     {
         this.name = name;
         this.variables = {
-            'VERSION': new Variable(this, 'VERSION', 'string', 'true', 'Hamill 2.0'),
+            'VERSION': new Variable(this, 'VERSION', 'string', 'true', 'Hamill 2.00'),
             'NOW': new Variable(this, 'NOW', 'string', 'true', ''),
             'PARAGRAPH_DEFINITION': new Variable(this, 'PARAGRAPH_DEFINITION', 'boolean', false, false),
             'EXPORT_COMMENT': new Variable(this, 'EXPORT_COMMENT', 'boolean', false, false),
@@ -1010,28 +1010,30 @@ class Document
         return content;
     }
 
-    display_info(level=0, node=null)
+    to_s(level=0, node=null)
     {
+        let out = "";
         if (node === null || node === undefined)
         {
-            console.log('\n------------------------------------------------------------------------');
-            console.log('Liste des nodes du document');
-            console.log('------------------------------------------------------------------------\n');
+            out += '\n------------------------------------------------------------------------\n';
+            out += 'Liste des nodes du document\n';
+            out += '------------------------------------------------------------------------\n\n';
             for (const n of this.nodes)
             {
-                this.display_info(level, n);
+                out += this.to_s(level, n);
             }
         } else {
             let info = " " + node.toString();
-            console.log("    ".repeat(level) + info);
+            out += "    ".repeat(level) + info + '\n';
             if (node instanceof Composite)
             {
                 for (const n of node.children)
                 {
-                    this.display_info(level + 1, n);
+                    out += this.to_s(level + 1, n);
                 }
             }
         }
+        return out;
     }
 
 }
@@ -1897,7 +1899,7 @@ if (/*DEBUG &&*/ fs !== null)
         //let doc = Hamill.process_string("+ Été @@2006@@ Mac, Intel, Mac OS X");
         //let doc = Hamill.process_string("@@Code@@");
         //let doc = Hamill.process_string("Bonjour $$VERSION$$");
-        doc.display_info();
+        console.log(doc.to_s());
         let output = doc.to_html();
         console.log("RESULT:");
         console.log(output);
