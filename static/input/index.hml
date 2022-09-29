@@ -31,12 +31,12 @@ Ce site web personnel présente mes différents projets, codés ou écrits, en e
 
 Ils traitent de linguistique, d'informatique, d'histoire et des jeux, vidéo ou non.
 
-| Codes                |                                                                                                                  |
-|---------------------------------------------------------------------------------------------------------------------------------------|
-| [[Ash->ash]]           | un langage de programmation simple et concis ([[manuel->ash]], [[démo->ash_repl]], [[source->ash_git]])                |
-| [[Hamill->hamill]]     | un langage de balisage léger pour produire du HTML ([[manuel->hamill]], [[démo->hamill_live]], [[source->hamill_git]]) |
-| [[Teddy->teddy]]       | un éditeur de cartes basée sur une grille pour les jeux ([[source->teddy_git]])                                    |
-| [[RTS->rts]]           | un prototype de RTS inspiré des classiques des années 90                                                         |
+| Codes                |                                                                                                    |
+|---------------------------------------------------------------------------------------------------------------------------|
+| [[Ash->ash]]           | un langage de programmation simple et concis ([[manuel->ash]], [[démo->ash_repl]], [[source->ash_git]])|
+| [[Hamill->hamill_git]] | un langage de balisage léger pour produire du HTML [[testable en ligne->hamill_live]]            |
+| [[Teddy->teddy]]       | un éditeur de cartes basée sur une grille pour les jeux ([[source->teddy_git]])                  |
+| [[RTS->rts]]           | un prototype de RTS inspiré des classiques des années 90                                         |
 
 | Écrits                  |                                                                                                 |
 |---------------------------------------------------------------------------------------------------------------------------|
