@@ -856,7 +856,7 @@ class Document
             {
                 if (this.get_variable('EXPORT_COMMENT'))
                 {
-                    content += '<!-- ' + node.content + ' -->\n';
+                    content += '<!--' + node.content + ' -->\n';
                 }
             }
             else if (node instanceof SetVar)
@@ -1432,7 +1432,7 @@ class Hamill
                     }
                     break;
                 case 'comment':
-                    doc.add_node(new Comment(doc, line.value));
+                    doc.add_node(new Comment(doc, line.value.substring(2)));
                     break;
                 case 'row':
                     let content = line.value.substring(1, line.value.length - 1);
@@ -1889,8 +1889,49 @@ class Hamill
 // Functions
 //-------------------------------------------------------------------------------
 
-function tests()
+function tests(stop_on_first_error=false)
 {
+    console.log("\n------------------------------------------------------------------------");
+    console.log("Test de process_string");
+    console.log("------------------------------------------------------------------------\n");
+    let test_suite = [
+        // Comments, HR and BR
+        ["// This is a comment", ""],
+        ["!var EXPORT_COMMENT=true\n// This is a comment", "<!-- This is a comment -->\n"],
+        ["---", "<hr>\n"],
+        ["a !! b", "<p>a<br>b</p>\n"],
+        // Titles
+        ["### Title 3", '<h3 id="title-3">Title 3</h3>\n'],
+        ["#Title 1", '<h1 id="title-1">Title 1</h1>\n'],
+        // Text modifications
+        ["**bonjour**", "<p><b>bonjour</b></p>\n"],
+        ["''italic''", "<p><i>italic</i></p>\n"],
+        ["--strikethrough--", "<p><s>strikethrough</s></p>\n"],
+        ["__underline__", "<p><u>underline</u></p>\n"],
+        ["^^superscript^^", "<p><sup>superscript</sup></p>\n"],
+        ["%%subscript%%", "<p><sub>subscript</sub></p>\n"],
+        ["@@code@@", "<p><code>code</code></p>\n"],
+    ];
+    let nb_ok = 0;
+    for (let t of test_suite)
+    {
+        if (test(t[0], t[1]))
+        {
+            nb_ok += 1;
+        }
+        else if (stop_on_first_error)
+        {
+            throw new Error("Stopping on first error");
+        }
+    }
+    console.log(`Tests ok : ${nb_ok} / ${test_suite.length}`);
+
+    //let doc = Hamill.process_string("* A\n* B [[http://www.gogol.com]]\n  + D\n  + E");
+    //let doc = Hamill.process_string("+ Été @@2006@@ Mac, Intel, Mac OS X");
+    //let doc = Hamill.process_string("@@Code@@");
+    //let doc = Hamill.process_string("Bonjour $$VERSION$$");
+
+    /*
     console.log("------------------------------------------------------------------------");
     console.log("Test de process_file (hamill)");
     console.log("------------------------------------------------------------------------\n");
@@ -1898,12 +1939,37 @@ function tests()
     Hamill.process_file('../../dgx/static/input/informatique/tools_langs.hml').to_html_file('../../dgx/informatique/');
     Hamill.process_file('../../dgx/static/input/index.hml').to_html_file('../../dgx/');
     Hamill.process_file('../../dgx/static/input/tests.hml').to_html_file('../../dgx/');
+    */
+}
 
-    console.log("\n------------------------------------------------------------------------");
-    console.log("Test de process_string");
-    console.log("------------------------------------------------------------------------\n");
-
-    console.log(Hamill.process_string("**bonjour**").to_html());
+function test(s, r)
+{
+    let doc = Hamill.process_string(s);
+    console.log(doc.to_s());
+    let output = doc.to_html();
+    console.log("RESULT:");
+    if (output === "")
+    {
+        console.log("EMPTY");
+    }
+    else
+    {
+        console.log(output);
+    }
+    if (output === r)
+    {
+        console.log("Test Validated");
+        return true;
+    }
+    else
+    {
+        if (r === "")
+        {
+            r = "EMPTY";
+        }
+        console.log("Error, expected:", r);
+        return false;
+    }
 }
 
 //-------------------------------------------------------------------------------
@@ -1913,20 +1979,15 @@ function tests()
 var DEBUG = false;
 if (/*DEBUG &&*/ fs !== null)
 {
-    //tests();
-    //const test = true;
-    const test = false;
-    if (test)
+    const do_test = true;
+    //const do_test = false;
+    if (do_test)
     {
-        //let doc = Hamill.process_string("* A\n* B [[http://www.gogol.com]]\n  + D\n  + E");
-        //let doc = Hamill.process_string("+ Été @@2006@@ Mac, Intel, Mac OS X");
-        //let doc = Hamill.process_string("@@Code@@");
-        //let doc = Hamill.process_string("Bonjour $$VERSION$$");
-        console.log(doc.to_s());
-        let output = doc.to_html();
-        console.log("RESULT:");
-        console.log(output);
-    } else {
+        tests(true);
+    }
+    else
+    {
+        Hamill.process_file('../../dgx/static/input/index.hml').to_html_file('../../dgx/');
         Hamill.process_file('../../dgx/static/input/passetemps/pres_jeuxvideo.hml').to_html_file('../../dgx/passetemps/');
     }
 }
