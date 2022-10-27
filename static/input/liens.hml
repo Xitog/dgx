@@ -44,7 +44,14 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
   * [[Historique de mes projets->https://docs.google.com/document/d/1Jajal56k7dlvqJEO1ZzaeaLKSGzSXFFw5jW4uFGCw-8]]
   * [[Chronologie des commits->https://docs.google.com/document/d/14yA988L_46guGbDdGyA_--U9olNkN-kbL36oONcn-ig]]
   * [[Notes de fabrication de la nouvelle version (ePub) du Mémento Ruby->https://docs.google.com/document/d/18u-Xc2_bAiYx5enGVmZvbN7cdUi9RH0Rq5WhApTrC8o/]]
+  * [[Projet histoire FPS->https://docs.google.com/document/d/1M8Pkiz_GrG-4557k9vuUy4Y9jZj56PKJG4slOmgJ44g/]]
+  * [[Projet histoire RTS->https://docs.google.com/document/d/1t58wHk4TbiNlwu0XURSJGo9ttDCZ0Bg0P-R7Jdaulis/]]
+  * [[Projet FPS Raycasting->https://docs.google.com/document/d/1KW9pYhfJ1EPtZrc-eetJcwGAa2AxLOM5Ila1dGcIu3c/]]
+  * [[Projet RTS Transitions->https://docs.google.com/document/d/1PDgTUkpJ6fjrpxuANMN7zns1ezMS-rzlKFWS4wopyeU/]]
+* Apprentissages
   * [[(unfinished) [Programmation][Manuel] Beginning Development with Python and Pygame->https://docs.google.com/document/d/1PrBfafPq48O1c-fsj8DeU9Z0NNzOwbPSQuqBUJb_E1o/]]
+  * [[Italien->https://docs.google.com/document/d/1LGmFKyjmKlPqC18U9SFoKc4KkWKgOBXJvyBedza34yA/]]
+  * [[Interlingua->https://docs.google.com/document/d/1q5OHGCt1v1V8al8jv8RzDcA3uks3dFAIVfA4sZuCe1Y/]]
 * Inventaires
   * [[004 Inventaires->https://drive.google.com/drive/folders/0B6hNBaz15FeOVVV4WDRDWmw5djA]]
   * [[Contacts->https://docs.google.com/spreadsheets/d/14n8_Ub_-L4JAkGeWt6QykfazSxzxCGVxnXi5aXlCSrQ/]]
@@ -52,6 +59,25 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
   * [[Liens->https://docs.google.com/spreadsheets/d/1d746CQTl9xRJJiFGUE0O2napmFI8TwKGcSbWrHTa1ik/edit]]
   * [[Prénoms->https://docs.google.com/spreadsheets/d/16jOY4d_h0Pzmb8w5Z-HtrAtlG9VSU52-CaxOxyu-VqM/]]
   * [[Voyages->https://docs.google.com/spreadsheets/d/1YOSD2yqTAMNa8qqJly_OUVNxWO77Yq0EaOiGuKFImj0/]]
+* Traitement automatique des langues
+  * [[Dossier de recherche->https://docs.google.com/document/d/1ELwBM8R_J5jd8cg7gdqEt509Qlgca_a0z-oi-Xi-EfE/edit]]
+  * [[Notes de recherche->https://docs.google.com/document/d/1gD1z_TAaYFKZHcktZ8vytYy6mmObIPFy8QGmxeRT1_8/edit]]
+  * [[AntConc->http://www.laurenceanthony.net/software.html]] Freeware corpus analysis toolkit for concordancing and text analysis
+  * [[Introduction à la linguistique->http://www.linguistes.com/]]
+  * [[Glossaire de termes en linguistique->http://www.henrietteg.com/glossword/]]
+  * [[TreeTagger->https://www.cis.lmu.de/~schmid/tools/TreeTagger/]] Part-of-speech tagger
+  * [[Talismane->http://joliciel-informatique.github.io/talismane/]] Part-of-speech tagger
+  * [[Lexique->http://www.lexique.org/]] Base de mots
+  * [[Atala->https://www.atala.org/]] Association pour le Traitement Automatique des Langues
+  * [[ORTOLANG->https://www.ortolang.fr/fr/accueil/]] Plate-forme d'outils et de ressources linguistiques
+  * [[Wiktionary->https://www.wiktionary.org/]]
+  * [[NLTK->https://www.nltk.org/]]
+  * [[NoSketchEngine->https://www.clarin.si/noske/index-en.html]]
+  * [[NoSketchEngine - Concordance - First query from->https://www.clarin.si/noske/wacs.cgi/first_form]]
+  * [[WaCky - Web as a corpus->https://wacky.sslmit.unibo.it/doku.php?id=start]]
+* [[Université Jean Jaurès->https://www.univ-tlse2.fr/]]
+  * [[ENT->https://ent.univ-tlse2.fr/accueil-etudiant]]
+  * [[Scout->https://scout.univ-toulouse.fr/flatx/index.jsp#home]]
 * Jeux vidéo
   * [[Notes->https://docs.google.com/document/d/1nik1tBKQewHvXiUdo4R-EXmTzc-20oi6KCJROdc4XhY/]]
   * [[Notes sur Canard PC->https://docs.google.com/document/d/13OtlP6ao1M8Dzv2G8lHPmApfSU1h47WuP8zaP6q_sOo/]]
@@ -65,7 +91,14 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
   * [[CRISCO DES->http://www.crisco.unicaen.fr/des/]]
   * [[Wordreference->www.wordreference.com]]
   * [[TLFi->http://atilf.atilf.fr/]]
+  * [[TLFi->http://stella.atilf.fr/]]
+  * [[FranceTerme->http://www.culture.fr/franceterme]]
   * [[Langues sur xitog.cat->https://drive.google.com/drive/folders/0B5syjWPPrb-cRXQxV1hpOHZWVWM]]
+* Outils
+  * [[Google Livres->https://books.google.com/?hl=fr]]
+  * [[HAL->https://hal.archives-ouvertes.fr/]]
+  * [[Api HAL->https://api.archives-ouvertes.fr/docs/search]]
+  * [[Api HAL Schéma->https://api.archives-ouvertes.fr/docs/search/schema/fields/#fields]]
 
 !html <div style="width: 50%; margin: auto; text-align: center;" title="Que la Force soit avec vous. À jamais.">2005 ? 2022</div>
 
