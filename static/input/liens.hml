@@ -63,6 +63,7 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
   * [[Dossier de recherche->https://docs.google.com/document/d/1ELwBM8R_J5jd8cg7gdqEt509Qlgca_a0z-oi-Xi-EfE/edit]]
   * [[Notes de recherche->https://docs.google.com/document/d/1gD1z_TAaYFKZHcktZ8vytYy6mmObIPFy8QGmxeRT1_8/edit]]
   * [[AntConc->http://www.laurenceanthony.net/software.html]] Freeware corpus analysis toolkit for concordancing and text analysis
+  * **[[Liste de fréquence lexicale->https://eduscol.education.fr/186/liste-de-frequence-lexicale]]**
   * [[Introduction à la linguistique->http://www.linguistes.com/]]
   * [[Glossaire de termes en linguistique->http://www.henrietteg.com/glossword/]]
   * [[TreeTagger->https://www.cis.lmu.de/~schmid/tools/TreeTagger/]] Part-of-speech tagger
@@ -88,7 +89,7 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
 * Langues
   * [[Interlingua->https://www.interlingua.com]]
   * [[CNRTL->https://www.cnrtl.fr/]]
-  * [[CRISCO DES->http://www.crisco.unicaen.fr/des/]]
+  * [[CRISCO DES->https://crisco2.unicaen.fr/des/]]
   * [[Wordreference->www.wordreference.com]]
   * [[TLFi->http://atilf.atilf.fr/]]
   * [[TLFi->http://stella.atilf.fr/]]
@@ -99,6 +100,27 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
   * [[HAL->https://hal.archives-ouvertes.fr/]]
   * [[Api HAL->https://api.archives-ouvertes.fr/docs/search]]
   * [[Api HAL Schéma->https://api.archives-ouvertes.fr/docs/search/schema/fields/#fields]]
+* Assets and remake
+  * [[OpenGameArt->https://opengameart.org/]]
+  * [[GemRB->https://gemrb.org/]]
+  * [[OpenRA->https://www.openra.net/]]
+  * [[Freedoom->https://freedoom.github.io/]]
+  * [[Blasphemer->https://github.com/Blasphemer/blasphemer]] ''for Heretic''
+  * [[Zauberer->https://github.com/CireG/Zauberer/]] ''for Hexen''
+  * [[Wyrmsun->http://andrettin.github.io/]]
+    * [[Wyrmsun data->https://github.com/andrettin/wyrmsun]]
+    * [[Wyrmsun engine->https://github.com/Andrettin/Wyrmgus]] ''based on Stratagus''
+  * [[FlareRPG->https://flarerpg.org/]]
+    * [[Flare->https://github.com/clintbellanger/flare]]
+    * [[Flare data->https://github.com/flareteam/flare-game]]
+    * [[Flare engine->https://github.com/flareteam/flare-engine]]
+  * [[Game icons->https://game-icons.net/]]
+* Formats
+  * PUD
+    * [[PUD Format specification->http://cade.datamax.bg/war2x/pudspec.html]]
+    * [[PUD Description for Kaitai->http://formats.kaitai.io/warcraft_2_pud/]]
+* Hobbies
+  * [[Games Workshop->https://www.games-workshop.com/fr-FR/D-accueil]]
 
 !html <div style="width: 50%; margin: auto; text-align: center;" title="Que la Force soit avec vous. À jamais.">2005 ❤ 2022</div>
 
