@@ -50,7 +50,7 @@ Les jeux vidéo sont avant tout associés à une machine. Voici la liste de mes 
 + @@2010@@ [[Toshiba->Toshiba]], Intel, Windows 7. Surnommée ''Xerxès'', comme une des IA de @@System Shock II@@. Ce sera @@FarCry: Blood Dragon@@ qui sera de trop pour cette machine, achetée à la base pour jouer à @@Starcraft II@@.
 + Été @@2006@@ Mac, Intel, Mac OS X
 + Novembre ou décembre @@2003@@ PC assemblé par Le Comptoir Informatique (LCI), [[Pentium 4->P4]], Windows XP. Une merveilleuse machine, surnommée avec affection ''Big PC''. Seul @@BioShock@@ sera injouable dessus.
-+ Novembre ou décembre @@2000@@ [[Continental Edison->CE]], [[Duron->Duron]], Windows Millenium. Le ''PC Joystick'' car il était vendu en partenariat avec le célèbre magazine. !! L'horreur : ce PC plantait (figement de l'image, son qui se répète en boucle) de façon aléatoire à n'importe quel moment. J'ai installé Windows 98 SE, j'ai changé l'alimentation, testé tous les drivers et rien à y faire. C'était surtout sur les jeux 3D que je rencontrais ce problème, les jeux 2D fonctionnaient mieux. D'où les longues heures sur Warcraft II, Starcraft, Alerte Rouge, Baldur's Gate...
++ Novembre ou décembre @@2000@@ [[Continental Edison->CE]], [[Duron->Duron]], Windows Millenium. Le ''PC Joystick'' car il était vendu en partenariat avec le célèbre magazine. \\ L'horreur : ce PC plantait (figement de l'image, son qui se répète en boucle) de façon aléatoire à n'importe quel moment. J'ai installé Windows 98 SE, j'ai changé l'alimentation, testé tous les drivers et rien à y faire. C'était surtout sur les jeux 3D que je rencontrais ce problème, les jeux 2D fonctionnaient mieux. D'où les longues heures sur Warcraft II, Starcraft, Alerte Rouge, Baldur's Gate...
 + C'est peut-être vers @@1998@@ que j'installais @@Total Annihilation@@ sur le PC portable professionnel de mon père pour pouvoir y jouer.
 + Novembre ou décembre @@1996@@ [[Cibox->Cibox]], [[Cyrix PR133+->Cyrix]], Windows 95.  C'est @@Total Annihilation@@ qui ne passera pas, m'obligeant à l'installer sur la machine d'après.
 
@@ -459,14 +459,14 @@ Valley of Yetis est un DLC à part de l'aventure principale avec une remise à z
 
 Il faut dire, des choses étranges se passent dans cette vallée coupée du monde : des Yétis arpentent les lieux et pire, la relique en question transforme les hommes en ces monstres !
 
-// Ce dont-il faut parler :
-// - histoire
-// - ambiance
-// - gameplay et level design
-// - technique
-// - difficulté et durée de vie
-// - musique et effets sonores
-// - en définitive/au final
+!rem Ce dont-il faut parler :
+!rem - histoire
+!rem - ambiance
+!rem - gameplay et level design
+!rem - technique
+!rem - difficulté et durée de vie
+!rem - musique et effets sonores
+!rem - en définitive/au final
 
 # La musique de jeux vidéo
 
@@ -474,27 +474,27 @@ Quelque chose qui m'a toujours intéressé, c'est la musique des jeux vidéo. Vo
 
 |Compositeur  |Jeux                                                                     |
 |-------------|-------------------------------------------------------------------------|
-|Robert Prince|Doom (1993) !! Rise of the Triad: Dark War (1994) !! Duke Nukem 3D (1996)|
-|Mark Morgan  |Fallout (1997) !! Fallout 2 (1998) !! Planescape: Torment (1999)         |
-|Jeremy Soule |Total Annihilation (1997) !! Icewind Dale (2000) !! Dungeon Siege (2002)  !! Guild Wars (2005) !! Prey (2006) !! Supreme Commander (2007)|
+|Robert Prince|Doom (1993) \\ Rise of the Triad: Dark War (1994) \\ Duke Nukem 3D (1996)|
+|Mark Morgan  |Fallout (1997) \\ Fallout 2 (1998) \\ Planescape: Torment (1999)         |
+|Jeremy Soule |Total Annihilation (1997) \\ Icewind Dale (2000) \\ Dungeon Siege (2002) \\ Guild Wars (2005) \\ Prey (2006) \\ Supreme Commander (2007)|
 |Hans Zimmer  |Call of Duty: Modern Warfare 2 (2009)|
 
 {{end}}
 {{end}}
 
-// Wolfenstein 3D       5 mai 1992
-// Doom                10 décembre 1993
-// System Shock        23 septembre 1994
-// Rise of the Triad   21 décembre 1994
-// Heretic             23 décembre 1994
-// Descent             31 décembre 1994
-// Dark Forces         28 février 1995
-// Hexen               30 octobre 1995
-// Future Shock        Décembre 1995
-// Duke Nukem 3D       29 janvier 1996
-// Quake               22 juin 1996
-// Alien Trilogy       30 novembre 1996
-// Blood                5 mars 1997
-// Outlaws             31 mars 1997
-// Red Neck Rampage    30 avril 1997
-// Shadow Warrior      13 mai 1997
+!rem Wolfenstein 3D       5 mai 1992
+!rem Doom                10 décembre 1993
+!rem System Shock        23 septembre 1994
+!rem Rise of the Triad   21 décembre 1994
+!rem Heretic             23 décembre 1994
+!rem Descent             31 décembre 1994
+!rem Dark Forces         28 février 1995
+!rem Hexen               30 octobre 1995
+!rem Future Shock        Décembre 1995
+!rem Duke Nukem 3D       29 janvier 1996
+!rem Quake               22 juin 1996
+!rem Alien Trilogy       30 novembre 1996
+!rem Blood                5 mars 1997
+!rem Outlaws             31 mars 1997
+!rem Red Neck Rampage    30 avril 1997
+!rem Shadow Warrior      13 mai 1997
