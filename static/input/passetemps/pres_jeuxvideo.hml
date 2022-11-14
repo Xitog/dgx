@@ -39,6 +39,7 @@
   + [[Far Cry 4->#]]
     + [[Far Cry 4: Escape from Durgesh->#]]
     + [[Far Cry 4: Valley of the Yetis->#]]
+  + [[Blood->#]]
 
 * [[La musique de jeux vidéo->#]]
 
@@ -458,6 +459,32 @@ Un petit conseil pour celui-ci : débloquez les mercenaires, ils diviseront les 
 Valley of Yetis est un DLC à part de l'aventure principale avec une remise à zéro de nos armes, inventaires et compétences, comme son prédécesseur mais la similitude s'arrête-là. Première différence, il se déroule sur sa propre carte, bien plus petite que celle de la campagne initiale, elle ne compte que 20 lieux, mais possède sa propre identité, bien plus enneigée. Les ennemis ont changé eux-aussi : il s'agit d'un régiment de Yuma parti chercher une ancienne relique. Leur santé mentale a vrillé et ils se décrivent maintenant comme des disciples de Yalung, le dieu maléfique du panthéon kirathi, obéissant à leur "maître", Sandesh.
 
 Il faut dire, des choses étranges se passent dans cette vallée coupée du monde : des Yétis arpentent les lieux et pire, la relique en question transforme les hommes en ces monstres !
+
+### Blood
+
+**Monolith Productions**, 1997 ''(fini 2 fois, en 2018 sur GOG et 2022 sur Steam)'' - 14 novembre 2022
+
+Blood : le nom ne fait pas dans la dentelle et annonce clairement le programme. L’**histoire** s’y prête particulièrement : nous incarnons Caleb, membre immortel d’un culte voué au sombre dieu Tchernoborg (originaire de la mythologie slave). Ce dernier nous trahit, exécute nos deux alliés, Ishmael et Gabriel, ainsi que notre amoureuse, Ophélia, avant de nous enfermer dans une tombe. Sale temps pour Caleb, sa vengeance sera… sanglante, bien sûr !
+
+J'ai dû m'y reprendre à plusieurs fois pour réussir à enfourcher cette bête sortie en 1997 mais, une fois dessus, quelle chevauchée fantastique ! Le **niveau de difficulté**, particulièrement relevé, rebute de prime abord. Y jouer au clavier uniquement relève du chemin de croix plus que du fun. Heureusement, les ressorties modernes du jeu sur les plateformes GOG et Steam, avec le moteur d'origine ou le Kex engine, apporte la fluidité du maniement au clavier et à la souris par défaut. Et pour la difficulté, mieux vaut rabaisser son égo et démarrer facile, pour moi ce fut le deuxième niveau sur cinq aux doux noms de ''Still Kicking'', ''Pink on the inside'', ''Lightly Broiled'', ''Well done'', ''Extra crispy''. Un dernier niveau, ''Made to order'', permet de customiser son expérience.
+
+**Techniquement**, Blood est un des derniers grands jeux utilisant la 2.5D. Le moteur graphique crée des espaces en 3D à partir de plans en 2D en les peuplant de sprites pour les monstres. Deux grands moteurs existent en 1997 : celui de @@Doom@@ (1993) de John Carmack et le @@Build engine@@ (1995) de Ken Silverman. La 2.5D sera abandonnée au profit d’une « vraie 3D », utilisant des polygones aussi bien pour les niveaux que pour les monstres, que @@Quake@@ (1996), du même Carmack, popularisera.
+
+Blood utilise le Build engine et il fait partie des « trois grands » avec @@Duke Nukem 3D@@ (1996) et @@Shadow Warrior@@ (1997). C’est une technologie qui déjà en 1997 était sur le point d’être dépassée mais qui propose des environnements beaucoup plus interactifs, avec des murs destructibles et des surfaces mobiles aussi bien verticalement qu’horizontalement. Si la modélisation de la nature a longtemps été le point faible des FPS, quelle que soit leur technologie, la modélisation des constructions étaient déjà intéressantes. Le Build engine permet de modéliser avec moult détails les différents niveaux, au nombre de 34 dans le jeu original, répartis en 4 épisodes qui offrent une solide **durée de vie**. On note par la suite chaque niveau par un code avec E, pour épisode, son numéro, et M pour map (carte) et son numéro.
+
+Blood comporte des chefs d’œuvres comme ''The Overlook Hotel'' (E1M4) ou ''The Haunting'' (E2M5) qui arrivent à donner une sensation de réalisme par leurs détails et la complexité des lieux sans jamais vraiment perdre le joueur, bien loin des labyrinthes abstraits et vides des premiers jeux en 2.5D. La plupart des niveaux ont une ambiance qui prend le joueur dans ses rets que cela soit en s’aventurant dans un hôpital (E3M4), des hauts-fourneaux (E3M5) ou des catacombes (E3M8). La variété est de mise et on traverse aussi bien des villes (E3M1, M2) que des montagnes aux à-pics vertigineux (E4M6). Sans compter un étrange niveau se déroulant entièrement dans une créature organique, ''In The Flesh'' (E4M7), idée qui sera reprise dans @@System Shock 2@@ (1999), et les sempiternelles mines : ''Bowels of the Earth'' (E2M7). J’ai l’impression parfois que tout jeu auquel je joue se doit de contenir un niveau dans des mines.
+
+Blood possède une **ambiance** glauque et sombre, peuplée de cultistes fanatiques et de créatures fantastiques : zombies, spectres et gargouilles. Il y a du Lovecraft – mais avec des flingues – dans ce monde qui emprunte aussi bien aux années 1930, avec ses entrepôts ou ses demeures abandonnées, qu’à des décennies plus modernes, comme en témoigne la présence d’un supermarché au niveau E4M9. Les anachronismes donnent un côté étrange sans saper la cohérence de l’univers propre au jeu. On est loin du contemporain vulgaire matinée de science-fiction d’un Duke ou de la science-fiction démoniaque d’un Doom. La **musique**, au tempo lent, colle à l’ambiance et les **effets sonores**, des paroles incompréhensibles des cultistes aux grognements des gargouilles, lui donnent de l’épaisseur et offrent un autre moyen que visuel pour identifier facilement une menace, qui seront nombreuses.
+
+Les armes de Blood sont variées : fourche, pistolet d'alarme (qui enflamme à retardement les ennemis, obligeant à tirer puis s’abriter), mitraillette à tambour, dynamite... il y en a pour tous les goûts ! La plupart possède un second mode de tir pour encore plus varier les plaisirs. Il faut ruser pour choisir la meilleure arme contre un monstre donné : le pistolet d’alarme est par exemple excellent contre les gros zombies, bien résistants sinon. Les ennemis se divisent en trois : ceux qui foncent au corps à corps, ceux qui émettent des projectiles et ceux qui vous touchent en vous voyant (hitscan). Tout est question de tirer en mouvement, pour les deux premiers, et de tirer avant l’autre pour les troisièmes. Je n’ai pas retrouvé dans Blood les grands ballets de Doom où l'on évite dans de grandes arènes des nuées de projectiles : les salles sont généralement plus petites et les projectiles moins nombreux. Néanmoins, le **gameplay** est nerveux, difficile et plutôt jouissif quand on maîtrise bien ses armes et les différents types d’ennemis.
+
+J’ai enfin pu me baigner dans Blood et apprécier de premières mains pourquoi il avait fait tâche dans le milieu des FPS de la fin des années 1990. Un grand jeu assurément qui a aussi sa descendance en néo rétro FPS avec @@Cultic@@ sorti dernièrement (en 2022).
+
+* Blood sur [[Wikipedia->blood1]], [[Mobygames->blood2]], [[wiki indépendant->blood3]]
+
+::blood1:: https://en.wikipedia.org/wiki/Blood_(video_game)
+::blood2:: https://www.mobygames.com/game/dos/blood
+::blood3:: https://blood-wiki.org/index.php?title=Main_Page
 
 !rem Ce dont-il faut parler :
 !rem - histoire
