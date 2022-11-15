@@ -51,11 +51,11 @@ Ils traitent de linguistique, d'informatique, d'histoire et des jeux, vidéo ou 
 | Interlingua             | [[conjugueur->iaconj]]                                                                          |
 | Histoire                | [[méthodologie->metodo]], [[bibliographie->biblio]] et [[France du XIX^^e^^->xix]]              |
 
-// Jyx : un éditeur de texte, un RPG et son moteur de dialogue, un Action-RPG et son moteur de génération procédurale.
+§§ Jyx : un éditeur de texte, un RPG et son moteur de dialogue, un Action-RPG et son moteur de génération procédurale.
 
-//-----------------------------------------------------------------------------
-// Codes
-//-----------------------------------------------------------------------------
+§§-----------------------------------------------------------------------------
+§§ Codes
+§§-----------------------------------------------------------------------------
 
 ::ash:: https://xitog.github.io/dgx/informatique/ash_guide.html
 ::ash_repl:: https://xitog.github.io/dgx/informatique/ashjs/ash_repl.html
@@ -70,9 +70,9 @@ Ils traitent de linguistique, d'informatique, d'histoire et des jeux, vidéo ou 
 
 ::rts:: https://xitog.github.io/dgx/passetemps/project_rts.html
 
-//-----------------------------------------------------------------------------
-// Écrits
-//-----------------------------------------------------------------------------
+§§-----------------------------------------------------------------------------
+§§ Écrits
+§§-----------------------------------------------------------------------------
 
 ::jeux:: https://xitog.github.io/dgx/passetemps/pres_jeux.html
 ::jv:: https://xitog.github.io/dgx/passetemps/pres_jeuxvideo.html
