@@ -12,17 +12,17 @@
 
 ## Comments
 
-On peut faire des commentaires en commençant une ligne par //.
+On peut faire des commentaires en commençant une ligne par §§.
 
 On peut choisir de les exporter ou non.
 
 !var EXPORT_COMMENT=true
 
-// Tests de commentaire
+§§ Tests de commentaire
 
 !var EXPORT_COMMENT=false
 
-// Commentaire non exporté
+§§ Commentaire non exporté
 
 ## Div
 
@@ -47,7 +47,7 @@ This is a paragraph.
 
 This is another one.
 
-We can include newline !! inside paragraph with \ !! !
+We can include newline \\ inside paragraph with \\\ !
 
 ## Spans
 
@@ -80,10 +80,10 @@ We can include newline !! inside paragraph with \ !! !
   * Un sous item de l'autre item
   * Un autre sous item !
 
-// - - Mad list
-// - - - - Truly
-// - No
-// - - - it is !
+§§ - - Mad list
+§§ - - - - Truly
+§§ - No
+§§ - - - it is !
 
 ## Table
 
