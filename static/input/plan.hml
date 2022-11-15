@@ -14,74 +14,74 @@
 # Plan du site
 ---
 
-* [Accueil->https://xitog.github.io/dgx/index.html]
-* [Blog->https://xitog.github.io/dgx/blog.html]
+* [[Accueil->https://xitog.github.io/dgx/index.html]]
+* [[Blog->https://xitog.github.io/dgx/blog.html]]
 * Langues
-* * Français
-* * * [Fiche sur les phonèmes du français->https://xitog.github.io/dgx/francais/fiche_api_fr.html]
-* * * [Outil d'analyse textuelle->https://xitog.github.io/dgx/francais/outil_stats_fr.html]
-* * Italien
-* * * [Beatrice : grammaire->https://xitog.github.io/dgx/italien/beatrice.html]
-* * * [Jeu sur la conjugaison->https://xitog.github.io/dgx/italien/jeu_conjugaison.html]
-* * Anglais
-* * * [Jeu sur le vocabulaire->https://xitog.github.io/dgx/anglais/jeu_vocabulaire.html]
-* * * [Verbes fréquents->https://xitog.github.io/dgx/anglais/verbes.html]
-* * Interlingua
-* * * [Conjugueur->https://xitog.github.io/dgx/interlingua/conjugueur.html]
-* * Linguistique
-* * * [Informations générales->https://xitog.github.io/dgx/linguistique/informations.html]
+  * Français
+    * [[Fiche sur les phonèmes du français->https://xitog.github.io/dgx/francais/fiche_api_fr.html]]
+    * [[Outil d'analyse textuelle->https://xitog.github.io/dgx/francais/outil_stats_fr.html]]
+  * Italien
+    * [[Beatrice : grammaire->https://xitog.github.io/dgx/italien/beatrice.html]]
+    * [[Jeu sur la conjugaison->https://xitog.github.io/dgx/italien/jeu_conjugaison.html]]
+  * Anglais
+    * [[Jeu sur le vocabulaire->https://xitog.github.io/dgx/anglais/jeu_vocabulaire.html]]
+    * [[Verbes fréquents->https://xitog.github.io/dgx/anglais/verbes.html]]
+  * Interlingua
+    * [[Conjugueur->https://xitog.github.io/dgx/interlingua/conjugueur.html]]
+  * Linguistique
+    * [[Informations générales->https://xitog.github.io/dgx/linguistique/informations.html]]
 * Informatique
-* * Programmation
-* * * [Syntaxes comparées->https://xitog.github.io/dgx/informatique/syntaxes.html]
-* * * [Aide-mémoire Python->https://xitog.github.io/dgx/informatique/python.html]
-* * * [Aide-mémoire Ruby->https://xitog.github.io/dgx/informatique/ruby.html]
-* * * [Aide-mémoire Lua->https://xitog.github.io/dgx/informatique/lua.html]
-* * * [Guide Ruby->https://xitog.github.io/dgx/informatique/ruby_guide.html]
-* * * [Guide Ash->https://xitog.github.io/dgx/informatique/ash_guide.html]
-* * Modélisation
-* * * [Aide-mémoire BNF et EBNF->https://xitog.github.io/dgx/informatique/bnf.html]
-* * * [Aide-mémoire JSON->https://xitog.github.io/dgx/informatique/json.html]
-* * * [Aide-mémoire Hamill->https://xitog.github.io/dgx/informatique/hamill.html]
-* * Autres
-* * * [Gestion de versions->https://xitog.github.io/dgx/informatique/version_control.html]
-* * * [Logiciels utiles et autres langages->https://xitog.github.io/dgx/informatique/tools_langs.html]
+  * Programmation
+    * [[Syntaxes comparées->https://xitog.github.io/dgx/informatique/syntaxes.html]]
+    * [[Aide-mémoire Python->https://xitog.github.io/dgx/informatique/python.html]]
+    * [[Aide-mémoire Ruby->https://xitog.github.io/dgx/informatique/ruby.html]]
+    * [[Aide-mémoire Lua->https://xitog.github.io/dgx/informatique/lua.html]]
+    * [[Guide Ruby->https://xitog.github.io/dgx/informatique/ruby_guide.html]]
+    * [[Guide Ash->https://xitog.github.io/dgx/informatique/ash_guide.html]]
+  * Modélisation
+    * [[Aide-mémoire BNF et EBNF->https://xitog.github.io/dgx/informatique/bnf.html]]
+    * [[Aide-mémoire JSON->https://xitog.github.io/dgx/informatique/json.html]]
+    * [[Aide-mémoire Hamill->https://xitog.github.io/dgx/informatique/hamill.html]]
+  * Autres
+    * [[Gestion de versions->https://xitog.github.io/dgx/informatique/version_control.html]]
+    * [[Logiciels utiles et autres langages->https://xitog.github.io/dgx/informatique/tools_langs.html]]
 * Histoire
-* * Méthode
-* * * [Généralités->https://xitog.github.io/dgx/histoire/methode.html]
-* * * [Bibliographie->https://xitog.github.io/dgx/histoire/bibliographie.html]
-* * Aide-mémoires
-* * * [France au XIX^^e^^->https://xitog.github.io/dgx/histoire/france19eme.html]
+  * Méthode
+    * [[Généralités->https://xitog.github.io/dgx/histoire/methode.html]]
+    * [[Bibliographie->https://xitog.github.io/dgx/histoire/bibliographie.html]]
+  * Aide-mémoires
+    * [[France au XIX^^e^^->https://xitog.github.io/dgx/histoire/france19eme.html]]
 * Passe-temps
-* * Présentations générales
-* * * [Les jeux->https://xitog.github.io/dgx/passetemps/pres_jeux.html]
-* * * [Les jeux vidéo->https://xitog.github.io/dgx/passetemps/pres_jeuxvideo.html]
-* * * [Favoris artistiques->https://xitog.github.io/dgx/passetemps/pres_favoris.html]
-* * Jeux de rôles
-* * * [Systèmes des RPG->https://xitog.github.io/dgx/passetemps/systemes_rpg.html]
-* * Livres-jeux
-* * * [Le Compagnon du Talisman->https://xitog.github.io/dgx/passetemps/compagnon_talisman.html]
-* * * [Le Compagnon du Sorcier->https://xitog.github.io/dgx/passetemps/compagnon_sorcier.html]
-* * Histoire des jeux vidéo
-* * * [Les enfants de Dune : les RTS->https://xitog.github.io/dgx/passetemps/history_rts.html]
-* * * [Les enfants de Doom : les FPS->https://xitog.github.io/dgx/passetemps/history_fps.html]
-* * Techniques des jeux vidéo
-* * * [Le raycasting : la 2.5D->https://xitog.github.io/dgx/passetemps/tech_raycasting.html]
-* * * [Cartes et transitions->https://xitog.github.io/dgx/passetemps/tech_transitions.html]
-* * * [Dialogues->https://xitog.github.io/dgx/passetemps/tech_dialogues.html]
-* * Jeux vidéo et outils maison
-* * * [Éditeur de carte->https://xitog.github.io/dgx/passetemps/project_teddy.html]
-* * * [Jouer à mon RTS->https://xitog.github.io/dgx/passetemps/project_rts.html]
-* * * [Jouer à mon FPS->https://xitog.github.io/dgx/passetemps/project_fps.html]
+  * Présentations générales
+    * [[Les jeux->https://xitog.github.io/dgx/passetemps/pres_jeux.html]]
+    * [[Les jeux vidéo->https://xitog.github.io/dgx/passetemps/pres_jeuxvideo.html]]
+    * [[Favoris artistiques->https://xitog.github.io/dgx/passetemps/pres_favoris.html]]
+  * Jeux de rôles
+    * [[Systèmes des RPG->https://xitog.github.io/dgx/passetemps/systemes_rpg.html]]
+  * Livres-jeux
+    * [[Le Compagnon du Talisman->https://xitog.github.io/dgx/passetemps/compagnon_talisman.html]]
+    * [[Le Compagnon du Sorcier->https://xitog.github.io/dgx/passetemps/compagnon_sorcier.html]]
+  * Histoire des jeux vidéo
+    * [[Les enfants de Dune : les RTS->https://xitog.github.io/dgx/passetemps/history_rts.html]]
+    * [[Les enfants de Doom : les FPS->https://xitog.github.io/dgx/passetemps/history_fps.html]]
+  * Techniques des jeux vidéo
+    * [[Le raycasting : la 2.5D->https://xitog.github.io/dgx/passetemps/tech_raycasting.html]]
+    * [[Cartes et transitions->https://xitog.github.io/dgx/passetemps/tech_transitions.html]]
+    * [[Dialogues->https://xitog.github.io/dgx/passetemps/tech_dialogues.html]]
+  * Jeux vidéo et outils maison
+    * [[Éditeur de carte->https://xitog.github.io/dgx/passetemps/project_teddy.html]]
+    * [[Jouer à mon RTS->https://xitog.github.io/dgx/passetemps/project_rts.html]]
+    * [[Jouer à mon FPS->https://xitog.github.io/dgx/passetemps/project_fps.html]]
 * Autres
-* * Musique
-* * * [Concerts classiques->https://xitog.github.io/dgx/concerts_classiques/index.html#tab1]
-* * * [Musiques favorites->https://xitog.github.io/dgx/favoris/musiques.html]
-* * Collections
-* * * [Prénoms->https://xitog.github.io/dgx/data/outil_collections.html#prenoms]
-* * Liens
-* * * [Plan du site->https://xitog.github.io/dgx/plan.html]
-* * * [Barre de liens->https://xitog.github.io/dgx/liens.html]
-* * * [Collection de liens->https://xitog.github.io/dgx/liste_liens.html]
+  * Musique
+    * [[Concerts classiques->https://xitog.github.io/dgx/concerts_classiques/index.html#tab1]]
+    * [[Musiques favorites->https://xitog.github.io/dgx/favoris/musiques.html]]
+  * Collections
+    * [[Prénoms->https://xitog.github.io/dgx/data/outil_collections.html#prenoms]]
+  * Liens
+    * [[Plan du site->https://xitog.github.io/dgx/plan.html]]
+    * [[Barre de liens->https://xitog.github.io/dgx/liens.html]]
+    * [[Collection de liens->https://xitog.github.io/dgx/liste_liens.html]]
 
 {{end}}
 {{end}}
