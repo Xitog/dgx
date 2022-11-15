@@ -40,7 +40,9 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
   * [[Suivi 2017->https://docs.google.com/spreadsheets/d/1NePr3M6zD8c3qhAQ0M08gEAobzb8hBWw_evQnHYWR9w/]]
   * [[Suivi 2016->https://docs.google.com/spreadsheets/d/1nSgrDxRtuHEwohhLYID4iSd8ZesDiORZSye7fbGKu_o/]]
 * Cheatsheet
-  * [[Dev Hints ''(Lua)''->https://devhints.io/]]
+  * [[**Syntax across Languages**->http://rigaux.org/language-study/syntax-across-languages.html]]
+  * [[Lua Syntax->https://www.lua.org/manual/5.3/manual.html#9]]
+  * [[Dev Hints ''(Lua, Markdown)''->https://devhints.io/]]
 * Projets
   * [[003 Fiches de lecture->https://drive.google.com/drive/folders/0B6hNBaz15FeOMFNPaHFzMThZa0k]]
   * [[Historique de mes projets->https://docs.google.com/document/d/1Jajal56k7dlvqJEO1ZzaeaLKSGzSXFFw5jW4uFGCw-8]]
@@ -98,6 +100,40 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
   * [[FranceTerme->http://www.culture.fr/franceterme]]
   * [[Langues sur xitog.cat->https://drive.google.com/drive/folders/0B5syjWPPrb-cRXQxV1hpOHZWVWM]]
 * Outils
+  * IDE
+    * [[**Visual Studio Code**->https://code.visualstudio.com/]]
+    * [[**Pelles C**->http://www.smorgasbordet.com/pellesc/]]
+    * [[JetBrains->https://account.jetbrains.com/login]]
+    * [[WinDev->https://windev.com/]]
+  * Diff
+    * [[**WinMerge**->https://winmerge.org/?lang=fr]]
+  * Gestionnaire de versions
+    * [[**Git**->https://git-scm.com/]]
+    * [[SVN->https://svnbook.red-bean.com/fr/1.8/]]
+    * [[TortoiseSVN->https://tortoisesvn.net/downloads.html]]
+  * Langages
+    * [[Python->https://www.python.org/]]
+    * [[Ruby->https://www.ruby-lang.org/]]
+    * [[PHP->https://www.php.net/]]
+      * [[Manuel PHP->https://www.php.net/manual/fr/]]
+    * [[Lua->https://www.lua.org/]]
+    * [[Pike->https://pike.lysator.liu.se/]]
+    * [[Microsoft Visual C++ Redistributable->https://learn.microsoft.com/fr-fr/cpp/windows/latest-supported-vc-redist?view=msvc-170]]
+  * Diagrammes
+    * [[Dia->http://dia-installer.de/index.html.fr]]
+    * [[VUE->https://vue.tufts.edu/]]
+    * [[Cmap->https://cmap.ihmc.us/]]
+  * Latex
+    * [[TeXMaker->https://www.xm1math.net/texmaker/download.html]]
+  * Base de données
+    * [[MySQL->https://www.mysql.com/fr/]]
+    * [[PHPMyAdmin->https://www.phpmyadmin.net/]]
+    * [[SQLTools->https://www.sqltools.net/]]
+    * [[Oracle Instant Client->https://www.oracle.com/fr/database/technologies/instant-client/winx64-64-downloads.html]]
+  * Regex
+    * [[Regex101->https://regex101.com/]]
+  * Web
+    * [[Apache->https://www.apachelounge.com/download/]]
   * [[Google Livres->https://books.google.com/?hl=fr]]
   * [[HAL->https://hal.archives-ouvertes.fr/]]
   * [[Api HAL->https://api.archives-ouvertes.fr/docs/search]]
@@ -117,6 +153,10 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
     * [[Flare data->https://github.com/flareteam/flare-game]]
     * [[Flare engine->https://github.com/flareteam/flare-engine]]
   * [[Game icons->https://game-icons.net/]]
+  * CSS
+    * [[Windows 7->https://khang-nd.github.io/7.css/]] ''tree view, tabs et menu''
+    * [[Windows XP->https://botoxparty.github.io/XP.css/]] ''tree view et tabs mais pas menu''
+    * [[Windows 98->https://jdan.github.io/98.css/]] 
 * Formats
   * PUD
     * [[PUD Format specification->http://cade.datamax.bg/war2x/pudspec.html]]
