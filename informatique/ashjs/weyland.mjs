@@ -233,7 +233,6 @@ class Lexer
             {
                 console.log(start, `${i}. @start |${ln(word)}|`);
             }
-            old = matched;
             matched = this.match(start, word, debug);
             if (debug && matched.length === 0)
             {
@@ -281,6 +280,7 @@ class Lexer
                     start = old[0].start + content.length;
                 }
             }
+            old = matched;
         }
         if (old !== null && old.length > 0)
         {
@@ -789,6 +789,7 @@ const TESTS = [
 
     new Test(LEXERS['hamill'], "**bold * \\** text**", ['bold', 'normal', 'bold']),
     new Test(LEXERS['hamill'], "**bold ''text''**", ['bold', 'normal', 'italic', 'normal', 'italic', 'bold']),
+    new Test(LEXERS['ash'], 'a = 5', ['identifier', 'affectation', 'integer']),
 ]
 
 function tests(debug=false)
@@ -807,9 +808,10 @@ function tests(debug=false)
         t.test(index + 1, debug);
     }
 
+    console.log("\n--- Test of to_html ------------------------------------------\n");
     console.log(LEXERS['lua'].to_html("if a >= 5 then println('hello') end", null, ['blank']));
 }
 
-//tests(true);
+tests(false);
 
 export {ln, Language, Token, Lexer, LANGUAGES, PATTERNS, LEXERS};
