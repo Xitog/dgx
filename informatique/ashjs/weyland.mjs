@@ -113,7 +113,7 @@ class Language
     getNumberOfRegex()
     {
         let sum = 0;
-        for (const [k, v] of Object.entries(this.definitions))
+        for (const v of Object.values(this.definitions))
         {
             sum += v.length;
         }
@@ -208,7 +208,6 @@ class Lexer
         {
             for (let elem of variants)
             {
-                //if (debug) console.log(ln(word), 'vs', elem, '=', elem.test(word));
                 if (elem.test(word))
                 {
                     if (debug) console.log('    Match: ' + type + ' : ' + variants + ' => ' + elem.test(word));
@@ -234,6 +233,7 @@ class Lexer
             {
                 console.log(start, `${i}. @start |${ln(word)}|`);
             }
+            old = matched;
             matched = this.match(start, word, debug);
             if (debug && matched.length === 0)
             {
@@ -281,8 +281,6 @@ class Lexer
                     start = old[0].start + content.length;
                 }
             }
-            old = matched;
-            matched = [];
         }
         if (old !== null && old.length > 0)
         {
@@ -376,7 +374,7 @@ class Lexer
                     {
                         output += ' ';
                     }
-                    // output += `<sup class='info'>${nb}</sup><span> </span>`;
+                    // Ceci peut-être ajouté : output += `<sup class='info'>${nb}</sup><span> </span>`;
                 }
             }
             nb += 1;
@@ -485,6 +483,12 @@ const LANGUAGES = {
                 'try', 'catch', 'finally', 'raise', 'const'],
             'special': ['writeln', 'write'],
             'boolean' : ['false', 'true'],
+            'operator' : ['-', 'not', '#', '~', 'and', 'or', // boolean
+                'in', // belongs to
+                '\\+', '-', '\\*', '/', '//', '\\*\\*', '%', // mathematical
+                '&', '\\|', '~', '>>', '<<', // bitwise
+                '<', '<=', '>', '>=', '==', '!=', // comparison
+                '\\.'], // call
             'identifier' : PATTERNS["IDENTIFIER"],
             // Old
             'affectation' : ['='],
@@ -498,12 +502,6 @@ const LANGUAGES = {
             'number' : PATTERNS["FLOAT"],
             'nil': ['nil'],
             // 'binary_operator' : ['and', 'or', # boolean
-            'operator' : ['-', 'not', '#', '~', 'and', 'or', // boolean
-                'in', // belongs to
-                '\\+', '-', '\\*', '/', '//', '\\*\\*', '%', // mathematical
-                '&', '\\|', '~', '>>', '<<', // bitwise
-                '<', '<=', '>', '>=', '==', '!=', // comparison
-                '\\.'], // call
             'separator': ['\\{', '\\}', '\\(', '\\)', '\\[', '\\]', ',', ';'],
             'wrong_int' : PATTERNS["WRONG_INTEGER"],
             'blank': PATTERNS["BLANKS"],
@@ -752,7 +750,6 @@ const LEXERS = {
     'lua': new Lexer(LANGUAGES['lua'], ['blank']),
     'python': new Lexer(LANGUAGES['python']),
     'text': new Lexer(LANGUAGES['text'], ['blank']),
-    'hamill': new Lexer(LANGUAGES['hamill']) //, ['blank'])
 }
 
 const TESTS = [

@@ -1,17 +1,20 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
         <title>Ash REPL</title>
         <meta charset="utf8">
         <script type="module" src="./weyland.mjs"></script>
         <script type="module" src="./parser.mjs"></script>
         <script type="module" src="./interpreter.mjs"></script>
+        <script type="module" stc="./translator.mjs"></script>
         <script type="module">
             //-----------------------------------------------------------------
             // Imports
             //-----------------------------------------------------------------
-            import { Lexer } from "./weyland.mjs";
+            /*import { Lexer } from "./weyland.mjs";
             import { Parser } from "./parser.mjs";
             import { Interpreter } from "./interpreter.mjs";
+            import { Translator} from "./translator.mjs";*/
 
             //-----------------------------------------------------------------
             // Functions
@@ -89,9 +92,13 @@
                 let output_ast = $("ast");
                 let output_console = $("console");
                 let output_result = $("result");
+                let output_javascript = $("javascript");
+                let output_javascript_result = $("javascript-result");
                 output_ast.innerHTML = '';
                 output_console.innerHTML = '';
                 output_result.innerHTML = '';
+                output_javascript.innerHTML = '';
+                output_javascript_result.innerHTML = '';
                 let screen = $("screen");
                 let ctx = screen.getContext("2d");
                 ctx.clearRect(0, 0, screen.width, screen.height);
@@ -138,8 +145,15 @@
                 console.log('AST: ', ast);
                 console.log('Scope: ', interpreter.root);
 
+                let translator = new Translator();
+                let output = translator.do(ast);
+                let res_translated = eval(output);
+
                 output_ast.innerHTML = tree;
                 output_result.innerHTML = result;
+                output_javascript.innerHTML = output;
+                output_javascript_result.innerHTML = res_translated;
+
             }
 
             function open_or_close(elem_id)
@@ -153,10 +167,12 @@
                 }
             }
 
-            document.getElementById("ast").parentNode.addEventListener('click', ()=>{open_or_close('ast')});
-            document.getElementById("screen").parentNode.addEventListener('click', ()=>{open_or_close('screen')});
-            document.getElementById("console").parentNode.addEventListener('click', ()=>{open_or_close('console')});
-            document.getElementById("result").parentNode.addEventListener('click', ()=>{open_or_close('result')});
+            document.getElementById("ast-title").addEventListener('click', ()=>{open_or_close('ast')});
+            document.getElementById("screen-title").addEventListener('click', ()=>{open_or_close('screen')});
+            document.getElementById("console-title").addEventListener('click', ()=>{open_or_close('console')});
+            document.getElementById("result-title").addEventListener('click', ()=>{open_or_close('result')});
+            document.getElementById("javascript-title").addEventListener('click', ()=>{open_or_close('javascript')});
+            document.getElementById("javascript-result-title").addEventListener('click', ()=>{open_or_close('javascript-result')});
 
             document.querySelectorAll('[class$="_reset"]').forEach(e => e.addEventListener('click', reset));
             document.querySelectorAll('[class$="_analyse"]').forEach(e => e.addEventListener('click', analyse));
@@ -203,6 +219,10 @@
                 background: #f0f0f0;
                 padding-left: 1em;
                 margin-bottom: 0;
+                cursor: pointer;
+            }
+            div.title:hover {
+                background: #add8e6;
             }
         </style>
     </head>
@@ -217,17 +237,28 @@
             </div>
             <div class="grid-child">
                 <div>
-                    <div class="title">Abstract Syntax tree</div>
+                    <div id="ast-title" class="title">Abstract Syntax tree</div>
                     <pre id="ast"></pre>
                 </div>
-                <div><div class="title">Screen</div>
+                <div>
+                    <div id="screen-title" class="title">Screen</div>
                     <canvas id="screen" width="640px" height="480px"></canvas>
                 </div>
-                <div><div class="title">Console</div>
+                <div>
+                    <div id="console-title" class="title">Console</div>
                     <pre id="console"></pre>
                 </div>
-                <div><div class="title">Result</div>
+                <div>
+                    <div id="result-title" class="title">Result</div>
                     <pre id="result"></pre>
+                </div>
+                <div>
+                    <div id="javascript-title" class="title">JavaScript</div>
+                    <pre id="javascript"></pre>
+                </div>
+                <div>
+                    <div id="javascript-result-title" class="title">JavaScript Result</div>
+                    <pre id="javascript-result"></pre>
                 </div>
             </div>
         </div>

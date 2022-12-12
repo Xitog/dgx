@@ -338,9 +338,28 @@ class Parser
     {
         this.level += 1;
         console.log('    '.repeat(this.level) + `${this.level}. parse expr at ${this.index}`);
-        let node = this.parse_test();
+        let node = this.parse_bool();
         this.level -= 1;
         return node;
+    }
+
+    parse_bool()
+    {
+        this.level += 1;
+        console.log('    '.repeat(this.level) + `${this.level}. parse bool at ${this.index}`);
+        let expr = this.parse_test();
+        if (this.index < this.tokens.length)
+        {
+            const tok = this.tokens[this.index];
+            if(['and', 'or'].includes(tok.getValue()))
+            {
+                let operator = this.parse_lit();
+                let right = this.parse_test();
+                expr = new Expression(expr, operator, right);
+            }
+        }
+        this.level -= 1;
+        return expr;
     }
 
     parse_test()

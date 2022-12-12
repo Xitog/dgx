@@ -29,6 +29,8 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
 
 {{end}}
 
+{{#links}}
+
 * Vie quotidienne
   * Assurances et mutuelles
     * [[MGEN->https://www.mgen.fr/login-adherent/]]
@@ -182,7 +184,7 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
   * CSS
     * [[Windows 7->https://khang-nd.github.io/7.css/]] ''tree view, tabs et menu''
     * [[Windows XP->https://botoxparty.github.io/XP.css/]] ''tree view et tabs mais pas menu''
-    * [[Windows 98->https://jdan.github.io/98.css/]] 
+    * [[Windows 98->https://jdan.github.io/98.css/]]
 * Formats
   * PUD
     * [[PUD Format specification->http://cade.datamax.bg/war2x/pudspec.html]]
@@ -197,5 +199,7 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
     * [[Signac->https://fr.wikipedia.org/wiki/Paul_Signac]]
 
 !html <div style="width: 50%; margin: auto; text-align: center;" title="Que la Force soit avec vous. À jamais.">2005 ❤ 2022</div>
+
+{{end}}
 
 {{end}}

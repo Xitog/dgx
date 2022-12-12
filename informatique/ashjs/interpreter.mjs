@@ -115,11 +115,15 @@ class Interpreter
                         return left >= right;
                     case '<=':
                         return left <= right;
+                    case 'and':
+                        return left && right;
+                    case 'or':
+                        return left || right;
                     default:
                         throw new Error("Not handled operator : " + node.operator.token.getValue());
                 }
             } else {
-                throw new Error("Expression not handled");
+                throw new Error(`Expression not handled: ${node.operator.token}`);
             }
         } else if (node instanceof Call) {
             const id = node.identifier.token.getValue();
@@ -200,6 +204,12 @@ class Interpreter
                     return tok.getValue().slice(1, tok.getValue().length - 1); // Remove the "
                 case 'identifier':
                     return this.root[tok.getValue()];
+                case 'boolean':
+                    if (tok.getValue() === "true")
+                    {
+                        return true;
+                    }
+                    return false;
                 default:
                     throw new Error("Not handled type : " + tok.getType());
             }
