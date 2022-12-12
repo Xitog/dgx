@@ -810,6 +810,6 @@ function tests(debug=false)
     console.log(LEXERS['lua'].to_html("if a >= 5 then println('hello') end", null, ['blank']));
 }
 
-tests(true);
+//tests(true);
 
 export {ln, Language, Token, Lexer, LANGUAGES, PATTERNS, LEXERS};
