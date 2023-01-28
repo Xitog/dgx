@@ -19,6 +19,9 @@
     p.sign { margin-bottom: none; }
     .jumbotron p:last-child { margin-bottom: none; }
     .jumbotron { padding-bottom: 1rem; }
+    #links { display: flex; }
+    .section { flex: 1; }
+    @media (max-width: 768px) { #links { flex-direction: column; } }
   </style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
@@ -149,6 +152,8 @@
 <p>Une liste de liens vers des sites web très intéressants, une liste des technologies et des outils logiciels que j'utilise.</p>
 </div>
 <div id="links">
+<div class="section">
+<h1 id="généraux">Généraux</h1>
 <ul>
   <li>Vie quotidienne
     <ul>
@@ -207,14 +212,29 @@
       <li><a href="https://docs.google.com/spreadsheets/d/1nSgrDxRtuHEwohhLYID4iSd8ZesDiORZSye7fbGKu_o/">Suivi 2016</a></li>
     </ul>
   </li>
-  <li>Cheatsheet
+  <li>Inventaires
     <ul>
-      <li><a href="http://rigaux.org/language-study/syntax-across-languages.html"><b>Syntax across Languages</b></a></li>
-      <li><a href="https://www.lua.org/manual/5.3/manual.html#9">Lua Syntax</a></li>
-      <li><a href="https://devhints.io/">Dev Hints <i>(Lua, Markdown)</i></a></li>
+      <li><a href="https://drive.google.com/drive/folders/0B6hNBaz15FeOVVV4WDRDWmw5djA">004 Inventaires</a></li>
+      <li><a href="https://docs.google.com/spreadsheets/d/14n8_Ub_-L4JAkGeWt6QykfazSxzxCGVxnXi5aXlCSrQ/">Contacts</a></li>
+      <li><a href="https://docs.google.com/spreadsheets/d/1HWMVaTyDAJWhMI4MUyFDJOg9eDAl3e9X3p88DDNsG5Y/">Films</a></li>
+      <li><a href="https://docs.google.com/spreadsheets/d/1d746CQTl9xRJJiFGUE0O2napmFI8TwKGcSbWrHTa1ik/edit">Liens</a></li>
+      <li><a href="https://docs.google.com/spreadsheets/d/16jOY4d_h0Pzmb8w5Z-HtrAtlG9VSU52-CaxOxyu-VqM/">Prénoms</a></li>
+      <li><a href="https://docs.google.com/spreadsheets/d/1YOSD2yqTAMNa8qqJly_OUVNxWO77Yq0EaOiGuKFImj0/">Voyages</a></li>
     </ul>
   </li>
-  <li>Projets
+  <li><a href="https://www.univ-tlse2.fr/">Université Jean Jaurès</a>
+    <ul>
+      <li><a href="https://ent.univ-tlse2.fr/accueil-etudiant">ENT</a></li>
+      <li><a href="https://scout.univ-toulouse.fr/flatx/index.jsp#home">Scout</a></li>
+    </ul>
+  </li>
+</ul>
+</div>
+<div class="section">
+<h1 id="projets,-hobbies-et-arts">Projets, Hobbies et arts</h1>
+<h2 id="projets">Projets</h2>
+<ul>
+  <li>Production
     <ul>
       <li><a href="https://drive.google.com/drive/folders/0B6hNBaz15FeOMFNPaHFzMThZa0k">003 Fiches de lecture</a></li>
       <li><a href="https://docs.google.com/document/d/1Jajal56k7dlvqJEO1ZzaeaLKSGzSXFFw5jW4uFGCw-8">Historique de mes projets</a></li>
@@ -233,42 +253,63 @@
       <li><a href="https://docs.google.com/document/d/1q5OHGCt1v1V8al8jv8RzDcA3uks3dFAIVfA4sZuCe1Y/">Interlingua</a></li>
     </ul>
   </li>
-  <li>Inventaires
+  <li>Cheatsheet
     <ul>
-      <li><a href="https://drive.google.com/drive/folders/0B6hNBaz15FeOVVV4WDRDWmw5djA">004 Inventaires</a></li>
-      <li><a href="https://docs.google.com/spreadsheets/d/14n8_Ub_-L4JAkGeWt6QykfazSxzxCGVxnXi5aXlCSrQ/">Contacts</a></li>
-      <li><a href="https://docs.google.com/spreadsheets/d/1HWMVaTyDAJWhMI4MUyFDJOg9eDAl3e9X3p88DDNsG5Y/">Films</a></li>
-      <li><a href="https://docs.google.com/spreadsheets/d/1d746CQTl9xRJJiFGUE0O2napmFI8TwKGcSbWrHTa1ik/edit">Liens</a></li>
-      <li><a href="https://docs.google.com/spreadsheets/d/16jOY4d_h0Pzmb8w5Z-HtrAtlG9VSU52-CaxOxyu-VqM/">Prénoms</a></li>
-      <li><a href="https://docs.google.com/spreadsheets/d/1YOSD2yqTAMNa8qqJly_OUVNxWO77Yq0EaOiGuKFImj0/">Voyages</a></li>
+      <li><a href="http://rigaux.org/language-study/syntax-across-languages.html"><b>Syntax across Languages</b></a></li>
+      <li><a href="https://www.lua.org/manual/5.3/manual.html#9">Lua Syntax</a></li>
+      <li><a href="https://devhints.io/">Dev Hints <i>(Lua, Markdown)</i></a></li>
     </ul>
   </li>
-  <li>Traitement automatique des langues
+  <li>Assets and remake
     <ul>
-      <li><a href="https://docs.google.com/document/d/1ELwBM8R_J5jd8cg7gdqEt509Qlgca_a0z-oi-Xi-EfE/edit">Dossier de recherche</a></li>
-      <li><a href="https://docs.google.com/document/d/1gD1z_TAaYFKZHcktZ8vytYy6mmObIPFy8QGmxeRT1_8/edit">Notes de recherche</a></li>
-      <li><a href="http://www.laurenceanthony.net/software.html">AntConc</a> Freeware corpus analysis toolkit for concordancing and text analysis</li>
-      <li><b><a href="https://eduscol.education.fr/186/liste-de-frequence-lexicale">Liste de fréquence lexicale</a></b></li>
-      <li><a href="http://www.linguistes.com/">Introduction à la linguistique</a></li>
-      <li><a href="http://www.henrietteg.com/glossword/">Glossaire de termes en linguistique</a></li>
-      <li><a href="https://www.cis.lmu.de/~schmid/tools/TreeTagger/">TreeTagger</a> Part-of-speech tagger</li>
-      <li><a href="http://joliciel-informatique.github.io/talismane/">Talismane</a> Part-of-speech tagger</li>
-      <li><a href="http://www.lexique.org/">Lexique</a> Base de mots</li>
-      <li><a href="https://www.atala.org/">Atala</a> Association pour le Traitement Automatique des Langues</li>
-      <li><a href="https://www.ortolang.fr/fr/accueil/">ORTOLANG</a> Plate-forme d'outils et de ressources linguistiques</li>
-      <li><a href="https://www.wiktionary.org/">Wiktionary</a></li>
-      <li><a href="https://www.nltk.org/">NLTK</a></li>
-      <li><a href="https://www.clarin.si/noske/index-en.html">NoSketchEngine</a></li>
-      <li><a href="https://www.clarin.si/noske/wacs.cgi/first_form">NoSketchEngine - Concordance - First query from</a></li>
-      <li><a href="https://wacky.sslmit.unibo.it/doku.php?id=start">WaCky - Web as a corpus</a></li>
+      <li><a href="https://opengameart.org/">OpenGameArt</a></li>
+      <li><a href="https://gemrb.org/">GemRB</a></li>
+      <li><a href="https://www.openra.net/">OpenRA</a></li>
+      <li><a href="https://freedoom.github.io/">Freedoom</a></li>
+      <li><a href="https://github.com/Blasphemer/blasphemer">Blasphemer</a> <i>for Heretic</i></li>
+      <li><a href="https://github.com/CireG/Zauberer/">Zauberer</a> <i>for Hexen</i></li>
+      <li><a href="http://andrettin.github.io/">Wyrmsun</a>
+        <ul>
+          <li><a href="https://github.com/andrettin/wyrmsun">Wyrmsun data</a></li>
+          <li><a href="https://github.com/Andrettin/Wyrmgus">Wyrmsun engine</a> <i>based on Stratagus</i></li>
+        </ul>
+  </li>
+      <li><a href="https://flarerpg.org/">FlareRPG</a>
+        <ul>
+          <li><a href="https://github.com/clintbellanger/flare">Flare</a></li>
+          <li><a href="https://github.com/flareteam/flare-game">Flare data</a></li>
+          <li><a href="https://github.com/flareteam/flare-engine">Flare engine</a></li>
+        </ul>
+  </li>
+      <li><a href="https://game-icons.net/">Game icons</a></li>
+      <li>CSS
+        <ul>
+          <li><a href="https://khang-nd.github.io/7.css/">Windows 7</a> <i>tree view, tabs et menu</i></li>
+          <li><a href="https://botoxparty.github.io/XP.css/">Windows XP</a> <i>tree view et tabs mais pas menu</i></li>
+          <li><a href="https://jdan.github.io/98.css/">Windows 98</a></li>
+        </ul>
+  </li>
     </ul>
   </li>
-  <li><a href="https://www.univ-tlse2.fr/">Université Jean Jaurès</a>
+  <li>Formats
     <ul>
-      <li><a href="https://ent.univ-tlse2.fr/accueil-etudiant">ENT</a></li>
-      <li><a href="https://scout.univ-toulouse.fr/flatx/index.jsp#home">Scout</a></li>
+      <li>PUD
+        <ul>
+          <li><a href="http://cade.datamax.bg/war2x/pudspec.html">PUD Format specification</a></li>
+          <li><a href="http://formats.kaitai.io/warcraft_2_pud/">PUD Description for Kaitai</a></li>
+        </ul>
+  </li>
+      <li>Wolfenstein 3D
+        <ul>
+          <li><a href="https://tcrf.net/Wolfenstein_3D_(DOS)">Game Versions</a></li>
+          <li><a href="https://moddingwiki.shikadi.net/wiki/GameMaps_Format">Map format</a></li>
+        </ul>
+  </li>
     </ul>
   </li>
+</ul>
+<h2 id="hobbies">Hobbies</h2>
+<ul>
   <li>Jeux vidéo
     <ul>
       <li><a href="https://docs.google.com/document/d/1nik1tBKQewHvXiUdo4R-EXmTzc-20oi6KCJROdc4XhY/">Notes</a></li>
@@ -280,23 +321,28 @@
       <li><a href="https://mtg.fandom.com/">Fandom</a></li>
     </ul>
   </li>
-  <li>Développement
+  <li>Figurines
     <ul>
-      <li><a href="https://nodejs.org/en/">Node.js</a></li>
+      <li><a href="https://www.games-workshop.com/fr-FR/D-accueil">Games Workshop</a></li>
     </ul>
   </li>
-  <li>Langues
+</ul>
+<h2 id="arts">Arts</h2>
+<ul>
+  <li>Peinture
     <ul>
-      <li><a href="https://www.interlingua.com">Interlingua</a></li>
-      <li><a href="https://www.cnrtl.fr/">CNRTL</a></li>
-      <li><a href="https://crisco2.unicaen.fr/des/">CRISCO DES</a></li>
-      <li><a href="www.wordreference.com">Wordreference</a></li>
-      <li><a href="http://atilf.atilf.fr/">TLFi</a></li>
-      <li><a href="http://stella.atilf.fr/">TLFi</a></li>
-      <li><a href="http://www.culture.fr/franceterme">FranceTerme</a></li>
-      <li><a href="https://drive.google.com/drive/folders/0B5syjWPPrb-cRXQxV1hpOHZWVWM">Langues sur xitog.cat</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Edmund_Leighton">Leighton</a></li>
+      <li><a href="https://fr.wikipedia.org/wiki/Georges-Antoine_Rochegrosse">Rochegrosse</a></li>
+      <li><a href="https://fr.wikipedia.org/wiki/Paul_Signac">Signac</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/John_William_Waterhouse">Waterhouse</a></li>
     </ul>
   </li>
+</ul>
+</div>
+<div class="section">
+<h1 id="informatique-et-linguistique">Informatique et linguistique</h1>
+<h2 id="informatique">Informatique</h2>
+<ul>
   <li>Outils
     <ul>
       <li>IDE
@@ -321,6 +367,11 @@
   </li>
       <li>Langages
         <ul>
+          <li><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript">JavaScript</a>
+            <ul>
+              <li><a href="https://nodejs.org/en/">Node.js</a></li>
+            </ul>
+  </li>
           <li><a href="https://www.python.org/">Python</a>
             <ul>
               <li><a href="http://tkinter.fdex.eu/">Référence sur Tkinter de FDEX</a></li>
@@ -379,71 +430,45 @@
       <li><a href="https://api.archives-ouvertes.fr/docs/search/schema/fields/#fields">Api HAL Schéma</a></li>
     </ul>
   </li>
-  <li>Assets and remake
+</ul>
+<h2 id="linguistique">Linguistique</h2>
+<ul>
+  <li>Langues
     <ul>
-      <li><a href="https://opengameart.org/">OpenGameArt</a></li>
-      <li><a href="https://gemrb.org/">GemRB</a></li>
-      <li><a href="https://www.openra.net/">OpenRA</a></li>
-      <li><a href="https://freedoom.github.io/">Freedoom</a></li>
-      <li><a href="https://github.com/Blasphemer/blasphemer">Blasphemer</a> <i>for Heretic</i></li>
-      <li><a href="https://github.com/CireG/Zauberer/">Zauberer</a> <i>for Hexen</i></li>
-      <li><a href="http://andrettin.github.io/">Wyrmsun</a>
-        <ul>
-          <li><a href="https://github.com/andrettin/wyrmsun">Wyrmsun data</a></li>
-          <li><a href="https://github.com/Andrettin/Wyrmgus">Wyrmsun engine</a> <i>based on Stratagus</i></li>
-        </ul>
-  </li>
-      <li><a href="https://flarerpg.org/">FlareRPG</a>
-        <ul>
-          <li><a href="https://github.com/clintbellanger/flare">Flare</a></li>
-          <li><a href="https://github.com/flareteam/flare-game">Flare data</a></li>
-          <li><a href="https://github.com/flareteam/flare-engine">Flare engine</a></li>
-        </ul>
-  </li>
-      <li><a href="https://game-icons.net/">Game icons</a></li>
-      <li>CSS
-        <ul>
-          <li><a href="https://khang-nd.github.io/7.css/">Windows 7</a> <i>tree view, tabs et menu</i></li>
-          <li><a href="https://botoxparty.github.io/XP.css/">Windows XP</a> <i>tree view et tabs mais pas menu</i></li>
-          <li><a href="https://jdan.github.io/98.css/">Windows 98</a></li>
-        </ul>
-  </li>
+      <li><a href="https://www.interlingua.com">Interlingua</a></li>
+      <li><a href="https://www.cnrtl.fr/">CNRTL</a></li>
+      <li><a href="https://crisco2.unicaen.fr/des/">CRISCO DES</a></li>
+      <li><a href="www.wordreference.com">Wordreference</a></li>
+      <li><a href="http://atilf.atilf.fr/">TLFi</a></li>
+      <li><a href="http://stella.atilf.fr/">TLFi</a></li>
+      <li><a href="http://www.culture.fr/franceterme">FranceTerme</a></li>
+      <li><a href="https://drive.google.com/drive/folders/0B5syjWPPrb-cRXQxV1hpOHZWVWM">Langues sur xitog.cat</a></li>
     </ul>
   </li>
-  <li>Formats
+  <li>Traitement automatique des langues
     <ul>
-      <li>PUD
-        <ul>
-          <li><a href="http://cade.datamax.bg/war2x/pudspec.html">PUD Format specification</a></li>
-          <li><a href="http://formats.kaitai.io/warcraft_2_pud/">PUD Description for Kaitai</a></li>
-        </ul>
-  </li>
-      <li>Wolfenstein 3D
-        <ul>
-          <li><a href="https://tcrf.net/Wolfenstein_3D_(DOS)">Game Versions</a></li>
-          <li><a href="https://moddingwiki.shikadi.net/wiki/GameMaps_Format">Map format</a></li>
-        </ul>
-  </li>
-    </ul>
-  </li>
-  <li>Hobbies
-    <ul>
-      <li><a href="https://www.games-workshop.com/fr-FR/D-accueil">Games Workshop</a></li>
-    </ul>
-  </li>
-  <li>Arts
-    <ul>
-      <li>Peinture
-        <ul>
-          <li><a href="https://fr.wikipedia.org/wiki/Georges-Antoine_Rochegrosse">Rochegrosse</a></li>
-          <li><a href="https://fr.wikipedia.org/wiki/Paul_Signac">Signac</a></li>
-        </ul>
-  </li>
+      <li><a href="https://docs.google.com/document/d/1ELwBM8R_J5jd8cg7gdqEt509Qlgca_a0z-oi-Xi-EfE/edit">Dossier de recherche</a></li>
+      <li><a href="https://docs.google.com/document/d/1gD1z_TAaYFKZHcktZ8vytYy6mmObIPFy8QGmxeRT1_8/edit">Notes de recherche</a></li>
+      <li><a href="http://www.laurenceanthony.net/software.html">AntConc</a> Freeware corpus analysis toolkit for concordancing and text analysis</li>
+      <li><b><a href="https://eduscol.education.fr/186/liste-de-frequence-lexicale">Liste de fréquence lexicale</a></b></li>
+      <li><a href="http://www.linguistes.com/">Introduction à la linguistique</a></li>
+      <li><a href="http://www.henrietteg.com/glossword/">Glossaire de termes en linguistique</a></li>
+      <li><a href="https://www.cis.lmu.de/~schmid/tools/TreeTagger/">TreeTagger</a> Part-of-speech tagger</li>
+      <li><a href="http://joliciel-informatique.github.io/talismane/">Talismane</a> Part-of-speech tagger</li>
+      <li><a href="http://www.lexique.org/">Lexique</a> Base de mots</li>
+      <li><a href="https://www.atala.org/">Atala</a> Association pour le Traitement Automatique des Langues</li>
+      <li><a href="https://www.ortolang.fr/fr/accueil/">ORTOLANG</a> Plate-forme d'outils et de ressources linguistiques</li>
+      <li><a href="https://www.wiktionary.org/">Wiktionary</a></li>
+      <li><a href="https://www.nltk.org/">NLTK</a></li>
+      <li><a href="https://www.clarin.si/noske/index-en.html">NoSketchEngine</a></li>
+      <li><a href="https://www.clarin.si/noske/wacs.cgi/first_form">NoSketchEngine - Concordance - First query from</a></li>
+      <li><a href="https://wacky.sslmit.unibo.it/doku.php?id=start">WaCky - Web as a corpus</a></li>
     </ul>
   </li>
 </ul>
-<div style="width: 50%; margin: auto; text-align: center;" title="Que la Force soit avec vous. À jamais.">2005 ❤ 2022</div>
 </div>
+</div>
+<div style="width: 50%; margin: auto; text-align: center;" title="Que la Force soit avec vous. À jamais.">2005 ❤ 2022</div>
 </div>
 
   </body>

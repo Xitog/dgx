@@ -15,6 +15,9 @@
 !css p.sign { margin-bottom: none; }
 !css .jumbotron p:last-child { margin-bottom: none; }
 !css .jumbotron { padding-bottom: 1rem; }
+!css #links { display: flex; }
+!css .section { flex: 1; }
+!css @media (max-width: 768px) { #links { flex-direction: column; } }
 
 {{#main .container}}
 
@@ -30,6 +33,10 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
 {{end}}
 
 {{#links}}
+
+{{.section}}
+
+# Généraux
 
 * Vie quotidienne
   * Assurances et mutuelles
@@ -61,11 +68,26 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
   * [[Suivi 2018->https://docs.google.com/spreadsheets/d/1E4SZyeHmoGB_kZ8hVxCydvk5UjhGUzlae7M9NbIyc8o/]]
   * [[Suivi 2017->https://docs.google.com/spreadsheets/d/1NePr3M6zD8c3qhAQ0M08gEAobzb8hBWw_evQnHYWR9w/]]
   * [[Suivi 2016->https://docs.google.com/spreadsheets/d/1nSgrDxRtuHEwohhLYID4iSd8ZesDiORZSye7fbGKu_o/]]
-* Cheatsheet
-  * [[**Syntax across Languages**->http://rigaux.org/language-study/syntax-across-languages.html]]
-  * [[Lua Syntax->https://www.lua.org/manual/5.3/manual.html#9]]
-  * [[Dev Hints ''(Lua, Markdown)''->https://devhints.io/]]
-* Projets
+* Inventaires
+  * [[004 Inventaires->https://drive.google.com/drive/folders/0B6hNBaz15FeOVVV4WDRDWmw5djA]]
+  * [[Contacts->https://docs.google.com/spreadsheets/d/14n8_Ub_-L4JAkGeWt6QykfazSxzxCGVxnXi5aXlCSrQ/]]
+  * [[Films->https://docs.google.com/spreadsheets/d/1HWMVaTyDAJWhMI4MUyFDJOg9eDAl3e9X3p88DDNsG5Y/]]
+  * [[Liens->https://docs.google.com/spreadsheets/d/1d746CQTl9xRJJiFGUE0O2napmFI8TwKGcSbWrHTa1ik/edit]]
+  * [[Prénoms->https://docs.google.com/spreadsheets/d/16jOY4d_h0Pzmb8w5Z-HtrAtlG9VSU52-CaxOxyu-VqM/]]
+  * [[Voyages->https://docs.google.com/spreadsheets/d/1YOSD2yqTAMNa8qqJly_OUVNxWO77Yq0EaOiGuKFImj0/]]
+* [[Université Jean Jaurès->https://www.univ-tlse2.fr/]]
+  * [[ENT->https://ent.univ-tlse2.fr/accueil-etudiant]]
+  * [[Scout->https://scout.univ-toulouse.fr/flatx/index.jsp#home]]
+
+{{end}}
+
+{{.section}}
+
+# Projets, Hobbies et arts
+
+## Projets
+
+* Production
   * [[003 Fiches de lecture->https://drive.google.com/drive/folders/0B6hNBaz15FeOMFNPaHFzMThZa0k]]
   * [[Historique de mes projets->https://docs.google.com/document/d/1Jajal56k7dlvqJEO1ZzaeaLKSGzSXFFw5jW4uFGCw-8]]
   * [[Chronologie des commits->https://docs.google.com/document/d/14yA988L_46guGbDdGyA_--U9olNkN-kbL36oONcn-ig]]
@@ -78,49 +100,63 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
   * [[(unfinished) [Programmation][Manuel] Beginning Development with Python and Pygame->https://docs.google.com/document/d/1PrBfafPq48O1c-fsj8DeU9Z0NNzOwbPSQuqBUJb_E1o/]]
   * [[Italien->https://docs.google.com/document/d/1LGmFKyjmKlPqC18U9SFoKc4KkWKgOBXJvyBedza34yA/]]
   * [[Interlingua->https://docs.google.com/document/d/1q5OHGCt1v1V8al8jv8RzDcA3uks3dFAIVfA4sZuCe1Y/]]
-* Inventaires
-  * [[004 Inventaires->https://drive.google.com/drive/folders/0B6hNBaz15FeOVVV4WDRDWmw5djA]]
-  * [[Contacts->https://docs.google.com/spreadsheets/d/14n8_Ub_-L4JAkGeWt6QykfazSxzxCGVxnXi5aXlCSrQ/]]
-  * [[Films->https://docs.google.com/spreadsheets/d/1HWMVaTyDAJWhMI4MUyFDJOg9eDAl3e9X3p88DDNsG5Y/]]
-  * [[Liens->https://docs.google.com/spreadsheets/d/1d746CQTl9xRJJiFGUE0O2napmFI8TwKGcSbWrHTa1ik/edit]]
-  * [[Prénoms->https://docs.google.com/spreadsheets/d/16jOY4d_h0Pzmb8w5Z-HtrAtlG9VSU52-CaxOxyu-VqM/]]
-  * [[Voyages->https://docs.google.com/spreadsheets/d/1YOSD2yqTAMNa8qqJly_OUVNxWO77Yq0EaOiGuKFImj0/]]
-* Traitement automatique des langues
-  * [[Dossier de recherche->https://docs.google.com/document/d/1ELwBM8R_J5jd8cg7gdqEt509Qlgca_a0z-oi-Xi-EfE/edit]]
-  * [[Notes de recherche->https://docs.google.com/document/d/1gD1z_TAaYFKZHcktZ8vytYy6mmObIPFy8QGmxeRT1_8/edit]]
-  * [[AntConc->http://www.laurenceanthony.net/software.html]] Freeware corpus analysis toolkit for concordancing and text analysis
-  * **[[Liste de fréquence lexicale->https://eduscol.education.fr/186/liste-de-frequence-lexicale]]**
-  * [[Introduction à la linguistique->http://www.linguistes.com/]]
-  * [[Glossaire de termes en linguistique->http://www.henrietteg.com/glossword/]]
-  * [[TreeTagger->https://www.cis.lmu.de/~schmid/tools/TreeTagger/]] Part-of-speech tagger
-  * [[Talismane->http://joliciel-informatique.github.io/talismane/]] Part-of-speech tagger
-  * [[Lexique->http://www.lexique.org/]] Base de mots
-  * [[Atala->https://www.atala.org/]] Association pour le Traitement Automatique des Langues
-  * [[ORTOLANG->https://www.ortolang.fr/fr/accueil/]] Plate-forme d'outils et de ressources linguistiques
-  * [[Wiktionary->https://www.wiktionary.org/]]
-  * [[NLTK->https://www.nltk.org/]]
-  * [[NoSketchEngine->https://www.clarin.si/noske/index-en.html]]
-  * [[NoSketchEngine - Concordance - First query from->https://www.clarin.si/noske/wacs.cgi/first_form]]
-  * [[WaCky - Web as a corpus->https://wacky.sslmit.unibo.it/doku.php?id=start]]
-* [[Université Jean Jaurès->https://www.univ-tlse2.fr/]]
-  * [[ENT->https://ent.univ-tlse2.fr/accueil-etudiant]]
-  * [[Scout->https://scout.univ-toulouse.fr/flatx/index.jsp#home]]
+* Cheatsheet
+  * [[**Syntax across Languages**->http://rigaux.org/language-study/syntax-across-languages.html]]
+  * [[Lua Syntax->https://www.lua.org/manual/5.3/manual.html#9]]
+  * [[Dev Hints ''(Lua, Markdown)''->https://devhints.io/]]
+* Assets and remake
+  * [[OpenGameArt->https://opengameart.org/]]
+  * [[GemRB->https://gemrb.org/]]
+  * [[OpenRA->https://www.openra.net/]]
+  * [[Freedoom->https://freedoom.github.io/]]
+  * [[Blasphemer->https://github.com/Blasphemer/blasphemer]] ''for Heretic''
+  * [[Zauberer->https://github.com/CireG/Zauberer/]] ''for Hexen''
+  * [[Wyrmsun->http://andrettin.github.io/]]
+    * [[Wyrmsun data->https://github.com/andrettin/wyrmsun]]
+    * [[Wyrmsun engine->https://github.com/Andrettin/Wyrmgus]] ''based on Stratagus''
+  * [[FlareRPG->https://flarerpg.org/]]
+    * [[Flare->https://github.com/clintbellanger/flare]]
+    * [[Flare data->https://github.com/flareteam/flare-game]]
+    * [[Flare engine->https://github.com/flareteam/flare-engine]]
+  * [[Game icons->https://game-icons.net/]]
+  * CSS
+    * [[Windows 7->https://khang-nd.github.io/7.css/]] ''tree view, tabs et menu''
+    * [[Windows XP->https://botoxparty.github.io/XP.css/]] ''tree view et tabs mais pas menu''
+    * [[Windows 98->https://jdan.github.io/98.css/]]
+* Formats
+  * PUD
+    * [[PUD Format specification->http://cade.datamax.bg/war2x/pudspec.html]]
+    * [[PUD Description for Kaitai->http://formats.kaitai.io/warcraft_2_pud/]]
+  * Wolfenstein 3D
+    * [[Game Versions->https://tcrf.net/Wolfenstein_3D_(DOS)]]
+    * [[Map format->https://moddingwiki.shikadi.net/wiki/GameMaps_Format]]
+
+## Hobbies
+
 * Jeux vidéo
   * [[Notes->https://docs.google.com/document/d/1nik1tBKQewHvXiUdo4R-EXmTzc-20oi6KCJROdc4XhY/]]
   * [[Notes sur Canard PC->https://docs.google.com/document/d/13OtlP6ao1M8Dzv2G8lHPmApfSU1h47WuP8zaP6q_sOo/]]
 * Magic
   * [[Fandom->https://mtg.fandom.com/]]
-* Développement
-  * [[Node.js->https://nodejs.org/en/]]
-* Langues
-  * [[Interlingua->https://www.interlingua.com]]
-  * [[CNRTL->https://www.cnrtl.fr/]]
-  * [[CRISCO DES->https://crisco2.unicaen.fr/des/]]
-  * [[Wordreference->www.wordreference.com]]
-  * [[TLFi->http://atilf.atilf.fr/]]
-  * [[TLFi->http://stella.atilf.fr/]]
-  * [[FranceTerme->http://www.culture.fr/franceterme]]
-  * [[Langues sur xitog.cat->https://drive.google.com/drive/folders/0B5syjWPPrb-cRXQxV1hpOHZWVWM]]
+* Figurines
+  * [[Games Workshop->https://www.games-workshop.com/fr-FR/D-accueil]]
+
+## Arts
+
+* Peinture
+  * [[Leighton->https://en.wikipedia.org/wiki/Edmund_Leighton]]
+  * [[Rochegrosse->https://fr.wikipedia.org/wiki/Georges-Antoine_Rochegrosse]]
+  * [[Signac->https://fr.wikipedia.org/wiki/Paul_Signac]]
+  * [[Waterhouse->https://en.wikipedia.org/wiki/John_William_Waterhouse]]
+
+{{end}}
+
+{{.section}}
+
+# Informatique et linguistique
+
+## Informatique
+
 * Outils
   * IDE
     * [[**Visual Studio Code**->https://code.visualstudio.com/]]
@@ -134,6 +170,8 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
     * [[SVN->https://svnbook.red-bean.com/fr/1.8/]]
     * [[TortoiseSVN->https://tortoisesvn.net/downloads.html]]
   * Langages
+    * [[JavaScript->https://developer.mozilla.org/fr/docs/Web/JavaScript]]
+      * [[Node.js->https://nodejs.org/en/]]
     * [[Python->https://www.python.org/]]
       * [[Référence sur Tkinter de FDEX->http://tkinter.fdex.eu/]]
       * [[Référence sur Tkinter de New Mexico->https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/index.html]]
@@ -167,41 +205,40 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
   * [[HAL->https://hal.archives-ouvertes.fr/]]
   * [[Api HAL->https://api.archives-ouvertes.fr/docs/search]]
   * [[Api HAL Schéma->https://api.archives-ouvertes.fr/docs/search/schema/fields/#fields]]
-* Assets and remake
-  * [[OpenGameArt->https://opengameart.org/]]
-  * [[GemRB->https://gemrb.org/]]
-  * [[OpenRA->https://www.openra.net/]]
-  * [[Freedoom->https://freedoom.github.io/]]
-  * [[Blasphemer->https://github.com/Blasphemer/blasphemer]] ''for Heretic''
-  * [[Zauberer->https://github.com/CireG/Zauberer/]] ''for Hexen''
-  * [[Wyrmsun->http://andrettin.github.io/]]
-    * [[Wyrmsun data->https://github.com/andrettin/wyrmsun]]
-    * [[Wyrmsun engine->https://github.com/Andrettin/Wyrmgus]] ''based on Stratagus''
-  * [[FlareRPG->https://flarerpg.org/]]
-    * [[Flare->https://github.com/clintbellanger/flare]]
-    * [[Flare data->https://github.com/flareteam/flare-game]]
-    * [[Flare engine->https://github.com/flareteam/flare-engine]]
-  * [[Game icons->https://game-icons.net/]]
-  * CSS
-    * [[Windows 7->https://khang-nd.github.io/7.css/]] ''tree view, tabs et menu''
-    * [[Windows XP->https://botoxparty.github.io/XP.css/]] ''tree view et tabs mais pas menu''
-    * [[Windows 98->https://jdan.github.io/98.css/]]
-* Formats
-  * PUD
-    * [[PUD Format specification->http://cade.datamax.bg/war2x/pudspec.html]]
-    * [[PUD Description for Kaitai->http://formats.kaitai.io/warcraft_2_pud/]]
-  * Wolfenstein 3D
-    * [[Game Versions->https://tcrf.net/Wolfenstein_3D_(DOS)]]
-    * [[Map format->https://moddingwiki.shikadi.net/wiki/GameMaps_Format]]
-* Hobbies
-  * [[Games Workshop->https://www.games-workshop.com/fr-FR/D-accueil]]
-* Arts
-  * Peinture
-    * [[Rochegrosse->https://fr.wikipedia.org/wiki/Georges-Antoine_Rochegrosse]]
-    * [[Signac->https://fr.wikipedia.org/wiki/Paul_Signac]]
 
-!html <div style="width: 50%; margin: auto; text-align: center;" title="Que la Force soit avec vous. À jamais.">2005 ❤ 2022</div>
+## Linguistique
+
+* Langues
+  * [[Interlingua->https://www.interlingua.com]]
+  * [[CNRTL->https://www.cnrtl.fr/]]
+  * [[CRISCO DES->https://crisco2.unicaen.fr/des/]]
+  * [[Wordreference->www.wordreference.com]]
+  * [[TLFi->http://atilf.atilf.fr/]]
+  * [[TLFi->http://stella.atilf.fr/]]
+  * [[FranceTerme->http://www.culture.fr/franceterme]]
+  * [[Langues sur xitog.cat->https://drive.google.com/drive/folders/0B5syjWPPrb-cRXQxV1hpOHZWVWM]]
+* Traitement automatique des langues
+  * [[Dossier de recherche->https://docs.google.com/document/d/1ELwBM8R_J5jd8cg7gdqEt509Qlgca_a0z-oi-Xi-EfE/edit]]
+  * [[Notes de recherche->https://docs.google.com/document/d/1gD1z_TAaYFKZHcktZ8vytYy6mmObIPFy8QGmxeRT1_8/edit]]
+  * [[AntConc->http://www.laurenceanthony.net/software.html]] Freeware corpus analysis toolkit for concordancing and text analysis
+  * **[[Liste de fréquence lexicale->https://eduscol.education.fr/186/liste-de-frequence-lexicale]]**
+  * [[Introduction à la linguistique->http://www.linguistes.com/]]
+  * [[Glossaire de termes en linguistique->http://www.henrietteg.com/glossword/]]
+  * [[TreeTagger->https://www.cis.lmu.de/~schmid/tools/TreeTagger/]] Part-of-speech tagger
+  * [[Talismane->http://joliciel-informatique.github.io/talismane/]] Part-of-speech tagger
+  * [[Lexique->http://www.lexique.org/]] Base de mots
+  * [[Atala->https://www.atala.org/]] Association pour le Traitement Automatique des Langues
+  * [[ORTOLANG->https://www.ortolang.fr/fr/accueil/]] Plate-forme d'outils et de ressources linguistiques
+  * [[Wiktionary->https://www.wiktionary.org/]]
+  * [[NLTK->https://www.nltk.org/]]
+  * [[NoSketchEngine->https://www.clarin.si/noske/index-en.html]]
+  * [[NoSketchEngine - Concordance - First query from->https://www.clarin.si/noske/wacs.cgi/first_form]]
+  * [[WaCky - Web as a corpus->https://wacky.sslmit.unibo.it/doku.php?id=start]]
 
 {{end}}
+
+{{end}}
+
+!html <div style="width: 50%; margin: auto; text-align: center;" title="Que la Force soit avec vous. À jamais.">2005 ❤ 2022</div>
 
 {{end}}
