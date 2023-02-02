@@ -100,10 +100,18 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
   * [[(unfinished) [Programmation][Manuel] Beginning Development with Python and Pygame->https://docs.google.com/document/d/1PrBfafPq48O1c-fsj8DeU9Z0NNzOwbPSQuqBUJb_E1o/]]
   * [[Italien->https://docs.google.com/document/d/1LGmFKyjmKlPqC18U9SFoKc4KkWKgOBXJvyBedza34yA/]]
   * [[Interlingua->https://docs.google.com/document/d/1q5OHGCt1v1V8al8jv8RzDcA3uks3dFAIVfA4sZuCe1Y/]]
+* History of JV
+  * Dune 2
+    * [[Read Only Memory->https://readonlymemory.vg/the-making-of-dune-ii/]]
+* Language
+  * [[Lexer hack->https://en.wikipedia.org/wiki/Lexer_hack]]
+  * Ruby Operator Precedence: [[Site 1->https://blog.devgenius.io/ruby-operator-precedence-1cb9f9c31835]], [[Site 2->https://www.techotopia.com/index.php/Ruby_Operator_Precedence]]
 * Cheatsheet
   * [[**Syntax across Languages**->http://rigaux.org/language-study/syntax-across-languages.html]]
-  * [[Lua Syntax->https://www.lua.org/manual/5.3/manual.html#9]]
+  * [[Lua Syntax->https://www.lua.org/manual/5.4/manual.html#9]]
   * [[Dev Hints ''(Lua, Markdown)''->https://devhints.io/]]
+  * [[Ruby 1.4 Manual->https://ruby-doc.org/docs/ruby-doc-bundle/Manual/man-1.4/syntax.html]]
+  * [[A Ruby syntax reference->https://www.rubyguides.com/2019/10/ruby-syntax/]]
 * Assets and remake
   * [[OpenGameArt->https://opengameart.org/]]
   * [[GemRB->https://gemrb.org/]]
