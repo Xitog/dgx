@@ -42,7 +42,7 @@ Ils traitent de linguistique, d'informatique, d'histoire et des jeux, vidéo ou 
 |---------------------------------------------------------------------------------------------------------------------------|
 | Critiques et chroniques | [[jeux classiques->jeux]], [[jeux vidéo->jv]], [[favoris->favoris]]                             |
 | Articles techniques     | [[transition->#]] entre tuiles, [[raycasting->#]] en 2.5D, [[dialogues->#]]                     |
-| Collections             | [[outils->#]], [[prénoms->#]]                                                                   |
+| Collections             | [[outils->#]], [[prénoms->#]], [[liens->#]]                                                     |
 | Histoire du jeu vidéo   | [[FPS->earlyFPS]] et [[RTS->earlyRTS]]                                                          |
 | Programmation           | manuels [[Python->python]], [[Ruby->ruby]], [[Lua->lua]], fiches [[BNF->bnf]] et [[JSON->json]] |
 | Italien                 | [[grammaire italienne->beatrice]], [[jeu sur la conjugaison->itagame]]                          |
@@ -84,6 +84,7 @@ Ils traitent de linguistique, d'informatique, d'histoire et des jeux, vidéo ou 
 
 ::outils:: https://xitog.github.io/dgx/informatique/tools_langs.html
 ::prénoms:: https://xitog.github.io/dgx/data/outil_collections.html#prenoms
+::liens:: https://xitog.github.io/dgx/liens.html
 
 ::earlyFPS:: https://xitog.github.io/dgx/passetemps/history_fps.html
 ::earlyRTS:: https://xitog.github.io/dgx/passetemps/history_rts.html

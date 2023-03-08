@@ -5,16 +5,7 @@
 !require https://xitog.github.io/dgx/css/palatino.css
 !require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
 !require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
-!css .jumbotron { margin-bottom: 2px; }
-!css .jumbotron ol ul li { margin-bottom: 0px; }
-!css .jumbotron ol li { margin-bottom: 1em; }
-!css table, tr, td { background-color: #f4f4f4; color: rgb(119, 119, 119); font-size: 18px; }
-!css table a { font-size: 18px; }
-!css table td { border: none; }
-!css table th { background-color: #f4f4f4; color: rgb(119, 119, 119); font-size: 18px; border: none; border-bottom: 1px solid #acaeb0; }
-!css p.sign { margin-bottom: none; }
-!css .jumbotron p:last-child { margin-bottom: none; }
-!css .jumbotron { padding-bottom: 1rem; }
+
 !css #links { display: flex; }
 !css .section { flex: 1; }
 !css @media (max-width: 768px) { #links { flex-direction: column; } }
@@ -36,7 +27,9 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
 
 {{.section}}
 
-# Généraux
+# [[Généraux->#]] et [[médias->#]]
+
+## Généraux
 
 * Vie quotidienne
   * Assurances et mutuelles
@@ -58,6 +51,8 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
     * [[Déchetteries->https://www.sicoval.fr/habiter/gerer-et-reduire-ses-dechets/le-recyclage-et-la-valorisation/les-decheteries/]]
   * Organisations
     * [[SICOVAL->https://www.sicoval.fr/]]
+  * Cartes
+    * [[Via Michelin->https://www.viamichelin.fr/web/Trafic]]
 * Journaux
   * [[1993 Chroniques et journaux->https://drive.google.com/drive/folders/0B6hNBaz15FeOUl9XdFFPc2wwTVk]]
   * [[Reprise 2021->https://docs.google.com/document/d/10wVpQHqCePJsL9wbJSrsCx53udl0MLKoZCHo5jVougY/]]
@@ -79,11 +74,36 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
   * [[ENT->https://ent.univ-tlse2.fr/accueil-etudiant]]
   * [[Scout->https://scout.univ-toulouse.fr/flatx/index.jsp#home]]
 
+## Médias
+
+* Journaux
+  * [[Canard Enchaîné->https://www.lecanardenchaine.fr]]
+  * Économie
+    * [[Les Échos->https://www.lesechos.fr/]]
+    * [[Toul'Éco->http://www.touleco.fr/]]
+    * [[Usine Digitale->https://www.usine-digitale.fr/]]
+    * [[Distributique->https://www.distributique.com/]]
+* Télévision
+  * [[France Télévisions->https://www.france.tv/]]
+  * [[Radio Télévision Suisse (RTS)->https://www.rts.ch/]]
+  * [[Arte->https://www.arte.tv/fr/]]
+  * [[Programmes Télé->http://www.programme-tv.net/]]
+* Radio
+  * [[France Inter->https://www.radiofrance.fr/franceinter]]
+  * [[France Culture->https://www.radiofrance.fr/franceculture]]
+* Streaming
+  * [[Disney+->https://www.disneyplus.com/fr-fr/home]]
+  * [[Netflix->https://www.netflix.com/fr/]]
+  * [[Amazon Prime->https://www.primevideo.com/]]
+  * [[Spotify->https://open.spotify.com/browse]]
+* Cinéma
+  * [[Gaumont Pathé->https://www.cinemaspathegaumont.com/]]
+
 {{end}}
 
 {{.section}}
 
-# Projets, Hobbies et arts
+# [[Projets->#]], [[Hobbies->#]] et [[Arts->#]]
 
 ## Projets
 
@@ -141,26 +161,15 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
 
 ## Hobbies
 
-* Journaux
-  * [[Canard Enchaîné->https://www.lecanardenchaine.fr]]
-* Télévision
-  * [[France Télévisions->https://www.france.tv/]]
-  * [[Radio Télévision Suisse (RTS)->https://www.rts.ch/]]
-  * [[Arte->https://www.arte.tv/fr/]]
-* Radio
-  * [[France Inter->https://www.radiofrance.fr/franceinter]]
-  * [[France Culture->https://www.radiofrance.fr/franceculture]]
-* Streaming
-  * [[Disney+->https://www.disneyplus.com/fr-fr/home]]
-  * [[Netflix->https://www.netflix.com/fr/]]
-  * [[Amazon Prime->https://www.primevideo.com/]]
 * Jeux vidéo
   * [[Notes->https://docs.google.com/document/d/1nik1tBKQewHvXiUdo4R-EXmTzc-20oi6KCJROdc4XhY/]]
   * [[Notes sur Canard PC->https://docs.google.com/document/d/13OtlP6ao1M8Dzv2G8lHPmApfSU1h47WuP8zaP6q_sOo/]]
   * [[Humble Bundle->https://www.humblebundle.com/]]
   * [[Steam->https://store.steampowered.com]]
-* Magic
-  * [[Scryfall->https://scryfall.com/]]
+* Magic: The Gathering
+  * [[Wizards of the Coast->http://www.wizards.com]]
+  * [[**Scryfall**->https://scryfall.com/]]
+  * [[--MagicCards.info--->https://magiccards.info]]
   * [[Fandom->https://mtg.fandom.com/wiki/Main_Page]]
   * [[Site officiel->https://magic.wizards.com/fr]]
   * [[Parkage->https://www.parkage.com/fr]]
@@ -172,6 +181,9 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
   * [[Games Workshop->https://www.games-workshop.com/fr-FR/D-accueil]]
 * RPG
   * [[DriveThruRPG->https://www.drivethrurpg.com]] ([[Metal Awards->https://www.drivethrurpg.com/metal.php]])
+* Livres dont vous êtres le héros
+  * [[Planète LDVELH->http://planete-ldvelh.com/]]
+  * [[La Taverne des Aventuriers->https://www.la-taverne-des-aventuriers.com/]]
 
 ## Arts
 
@@ -185,7 +197,7 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
 
 {{.section}}
 
-# Informatique et linguistique
+# [[Informatique->#]] et [[Linguistique->#]]
 
 ## Informatique
 
@@ -195,13 +207,19 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
     * [[**Pelles C**->http://www.smorgasbordet.com/pellesc/]]
     * [[JetBrains->https://account.jetbrains.com/login]]
     * [[WinDev->https://windev.com/]]
+    * [[Eclipse->https://www.eclipse.org/]]
+    * [[Eclipse Che->http://www.eclipse.org/che/]]
+    * [[Netbeans->https://netbeans.org/downloads/]]
   * Diff
     * [[**WinMerge**->https://winmerge.org/?lang=fr]]
-  * Gestionnaire de versions
+  * Navigateurs
+    * [[**Firefox**->https://www.mozilla.org/fr/firefox/new/]]
+    * [[Chrome->https://www.google.fr/chrome/browser/desktop/index.html]]
+  * Gestionnaires de versions
     * [[**Git**->https://git-scm.com/]]
     * [[SVN->https://svnbook.red-bean.com/fr/1.8/]]
     * [[TortoiseSVN->https://tortoisesvn.net/downloads.html]]
-  * Langages
+  * Langages de programmation
     * [[JavaScript->https://developer.mozilla.org/fr/docs/Web/JavaScript]]
       * [[Node.js->https://nodejs.org/en/]]
     * [[Python->https://www.python.org/]]
@@ -214,6 +232,12 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
     * [[Lua->https://www.lua.org/]]
     * [[Pike->https://pike.lysator.liu.se/]]
     * [[Microsoft Visual C++ Redistributable->https://learn.microsoft.com/fr-fr/cpp/windows/latest-supported-vc-redist?view=msvc-170]]
+  * Langages web et de description de données
+    * [[HTML->https://developer.mozilla.org/fr/docs/Web/HTML]]
+    * [[CSS->https://developer.mozilla.org/fr/docs/Web/CSS]]
+    * [[JSON->http://www.json.org/json-fr.html]]
+    * [[YAML->https://yaml.org/]]
+    * [[ASN.1->https://www.itu.int/en/ITU-T/asn1/Pages/asn1_project.aspx]]
   * Diagrammes
     * [[Dia->http://dia-installer.de/index.html.fr]]
     * [[VUE->https://vue.tufts.edu/]]
