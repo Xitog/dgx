@@ -152,7 +152,7 @@
 			}
 		</style>
 		<script type="module">
-			import { AshLex, AshParse, AshExecute } from "./ash.mjs"; // tests
+			import { AshLex, AshParse, AshExecute, notAnExpression } from "./ash.mjs"; // tests
 
 			window.onload = main;
 
@@ -237,7 +237,9 @@
 				res.innerHTML = "Result = " + result;
 				container.appendChild(res);
 				if (ok) {
-					info(result);
+					if (result !== notAnExpression) {
+						info(result);
+					}
 				} else {
 					error(result);
 				}

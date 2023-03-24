@@ -167,6 +167,12 @@ class NilClass {
 	}
 }
 
+class NotAnExpression {
+	toString() {
+		return "not an expression";
+	}
+}
+
 class AshParameter {
 	constructor(name, type = "any", def = nil) {
 		this.name = name;
@@ -186,9 +192,10 @@ class AshParameter {
 let GlobalInterpreter = null;
 
 class AshFunction {
-	constructor(name, paramList, code) {
+	constructor(name, paramList, isProcedure, code) {
 		this.name = name;
 		this.paramList = paramList;
+		this.isProcedure = isProcedure;
 		this.code = code;
 	}
 
@@ -800,13 +807,13 @@ class AshInterpreter extends AshInstrument {
 			log: new AshFunction(
 				"log",
 				[new AshParameter("x", "any")],
+				true,
 				function (args) {
 					let arg = args.get(0);
 					if (info != console.log) {
 						console.log(arg);
 					}
 					info(arg);
-					return arg;
 				}
 			),
 			noarg: function () {
@@ -816,6 +823,7 @@ class AshInterpreter extends AshInstrument {
 			add: new AshFunction(
 				"add",
 				[new AshParameter("x", "flt"), new AshParameter("y", "flt")],
+				false,
 				function (args) {
 					let arg1 = args.get(0);
 					let arg2 = args.get(1);
@@ -936,6 +944,7 @@ class AshInterpreter extends AshInstrument {
 			this.scope[node.value.value] = new AshFunction(
 				node.value.value,
 				[],
+				node.type === "procedure",
 				node.right
 			);
 			return nil;
@@ -952,7 +961,7 @@ class AshInterpreter extends AshInstrument {
 					// Todo Unifier avec AshFunction !
 					let val = this.scope[node.value]();
 					if (val === undefined || val === null) {
-						return "nil"; // replace by nil object
+						return nil;
 					}
 					return val;
 				}
@@ -1016,7 +1025,12 @@ class AshInterpreter extends AshInstrument {
 					right = nx;
 				}
 				if (this.scope[symbol] instanceof AshFunction) {
-					return this.scope[symbol].call(right);
+					if (this.scope[symbol].isProcedure) {
+						this.scope[symbol].call(right);
+						return notAnExpression;
+					} else {
+						return this.scope[symbol].call(right);
+					}
 				} else if (this.scope[symbol] instanceof Function) {
 					return this.scope[symbol](right);
 				} else {
@@ -1111,7 +1125,7 @@ class AshInterpreter extends AshInstrument {
 							if (left[right] instanceof AshFunction) {
 								let val = left[right].call(new NodeList()); // TODO
 								if (val === undefined || val === null) {
-									return "nil";
+									return nil;
 								}
 								return val;
 							}
@@ -1295,6 +1309,7 @@ let language = {
 };
 
 const nil = new NilClass();
+const notAnExpression = new NotAnExpression();
 
 let resources = {};
 
@@ -1307,17 +1322,23 @@ function log(s) {
 }
 
 function AshLex(code, debug_lex = false) {
-	log(`Lexing ${debug_lex}`);
+	if (debug_lex) {
+		log(`Lexing ${debug_lex}`);
+	}
 	return new AshLexer(debug_lex).lex(code);
 }
 
 function AshParse(nodes, debug_parse = false) {
-	log(`Parsing ${debug_parse}`);
+	if (debug_parse) {
+		log(`Parsing ${debug_parse}`);
+	}
 	return new AshParser(debug_parse).parse(nodes);
 }
 
 function AshExecute(root, debug_execute = false, info = null, error = null) {
-	log(`Executing ${debug_execute}`);
+	if (debug_execute) {
+		log(`Executing ${debug_execute}`);
+	}
 	return new AshInterpreter(debug_execute, info, error).execute(root, false);
 }
 
@@ -1367,31 +1388,48 @@ function AshTests(debug = false) {
 //-------------------------------------------------------------------------------
 
 function main() {
-	console.log("Running main function");
-	process.argv.push("./tests/read_line.ash");
 	if (process.argv.length === 2) {
 		// Run only with node.exe and the script
+		let cmd = "";
+		while (cmd !== "exit") {
+			cmd = reader.question(">>> ");
+			if (cmd !== "exit") {
+				let result = AshProcess(cmd, false, false, false);
+				if (result !== notAnExpression) {
+					console.log(result);
+				}
+			}
+		}
 	} else {
 		// Run with script name
 		let filename = process.argv[2];
 		let debug = false;
 		if (process.argv.length > 3) {
-			if (process.argv[3] === "d") {
+			if (process.argv[3] === "-d") {
 				debug = true;
 			}
+		}
+		if (debug) {
+			console.log("Running main function");
 		}
 		//try {
 		let data = fs.readFileSync(filename, "utf-8");
 		data = data.replace(/\r\n/g, "\n");
-		console.log(`Data read from file: ${filename}`);
+		if (debug) {
+			console.log(`Data read from file: ${filename}`);
+		}
 		// Lex
 		let tokens = AshLex(data, debug);
-		for (const [i, tok] of tokens.entries()) {
-			console.log(`    ${i}. ${tok}`);
+		if (debug) {
+			for (const [i, tok] of tokens.entries()) {
+				console.log(`    ${i}. ${tok}`);
+			}
 		}
 		// Parse
 		let root = AshParse(tokens);
-		console.log(`    ${root}`);
+		if (debug) {
+			console.log(`    ${root}`);
+		}
 		// Execute
 		AshProcess(data, false, false, false);
 		//} catch (e) {
@@ -1413,4 +1451,4 @@ if (node) {
 // Exports
 //-------------------------------------------------------------------------------
 
-export { AshLex, AshParse, AshExecute, AshProcess, AshTests };
+export { AshLex, AshParse, AshExecute, AshProcess, AshTests, notAnExpression };
