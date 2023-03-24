@@ -33,7 +33,7 @@ Ils traitent de linguistique, d'informatique, d'histoire et des jeux, vidéo ou 
 
 | Codes                |                                                                                                    |
 |---------------------------------------------------------------------------------------------------------------------------|
-| [[Ash->ash]]           | un langage de programmation simple et concis ([[manuel->ash]], [[démo->ash_repl]], [[source->ash_git]])|
+| [[Ash->ash]]           | un langage de programmation simple et concis                                                     |
 | [[Hamill->hamill_git]] | un langage de balisage léger pour produire du HTML [[testable en ligne->hamill_live]]            |
 | [[Teddy->teddy]]       | un éditeur de cartes basée sur une grille pour les jeux ([[source->teddy_git]])                  |
 | [[RTS->rts]]           | un prototype de RTS inspiré des classiques des années 90                                         |
@@ -57,9 +57,7 @@ Ils traitent de linguistique, d'informatique, d'histoire et des jeux, vidéo ou 
 §§ Codes
 §§-----------------------------------------------------------------------------
 
-::ash:: https://xitog.github.io/dgx/informatique/ash_guide.html
-::ash_repl:: https://xitog.github.io/dgx/informatique/ashjs/ash_repl.html
-::ash_git:: https://github.com/Xitog/ash
+::ash:: https://xitog.github.io/dgx/informatique/ash/repl.html
 
 ::hamill:: https://xitog.github.io/dgx/informatique/hamill.html
 ::hamill_live:: https://xitog.github.io/dgx/informatique/hamilljs/hamill_live.html
