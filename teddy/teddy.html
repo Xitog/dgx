@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8">
+	<title>Teddy</title>
+	<link href="https://xitog.github.io/dgx/css/simplex.bootstrap.css" rel="stylesheet">
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 16px;
+		}
+
+		h1 {
+			width: 100%;
+			text-align: center;
+		}
+
+		pre {
+			border: 1px solid #ACAEB0;
+			background-color: #f5f5f5;
+			padding: 1rem;
+		}
+
+		table {
+			border-collapse: collapse;
+		}
+
+		td {
+			border: 1px solid black;
+		}
+
+		img.hidden {
+			display: none;
+		}
+
+		div.container {
+			width: 90%;
+		}
+
+		input[type="checkbox"] {
+			margin-bottom: 8px;
+			margin-right: 1em;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<script>
+		// https://moddingwiki.shikadi.net/wiki/GameMaps_Format
+		// https://vpoupet.github.io/wolfenstein/docs/files
+
+		//---------------------------------------------
+		// Variables globales
+		//---------------------------------------------
+
+		var header = null;
+		var data = null;
+
+		function getHeader() {
+			return header;
+		}
+
+		function setHeader(val) {
+			header = val;
+		}
+
+		function getData() {
+			return data;
+		}
+
+		function setData(val) {
+			data = val;
+		}
+
+		function isHeaderSet() {
+			return header != null;
+		}
+
+		function isDataSet() {
+			return data != null;
+		}
+
+		function hex(v) {
+			return '0x' + v.toString(16).padStart(8, '0') + ' (dec = ' + v + ')';
+		}
+
+		//---------------------------------------------
+		// Data model
+		//---------------------------------------------
+
+		class Header {
+			constructor(file, data) {
+				this.file = file;
+				this.total_nb_bytes = data.byteLength; // 402
+				this.nb_bytes = 0;
+				this.magic = new Uint16Array(data.slice(0, 2))[0]; // 43981 12h14
+				this.nb_bytes += 2;
+				this.ptr = [];
+				for (let i = 0; i < 100; i++) {
+					let p = new Uint32Array(data.slice(2 + i * 4, 2 + (i + 1) * 4))[0];
+					this.nb_bytes += 4;
+					if (p == 0xffffffff) // Avant on continuait jusqu'au max, 100 !
+					{
+						break;
+					}
+					this.ptr.push(p);
+				}
+			}
+
+			toString() {
+				const name = this.file.name;
+				const ext = name.split('.').pop();
+				const date = new Date(this.file.lastModified);
+				const size = this.file.size;
+				let s = 'File name = ' + name + " (" + ext + ")\n" +
+					'Created US Time = ' + date.toLocaleString('us-US', { timeZone: 'America/Chicago' }) + "\n" +
+					'Created FR Time = ' + date.toLocaleString('fr-FR', { timeZone: 'Europe/Brussels' }) + "\n" +
+					'File size = ' + size + "\n";
+				s += `Magix hex = ${hex(this.magic)}\n`;
+				s += `Number of bytes read = ${this.nb_bytes} / ${this.total_nb_bytes}\n`;
+				s += `Number of levels = ${this.ptr.length}\n`;
+				for (let i = 0; i < this.ptr.length; i++) {
+					s += `    - Lvl ${(i + 1).toString().padStart(2, ' ')} start at ${hex(this.ptr[i])}\n`
+				}
+				return s;
+			}
+		}
+
+		class Plane {
+			constructor(start, length, content) {
+				this.start = start;
+				this.length = length;
+				this.content = content;
+			}
+			toString() {
+				return `Plane @${this.start} #${this.length}`;
+			}
+		}
+
+		class Level {
+			constructor() {
+				this.planes = [];
+			}
+
+			toString() {
+				let s = "[Starts]            : " + this.planes[0].start + ", " + this.planes[1].start + ", " + this.planes[2].start + "\n" +
+					"[CompressedLenghts] : " + this.planes[0].length + ", " + this.planes[1].length + ", " + this.planes[2].length + "\n" +
+					"[ReadLengths]       : " + this.planes[0].content.length + ", " + this.planes[1].content.length + ", " + this.planes[2].content.length + "\n" +
+					"[Sizes]             : " + this.width + "x" + this.length + " (" + (64 * 64) + ")\n" +
+					"[Name]              : " + this.name;
+				return s;
+			}
+		}
+
+		class LevelSet {
+			constructor(data, header) {
+				this.header = header;
+				let dec = new TextDecoder();
+				this.format = dec.decode(data.slice(0, 8));
+				this.levels = [];
+				for (let i of this.header.ptr) {
+					console.log(`Reading ${i}`);
+					this.levels.push(this.read_level(data, i, this.header.magic));
+				}
+				if (this.levels.length > 0) {
+					let lvl = this.levels[this.levels.length - 1];
+					let end = lvl.planes[2].start + lvl.planes[2].length;
+					console.log(">>>>>>> " + end);
+					console.log(">>>>>>> " + data.byteLength);
+					if (end < data.byteLength) {
+						this.ending = dec.decode(data.slice(end, data.byteLength));
+					}
+				}
+			}
+
+			getNames() {
+				let res = [];
+				console.log(this.levels);
+				for (let lvl of this.levels) {
+					console.log(typeof (lvl), lvl);
+					res.push(lvl.name);
+				}
+				return res;
+			}
+
+			read_level(data, startLevel, magic) {
+				let level = new Level();
+				let startPlane0 = new Uint32Array(data.slice(startLevel, startLevel + 4))[0];
+				let startPlane1 = new Uint32Array(data.slice(startLevel + 4, startLevel + 8))[0];
+				let startPlane2 = new Uint32Array(data.slice(startLevel + 8, startLevel + 12))[0];
+				let lengthPlane0 = new Uint16Array(data.slice(startLevel + 12, startLevel + 14))[0];
+				let lengthPlane1 = new Uint16Array(data.slice(startLevel + 14, startLevel + 16))[0];
+				let lengthPlane2 = new Uint16Array(data.slice(startLevel + 16, startLevel + 18))[0];
+				level.width = new Uint16Array(data.slice(startLevel + 18, startLevel + 20))[0];
+				level.length = new Uint16Array(data.slice(startLevel + 20, startLevel + 22))[0];
+				let dec = new TextDecoder();
+				level.name = dec.decode(data.slice(startLevel + 22, startLevel + 32));
+				let plane0 = this.rwle_expand(magic, data.slice(startPlane0, startPlane0 + lengthPlane0));
+				let plane1 = this.rwle_expand(magic, data.slice(startPlane1, startPlane1 + lengthPlane1));
+				let plane2 = this.rwle_expand(magic, data.slice(startPlane2, startPlane2 + lengthPlane2));
+				level.planes.push(new Plane(startPlane0, lengthPlane0, plane0));
+				level.planes.push(new Plane(startPlane1, lengthPlane1, plane1));
+				level.planes.push(new Plane(startPlane2, lengthPlane2, plane2));
+				return level;
+			}
+
+			rwle_expand(magic, data) {
+				let size = new Uint16Array(data.slice(0, 2))[0];
+				console.log("RWLE EXPAND SIZE = " + size);
+				let expanded = [];
+				let i = 2;
+				while (i < data.byteLength) {
+					let v = new Uint16Array(data.slice(i, i + 2))[0];
+					i += 2
+					if (v == magic) {
+						let count = new Uint16Array(data.slice(i, i + 2))[0];
+						i += 2
+						let value = new Uint16Array(data.slice(i, i + 2))[0];
+						i += 2
+						expanded = expanded.concat(Array(count).fill(value));
+					} else {
+						expanded.push(v);
+					}
+				}
+				return expanded;
+			}
+
+			toString() {
+				let s = "Format: " + this.format + "\n";
+				let nb = 0;
+				for (let i of Object.values(this.levels)) {
+					s += `[Level ${nb}]\n` + i.toString() + "\n";
+					nb += 1;
+				}
+				s += "Ending: " + this.ending + "\n";
+				return s;
+			}
+		}
+
+		//---------------------------------------------
+		// GUI functions
+		//---------------------------------------------
+
+		function isWall(data, x, y, width, height) {
+			return (
+				(x - 1 >= 0 && y - 1 >= 0 && data[x - 1 + (y - 1) * width] > 100)
+				|| (y - 1 >= 0 && data[x + (y - 1) * width] > 100)
+				|| (x + 1 < width && y - 1 >= 0 && data[x + 1 + (y - 1) * width] > 100)
+				|| (x - 1 >= 0 && data[x - 1 + y * width] > 100)
+				|| (x + 1 >= 0 && data[x + 1 + y * width] > 100)
+				|| (x - 1 >= 0 && y + 1 >= 0 && data[x - 1 + (y + 1) * width] > 100)
+				|| (y + 1 >= 0 && data[x + (y + 1) * width] > 100)
+				|| (x + 1 < width && y + 1 >= 0 && data[x + 1 + (y + 1) * width] > 100)
+			);
+		}
+
+		function draw(set, ilevel) {
+			console.log("ilevel = " + ilevel);
+			let unfill = document.getElementById("unfill").checked;
+			let options = {
+				'grid': document.getElementById("grid").checked,
+				'small': document.getElementById("small").checked
+			};
+			let object = document.getElementById("object").checked;
+			let info = document.createElement("h2");
+			info.innerText = set.levels[ilevel].name + " num " + ilevel + " plane 0 & 1";
+			document.getElementById("result").appendChild(info);
+			let walls = set.levels[ilevel].planes[0];
+			let actors = set.levels[ilevel].planes[1];
+			let height = set.levels[ilevel].height;
+			let width = set.levels[ilevel].width;
+			let x = 0;
+			let y = 0;
+			//console.log("level.length = " + walls.content.length);
+			//   1 = pierre grise 1
+			//   2 = pierre grise 2
+			//   3 = pierre grise avec drapeau nazi
+			//   4 = pierre grise avec portrait de AH
+			//   5 = pierre bleu avec grille
+			//   6 = pierre grise avec aigle doré
+			//   7 = pierre bleu avec grille avec squelette
+			//   8 = pierre bleu 1
+			//   9 = pierre bleu 2
+			//  10 = bois avec aigle argenté
+			//  11 = bois avec portrait de AH
+			//  12 = bois
+			//  13 = porte de sortie de l'ascenseur sans bouton rouge (quand on commence un nouveau niveau)
+			//  14 = métal vert avec panneau verboten
+			//  15 = métal vert
+			//  16 = sortie vers l'extérieur
+			//  17 = brique rouge
+			//  18 = brique rouge avec swastika jaune
+			//  20 = brique rouge avec aigle violet
+			//  21 = intérieur ascenseur
+			//  90 = porte verte (H ou V ?)
+			//  91 = porte verte (H ou V ?)
+			//  92 = porte à clé or
+			//  93 = porte à clé or
+			// 100 = porte d'entrée dans l'ascenceur avec un bouton rouge
+			let images0 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 25, 90, 91, 92, 93, 100];
+			let images1 = {
+				19: "19_player_N", 20: "20_player_E", 21: "21_player_S", 22: "22_player_W",
+				34: "plant",
+				37: "37_lamp",
+				42: "bones",
+				47: "food",
+				49: "clip",
+				52: "treasure_cross",
+				53: "treasure_chalice",
+				54: "treasure_chest",
+				55: "treasure_crown",
+				124: "dead_guard"
+			};
+			let canvas = document.createElement("canvas");
+			canvas.width = options['small'] ? 64 * 16 : 64 * 32;
+			canvas.height = options['small'] ? 64 * 16 : 64 * 32;
+			for (let nb = 0; nb < walls.content.length; nb++) {
+				let wall = walls.content[nb];
+				let actor = actors.content[nb];
+				let wall_img = null;
+				let actor_img = null;
+				let text = null;
+				// Getting the wall
+				if (images0.includes(wall)) {
+					if (isWall(walls.content, x, y, width, height) || !unfill) {
+						wall_img = wall + "b"; // 5 = #0000084 avec un carré de 56 au milieu, 8 = #000084, 9 = #00000056
+					} else if (unfill) {
+						wall_img = "void";
+					}
+				}
+				else if (wall > 100) {
+					wall_img = "floor"; // #707070
+				}
+				// Getting the actor
+				if (object) {
+					if (actor in images1) {
+						actor_img = images1[actor];
+					}
+					else if (actor != 0) {
+						text = actor;
+					}
+				}
+				// Drawing everything
+				mergeAt(canvas, x, y, wall_img, actor_img, text, options);
+				x += 1;
+				if (x == width) {
+					x = 0;
+					y += 1;
+				}
+			}
+			return canvas;
+		}
+
+		function handleFiles(files, type) {
+			if (files.length > 0) {
+				let file = files[0];
+				let reader = new FileReader();
+				reader.onloadend =
+					function (event) {
+						let console2 = document.getElementById("console");
+						if (type === 'header') {
+							let input = document.getElementById("fileInput1");
+							let file = input.files[0];
+							let header = new Header(file, event.target.result);
+							console2.innerText = header.toString();
+							setHeader(header);
+						} else {
+							if (!isHeaderSet()) {
+								alert("Set a map header file first!");
+								return;
+							}
+							let set = new LevelSet(event.target.result, getHeader());
+							setData(set);
+							let old = console2.innerText;
+							console2.innerText = old + set.toString();
+							let controls = document.getElementById("controls");
+							let select = createSelect("level", set.getNames());
+							select.onchange = display;
+							controls.appendChild(select);
+							showDisplayOption();
+							display();
+						}
+					}
+					;
+				reader.readAsArrayBuffer(file);
+			}
+		}
+
+		function createSelect(id, options) {
+			let select = document.createElement("select");
+			select.id = id;
+			let nb = 0;
+			console.log(options);
+			for (let i of options) {
+				let option = document.createElement("option");
+				option.value = nb;
+				option.text = i;
+				select.appendChild(option);
+				nb += 1;
+			}
+			return select;
+		}
+
+		function reset() {
+			let unfill = document.getElementById("unfill");
+			let grid = document.getElementById("grid");
+			let small = document.getElementById("small");
+			unfill.checked = false;
+			grid.checked = true;
+			small.checked = false;
+		}
+
+		function display() {
+			let set = getData();
+			let ilevel = document.getElementById("level").value
+			let canvas = draw(set, ilevel);
+			let res = document.getElementById("result");
+			res.replaceChildren(canvas);
+		}
+
+		function mergeAt(canvas, x, y, filename1, filename2, text = null, options = {}) {
+			const grid = 'grid' in options ? options['grid'] : true;
+			const small = 'small' in options ? options['small'] : false;
+			const FACTOR = small ? 16 : 32;
+			let context = canvas.getContext("2d");
+			context.drawImage(textures[filename1], x * FACTOR, y * FACTOR, FACTOR, FACTOR);
+			if (filename2 != null) {
+				if (textures[filename2] === null || !(filename2 in textures)) {
+					throw new Error(`Unknown obj: ${filename2} at ${x}x${y} and tex=${filename1}`);
+				}
+				context.drawImage(textures[filename2], x * FACTOR, y * FACTOR, FACTOR, FACTOR);
+			}
+			if (text != null) {
+				context.fillStyle = 'pink';
+				context.textBaseline = 'hanging';
+				context.fillText("" + text, x * FACTOR, y * FACTOR, FACTOR);
+			}
+			if (grid) {
+				context.strokeStyle = "#000000";
+				context.strokeRect(x * FACTOR, y * FACTOR, FACTOR, FACTOR);
+			}
+		}
+
+		var textures = {};
+
+		function load() {
+			for (let o of document.images) {
+				console.log('Loading: ', o.id, o);
+				textures[o.id] = o;
+			}
+		}
+
+		function hideDisplayOption() {
+			let hide = ["unfill", "grid", "small", "object"];
+			for (let e of hide) {
+				let elem = document.getElementById(e);
+				elem.style.display = 'none';
+				elem = document.querySelector("label[for=" + e + "]");
+				elem.style.display = 'none';
+			}
+			let elem = document.getElementById('cc');
+			elem.style.display = 'inline';
+			elem = document.querySelector("label[for=cc]");
+			elem.style.display = 'inline';
+		}
+
+		function showDisplayOption() {
+			let hide = ["unfill", "grid", "small", "object"];
+			for (let e of hide) {
+				let elem = document.getElementById(e);
+				elem.style.display = 'inline';
+				elem = document.querySelector("label[for=" + e + "]");
+				elem.style.display = 'inline';
+			}
+			let elem = document.getElementById('cc');
+			elem.style.display = 'none';
+			elem = document.querySelector("label[for=cc]");
+			elem.style.display = 'none';
+		}
+
+		function start() {
+			hideDisplayOption();
+			load();
+			reset();
+		}
+
+		window.onload = start;
+	</script>
+</head>
+
+<body>
+	<div id="main" class="container">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+			  	<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Teddy</a>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Load... <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Teddy format</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">TED format</a></li>
+								<li><a href="#">PUD format</a></li>
+								<li><a href="#">Tiled format</a></li>
+							</ul>
+					  </li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">Link</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<fieldset id="controls" style="display: flex;">
+			<legend>Fichiers</legend>
+			<label for="fileInput1">En-têtes :</label>&nbsp;<input type="file" id="fileInput1"
+				onchange="handleFiles(this.files, 'header')">
+			<label for="fileInput2">Contenus :</label>&nbsp;<input type="file" id="fileInput2"
+				onchange="handleFiles(this.files, 'content')">
+			<label for="cc">Carmarck Compression</label>&nbsp;<input type="checkbox" id="cc">
+			<label for="unfill">Unfill </label>&nbsp;<input type="checkbox" id="unfill" onchange="display()">
+			<label for="grid">Grid </label>&nbsp;<input type="checkbox" id="grid" onchange="display()">
+			<label for="small">Small </label>&nbsp;<input type="checkbox" id="small" onchange="display()">
+			<label for="object">Object </label>&nbsp;<input type="checkbox" id="object" class="spe" onchange="display()" checked>
+			&nbsp;&nbsp;
+		</fieldset>
+		<pre id="console">
+            </pre>
+		<div id="result">
+		</div>
+		<img id="void" class="hidden" src="plane0/void.png" alt="v">
+		<img id="floor" class="hidden" src="plane0/floor.png" alt="f">
+
+		<img id="1b" class="hidden" src="plane0/1b.png" alt="1">
+		<img id="2b" class="hidden" src="plane0/2b.png" alt="2">
+		<img id="3b" class="hidden" src="plane0/3b.png" alt="3">
+		<img id="4b" class="hidden" src="plane0/4b.png" alt="4">
+		<img id="5b" class="hidden" src="plane0/5b.png" alt="5">
+		<img id="6b" class="hidden" src="plane0/6b.png" alt="6">
+		<img id="7b" class="hidden" src="plane0/7b.png" alt="7">
+		<img id="8b" class="hidden" src="plane0/8b.png" alt="8">
+		<img id="9b" class="hidden" src="plane0/9b.png" alt="9">
+		<img id="10b" class="hidden" src="plane0/10b.png" alt="10">
+		<img id="11b" class="hidden" src="plane0/11b.png" alt="11">
+		<img id="12b" class="hidden" src="plane0/12b.png" alt="12">
+		<img id="13b" class="hidden" src="plane0/13b.png" alt="13">
+		<img id="14b" class="hidden" src="plane0/14b.png" alt="14">
+		<img id="15b" class="hidden" src="plane0/15b.png" alt="15">
+		<img id="16b" class="hidden" src="plane0/16b.png" alt="16">
+		<img id="17b" class="hidden" src="plane0/17b.png" alt="17">
+		<img id="18b" class="hidden" src="plane0/18b.png" alt="18">
+		<img id="19b" class="hidden" src="plane0/19b.png" alt="19">
+		<img id="20b" class="hidden" src="plane0/20b.png" alt="20">
+		<img id="21b" class="hidden" src="plane0/21b.png" alt="21">
+		<img id="25b" class="hidden" src="plane0/25b.png" alt="25">
+		<img id="90b" class="hidden" src="plane0/90b.png" alt="90">
+		<img id="91b" class="hidden" src="plane0/91b.png" alt="91">
+		<img id="92b" class="hidden" src="plane0/92b.png" alt="92">
+		<img id="93b" class="hidden" src="plane0/93b.png" alt="93">
+		<img id="100b" class="hidden" src="plane0/100b.png" alt="100">
+
+		<img id="19_player_N" class="hidden" src="plane1/19_player_N.png" alt="nor">
+		<img id="20_player_E" class="hidden" src="plane1/20_player_E.png" alt="eas">
+		<img id="21_player_S" class="hidden" src="plane1/21_player_S.png" alt="sou">
+		<img id="22_player_W" class="hidden" src="plane1/22_player_W.png" alt="wes">
+		<img id="37_lamp" class="hidden" src="plane1/37_lamp.png" alt="lam">
+		<img id="plant" class="hidden" src="plane1/plant.png" alt="pla">
+		<img id="bones" class="hidden" src="plane1/bones.png" alt="bon">
+		<img id="food" class="hidden" src="plane1/food.png" alt="foo">
+		<img id="clip" class="hidden" src="plane1/clip.png" alt="cli">
+		<img id="treasure_cross" class="hidden" src="plane1/treasure_cross.png" alt="">
+		<img id="treasure_chalice" class="hidden" src="plane1/treasure_chalice.png" alt="cha">
+		<img id="treasure_chest" class="hidden" src="plane1/treasure_chest.png" alt="che">
+		<img id="treasure_crown" class="hidden" src="plane1/treasure_crown.png" alt="cro">
+		<img id="dead_guard" class="hidden" src="plane1/dead_guard.png" alt="dg">
+	</div>
+</body>
+
+</html>
