@@ -351,6 +351,42 @@
 			return canvas;
 		}
 
+		function clearAndMaskConsole() {
+			// Mask and clear console
+			let elem = document.getElementById("console");
+			elem.innerHTML = "";
+			elem.style.display = 'none';
+		}
+
+		function clearAndMaskResult() {
+			elem = document.getElementById("result");
+			elem.innerHTML = "";
+			elem.style.display = 'none';
+		}
+
+		function displayLoadingTED() {
+			header = null;
+			data = null;
+			document.getElementById("loadTED").style.display = 'none';
+			clearAndMaskConsole();
+			clearAndMaskResult();
+			// Display options
+			displayOptions('controls_load_ted');
+		}
+
+		function loadTED() {
+			clearAndMaskConsole();
+			let controls = document.getElementById("controls");
+			if (document.getElementById("level") != null) {
+				document.getElementById("level").remove();
+			}
+			let select = createSelect("level", getData().getNames());
+			select.onchange = display;
+			controls.appendChild(select);
+			displayOptions('controls');
+			display();
+		}
+
 		function handleFiles(files, type) {
 			if (files.length > 0) {
 				let file = files[0];
@@ -358,6 +394,9 @@
 				reader.onloadend =
 					function (event) {
 						let console2 = document.getElementById("console");
+						if (console2.style.display === "none") {
+							console2.style.display = "block";
+						}
 						if (type === 'header') {
 							let input = document.getElementById("fileInput1");
 							let file = input.files[0];
@@ -370,15 +409,13 @@
 								return;
 							}
 							let set = new LevelSet(event.target.result, getHeader());
-							setData(set);
 							let old = console2.innerText;
 							console2.innerText = old + set.toString();
-							let controls = document.getElementById("controls");
-							let select = createSelect("level", set.getNames());
-							select.onchange = display;
-							controls.appendChild(select);
-							showDisplayOption();
-							display();
+							setData(set);
+						}
+						if (isDataSet() && isHeaderSet()) {
+							let elem = document.getElementById("loadTED");
+							elem.style.display = 'inline';
 						}
 					}
 					;
@@ -416,6 +453,7 @@
 			let canvas = draw(set, ilevel);
 			let res = document.getElementById("result");
 			res.replaceChildren(canvas);
+			res.style.display = 'block';
 		}
 
 		function mergeAt(canvas, x, y, filename1, filename2, text = null, options = {}) {
@@ -450,41 +488,17 @@
 			}
 		}
 
-		function hideDisplayOption() {
-			let hide = ["unfill", "grid", "small", "object"];
-			for (let e of hide) {
-				let elem = document.getElementById(e);
-				elem.style.display = 'none';
-				elem = document.querySelector("label[for=" + e + "]");
-				elem.style.display = 'none';
+		function displayOptions(id)
+		{
+			let others = document.getElementsByTagName('fieldset');
+			for (let o in others) {
+				others.item(o).style.display = 'none';
 			}
-			let elem = document.getElementById('cc');
-			elem.style.display = 'inline';
-			elem = document.querySelector("label[for=cc]");
-			elem.style.display = 'inline';
+			elem = document.getElementById(id);
+			elem.style.display = 'flex';
 		}
 
-		function showDisplayOption() {
-			let hide = ["unfill", "grid", "small", "object"];
-			for (let e of hide) {
-				let elem = document.getElementById(e);
-				elem.style.display = 'inline';
-				elem = document.querySelector("label[for=" + e + "]");
-				elem.style.display = 'inline';
-			}
-			let elem = document.getElementById('cc');
-			elem.style.display = 'none';
-			elem = document.querySelector("label[for=cc]");
-			elem.style.display = 'none';
-		}
-
-		function start() {
-			hideDisplayOption();
-			load();
-			reset();
-		}
-
-		window.onload = start;
+		window.onload = load;
 	</script>
 </head>
 
@@ -503,40 +517,45 @@
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
+						<li><a href="#">New</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Load... <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="#">Teddy format</a></li>
 								<li role="separator" class="divider"></li>
-								<li><a href="#">TED format</a></li>
+								<li><a href="#ted" onclick="displayLoadingTED()">TED format</a></li>
 								<li><a href="#">PUD format</a></li>
 								<li><a href="#">Tiled format</a></li>
 							</ul>
 					  </li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">Link</a></li>
+						<li><a href="#">About</a></li>
 					</ul>
 				</div>
 			</div>
 		</nav>
-		<fieldset id="controls" style="display: flex;">
+		<fieldset id="controls_load_ted" style="display: none">
 			<legend>Fichiers</legend>
 			<label for="fileInput1">En-têtes :</label>&nbsp;<input type="file" id="fileInput1"
 				onchange="handleFiles(this.files, 'header')">
 			<label for="fileInput2">Contenus :</label>&nbsp;<input type="file" id="fileInput2"
 				onchange="handleFiles(this.files, 'content')">
 			<label for="cc">Carmarck Compression</label>&nbsp;<input type="checkbox" id="cc">
+			<button type="button" id="loadTED" onclick="loadTED()" style="display: none">Load</button>
+		</fieldset>
+		<fieldset id="controls" style="display: none">
 			<label for="unfill">Unfill </label>&nbsp;<input type="checkbox" id="unfill" onchange="display()">
 			<label for="grid">Grid </label>&nbsp;<input type="checkbox" id="grid" onchange="display()">
 			<label for="small">Small </label>&nbsp;<input type="checkbox" id="small" onchange="display()">
 			<label for="object">Object </label>&nbsp;<input type="checkbox" id="object" class="spe" onchange="display()" checked>
-			&nbsp;&nbsp;
 		</fieldset>
-		<pre id="console">
-            </pre>
-		<div id="result">
+
+		<pre id="console" style="display: none;">
+		</pre>
+		<div id="result" style="display: none;">
 		</div>
+
 		<img id="void" class="hidden" src="plane0/void.png" alt="v">
 		<img id="floor" class="hidden" src="plane0/floor.png" alt="f">
 
