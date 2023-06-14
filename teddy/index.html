@@ -49,12 +49,70 @@
 		// https://moddingwiki.shikadi.net/wiki/GameMaps_Format
 		// https://vpoupet.github.io/wolfenstein/docs/files
 
+		// Constantes globales
+		//---------------------------------------------
+
+		const TEDDY_DESCRIPTION = `<h1>Teddy</h1>
+<p>Teddy is an homage to two great tools of the past:</p>
+
+<ul>
+<li>TEd, a tool whose origins date back to 1988, made by John Romero and used for more than 30 games. It most famous version is TEd 5.0, dating from 1991 and used for Wolfenstein 3D from id Software.</li>
+<li>The map editor of the beloved Warcraft II (1995) from Blizzard Entertainment.</li>
+</ul>
+
+<h2>Description</h2>
+
+<p>Teddy is a program to edit tile grids, in order to make levels or maps for video games.</p>
+
+<p>Teddy uses the concept of mod. A mod is set of tiles and layers which will be available to create the map.</p>
+
+<ul>
+    <li>A map consists of one or more layers.</li>
+	<li>A layer can be a texture layer or an object layer both are a matrix of integer.</li>
+	<li>In a texture layer, an integer at x,y designates a tile.</li>
+	<li>A tile is picture with an associated integer value, for example 1 is used for water, 2 for grass. 0 always means empty.</li>
+	<li>In an object layer, an integer at x,y designates a element in a list of objects with properties.</li>
+</ul>
+
+<p>For a real-time strategy game for example, you can have a texture layer ground for the ground tiles and an object layer unit where you will store the units. A unit can have a player property, refering to the player it belongs.</p>
+
+<p>You can create your own mod, it is only a set of pictures for the tiles and a JSON file for configuring the mod.</p>
+
+<h2>License</h2>
+
+<p>Teddy is free and open source, licensed under the MIT licence.</p>
+
+<h2>Credits</h2>
+
+<p>Teddy is made by Damien Gouteux with ❤ in Occitania, France, 2019-2023.</p>
+
+<h2>Project history</h2>
+
+<ul>
+	<li>It origins date back from 2012, a first incarnation using Pygame.</li>
+	<li>The second incarnation in Python using Tkinter, started in 2019.</li>
+	<li>The third incarnation in JavaScript was made to read TED files.</li>
+</ul>`;
+
 		//---------------------------------------------
 		// Variables globales
 		//---------------------------------------------
 
+		// TED Data
 		var header = null;
 		var data = null;
+
+		//---------------------------------------------
+		// Fonctions globales
+		//---------------------------------------------
+
+		function $(id, test=false) {
+  			let element = document.getElementById(id);
+			if (!test && (element === null || element === undefined)) {
+				alert(`Error : No element for ${id}`);
+			}
+			return element;
+		}
 
 		function getHeader() {
 			return header;
@@ -82,6 +140,40 @@
 
 		function hex(v) {
 			return '0x' + v.toString(16).padStart(8, '0') + ' (dec = ' + v + ')';
+		}
+
+		//---------------------------------------------
+		// View model
+		//---------------------------------------------
+
+		class Canvas
+		{
+			constructor(canvas, width, height, zoomLevel = 32)
+			{
+				console.log('Creating canvas:', width, height, zoomLevel);
+				this.width = width;
+				this.height = height;
+				this.small = small;
+				//canvas.width = options['small'] ? 64 * 16 : 64 * 32;
+				//canvas.height = options['small'] ? 64 * 16 : 64 * 32;
+				canvas.style.width = width * zoomLevel + "px";
+				canvas.style.height = height * zoomLevel + "px";
+
+				// Set actual size in memory (scaled to account for extra pixel density).
+				var scale = window.devicePixelRatio; // Change to 1 on retina screens to see blurry canvas
+				canvas.width = width * zoomLevel * scale;
+				canvas.height = height * zoomLevel * scale;
+
+				// Normalize coordinate system to use css pixels.
+				let context = canvas.getContext('2d');
+				context.scale(scale, scale);
+				context.imageSmoothingEnabled = false;
+				context.translate(0.5, 0.5);
+
+				console.log(canvas.width, canvas.height);
+				console.log(canvas.style.width, canvas.style.height);
+				console.log("Scale =", scale);
+			}
 		}
 
 		//---------------------------------------------
@@ -255,16 +347,19 @@
 		}
 
 		function draw(set, ilevel) {
+			let content = document.createElement("div");
 			console.log("ilevel = " + ilevel);
-			let unfill = document.getElementById("unfill").checked;
+			let unfill = $("unfill").checked;
 			let options = {
-				'grid': document.getElementById("grid").checked,
-				'small': document.getElementById("small").checked
+				'grid': $("grid").checked,
+				'small': $("small").checked
 			};
-			let object = document.getElementById("object").checked;
+			let object = $("object").checked;
 			let info = document.createElement("h2");
-			info.innerText = set.levels[ilevel].name + " num " + ilevel + " plane 0 & 1";
-			document.getElementById("result").appendChild(info);
+			info.innerText = set.levels[ilevel].name + " num " + ilevel + " planes 0 and 1";
+			content.appendChild(info);
+			let canvas = document.createElement("canvas");
+			content.appendChild(canvas);
 			let walls = set.levels[ilevel].planes[0];
 			let actors = set.levels[ilevel].planes[1];
 			let height = set.levels[ilevel].height;
@@ -311,9 +406,7 @@
 				55: "treasure_crown",
 				124: "dead_guard"
 			};
-			let canvas = document.createElement("canvas");
-			canvas.width = options['small'] ? 64 * 16 : 64 * 32;
-			canvas.height = options['small'] ? 64 * 16 : 64 * 32;
+			new Canvas(canvas, 64, 64, options['small'] ? 16 : 32);
 			for (let nb = 0; nb < walls.content.length; nb++) {
 				let wall = walls.content[nb];
 				let actor = actors.content[nb];
@@ -348,37 +441,62 @@
 					y += 1;
 				}
 			}
-			return canvas;
+			return content;
 		}
 
-		function clearAndMaskConsole() {
-			// Mask and clear console
-			let elem = document.getElementById("console");
-			elem.innerHTML = "";
-			elem.style.display = 'none';
+		function setVisibilityAndClear(id, visibility, clear=false) {
+			let elem = $(id);
+			if (visibility) {
+				elem.style.display = 'block';
+			} else {
+				elem.style.display = 'none';
+			}
+			if (clear) {
+				elem.innerHTML = '';
+			}
+			return elem;
 		}
 
-		function clearAndMaskResult() {
-			elem = document.getElementById("result");
-			elem.innerHTML = "";
-			elem.style.display = 'none';
+		function displayOptions(id)
+		{
+			let others = document.getElementsByTagName('fieldset');
+			for (let o in others) {
+				others.item(o).style.display = 'none';
+			}
+			elem = $(id);
+			elem.style.display = 'flex';
+			setVisibilityAndClear('options', true);
 		}
 
-		function displayLoadingTED() {
+		function displayNewOption() {
+
+		}
+
+		function displayNewPanel() {
+
+		}
+
+		function displayAboutPanel() {
+			setVisibilityAndClear('options', false);
+			let result = setVisibilityAndClear('result', true, true);
+			let elem = document.createElement("div");
+			elem.innerHTML = TEDDY_DESCRIPTION;
+			result.appendChild(elem);
+		}
+
+		function displayLoadTEDPanel() {
+			let result = setVisibilityAndClear('result', false, true);
 			header = null;
 			data = null;
-			document.getElementById("loadTED").style.display = 'none';
-			clearAndMaskConsole();
-			clearAndMaskResult();
-			// Display options
+			setVisibilityAndClear('loadTED', false);
 			displayOptions('controls_load_ted');
 		}
 
-		function loadTED() {
-			clearAndMaskConsole();
-			let controls = document.getElementById("controls");
-			if (document.getElementById("level") != null) {
-				document.getElementById("level").remove();
+		function displayTEDPanel() {
+			let result = setVisibilityAndClear('result', true, true);
+			let controls = $("controls");
+			if ($("level", true) != null) {
+				$("level").remove();
 			}
 			let select = createSelect("level", getData().getNames());
 			select.onchange = display;
@@ -387,21 +505,28 @@
 			display();
 		}
 
+		function log(msg) {
+			let result = setVisibilityAndClear("result", true);
+			let console = $("console", true);
+			if (console == null) {
+				console = document.createElement("pre");
+				console.id = "console";
+				result.appendChild(console);
+			}
+			console.innerText = console.innerText + msg;
+		}
+
 		function handleFiles(files, type) {
 			if (files.length > 0) {
 				let file = files[0];
 				let reader = new FileReader();
 				reader.onloadend =
 					function (event) {
-						let console2 = document.getElementById("console");
-						if (console2.style.display === "none") {
-							console2.style.display = "block";
-						}
 						if (type === 'header') {
-							let input = document.getElementById("fileInput1");
+							let input = $("fileInput1");
 							let file = input.files[0];
 							let header = new Header(file, event.target.result);
-							console2.innerText = header.toString();
+							log(header.toString());
 							setHeader(header);
 						} else {
 							if (!isHeaderSet()) {
@@ -409,12 +534,11 @@
 								return;
 							}
 							let set = new LevelSet(event.target.result, getHeader());
-							let old = console2.innerText;
-							console2.innerText = old + set.toString();
+							log(set.toString());
 							setData(set);
 						}
 						if (isDataSet() && isHeaderSet()) {
-							let elem = document.getElementById("loadTED");
+							let elem = $("loadTED");
 							elem.style.display = 'inline';
 						}
 					}
@@ -439,9 +563,9 @@
 		}
 
 		function reset() {
-			let unfill = document.getElementById("unfill");
-			let grid = document.getElementById("grid");
-			let small = document.getElementById("small");
+			let unfill = $("unfill");
+			let grid = $("grid");
+			let small = $("small");
 			unfill.checked = false;
 			grid.checked = true;
 			small.checked = false;
@@ -449,11 +573,10 @@
 
 		function display() {
 			let set = getData();
-			let ilevel = document.getElementById("level").value
-			let canvas = draw(set, ilevel);
-			let res = document.getElementById("result");
-			res.replaceChildren(canvas);
-			res.style.display = 'block';
+			let ilevel = $("level").value
+			let content = draw(set, ilevel);
+			let result = $("result");
+			result.replaceChildren(content);
 		}
 
 		function mergeAt(canvas, x, y, filename1, filename2, text = null, options = {}) {
@@ -488,16 +611,6 @@
 			}
 		}
 
-		function displayOptions(id)
-		{
-			let others = document.getElementsByTagName('fieldset');
-			for (let o in others) {
-				others.item(o).style.display = 'none';
-			}
-			elem = document.getElementById(id);
-			elem.style.display = 'flex';
-		}
-
 		window.onload = load;
 	</script>
 </head>
@@ -517,91 +630,102 @@
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="#">New</a></li>
+						<li><a href="#new" onclick="displayNewOptions()">New</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Load... <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="#">Teddy format</a></li>
 								<li role="separator" class="divider"></li>
-								<li><a href="#ted" onclick="displayLoadingTED()">TED format</a></li>
+								<li><a href="#ted" onclick="displayLoadTEDPanel()">TED format</a></li>
 								<li><a href="#">PUD format</a></li>
 								<li><a href="#">Tiled format</a></li>
 							</ul>
 					  </li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">About</a></li>
-						<li><a href="https://xitog.github.io/dgx/index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+						<li><a href="#about" onclick="displayAboutPanel()">About</a></li>
+						<li>
+							<a href="https://xitog.github.io/dgx/index.html">
+								<img width="18" height="18" src="https://xitog.github.io/dgx/img/icons/house_delapouite_ccby30.png" alt="Home"/>
+							</a>
+						</li>
 					</ul>
 				</div>
 			</div>
 		</nav>
-		<fieldset id="controls_load_ted" style="display: none">
-			<legend>Fichiers</legend>
-			<label for="fileInput1">En-têtes :</label>&nbsp;<input type="file" id="fileInput1"
-				onchange="handleFiles(this.files, 'header')">
-			<label for="fileInput2">Contenus :</label>&nbsp;<input type="file" id="fileInput2"
-				onchange="handleFiles(this.files, 'content')">
-			<label for="cc">Carmarck Compression</label>&nbsp;<input type="checkbox" id="cc">
-			<button type="button" id="loadTED" onclick="loadTED()" style="display: none">Load</button>
-		</fieldset>
-		<fieldset id="controls" style="display: none">
-			<label for="unfill">Unfill </label>&nbsp;<input type="checkbox" id="unfill" onchange="display()">
-			<label for="grid">Grid </label>&nbsp;<input type="checkbox" id="grid" onchange="display()">
-			<label for="small">Small </label>&nbsp;<input type="checkbox" id="small" onchange="display()">
-			<label for="object">Object </label>&nbsp;<input type="checkbox" id="object" class="spe" onchange="display()" checked>
-		</fieldset>
+		<div id="options" style="border: 1px solid #eeeeee; display: none; padding: 1em;">
+			<fieldset id="controls_new" style="display: none">
+				X : <input id="x" name="x" type="text" placeholder="Integer between 10 and 100"/>
+				Y : <input id="y" name="y" type="text" placeholder="Integer between 10 and 100"/>
+				<button id="bCreate" type="button" onclick="displayNewPanel()">Create</button>
+			</fieldset>
 
-		<pre id="console" style="display: none;">
-		</pre>
-		<div id="result" style="display: none;">
+			<fieldset id="controls_load_ted" style="display: none">
+				<legend>Fichiers</legend>
+				<label for="fileInput1">En-têtes :</label>&nbsp;<input type="file" id="fileInput1"
+					onchange="handleFiles(this.files, 'header')">
+				<label for="fileInput2">Contenus :</label>&nbsp;<input type="file" id="fileInput2"
+					onchange="handleFiles(this.files, 'content')">
+				<label for="cc">Carmarck Compression</label>&nbsp;<input type="checkbox" id="cc">
+				<button type="button" id="loadTED" onclick="displayTEDPanel()" style="display: none">Load</button>
+			</fieldset>
+
+			<fieldset id="controls" style="display: none">
+				<label for="unfill">Unfill </label>&nbsp;<input type="checkbox" id="unfill" onchange="display()">
+				<label for="grid">Grid </label>&nbsp;<input type="checkbox" id="grid" onchange="display()">
+				<label for="small">Small </label>&nbsp;<input type="checkbox" id="small" onchange="display()">
+				<label for="object">Object </label>&nbsp;<input type="checkbox" id="object" class="spe" onchange="display()" checked>
+			</fieldset>
 		</div>
+		<div id="result" style="border: 1px solid #eeeeee; display: none; padding-top: 1em; padding-bottom: 2em;">
+		</div>
+		<div id="data">
+			<img id="void" class="hidden" src="plane0/void.png" alt="v">
+			<img id="floor" class="hidden" src="plane0/floor.png" alt="f">
 
-		<img id="void" class="hidden" src="plane0/void.png" alt="v">
-		<img id="floor" class="hidden" src="plane0/floor.png" alt="f">
+			<img id="1b" class="hidden" src="plane0/1b.png" alt="1">
+			<img id="2b" class="hidden" src="plane0/2b.png" alt="2">
+			<img id="3b" class="hidden" src="plane0/3b.png" alt="3">
+			<img id="4b" class="hidden" src="plane0/4b.png" alt="4">
+			<img id="5b" class="hidden" src="plane0/5b.png" alt="5">
+			<img id="6b" class="hidden" src="plane0/6b.png" alt="6">
+			<img id="7b" class="hidden" src="plane0/7b.png" alt="7">
+			<img id="8b" class="hidden" src="plane0/8b.png" alt="8">
+			<img id="9b" class="hidden" src="plane0/9b.png" alt="9">
+			<img id="10b" class="hidden" src="plane0/10b.png" alt="10">
+			<img id="11b" class="hidden" src="plane0/11b.png" alt="11">
+			<img id="12b" class="hidden" src="plane0/12b.png" alt="12">
+			<img id="13b" class="hidden" src="plane0/13b.png" alt="13">
+			<img id="14b" class="hidden" src="plane0/14b.png" alt="14">
+			<img id="15b" class="hidden" src="plane0/15b.png" alt="15">
+			<img id="16b" class="hidden" src="plane0/16b.png" alt="16">
+			<img id="17b" class="hidden" src="plane0/17b.png" alt="17">
+			<img id="18b" class="hidden" src="plane0/18b.png" alt="18">
+			<img id="19b" class="hidden" src="plane0/19b.png" alt="19">
+			<img id="20b" class="hidden" src="plane0/20b.png" alt="20">
+			<img id="21b" class="hidden" src="plane0/21b.png" alt="21">
+			<img id="25b" class="hidden" src="plane0/25b.png" alt="25">
+			<img id="90b" class="hidden" src="plane0/90b.png" alt="90">
+			<img id="91b" class="hidden" src="plane0/91b.png" alt="91">
+			<img id="92b" class="hidden" src="plane0/92b.png" alt="92">
+			<img id="93b" class="hidden" src="plane0/93b.png" alt="93">
+			<img id="100b" class="hidden" src="plane0/100b.png" alt="100">
 
-		<img id="1b" class="hidden" src="plane0/1b.png" alt="1">
-		<img id="2b" class="hidden" src="plane0/2b.png" alt="2">
-		<img id="3b" class="hidden" src="plane0/3b.png" alt="3">
-		<img id="4b" class="hidden" src="plane0/4b.png" alt="4">
-		<img id="5b" class="hidden" src="plane0/5b.png" alt="5">
-		<img id="6b" class="hidden" src="plane0/6b.png" alt="6">
-		<img id="7b" class="hidden" src="plane0/7b.png" alt="7">
-		<img id="8b" class="hidden" src="plane0/8b.png" alt="8">
-		<img id="9b" class="hidden" src="plane0/9b.png" alt="9">
-		<img id="10b" class="hidden" src="plane0/10b.png" alt="10">
-		<img id="11b" class="hidden" src="plane0/11b.png" alt="11">
-		<img id="12b" class="hidden" src="plane0/12b.png" alt="12">
-		<img id="13b" class="hidden" src="plane0/13b.png" alt="13">
-		<img id="14b" class="hidden" src="plane0/14b.png" alt="14">
-		<img id="15b" class="hidden" src="plane0/15b.png" alt="15">
-		<img id="16b" class="hidden" src="plane0/16b.png" alt="16">
-		<img id="17b" class="hidden" src="plane0/17b.png" alt="17">
-		<img id="18b" class="hidden" src="plane0/18b.png" alt="18">
-		<img id="19b" class="hidden" src="plane0/19b.png" alt="19">
-		<img id="20b" class="hidden" src="plane0/20b.png" alt="20">
-		<img id="21b" class="hidden" src="plane0/21b.png" alt="21">
-		<img id="25b" class="hidden" src="plane0/25b.png" alt="25">
-		<img id="90b" class="hidden" src="plane0/90b.png" alt="90">
-		<img id="91b" class="hidden" src="plane0/91b.png" alt="91">
-		<img id="92b" class="hidden" src="plane0/92b.png" alt="92">
-		<img id="93b" class="hidden" src="plane0/93b.png" alt="93">
-		<img id="100b" class="hidden" src="plane0/100b.png" alt="100">
-
-		<img id="19_player_N" class="hidden" src="plane1/19_player_N.png" alt="nor">
-		<img id="20_player_E" class="hidden" src="plane1/20_player_E.png" alt="eas">
-		<img id="21_player_S" class="hidden" src="plane1/21_player_S.png" alt="sou">
-		<img id="22_player_W" class="hidden" src="plane1/22_player_W.png" alt="wes">
-		<img id="37_lamp" class="hidden" src="plane1/37_lamp.png" alt="lam">
-		<img id="plant" class="hidden" src="plane1/plant.png" alt="pla">
-		<img id="bones" class="hidden" src="plane1/bones.png" alt="bon">
-		<img id="food" class="hidden" src="plane1/food.png" alt="foo">
-		<img id="clip" class="hidden" src="plane1/clip.png" alt="cli">
-		<img id="treasure_cross" class="hidden" src="plane1/treasure_cross.png" alt="">
-		<img id="treasure_chalice" class="hidden" src="plane1/treasure_chalice.png" alt="cha">
-		<img id="treasure_chest" class="hidden" src="plane1/treasure_chest.png" alt="che">
-		<img id="treasure_crown" class="hidden" src="plane1/treasure_crown.png" alt="cro">
-		<img id="dead_guard" class="hidden" src="plane1/dead_guard.png" alt="dg">
+			<img id="19_player_N" class="hidden" src="plane1/19_player_N.png" alt="nor">
+			<img id="20_player_E" class="hidden" src="plane1/20_player_E.png" alt="eas">
+			<img id="21_player_S" class="hidden" src="plane1/21_player_S.png" alt="sou">
+			<img id="22_player_W" class="hidden" src="plane1/22_player_W.png" alt="wes">
+			<img id="37_lamp" class="hidden" src="plane1/37_lamp.png" alt="lam">
+			<img id="plant" class="hidden" src="plane1/plant.png" alt="pla">
+			<img id="bones" class="hidden" src="plane1/bones.png" alt="bon">
+			<img id="food" class="hidden" src="plane1/food.png" alt="foo">
+			<img id="clip" class="hidden" src="plane1/clip.png" alt="cli">
+			<img id="treasure_cross" class="hidden" src="plane1/treasure_cross.png" alt="">
+			<img id="treasure_chalice" class="hidden" src="plane1/treasure_chalice.png" alt="cha">
+			<img id="treasure_chest" class="hidden" src="plane1/treasure_chest.png" alt="che">
+			<img id="treasure_crown" class="hidden" src="plane1/treasure_crown.png" alt="cro">
+			<img id="dead_guard" class="hidden" src="plane1/dead_guard.png" alt="dg">
+		</div>
 	</div>
 </body>
 
