@@ -42,10 +42,17 @@
 			margin-bottom: 8px;
 			margin-right: 1em;
 		}
+
+		input {
+			margin-left: 1em;
+			margin-right: 1em;
+		}
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 	<script>
+		// Used for BSP Dungeon, TED, PUD...
+
 		// https://moddingwiki.shikadi.net/wiki/GameMaps_Format
 		// https://vpoupet.github.io/wolfenstein/docs/files
 
@@ -98,16 +105,23 @@
 		// Variables globales
 		//---------------------------------------------
 
+		let currentLevel = null;
+		let currentCanvasObject = null;
+		let startX;
+		let startY;
+		let pencil = null;
+		let pencilColors = { 'green': "rgb(34, 177, 76)", 'blue': "rgb(0, 162, 232)", 'brown': 'rgb(185, 122, 87)' };
+
 		// TED Data
-		var header = null;
-		var data = null;
+		let header = null;
+		let data = null;
 
 		//---------------------------------------------
 		// Fonctions globales
 		//---------------------------------------------
 
-		function $(id, test=false) {
-  			let element = document.getElementById(id);
+		function $(id, test = false) {
+			let element = document.getElementById(id);
 			if (!test && (element === null || element === undefined)) {
 				alert(`Error : No element for ${id}`);
 			}
@@ -146,16 +160,12 @@
 		// View model
 		//---------------------------------------------
 
-		class Canvas
-		{
-			constructor(canvas, width, height, zoomLevel = 32)
-			{
+		class Canvas {
+			constructor(canvas, width, height, zoomLevel = 32) {
 				console.log('Creating canvas:', width, height, zoomLevel);
 				this.width = width;
 				this.height = height;
-				this.small = small;
-				//canvas.width = options['small'] ? 64 * 16 : 64 * 32;
-				//canvas.height = options['small'] ? 64 * 16 : 64 * 32;
+				this.zoomLevel = zoomLevel;
 				canvas.style.width = width * zoomLevel + "px";
 				canvas.style.height = height * zoomLevel + "px";
 
@@ -173,6 +183,11 @@
 				console.log(canvas.width, canvas.height);
 				console.log(canvas.style.width, canvas.style.height);
 				console.log("Scale =", scale);
+
+				currentCanvasObject = this;
+			}
+			getZoom() {
+				return this.zoomLevel;
 			}
 		}
 
@@ -234,6 +249,13 @@
 				this.planes = [];
 			}
 
+			getPlane(index) {
+				if (this.planes[index] === undefined) {
+					throw new Error("Non existant plane at " + index);
+				}
+				return this.planes[index];
+			}
+
 			toString() {
 				let s = "[Starts]            : " + this.planes[0].start + ", " + this.planes[1].start + ", " + this.planes[2].start + "\n" +
 					"[CompressedLenghts] : " + this.planes[0].length + ", " + this.planes[1].length + ", " + this.planes[2].length + "\n" +
@@ -284,7 +306,7 @@
 				let lengthPlane1 = new Uint16Array(data.slice(startLevel + 14, startLevel + 16))[0];
 				let lengthPlane2 = new Uint16Array(data.slice(startLevel + 16, startLevel + 18))[0];
 				level.width = new Uint16Array(data.slice(startLevel + 18, startLevel + 20))[0];
-				level.length = new Uint16Array(data.slice(startLevel + 20, startLevel + 22))[0];
+				level.height = new Uint16Array(data.slice(startLevel + 20, startLevel + 22))[0];
 				let dec = new TextDecoder();
 				level.name = dec.decode(data.slice(startLevel + 22, startLevel + 32));
 				let plane0 = this.rwle_expand(magic, data.slice(startPlane0, startPlane0 + lengthPlane0));
@@ -346,9 +368,17 @@
 			);
 		}
 
-		function draw(set, ilevel) {
+		function draw(level = null) {
+			if (level != null) {
+				currentLevel = level;
+			} else {
+				level = currentLevel;
+			}
+			let walls = level.getPlane(0);
+			let actors = level.getPlane(1);
+			let height = level.height;
+			let width = level.width;
 			let content = document.createElement("div");
-			console.log("ilevel = " + ilevel);
 			let unfill = $("unfill").checked;
 			let options = {
 				'grid': $("grid").checked,
@@ -356,14 +386,12 @@
 			};
 			let object = $("object").checked;
 			let info = document.createElement("h2");
-			info.innerText = set.levels[ilevel].name + " num " + ilevel + " planes 0 and 1";
+			info.innerText = level.name + ` planes 0 and 1 (${width}x${height})`;
 			content.appendChild(info);
 			let canvas = document.createElement("canvas");
+			canvas.id = "canvas";
+			canvas.style.background = "#EEEEEE";
 			content.appendChild(canvas);
-			let walls = set.levels[ilevel].planes[0];
-			let actors = set.levels[ilevel].planes[1];
-			let height = set.levels[ilevel].height;
-			let width = set.levels[ilevel].width;
 			let x = 0;
 			let y = 0;
 			//console.log("level.length = " + walls.content.length);
@@ -406,7 +434,7 @@
 				55: "treasure_crown",
 				124: "dead_guard"
 			};
-			new Canvas(canvas, 64, 64, options['small'] ? 16 : 32);
+			new Canvas(canvas, level.width, level.height, options['small'] ? 16 : 32);
 			for (let nb = 0; nb < walls.content.length; nb++) {
 				let wall = walls.content[nb];
 				let actor = actors.content[nb];
@@ -441,10 +469,17 @@
 					y += 1;
 				}
 			}
-			return content;
+			let result = $("result");
+			console.log(result, content);
+			result.replaceChildren(content);
+			return canvas;
 		}
 
-		function setVisibilityAndClear(id, visibility, clear=false) {
+		//--------------------------------------------------------------------------------------------------------------
+		// Menu : global functions
+		//--------------------------------------------------------------------------------------------------------------
+
+		function setVisibilityAndClear(id, visibility, clear = false) {
 			let elem = $(id);
 			if (visibility) {
 				elem.style.display = 'block';
@@ -457,24 +492,146 @@
 			return elem;
 		}
 
-		function displayOptions(id)
-		{
-			let others = document.getElementsByTagName('fieldset');
+		function displayOptions(id) {
+			// Clear
+			if ($("ted_level", true) != null) {
+				$("ted_level").remove();
+			}
+			let others = document.querySelectorAll("[data-btn=true]");
+			for (let o of others) {
+				o.remove();
+			}
+			others = document.getElementsByTagName('fieldset');
 			for (let o in others) {
 				others.item(o).style.display = 'none';
 			}
-			elem = $(id);
+			let elem = $(id);
 			elem.style.display = 'flex';
 			setVisibilityAndClear('options', true);
 		}
 
-		function displayNewOption() {
+		function displayMod(id) {
+			let others = document.getElementsByTagName('fieldset');
+			let target = null;
+			for (let o in others) {
+				if (others.item(o).style.display === 'flex') {
+					target = others.item(o);
+				}
+			}
+			if (target === null) {
+				throw new Error("Internal error: no option set.");
+			}
+			let controls = $("controls");
+			if (id === 'ted') {
+				let select = createSelect("ted_level", getData().getNames(), displayTEDSelectChanged);
+				controls.appendChild(select);
+			} else if (id === 'new') {
+				let colors = {
+					"green": " data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAAySURBVEhL7c0xEQAgDAAxtKCnZusQCZnY/i57zt35qoAKqIAKqIAKqIAKqIAK6HOw8wC78Hw9Xl1J9AAAAABJRU5ErkJggg==",
+					"blue": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAA2SURBVEhL7c2hAQAwDITAb/afotN1jJp41DvOIDm5L02zrXGAHCAHyAFygBwgB8gBcoAcgOQDNpABymWUfqAAAAAASUVORK5CYII=",
+					"brown": " data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAA2SURBVEhL7c2hAQAwCMTAp0t2l27GdjX4KFzORKb63Ww60zUOkAPkADlADpAD5AA5QA6QA5B8N9oBysfL3yoAAAAASUVORK5CYII="
+				};
+				for (const [key, value] of Object.entries(colors)) {
+					let bColor = document.createElement("button");
+					bColor.id = key;
+					bColor.setAttribute("data-btn", true);
+					bColor.type = "button";
+					bColor.style.border = "none";
+					bColor.style.margin = "0px";
+					bColor.style.padding = "0px";
+					let iColor = document.createElement("img");
+					iColor.width = 32;
+					iColor.height = 32;
+					iColor.src = value;
+					bColor.addEventListener("click", function (event) {
+						pencil = event.target.parentElement.id;
+						console.log(pencil);
+					});
+					bColor.appendChild(iColor);
+					controls.appendChild(bColor);
+				}
+				pencil = "green";
+			}
+		}
 
+		//--------------------------------------------------------------------------------------------------------------
+		// Menu : New
+		//--------------------------------------------------------------------------------------------------------------
+
+		function displayNewOptions() {
+			setVisibilityAndClear('result', false, true);
+			setVisibilityAndClear('bCreate', false);
+			displayNewOptionsChanged();
+			displayOptions('controls_new');
 		}
 
 		function displayNewPanel() {
-
+			let width = parseInt($("w").value);
+			let height = parseInt($("h").value);
+			if (isNaN(width) || isNaN(height)) {
+				alert("X et Y doivent être des nombres.");
+				return;
+			}
+			if (width < 1 || height < 1) {
+				alert("X et Y doivent être supérieurs ou égaux à 1.");
+				return;
+			}
+			if (width > 100 || height > 100) {
+				alert("X et Y doivent être inférieurs ou égaux à 100.");
+				return;
+			}
+			displayOptions('controls');
+			displayMod('new');
+			let level = new Level();
+			level.width = width;
+			level.height = height;
+			level.name = "New";
+			level.planes.push(new Plane(0, 64 * 64, Array(width * height).fill(3)));
+			level.planes.push(new Plane(0, 64 * 64, Array(width * height).fill(0)));
+			let canvas = draw(level);
+			canvas.addEventListener("click", applyPencil);
+			canvas.addEventListener("mousedown", startApplyPencil);
+			setVisibilityAndClear('result', true);
 		}
+
+		function startApplyPencil(event) {
+			let zoom = currentCanvasObject.getZoom();
+			let canvas = $("canvas");
+			let rect = canvas.getBoundingClientRect();
+			startX = Math.trunc((event.clientX - rect.left) / zoom);
+			startY = Math.trunc((event.clientY - rect.top) / zoom);
+		}
+
+		function applyPencil(event) {
+			let zoom = currentCanvasObject.getZoom();
+			console.log("click");
+			console.log(startX, startY);
+			let canvas = $("canvas");
+			let context = canvas.getContext("2d");
+			let rect = canvas.getBoundingClientRect();
+			let i = Math.trunc((event.clientX - rect.left) / zoom);
+			let j = Math.trunc((event.clientY - rect.top) / zoom);
+			console.log(i, j);
+			context.fillStyle = pencilColors[pencil];
+			context.fillRect(i * zoom, j * zoom, zoom, zoom);
+		}
+
+		function displayNewOptionsChanged() {
+			let w = parseInt($("w").value);
+			let h = parseInt($("h").value);
+			if (Number.isInteger(w)
+				&& Number.isInteger(h)
+				&& w >= 1
+				&& h >= 1
+				&& w <= 100
+				&& h <= 100) {
+				setVisibilityAndClear('bCreate', true);
+			}
+		}
+
+		//--------------------------------------------------------------------------------------------------------------
+		// Menu : About
+		//--------------------------------------------------------------------------------------------------------------
 
 		function displayAboutPanel() {
 			setVisibilityAndClear('options', false);
@@ -484,36 +641,30 @@
 			result.appendChild(elem);
 		}
 
-		function displayLoadTEDPanel() {
-			let result = setVisibilityAndClear('result', false, true);
+		//--------------------------------------------------------------------------------------------------------------
+		// Menu : Load TED
+		//--------------------------------------------------------------------------------------------------------------
+
+		function displayLoadTEDOptions() {
+			setVisibilityAndClear('result', false, true);
 			header = null;
 			data = null;
-			setVisibilityAndClear('loadTED', false);
+			setVisibilityAndClear('bLoadTED', false);
 			displayOptions('controls_load_ted');
 		}
 
 		function displayTEDPanel() {
-			let result = setVisibilityAndClear('result', true, true);
-			let controls = $("controls");
-			if ($("level", true) != null) {
-				$("level").remove();
-			}
-			let select = createSelect("level", getData().getNames());
-			select.onchange = display;
-			controls.appendChild(select);
+			setVisibilityAndClear('result', true, true);
 			displayOptions('controls');
-			display();
+			displayMod('ted');
+			displayTEDSelectChanged();
 		}
 
-		function log(msg) {
-			let result = setVisibilityAndClear("result", true);
-			let console = $("console", true);
-			if (console == null) {
-				console = document.createElement("pre");
-				console.id = "console";
-				result.appendChild(console);
-			}
-			console.innerText = console.innerText + msg;
+		function displayTEDSelectChanged() {
+			let set = getData();
+			let ilevel = $("ted_level").value;
+			console.log("ilevel = " + ilevel);
+			draw(set.levels[ilevel]);
 		}
 
 		function handleFiles(files, type) {
@@ -538,7 +689,7 @@
 							setData(set);
 						}
 						if (isDataSet() && isHeaderSet()) {
-							let elem = $("loadTED");
+							let elem = $("bLoadTED");
 							elem.style.display = 'inline';
 						}
 					}
@@ -547,9 +698,10 @@
 			}
 		}
 
-		function createSelect(id, options) {
+		function createSelect(id, options, onchange) {
 			let select = document.createElement("select");
 			select.id = id;
+			select.onchange = onchange;
 			let nb = 0;
 			console.log(options);
 			for (let i of options) {
@@ -562,6 +714,21 @@
 			return select;
 		}
 
+		//--------------------------------------------------------------------------------------------------------------
+		// Utils
+		//--------------------------------------------------------------------------------------------------------------
+
+		function log(msg) {
+			let result = setVisibilityAndClear("result", true);
+			let console = $("console", true);
+			if (console == null) {
+				console = document.createElement("pre");
+				console.id = "console";
+				result.appendChild(console);
+			}
+			console.innerText = console.innerText + msg;
+		}
+
 		function reset() {
 			let unfill = $("unfill");
 			let grid = $("grid");
@@ -569,14 +736,6 @@
 			unfill.checked = false;
 			grid.checked = true;
 			small.checked = false;
-		}
-
-		function display() {
-			let set = getData();
-			let ilevel = $("level").value
-			let content = draw(set, ilevel);
-			let result = $("result");
-			result.replaceChildren(content);
 		}
 
 		function mergeAt(canvas, x, y, filename1, filename2, text = null, options = {}) {
@@ -619,8 +778,9 @@
 	<div id="main" class="container">
 		<nav class="navbar navbar-default" role="navigation">
 			<div class="container-fluid">
-			  	<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+						aria-expanded="false" aria-controls="navbar">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -632,21 +792,24 @@
 					<ul class="nav navbar-nav">
 						<li><a href="#new" onclick="displayNewOptions()">New</a></li>
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Load... <span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+								aria-haspopup="true" aria-expanded="false">Load... <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="#">Teddy format</a></li>
 								<li role="separator" class="divider"></li>
-								<li><a href="#ted" onclick="displayLoadTEDPanel()">TED format</a></li>
+								<li><a href="#ted" onclick="displayLoadTEDOptions()">TED format</a></li>
 								<li><a href="#">PUD format</a></li>
 								<li><a href="#">Tiled format</a></li>
 							</ul>
-					  </li>
+						</li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="#about" onclick="displayAboutPanel()">About</a></li>
 						<li>
 							<a href="https://xitog.github.io/dgx/index.html">
-								<img width="18" height="18" src="https://xitog.github.io/dgx/img/icons/house_delapouite_ccby30.png" alt="Home"/>
+								<img width="18" height="18"
+									src="https://xitog.github.io/dgx/img/icons/house_delapouite_ccby30.png"
+									alt="Home" />
 							</a>
 						</li>
 					</ul>
@@ -655,26 +818,31 @@
 		</nav>
 		<div id="options" style="border: 1px solid #eeeeee; display: none; padding: 1em;">
 			<fieldset id="controls_new" style="display: none">
-				X : <input id="x" name="x" type="text" placeholder="Integer between 10 and 100"/>
-				Y : <input id="y" name="y" type="text" placeholder="Integer between 10 and 100"/>
+				<legend>New map</legend>
+				<label for="w">Width :</label><input id="w" name="w" type="text"
+					placeholder="Integer between 10 and 100" onchange="displayNewOptionsChanged()" />
+				<label for="h">Height :</label><input id="h" name="h" type="text"
+					placeholder="Integer between 10 and 100" onchange="displayNewOptionsChanged()" />
 				<button id="bCreate" type="button" onclick="displayNewPanel()">Create</button>
 			</fieldset>
 
 			<fieldset id="controls_load_ted" style="display: none">
-				<legend>Fichiers</legend>
+				<legend>Load TED files</legend>
 				<label for="fileInput1">En-têtes :</label>&nbsp;<input type="file" id="fileInput1"
 					onchange="handleFiles(this.files, 'header')">
 				<label for="fileInput2">Contenus :</label>&nbsp;<input type="file" id="fileInput2"
 					onchange="handleFiles(this.files, 'content')">
 				<label for="cc">Carmarck Compression</label>&nbsp;<input type="checkbox" id="cc">
-				<button type="button" id="loadTED" onclick="displayTEDPanel()" style="display: none">Load</button>
+				<button id="bLoadTED" type="button" onclick="displayTEDPanel()">Load</button>
 			</fieldset>
 
 			<fieldset id="controls" style="display: none">
-				<label for="unfill">Unfill </label>&nbsp;<input type="checkbox" id="unfill" onchange="display()">
-				<label for="grid">Grid </label>&nbsp;<input type="checkbox" id="grid" onchange="display()">
-				<label for="small">Small </label>&nbsp;<input type="checkbox" id="small" onchange="display()">
-				<label for="object">Object </label>&nbsp;<input type="checkbox" id="object" class="spe" onchange="display()" checked>
+				<legend>Options</legend>
+				<label for="unfill">Unfill </label>&nbsp;<input type="checkbox" id="unfill" onchange="draw()">
+				<label for="grid">Grid </label>&nbsp;<input type="checkbox" id="grid" onchange="draw()">
+				<label for="small">Small </label>&nbsp;<input type="checkbox" id="small" onchange="draw()">
+				<label for="object">Object </label>&nbsp;<input type="checkbox" id="object" class="spe"
+					onchange="draw()" checked>
 			</fieldset>
 		</div>
 		<div id="result" style="border: 1px solid #eeeeee; display: none; padding-top: 1em; padding-bottom: 2em;">
