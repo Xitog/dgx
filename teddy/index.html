@@ -41,11 +41,12 @@
 		input[type="checkbox"] {
 			margin-bottom: 8px;
 			margin-right: 1em;
+			margin-left: 1em;
 		}
 
-		input {
-			margin-left: 1em;
+		select, input, button {
 			margin-right: 1em;
+			margin-left: 1em;
 		}
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -186,8 +187,9 @@
 
 				currentCanvasObject = this;
 			}
+
 			getZoom() {
-				return this.zoomLevel;
+				return parseInt($("iZoomLevel").innerText); //this.zoomLevel;
 			}
 		}
 
@@ -257,11 +259,14 @@
 			}
 
 			toString() {
-				let s = "[Starts]            : " + this.planes[0].start + ", " + this.planes[1].start + ", " + this.planes[2].start + "\n" +
-					"[CompressedLenghts] : " + this.planes[0].length + ", " + this.planes[1].length + ", " + this.planes[2].length + "\n" +
-					"[ReadLengths]       : " + this.planes[0].content.length + ", " + this.planes[1].content.length + ", " + this.planes[2].content.length + "\n" +
-					"[Sizes]             : " + this.width + "x" + this.length + " (" + (64 * 64) + ")\n" +
-					"[Name]              : " + this.name;
+				let s = this.name;
+				if (this.planes.length === 3) {
+					s = "[Starts]            : " + this.planes[0].start + ", " + this.planes[1].start + ", " + this.planes[2].start + "\n" +
+						"[CompressedLenghts] : " + this.planes[0].length + ", " + this.planes[1].length + ", " + this.planes[2].length + "\n" +
+						"[ReadLengths]       : " + this.planes[0].content.length + ", " + this.planes[1].content.length + ", " + this.planes[2].content.length + "\n" +
+						"[Sizes]             : " + this.width + "x" + this.length + " (" + (64 * 64) + ")\n" +
+						"[Name]              : " + this.name;
+				}
 				return s;
 			}
 		}
@@ -388,10 +393,6 @@
 			let info = document.createElement("h2");
 			info.innerText = level.name + ` planes 0 and 1 (${width}x${height})`;
 			content.appendChild(info);
-			let canvas = document.createElement("canvas");
-			canvas.id = "canvas";
-			canvas.style.background = "#EEEEEE";
-			content.appendChild(canvas);
 			let x = 0;
 			let y = 0;
 			//console.log("level.length = " + walls.content.length);
@@ -434,7 +435,7 @@
 				55: "treasure_crown",
 				124: "dead_guard"
 			};
-			new Canvas(canvas, level.width, level.height, options['small'] ? 16 : 32);
+			let canvas = initCanvas();
 			for (let nb = 0; nb < walls.content.length; nb++) {
 				let wall = walls.content[nb];
 				let actor = actors.content[nb];
@@ -448,8 +449,7 @@
 					} else if (unfill) {
 						wall_img = "void";
 					}
-				}
-				else if (wall > 100) {
+				} else if (wall > 100) {
 					wall_img = "floor"; // #707070
 				}
 				// Getting the actor
@@ -462,6 +462,7 @@
 					}
 				}
 				// Drawing everything
+				console.log(x, y, wall_img);
 				mergeAt(canvas, x, y, wall_img, actor_img, text, options);
 				x += 1;
 				if (x == width) {
@@ -469,9 +470,9 @@
 					y += 1;
 				}
 			}
-			let result = $("result");
-			console.log(result, content);
-			result.replaceChildren(content);
+			//let result = $("result");
+			//console.log(result, content);
+			//result.replaceChildren(content);
 			return canvas;
 		}
 
@@ -508,6 +509,23 @@
 			let elem = $(id);
 			elem.style.display = 'flex';
 			setVisibilityAndClear('options', true);
+		}
+
+		function initCanvas() {
+			// needs level as global var
+			let canvas = document.createElement("canvas");
+			canvas.id = "canvas";
+			canvas.style.background = "#EEEEEE";
+			let options = {
+				'grid': $("grid").checked,
+				'small': $("small").checked,
+				'zoomLevel': parseInt($("iZoomLevel").innerText)
+			};
+			new Canvas(canvas, currentLevel.width, currentLevel.height, options['zoomLevel']); //options['small'] ? 16 : 32);
+			canvas.addEventListener("click", applyPencil);
+			canvas.addEventListener("mousedown", startApplyPencil);
+			$("result").replaceChildren(canvas);
+			return canvas;
 		}
 
 		function displayMod(id) {
@@ -552,6 +570,41 @@
 				}
 				pencil = "green";
 			}
+			// Zoom in button
+			let eZoom = document.createElement("button");
+			eZoom.setAttribute("data-btn", true);
+			eZoom.type = "button";
+			eZoom.innerText = "+";
+			eZoom.addEventListener("click", function(event) {
+				console.log("Unzoom!");
+				let info = $("iZoomLevel");
+				let zoomLevel = parseInt(info.innerText);
+				zoomLevel += 8;
+				info.innerText = zoomLevel;
+				draw();
+			});
+			controls.appendChild(eZoom);
+			// Zoom out button
+			let eUnzoom = document.createElement("button");
+			eUnzoom.setAttribute("data-btn", true);
+			eUnzoom.type = "button";
+			eUnzoom.innerText = "-";
+			eUnzoom.addEventListener("click", function(event) {
+				console.log("Unzoom!");
+				let info = $("iZoomLevel");
+				let zoomLevel = parseInt(info.innerText);
+				zoomLevel -= 8;
+				info.innerText = zoomLevel;
+				draw();
+			});
+			controls.appendChild(eUnzoom);
+			// Zoom level info
+			let info = document.createElement("span");
+			info.setAttribute("data-btn", true);
+			info.id = "iZoomLevel";
+			info.innerText = 32;
+			info.style.margin = "1em";
+			controls.appendChild(info);
 		}
 
 		//--------------------------------------------------------------------------------------------------------------
@@ -589,8 +642,6 @@
 			level.planes.push(new Plane(0, 64 * 64, Array(width * height).fill(3)));
 			level.planes.push(new Plane(0, 64 * 64, Array(width * height).fill(0)));
 			let canvas = draw(level);
-			canvas.addEventListener("click", applyPencil);
-			canvas.addEventListener("mousedown", startApplyPencil);
 			setVisibilityAndClear('result', true);
 		}
 
@@ -604,8 +655,7 @@
 
 		function applyPencil(event) {
 			let zoom = currentCanvasObject.getZoom();
-			console.log("click");
-			console.log(startX, startY);
+			console.log(`click :`, zoom, startX, startY);
 			let canvas = $("canvas");
 			let context = canvas.getContext("2d");
 			let rect = canvas.getBoundingClientRect();
@@ -698,10 +748,12 @@
 			}
 		}
 
-		function createSelect(id, options, onchange) {
+		function createSelect(id, options, onchange=null) {
 			let select = document.createElement("select");
 			select.id = id;
-			select.onchange = onchange;
+			if (onchange !== null) {
+				select.onchange = onchange;
+			}
 			let nb = 0;
 			console.log(options);
 			for (let i of options) {
@@ -740,8 +792,9 @@
 
 		function mergeAt(canvas, x, y, filename1, filename2, text = null, options = {}) {
 			const grid = 'grid' in options ? options['grid'] : true;
-			const small = 'small' in options ? options['small'] : false;
-			const FACTOR = small ? 16 : 32;
+			//const small = 'small' in options ? options['small'] : false;
+			//const FACTOR = small ? 16 : 32;
+			const FACTOR = currentCanvasObject.getZoom();
 			let context = canvas.getContext("2d");
 			context.drawImage(textures[filename1], x * FACTOR, y * FACTOR, FACTOR, FACTOR);
 			if (filename2 != null) {
@@ -753,7 +806,7 @@
 			if (text != null) {
 				context.fillStyle = 'pink';
 				context.textBaseline = 'hanging';
-				context.fillText("" + text, x * FACTOR, y * FACTOR, FACTOR);
+				context.fillText("" + text, x * FACTOR, y * FACTOR + 3, FACTOR);
 			}
 			if (grid) {
 				context.strokeStyle = "#000000";
@@ -764,6 +817,15 @@
 		var textures = {};
 
 		function load() {
+			// Create mod selector
+			let controls = $("controls_new");
+			let selectMods = createSelect("selectMods", ["Teddy", "WarCraft 2", "Wolfenstein 3D", "Western FPS"]);
+			controls.prepend(selectMods);
+			let elem = document.createElement("label");
+			elem.setAttribute("for", "selectMods");
+			elem.innerText = "Mod :";
+			controls.prepend(elem);
+			// Load pictures
 			for (let o of document.images) {
 				console.log('Loading: ', o.id, o);
 				textures[o.id] = o;
@@ -828,20 +890,20 @@
 
 			<fieldset id="controls_load_ted" style="display: none">
 				<legend>Load TED files</legend>
-				<label for="fileInput1">En-têtes :</label>&nbsp;<input type="file" id="fileInput1"
+				<label for="fileInput1">En-têtes :</label><input type="file" id="fileInput1"
 					onchange="handleFiles(this.files, 'header')">
-				<label for="fileInput2">Contenus :</label>&nbsp;<input type="file" id="fileInput2"
+				<label for="fileInput2">Contenus :</label><input type="file" id="fileInput2"
 					onchange="handleFiles(this.files, 'content')">
-				<label for="cc">Carmarck Compression</label>&nbsp;<input type="checkbox" id="cc">
+				<label for="cc">Carmarck Compression</label><input type="checkbox" id="cc">
 				<button id="bLoadTED" type="button" onclick="displayTEDPanel()">Load</button>
 			</fieldset>
 
 			<fieldset id="controls" style="display: none">
 				<legend>Options</legend>
-				<label for="unfill">Unfill </label>&nbsp;<input type="checkbox" id="unfill" onchange="draw()">
-				<label for="grid">Grid </label>&nbsp;<input type="checkbox" id="grid" onchange="draw()">
-				<label for="small">Small </label>&nbsp;<input type="checkbox" id="small" onchange="draw()">
-				<label for="object">Object </label>&nbsp;<input type="checkbox" id="object" class="spe"
+				<label for="unfill">Unfill </label><input type="checkbox" id="unfill" onchange="draw()">
+				<label for="grid">Grid </label><input type="checkbox" id="grid" onchange="draw()">
+				<label for="small">Small </label><input type="checkbox" id="small" onchange="draw()">
+				<label for="object">Object </label><input type="checkbox" id="object" class="spe"
 					onchange="draw()" checked>
 			</fieldset>
 		</div>
