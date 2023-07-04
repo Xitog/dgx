@@ -77,7 +77,7 @@
 
     # Hamill
 
-    Entrer du code [[Hamill->https://xitog.github.io/dgx/informatique/hamill.html]] à gauche pour produire de l'HTML à droite en cliquant sur ''Parse''.
+    Entrer du code hamill à gauche pour produire de l'HTML à droite en cliquant sur ''Parse''.
 
     {{.grid-container}}
 
