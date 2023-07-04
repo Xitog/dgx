@@ -1,0 +1,227 @@
+!const TITLE=Hamill
+!const LANG=fr
+!const ICON=https://xitog.github.io/dgx/img/favicon.ico
+!require https://xitog.github.io/dgx/css/simplex.bootstrap.css
+!require https://xitog.github.io/dgx/css/palatino.css
+!require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+!require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+
+!var DEFAULT_CODE=hamill
+
+{{#main .container}}
+
+!include menu.html
+
+{{#content-div}}
+
+# Hamill
+---
+
+Ce document décrit le langage **Hamill**. Comme [>Markdown], [>Textile], [>AsciiDoc] ou [>reStructuredText], c'est un [>langage de balisage léger] pour écrire de la documentation dans un fichier texte, directement lisible sans transformation, mais pouvant également être transformé en HTML.
+
+## Sommaire
+
+* [Commentaires->#]
+* [Titres->#]
+* [Modification de texte->#]
+* [Div, p et span->#]
+* [Code->#]
+* [Listes->#]
+* [Tables->#]
+* [Liens->#]
+* [Images->#]
+* [Constantes->#]
+* [Variables->#]
+* [Inclusion de fichier HTML->#]
+* [Liens vers un fichier CSS ou JavaScript->#]
+* [Spécial->#]
+
+## Commentaires
+
+On peut faire des commentaires avec §§ soit en début de ligne, toute la ligne est alors en commentaire, soit dans la ligne, dans ce cas seulement ce qui est après est un commentaire. Une ligne entièrement en commentaire peut-être exportée vers l'HTML produit :
+
+§§ Ceci est un commentaire il ne sera pas exporté
+
+!var EXPORT_COMMENT=true
+
+§§ Ceci est un commentaire il sera exporté en HTML
+
+On peut faire une ligne horizontale avec une ligne constituée uniquement de - d'une longueur supérieure ou égale à 3.
+
+On peut forcer un retour à la ligne avec \!\! entouré d'un espace : ceci est un retour !! à la ligne.
+
+## Titres
+
+On met en début de ligne un nombre de # correspondant au niveau du titre que l'on veut.
+
+## Modification de texte
+
+* \*\***gras**\*\* : pour mettre en gras
+* \'\'''italique''\'\' : pour mettre en italique
+* \-\---barré--\-\- : pour barrer
+* \_\___souligné__\_\_ : pour souligner
+* \^\^^^exposant^^\^\^ : pour mettre en exposant
+* \%\%%%indice%%\%\% : pour mettre en indice
+
+## Div, p et span
+
+* @@{{#id .class}}@@ : sur une ligne, seule, permet de définir une div avec un id et/ou une classe.
+* @@{{end}}@@ : sur une ligne, seule, permet de fermer une div ouverte.
+* @@{{#id .class content}}@@ : dans un paragraphe, permet de spécifier un span avec un id et/ou une classe.
+* @@{{#id .class}} ...@@ : dans un paragraphe, permet de spécifier l'id et/ou la classe du paragraphe.
+
+## Code
+
+On utilise \@\@@@pour du code inline@@\@\@. Hamill dispose d'un colorisateur syntaxique pour Python et JSON, on précise ainsi : \@\@python@@python def function(par1, par2)@@\@\@.
+
+Pour un bloc de code, il y a deux solutions :
+
+On peut faire une ligne avec seulement \@\@ suivi éventuellement du langage qu'on souhaite puis des lignes avec \@\@ au début jusqu'à une ligne ne comportant que \@\@. Ainsi :
+
+>>\@\@python
+>>\@\@     # Ceci est un commentaire
+>>\@\@     def function(par1, par2):
+>>\@\@         return "Ceci est une fonction"
+>>\@\@
+
+Donnera :
+
+@@python
+@@    # Ceci est un commentaire
+@@    def function(par1, par2):
+@@        return "Ceci est une fonction"
+@@
+
+On peut également faire une ligne avec seulement \@\@\@ suivi éventuellement du langage qu'on souhaite puis des lignes __sans rien__ jusqu'à une ligne ne comportant que \@\@\@. Ainsi :
+
+>>\@\@\@python
+>>     # Ceci est un commentaire
+>>     def function(par1, par2):
+>>         return "Ceci est une fonction"
+>>\@\@\@
+
+Donnera :
+
+@@@python
+    # Ceci est un commentaire
+    def function(par1, par2):
+        return "Ceci est une fonction"
+@@@
+
+## Listes
+
+* \* pour une liste non numérotée
+
+* \• pour une liste non numérotée
+
+% \% pour une liste numérotée
+
++ \+ pour une liste numérotée
+
+- \- pour une liste numérotée inversée
+
+* \| pour continuer un élément d'une liste.
+
+## Listes de définition
+
+* $ indique une liste de définition. On fait suivre directement la définition en la précédant d'espaces.
+
+## Tables
+
+* Un tableau s'écrit ainsi : |col1|col2|col3|
+* La ligne de titre doit être la première et séparée des autres par une ligne de tirets : |\-\-\-\-|
+
+|Ceci|est|un  |tableau    |
+|----|---|----|-----------|
+|Il  |est|beau|mon tableau|
+
+On peut mettre bien sûr des modificateurs de textes, des liens ou une image dans un tableau.
+
+!var DEFAULT_FIND_IMAGE=..\img\
+
+|^^Ceci^^                   |**est**|__un__            |''tableau''                                |
+|--------------------------------------------------------------------------------------------------|
+|Il [!background-green.png] |est    |--beau-- différent|ce [tableau->https://xitog.github.io/dgx/].|
+
+On peut également centré une case en faisant suivre la colonne ouvrante par @@=@@ et d'aligner à droite avec @@>@@ :
+
+|A gauche  |= Centré  |> A droite|
+|--------------------------------|
+|> A droite|= Centré  |A gauche  |
+
+On peut également préciser un colspan avec #cVALEUR# par exemple : @@#c3#@@ et combiné avec centrer @@=#c3#@@ :
+
+|Colonne 1|Colonne 2|Colonne 3|
+|-----------------------------|
+|=#c3# Centré et colspan=3    |
+
+**LIMITATION : pas de listes dans un tableau pour l'instant** :
+
+## Liens
+
+* On utilise les crochets
+* La première forme dite ''directe'' est @@[> URL]@@ ou @@[> REF]@@. L'URL ou la REF sera affichée
+* La seconde forme dite ''nommée'' s'écrit @@[ nom affiché -> URL ]@@ ou @@[ nom affiché -> REF ]@@
+* Une URL commence par @@http://@@ ou @@https://@@
+* Une REF est définie par une ligne de la forme @@[code]: http://...@@
+* Une forme spéciale de la nommée est si REF est seulement @@#@@ comme @@[ nom affiché -> # ]@@ : il essaye de faire sur le nom affiché transformé ou, si l'ancre n'existe pas, le nom affiché directement
+* Les titres sont automatiquement transformés en ancre en remplaçant les espaces par - et en les mettant en minuscules : ainsi **Les jeux** devient **les_jeux**
+
+## Images
+
+* On utilise les crochets \[ avec ! comme : \[!mon_image.png]
+* On peut définir un répertoire par défaut où les images seront prises avec la variable @@DEFAULT_FIND_IMAGE@@
+
+## Constantes
+
+On peut définir des constantes en mettant @@!const@@ en début de ligne. Les constantes peuvent être définies n'importe où dans le document et plusieurs fois mais **__seule la dernière valeur définie est prise en compte__**.
+
+* @@!const TITLE=titre@@ pour définir le titre de la page
+* @@!const ICON=icon@@ pour définir une icône pour la page
+* @@!const LANG=lang@@ pour définir la langue utilisée dans la page
+* @@!const ENCODING=encoding@@ pour définir la langue utilisée dans la page, par défaut utf-8
+* @@!const BODY_CLASS=classe@@ pour définir la classe du body
+* @@!const BODY_ID=id@@ pour définir l'id du body
+
+## Variables
+
+On peut définir des variables en mettant @@!var@@ en début de ligne. On peut changer sa valeur en la redéfinissant dans le document plusieurs fois. Au contraire des constantes, les variables sont lues au fur et à mesure de l'émission du HTML.
+
+* @@!var EXPORT_COMMENT=true/false@@ spécifie si les commentaires seront exportés en HTML ou pas
+* @@!var PARAGRAPH_DEFINITION=true/false@@ spécifie si les dd doivent être mis dans des balises p
+* @@!var DEFAULT_CODE=python/json@@ définit la coloration syntaxique par défaut du code (text par défaut)
+* @@!var NEXT_PAR_ID=ids@@ spécifie l'id du **prochain** paragraphe
+* @@!var NEXT_PAR_CLASS=cls@@ spécifie la classe du **prochain** paragraphe
+* @@!var NEXT_TAB_ID=ids@@ spécifie l'id du **prochain** tableau
+* @@!var NEXT_TAB_CLASS=cls@@ spécifie la classe du **prochain** tableau
+* @@!var DEFAULT_PAR_CLASS=cls@@ spécifie la classe par défaut de **tous les paragraphes qui suivent**
+* @@!var DEFAULT_TAB_CLASS=cls@@ spécifie la classe par défaut de **tous les tableaux qui suivent**
+* @@!var DEFAULT_FIND_IMAGE=path@@ spécifie un répertoire où aller chercher les images par défaut
+
+## Inclusion de fichier HTML
+
+On peut inclure un fichier HTML avec @@!include@@ en début de ligne. Le contenu du fichier sera copié directement le document produit.
+
+## Liens vers un fichier CSS ou JavaScript
+
+On peut lier notre document à fichier CSS ou JavaScript avec la commande @@!require@@ en début de ligne.
+
+Le lien vers un fichier CSS requis est **automatiquement** placé dans la tête du document HTML.
+
+Le lien vers un fichier JavaScript requis est placé là ou se trouve le @@!require@@. 
+
+**LIMITATION : Hamill ne peut pas mettre un lien vers un fichier JavaScript dans la tête pour l'instant**.
+
+## Spécial
+
+* @@!css css-code@@ permet de rajouter du code css
+* @@!html html-code@@ permet de rajouter du code html
+
+[Markdown]: https://en.wikipedia.org/wiki/Markdown
+[Textile]: https://en.wikipedia.org/wiki/Textile_(markup_language)
+[AsciiDoc]: http://asciidoc.org/
+[reStructuredText]: https://docutils.sourceforge.io/rst.html
+[langage de balisage léger]: https://en.wikipedia.org/wiki/Lightweight_markup_language
+
+{{end}}
+{{end}}
