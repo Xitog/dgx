@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Test</title>
+    <style type="text/css">
+      canvas { 
+        border: 1px solid black;
+      }
+      html {
+        width: 100%;
+        height: 100%;
+        background: rgb(10, 10, 10);
+        overflow:hidden;
+      }
+      body {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      img.shadow {
+        display: none;
+      }
+    </style>
+  </head>
+  <body onload="start();">
+    <canvas id="screen" width="640" height="480">Your browser must support canvas to play.</canvas>
+    <!-- Menu -->
+    <img class="shadow" id="Move" src="graphics/gui/order-move-plain-arrow-by-Delapouite-CC-BY-3.0.png">
+    <img class="shadow" id="Attack" src="graphics/gui/order-attack-select-by-sbed-CC-BY-3.0.png">
+    <img class="shadow" id="CreateSoldier" src="graphics/gui/creating-robot-golem-by-Lorc-CC-BY-3.0.png">
+    <img class="shadow" id="CreateScout" src="graphics/gui/creating-battle-mech-by-Delapouite-CC-BY-3.0.png">
+    <img class="shadow" id="CreateBuilder" src="graphics/gui/creating-mono-wheel-robot-by-Delapouite-CC-BY-3.0.png">
+    <!-- Buildings -->
+    <img class="shadow" id="barrack" src="graphics/buildings/barrack.png">
+    <img class="shadow" id="barrack_selected" src="graphics/buildings/barrack_selected.png">
+    <img class="shadow" id="factory" src="graphics/buildings/factory.png">
+    <img class="shadow" id="factory_selected" src="graphics/buildings/factory_selected.png">
+    <img class="shadow" id="generator" src="graphics/buildings/generator.png">
+    <img class="shadow" id="generator_selected" src="graphics/buildings/generator_selected.png">
+    <!-- Water to Earth transitions W E | N E S W -->
+      <!-- One Border -->
+      <img class="shadow" id="0100010000" src="graphics/textures/0100010000.bmp">
+      <img class="shadow" id="0100100000" src="graphics/textures/0100100000.bmp">
+      <img class="shadow" id="0101000000" src="graphics/textures/0101000000.bmp">
+      <img class="shadow" id="0110000000" src="graphics/textures/0110000000.bmp">
+      <!-- Two Borders -->
+      <img class="shadow" id="0111000000" src="graphics/textures/0111000000.bmp">
+      <img class="shadow" id="0101100000" src="graphics/textures/0101100000.bmp">
+      <img class="shadow" id="0100110000" src="graphics/textures/0100110000.bmp">
+      <img class="shadow" id="0110010000" src="graphics/textures/0110010000.bmp">
+      <!-- Corners -->
+      <img class="shadow" id="0100001000" src="graphics/textures/0100001000.bmp">
+      <img class="shadow" id="0100000100" src="graphics/textures/0100000100.bmp">
+      <img class="shadow" id="0100000010" src="graphics/textures/0100000010.bmp">
+      <img class="shadow" id="0100000001" src="graphics/textures/0100000001.bmp">
+      <!-- 2 Corners -->
+      <img class="shadow" id="0100001010" src="graphics/textures/0100001010.bmp">
+      <img class="shadow" id="0100000101" src="graphics/textures/0100000101.bmp">
+    <!-- Earth to Grass transitions W E | N E S W -->
+      <!-- One Border -->
+      <img class="shadow" id="1200010000" src="graphics/textures/1200010000.bmp">
+      <img class="shadow" id="1200100000" src="graphics/textures/1200100000.bmp">
+      <img class="shadow" id="1201000000" src="graphics/textures/1201000000.bmp">
+      <img class="shadow" id="1210000000" src="graphics/textures/1210000000.bmp">
+      <!-- Two Borders -->
+      <img class="shadow" id="1211000000" src="graphics/textures/1211000000.bmp">
+      <img class="shadow" id="1201100000" src="graphics/textures/1201100000.bmp">
+      <img class="shadow" id="1200110000" src="graphics/textures/1200110000.bmp">
+      <img class="shadow" id="1210010000" src="graphics/textures/1210010000.bmp">
+      <!-- Corners -->
+      <img class="shadow" id="1200001000" src="graphics/textures/1200001000.bmp">
+      <img class="shadow" id="1200000100" src="graphics/textures/1200000100.bmp">
+      <img class="shadow" id="1200000010" src="graphics/textures/1200000010.bmp">
+      <img class="shadow" id="1200000001" src="graphics/textures/1200000001.bmp">
+      <!-- 2 Corners -->
+      <img class="shadow" id="1200001010" src="graphics/textures/1200001010.bmp">
+      <img class="shadow" id="1200000101" src="graphics/textures/1200000101.bmp">
+    <!-- Basic textures -->
+    <img class="shadow" id="0000000000" src="graphics/textures/0000000000.bmp">
+    <img class="shadow" id="1000000000" src="graphics/textures/1000000000.bmp">
+    <img class="shadow" id="2000000000" src="graphics/textures/2000000000.bmp">
+    <img class="shadow" id="3000000000" src="graphics/textures/3000000000.bmp">
+    <!-- Load Core -->
+    <script src="rts.js"></script>
+    <!-- Load Maps -->
+    <script src="maps/E1M1.js"></script>
+    <script src="maps/E1M2.js"></script>
+    <!-- Load Game Info -->
+    <script src="game.js"></script>
+  </body>
+</html>

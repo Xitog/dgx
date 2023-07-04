@@ -1,0 +1,28 @@
+!const TITLE=RTS
+!const LANG=fr
+!const ICON=https://xitog.github.io/dgx/img/favicon.ico
+!require https://xitog.github.io/dgx/css/simplex.bootstrap.css
+!require https://xitog.github.io/dgx/css/flashy.css
+!require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+!require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+
+!css #footer {
+!css    width: 100%;
+!css }
+!css #footer-content {
+!css    text-align: center;
+!css }
+
+{{#main .container}}
+
+!include menu.html
+
+{{#content-div}}
+
+    {{#footer}}
+        {{#footer-content}} [[Jouer à mon projet de RTS->https://xitog.github.io/dgx/rts/rts.html]]
+    {{end}}
+
+{{end}}
+
+{{end}}
