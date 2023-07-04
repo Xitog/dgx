@@ -1,0 +1,106 @@
+!const TITLE=Hamill
+!const LANG=fr
+!const ICON=https://xitog.github.io/dgx/img/favicon.ico
+!require https://xitog.github.io/dgx/css/simplex.bootstrap.css
+!require https://xitog.github.io/dgx/css/flashy.css
+!require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+!require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+
+!css #code {
+!css     width: 95%;
+!css     height: 90%;
+!css     margin-top: 10px;
+!css     margin-bottom: 10px;
+!css     border: 1px black solid;
+!css     padding: 12px;
+!css     overflow: auto;
+!css     font-family: 'Courier New', Courier, monospace;
+!css     white-space: pre-wrap;
+!css     resize: none;
+!css }
+!css .grid-container {
+!css     display: grid;
+!css     grid-template-columns: 1fr 1fr;
+!css     grid-gap: 5px;
+!css     height: 100%;
+!css }
+!css #output {
+!css     margin-top: 30px;
+!css     padding: 12px;
+!css     font-family: 'Courier New', Courier, monospace;
+!css }
+!css button {
+!css     color: black;
+!css }
+!css #footer {
+!css    width: 100%;
+!css }
+!css #footer-content {
+!css    text-align: center;
+!css }
+
+!html <script type="module">
+!html import {Hamill, Document} from "./hamill.mjs";
+
+!html var links = [];
+
+!html function reset()
+!html {
+!html     let code = document.getElementById("code");
+!html     code.value = "";
+!html }
+
+!html function make_link(s)
+!html {
+!html     return s.replaceAll(' ', '-').toLowerCase();
+!html }
+
+!html function analyse()
+!html {
+!html     console.clear();
+!html     let code = document.getElementById("code");
+!html     let text = code.value;
+!html     let doc = Hamill.process_string(text);
+!html     let output = document.getElementById("output");
+!html     output.innerHTML = doc.to_html() + "<pre>" + doc.to_s() + "</pre>";
+!html }
+
+!html document.querySelectorAll('[class$="_reset"]').forEach(e => e.addEventListener('click', reset));
+!html document.querySelectorAll('[class$="_analyse"]').forEach(e => e.addEventListener('click', analyse));
+!html </script>
+
+{{#main .container}}
+
+!include menu.html
+
+{{#content-div}}
+
+    # Hamill
+
+    Entrer du code [[Hamill->https://xitog.github.io/dgx/informatique/hamill.html]] à gauche pour produire de l'HTML à droite en cliquant sur ''Parse''.
+
+    {{.grid-container}}
+
+        {{.grid-child}}
+                        !html <button class="_reset">Reset</button>
+                        !html <button class="_analyse">Parse</button>
+                        !html <textarea id="code"></textarea>
+                        !html <button class="_reset">Reset</button>
+                        !html <button class="_analyse">Parse</button>
+        {{end}}
+
+        {{.grid-child}}
+
+            {{#output}}
+            {{end}}
+
+        {{end}}
+
+    {{end}}
+
+    {{#footer}}
+        {{#footer-content}} [[Documentation interne->https://xitog.github.io/dgx/hamill/hamill.html]] & [[Documentation et code source sous git->https://github.com/Xitog/hamill]]
+    {{end}}
+{{end}}
+
+{{end}}
