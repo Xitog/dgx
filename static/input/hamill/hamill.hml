@@ -17,24 +17,24 @@
 # Hamill
 ---
 
-Ce document décrit le langage **Hamill**. Comme [>Markdown], [>Textile], [>AsciiDoc] ou [>reStructuredText], c'est un [>langage de balisage léger] pour écrire de la documentation dans un fichier texte, directement lisible sans transformation, mais pouvant également être transformé en HTML.
+Ce document décrit le langage **Hamill**. Comme [[Markdown->#]], [[Textile->#]], [[AsciiDoc->#]] ou [[reStructuredText->#]], c'est un [[langage de balisage léger->#]] pour écrire de la documentation dans un fichier texte, directement lisible sans transformation, mais pouvant également être transformé en HTML.
 
 ## Sommaire
 
-* [Commentaires->#]
-* [Titres->#]
-* [Modification de texte->#]
-* [Div, p et span->#]
-* [Code->#]
-* [Listes->#]
-* [Tables->#]
-* [Liens->#]
-* [Images->#]
-* [Constantes->#]
-* [Variables->#]
-* [Inclusion de fichier HTML->#]
-* [Liens vers un fichier CSS ou JavaScript->#]
-* [Spécial->#]
+* [[Commentaires->#]]
+* [[Titres->#]]
+* [[Modification de texte->#]]
+* [[Div, p et span->#]]
+* [[Code->#]]
+* [[Listes->#]]
+* [[Tables->#]]
+* [[Liens->#]]
+* [[Images->#]]
+* [[Constantes->#]]
+* [[Variables->#]]
+* [[Inclusion de fichier HTML->#]]
+* [[Liens vers un fichier CSS ou JavaScript->#]]
+* [[Spécial->#]]
 
 ## Commentaires
 
@@ -208,7 +208,7 @@ On peut lier notre document à fichier CSS ou JavaScript avec la commande @@!req
 
 Le lien vers un fichier CSS requis est **automatiquement** placé dans la tête du document HTML.
 
-Le lien vers un fichier JavaScript requis est placé là ou se trouve le @@!require@@. 
+Le lien vers un fichier JavaScript requis est placé là ou se trouve le @@!require@@.
 
 **LIMITATION : Hamill ne peut pas mettre un lien vers un fichier JavaScript dans la tête pour l'instant**.
 
@@ -217,11 +217,11 @@ Le lien vers un fichier JavaScript requis est placé là ou se trouve le @@!requ
 * @@!css css-code@@ permet de rajouter du code css
 * @@!html html-code@@ permet de rajouter du code html
 
-[Markdown]: https://en.wikipedia.org/wiki/Markdown
-[Textile]: https://en.wikipedia.org/wiki/Textile_(markup_language)
-[AsciiDoc]: http://asciidoc.org/
-[reStructuredText]: https://docutils.sourceforge.io/rst.html
-[langage de balisage léger]: https://en.wikipedia.org/wiki/Lightweight_markup_language
+::Markdown:: https://en.wikipedia.org/wiki/Markdown
+::Textile:: https://en.wikipedia.org/wiki/Textile_(markup_language)
+::AsciiDoc:: http://asciidoc.org/
+::reStructuredText:: https://docutils.sourceforge.io/rst.html
+::langage de balisage léger:: https://en.wikipedia.org/wiki/Lightweight_markup_language
 
 {{end}}
 {{end}}
