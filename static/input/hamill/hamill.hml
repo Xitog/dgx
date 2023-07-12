@@ -5,6 +5,7 @@
 !require https://xitog.github.io/dgx/css/palatino.css
 !require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
 !require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+!css blockquote {font-size: 12px; font-family: Menlo, Monaco, Consolas, "Courier New", monospace;}
 
 !var DEFAULT_CODE=hamill
 
@@ -25,6 +26,7 @@ Ce document décrit le langage **Hamill**. Comme [[Markdown->#]], [[Textile->#]]
 * [[Titres->#]]
 * [[Modification de texte->#]]
 * [[Div, p et span->#]]
+* [[Détails->#]]
 * [[Code->#]]
 * [[Listes->#]]
 * [[Tables->#]]
@@ -38,7 +40,12 @@ Ce document décrit le langage **Hamill**. Comme [[Markdown->#]], [[Textile->#]]
 
 ## Commentaires
 
-On peut faire des commentaires avec §§ soit en début de ligne, toute la ligne est alors en commentaire, soit dans la ligne, dans ce cas seulement ce qui est après est un commentaire. Une ligne entièrement en commentaire peut-être exportée vers l'HTML produit :
+On peut faire des commentaires en mettant @@!rem@@ ou @@§§@@ en début de ligne, toute la ligne est alors en commentaire.
+
+>>!rem Ceci est un commentaire
+>>§§ Ceci est un autre commentaire
+
+Une ligne entièrement en commentaire sera exportée en l'HTML si la variable @@EXPORT_COMMENT@@ est à @@true@@.
 
 §§ Ceci est un commentaire il ne sera pas exporté
 
@@ -46,79 +53,111 @@ On peut faire des commentaires avec §§ soit en début de ligne, toute la ligne
 
 §§ Ceci est un commentaire il sera exporté en HTML
 
-On peut faire une ligne horizontale avec une ligne constituée uniquement de - d'une longueur supérieure ou égale à 3.
+On peut faire une ligne horizontale avec une ligne constituée uniquement de @@-@@ d'une longueur supérieure ou égale à 3.
 
-On peut forcer un retour à la ligne avec \!\! entouré d'un espace : ceci est un retour !! à la ligne.
+>>---
+
+---
+
+On peut forcer un retour à la ligne avec @@##@@ entouré d'un espace avant et après et pas en début de ligne (sinon c'est un titre) :
+
+>>ceci est un retour ## à la ligne.
+
+ceci est un retour ## à la ligne.
 
 ## Titres
 
-On met en début de ligne un nombre de # correspondant au niveau du titre que l'on veut.
+On met en début de ligne un nombre de @@#@@ correspondant au niveau du titre que l'on veut.
+
+>>### Titre de niveau 3
 
 ## Modification de texte
 
-* \*\***gras**\*\* : pour mettre en gras
-* \'\'''italique''\'\' : pour mettre en italique
+* \*\***gras**\*\* : pour mettre en gras (balise ''b'')
+* \!\!!!gras!!\!\! : pour mettre en gras (balise ''strong'')
+* \'\'''italique''\'\' : pour mettre en italique (balise ''i'')
+* \/\///italique//\/\/ : pour mettre en italique (balise ''em'')
 * \-\---barré--\-\- : pour barrer
 * \_\___souligné__\_\_ : pour souligner
 * \^\^^^exposant^^\^\^ : pour mettre en exposant
 * \%\%%%indice%%\%\% : pour mettre en indice
+* Pour échapper un caractère spécial, utilisez @@\\@@
 
 ## Div, p et span
 
 * @@{{#id .class}}@@ : sur une ligne, seule, permet de définir une div avec un id et/ou une classe.
+* @@{{begin}}@@ : sur une ligne, pour ouvrir une div sans id ni classe.
 * @@{{end}}@@ : sur une ligne, seule, permet de fermer une div ouverte.
+* @@{{#id .class}} content@@ : dans un paragraphe, permet de spécifier l'id et/ou la classe du paragraphe.
 * @@{{#id .class content}}@@ : dans un paragraphe, permet de spécifier un span avec un id et/ou une classe.
-* @@{{#id .class}} ...@@ : dans un paragraphe, permet de spécifier l'id et/ou la classe du paragraphe.
+
+## Détails
+
+* Ecrire @@{{xxx => yyy}}@@ pour ouvrir une courte note. On peut mettre un id et une classe avant xxx avec @@#id@@ et @@.class@@.
+* Ecrire @@{{xxx =>}}@@ pour ouvrir une longue note. mettre un id et une classe avant xxx avec @@#id@@ et @@.class@@.
+* Ecrire @@{{end}}@@ pour fermer une longue note, on peut rappeler l'id et la classe mais cela n'a pas de signification pour Hamill.
+
+>><<Courte note => Ceci est une courte note.>>
+
+<<Courte note => Ceci est une courte note.>>
+
+>><<Longue note => >>
+>>* Ceci est une note longue
+>>* Avec du Hamill dedans
+>><<end>>
+
+<<Longue note => >>
+* Ceci est une note longue
+* Avec du Hamill dedans
+<<end>>
 
 ## Code
 
-On utilise \@\@@@pour du code inline@@\@\@. Hamill dispose d'un colorisateur syntaxique pour Python et JSON, on précise ainsi : \@\@python@@python def function(par1, par2)@@\@\@.
+On utilise @@\@\@pour du code inline\@\@@@. Hamill dispose d'un colorisateur syntaxique pour Python et JSON, on précise ainsi : @@\@\@python def function(par1, par2)\@\@@@.
 
 Pour un bloc de code, il y a deux solutions :
 
-On peut faire une ligne avec seulement \@\@ suivi éventuellement du langage qu'on souhaite puis des lignes avec \@\@ au début jusqu'à une ligne ne comportant que \@\@. Ainsi :
+On peut faire une ligne avec seulement @@\@\@@@ suivi éventuellement du langage qu'on souhaite puis des lignes avec @@\@\@@@ au début jusqu'à une ligne ne comportant que @@\@\@@@. Ainsi :
 
->>\@\@python
->>\@\@     # Ceci est un commentaire
->>\@\@     def function(par1, par2):
->>\@\@         return "Ceci est une fonction"
->>\@\@
+>>@@python
+>>@@# Ceci est un commentaire
+>>@@def function(par1, par2):
+>>@@    return "Ceci est une fonction"
+>>@@
 
 Donnera :
 
 @@python
-@@    # Ceci est un commentaire
-@@    def function(par1, par2):
-@@        return "Ceci est une fonction"
+@@# Ceci est un commentaire
+@@def function(par1, par2):
+@@    return "Ceci est une fonction"
 @@
 
-On peut également faire une ligne avec seulement \@\@\@ suivi éventuellement du langage qu'on souhaite puis des lignes __sans rien__ jusqu'à une ligne ne comportant que \@\@\@. Ainsi :
+On peut également faire une ligne avec seulement @@\@\@\@@@ suivi éventuellement du langage qu'on souhaite puis des lignes __sans rien__ jusqu'à une ligne ne comportant que @@\@\@\@@@. Ainsi :
 
->>\@\@\@python
->>     # Ceci est un commentaire
->>     def function(par1, par2):
->>         return "Ceci est une fonction"
->>\@\@\@
+>>@@@python
+>># Ceci est un commentaire
+>>def function(par1, par2):
+>>    return "Ceci est une fonction"
+>>@@@
 
 Donnera :
 
 @@@python
-    # Ceci est un commentaire
-    def function(par1, par2):
-        return "Ceci est une fonction"
+# Ceci est un commentaire
+def function(par1, par2):
+    return "Ceci est une fonction"
 @@@
 
 ## Listes
 
-* \* pour une liste non numérotée
+* @@*@@ pour une liste non numérotée
 
-* \• pour une liste non numérotée
++ @@+@@ pour une liste numérotée, item 1/2
++ @@+@@ item 2/2
 
-% \% pour une liste numérotée
-
-+ \+ pour une liste numérotée
-
-- \- pour une liste numérotée inversée
+- @@-@@ pour une liste numérotée inversée, item 1/2
+- @@-@@ item 2/2
 
 * \| pour continuer un élément d'une liste.
 
@@ -139,9 +178,9 @@ On peut mettre bien sûr des modificateurs de textes, des liens ou une image dan
 
 !var DEFAULT_FIND_IMAGE=..\img\
 
-|^^Ceci^^                   |**est**|__un__            |''tableau''                                |
-|--------------------------------------------------------------------------------------------------|
-|Il [!background-green.png] |est    |--beau-- différent|ce [tableau->https://xitog.github.io/dgx/].|
+|^^Ceci^^                   |**est**|__un__            |''tableau''                                  |
+|----------------------------------------------------------------------------------------------------|
+|Il [!background-green.png] |est    |--beau-- différent|ce [[tableau->https://xitog.github.io/dgx/]].|
 
 On peut également centré une case en faisant suivre la colonne ouvrante par @@=@@ et d'aligner à droite avec @@>@@ :
 
@@ -221,7 +260,7 @@ Le lien vers un fichier JavaScript requis est placé là ou se trouve le @@!requ
 ::Textile:: https://en.wikipedia.org/wiki/Textile_(markup_language)
 ::AsciiDoc:: http://asciidoc.org/
 ::reStructuredText:: https://docutils.sourceforge.io/rst.html
-::langage de balisage léger:: https://en.wikipedia.org/wiki/Lightweight_markup_language
+::langage-de-balisage-léger:: https://en.wikipedia.org/wiki/Lightweight_markup_language
 
 {{end}}
 {{end}}
