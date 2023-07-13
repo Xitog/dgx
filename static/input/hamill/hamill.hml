@@ -91,11 +91,23 @@ On met en début de ligne un nombre de @@#@@ correspondant au niveau du titre qu
 * @@{{#id .class}} content@@ : dans un paragraphe, permet de spécifier l'id et/ou la classe du paragraphe.
 * @@{{#id .class content}}@@ : dans un paragraphe, permet de spécifier un span avec un id et/ou une classe.
 
+>>!css span.spoiler {background: black; user-select: none;}
+>>!css span.spoiler:active {background: lightgrey; user-select: none;}
+>>Ceci est un texte avec une partie cachée : {{.spoiler Dark Vador est le père de Luke}}. Pour ne pas spoiler.
+
+!css span.spoiler {background: black; user-select: none;}
+!css span.spoiler:active {background: lightgrey; user-select: none;}
+Ceci est un texte avec une partie cachée : {{.spoiler Dark Vador est le père de Luke}}. Pour ne pas spoiler.
+
 ## Détails
 
 * Ecrire @@{{xxx => yyy}}@@ pour ouvrir une courte note. On peut mettre un id et une classe avant xxx avec @@#id@@ et @@.class@@.
 * Ecrire @@{{xxx =>}}@@ pour ouvrir une longue note. mettre un id et une classe avant xxx avec @@#id@@ et @@.class@@.
 * Ecrire @@{{end}}@@ pour fermer une longue note, on peut rappeler l'id et la classe mais cela n'a pas de signification pour Hamill.
+
+!css details {margin-bottom: 1em; background-color: #EDEDED;}
+!css details[open] {padding-bottom: 0.5em;}
+!css summary {margin-bottom: 0.5em; color: black; font-size: 16px; user-select: none; border: 1px solid darkgrey; background-color: white;}
 
 >><<Courte note => Ceci est une courte note.>>
 
@@ -103,7 +115,7 @@ On met en début de ligne un nombre de @@#@@ correspondant au niveau du titre qu
 
 >><<Longue note => >>
 >>* Ceci est une note longue
->>* Avec du Hamill dedans
+>>* Avec du Hamill dedans ##
 >><<end>>
 
 <<Longue note => >>

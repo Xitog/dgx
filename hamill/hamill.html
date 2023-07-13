@@ -10,6 +10,11 @@
   <link href="https://xitog.github.io/dgx/css/palatino.css" rel="stylesheet">
   <style type="text/css">
     blockquote {font-size: 12px; font-family: Menlo, Monaco, Consolas, "Courier New", monospace;}
+    span.spoiler {background: black; user-select: none;}
+    span.spoiler:active {background: lightgrey; user-select: none;}
+    details {margin-bottom: 1em; background-color: #EDEDED;}
+    details[open] {padding-bottom: 0.5em;}
+    summary {margin-bottom: 0.5em; color: black; font-size: 16px; user-select: none; border: 1px solid darkgrey; background-color: white;}
   </style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
@@ -201,6 +206,12 @@ ceci est un retour ## à la ligne.<br>
   <li><code>{{#id .class}} content</code> : dans un paragraphe, permet de spécifier l'id et/ou la classe du paragraphe.</li>
   <li><code>{{#id .class content}}</code> : dans un paragraphe, permet de spécifier un span avec un id et/ou une classe.</li>
 </ul>
+<blockquote>
+!css span.spoiler {background: black; user-select: none;}<br>
+!css span.spoiler:active {background: lightgrey; user-select: none;}<br>
+Ceci est un texte avec une partie cachée : {{.spoiler Dark Vador est le père de Luke}}. Pour ne pas spoiler.<br>
+</blockquote>
+<p>Ceci est un texte avec une partie cachée : <span class="spoiler">Dark Vador est le père de Luke</span>. Pour ne pas spoiler.</p>
 <h2 id="Détails">Détails</h2>
 <ul>
   <li>Ecrire <code>{{xxx => yyy}}</code> pour ouvrir une courte note. On peut mettre un id et une classe avant xxx avec <code>#id</code> et <code>.class</code>.</li>
@@ -214,7 +225,7 @@ ceci est un retour ## à la ligne.<br>
 <blockquote>
 &lt;&lt;Longue note =&gt; &gt;&gt;<br>
 * Ceci est une note longue<br>
-* Avec du Hamill dedans<br>
+* Avec du Hamill dedans ##<br>
 &lt;&lt;end&gt;&gt;<br>
 </blockquote>
 <details><summary>Longue note</summary>
