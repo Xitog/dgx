@@ -27,7 +27,7 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
 
 {{.section}}
 
-# [[Généraux->#]] et [[médias->#]]
+# [[Généraux->#]] et [[Médias->#]]
 
 ## Généraux
 
@@ -124,8 +124,9 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
   * Dune 2
     * [[Read Only Memory->https://readonlymemory.vg/the-making-of-dune-ii/]]
 * Language
+  * [[**Crafting interpreters**->https://craftinginterpreters.com/]]
   * [[Lexer hack->https://en.wikipedia.org/wiki/Lexer_hack]]
-  * Ruby Operator Precedence: [[Site 1->https://blog.devgenius.io/ruby-operator-precedence-1cb9f9c31835]], [[Site 2->https://www.techotopia.com/index.php/Ruby_Operator_Precedence]]
+  * Ruby Operator Precedence: [[Site 1->https://ruby-doc.org/core-2.6.2/doc/syntax/precedence_rdoc.html]], [[Site 2->https://blog.devgenius.io/ruby-operator-precedence-1cb9f9c31835]], [[Site 3->https://www.techotopia.com/index.php/Ruby_Operator_Precedence]]
 * Cheatsheet
   * [[**Syntax across Languages**->http://rigaux.org/language-study/syntax-across-languages.html]]
   * [[Lua Syntax->https://www.lua.org/manual/5.4/manual.html#9]]
