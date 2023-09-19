@@ -268,10 +268,10 @@ Le lien vers un fichier JavaScript requis est placé là ou se trouve le @@!requ
 * @@!css css-code@@ permet de rajouter du code css
 * @@!html html-code@@ permet de rajouter du code html
 
-::Markdown:: https://en.wikipedia.org/wiki/Markdown
-::Textile:: https://en.wikipedia.org/wiki/Textile_(markup_language)
-::AsciiDoc:: http://asciidoc.org/
-::reStructuredText:: https://docutils.sourceforge.io/rst.html
+::markdown:: https://en.wikipedia.org/wiki/Markdown
+::textile:: https://en.wikipedia.org/wiki/Textile_(markup_language)
+::asciidoc:: http://asciidoc.org/
+::restructuredtext:: https://docutils.sourceforge.io/rst.html
 ::langage-de-balisage-léger:: https://en.wikipedia.org/wiki/Lightweight_markup_language
 
 {{end}}

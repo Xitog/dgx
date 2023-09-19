@@ -142,28 +142,28 @@
       </nav>
 
 <div id="content-div">
-<h1 id="Hamill">Hamill</h1>
+<h1 id="hamill">Hamill</h1>
 <hr>
 <p>Ce document décrit le langage <b>Hamill</b>. Comme <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>, <a href="https://en.wikipedia.org/wiki/Textile_(markup_language)">Textile</a>, <a href="http://asciidoc.org/">AsciiDoc</a> ou <a href="https://docutils.sourceforge.io/rst.html">reStructuredText</a>, c'est un <a href="https://en.wikipedia.org/wiki/Lightweight_markup_language">langage de balisage léger</a> pour écrire de la documentation dans un fichier texte, directement lisible sans transformation, mais pouvant également être transformé en HTML.</p>
-<h2 id="Sommaire">Sommaire</h2>
+<h2 id="sommaire">Sommaire</h2>
 <ul>
-  <li><a href="#Commentaires">Commentaires</a></li>
-  <li><a href="#Titres">Titres</a></li>
-  <li><a href="#Modification-de-texte">Modification de texte</a></li>
-  <li><a href="#Div,-p-et-span">Div, p et span</a></li>
-  <li><a href="#Détails">Détails</a></li>
-  <li><a href="#Code">Code</a></li>
-  <li><a href="#Listes">Listes</a></li>
-  <li><a href="#Tables">Tables</a></li>
-  <li><a href="#Liens">Liens</a></li>
-  <li><a href="#Images">Images</a></li>
-  <li><a href="#Constantes">Constantes</a></li>
-  <li><a href="#Variables">Variables</a></li>
-  <li><a href="#Inclusion-de-fichier-HTML">Inclusion de fichier HTML</a></li>
-  <li><a href="#Liens-vers-un-fichier-CSS-ou-JavaScript">Liens vers un fichier CSS ou JavaScript</a></li>
-  <li><a href="#Spécial">Spécial</a></li>
+  <li><a href="#commentaires">Commentaires</a></li>
+  <li><a href="#titres">Titres</a></li>
+  <li><a href="#modification-de-texte">Modification de texte</a></li>
+  <li><a href="#div,-p-et-span">Div, p et span</a></li>
+  <li><a href="#détails">Détails</a></li>
+  <li><a href="#code">Code</a></li>
+  <li><a href="#listes">Listes</a></li>
+  <li><a href="#tables">Tables</a></li>
+  <li><a href="#liens">Liens</a></li>
+  <li><a href="#images">Images</a></li>
+  <li><a href="#constantes">Constantes</a></li>
+  <li><a href="#variables">Variables</a></li>
+  <li><a href="#inclusion-de-fichier-html">Inclusion de fichier HTML</a></li>
+  <li><a href="#liens-vers-un-fichier-css-ou-javascript">Liens vers un fichier CSS ou JavaScript</a></li>
+  <li><a href="#spécial">Spécial</a></li>
 </ul>
-<h2 id="Commentaires">Commentaires</h2>
+<h2 id="commentaires">Commentaires</h2>
 <p>On peut faire des commentaires en mettant <code>!rem</code> ou <code>§§</code> en début de ligne, toute la ligne est alors en commentaire.</p>
 <blockquote>
 !rem Ceci est un commentaire<br>
@@ -181,12 +181,12 @@
 ceci est un retour ## à la ligne.<br>
 </blockquote>
 <p>ceci est un retour<br>à la ligne.</p>
-<h2 id="Titres">Titres</h2>
+<h2 id="titres">Titres</h2>
 <p>On met en début de ligne un nombre de <code>#</code> correspondant au niveau du titre que l'on veut.</p>
 <blockquote>
 ### Titre de niveau 3<br>
 </blockquote>
-<h2 id="Modification-de-texte">Modification de texte</h2>
+<h2 id="modification-de-texte">Modification de texte</h2>
 <ul>
   <li>**<b>gras</b>** : pour mettre en gras (balise <i>b</i>)</li>
   <li>!!<strong>gras</strong>!! : pour mettre en gras (balise <i>strong</i>)</li>
@@ -198,7 +198,7 @@ ceci est un retour ## à la ligne.<br>
   <li>%%<sub>indice</sub>%% : pour mettre en indice</li>
   <li>Pour échapper un caractère spécial, utilisez <code>\</code></li>
 </ul>
-<h2 id="Div,-p-et-span">Div, p et span</h2>
+<h2 id="div,-p-et-span">Div, p et span</h2>
 <ul>
   <li><code>{{#id .class}}</code> : sur une ligne, seule, permet de définir une div avec un id et/ou une classe.</li>
   <li><code>{{begin}}</code> : sur une ligne, pour ouvrir une div sans id ni classe.</li>
@@ -212,7 +212,7 @@ ceci est un retour ## à la ligne.<br>
 Ceci est un texte avec une partie cachée : {{.spoiler Dark Vador est le père de Luke}}. Pour ne pas spoiler.<br>
 </blockquote>
 <p>Ceci est un texte avec une partie cachée : <span class="spoiler">Dark Vador est le père de Luke</span>. Pour ne pas spoiler.</p>
-<h2 id="Détails">Détails</h2>
+<h2 id="détails">Détails</h2>
 <ul>
   <li>Ecrire <code>{{xxx => yyy}}</code> pour ouvrir une courte note. On peut mettre un id et une classe avant xxx avec <code>#id</code> et <code>.class</code>.</li>
   <li>Ecrire <code>{{xxx =>}}</code> pour ouvrir une longue note. mettre un id et une classe avant xxx avec <code>#id</code> et <code>.class</code>.</li>
@@ -234,7 +234,7 @@ Ceci est un texte avec une partie cachée : {{.spoiler Dark Vador est le père d
   <li>Avec du Hamill dedans</li>
 </ul>
 </details>
-<h2 id="Code">Code</h2>
+<h2 id="code">Code</h2>
 <p>On utilise <code>@@pour du code inline@@</code>. Hamill dispose d'un colorisateur syntaxique pour Python et JSON, on précise ainsi : <code>@@python def function(par1, par2)@@</code>.</p>
 <p>Pour un bloc de code, il y a deux solutions :</p>
 <p>On peut faire une ligne avec seulement <code>@@</code> suivi éventuellement du langage qu'on souhaite puis des lignes avec <code>@@</code> au début jusqu'à une ligne ne comportant que <code>@@</code>. Ainsi :</p>
@@ -268,7 +268,7 @@ python
 def function(par1, par2):
     return "Ceci est une fonction"
 </pre>
-<h2 id="Listes">Listes</h2>
+<h2 id="listes">Listes</h2>
 <ul>
   <li><code>*</code> pour une liste non numérotée</li>
 </ul>
@@ -283,11 +283,11 @@ def function(par1, par2):
 <ul>
   <li>\| pour continuer un élément d'une liste.</li>
 </ul>
-<h2 id="Listes-de-définition">Listes de définition</h2>
+<h2 id="listes-de-définition">Listes de définition</h2>
 <ul>
   <li>$ indique une liste de définition. On fait suivre directement la définition en la précédant d'espaces.</li>
 </ul>
-<h2 id="Tables">Tables</h2>
+<h2 id="tables">Tables</h2>
 <ul>
   <li>Un tableau s'écrit ainsi : |col1|col2|col3|</li>
   <li>La ligne de titre doit être la première et séparée des autres par une ligne de tirets : |----|</li>
@@ -312,7 +312,7 @@ def function(par1, par2):
 <tr><td class="text-center">#c3# Centré et colspan=3    </td></tr>
 </table>
 <p><b>LIMITATION : pas de listes dans un tableau pour l'instant</b> :</p>
-<h2 id="Liens">Liens</h2>
+<h2 id="liens">Liens</h2>
 <ul>
   <li>On utilise les crochets</li>
   <li>La première forme dite <i>directe</i> est <code>[> URL]</code> ou <code>[> REF]</code>. L'URL ou la REF sera affichée</li>
@@ -322,12 +322,12 @@ def function(par1, par2):
   <li>Une forme spéciale de la nommée est si REF est seulement <code>#</code> comme <code>[ nom affiché -> # ]</code> : il essaye de faire sur le nom affiché transformé ou, si l'ancre n'existe pas, le nom affiché directement</li>
   <li>Les titres sont automatiquement transformés en ancre en remplaçant les espaces par - et en les mettant en minuscules : ainsi <b>Les jeux</b> devient <b>les_jeux</b></li>
 </ul>
-<h2 id="Images">Images</h2>
+<h2 id="images">Images</h2>
 <ul>
   <li>On utilise les crochets [ avec ! comme : [!mon_image.png]</li>
   <li>On peut définir un répertoire par défaut où les images seront prises avec la variable <code>DEFAULT_FIND_IMAGE</code></li>
 </ul>
-<h2 id="Constantes">Constantes</h2>
+<h2 id="constantes">Constantes</h2>
 <p>On peut définir des constantes en mettant <code>!const</code> en début de ligne. Les constantes peuvent être définies n'importe où dans le document et plusieurs fois mais <b><u>seule la dernière valeur définie est prise en compte</u></b>.</p>
 <ul>
   <li><code>!const TITLE=titre</code> pour définir le titre de la page</li>
@@ -337,7 +337,7 @@ def function(par1, par2):
   <li><code>!const BODY_CLASS=classe</code> pour définir la classe du body</li>
   <li><code>!const BODY_ID=id</code> pour définir l'id du body</li>
 </ul>
-<h2 id="Variables">Variables</h2>
+<h2 id="variables">Variables</h2>
 <p>On peut définir des variables en mettant <code>!var</code> en début de ligne. On peut changer sa valeur en la redéfinissant dans le document plusieurs fois. Au contraire des constantes, les variables sont lues au fur et à mesure de l'émission du HTML.</p>
 <ul>
   <li><code>!var EXPORT_COMMENT=true/false</code> spécifie si les commentaires seront exportés en HTML ou pas</li>
@@ -351,14 +351,14 @@ def function(par1, par2):
   <li><code>!var DEFAULT_TAB_CLASS=cls</code> spécifie la classe par défaut de <b>tous les tableaux qui suivent</b></li>
   <li><code>!var DEFAULT_FIND_IMAGE=path</code> spécifie un répertoire où aller chercher les images par défaut</li>
 </ul>
-<h2 id="Inclusion-de-fichier-HTML">Inclusion de fichier HTML</h2>
+<h2 id="inclusion-de-fichier-html">Inclusion de fichier HTML</h2>
 <p>On peut inclure un fichier HTML avec <code>!include</code> en début de ligne. Le contenu du fichier sera copié directement le document produit.</p>
-<h2 id="Liens-vers-un-fichier-CSS-ou-JavaScript">Liens vers un fichier CSS ou JavaScript</h2>
+<h2 id="liens-vers-un-fichier-css-ou-javascript">Liens vers un fichier CSS ou JavaScript</h2>
 <p>On peut lier notre document à fichier CSS ou JavaScript avec la commande <code>!require</code> en début de ligne.</p>
 <p>Le lien vers un fichier CSS requis est <b>automatiquement</b> placé dans la tête du document HTML.</p>
 <p>Le lien vers un fichier JavaScript requis est placé là ou se trouve le <code>!require</code>.</p>
 <p><b>LIMITATION : Hamill ne peut pas mettre un lien vers un fichier JavaScript dans la tête pour l'instant</b>.</p>
-<h2 id="Spécial">Spécial</h2>
+<h2 id="spécial">Spécial</h2>
 <ul>
   <li><code>!css css-code</code> permet de rajouter du code css</li>
   <li><code>!html html-code</code> permet de rajouter du code html</li>
