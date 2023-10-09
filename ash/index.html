@@ -1,379 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Ash Live</title>
-		<link
-			rel="icon"
-			href="https://xitog.github.io/dgx/img/favicon.ico"
-			type="image/x-icon"
-		/>
-		<link
-			rel="shortcut icon"
-			href="https://xitog.github.io/dgx/img/favicon.ico"
-			type="image/x-icon"
-		/>
-		<link
-			href="http://fonts.googleapis.com/css?family=Lobster"
-			rel="stylesheet"
-			type="text/css"
-		/>
-		<style>
-			/* Original tree view css from Ross Angus */
 
-			body {
-				font-family: "Courier New", Courier, monospace;
-			}
+<head>
+    <title>Ash Live</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
+    <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css" />
+    <link href="ash.css" rel="stylesheet" />
+    <script type="module" src="./lexer.mjs"></script>
+    <script type="module" src="./parser.mjs"></script>
+    <script type="module" src="./interpreter.mjs"></script>
+    <script type="module" stc="./translator.mjs"></script>
+    <script type="module">
+        //-----------------------------------------------------------------
+        // Imports
+        //-----------------------------------------------------------------
+        import { Lexer, Language } from "./lexer.mjs";
+        import { Parser } from "./parser.mjs";
+        import { Interpreter, VERSION } from "./interpreter.mjs";
+        import { Translator} from "./translator.mjs";
 
-			/* It's supposed to look like a tree diagram */
-			.tree,
-			.tree ul,
-			.tree li,
-			.monotree,
-			.monotree ul,
-			.monotree li {
-				list-style: none;
-				margin: 0;
-				padding: 0;
-				position: relative;
-			}
+        //-----------------------------------------------------------------
+        // Functions
+        //-----------------------------------------------------------------
+        function $(element) {
+            let obj = document.getElementById(element);
+            if (obj === null) {
+                let msg = "No element found: " + element;
+                alert(msg);
+                throw new Error(msg);
+            }
+            return obj;
+        }
 
-			.tree,
-			.monotree {
-				margin: 0 0 1em;
-				text-align: center;
-			}
-			.tree,
-			.tree ul,
-			.monotree,
-			.monotree ul {
-				display: table;
-			}
-			.tree ul,
-			.monotree ul {
-				width: 100%;
-			}
-			.tree li,
-			.monotree li {
-				display: table-cell;
-				padding: 0.5em 0;
-				vertical-align: top;
-			}
-			/* _________ */
-			.tree li:before,
-			.monotree li:before {
-				outline: solid 1px #666;
-				content: "";
-				left: 0;
-				position: absolute;
-				right: 0;
-				top: 0;
-			}
-			.tree li:first-child:before,
-			.monotree li:first-child:before {
-				left: 50%;
-			}
-			.tree li:last-child:before,
-			.monotree li:last-child:before {
-				right: 50%;
-			}
+        function clear() {
+            $("code_input").value = '';
+        }
 
-			.tree code,
-			.tree span,
-			.monotree code {
-				border: solid 0.1em #666;
-				border-radius: 0.2em;
-				display: inline-block;
-				margin: 0 0.2em 0.5em;
-				padding: 0.2em 0.5em;
-				position: relative;
-			}
-			/* If the tree represents DOM structure */
-			.tree code,
-			.monotree code {
-				font-family: monaco, Consolas, "Lucida Console", monospace;
-			}
+        function run(debug = false) {
+            console.log(`start of run debug=${debug}`);
+            buffer = '';
+            let code = $("code_input").value;
+            if (code === '') {
+                code = $("code_textarea").value;
+            }
+            if (code === '') {
+                alert("No code to process");
+                return false;
+            }
+            let step = 'INIT';
+            try {
+                code = code.trim();
+                if (debug) console.log(`Input code : |code|`)
+                if (debug) console.log('Lexing :');
+                step = 'LEXING';
+                let lexer = new Lexer('ash', [], debug);
+                let tokens = lexer.lex(code);
+                if (debug) {
+                    for (const [index, tok] of tokens.entries()) {
+                        console.log('    ' + index.toString().padStart(3) + `. ${tok}`);
+                    }
+                }
+                if (debug) console.log('Parsing :');
+                step = 'PARSING';
+                let root = new Parser().parse(tokens, debug);
+                if (debug) console.log('Interpreter :');
+                step = 'EXECUTING';
+                GlobalInterpreter.setDebug(debug);
+                let result = GlobalInterpreter.do(root);
+                let output = document.createElement("pre");
+                if (debug) console.log('End of execution');
+                step = 'TRANSPILING';
+                let codejs = new Translator().do(root);
+                let resultjs = eval(codejs);
+                console.log('Code JS   : ' + codejs);
+                console.log('Result JS : ' + resultjs);
+                // Graphic output
+                if ($("input_ast").checked) {
+                    let graph = document.createElement("div");
+                    graph.innerHTML = root.toHTMLTree();
+                    $("console").prepend(graph);
+                }
+                // Console output
+                output.innerHTML = '<span class="command">&gt;&gt;&gt; ' + lexer.toHTML(tokens, ['blank']) + '</span>\n' + buffer + '=' + result;
+                $("console").style.display = 'block';
+                $("console").prepend(output);
+                console.log('Result : ' + result);
+                $("code_input").value = '';
+            } catch (e) {
+                console.log(`[${step}] Error when executing code: ${code}`);
+                console.log(`[${step}] ${e.message}`);
+                console.trace();
+                alert(`[${step}] ${e.message}`);
+            }
+            console.log(`end of run at ${step}`);
+        }
 
-			/* | */
-			.tree ul:before,
-			.tree code:before,
-			.tree span:before {
-				outline: solid 1px #666;
-				content: "";
-				height: 0.5em;
-				left: 50%;
-				position: absolute;
-			}
-			.tree ul:before {
-				top: -0.5em;
-			}
-			.tree code:before,
-			.tree span:before {
-				top: -0.55em;
-			}
+        function openOrCloseOptions() {
+            let elem = $('option_panel');
+            if (elem.style.display === "block") {
+                elem.style.display = "none";
+            } else {
+                elem.style.display = "block";
+            }
+        }
 
-			/* The root node doesn't connect upwards */
-			.tree > li {
-				margin-top: 0;
-			}
-			.tree > li:before,
-			.tree > li:after,
-			.tree > li > code:before,
-			.tree > li > span:before {
-				outline: none;
-			}
+        function changeInput() {
+            if ($('code_textarea').style.display !== 'inline') {
+                let code = $("code_input").value;
+                $("code_input").value = '';
+                $('code_textarea').value = code;
+                $("code_input").style.display = 'none';
+                $('code_textarea').style.display = 'inline';
+            } else {
+                let code = $('code_textarea').value;
+                $('code_textarea').value = '';
+                $("code_input").value = code;
+                $("code_input").style.display = 'inline';
+                $('code_textarea').style.display = 'none';
+            }
+        }
 
-			code[data-type="keyword"] {
-				font-weight: bold;
-				color: orange;
-			}
-			code[data-type="expr"] {
-				background-color: #ffcccb;
-			}
-			code[data-type="id"] {
-				color: purple;
-			}
-			code[data-type="int"] {
-				color: red;
-			}
+        let buffer = '';
+        function outputFunction(m) {
+            console.log(m);
+            buffer += m + '\n';
+        }
 
-			h1 {
-				font-family: "Lobster", cursive, monospace, "Consolas",
-					"Century Gothic";
-				color: #4087e4;
-				font-size: 32px;
-			}
+        function getScreenFunction() {
+            let screen = $("screen");
+            let ctx = screen.getContext("2d");
+            if (screen.style.display !== 'block') {
+                ctx.clearRect(0, 0, screen.width, screen.height);
+                screen.style.display = 'block';
+            }
+            return ctx;
+        }
 
-			fieldset {
-				width: 620px;
-				margin: auto;
-			}
-		</style>
-		<script type="module">
-			import { AshLex, AshParse, AshExecute, notAnExpression } from "./ash.mjs"; // tests
+        function main() {
+            console.log('start of main');
+            $("version").innerHTML = "Running v" + VERSION;
+            GlobalInterpreter = new Interpreter(outputFunction, getScreenFunction);
+            $("code_input").addEventListener("keyup", function (event) {
+                if (event.key === "Enter") {
+                    console.clear();
+                    console.log("Enter in input pressed");
+                    let debug = $("input_debug").checked;
+                    run(debug);
+                }
+            });
+            $("button_clear").onclick = clear;
+            $("button_run").onclick = function() {
+                console.clear();
+                console.log("Button run pressed");
+                let debug = $("input_debug").checked;
+                run(debug);
+            };
+            $("button_run").disabled = false;
+            // Options
+            $("options_button").onclick = openOrCloseOptions;
+            $("input_multilines").onchange = changeInput;
+            $("input_multilines").checked = false;
+            $("input_debug").checked = false;
+            // End
+            console.log("end of main");
+        }
 
-			window.onload = main;
+        let data;
+        await fetch('./languages/ash.lang.json').then(response => response.json().then(
+            data =>
+                Language.readDefinition(data)
+        ));
 
-			let current_line = 1;
-			function globalDrawText(
-				s,
-				color = "#000000",
-				size = 16,
-				font = "Courier"
-			) {
-				let canvas = document.getElementById("screen");
-				let context = canvas.getContext("2d");
-				context.font = `${size}px ${font}`;
-				context.fillStyle = color;
-				context.fillText(s, 10, current_line * 20);
-				current_line += 1;
-			}
+        let GlobalInterpreter;
 
-			function info(s) {
-				globalDrawText(s);
-			}
-			function error(s) {
-				globalDrawText(s, "#ff0000");
-			}
+        window.onload = function () { main(); };
 
-			function clickprocess() {
-				let code;
-				if (document.getElementById("expression").checked) {
-					code = document.main.expr.value;
-				} else {
-					code = document.main.inst.value; //.replaceAll("\n", "");
-				}
-				iprocess(">>>", code);
-			}
+        function checkActivation() {
+            if ($("button_run").disabled) {
+                main();
+            }
+        }
+        setInterval(checkActivation, 1000);
+    </script>
+</head>
 
-			function iprocess(name, code) {
-				console.clear();
-				let output = document.getElementById("output");
-				let debug_lex = document.getElementById("debug_lex").checked;
-				let debug_parse =
-					document.getElementById("debug_parse").checked;
-				let debug_execute =
-					document.getElementById("debug_execute").checked;
+<body id="body">
+    <!-- content -->
+    <div id="container">
+        <div>
+            <h1>Ash</h1>
+            <form id="main_form" name="main">
+                <fieldset id="fieldset_expr">
+                    <legend id="expr_legend">Enter your code</legend>
+                    <input id="button_clear" type="button" value="Clear" />
+                    <input id="code_input" type="text" size="60" placeholder="Enter your code here" />
+                    <textarea id="code_textarea" name="code" rows="5" cols="60" autofocus
+                        placeholder="Enter your code here" spellcheck="false" required autocomplete="false"
+                        wrap="off"></textarea>
+                    <input id="button_run" type="button" value="Run" disabled />
+                </fieldset>
+            </form>
+            <canvas id="screen"></canvas>
+            <div id="ast"></div>
+            <div id="console"></div>
+            <button id="options_button">Options</button>
+            <div id="option_panel">
+                <fieldset>
+                    <legend>Options</legend>
+                    <label for="input_multilines">Multilines</label>
+                    <input id="input_multilines" name="mode" type="checkbox" />
+                    <label for="input_ast">Show AST</label>
+                    <input id="input_ast" name="ast" type="checkbox" />
+                    <label for="input_debug">Debug</label>
+                    <input id="input_debug" name="debug" type="checkbox" />
+                </fieldset>
+            </div>
+        </div>
+    </div>
+    <div id="version"></div>
+    <p id="info"><a href="https://github.com/Xitog/ash">Source & docs</a></p>
+</body>
 
-				let nodes = AshLex(code, debug_lex);
-				// HTML Result
-				let container = document.createElement("div");
-				// Title
-				let title = document.createElement("h1");
-				title.innerText = name;
-				container.appendChild(title);
-				// Input nodes
-				let input = document.createElement("pre");
-				input.innerHTML = nodes
-					.map((x, index) => index + " " + x.toHTML())
-					.join(" "); //.join(", ");
-				container.appendChild(input);
-
-				// Parsing
-				let result = null;
-				let ok = true;
-				try {
-					let root = AshParse(nodes, debug_parse);
-					// Graphic output
-					let graph = document.createElement("div");
-					graph.innerHTML = root.toHTMLTree(true);
-					container.appendChild(graph);
-
-					// Executing
-					try {
-						result = AshExecute(root, debug_execute, info, error);
-					} catch (exception) {
-						result = `EXECUTION ERROR: ${exception}`;
-						ok = false;
-					}
-				} catch (exception) {
-					result = `PARSE ERROR: ${exception}`;
-					ok = false;
-				}
-				// Result
-				let res = document.createElement("pre");
-				res.innerHTML = "Result = " + result;
-				container.appendChild(res);
-				if (ok) {
-					if (result !== notAnExpression) {
-						info(result);
-					}
-				} else {
-					error(result);
-				}
-
-				output.prepend(container); // appendChild
-				let boxres;
-				if (document.getElementById("expression").checked) {
-					boxres = document.getElementById("res_expr");
-				} else {
-					boxres = document.getElementById("res_inst");
-				}
-				boxres.value = result;
-			}
-
-			function reset_form() {
-				let exprchk = document.getElementById("expression").checked;
-
-				let expr = document.getElementById("fieldset_expr");
-				let inst = document.getElementById("fieldset_inst");
-
-				if (exprchk) {
-					expr.style.display = "block";
-					inst.style.display = "none";
-				} else {
-					expr.style.display = "none";
-					inst.style.display = "block";
-				}
-
-				console.clear();
-			}
-
-			function main() {
-				let input = document.getElementById("expr");
-				input.addEventListener("keydown", function (event) {
-					if (event.key === "Enter") {
-						event.preventDefault();
-						document.getElementById("go_expr").click();
-					}
-				});
-				let go = document.getElementById("go_expr");
-				go.onclick = clickprocess;
-				go = document.getElementById("go_inst");
-				go.onclick = clickprocess;
-				//tests(false);
-				let expr = document.getElementById("expression");
-				let inst = document.getElementById("instructions");
-
-				expr.addEventListener("change", reset_form);
-				inst.addEventListener("change", reset_form);
-
-				reset_form();
-			}
-		</script>
-	</head>
-	<body>
-		<div
-			style="text-align: center; padding-top: 70px; padding-bottom: 70px"
-		>
-			<h1>Ash</h1>
-			<form name="main">
-				<fieldset>
-					<legend>Choose</legend>
-					<input id="expression" name="mode" type="radio" checked />
-					<label for="expression">Expression</label>
-					<input id="instructions" name="mode" type="radio" />
-					<label for="instructions">Instructions</label>
-				</fieldset>
-				<fieldset id="fieldset_expr">
-					<legend id="legend_expr">Type your expression</legend>
-					<input id="expr" name="expr" type="text" size="60" />
-					<input id="go_expr" type="button" value="Run" />
-					<input
-						id="res_expr"
-						type="text"
-						disabled
-						style="background-color: gainsboro"
-					/>
-				</fieldset>
-				<fieldset id="fieldset_inst" style="display: none">
-					<legend id="legend_instr">Type your instructions</legend>
-					<textarea
-						id="inst"
-						name="inst"
-						rows="5"
-						cols="80"
-						autofocus
-						placeholder="Enter your code here"
-						spellcheck="false"
-						required
-						autocomplete="false"
-						style="resize: none"
-					></textarea>
-					<br /><br />
-					<input id="go_inst" type="button" value="Run" />
-					<input
-						id="res_inst"
-						type="text"
-						disabled
-						style="background-color: gainsboro"
-					/>
-				</fieldset>
-				<fieldset>
-					<legend>Debug</legend>
-					<input
-						id="debug_lex"
-						name="debug_lex"
-						type="checkbox"
-						onchange="console.clear()"
-					/>
-					<label for="debug_lex">Lex</label>
-					<input
-						id="debug_parse"
-						name="debug_parse"
-						type="checkbox"
-						onchange="console.clear()"
-					/>
-					<label for="debug_parse">Parse</label>
-					<input
-						id="debug_execute"
-						name="debug_execute"
-						type="checkbox"
-						onchange="console.clear()"
-					/>
-					<label for="debug_execute">Execute</label>
-				</fieldset>
-			</form>
-			<canvas
-				id="screen"
-				width="640"
-				height="480"
-				style="border: 1px solid black; margin-top: 1em"
-			></canvas>
-			<p><a href="https://github.com/Xitog/ash">Source & docs</a></p>
-			<div id="output"></div>
-		</div>
-	</body>
 </html>
