@@ -71,6 +71,20 @@ class Translator {
         let left = null;
         let right = null;
         switch (node.getType()) {
+            case 'UnaryOp':
+                left = this.do(node.left);
+                let unaop = node.getValue();
+                switch(unaop) {
+                    case '-':
+                        output = `-${left}`;
+                        break;
+                    case 'not':
+                        output = `!${left}`;
+                        break;
+                    default:
+                        throw new Error("Not handled unary operator : " + unaop);
+                }
+                return output;
             case 'BinaryOp':
                 left = this.do(node.left);
                 right = this.do(node.right);
@@ -110,7 +124,7 @@ class Translator {
                         output = `${left} || ${right}`;
                         break;
                     default:
-                        throw new Error("Not handled operator : " + node.operator.token.getValue());
+                        throw new Error("Not handled binary operator : " + operator);
                 }
                 return output;
             case 'Call':

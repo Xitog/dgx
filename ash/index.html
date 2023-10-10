@@ -85,7 +85,7 @@
                     $("console").prepend(graph);
                 }
                 // Console output
-                output.innerHTML = '<span class="command">&gt;&gt;&gt; ' + lexer.toHTML(tokens, ['blank']) + '</span>\n' + buffer + '=' + result;
+                output.innerHTML = '<span class="command">&gt;&gt;&gt; ' + lexer.toHTML(tokens, ['blank']) + '</span>\n' + buffer + '= ' + result;
                 $("console").style.display = 'block';
                 $("console").prepend(output);
                 console.log('Result : ' + result);
@@ -134,8 +134,20 @@
             let screen = $("screen");
             let ctx = screen.getContext("2d");
             if (screen.style.display !== 'block') {
+                // Setting canvas size
+                // CSS size
+                screen.style.width = "640px";
+                screen.style.height = "480px";
+                // HTML size
+                let scale = window.devicePixelRatio;
+                screen.width = 640 * scale;
+                screen.height = 480 * scale;
+                ctx.scale(scale, scale);
+                // Clear
                 ctx.clearRect(0, 0, screen.width, screen.height);
                 screen.style.display = 'block';
+                // No blur effect
+                ctx.imageSmoothingEnabled = false;
             }
             return ctx;
         }

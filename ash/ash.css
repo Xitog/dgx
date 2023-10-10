@@ -58,7 +58,6 @@ h1 {
 }
 
 #console {
-    width: 640px;
     margin: auto;
     display: none;
     resize: none;
@@ -87,20 +86,26 @@ h1 {
     margin-top: 1em;
 }
 
-/* TODO: string, keyword */
-
-span[class$=identifier] {
+span[class$=identifier], span[class$=boolean] {
     color: rgb(2, 155, 238);
-    /*rgb(156, 220, 254);*/
 }
 
-span[class$=separator] {
-    color: rgb(255, 201, 17);
-    /* 197 121 145 */
+span[class$=separator], span[class$=operator] {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
 }
 
 span[class$=integer] {
     color: rgb(255, 0, 0);
+}
+
+span[class$=keyword] {
+    color: rgb(255, 201, 17);
+    font-weight: bold;
+}
+
+span[class$=string] {
+    color: rgb(0, 150, 17);
 }
 
 /* It's supposed to look like a tree diagram */
