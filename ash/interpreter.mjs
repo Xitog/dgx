@@ -55,6 +55,7 @@ const main = (node) ? path.basename(process.argv[1]) === FILENAME : false;
 
 import { Lexer, Language } from "./lexer.mjs";
 import { Parser, Node } from "./parser.mjs";
+import { Library, Value, nil } from "./library.mjs";
 
 Language.readDefinition();
 
@@ -64,13 +65,6 @@ Language.readDefinition();
 
 let GlobalInterpreter = null;
 
-class NilClass {
-    toString() {
-        return "nil";
-    }
-}
-const nil = new NilClass();
-
 class NotAnExpression {
     toString() {
         return "not an expression"
@@ -78,274 +72,6 @@ class NotAnExpression {
 }
 // Shall a procedure returns nil or nae ?
 const notAnExpression = new NotAnExpression();
-
-class Value {
-    constructor(identifier, type, value) {
-        this.identifier = identifier;
-        this.type = type;
-        this.value = value;
-    }
-
-    setValue(value) {
-        console.log(typeof value);
-        console.log(Number.isInteger(value));
-        if (
-            (this.type === "boolean" && typeof value !== "boolean")
-            || (this.type === "integer" && (typeof value !== "number" || !Number.isInteger(value)))
-            || (this.type === "float" && typeof value !== "number")
-            || (this.type === "string" && typeof value !== "string")
-        ) {
-            let expectedType = typeof value;
-            if (expectedType === "number") {
-                expectedType = Number.isInteger(value) ? "integer" : "float";
-            }
-            throw new Error(`[ERROR] Variable ${this.identifier} is of type ${this.type} cannot set to ${value} of type ${expectedType}`);
-        }
-        this.value = value;
-    }
-
-    getValue() {
-        return this.value;
-    }
-
-    getType() {
-        return this.type;
-    }
-}
-
-class Function extends Value {
-    constructor(identifier, type, value, parameters, code) {
-        // value is only "procedure" or "function"
-        // type is its return type
-        super(identifier, type, value);
-        this.parameters = parameters;
-        this.code = code;
-    }
-
-    toString() {
-        return (
-            `function ${this.identifier} (` +
-            this.parameters.map((x) => x.toString()).join(", ") +
-            ")"
-        );
-    }
-
-    isProcedure() {
-        return this.value === 'procedure';
-    }
-
-    call(args) {
-        if (!Array.isArray(args)) {
-            throw new Error(`Args should be a list, not ${typeof args}`);
-        }
-        if (args.length !== Object.keys(this.parameters).length) {
-            console.log("Parameters:");
-            console.log(args, ' type:', typeof args);
-            throw new Error(`Too many or not enough parameters: expected number is ${Object.keys(this.parameters).length} and ${args.length} were provided.`);
-        }
-        return this.code(args);
-    }
-}
-
-let log = new Function(
-    'log',
-    nil,
-    'procedure',
-    {
-        'o': 'any'
-    },
-    function (args) {
-        GlobalInterpreter.output_function(args.join(' '));
-        return nil;
-    }
-);
-
-let clear = new Function(
-    'clear',
-    nil,
-    'procedure',
-    {},
-    function (args) {
-        let context = GlobalInterpreter.getContext();
-        if (context !== null) {
-            context.clearRect(0, 0, 640, 480);
-        }
-        return nil;
-    }
-);
-
-let line = new Function(
-    'line',
-    nil,
-    'procedure',
-    {},
-    function (args) {
-        let context = GlobalInterpreter.getContext();
-        if (context !== null) {
-            let x1 = args[0];
-            let y1 = args[1];
-            let x2 = args[2];
-            let y2 = args[3];
-            context.lineWidth = args[4];
-            context.strokeStyle = args[5];
-            context.beginPath();
-            context.moveTo(x1, y1);
-            context.lineTo(x2, y2);
-            context.stroke();
-        }
-        return nil;
-    }
-);
-
-let circle = new Function(
-    'circle',
-    nil,
-    'procedure',
-    {
-        'x': 'integer',
-        'y': 'integer',
-        'r': 'integer',
-        'color': 'integer',
-        'fill': 'boolean'
-    },
-    function (args) {
-        let context = GlobalInterpreter.getContext();
-        if (context !== null) {
-            let centerX = args[0];
-            let centerY = args[1];
-            let radius = args[2];
-            let color = args[3];
-            let full = args[4];
-            context.beginPath();
-            context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-            if (full) {
-                context.fillStyle = color;
-                context.fill();
-            } else {
-                context.strokeStyle = color;
-                context.stroke();
-            }
-        }
-        return nil;
-    }
-);
-
-let rect = new Function(
-    'rect',
-    nil,
-    'procedure',
-    {
-        'x': 'integer',
-        'y': 'integer',
-        'width': 'integer',
-        'height': 'integer',
-        'color': 'string',
-        'fill': 'boolean'
-    },
-    function (args) {
-        let context = GlobalInterpreter.getContext();
-        if (context !== null) {
-            context.fillStyle = args[4];
-            context.strokeStyle = args[4];
-            if (args[5]) {
-                context.fillRect(
-                    args[0],
-                    args[1],
-                    args[2],
-                    args[3]
-                );
-            } else {
-                context.strokeRect(
-                    args[0],
-                    args[1],
-                    args[2],
-                    args[3]
-                );
-            }
-        }
-        return nil;
-    }
-);
-
-let draw = new Function(
-    'draw',
-    nil,
-    'procedure',
-    {
-        'x': 'integer',
-        'y': 'integer',
-        'image': 'string'
-    },
-    function (args) {
-        let context = GlobalInterpreter.getContext();
-        if (context !== null) {
-            context.drawImage(args[2], args[0], args[1]);
-        }
-        return nil;
-    }
-);
-
-let text = new Function(
-    'text',
-    nil,
-    'procedure',
-    {
-        's': 'string',
-        'x': 'integer',
-        'y': 'integer'
-    },
-    function (args) {
-        let context = GlobalInterpreter.getContext();
-        if (context !== null) {
-            ctx.fillText(args[2], args[0], args[1]);
-        }
-        return nil;
-    }
-);
-
-let set_font = new Function(
-    'set_font',
-    nil,
-    'procedure',
-    {
-        'police': 'string',
-        'size': 'integer'
-    },
-    function (args) {
-        let context = GlobalInterpreter.getContext();
-        context.font = `${args[1]}px ${args[0]}`;
-    }
-);
-
-let set_fill = new Function(
-    'set_fill',
-    nil,
-    'procedure',
-    {
-        'c': 'string'
-    },
-    function (args) {
-        let context = GlobalInterpreter.getContext();
-        if (context !== null) {
-            context.fillStyle = args[0];
-        }
-    }
-);
-
-let set_stroke = new Function(
-    'set_stroke',
-    nil,
-    'procedure',
-    {
-        'c': 'string'
-    },
-    function (args) {
-        let context = GlobalInterpreter.getContext();
-        if (context !== null) {
-            context.strokeStyle = args[0];
-        }
-    }
-);
 
 class Interpreter {
     constructor(output_function = null, output_screen = null, debug = false) {
@@ -355,6 +81,7 @@ class Interpreter {
         this.scope = {};
         this.debug = debug;
         GlobalInterpreter = this;
+        Library.init(GlobalInterpreter);
     }
 
     getContext() {
@@ -625,20 +352,8 @@ class Interpreter {
         }
     }
 
-    library(id, args=[]) {
-        let base = {
-            // Graphic functions
-            'clear': clear, 'line': line,
-            'circle': circle, 'rect': rect, 'draw': draw,
-            'text': text,
-            'set_font': set_font, 'set_fill': set_fill, 'set_stroke': set_stroke,
-            // Console functions
-            'log': log, 'writeln': log
-        };
-        if (id in base) {
-            return base[id].call(args);
-        }
-        throw new Error(`[ERROR] Unknown function ${id}`);
+    library(idFun, args=[]) {
+        return Library.call(idFun, args);
     }
 }
 

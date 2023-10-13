@@ -55,8 +55,8 @@
             try {
                 code = code.trim();
                 if (debug) console.log(`Input code : |code|`)
-                if (debug) console.log('Lexing :');
-                step = 'LEXING';
+                step = 'Lexing';
+                if (debug) console.log(`${step} :`);
                 let lexer = new Lexer('ash', [], debug);
                 let tokens = lexer.lex(code);
                 if (debug) {
@@ -64,16 +64,18 @@
                         console.log('    ' + index.toString().padStart(3) + `. ${tok}`);
                     }
                 }
-                if (debug) console.log('Parsing :');
-                step = 'PARSING';
+                step = 'Parsing';
+                if (debug) console.log(`${step} :`);
                 let root = new Parser().parse(tokens, debug);
                 if (debug) console.log('Interpreter :');
-                step = 'EXECUTING';
+                step = 'Executing';
+                if (debug) console.log(`${step} :`);
                 GlobalInterpreter.setDebug(debug);
                 let result = GlobalInterpreter.do(root);
                 let output = document.createElement("pre");
                 if (debug) console.log('End of execution');
-                step = 'TRANSPILING';
+                step = 'Transpiling';
+                if (debug) console.log(`${step} :`);
                 let codejs = new Translator().do(root);
                 let resultjs = eval(codejs);
                 console.log('Code JS   : ' + codejs);

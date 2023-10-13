@@ -128,7 +128,6 @@ class Translator {
                 }
                 return output;
             case 'Call':
-                // TODO
                 return nil;
             case 'Integer':
             case 'Float':
