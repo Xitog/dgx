@@ -47,7 +47,7 @@ This is a paragraph.
 
 This is another one.
 
-We can include newline \\ inside paragraph with \\\ !
+We can include newline ## inside paragraph with \## !
 
 ## Spans
 
