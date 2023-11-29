@@ -55,7 +55,10 @@ const main = (node) ? path.basename(process.argv[1]) === FILENAME : false;
 
 import { Lexer, Language } from "./lexer.mjs";
 import { Parser, Node } from "./parser.mjs";
-import { Library, Value, nil } from "./library.mjs";
+import {
+    Library, Value, nil, notAnExpression, BoundedFunction,
+    AshObject, AshInteger, AshFloat, AshBoolean, AshString, AshList
+} from "./library.mjs";
 
 Language.readDefinition();
 
@@ -65,19 +68,15 @@ Language.readDefinition();
 
 let GlobalInterpreter = null;
 
-class NotAnExpression {
-    toString() {
-        return "not an expression"
-    }
-}
-// Shall a procedure returns nil or nae ?
-const notAnExpression = new NotAnExpression();
+class BreakException extends Error { }
+class NextException extends Error { }
 
 class Interpreter {
-    constructor(output_function = null, output_screen = null, debug = false) {
+    constructor(output_function = null, output_screen = null, input_function = null, debug = false) {
         this.root = {};
         this.output_function = output_function == null ? console.log : output_function;
         this.output_screen = output_screen;
+        this.input_function = input_function == null ? reader.question : input_function;
         this.scope = {};
         this.debug = debug;
         GlobalInterpreter = this;
@@ -124,33 +123,55 @@ class Interpreter {
             if (node.right !== null) {
                 val = this.do(node.right, level + 1);
             }
-            this.log(`Block ${val}`, level);
+            if (val !== notAnExpression) {
+                this.log(`Block ${val} of type ${Library.getTypeJS(val)}`, level);
+            } else {
+                this.log(`Block ${val} notAnExpression`, level);
+            }
             return val;
         } else if (node.type === 'Import') {
             this.log('Importing: ' + this.do(node.left, level + 1, false), level);
             return nil;
         } else if (node.type === 'Call') {
-            let idFun = this.do(node.left, level + 1, false);
-            let arg = [];
+            let boundFunction = this.do(node.left, level + 1, false);
+            let args = [];
             if (node.right !== null) {
-                arg = this.do(node.right, level + 1);
-                if (!Array.isArray(arg)) {
-                    arg = [arg];
+                args = this.do(node.right, level + 1);
+                if (!Array.isArray(args)) {
+                    args = [args];
                 }
             }
-            return this.library(idFun, arg);
+            let res;
+            if (boundFunction instanceof BoundedFunction) {
+                res = boundFunction.do(args);
+            } else if (typeof boundFunction === "string") {
+                res = this.library(boundFunction, args);
+            }
+            if (res !== notAnExpression && !(res instanceof AshObject)) {
+                throw new Error(`Out of Ash World\n    function ${boundFunction}\n    returned ${res} of type ${typeof res}`);
+            }
+            return res;
+        } else if (node.type === 'Break') {
+            throw new BreakException();
+        } else if (node.type === 'Next') {
+            throw new NextException();
         } else if (node.type === 'While') {
             let cond = this.do(node.value, level + 1);
             let security = 1000000000;
             while (cond === true) {
-                this.do(node.left, level + 1);
+                try {
+                    this.do(node.left, level + 1);
+                } catch (err) {
+                    if (err instanceof BreakException) break;
+                    else if (!(err instanceof NextException)) throw err;
+                }
                 cond = this.do(node.value, level + 1);
                 security -= 1;
                 if (security === 0) {
                     throw new Error("Infinite loop detected");
                 }
             }
-            return nil;
+            return notAnExpression;
         } else if (node.type === 'If') {
             let cond = this.do(node.value, level + 1);
             if (cond === true) {
@@ -158,7 +179,7 @@ class Interpreter {
             } else if (node.right !== null) {
                 this.do(node.right, level + 1);
             }
-            return nil;
+            return notAnExpression;
         } else if (node.type === 'UnaryOp') {
             if (node.value === '-') {
                 let val = -this.do(node.left, level + 1);
@@ -176,13 +197,21 @@ class Interpreter {
                 throw new Error(`[ERROR] Unknown Unary Op: ${node}`)
             }
         } else if (node.type === 'BinaryOp') {
-            if (node.value === ',') {
+            if (node.value === '.') {
+                let left = this.do(node.left, level + 1);
+                let right = this.do(node.right, level + 1, false);
+                if (!(right in left)) {
+                    throw new Error(`[ERROR] unknown method or attribute ${right} in ${left}`);
+                }
+                return new BoundedFunction(left, left[right]);
+            } else if (node.value === ',') {
                 let left = this.do(node.left, level + 1);
                 let right = this.do(node.right, level + 1);
-                if (!Array.isArray(right)) {
-                    right = [right];
+                if (Array.isArray(right)) {
+                    right.unshift(left);
+                } else {
+                    right = [left, right];
                 }
-                right.unshift(left);
                 return right;
             } else if (['=', '+=', '-=', '*=', '/=', '//=', '**=', '%='].includes(node.value)) {
                 // Left side
@@ -202,14 +231,7 @@ class Interpreter {
                 }
                 if (node.value === '=') {
                     if (!(identifier in this.scope)) {
-                        let type = "object";
-                        if (typeof val === "boolean") {
-                            type = 'boolean';
-                        } else if (typeof val === "number") {
-                            type = Number.isInteger(val) ? 'integer' : 'float';
-                        } else if (typeof val === "string") {
-                            type = 'string';
-                        }
+                        let type = Library.typeJStoAsh(val);
                         this.scope[identifier] = new Value(identifier, type, val);
                     } else {
                         this.scope[identifier].setValue(val);
@@ -229,86 +251,64 @@ class Interpreter {
                 } else if (node.value === '%=') {
                     this.scope[identifier].setValue(this.scope[identifier].getValue() % val);
                 }
+                this.log(`Affectation combined ${identifier} ${node.value} ${val}`, level);
                 return this.scope[identifier].getValue();
             } else {
                 let left = this.do(node.left, level + 1);
                 let right = this.do(node.right, level + 1);
                 let res = null;
-                if (typeof left === "boolean") {
+                if (typeof left === "object" && left instanceof AshObject) {
                     switch (node.value) {
                         case 'and':
-                            res = left && right;
+                            res = left.__and__(right);
                             break;
                         case 'or':
-                            res = left || right;
+                            res = left.__or__(right);
                             break;
-                        default:
-                            throw new Error(`[ERROR] Unsupported binary operator ${node.value} for boolean`);
-                    }
-                } else if (typeof left === "string") {
-                    switch (node.value) {
                         case '+':
-                            if (typeof right !== "string") {
-                                throw new Error(`[ERROR] Unsupported binary operator ${node.value} for ${type} with ${typeof right} parameter. Can only add a string to a string.`);
-                            }
-                            res = left + right;
-                            break;
-                        case '*':
-                            if (typeof right !== "number" || !Number.isInteger(right)) {
-                                throw new Error(`[ERROR] Unsupported binary operator ${node.value} for ${type} with ${typeof right} parameter. Can only repeat a string by an integer.`);
-                            }
-                            res = left.repeat(right);
-                            break;
-                        default:
-                            throw new Error(`[ERROR] Unsupported binary operator ${node.value} for string`);
-                    }
-                } else if (typeof left === "number") {
-                    let type = Number.isInteger(left) ? "integer" : "float";
-                    switch (node.value) {
-                        case '+':
-                            if (typeof right !== "number") {
-                                throw new Error(`[ERROR] Unsupported binary operator ${node.value} for ${type} with ${typeof right} parameter`);
-                            }
-                            res = left + right;
+                            res = left.__add__(right);
                             break;
                         case '-':
-                            res = left - right;
+                            res = left.__sub__(right);
                             break;
                         case '*':
-                            res = left * right;
+                            res = left.__mul__(right);
                             break;
                         case '/':
-                            res = left / right;
-                            break;
-                        case '**':
-                            res = Math.pow(left, right);
+                            res = left.__div__(right);
                             break;
                         case '//':
-                            res = Math.floor(left / right);
+                            res = left.__intdiv__(right);
+                            break;
+                        case '**':
+                            res = left.__pow__(right);
                             break;
                         case '%':
-                            res = left % right;
-                            break;
-                        case '==':
-                            res = left === right;
-                            break;
-                        case '!=':
-                            res = left !== right;
+                            res = left.__mod__(right);
                             break;
                         case '>':
-                            res = left > right;
-                            break;
-                        case '<':
-                            res = left < right;
+                            res = left.__gt__(right);
                             break;
                         case '>=':
-                            res = left >= right;
+                            res = left.__ge__(right);
+                            break;
+                        case '<':
+                            res = left.__lt__(right);
                             break;
                         case '<=':
-                            res = left <= right;
+                            res = left.__le__(right);
+                            break;
+                        case '==':
+                            res = left.__eq__(right);
+                            break;
+                        case '!=':
+                            res = left.__eq__(right).__not__();
+                            break;
+                        case 'index':
+                            res = left.at(right);
                             break;
                         default:
-                            throw new Error(`[ERROR] Unsupported binary operator ${node.value} for ${type}`);
+                            throw new Error(`[ERROR] Unsupported binary operator ${node.value} for ${left.constructor.name}`);
                     }
                 } else {
                     throw new Error(`[ERROR] Unsupported type : ${typeof left}`);
@@ -316,18 +316,32 @@ class Interpreter {
                 this.log(`Binaryop(${node.value}) ${res}`, level);
                 return res;
             }
+        } else if (node.type === 'List') {
+            let res = new AshList();
+            if (node.left !== null) {
+                let elem = this.do(node.left, level + 1);
+                if (Array.isArray(elem)) {
+                    elem.forEach(e => res.push(e));
+                } else {
+                    res.push(elem);
+                }
+            }
+            return res;
         } else if (node.type === 'Integer') {
             let val = parseInt(node.value);
             this.log(`Integer ${val}`, level);
-            return val;
+            return new AshInteger(val);
         } else if (node.type === 'Float') {
             let val = parseFloat(node.value);
             this.log(`Float ${val}`, level)
-            return val;
+            return new AshFloat(val);
         } else if (node.type === 'Boolean') {
             let val = node.value === 'true';
             this.log(`Boolean ${val}`, level);
-            return val;
+            return new AshBoolean(val);
+        } else if (node.type === 'Nil') {
+            this.log('NilClass nil', level);
+            return nil;
         } else if (node.type === 'Identifier') {
             if (evalId) {
                 if (!(node.value in this.scope)) {
@@ -342,18 +356,18 @@ class Interpreter {
                 return node.value;
             }
         } else if (node.type === 'String') {
-            this.log(`String ${node.value}`, level); //no slice(1, .length -1)
-            return node.value.slice(1, node.value.length - 1);
+            this.log(`String ${node.value}`, level);
+            return new AshString(node.value.slice(1, node.value.length - 1));
         } else {
-            console.log(node, typeof node);
-            console.log(node.type, typeof node.type);
-            console.log(node.value, typeof node.value);
+            console.log('Node:', node, typeof node);
+            console.log('Type:', node.type, typeof node.type);
+            console.log('Value:', node.value, typeof node.value);
             throw new Error(`[ERROR] Not handled node type |${node.type}| for node: ${node}`);
         }
     }
 
-    library(idFun, args=[]) {
-        return Library.call(idFun, args);
+    library(idFun, args = []) {
+        return Library.sendMessage(null, idFun, args);
     }
 }
 
@@ -412,14 +426,24 @@ function testsMain(debug) {
 // Main
 //-------------------------------------------------------------------------------
 
-function execute(text) {
+// Sonarlint complains about ${token}: it does not recognize the .toString()
+class XToken {
+    constructor(tok) {
+        this.tok = tok;
+    }
+    toString() {
+        return this.tok.toString();
+    }
+}
+
+function execute(text, doExecute = true) {
     let tokens = new Lexer('ash', [], GlobalInterpreter.getDebug()).lex(text);
     if (GlobalInterpreter.getDebug()) {
         console.log('Tokens:');
         let cpt = 0;
         for (let token of tokens) {
             if (!token.equals("blank")) {
-                console.log(`    ${cpt}. ${token}`);
+                console.log(`    ${cpt}. ${new XToken(token)}`);
                 cpt += 1;
             }
         }
@@ -431,8 +455,11 @@ function execute(text) {
         console.log(res.toString());
         console.log('Result:');
     }
-    let finalRes = GlobalInterpreter.do(res);
-    return finalRes;
+    if (doExecute) {
+        let finalRes = GlobalInterpreter.do(res);
+        return finalRes;
+    }
+    return notAnExpression;
 }
 
 function nodeMain(debug = true) {
@@ -442,7 +469,9 @@ function nodeMain(debug = true) {
     process.argv.forEach(x => console.log('    ' + x));
     // 1: node.exe
     // 2: filename.mjs
-    if (process.argv.length === 3 && process.argv[2] === 'tests') {
+    if (process.argv.length === 3 && process.argv[2] === 'doc') {
+        Library.produceDocumentation();
+    } else if (process.argv.length === 3 && process.argv[2] === 'tests') {
         testsMain(debug);
     } else if (process.argv.length === 4 && process.argv[2] === 'build') {
         let appPath = process.argv[3];
@@ -469,9 +498,12 @@ function nodeMain(debug = true) {
         data = data.replace(/\r\n/g, "\n").replace(/\n\r/g, "\n");
         if (debug) {
             console.log(`Data read from file: ${filename}`);
+            console.log(data);
         }
         let res = execute(data);
-        console.log("Final Res: " + res);
+        if (res !== notAnExpression) {
+            console.log("Final Res: " + res);
+        }
     } else if (process.argv.length > 4) {
         throw new Error(
             `Too many parameters: ${process.argv.length}. The maximum is 4.`
@@ -481,10 +513,11 @@ function nodeMain(debug = true) {
         let cmd = "";
         let buffer = "";
         let prompt = 'ash> ';
+        let doExecute = true;
         while (cmd !== "exit") {
             cmd = reader.question(prompt).trim();
             if (cmd.endsWith("\\")) {
-                buffer += cmd.substring(0, cmd.length-1) + "\n";
+                buffer += cmd.substring(0, cmd.length - 1) + "\n";
                 prompt = '...> ';
             } else if (cmd === 'exit') {
                 console.log('Exiting...');
@@ -500,6 +533,9 @@ function nodeMain(debug = true) {
                 GlobalInterpreter.setDebug(!GlobalInterpreter.getDebug());
                 let s = GlobalInterpreter.getDebug() ? 'on' : 'off';
                 console.log(`Debug is now ${s}`);
+            } else if (cmd === 'exec') {
+                doExecute = !doExecute;
+                console.log(`Execute is now ${doExecute}`);
             } else {
                 if (buffer.length > 0) {
                     buffer += cmd;
@@ -507,11 +543,11 @@ function nodeMain(debug = true) {
                     buffer = "";
                     prompt = 'ash> ';
                 }
-                let result = execute(cmd);
+                let result = execute(cmd, doExecute);
                 if (result === null) {
                     throw new Error("Should not return null.");
-                } else if (result !== nil) { // notAnExpression
-                    console.log(result);
+                } else if (result !== notAnExpression) {
+                    console.log(result.toString());
                 }
             }
         }
@@ -526,4 +562,4 @@ if (node && main) {
 // Exports
 //-----------------------------------------------------------------------------
 
-export { Interpreter, nil, VERSION };
+export { Interpreter, nil, notAnExpression, VERSION };

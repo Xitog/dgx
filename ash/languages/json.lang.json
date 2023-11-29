@@ -1,0 +1,27 @@
+{
+    "name": "json",
+    "definitions": {
+        "boolean": ["true", "false"],
+        "identifier" : ["[a-zA-Z]\\w*"],
+        "number" : [
+            "\\d+",
+            "0[xX][\\dABCDEFabcdef]+",
+            "0[bB][01]+",
+            "\\d+\\.\\d+",
+            "\\d+[eE]-\\d+",
+            "\\d+\\.\\d+[eE]-?\\d+"
+        ],
+        "string" : ["'([^\\\\']|\\\\['nt])*'", "\"([^\\\\\"]|\\\\[\"nt])*\""],
+        "nil": [],
+        "keyword": ["null"],
+        "operator": [],
+        "separator": ["\\{", "\\}", "\\(", "\\)", "\\[", "\\]", ",", ":", "\\."],
+        "comment" : [],
+        "newline" : ["\n", "\n\r", "\r\n"],
+        "blank": ["[ \u00A0\\t]+"],
+        "wrong_int" : ["\\d+\\."]
+    },
+    "wrong": [
+        "wrong_int"
+    ]
+}

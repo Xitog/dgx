@@ -1,0 +1,11 @@
+{
+    "name": "bnf-mini",
+    "definitions": {
+        "non-terminal": ["<[\\w- ]+>"],
+        "terminal" : ["'([^\\\\']|\\\\['nt])*'", "\"([^\\\\\"]|\\\\[\"nt])*\""],
+        "operator": ["::=", "\\|"],
+        "blank": ["[ \u00A0\\t]+"],
+        "newline" : ["\n", "\n\r", "\r\n"],
+        "comment": ["#.*"]
+    }
+}

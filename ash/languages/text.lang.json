@@ -1,0 +1,8 @@
+{
+    "name": "text",
+    "definitions": {
+        "normal": ["[^ \\t]*"],
+        "blank": ["[ \u00A0\\t]+"],
+        "newline" : ["\n", "\n\r", "\r\n"]
+    }
+}

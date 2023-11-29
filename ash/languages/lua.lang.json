@@ -1,0 +1,27 @@
+{
+    "name": "lua",
+    "definitions": {
+        "keyword": ["and", "break", "do", "else", "elseif", "end", "for",
+                    "function", "goto", "if", "in", "local", "not", "or",
+                    "repeat", "return", "then", "until", "while"],
+        "special": ["ipairs", "pairs", "\\?", "print"],
+        "boolean": ["true", "false"],
+        "nil" : ["nil"],
+        "identifier" : ["[a-zA-Z]\\w*"],
+        "number" : ["\\d+", "\\d+\\.\\d+"],
+        "string" : ["'([^\\\\']|\\\\['nt])*'", "\"([^\\\\\"]|\\\\[\"nt])*\""],
+        "operator": ["==", "~=", "<", "<=", ">", ">=",
+                    "=",
+                    "\\+", "\\*", "-", "/", "%", "\\^",
+                    "&", "\\|", "~", ">>", "<<",
+                    "\\.", "\\.\\.",
+                    "#", ":"],
+        "separator": ["\\{", "\\}", "\\(", "\\)", "\\[", "\\]", ",", ";"],
+        "comment": ["--(?!\\[\\[).*(\n|$)", "--\\[\\[[\\s\\S]*--\\]\\](\n|$)"],
+        "intermediate_comment": ["--\\[\\[[\\s\\S]*"],
+        "newline" : ["\n", "\n\r", "\r\n"],
+        "blank": ["[ \u00A0\\t]+"],
+        "wrong_int" : ["\\d+\\w+"]
+    },
+    "wrong": ["wrong_integer"]
+}

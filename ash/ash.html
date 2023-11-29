@@ -20,7 +20,7 @@
         //-----------------------------------------------------------------
         import { Lexer, Language } from "./lexer.mjs";
         import { Parser } from "./parser.mjs";
-        import { Interpreter, VERSION } from "./interpreter.mjs";
+        import { Interpreter, notAnExpression, VERSION } from "./interpreter.mjs";
         import { Translator} from "./translator.mjs";
 
         //-----------------------------------------------------------------
@@ -87,7 +87,11 @@
                     $("console").prepend(graph);
                 }
                 // Console output
-                output.innerHTML = '<span class="command">&gt;&gt;&gt; ' + lexer.toHTML(tokens, ['blank']) + '</span>\n' + buffer + '= ' + result;
+                let resultLine = '';
+                if (result !== notAnExpression) {
+                    resultLine = '= ' + result;
+                }
+                output.innerHTML = '<span class="command">&gt;&gt;&gt; ' + lexer.toHTML(tokens, ['blank']) + '</span>\n' + buffer + resultLine;
                 $("console").style.display = 'block';
                 $("console").prepend(output);
                 console.log('Result : ' + result);

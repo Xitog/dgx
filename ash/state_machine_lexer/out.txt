@@ -1,0 +1,33 @@
+digraph StateMachine {
+    "Start" -> "Identifier" [label="|@| / Emit"];
+    "Start" -> "Number" [label="|#| / Emit"];
+    "Start" -> "Space" [label="| | / Emit"];
+    "Start" -> "End" [label="|:VOID| / Emit"];
+    "Start" -> "Newline" [label="|:NL| / Emit"];
+    "Identifier" -> "Identifier" [label="|&| / "];
+    "Identifier" -> "Space" [label="| | / Emit"];
+    "Identifier" -> "End" [label="|:VOID| / Emit"];
+    "Identifier" -> "Newline" [label="|:NL| / Emit"];
+    "Number" -> "Number" [label="|#| / "];
+    "Number" -> "Space" [label="| | / Emit"];
+    "Number" -> "End" [label="|:VOID| / Emit"];
+    "Number" -> "Error-Malformed number" [label="|@| / "];
+    "Number" -> "Ambiguity-Dot after number" [label="|.| / "];
+    "Number" -> "Newline" [label="|:NL| / Emit"];
+    "Ambiguity-Dot after number" -> "Identifier" [label="|@| / Emit-Number-Operator"];
+    "Ambiguity-Dot after number" -> "Float" [label="|#| / Merge"];
+    "Float" -> "Float" [label="|#| / "];
+    "Float" -> "Space" [label="| | / Emit"];
+    "Float" -> "End" [label="|:VOID| / Emit"];
+    "Float" -> "Newline" [label="|:NL| / Emit"];
+    "Space" -> "Space" [label="| | / "];
+    "Space" -> "Number" [label="|#| / Emit"];
+    "Space" -> "Identifier" [label="|@| / Emit"];
+    "Space" -> "Newline" [label="|:NL| / Emit"];
+    "Space" -> "End" [label="|:VOID| / Emit"];
+    "Newline" -> "Newline" [label="|:NL| / Emit"];
+    "Newline" -> "Space" [label="| | / Emit"];
+    "Newline" -> "Number" [label="|#| / Emit"];
+    "Newline" -> "Identifier" [label="|@| / Emit"];
+    "Newline" -> "End" [label="|:VOID| / Emit"];
+}

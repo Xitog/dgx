@@ -1,0 +1,12 @@
+{
+    "name": "game",
+    "definitions": {
+        "number": ["\\d+"],
+        "game": ["\\w[\\w' :-]*[\\w:]"],
+        "blank": ["[ \u00A0\\t]+"],
+        "year": ["\\(\\d{4}\\)"],
+        "wrong_int" : ["\\d+\\."],
+        "newline" : ["\n"],
+        "separator": [","]
+    }
+}

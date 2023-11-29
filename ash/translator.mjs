@@ -134,6 +134,8 @@ class Translator {
             case 'Boolean':
             case 'Identifier':
                 return node.getValue();
+            case 'Nil':
+                return null;
             case 'String':
                 return '"' + node.getValue() + '"';
             case 'Block':

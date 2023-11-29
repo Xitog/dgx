@@ -2,23 +2,11 @@
 // Function
 //-----------------------------------------------------------------------------
 
-function typeJStoAsh(value) {
-    let typeValue = typeof value;
-    let typeAsh = null;
-    if (typeValue === 'boolean') {
-        typeAsh = 'bool';
-    } else if (typeValue === 'number') {
-        typeAsh = Number.isInteger(value) ? 'int' : 'num';
-        typeAsh = (typeAsh === 'int' && value >= 0) ? 'nat' : 'int';
-    } else if (typeValue === 'string') {
-        typeAsh = 'str';
-    }
-    return typeAsh;
-}
-
+// is t1 kindOf t2 ?
 function kindOf(t1, t2) {
     return (
-        (t2 === 'int' && t1 === 'nat') // int inclut nat
+        (t2 === 'any')
+        || (t2 === 'int' && t1 === 'nat') // int inclut nat
         || (t2 === 'num' && ['int', 'nat'].includes(t2)) // num inclut int & nat
         || (t1 === t2)
     );
@@ -26,6 +14,13 @@ function kindOf(t1, t2) {
 //-----------------------------------------------------------------------------
 // Classes
 //-----------------------------------------------------------------------------
+
+class NotAnExpression {
+    toString() {
+        return "Not an expression";
+    }
+}
+const notAnExpression = new NotAnExpression();
 
 class NilClass {
     toString() {
@@ -42,19 +37,8 @@ class Value {
     }
 
     setValue(value) {
-        console.log(typeof value);
-        console.log(Number.isInteger(value));
-        if (
-            (this.type === "boolean" && typeof value !== "boolean")
-            || (this.type === "integer" && (typeof value !== "number" || !Number.isInteger(value)))
-            || (this.type === "float" && typeof value !== "number")
-            || (this.type === "string" && typeof value !== "string")
-        ) {
-            let expectedType = typeof value;
-            if (expectedType === "number") {
-                expectedType = Number.isInteger(value) ? "integer" : "float";
-            }
-            throw new Error(`[ERROR] Variable ${this.identifier} is of type ${this.type} cannot set to ${value} of type ${expectedType}`);
+        if (this.type !== Library.typeJStoAsh(value)) {
+            throw new Error(`[ERROR] Variable ${this.identifier} is of type ${this.type} cannot set to ${value} of type ${Library.typeJStoAsh(value)}`);
         }
         this.value = value;
     }
@@ -67,6 +51,289 @@ class Value {
         return this.type;
     }
 }
+
+class BoundedFunction {
+    constructor(o, f) {
+        this.o = o;
+        this.f = f;
+    }
+    toString() {
+        return `${this.f}`;
+    }
+    do(args) {
+        return this.f.apply(this.o, args);
+    }
+}
+
+class AshObject {
+    constructor(type = 'Object', value = null) {
+        this.value = value;
+        this.type = type;
+    }
+    toString() {
+        return `|${this.type} ${this.value}|`;
+    }
+    getType() {
+        return this.type;
+    }
+}
+
+class AshInteger extends AshObject {
+    constructor(value) {
+        super('Integer', value);
+    }
+    __add__(i) {
+        return new AshInteger(this.value + i.value);
+    }
+    __sub__(i) {
+        return new AshInteger(this.value - i.value);
+    }
+    __mul__(i) {
+        return new AshInteger(this.value * i.value);
+    }
+    __div__(i) {
+        if (this.value / i.value === Math.floor(this.value / i.value)) {
+            return new AshInteger(this.value / i.value)
+        } else {
+            return new AshFloat(this.value / i.value);
+        }
+    }
+    __intdiv__(i) {
+        return new AshInteger(Math.floor(this.value / i.value));
+    }
+    __mod__(i) {
+        return new AshInteger(this.value % i.value);
+    }
+    __pow__(i) {
+        return new AshInteger(Math.pow(this.value, i.value));
+    }
+    __gt__(i) {
+        return new AshBoolean(this.value > i.value);
+    }
+    __ge__(i) {
+        return new AshBoolean(this.value >= i.value);
+    }
+    __lt__(i) {
+        return new AshBoolean(this.value < i.value);
+    }
+    __le__(i) {
+        return new AshBoolean(this.value <= i.value);
+    }
+    __eq__(i) {
+        return new AshBoolean(this.value === i.value);
+    }
+}
+
+class AshFloat extends AshObject {
+    constructor(value) {
+        super('Float', value);
+    }
+}
+
+class AshString extends AshObject {
+    constructor(value) {
+        super('String', value);
+    }
+    __add__(s) {
+        return new AshString(this.value + s.value);
+    }
+    __mul__(i) {
+        return new AshString(this.value.repeat(i.value));
+    }
+    upper() {
+        this.value = this.value.toUpperCase();
+        return notAnExpression;
+    }
+}
+
+class AshBoolean extends AshObject {
+    constructor(value) {
+        super('Boolean', value);
+    }
+    __and__(b) {
+        return new AshBoolean(this.value && b.value);
+    }
+    __or__(b) {
+        return new AshBoolean(this.value || b.value);
+    }
+    __not__() {
+        return new AshBoolean(!this.value);
+    }
+}
+
+class AshList extends AshObject {
+    constructor(value = []) {
+        super('List', value);
+    }
+    toString() {
+        return `|${this.type} (${this.value.length}) ${this.value}|`;
+    }
+    first() {
+        if (this.value.length === 0) {
+            return nil;
+        }
+        return this.value[0];
+    }
+    head() {
+        return this.first();
+    }
+    last() {
+        if (this.value.length === 0) {
+            return nil;
+        }
+        return this.value[this.value.length - 1];
+    }
+    at(index) {
+        let res = null;
+        if (Library.typeJStoAsh(index) === 'nat') {
+            if (index - 1 < 0 || index - 1 >= this.value.length) {
+                throw new Error(`[ERROR] Index ${index} out of bound: 1..${this.value.length}.`);
+            }
+            res = this.value[index - 1];
+        } else if (Library.typeJStoAsh(index) === 'int') {
+            res = this.value[this.value.length + index]; // negative
+        } else if (index instanceof AshInteger) {
+            if (index.value - 1 < 0 || index.value - 1 >= this.value.length) {
+                throw new Error(`[ERROR] Index ${index.value} out of bound: 1..${this.value.length}.`);
+            }
+            res = this.value[index.value - 1];
+        } else {
+            throw new Error(`[ERROR] An index must be a natural or an integer not a ${Library.typeJStoAsh(index)}.`);
+        }
+        return res;
+    }
+    __add__(lst) {
+        if (!(lst instanceof AshList)) {
+            throw new Error(`[ERROR] Only a list can be added to a list not a ${Library.typeJStoAsh(right)}.`);
+        }
+        this.value += lst;
+        return notAnExpression;
+    }
+    concat(lst) {
+        this.value += lst;
+        return notAnExpression;
+    }
+    max() {
+        return Math.max(...this.value);
+    }
+    min() {
+        return Math.min(...this.value);
+    }
+    includes(value) {
+        return this.value.includes(value);
+    }
+    insert(pos, value) {
+        this.value.insert(pos - 1, value);
+        return notAnExpression;
+    }
+    push(value) {
+        this.value.push(value);
+        return notAnExpression;
+    }
+    append(value) {
+        this.value.push(value);
+        return notAnExpression;
+    }
+    remove(pos) {
+        this.value.splice(pos - 1, 1);
+        return notAnExpression;
+    }
+    sort() {
+        this.value.sort();
+        return notAnExpression;
+    }
+    find(value) {
+        return this.value.indexOf(value) + 1;
+    }
+    flatten() {
+        let res = [];
+        for (let e of this.value) {
+            if (e instanceof AshList) {
+                e.flatten();
+                res = res.concat(e.value);
+            } else {
+                res.push(e);
+            }
+        }
+        this.value = res;
+        return notAnExpression;
+    }
+    pop() {
+        return this.value.pop();
+    }
+    shift() {
+        return this.value.shift();
+    }
+    unshift(value) {
+        this.value.unshift(value);
+        return notAnExpression;
+    }
+    prepend(value) {
+        this.value.unshift(value);
+        return notAnExpression;
+    }
+    size() {
+        return this.value.length;
+    }
+    length() {
+        return this.value.length;
+    }
+    count() {
+        return this.value.length;
+    }
+    reverse() {
+        this.value.reverse();
+        return notAnExpression;
+    }
+    join(s) {
+        return new AshString(this.value.join(s));
+    }
+    unique() {
+        let res = [];
+        this.value.forEach(element => {
+            if (!(res.includes(element))) {
+                res.push(element);
+            }
+        });
+        this.value = res;
+        return notAnExpression;
+    }
+    /*
+    tail
+    map
+    [ for x in y return z ]
+    [ x for x in y ]
+    split
+    include?
+    in
+    any?
+    all?
+    zip
+    Map-Apply / Reduce / Filter
+    freeze
+    frozen?
+    */
+    method(msg) {
+        if (!this.methods().includes(msg)) {
+            throw new Error(`[ERROR] Unknown method ${msg} for type ${this.type}.`);
+        }
+        return this[msg];
+    }
+    methods() {
+        return new AshList(['add', 'first', 'last', 'unshift', 'at', 'methods']);
+    }
+}
+
+/*
+dict
+exist? / include? / key?
+delete / remove
+keys
+values
+merge, update
+freeze
+frozen?
+*/
 
 class Parameter {
     /**
@@ -138,8 +405,8 @@ class Function extends Value {
                     }
                     args.push(this.parameters[j].getDefault());
                 }
-            } else if (!kindOf(typeJStoAsh(args[i]), this.parameters[i].getType())) {
-                throw new Error(`Wrong parameter type at #${i}: ${this.parameters[i]} expected vs ${args[i]} : ${typeJStoAsh(args[i])}`);
+            } else if (!kindOf(Library.typeJStoAsh(args[i]), this.parameters[i].getType())) {
+                throw new Error(`Wrong parameter type at #${i}: ${this.parameters[i]} expected vs ${args[i]} : ${Library.typeJStoAsh(args[i])}`);
             }
         }
         return this.code(args);
@@ -153,9 +420,11 @@ class Library {
         Library.GlobalInterpreter = globalInterpreter;
     }
 
-    static call(idFun, args) {
-        if (idFun in table) {
-            return table[idFun].call(args);
+    static sendMessage(idType, idFun, args) {
+        if (idType === null) {
+            if (idFun in table) {
+                return table[idFun].call(args);
+            }
         }
         throw new Error(`[ERROR] Unknown function ${idFun}`);
     }
@@ -164,11 +433,66 @@ class Library {
     // Console functions
     //-------------------------------------------------------------------------
 
-    static log (args) {
+    static log(args) {
         Library.GlobalInterpreter.output_function(args.join(' '));
-        return nil;
+        return notAnExpression;
     }
 
+    static read(args) {
+        return Library.GlobalInterpreter.input_function('AAAA:');
+    }
+
+    //-------------------------------------------------------------------------
+    // Helper functions
+    //-------------------------------------------------------------------------
+
+    static getTypeJS(value) {
+        let typeValue = typeof value;
+        let res = null;
+        if (typeValue === 'object') {
+            if (value instanceof AshObject) {
+                res = value.getType();
+            } else if (Array.isArray(value)) {
+                res = 'Array';
+            } else {
+                res = value.constructor.name;
+            }
+        } else if (['boolean', 'string'].includes(typeValue)) {
+            res = typeValue;
+        } else if (typeValue === 'number') {
+            if (Number.isInteger(value) && value >= 0) {
+                res = 'number_natural';
+            } else if (Number.isInteger(value)) {
+                res = 'number_integer';
+            } else {
+                res = 'number_float';
+            }
+        } else {
+            throw new Error(`[ERROR] Unknow JavaScript type for value |${value}|. typeof=${typeValue} isArray=${Array.isArray(value)}`);
+        }
+        return res;
+    }
+
+    static typeJStoAsh(value) {
+        let typeJS = Library.getTypeJS(value);
+        let equivalence = {
+            'Array': 'list',
+            'boolean': 'bool',
+            'string': 'str',
+            'number_integer': 'int',
+            'number_natural': 'nat',
+            'number_float': 'num'
+        };
+        return typeJS in equivalence ? equivalence[typeJS] : typeJS;
+    }
+
+    static produceDocumentation() {
+        for (const [funID, funData] of Object.entries(table)) {
+            let keyword = funData.isProcedure() ? 'procedure' : 'function';
+            let retType = funData.isProcedure() ? '' : ' > ' + funData.getType();
+            console.log(`${keyword} ${funID}(${funData.parameters.join(', ')}${retType})`);
+        }
+    }
     //-------------------------------------------------------------------------
     // Graphic functions
     //-------------------------------------------------------------------------
@@ -178,7 +502,7 @@ class Library {
         if (context !== null) {
             context.clearRect(0, 0, 640, 480);
         }
-        return nil;
+        return notAnExpression;
     }
 
     static line(args) {
@@ -195,7 +519,7 @@ class Library {
             context.lineTo(x2, y2);
             context.stroke();
         }
-        return nil;
+        return notAnExpression;
     }
 
     static circle(args) {
@@ -216,7 +540,7 @@ class Library {
                 context.stroke();
             }
         }
-        return nil;
+        return notAnExpression;
     }
 
     static rect(args) {
@@ -240,7 +564,7 @@ class Library {
                 );
             }
         }
-        return nil;
+        return notAnExpression;
     }
 
     static draw(args) {
@@ -248,7 +572,7 @@ class Library {
         if (context !== null) {
             context.drawImage(args[2], args[0], args[1]);
         }
-        return nil;
+        return notAnExpression;
     }
 
     static text(args) {
@@ -256,25 +580,28 @@ class Library {
         if (context !== null) {
             ctx.fillText(args[0], args[1], args[2]);
         }
-        return nil;
+        return notAnExpression;
     }
 
     static setFont(args) {
         let context = Library.GlobalInterpreter.getContext();
         context.font = `${args[1]}px ${args[0]}`;
+        return notAnExpression;
     }
 
-    static setFill(args) {
+    static setColor(args) {
         let context = Library.GlobalInterpreter.getContext();
         if (context !== null) {
             context.fillStyle = args[0];
+            context.strokeStyle = args[0];
         }
+        return notAnExpression;
     }
 
-    static setStrokeStyle(args) {
+    static getColor(args) {
         let context = Library.GlobalInterpreter.getContext();
         if (context !== null) {
-            context.strokeStyle = args[0];
+            return context.strokeStyle;
         }
     }
 }
@@ -292,6 +619,13 @@ const table = {
             new Parameter('o', 'any')
         ],
         Library.log
+    ),
+    'read': new Function(
+        'read',
+        'str',
+        'function',
+        [],
+        Library.read
     ),
     'clear': new Function(
         'clear',
@@ -372,23 +706,21 @@ const table = {
         ],
         Library.setFont
     ),
-    'set_fill': new Function(
-        'set_fill',
+    'set_color': new Function(
+        'set_color',
         nil,
         'procedure',
         [
             new Parameter('c', 'str')
         ],
-        Library.setFill
+        Library.setColor
     ),
-    'set_stroke': new Function(
-        'set_stroke',
-        nil,
-        'procedure',
-        [
-            new Parameter('c', 'str')
-        ],
-        Library.setStrokeStyle
+    'get_color': new Function(
+        'get_color',
+        'str',
+        'function',
+        [],
+        Library.getColor
     )
 };
 
@@ -396,4 +728,8 @@ const table = {
 // Exports
 //-----------------------------------------------------------------------------
 
-export { Library, Function, Value, nil };
+export {
+    Library, Function, Value, BoundedFunction,
+    nil, notAnExpression,
+    AshObject, AshInteger, AshFloat, AshBoolean, AshString, AshList
+};

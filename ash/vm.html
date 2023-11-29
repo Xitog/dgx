@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+let globalVM = null;
+let keys = [];
+class VM {
+  constructor(instructions = [], delay=1000) {
+    this.pointer = 0;
+    this.instructions = instructions;
+    this.delay = delay;
+    this.scope = {};
+    globalVM = this;
+  }
+  load(instructions) {
+    this.instructions = instructions;
+  }
+  start() {
+    this.pointer = 0;
+    this.heap = [];
+    function loop() {
+      if (globalVM.pointer < globalVM.instructions.length) {
+        let delay = globalVM.delay;
+        // sneak pick on next instructions
+        if (globalVM.instructions[globalVM.pointer][0] === 'WAIT') {
+          delay = Math.max(4, globalVM.instructions[globalVM.pointer][1] - globalVM.delay);
+        }
+        setTimeout(function() {
+          globalVM.step();
+          globalVM.pointer += 1;
+          loop();
+        }, delay);
+      } else {
+        console.log(`End of execution @${globalVM.pointer} value=${globalVM.heap}`);
+      }
+    }
+    loop();
+  }
+  step() {
+    //for (this.pointer = 0; this.pointer < this.instructions.length; this.pointer++) {
+    let op = this.instructions[this.pointer][0];
+    let old = this.pointer;
+    let arg1 = null;
+    let arg2 = null;
+    switch (op) {
+      case 'LOAD_VAL':
+        this.heap.push(this.instructions[this.pointer][1]);
+        break;
+      case 'LOAD_REF':
+        arg1 = this.instructions[this.pointer][1];
+        if (!(arg1 in this.scope)) {
+          throw new Error(`Unknown variable ${arg1}`);
+        }
+        this.heap.push(this.scope[arg1]);
+        break;
+      case 'STORE':
+        arg1 = this.instructions[this.pointer][1];
+        this.scope[arg1] = this.heap.pop();
+        break;
+      case 'ADD':
+        arg1 = this.heap.pop();
+        arg2 = this.heap.pop();
+        this.heap.push(arg1 + arg2);
+        break;
+      case 'SUB':
+        arg1 = this.heap.pop();
+        arg2 = this.heap.pop();
+        this.heap.push(arg1 - arg2);
+        break;
+      case 'MUL':
+        arg1 = this.heap.pop();
+        arg2 = this.heap.pop();
+        this.heap.push(arg1 * arg2);
+        break;
+      case 'DIV':
+        arg1 = this.heap.pop();
+        arg2 = this.heap.pop();
+        this.heap.push(arg2 / arg1);
+        break;
+      case 'IDIV':
+        arg1 = this.heap.pop();
+        arg2 = this.heap.pop();
+        this.heap.push(Math.trunc(arg2 / arg1));
+        break;
+      case 'MOD':
+        arg1 = this.heap.pop();
+        arg2 = this.heap.pop();
+        this.heap.push(arg2 % arg1);
+        break;
+      case 'POW':
+        arg1 = this.heap.pop();
+        arg2 = this.heap.pop();
+        this.heap.push(Math.pow(arg2, arg1));
+        break;
+      case 'NOT':
+        arg1 = this.heap.pop();
+        this.heap.push(!arg1);
+        break;
+      case 'JUMP':
+        this.pointer = this.instructions[this.pointer][1] - 1; // To nullify the +1 after step()
+        break;
+      case 'JUMPIF':
+        arg1 = this.heap.pop();
+        if (arg1 === true) {
+          this.pointer = this.instructions[this.pointer][1] - 1; // To nullify the +1 after step()
+        } else if (arg1 !== false) {
+          throw new Error(`JUMPIF works only on boolean value, not ${arg1}`);
+        }
+        break;
+      case 'KEYDOWN':
+        arg1 = this.instructions[this.pointer][1];
+        this.heap.push(arg1 in keys && keys[arg1]);
+        break;
+      case 'KEYUP':
+        arg1 = this.instructions[this.pointer][1];
+        this.heap.push(!(arg1 in keys) || !keys[arg1]);
+        break;
+      case 'WAIT':
+        // do nothing, the wait is already over
+        break;
+      case 'CALL':
+        arg1 = this.instructions[this.pointer][1];
+        if (arg1 === 'circle') {
+          core['circle']();
+        } else {
+          throw new Error(`Unknown function ${arg1}`);
+        }
+        break;
+      default:
+        throw new Error(`Unknown op ${op}`);
+    }
+    console.log(old, this.instructions[old], this.heap);
+    //}
+  }
+}
+let core = {
+  circle: function () {
+    //console.log("function circle", args);
+    // x, y, r, color, full
+    //if (!(args instanceof NodeList)) {
+    //  throw new Error("Parameters should be a NodeList");
+    //}
+    //if (args.getSize() !== 5) {
+    //  throw new Error("Circle takes 5 parameters");
+    //}
+    let full = globalVM.heap.pop();
+    let color = globalVM.heap.pop();
+    let radius = globalVM.heap.pop();
+    let centerY = globalVM.heap.pop();
+    let centerX = globalVM.heap.pop();
+    let canvas = document.getElementById("screen");
+    let context = canvas.getContext("2d");
+    context.beginPath();
+    context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+    if (full) {
+      context.fillStyle = color;
+      context.fill();
+    } else {
+      context.strokeStyle = color;
+      context.stroke();
+    }
+    //return nil;
+  },
+}
+
+// Set
+window.onload = function() {
+  window.addEventListener('keydown', function (event) {
+    keys[event.code] = true;
+  });
+  window.addEventListener('keyup', function (event) {
+    keys[event.code] = false;
+  });
+  new VM(
+  [
+    ['WAIT', 5000],      //  0
+    ['LOAD_VAL', 5],     //  1
+    ['LOAD_VAL', 2],     //  2
+    ['ADD'],             //  3
+    ['LOAD_VAL', 2],     //  4
+    ['IDIV'],            //  5
+    ['LOAD_VAL', 3],     //  6
+    ['POW'],             //  7
+    ['STORE', 'a'],      //  8
+    ['KEYDOWN', 'KeyQ'], //  9    while not keydown('KeyQ') do
+    ['JUMPIF', 6666],    // 10
+    ['KEYDOWN', 'KeyW'], // 11    if keydown('KeyW') then
+    ['NOT'],             // 12
+    ['JUMPIF', 18],      // 13
+    ['LOAD_REF', 'a'],   // 14      a = a + 1
+    ['LOAD_VAL', 1],     // 15
+    ['ADD'],             // 16
+    ['STORE', 'a'],      // 17    end
+    ['LOAD_REF', 'a'],   // 18    circle(a, 50, 30, 'red', true)
+    ['LOAD_VAL', 50],
+    ['LOAD_VAL', 30],
+    ['LOAD_VAL', 'red'],
+    ['LOAD_VAL', true],
+    ['CALL', 'circle'],  // 
+    ['JUMP', 9],         //       loop
+  ], 4).start()}; // 5000, 1000, 500, 100, 4=instant
+</script>
+</head>
+<body>
+<canvas id="screen" style="border: 1px solid black; margin-top: 1em" width="640" height="480"></canvas>
+</body>
+</html>

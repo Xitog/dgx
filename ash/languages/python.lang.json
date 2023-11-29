@@ -1,0 +1,39 @@
+{
+    "name": "python",
+    "definitions": {
+        "keyword" : [
+            "await", "else", "import", "pass", "break", "except", "in",
+            "raise", "class", "finally", "is", "return", "and", "for",
+            "continue", "lambda", "try", "as", "def", "from", "while",
+            "nonlocal", "assert", "del", "global", "not", "with", "if",
+            "async", "elif", "or", "yield"
+        ],
+        "special": ["print"],
+        "identifier" : ["[a-zA-Z]\\w*"],
+        "integer" : [
+            "\\d+",
+            "0[xX][\\dABCDEFabcdef]+",
+            "0[bB][01]+"
+        ],
+        "float" : [
+            "\\d+\\.\\d+",
+            "\\d+[eE]-\\d+",
+            "\\d+\\.\\d+[eE]-?\\d+"
+        ],
+        "boolean" : ["True", "False"],
+        "string" : ["'([^\\\\']|\\\\['nt])*'", "\"([^\\\\\"]|\\\\[\"nt])*\""],
+        "nil": ["None"],
+        "operator": [
+            "\\+", "/", "//", "&", "\\^", "~", "\\|", "\\*\\*", "<<", "%", "\\*",
+            "-", ">>", ":", "<", "<=", "==", "!=", ">=", ">", "\\+=",
+            "&=", "/=", "<<=", "%=", "\\*=", "\\|=", "\\*\\*=", ">>=", "-=",
+            "/=", "\\^=", "\\.", "="
+        ],
+        "separator": ["\\{", "\\}", "\\(", "\\)", "\\[", "\\]", ",", ";"],
+        "comment": ["#[^\n]*(\n|$)"],
+        "newline" : ["\n", "\n\r", "\r\n"],
+        "blank": ["[ \u00A0\\t]+"],
+        "wrong_integer" : ["\\d+\\."]
+    },
+    "wrong": ["wrong_int"]
+}

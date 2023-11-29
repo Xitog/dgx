@@ -108,6 +108,10 @@ span[class$=string] {
     color: rgb(0, 150, 17);
 }
 
+span[class$=nil] {
+    color:rgb(150, 0, 17)
+}
+
 /* It's supposed to look like a tree diagram */
 .tree,
 .tree ul,

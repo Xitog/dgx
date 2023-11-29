@@ -1,0 +1,7 @@
+{
+    "name": "line",
+    "comment": "Un langage qui divise simplement en lignes",
+    "definitions": {
+        "line": [".*(\n|$)"]
+    }
+}
