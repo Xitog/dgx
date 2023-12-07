@@ -28,7 +28,7 @@
 // Environment & imports
 //-------------------------------------------------------------------------------
 
-const FILENAME = "translator.mjs";
+const FILENAME = "transpiler.mjs";
 
 const node =
     typeof process !== "undefined" &&
@@ -51,7 +51,7 @@ Language.readDefinition();
 // Classes
 //-----------------------------------------------------------------------------
 
-class Translator {
+class Transpiler {
     constructor() {
         this.root = {};
     }
@@ -170,7 +170,7 @@ function testsMain(debug) {
 
     let interpreter = new Interpreter();
     console.log(`Running nodeMain of ${FILENAME}`);
-    let translator = new Translator();
+    let transpiler = new Transpiler();
 
     for (let i = 0; i < tests.length; i++) {
         let cmd = tests[i][0];
@@ -180,7 +180,7 @@ function testsMain(debug) {
             console.log(`Test ${i}. |${cmd}| Expected: ${expected}`);
             console.log("===================================");
             let result = interpreter.execute(cmd);
-            let codejs = translator.execute(cmd);
+            let codejs = transpiler.execute(cmd);
             let resultjs = eval(codejs);
             console.log("Code Ash : " + cmd);
             console.log("Code JS  : " + codejs);
@@ -213,4 +213,4 @@ if (node && main) {
 // Exports
 //-----------------------------------------------------------------------------
 
-export { Translator };
+export { Transpiler };

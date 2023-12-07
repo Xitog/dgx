@@ -13,7 +13,7 @@
     <script type="module" src="./lexer.mjs"></script>
     <script type="module" src="./parser.mjs"></script>
     <script type="module" src="./interpreter.mjs"></script>
-    <script type="module" stc="./translator.mjs"></script>
+    <script type="module" stc="./transpiler.mjs"></script>
     <script type="module">
         //-----------------------------------------------------------------
         // Imports
@@ -21,7 +21,7 @@
         import { Lexer, Language } from "./lexer.mjs";
         import { Parser } from "./parser.mjs";
         import { Interpreter, notAnExpression, VERSION } from "./interpreter.mjs";
-        import { Translator} from "./translator.mjs";
+        import { Transpiler} from "./transpiler.mjs";
 
         //-----------------------------------------------------------------
         // Functions
@@ -76,7 +76,7 @@
                 if (debug) console.log('End of execution');
                 step = 'Transpiling';
                 if (debug) console.log(`${step} :`);
-                let codejs = new Translator().do(root);
+                //let codejs = new Transpiler().do(root);
                 let resultjs = eval(codejs);
                 console.log('Code JS   : ' + codejs);
                 console.log('Result JS : ' + resultjs);

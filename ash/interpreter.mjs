@@ -76,7 +76,11 @@ class Interpreter {
         this.root = {};
         this.output_function = output_function == null ? console.log : output_function;
         this.output_screen = output_screen;
-        this.input_function = input_function == null ? reader.question : input_function;
+        if (reader !== null) {
+            this.input_function = input_function == null ? reader.question : input_function;
+        } else {
+            this.input_function = null;
+        }
         this.scope = {};
         this.debug = debug;
         GlobalInterpreter = this;
