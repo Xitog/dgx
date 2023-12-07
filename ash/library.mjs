@@ -206,12 +206,10 @@ class AshList extends AshObject {
         if (!(lst instanceof AshList)) {
             throw new Error(`[ERROR] Only a list can be added to a list not a ${Library.typeJStoAsh(right)}.`);
         }
-        this.value += lst;
-        return notAnExpression;
+        return new AshList(this.value.concat(lst.value));
     }
     concat(lst) {
-        this.value += lst;
-        return notAnExpression;
+        return this.__add__(lst);
     }
     max() {
         return Math.max(...this.value);
