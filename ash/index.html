@@ -76,10 +76,13 @@
                 if (debug) console.log('End of execution');
                 step = 'Transpiling';
                 if (debug) console.log(`${step} :`);
-                //let codejs = new Transpiler().do(root);
-                let resultjs = eval(codejs);
-                console.log('Code JS   : ' + codejs);
-                console.log('Result JS : ' + resultjs);
+                let transpile = false;
+                if (transpile) {
+                    let codejs = new Transpiler().do(root);
+                    let resultjs = eval(codejs);
+                    console.log('Code JS   : ' + codejs);
+                    console.log('Result JS : ' + resultjs);
+                }
                 // Graphic output
                 if ($("input_ast").checked) {
                     let graph = document.createElement("div");
