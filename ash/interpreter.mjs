@@ -128,7 +128,7 @@ class Interpreter {
                 val = this.do(node.right, level + 1);
             }
             if (val !== notAnExpression) {
-                this.log(`Block ${val} of type ${Library.getTypeJS(val)}`, level);
+                this.log(`Block ${val} of type ${val.getType()}`, level);
             } else {
                 this.log(`Block ${val} notAnExpression`, level);
             }
@@ -235,7 +235,10 @@ class Interpreter {
                 }
                 if (node.value === '=') {
                     if (!(identifier in this.scope)) {
-                        let type = Library.typeJStoAsh(val);
+                        if (!(val instanceof AshObject)) {
+                            throw new Error(`[ERROR] Value out of Ash World: ${value} of type: ${typeof(value)}`);
+                        }
+                        let type = val.getType();
                         this.scope[identifier] = new Value(identifier, type, val);
                     } else {
                         this.scope[identifier].setValue(val);

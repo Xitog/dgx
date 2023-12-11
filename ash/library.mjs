@@ -37,8 +37,10 @@ class Value {
     }
 
     setValue(value) {
-        if (this.type !== Library.typeJStoAsh(value)) {
-            throw new Error(`[ERROR] Variable ${this.identifier} is of type ${this.type} cannot set to ${value} of type ${Library.typeJStoAsh(value)}`);
+        if (this.type !== value.getType() && (this.type !== 'Float' && value.getType() !== 'Integer')) {
+            throw new Error(`[ERROR] Variable ${this.identifier} is of type ${this.type} cannot be set to ${value} of type ${value.getType()}`);
+        } else if (this.type === 'Float' && value.getType() === 'Integer') {
+            value = new AshFloat(value.value);
         }
         this.value = value;
     }
@@ -128,6 +130,12 @@ class AshFloat extends AshObject {
     constructor(value) {
         super('Float', value);
     }
+    to_i() {
+        return new AshInteger(Math.trunc(this.value));
+    }
+    to_s() {
+        return new AshString("" + this.value);
+    }
 }
 
 class AshString extends AshObject {
@@ -185,26 +193,23 @@ class AshList extends AshObject {
     }
     at(index) {
         let res = null;
-        if (Library.typeJStoAsh(index) === 'nat') {
+        if (index.value > 0) {
             if (index - 1 < 0 || index - 1 >= this.value.length) {
                 throw new Error(`[ERROR] Index ${index} out of bound: 1..${this.value.length}.`);
             }
             res = this.value[index - 1];
-        } else if (Library.typeJStoAsh(index) === 'int') {
+        } else if (index.value < 0) {
             res = this.value[this.value.length + index]; // negative
-        } else if (index instanceof AshInteger) {
-            if (index.value - 1 < 0 || index.value - 1 >= this.value.length) {
-                throw new Error(`[ERROR] Index ${index.value} out of bound: 1..${this.value.length}.`);
-            }
-            res = this.value[index.value - 1];
+        } else if (index.value === 0) {
+            throw new Error('[ERROR] List indexes start at 0 in Ash');
         } else {
-            throw new Error(`[ERROR] An index must be a natural or an integer not a ${Library.typeJStoAsh(index)}.`);
+            throw new Error(`[ERROR] An index must be an Integer not a ${index.getType()}.`);
         }
         return res;
     }
     __add__(lst) {
         if (!(lst instanceof AshList)) {
-            throw new Error(`[ERROR] Only a list can be added to a list not a ${Library.typeJStoAsh(right)}.`);
+            throw new Error(`[ERROR] Only a list can be added to a list not a ${right.getType()}.`);
         }
         return new AshList(this.value.concat(lst.value));
     }
@@ -443,46 +448,6 @@ class Library {
     //-------------------------------------------------------------------------
     // Helper functions
     //-------------------------------------------------------------------------
-
-    static getTypeJS(value) {
-        let typeValue = typeof value;
-        let res = null;
-        if (typeValue === 'object') {
-            if (value instanceof AshObject) {
-                res = value.getType();
-            } else if (Array.isArray(value)) {
-                res = 'Array';
-            } else {
-                res = value.constructor.name;
-            }
-        } else if (['boolean', 'string'].includes(typeValue)) {
-            res = typeValue;
-        } else if (typeValue === 'number') {
-            if (Number.isInteger(value) && value >= 0) {
-                res = 'number_natural';
-            } else if (Number.isInteger(value)) {
-                res = 'number_integer';
-            } else {
-                res = 'number_float';
-            }
-        } else {
-            throw new Error(`[ERROR] Unknow JavaScript type for value |${value}|. typeof=${typeValue} isArray=${Array.isArray(value)}`);
-        }
-        return res;
-    }
-
-    static typeJStoAsh(value) {
-        let typeJS = Library.getTypeJS(value);
-        let equivalence = {
-            'Array': 'list',
-            'boolean': 'bool',
-            'string': 'str',
-            'number_integer': 'int',
-            'number_natural': 'nat',
-            'number_float': 'num'
-        };
-        return typeJS in equivalence ? equivalence[typeJS] : typeJS;
-    }
 
     static produceDocumentation() {
         for (const [funID, funData] of Object.entries(table)) {
