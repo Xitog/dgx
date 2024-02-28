@@ -50,7 +50,7 @@
   + [[Cultic->#]]
 * [[La musique de jeux vidéo->#]]
 * [[Chronologie->#]]
-  * [[2024 (1)->#]]
+  * [[2024 (3)->#]]
   * [[2023 (9)->#]]
   * [[2022 (8)->#]]
   * [[2021 (6)->#]]
@@ -796,22 +796,29 @@ Un jeu déjà terminé dont on termine pour la première fois son remaster ne co
 
 On indique en exposant les variantes (history edition, definitive edition, classic redux, remaster).
 
-## 2024 (1)
+## 2024 (3)
 
-### CoD: Black Ops
+### CoD: Black Ops, **Cultic**, SC2: Heart of the Swarm
 
-* 1 jeu fini
+* 3 jeux finis
 * Par nouveauté :
-  * 1 jeu refait : CoD: Black Ops
+  * 1 jeux terminés pour la première fois (1^^er^^ run) : Cultic
+  * 2 jeux refaits : CoD: Black Ops, SC2: Heart of the Swarm
 * Par années :
-  * 1 jeu des 10 : CoD: Black Ops
-* Par types : FPS : 0
+  * 2 jeux des 10 : CoD: Black Ops, SC2: Heart of the Swarm
+  * 1 jeu des 20 : Cultic
+* Par types :
+  * 2 FPS : CoD: Black Ops, Cultic
+  * 1 RTS : SC2: Heart of the Swarm
 * Par plateformes :
-  * 1 sur Steam
+  * 2 sur Steam
+  * 1 sur Battle.net (SC2: Heart of the Swarm)
 * Non finis : aucun
 
 | Mois            | Machine | Store | Run   | S  | Genre   | Ext | Jeu                                    | Année | Version | Commentaire                     |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Février         | Elspeth | B.Net | 2     | 15 | RTS     |     | StarCraft 2: Heart of the Swarm        | 2013  |         |                                 |
+| Janvier         | Elspeth | Steam | **1** |  6 | FPS     |     | __Cultic: Chapter One__                | 2022  |         | +1 S pour Interlude             |
 | Janvier         | Elspeth | Steam | 3/4   |  2 | FPS     |     | Call of Duty: Ghosts                   | 2013  |         |                                 |
 
 ## 2023 (9)
@@ -823,20 +830,27 @@ On indique en exposant les variantes (history edition, definitive edition, class
   * 5 jeux terminés pour la première fois (1^^er^^ run) : Far Cry 6, LfD dont 3 déjà commencé : Age of Empire, System Shock, Shadow Warrior
   * 4 jeux refaits : Lionheart: Legacy of the Crusader, Diablo 2, SC2: Wings of Liberty, CoD: Ghosts
 * Par années (on compte l'année d'origine, pas celle de la réédition) :
-  * 3 jeux des 90 : Age of Empire, Shadow Warrior, System Shock,
-  * 2 jeux des 00 : Diablo 2, Lionheart: Legacy of the Crusader,
+  * 3 jeux des 90 : Age of Empire, Shadow Warrior, System Shock
+  * 2 jeux des 00 : Diablo 2, Lionheart: Legacy of the Crusader
   * 2 jeux des 10 : CoD: Ghosts, SC2: Wings of Liberty, LfD
   * 2 jeux des 20 : Far Cry 6, LfD
-* Par types : FPS : 3, RPG : 0, ARPG : 2, FPX : 1, RTS : 2, FPS-RPG : 1, Gestion : 0
+* Par types :
+  * 3 FPS : Far Cry 6, Shadow Warrior, CoD: Ghosts
+  * 0 RPG
+  * 2 ARPG : Diablo 2^^res^^, Lionheart
+  * 1 FPX : LfD
+  * 2 RTS : Age of Empires^^de^^, SC2: Wings of Liberty
+  * 1 FPS-RPG : System Shock^^2023^^
+  * 0 Gestion
 * Par plateformes :
-  * 7 sur Steam,
+  * 7 sur Steam
   * 2 sur Battle.net (Diablo 2 et SC2: Wings of Liberty)
 * Non finis : aucun
 
 | Mois            | Machine | Store | Run   | S  | Genre   | Ext | Jeu                                    | Année | Version | Commentaire                     |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Décembre        | Elspeth | Steam | 1     |  2 | FPX     |     | Lust for Darkness                      | 2018  |         |                                 |
-| Décembre        | Elspeth | Steam | 2     |  2 | FPS     |     | Call of Duty: Ghosts                   | 2013  |         |                                 |
+| Décembre        | Elspeth | Steam | **1** |  2 | FPX     |     | Lust for Darkness                      | 2018  |         |                                 |
+| Décembre        | Elspeth | Steam | 2     |  2 | FPS     |     | __Call of Duty: Ghosts__               | 2013  |         |                                 |
 | Oct.-Déc.       | Elspeth | Steam | 2     | 16 | RTS     |     | __StarCraft 2: Wings of Liberty__      | 2010  |         |                                 |
 | Sept.-Oct.      | TUF/Els | Steam | 2     | 24 | ARPG    |     | __Lionheart: Legacy of the Crusader__  | 2003  |         |                                 |
 | Août-Sept.      | TUF     | Steam | **1** | 10 | FPS-RPG |     | **System Shock (2023)**                | 1994  |    2023 |                                 |
@@ -863,10 +877,17 @@ On indique en exposant les variantes (history edition, definitive edition, class
   * 1 jeux des 00 : Diablo 2,
   * 2 jeux des 10 : SW Battlefront 2, Far Cry 4,
   * 0 jeux des 20 : aucun.
-* Par types : FPS : 5, RPG : 1, ARPG : 1, FPX : 1, RTS : 0, FPS-RPG : 0, Gestion : 0.
+* Par types :
+  * 5 FPS : FarCry 4, CoD:IW, Blood, Quake, Battlefront 2^^2017^^
+  * 1 RPG : Fallout 1
+  * 1 ARPG : Diablo 2^^res^^
+  * 1 FPX : Portal
+  * 0 RTS
+  * 0 FPS-RPG
+  * 0 Gestion
 * Par plateformes :
-  * tout sur Steam sauf :
-  * Diablo 2 sur Battle.net
+  * 7 sur Steam
+  * 1 sur Battle.net (Diablo 2^^res^^)
 * Non finis : Legend of Grimrock, Age of Empire: Defitive Edition, Shadow Warrior Classic Redux, Portal advance maps
 
 | Mois            | Machine | Store | Run   | S  | Genre   | Ext | Jeu                                    | Année | Version | Commentaire             |
@@ -895,7 +916,7 @@ On indique en exposant les variantes (history edition, definitive edition, class
 
 ## 2021 (6)
 
-### Dead Space, **Settlers 2**^^he^^, **Prey** (2017), **Sacred**, StarCraft^^hd^^, **Battlefront**
+### Dead Space, **Settlers 2**^^he^^, **Prey** (2017), **Sacred**, StarCraft^^hd^^, **Battlefront^^2015^^**
 
 * **6 jeux finis**, 1 extension finie.
 * Par nouveautés :
@@ -907,13 +928,19 @@ On indique en exposant les variantes (history edition, definitive edition, class
   * 1 jeux des 00 : x,
   * 2 jeux des 10 : x,
   * X jeux des 20 : x.
-* Par types : FPS : 1, RPG : 0, ARPG : 1, FPX : 1, RTS : 1, FPS-RPG : 1, Gestion : 1.
+* Par types :
+  * 1 FPS
+  * 0 RPG
+  * 1 ARPG
+  * 1 FPX
+  * 1 RTS
+  * 1 FPS-RPG
+  * 1 Gestion
 * Par plateformes :
-  * tout sur Steam sauf :
-  * StarCraft sur Battle.net,
-  * Settlers 2 sur Ubi
+  * 4 sur Steam
+  * 1 sur Battle.net (StarCraft)
+  * 1 sur Ubi (Settlers 2)
 * Non finis : Factorio
-* J'ai fait un test des jeux soulignés.
 
 | Mois            | Machine | Store | Run   | S  | Genre   | Ext | Jeu                                        | Année | Version | Commentaire             |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------|

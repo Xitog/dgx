@@ -160,6 +160,7 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
   * Wolfenstein 3D
     * [[Game Versions->https://tcrf.net/Wolfenstein_3D_(DOS)]]
     * [[Map format->https://moddingwiki.shikadi.net/wiki/GameMaps_Format]]
+    * [[Documentation de VPoupet->https://github.com/vpoupet/wolfenstein]]
 
 ## Hobbies
 
@@ -230,14 +231,26 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
     * [[JavaScript->https://developer.mozilla.org/fr/docs/Web/JavaScript]]
       * [[Node.js->https://nodejs.org/en/]]
     * [[Python->https://www.python.org/]]
-      * [[Référence sur Tkinter de FDEX->http://tkinter.fdex.eu/]]
-      * [[Référence sur Tkinter de New Mexico->https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/index.html]]
-      * [[--Référence sur Effbot--->https://effbot.org/]]
+      * Games
+        * [[Pygame->https://www.pygame.org/news]]
+      * GUI
+        * Tkinter
+          * [[--Référence sur Tkinter de FDEX--->http://tkinter.fdex.eu/]]^^[[webarchive->http://web.archive.org/web/20220818034515/http://tkinter.fdex.eu/]]^^
+          * [[Référence sur Tkinter de New Mexico->https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/index.html]]
+          * [[--Référence sur Effbot--->https://effbot.org/]]^^[[webarchive->http://web.archive.org/web/20170608163257/https://effbot.org/]]^^
+      * Autres
+        * [[PILlow->https://pillow.readthedocs.io/en/stable/]]
     * [[Ruby->https://www.ruby-lang.org/]]
+      * Games
+        * [[Gosu->https://www.libgosu.org/]]
     * [[PHP->https://www.php.net/]]
       * [[Manuel PHP->https://www.php.net/manual/fr/]]
       * [[PHP Library Binaries->https://windows.php.net/downloads/pecl/releases/]]
     * [[Lua->https://www.lua.org/]]
+      * Games
+        * [[Löve->https://love2d.org/]]
+      * Autres
+        * [[Penlight->https://stevedonovan.github.io/Penlight/api/manual/01-introduction.md.html]]
     * [[Pike->https://pike.lysator.liu.se/]]
     * [[Microsoft Visual C++ Redistributable->https://learn.microsoft.com/fr-fr/cpp/windows/latest-supported-vc-redist?view=msvc-170]]
   * Langages web et de description de données
