@@ -20,6 +20,10 @@
 
 Ce document décrit le langage **Hamill**. Comme [[Markdown->#]], [[Textile->#]], [[AsciiDoc->#]] ou [[reStructuredText->#]], c'est un [[langage de balisage léger->#]] pour écrire de la documentation dans un fichier texte, directement lisible sans transformation, mais pouvant également être transformé en HTML.
 
+[[Le code source du projet est diposnible sur GitHub sous licence MIT->https://github.com/Xitog/hamill]].
+
+[[Vous pouvez l'essayer directement en ligne->https://xitog.github.io/dgx/hamill/index.html]]
+
 ## Sommaire
 
 * [[Commentaires->#]]
@@ -29,6 +33,7 @@ Ce document décrit le langage **Hamill**. Comme [[Markdown->#]], [[Textile->#]]
 * [[Détails->#]]
 * [[Code->#]]
 * [[Listes->#]]
+* [[Listes de définition->#]]
 * [[Tables->#]]
 * [[Liens->#]]
 * [[Images->#]]
@@ -101,24 +106,24 @@ Ceci est un texte avec une partie cachée : {{.spoiler Dark Vador est le père d
 
 ## Détails
 
-* Ecrire @@{{xxx => yyy}}@@ pour ouvrir une courte note. On peut mettre un id et une classe avant xxx avec @@#id@@ et @@.class@@.
-* Ecrire @@{{xxx =>}}@@ pour ouvrir une longue note. mettre un id et une classe avant xxx avec @@#id@@ et @@.class@@.
+* Ecrire @@{{xxx -> yyy}}@@ pour ouvrir une courte note. On peut mettre un id et une classe avant xxx avec @@#id@@ et @@.class@@.
+* Ecrire @@{{xxx}}@@ pour ouvrir une longue note. mettre un id et une classe avant xxx avec @@#id@@ et @@.class@@.
 * Ecrire @@{{end}}@@ pour fermer une longue note, on peut rappeler l'id et la classe mais cela n'a pas de signification pour Hamill.
 
 !css details {margin-bottom: 1em; background-color: #EDEDED;}
 !css details[open] {padding-bottom: 0.5em;}
 !css summary {margin-bottom: 0.5em; color: black; font-size: 16px; user-select: none; border: 1px solid darkgrey; background-color: white;}
 
->><<Courte note => Ceci est une courte note.>>
+>><<Courte note -> Ceci est une courte note.>>
 
-<<Courte note => Ceci est une courte note.>>
+<<Courte note -> Ceci est une courte note.>>
 
->><<Longue note => >>
+>><<Longue>>
 >>* Ceci est une note longue
 >>* Avec du Hamill dedans ##
 >><<end>>
 
-<<Longue note => >>
+<<Longue note>>
 * Ceci est une note longue
 * Avec du Hamill dedans
 <<end>>
@@ -171,16 +176,20 @@ def function(par1, par2):
 - @@-@@ pour une liste numérotée inversée, item 1/2
 - @@-@@ item 2/2
 
-* \| pour continuer un élément d'une liste.
-
 ## Listes de définition
 
 * $ indique une liste de définition. On fait suivre directement la définition en la précédant d'espaces.
 
+>> $ cuirassier
+>>     soldat à cheval lourdement équipé
+
+$ cuirassier
+     soldat à cheval lourdement équipé
+
 ## Tables
 
-* Un tableau s'écrit ainsi : |col1|col2|col3|
-* La ligne de titre doit être la première et séparée des autres par une ligne de tirets : |\-\-\-\-|
+* Un tableau s'écrit ainsi : @@|col1|col2|col3|@@
+* La ligne de titre doit être la première et séparée des autres par une ligne de tirets : @@|----|@@
 
 |Ceci|est|un  |tableau    |
 |----|---|----|-----------|
@@ -190,17 +199,17 @@ On peut mettre bien sûr des modificateurs de textes, des liens ou une image dan
 
 !var DEFAULT_FIND_IMAGE=..\img\
 
-|^^Ceci^^                   |**est**|__un__            |''tableau''                                  |
-|----------------------------------------------------------------------------------------------------|
-|Il [!background-green.png] |est    |--beau-- différent|ce [[tableau->https://xitog.github.io/dgx/]].|
+|^^Ceci^^                                                    |**est**|__un__            |''tableau''                                  |
+|-------------------------------------------------------------------------------------------------------------------------------------|
+|Il ((https://xitog.github.io/dgx/img/background-green.png)) |est    |--beau-- différent|ce [[tableau->https://xitog.github.io/dgx/]].|
 
 On peut également centré une case en faisant suivre la colonne ouvrante par @@=@@ et d'aligner à droite avec @@>@@ :
 
-|A gauche  |= Centré  |> A droite|
-|--------------------------------|
-|> A droite|= Centré  |A gauche  |
+|A gauche et aussi très long |= Centré  |> A droite                  |
+|--------------------------------------------------------------------|
+|> A droite                  |= Centré  |A gauche et aussi très long |
 
-On peut également préciser un colspan avec #cVALEUR# par exemple : @@#c3#@@ et combiné avec centrer @@=#c3#@@ :
+On peut également préciser un colspan avec #cVALEUR# par exemple : @@#c3#@@ et combiner avec centrer @@=#c3#@@ :
 
 |Colonne 1|Colonne 2|Colonne 3|
 |-----------------------------|
@@ -220,7 +229,7 @@ On peut également préciser un colspan avec #cVALEUR# par exemple : @@#c3#@@ et
 
 ## Images
 
-* On utilise les crochets \[ avec ! comme : \[!mon_image.png]
+* On utilise des parenthèses @@((url))@@ comme : @@((mon_image.png))@@
 * On peut définir un répertoire par défaut où les images seront prises avec la variable @@DEFAULT_FIND_IMAGE@@
 
 ## Constantes

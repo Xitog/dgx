@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <html lang="fr">
 <head>
   <meta charset="utf-8">
@@ -145,6 +146,8 @@
 <h1 id="hamill">Hamill</h1>
 <hr>
 <p>Ce document décrit le langage <b>Hamill</b>. Comme <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>, <a href="https://en.wikipedia.org/wiki/Textile_(markup_language)">Textile</a>, <a href="http://asciidoc.org/">AsciiDoc</a> ou <a href="https://docutils.sourceforge.io/rst.html">reStructuredText</a>, c'est un <a href="https://en.wikipedia.org/wiki/Lightweight_markup_language">langage de balisage léger</a> pour écrire de la documentation dans un fichier texte, directement lisible sans transformation, mais pouvant également être transformé en HTML.</p>
+<p><a href="https://github.com/Xitog/hamill">Le code source du projet est diposnible sur GitHub sous licence MIT</a>.</p>
+<p><a href="https://xitog.github.io/dgx/hamill/index.html">Vous pouvez l'essayer directement en ligne</a></p>
 <h2 id="sommaire">Sommaire</h2>
 <ul>
   <li><a href="#commentaires">Commentaires</a></li>
@@ -154,6 +157,7 @@
   <li><a href="#détails">Détails</a></li>
   <li><a href="#code">Code</a></li>
   <li><a href="#listes">Listes</a></li>
+  <li><a href="#listes-de-définition">Listes de définition</a></li>
   <li><a href="#tables">Tables</a></li>
   <li><a href="#liens">Liens</a></li>
   <li><a href="#images">Images</a></li>
@@ -214,16 +218,16 @@ Ceci est un texte avec une partie cachée : {{.spoiler Dark Vador est le père d
 <p>Ceci est un texte avec une partie cachée : <span class="spoiler">Dark Vador est le père de Luke</span>. Pour ne pas spoiler.</p>
 <h2 id="détails">Détails</h2>
 <ul>
-  <li>Ecrire <code>{{xxx => yyy}}</code> pour ouvrir une courte note. On peut mettre un id et une classe avant xxx avec <code>#id</code> et <code>.class</code>.</li>
-  <li>Ecrire <code>{{xxx =>}}</code> pour ouvrir une longue note. mettre un id et une classe avant xxx avec <code>#id</code> et <code>.class</code>.</li>
+  <li>Ecrire <code>{{xxx -> yyy}}</code> pour ouvrir une courte note. On peut mettre un id et une classe avant xxx avec <code>#id</code> et <code>.class</code>.</li>
+  <li>Ecrire <code>{{xxx}}</code> pour ouvrir une longue note. mettre un id et une classe avant xxx avec <code>#id</code> et <code>.class</code>.</li>
   <li>Ecrire <code>{{end}}</code> pour fermer une longue note, on peut rappeler l'id et la classe mais cela n'a pas de signification pour Hamill.</li>
 </ul>
 <blockquote>
-&lt;&lt;Courte note =&gt; Ceci est une courte note.&gt;&gt;<br>
+&lt;&lt;Courte note -&gt; Ceci est une courte note.&gt;&gt;<br>
 </blockquote>
 <details><summary>Courte note</summary>Ceci est une courte note.</details>
 <blockquote>
-&lt;&lt;Longue note =&gt; &gt;&gt;<br>
+&lt;&lt;Longue&gt;&gt;<br>
 * Ceci est une note longue<br>
 * Avec du Hamill dedans ##<br>
 &lt;&lt;end&gt;&gt;<br>
@@ -247,12 +251,11 @@ Ceci est un texte avec une partie cachée : {{.spoiler Dark Vador est le père d
 </blockquote>
 <p>Donnera :</p>
 <pre>
-python
-# Ceci est un commentaire
-def function(par1, par2):
-    return "Ceci est une fonction"
-
-</pre>
+<span class="python-comment" title="token n°0 : comment"># Ceci est un commentaire
+</span><span class="python-keyword" title="token n°1 : keyword">def</span> <span class="python-identifier" title="token n°3 : identifier">function</span><span class="python-separator" title="token n°4 : separator">(</span><span class="python-identifier" title="token n°5 : identifier">par1</span><span class="python-separator" title="token n°6 : separator">,</span> <span class="python-identifier" title="token n°8 : identifier">par2</span><span class="python-separator" title="token n°9 : separator">)</span><span class="python-operator" title="token n°10 : operator">:</span><span class="python-newline" title="token n°11 : newline">
+</span>    <span class="python-keyword" title="token n°13 : keyword">return</span> <span class="python-string" title="token n°15 : string">"Ceci est une fonction"</span><span class="python-newline" title="token n°16 : newline">
+</span><span class="python-newline" title="token n°17 : newline">
+</span></pre>
 <p>On peut également faire une ligne avec seulement <code>@@@</code> suivi éventuellement du langage qu'on souhaite puis des lignes <u>sans rien</u> jusqu'à une ligne ne comportant que <code>@@@</code>. Ainsi :</p>
 <blockquote>
 @@@python<br>
@@ -263,11 +266,10 @@ def function(par1, par2):<br>
 </blockquote>
 <p>Donnera :</p>
 <pre>
-python
-# Ceci est un commentaire
-def function(par1, par2):
-    return "Ceci est une fonction"
-</pre>
+<span class="python-comment" title="token n°0 : comment"># Ceci est un commentaire
+</span><span class="python-keyword" title="token n°1 : keyword">def</span> <span class="python-identifier" title="token n°3 : identifier">function</span><span class="python-separator" title="token n°4 : separator">(</span><span class="python-identifier" title="token n°5 : identifier">par1</span><span class="python-separator" title="token n°6 : separator">,</span> <span class="python-identifier" title="token n°8 : identifier">par2</span><span class="python-separator" title="token n°9 : separator">)</span><span class="python-operator" title="token n°10 : operator">:</span><span class="python-newline" title="token n°11 : newline">
+</span>    <span class="python-keyword" title="token n°13 : keyword">return</span> <span class="python-string" title="token n°15 : string">"Ceci est une fonction"</span><span class="python-newline" title="token n°16 : newline">
+</span></pre>
 <h2 id="listes">Listes</h2>
 <ul>
   <li><code>*</code> pour une liste non numérotée</li>
@@ -280,17 +282,22 @@ def function(par1, par2):
   <li><code>-</code> pour une liste numérotée inversée, item 1/2</li>
   <li><code>-</code> item 2/2</li>
 </ol>
-<ul>
-  <li>\| pour continuer un élément d'une liste.</li>
-</ul>
 <h2 id="listes-de-définition">Listes de définition</h2>
 <ul>
   <li>$ indique une liste de définition. On fait suivre directement la définition en la précédant d'espaces.</li>
 </ul>
+<blockquote>
+ $ cuirassier<br>
+     soldat à cheval lourdement équipé<br>
+</blockquote>
+<dl>
+<dt>cuirassier</dt>
+<dd>soldat à cheval lourdement équipé</dd>
+</dl>
 <h2 id="tables">Tables</h2>
 <ul>
-  <li>Un tableau s'écrit ainsi : |col1|col2|col3|</li>
-  <li>La ligne de titre doit être la première et séparée des autres par une ligne de tirets : |----|</li>
+  <li>Un tableau s'écrit ainsi : <code>|col1|col2|col3|</code></li>
+  <li>La ligne de titre doit être la première et séparée des autres par une ligne de tirets : <code>|----|</code></li>
 </ul>
 <table>
 <tr><th>Ceci</th><th>est</th><th>un  </th><th>tableau    </th></tr>
@@ -298,18 +305,18 @@ def function(par1, par2):
 </table>
 <p>On peut mettre bien sûr des modificateurs de textes, des liens ou une image dans un tableau.</p>
 <table>
-<tr><th><sup>Ceci</sup>                   </th><th><b>est</b></th><th><u>un</u>            </th><th><i>tableau</i>                                  </th></tr>
-<tr><td>Il [!background-green.png] </td><td>est    </td><td><s>beau</s> différent</td><td>ce <a href="https://xitog.github.io/dgx/">tableau</a>.</td></tr>
+<tr><th><sup>Ceci</sup>                                                    </th><th><b>est</b></th><th><u>un</u>            </th><th><i>tableau</i>                                  </th></tr>
+<tr><td>Il <img src="https://xitog.github.io/dgx/img/background-green.png"/> </td><td>est    </td><td><s>beau</s> différent</td><td>ce <a href="https://xitog.github.io/dgx/">tableau</a>.</td></tr>
 </table>
 <p>On peut également centré une case en faisant suivre la colonne ouvrante par <code>=</code> et d'aligner à droite avec <code>></code> :</p>
 <table>
-<tr><th>A gauche  </th><th class="text-center"> Centré  </th><th>&gt; A droite</th></tr>
-<tr><td>&gt; A droite</td><td class="text-center"> Centré  </td><td>A gauche  </td></tr>
+<tr><th>A gauche et aussi très long </th><th style="text-align: center"> Centré  </th><th style="text-align: right"> A droite                  </th></tr>
+<tr><td style="text-align: right"> A droite                  </td><td style="text-align: center"> Centré  </td><td>A gauche et aussi très long </td></tr>
 </table>
-<p>On peut également préciser un colspan avec #cVALEUR# par exemple : <code>#c3#</code> et combiné avec centrer <code>=#c3#</code> :</p>
+<p>On peut également préciser un colspan avec #cVALEUR# par exemple : <code>#c3#</code> et combiner avec centrer <code>=#c3#</code> :</p>
 <table>
 <tr><th>Colonne 1</th><th>Colonne 2</th><th>Colonne 3</th></tr>
-<tr><td class="text-center">#c3# Centré et colspan=3    </td></tr>
+<tr><td style="text-align: center">#c3# Centré et colspan=3    </td></tr>
 </table>
 <p><b>LIMITATION : pas de listes dans un tableau pour l'instant</b> :</p>
 <h2 id="liens">Liens</h2>
@@ -324,7 +331,7 @@ def function(par1, par2):
 </ul>
 <h2 id="images">Images</h2>
 <ul>
-  <li>On utilise les crochets [ avec ! comme : [!mon_image.png]</li>
+  <li>On utilise des parenthèses <code>((url))</code> comme : <code>((mon_image.png))</code></li>
   <li>On peut définir un répertoire par défaut où les images seront prises avec la variable <code>DEFAULT_FIND_IMAGE</code></li>
 </ul>
 <h2 id="constantes">Constantes</h2>
