@@ -1,0 +1,156 @@
+!const TITLE=Le Compagnon du Talisman
+!const LANG=fr
+!const ICON=https://xitog.github.io/dgx/img/favicon.ico
+!require https://xitog.github.io/dgx/css/simplex.bootstrap.css
+!require https://xitog.github.io/dgx/css/palatino.css
+!require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+!require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+
+!css h2 { border-bottom: 1px solid #CEC498; margin-top: 60px; }
+!css span.p { color: green; background-color: #99cc99; border: 1px solid green; padding-right: 4px; padding-left: 4px; }
+!css span.c { color: orange; background-color: #ffedcc; border: 1px solid orange; padding-right: 4px; padding-left: 4px; }
+!css span.a { color: #551A8B; background-color: #ccbadc; border: 1px solid #551A8B; padding-right: 4px; padding-left: 4px; }
+!css span.l { color: grey; background-color: #d8d8d8; border: 1px solid grey; padding-right: 4px; padding-left: 4px; }
+
+{{#main .container}}
+
+!include menu.html
+
+{{#content-div}}
+
+# Le Compagnon du Talisman
+
+//Damien Gouteux//, 2015 pour la première édition, 2024 pour la seconde édition.
+
+## Sommaire
+
+* [[Mentions légales->#]]
+* [[I. Le livre->#]]
+  * [[I.A. Description->#]]
+  * [[I.B. Dessins->#]]
+    * [[I.B.1. Dessins pleine page->#]]
+    * [[I.B.2. Dessins intermédiaires->#]]
+* II. Le jeu
+  * II.A. Description des personnages
+    * Équipement de base
+    * Classes
+    * Races
+  * II.B. Résolution des combats
+  * II.C. Tous les combats
+* III. Le monde d’Orbus
+  * III.A. Créatures
+  * III.B. Lieux
+    * Jardin des Dieux
+    * Griseguilde
+      * Auberge du Dragon Rouge
+      * Temple de Kyrinla la Cruelle
+      * Temple de La Mère de Toutes Choses
+    * Les Abysses
+    * La Lande
+      * Le Bocage Sacré
+    * Mont de l’Étoile
+    * Cité des Runes de la Malédiction
+    * Serakub
+    * Les Tours de l’Augure
+  * III.C. Personnages
+    * Alambic
+    * Apothécus
+    * Les Croisés
+    * Essedéhaif
+    * Fauconna
+    * Lillantha
+    * Les Maîtres de la Tradition de Serakub
+    * Mortophile
+    * Le Roi Sans Chair
+    * Somnus
+    * Tyutchev et Cassandra, Thaum
+    * Wodeman, Crinière de Neige
+  * III.D. Artefacts
+    * Amulette de Corne de Licorne
+    * Anneau +1 HAB
+    * Anneau de Régénération
+    * Cotte de mailles magiques
+    * Écailles de Dragon
+    * Élixir de vie
+    * Fétiche maudit d’impolitesse majeure
+    * Gomme d’Ambre
+    * Lance Fléau des Dragons
+    * Livre de Griseguilde Revisitée
+    * Livre de l’infortune
+    * Onguent de Peau d’écorce
+    * Parchemin de la douleur
+    * Pierre de Fortune/Chance
+    * Plume de Rock
+    * Pomme d’or
+    * Rose de jade
+    * Sainte Épée
+    * Sève de Saule
+    * Vapeurs de vélocité
+* Annexes
+  + Historique
+
+## Mentions légales
+
+!!Tous les droits de l’édition française du //Talisman de la Mort// sont détenus par les Éditions Gallimard!!. Ce compagnon n’est en aucun cas un remplacement de l’œuvre originale mais se propose d’aider les joueurs dans leur quête et de prolonger le plaisir de se plonger dans ce //Livre dont vous êtes le héros//.
+
+!!Le Compagnon du  Talisman!! est protégé par le droit d’auteur. La reproduction de tout ou partie en est interdite sur tout support. Ce droit s’applique également à la carte des chapitres qui l’accompagne.
+
+Pour toute suggestion, remarque ou erreur repérée, vous pouvez me contacter à damien POINT gouteux AROBASE gmail POINT com.
+
+## I. Le livre
+
+### I.A. Description
+
+//Le Talisman de la Mort// (ou //Talisman of Death// en anglais) fait parti des [[//Livres dont vous êtes le héros//->https://www.gallimard.fr/Catalogue/GALLIMARD-JEUNESSE/Un-Livre-dont-vous-etes-le-Heros]], où le lecteur/joueur navigue de chapitre en chapitre numérotés suivant ses choix.
+
+Il a été écrit par Jamie Thomson et Mark Smith, illustré par Bob Harvey avec une couverture de Peter Jones et édité en pour la première fois en anglais en 1984. Il comporte 400 chapitres numérotés. Le //Compagnon du Talisman// a été réalisé à partir d’une édition française imprimée le 16 janvier 1986.
+
+La première version de ce guide a été faite avec [[Textile->https://textile-lang.com/]] pour le texte et [[VUE->http://vue.tufts.edu/]] pour la carte. La seconde version de ce guide a été faite [[Hamill->https://github.com/Xitog/hamill]] pour la partie texte.
+
+Le __plan complet et exhaustif__ du livre se trouve ici : [[La Carte du Compagnon du Talisman->https://xitog.github.io/dgx/passetemps/graphics/Talisman_big.png]].
+
+Lorsqu’il est fait référence à un numéro de chapitre, on le note ainsi ^^400^^ pour le chapitre 400.
+
+Dans //Le Talisman de la Mort//, vous êtes un humain //"normal"// projeté dans le monde d'Orbus. Là, vous êtes reconnu comme le Champion du Destin, et on vous demande de faire en sorte que le Talisman de la Mort ne tombe pas entre les mains de ses serviteurs, car Elle anéantirait alors toute vie en ce monde.
+
+Webographie de ce livre :
+
+* [[Dans //La bibliothèque des aventuriers//->http://www.bibliotheque-des-aventuriers.com/serie/defis_fantastiques/11_talisman_mort.htm]]
+* [[Sur //Planète LDVELH//->http://planete-ldvelh.com/page/defi11.html]]
+* [[Dans //La Taverne des aventuriers//->http://www.la-taverne-des-aventuriers.com/t2602-11-le-talisman-de-la-mort]]
+* [[Dans le catalogue de l’éditeur, //Gallimard//->http://www.gallimard-jeunesse.fr/Catalogue/GALLIMARD-JEUNESSE/Un-Livre-dont-vous-etes-le-Heros/Defis-Fantastiques-nouvelle-presentation/Le-Talisman-de-la-Mort]]
+* [[Sur Wikipedia en anglais->https://en.wikipedia.org/wiki/Talisman_of_Death]]
+
+### I.B. Dessins
+
+Les dessins cités ci-dessous sont de [[Bob Harvey->http://fr.wikipedia.org/wiki/Bob_Harvey_%28illustrateur%29]]^^wikipedia fr^^, tandis que la couverture est de [[Peter Jones->http://en.wikipedia.org/wiki/Peter_Andrew_Jones]]^^wikipedia en^^.
+
+#### I.B.1. Dessins pleine page
+
+Il y a 18 illustrations qui occupent une pleine page dans l'édition utilisée, réalisés par Bob Harvey.
+
+| Chapitre | Description                                                                                   |
+|----------------------------------------------------------------------------------------------------------|
+|  39      | Elfe noir pointant du doigt                                                                   |
+|  52      | Druide {{.p Wodeman}}, Gardien du Bocage Sacré et la louve {{.p Crinière de Neige}}           |
+|  78      | Grande Prêtresse de Kyrinla la Cruelle, Commandante du Guet, {{.p Fauconna}}, riant           |
+|  91      | {{.c Chevalier de la Mort}}                                                                   |
+| 104      | Figure encapuchonnée, {{.c Laquais de la Mort}}                                               |
+| 117      | Prêtresse de La Mère de Toutes Choses, {{.p Lillantha}}                                       |
+| 130      | Squelette avec corbillard, {{.c Émissaire de la Mort}}                                        |
+| 169      | Voleuse {{.p Cassandra}} assise                                                               |
+| 195      | {{.c Démon de glace}}                                                                         |
+| 222      | Grande Prêtresse de Kyrinla la Cruelle, Commandante du Guet, {{.p Fauconna}}, levant le poing |
+| 261      | {{.c Moine de la Mante Écarlate}} et carriole                                                 |
+| 274      | {{.c Goule}} du cimetière                                                                     |
+| 300      | Esprit de {{.p Fauconna}},  drapé au bord d’une falaise                                       |
+| 313      | {{.c Griffon}}                                                                                |
+| 339      | Maléfique {{.c Idole-Avatar de Damolh}}, fils du Dieu Néant, Bouche du Vide                   |
+| 352      | {{.c Momie}} dans son sarcophage                                                              |
+| 365      | Chef des {{.c Hommes Pourceaux}}                                                              |
+| 378      | {{. Dragon rouge}} dormant sur son trésor                                                     |
+
+#### I.B.2. Dessins intermédiaires
+
+{{end}}
+{{end}}
