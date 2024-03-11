@@ -7,10 +7,14 @@
 !require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
 
 !css h2 { border-bottom: 1px solid #CEC498; margin-top: 60px; }
+!css p.center {text-align: center;}
+!css dt {color: #b9b088; font-size: 16px;}
+!css dd {color: black; font-size: 14px;}
 !css span.p { color: green; background-color: #99cc99; border: 1px solid green; padding-right: 4px; padding-left: 4px; }
 !css span.c { color: orange; background-color: #ffedcc; border: 1px solid orange; padding-right: 4px; padding-left: 4px; }
 !css span.a { color: #551A8B; background-color: #ccbadc; border: 1px solid #551A8B; padding-right: 4px; padding-left: 4px; }
 !css span.l { color: grey; background-color: #d8d8d8; border: 1px solid grey; padding-right: 4px; padding-left: 4px; }
+!css span.j { color: blue; background-color: #CCDEFF; border: 1px solid blue; padding-right: 4px; padding-left: 4px; }
 
 {{#main .container}}
 
@@ -34,60 +38,67 @@
   * [[II.A. Description des personnages->#]]
     * [[II.A.1. Équipement de base->#]]
     * [[II.A.2. Classes->#]]
-    * II.A.3. Races
-  * II.B. Résolution des combats
-  * II.C. Tous les combats
-* III. Le monde d’Orbus
-  * III.A. Créatures
-  * III.B. Lieux
-    * Jardin des Dieux
-    * Griseguilde
-      * Auberge du Dragon Rouge
-      * Temple de Kyrinla la Cruelle
-      * Temple de La Mère de Toutes Choses
-    * Les Abysses
-    * La Lande
-      * Le Bocage Sacré
-    * Mont de l’Étoile
-    * Cité des Runes de la Malédiction
-    * Serakub
-    * Les Tours de l’Augure
-  * III.C. Personnages
-    * Alambic
-    * Apothécus
-    * Les Croisés
-    * Essedéhaif
-    * Fauconna
-    * Lillantha
-    * Les Maîtres de la Tradition de Serakub
-    * Mortophile
-    * Le Roi Sans Chair
-    * Somnus
-    * Tyutchev et Cassandra, Thaum
-    * Wodeman, Crinière de Neige
-  * III.D. Artefacts
-    * Amulette de Corne de Licorne
-    * Anneau +1 HAB
-    * Anneau de Régénération
-    * Cotte de mailles magiques
-    * Écailles de Dragon
-    * Élixir de vie
-    * Fétiche maudit d’impolitesse majeure
-    * Gomme d’Ambre
-    * Lance Fléau des Dragons
-    * Livre de Griseguilde Revisitée
-    * Livre de l’infortune
-    * Onguent de Peau d’écorce
-    * Parchemin de la douleur
-    * Pierre de Fortune/Chance
-    * Plume de Rock
-    * Pomme d’or
-    * Rose de jade
-    * Sainte Épée
-    * Sève de Saule
-    * Vapeurs de vélocité
-* Annexes
-  + Historique
+    * [[II.A.3. Races->#]]
+  * [[II.B. Résolution des combats->#]]
+  * [[II.C. Tous les combats->#]]
+* [[III. Le monde d’Orbus->#]]
+  * [[III.A. Créatures->#]]
+    * [[III.A.1. Envoyés de la Mort->#]]
+  * [[III.B. Lieux->#]]
+    * [[III.B.1. Lieux où l’action se passe->#]]
+      * [[Jardin des Dieux->#jardin]]
+      * [[Griseguilde->#griseguilde]]
+        * [[Auberge du Dragon Rouge->#auberge1]]
+        * [[Temple de Kyrinla la Cruelle->#temple1]]
+        * [[Temple de La Mère de Toutes Choses->#temple2]]
+        * [[Temple de la Mort->#temple3]]
+        * [[Auberge de la Breloque d’Argent->#auberge2]]
+        * [[Porte de la Lande->#porte]]
+        * [[Guilde des Voleurs->#guilde]]
+      * [[Les Abysses->#abysses]]
+      * [[Les Landes->#landes]]
+        * [[Le Bocage Sacré->#bocage]]
+      * [[Mont de l’Étoile->#mont]]
+    * [[III.B.2. Lieux seulement évoqués->#]]
+      * [[Cité des Runes de la Malédiction->#cité]]
+      * [[Serakub->#serakub]]
+      * [[Les Tours de l’Augure->#tours]]
+  * [[III.C. Personnages et organisations->#]]
+    * [[Alambic->#alambic]]
+    * [[Apothécus->#apo]]
+    * [[Les Croisés->#croisés]]
+    * [[Essedéhaif->#esse]]
+    * [[Fauconna->#fauconna]]
+    * [[Lillantha->#lillantha]]
+    * [[Les Maîtres de la Tradition de Serakub->#maîtres]]
+    * [[Mortophile->#morto]]
+    * [[Le Roi Sans Chair->#roi]]
+    * [[Somnus->#somnus]]
+    * [[Tyutchev et Cassandra, Thaum->#cassandra]]
+    * [[Wodeman, Crinière de Neige->#wodeman]]
+  * [[III.D. Artefacts->#]]
+    * [[Amulette de Corne de Licorne->#amulette]]
+    * [[Anneau +1 HAB->#anneaup1]]
+    * [[Anneau de Régénération->#anneauregen]]
+    * [[Cotte de mailles magiques->#cotte]]
+    * [[Écailles de Dragon->#ecailles]]
+    * [[Élixir de vie->#elixir]]
+    * [[Fétiche maudit d’impolitesse majeure->#fetiche]]
+    * [[Gomme d’Ambre->#gomme]]
+    * [[Lance Fléau des Dragons->#lance]]
+    * [[Livre de Griseguilde Revisitée->#livregriseguilde]]
+    * [[Livre de l’infortune->#livreinfortune]]
+    * [[Onguent de Peau d’écorce->#onguent]]
+    * [[Parchemin de la douleur->#parchemin]]
+    * [[Pierre de Fortune/Chance->#pierre]]
+    * [[Plume de Rock->#plume]]
+    * [[Pomme d’or->#pommedor]]
+    * [[Rose de jade->#rosedejade]]
+    * [[Sainte Épée->#saintepee]]
+    * [[Sève de Saule->#seve]]
+    * [[Vapeurs de vélocité->#vapeurs]]
+* [[Annexes->#]]
+  + [[1. Historique->#]]
 
 ## Mentions légales
 
@@ -97,21 +108,23 @@
 
 Pour toute suggestion, remarque ou erreur repérée, vous pouvez me contacter à damien POINT gouteux AROBASE gmail POINT com.
 
+{{.center}}[[Retour au sommaire->sommaire]]
+
 ## I. Le livre
 
 ### I.A. Description
 
-//Le Talisman de la Mort// (ou //Talisman of Death// en anglais) fait parti des [[//Livres dont vous êtes le héros//->https://www.gallimard.fr/Catalogue/GALLIMARD-JEUNESSE/Un-Livre-dont-vous-etes-le-Heros]], où le lecteur/joueur navigue de chapitre en chapitre numérotés suivant ses choix.
+//Le Talisman de la Mort// (ou //Talisman of Death// en anglais) fait parti de la collection des [[//Livres dont vous êtes le héros//->https://www.gallimard.fr/Catalogue/GALLIMARD-JEUNESSE/Un-Livre-dont-vous-etes-le-Heros]], où le lecteur/joueur navigue de chapitre en chapitre numérotés suivant ses choix. En anglais, la série principale se nomme [[//fighting fantasy//->https://www.fightingfantasy.com/]], on les décrit comme des romans interactifs ou des livres-jeux.
 
-Il a été écrit par Jamie Thomson et Mark Smith, illustré par Bob Harvey avec une couverture de Peter Jones et édité en pour la première fois en anglais en 1984. Il comporte 400 chapitres numérotés. Le //Compagnon du Talisman// a été réalisé à partir d’une édition française imprimée le 16 janvier 1986.
+Cet ouvrage a été écrit par Jamie Thomson et Mark Smith, illustré par Bob Harvey avec une couverture de Peter Jones et édité en pour la première fois en anglais en 1984. Il comporte 400 chapitres numérotés. Le //Compagnon du Talisman// a été réalisé à partir d’une édition française imprimée le 16 janvier 1986.
 
-La première version de ce guide a été faite avec [[Textile->https://textile-lang.com/]] pour le texte et [[VUE->http://vue.tufts.edu/]] pour la carte. La seconde version de ce guide a été faite [[Hamill->https://github.com/Xitog/hamill]] pour la partie texte.
+La première version de ce guide a été faite avec [[Textile->https://textile-lang.com/]] pour le texte et [[VUE->http://vue.tufts.edu/]] pour la carte. La seconde version de ce guide a été faite avec [[Hamill->https://github.com/Xitog/hamill]] pour la partie texte et reprend la même carte.
 
 Le __plan complet et exhaustif__ du livre se trouve ici : [[La Carte du Compagnon du Talisman->https://xitog.github.io/dgx/passetemps/graphics/Talisman_big.png]].
 
-Lorsqu’il est fait référence à un numéro de chapitre, on le note ainsi ^^400^^ pour le chapitre 400.
+Lorsqu’il est fait référence à un numéro de chapitre, on le note de façon courte ^^400^^ pour le chapitre 400.
 
-Dans //Le Talisman de la Mort//, vous êtes un humain //"normal"// projeté dans le monde d'Orbus. Là, vous êtes reconnu comme le Champion du Destin, et on vous demande de faire en sorte que le Talisman de la Mort ne tombe pas entre les mains de ses serviteurs, car Elle anéantirait alors toute vie en ce monde.
+Dans //Le Talisman de la Mort//, vous êtes un humain de notre monde projeté dans le monde d'Orbus. Là, vous êtes reconnu comme le Champion du Destin, et on vous demande de faire en sorte que le Talisman de la Mort ne tombe pas entre les mains de ses serviteurs, car Elle anéantirait alors toute vie en ce monde.
 
 Webographie de ce livre :
 
@@ -120,6 +133,8 @@ Webographie de ce livre :
 * [[Dans //La Taverne des aventuriers//->http://www.la-taverne-des-aventuriers.com/t2602-11-le-talisman-de-la-mort]]
 * [[Dans le catalogue de l’éditeur, //Gallimard//->http://www.gallimard-jeunesse.fr/Catalogue/GALLIMARD-JEUNESSE/Un-Livre-dont-vous-etes-le-Heros/Defis-Fantastiques-nouvelle-presentation/Le-Talisman-de-la-Mort]]
 * [[Sur Wikipedia en anglais->https://en.wikipedia.org/wiki/Talisman_of_Death]]
+
+{{.center}}[[Retour au sommaire->sommaire]]
 
 ### I.B. Dessins
 
@@ -131,98 +146,433 @@ Il y a 18 illustrations qui occupent une pleine page dans l'édition utilisée, 
 
 | Chapitre | Description                                                                                   |
 |----------------------------------------------------------------------------------------------------------|
-|  39      | Elfe noir pointant du doigt                                                                   |
-|  52      | Druide {{.p Wodeman}}, Gardien du Bocage Sacré et la louve {{.p Crinière de Neige}}           |
-|  78      | Grande Prêtresse de Kyrinla la Cruelle, Commandante du Guet, {{.p Fauconna}}, riant           |
-|  91      | {{.c Chevalier de la Mort}}                                                                   |
-| 104      | Figure encapuchonnée, {{.c Laquais de la Mort}}                                               |
-| 117      | Prêtresse de La Mère de Toutes Choses, {{.p Lillantha}}                                       |
-| 130      | Squelette avec corbillard, {{.c Émissaire de la Mort}}                                        |
-| 169      | Voleuse {{.p Cassandra}} assise                                                               |
-| 195      | {{.c Démon de glace}}                                                                         |
-| 222      | Grande Prêtresse de Kyrinla la Cruelle, Commandante du Guet, {{.p Fauconna}}, levant le poing |
-| 261      | {{.c Moine de la Mante Écarlate}} et carriole                                                 |
-| 274      | {{.c Goule}} du cimetière                                                                     |
-| 300      | Esprit de {{.p Fauconna}},  drapé au bord d’une falaise                                       |
-| 313      | {{.c Griffon}}                                                                                |
-| 339      | Maléfique {{.c Idole-Avatar de Damolh}}, fils du Dieu Néant, Bouche du Vide                   |
-| 352      | {{.c Momie}} dans son sarcophage                                                              |
-| 365      | Chef des {{.c Hommes Pourceaux}}                                                              |
-| 378      | {{. Dragon rouge}} dormant sur son trésor                                                     |
+|=  39     | Elfe noir pointant du doigt                                                                   |
+|=  52     | Druide {{.p Wodeman}}, Gardien du Bocage Sacré et la louve {{.p Crinière de Neige}}           |
+|=  78     | Grande Prêtresse de Kyrinla la Cruelle, Commandante du Guet, {{.p Fauconna}}, riant           |
+|=  91     | {{.c Chevalier de la Mort}}                                                                   |
+|= 104     | Figure encapuchonnée, {{.c Laquais de la Mort}}                                               |
+|= 117     | Prêtresse de La Mère de Toutes Choses, {{.p Lillantha}}                                       |
+|= 130     | Squelette avec corbillard, {{.c Émissaire de la Mort}}                                        |
+|= 169     | Voleuse {{.p Cassandra}} assise                                                               |
+|= 195     | {{.c Démon de glace}}                                                                         |
+|= 222     | Grande Prêtresse de Kyrinla la Cruelle, Commandante du Guet, {{.p Fauconna}}, levant le poing |
+|= 261     | {{.c Moine de la Mante Écarlate}} et carriole                                                 |
+|= 274     | {{.c Goule}} du cimetière                                                                     |
+|= 300     | Esprit de {{.p Fauconna}},  drapé au bord d’une falaise                                       |
+|= 313     | {{.c Griffon}}                                                                                |
+|= 339     | Maléfique {{.c Idole-Avatar de Damolh}}, fils du Dieu Néant, Bouche du Vide                   |
+|= 352     | {{.c Momie}} dans son sarcophage                                                              |
+|= 365     | Chef des {{.c Hommes Pourceaux}}                                                              |
+|= 378     | {{. Dragon rouge}} dormant sur son trésor                                                     |
 
 #### I.B.2. Dessins intermédiaires
 
 | Chapitre | Description                                |
 |-------------------------------------------------------|
-|   2      | Corbeau tenant un os                       |
-|  10      | Corbeau tenant un os                       |
-|  21      | Épée et fléau                              |
-|  28      | Tête de squelette et hache, verticales (!) |
-|  32      | Corbeau tenant un os                       |
-|  44      | Trois sales type                           |
-|  59      | Corbeau tenant un os                       |
-|  63      | Main griffue tenant un talisman            |
-|  64      | Corbeau tenant un os                       |
-|  68      | Épée et fléau                              |
-|  77      | Corbeau tenant un os                       |
-|  90      | Tête de squelette et hache, verticales (!) |
-| 107      | Trois sales types                          |
-| 114      | Corbeau tenant un os                       |
-| 137      | Corbeau tenant un os                       |
-| 141      | Corbeau tenant un os                       |
-| 146      | Main griffue tenant un talisman            |
-| 147      | Corbeau tenant un os                       |
-| 150      | Corbeau tenant un os                       |
-| 158      | Main griffue tenant un talisman            |
-| 166      | Tête de squelette et hache, verticales (!) |
-| 213      | Main griffue tenant un talisman            |
-| 216      | Corbeau tenant un os                       |
-| 218      | Corbeau tenant un os                       |
-| 220      | Trois sales types                          |
-| 238      | Épée et fléau                              |
-| 247      | Corbeau tenant un os                       |
-| 254      | Épée et fléau                              |
-| 264      | Corbeau tenant un os                       |
-| 265      | Trois sales types                          |
-| 267      | Épée et fléau                              |
-| 269      | Corbeau tenant un os                       |
-| 276      | Corbeau tenant un os                       |
-| 300      | Trois sales types (grand)                  |
-| 302      | Main griffue tenant un talisman            |
-| 311      | Épée et fléau                              |
-| 327      | Tête de squelette et hache, verticales (!) |
-| 331      | Épée et fléau (avec rotation)              |
-| 335      | Corbeau tenant un os                       |
-| 345      | Corbeau tenant un os                       |
-| 348      | Main griffue tenant un talisman            |
-| 354      | Tête de squelette et hache, verticales (!) |
-| 373      | Épée et fléau (nouvelle rotation)          |
-| 375      | Corbeau tenant un Orbus                    |
-| 376      | Trois sales types                          |
-| 392      | Main griffue tenant un talisman (grand)    |
-| 393      | Corbeau tenant un os                       |
+|=   2     | Corbeau tenant un os                       |
+|=  10     | Corbeau tenant un os                       |
+|=  21     | Épée et fléau                              |
+|=  28     | Tête de squelette et hache, verticales (!) |
+|=  32     | Corbeau tenant un os                       |
+|=  44     | Trois sales type                           |
+|=  59     | Corbeau tenant un os                       |
+|=  63     | Main griffue tenant un talisman            |
+|=  64     | Corbeau tenant un os                       |
+|=  68     | Épée et fléau                              |
+|=  77     | Corbeau tenant un os                       |
+|=  90     | Tête de squelette et hache, verticales (!) |
+|= 107     | Trois sales types                          |
+|= 114     | Corbeau tenant un os                       |
+|= 137     | Corbeau tenant un os                       |
+|= 141     | Corbeau tenant un os                       |
+|= 146     | Main griffue tenant un talisman            |
+|= 147     | Corbeau tenant un os                       |
+|= 150     | Corbeau tenant un os                       |
+|= 158     | Main griffue tenant un talisman            |
+|= 166     | Tête de squelette et hache, verticales (!) |
+|= 213     | Main griffue tenant un talisman            |
+|= 216     | Corbeau tenant un os                       |
+|= 218     | Corbeau tenant un os                       |
+|= 220     | Trois sales types                          |
+|= 238     | Épée et fléau                              |
+|= 247     | Corbeau tenant un os                       |
+|= 254     | Épée et fléau                              |
+|= 264     | Corbeau tenant un os                       |
+|= 265     | Trois sales types                          |
+|= 267     | Épée et fléau                              |
+|= 269     | Corbeau tenant un os                       |
+|= 276     | Corbeau tenant un os                       |
+|= 300     | Trois sales types (grand)                  |
+|= 302     | Main griffue tenant un talisman            |
+|= 311     | Épée et fléau                              |
+|= 327     | Tête de squelette et hache, verticales (!) |
+|= 331     | Épée et fléau (avec rotation)              |
+|= 335     | Corbeau tenant un os                       |
+|= 345     | Corbeau tenant un os                       |
+|= 348     | Main griffue tenant un talisman            |
+|= 354     | Tête de squelette et hache, verticales (!) |
+|= 373     | Épée et fléau (nouvelle rotation)          |
+|= 375     | Corbeau tenant un Orbus                    |
+|= 376     | Trois sales types                          |
+|= 392     | Main griffue tenant un talisman (grand)    |
+|= 393     | Corbeau tenant un os                       |
+
+{{.center}}[[Retour au sommaire->sommaire]]
 
 ## II. Le jeu
 
 ### II.A. Description des personnages
 
-| Caractéristique | Score initial/max | Abbréviation  | Description                       |
-|-----------------------------------------------------------------------------------------|
-| Habilité        |  D6 +  6          | HAB           | Adresse au combat                 |
-| Endurance       | 2D6 + 12          | END           | Force, résistance et point de vie |
-| Chance          |  D6 +  6          | CHA           | Chance                            |
+| Caractéristique | Score initial/max | Abréviation         | Description                       |
+|-----------------------------------------------------------------------------------------------|
+| Habilité        |  D6 +  6          | {{.j HAB}}          | Adresse au combat                 |
+| Endurance       | 2D6 + 12          | {{.j END}}          | Force, résistance et point de vie |
+| Chance          |  D6 +  6          | {{.j CHA}}          | Chance                            |
+
+Ces caractéristiques varieront au cours de l'aventure mais vous devez toujours garder en mémoire leurs valeurs initiales.
+
+**On ne peut jamais dépasser les valeurs initiales de {{.j HAB}} et {{.j END}}.**
+
+Cela rend les objects magiques qui augmentent une caractéristique peu intéressants s'ils ne modifient pas la valeur //initiale//.
+
+En anglais, ces trois caractéristiques sont appelées //Skill//, //Stamina// et //Luck//.
 
 #### II.A.1. Équipement de base
 
-* Provisions pour 10 repas. Repas possible seulement si proposé par le livre. 1 repas = +4 END.
+* Provisions pour 10 repas. Repas possible seulement si proposé par le livre. 1 repas = +4 {{.j END}}.
 * Épée, armure de cuir, sac à dos.
-* Une bouteille à choisir parmi (buvable à tout moment, 2 mesures par bouteille) :
-  * Potion d'adresse (rétablit HAB)
-  * Potion de vigueur (rétablit END)
-  * Potion de bonne fortune (rétablit CHA et +1 : c'est un des rares cas où l'on peut dépasser le score initial)
-* Silex, mèche d'amadou, 5 torches
+* Une seule bouteille à choisir parmi (buvable à tout moment, 2 mesures par bouteille) :
+  * Potion d'adresse (rétablit {{.j HAB}})
+  * Potion de vigueur (rétablit {{.j END}})
+  * Potion de bonne fortune (rétablit {{.j CHA}} et donne +1 qui devient le nouveau score initial de {{.j CHA}})
+* Silex, mèche d’amadou, 5 torches
+
+La version anglaise ne donne qu'une mesure (= utilisation) par bouteille.
+
+**Une seule arme peut être utilisée à la fois.**
 
 #### II.A.2. Classes
+
+Le système de jeu n’utilise pas de //classes//, néanmoins dans les Abysses, les classes de //Paladin//, //Sorcier//, //Prêtre// sont évoquées.
+
+#### II.A.3. Races
+
+Le joueur ne peut-être qu’humain, mais d’autres races sont évoquées dans le jeu : //Ogre//, //Troll//, //Elfe noir//, //Orque// ainsi que les mystérieux //{{.c Changeur de Formes}}// ^^98^^.
+
+{{.center}}[[Retour au sommaire->sommaire]]
+
+### II.B. Résolution des combats
+
+Vous devrez affronter durant votre aventure des adversaires, humains ou non, on parlera alors de créatures. Chaque adversaire est définie par deux caractéristiques : son habilité {{.c HAB}} et son endurance {{.c END}}.
+
+Un combat se déroule en plusieurs assauts. À chaque assaut, on calcule la Force d’Attaque (FA) du joueur et celle de l'adversaire attaqué. Pour cela, on additionne leur habilité à 2D6 en renouvelant le lancer entre le joueur et l'adversaire.
+
+On retiendra donc que pour calculer une Force d’Attaque, il suffit de faire :
+
+>> Force d’Attaque (FA) = 2D6 + HAB
+
+Puis on compare les deux Forces d’Attaque, celle du joueur {{.j FA}} et celle de son adversaire {{.c FA}} :
+
+* Si Joueur {{.j FA}} **>** adversaire {{.c FA}} alors le joueur blesse l'adversaire et il perd -2 points d'{{.c END}}
+* Si Joueur {{.j FA}} **<** adversaire {{.c FA}} alors l'adversaire blesse le joueur et il perd -2 points d'{{.j END}}
+* Si Joueur {{.j FA}} **=** adversaire {{.c FA}} alors il ne se passe rien
+
+Si un adversaire à une {{.c END}} qui est égale à 0 à la fin d’un assaut, il est mis hors de combat, le joueur est vainqueur du combat et il peut continuer son chemin.
+
+Si le joueur à une {{.j END}} qui est égale à 0 à la fin d’un assaut, il meurt et son aventure se termine ici.
+
+* Si le jeu propose au joueur de fuir ==> -2 {{.j END}} //(on ne peut pas fuir librement, il faut que le livre le propose)//
+* Si le joueur affronte plusieurs adversaires : on en choisit 1 et 1 seul qu’il combat. ## Pour les autres adversaires, on détermine normalement à chaque fois la {{.j FA}} du joueur et celle de son adversaire {{.c FA}} :
+  * Si {{.j FA}} **>** {{.c FA}}, le joueur n'inflige pas de dommage
+  * Si {{.j FA}} **<** {{.c FA}}, le joueur reçoit des dommages comme normalement
+  * Si {{.j FA}} **=** {{.c FA}}, il ne se passe rien comme normalement
+
+A chaque coup porté ou reçu, lors d'une fuite ou lors d'une sollicitation du livre, on peut //tenter sa chance// :
+
+* Si le résultat de 2D6 <= {{.j CHA}} : chanceux
+* Si le résultat de 2D6 > {{.j CHA}} : malchanceux
+
+Chaque tentative diminue la {{.j CHA}} de 1 //après// la tentative.
+
+En attaque ou défense, cela peut transformer le coup en blessure grave ou écorchure.
+
+|Dommages                  | Normal | Chanceux | Malchanceux |
+|------------------------------------------------------------|
+| Coup porté par le joueur |=     2 |=       4 |=          1 |
+| Coup reçu par le joueur  |=     2 |=       1 |=          3 |
+
+**__Exemple__**
+
+//Un joueur doté d'une {{.j HAB}} de 9, d'une {{.j END}} de 18 et d'une {{.j CHA}} de 11 affronte un voleur doté d'une {{.c HAB}} de 6 et d'une {{.c END}} de 5 ://
+
++ Premier assaut
+  * Le joueur lance 2D6 et obtient 10. Sa {{.j FA}} est de 9 + 10 = 19
+  * On lance 2D6 pour le Voleur et on obtient 7. Sa {{.c FA}} est 6 + 7 = 13
+  * {{.j FA}} 19 > {{.c FA}} 13, le joueur peut infliger 2 dommages au Voleur, son {{.c END}} deviendrait 5 - 2 = 3.
+    * Mais le joueur //tente sa chance//. Il lance 2D6 est obtient 9. 9 < {{.j CHA}} de 11, il inflige 4 dommages au Voleur au lieu de 2, son {{.c END}} devient 5 - 4 = 1.
+    * Comme il a tenté sa chance, le joueur reçoit -1 en {{.j CHA}}, il a donc maintenant 10.
+  * A la fin du premier assaut, le joueur a toujours 18 en {{.j END}} et le Voleur {{.c END}} 1. On continue le combat par un deuxième assaut.
++ Deuxième assaut
+  * Le joueur lance 2D6 et obtient 3. Sa {{.j FA}} est de 9 + 3 = 12
+  * On lance 2D6 pour le Voleur et on obtient 10. Sa {{.c FA}} est 6 + 10 = 16
+  * {{.j FA}} 12 < {{.c FA}} 16, le joueur reçoit 2 dommages, son {{.j END}} devient 18 - 2 = 16
+    * Le joueur n'a pas //tenté sa chance// pour diminuer les dommages.
+  * A la fin du second assaut, le joueur a 16 en {{.j END}} et le Voleur {{.c END}} 1. On continue le combat par un troisième assaut.
++ Troisième assaut
+  * Le joueur lance 2D6 et obtient 12. Sa {{.j FA}} est de 9 + 12 = 21
+  * On lance 2D6 pour le Voleur et on obtient 3. Sa {{.c FA}} est 6 + 3 = 9
+  * {{.j FA}} 21 > {{.c FA}} 9, le joueur peut infliger 2 dommages au Voleur, son {{.c END}} devient 1 - 2 = -1 qu'on ramène à 0.
+  * Le voleur a une {{.c END}} de 0, le combat se termine par la victoire du joueur.
+
+### II.C. Tous les combats
+
+|Chapitre | Nom                                                                  | Habilité      | Endurance    | Spécial                                                                | Dessin  |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|=     4  | Tricératops                                                          |=  8           |= 30          |                                                                        |         |
+|=    10  | Dragon Rouge                                                         |= 12           |= 20          |                                                                        | 378     |
+|=    11  | Barman ## Coupeur de gorges                                          |=  7 ## 8      |= 8 ## 9      |                                                                        |         |
+|=    25  | Tyrannosaure                                                         |= 11           |= 18          |                                                                        |         |
+|=    31  | Fauconna                                                             |=  9           |=  6          |                                                                        | 78, 222 |
+|=    36  | Saule Bizarre                                                        |=  8           |= 20          |                                                                        |         |
+|=    50  | Fauconna                                                             |= 12           |= 14          |                                                                        | 78, 222 |
+|=    51  | Dragon Rouge                                                         |= 12           |= 20          |                                                                        | 378     |
+|=    59  | Fauconna (blessée)                                                   |= 12           |=  6          |                                                                        | 78, 222 |
+|=    66  | Premier Voleur ## Deuxième voleur                                    |= 6 ## 5       |= 7 ## 6      |                                                                        |         |
+|=    76  | Fauconna                                                             |= 12           |= 14          |                                                                        | 78, 222 |
+|=    81  | Laquais de la Mort                                                   |=  7           |=  7          | -1 HAB par coups qu’il porte                                           | 104     |
+|=    86  | Ptéradon                                                             |=  7           |= 15          |                                                                        |         |
+|=    87  | Fauconna                                                             |= 12           |= 14          |                                                                        | 78, 222 |
+|=    91  | Chevalier de la Mort                                                 |= 10           |= 15          |                                                                        | 91      |
+|=    96  | Laquais de la Mort                                                   |=  7           |=  5          | -1 HAB par coups qu’il porte                                           | 104     |
+|=   107  | Ogre                                                                 |=  8           |= 10          |                                                                        |         |
+|=   116  | Esprit de Fauconna                                                   |= 10           |= 12          |                                                                        | 300     |
+|=   126  | Elfe Noir                                                            |=  8           |=  8          |                                                                        |         |
+|=   140  | Gardienne du Temple                                                  |=  7           |=  8          |                                                                        |         |
+|=   144  | Crâne Volant                                                         |=  7           |=  6          |                                                                        |         |
+|=   167  | Homme au poignard ## Le Balafré ## Coupeur de gorges                 |=  6 ## 7 ## 7 |= 6 ## 9 ## 8 |                                                                        |         |
+|=   189  | Vivisect                                                             |=  8           |= 12          |                                                                        |         |
+|=   195  | Démon de Glace                                                       |=  8           |= 10          |                                                                        | 195     |
+|=   201  | Vivisect                                                             |=  8           |= 12          |                                                                        |         |
+|=   208  | Poursuivant Invisible (esprit de la Mort)                            |=  9           |=  8          |                                                                        |         |
+|=   210  | Tyutchev ## Cassandra                                                |= 10 ## 9      |= 12 ## 10    |                                                                        |         |
+|=   219  | Spectre                                                              |=  9           |= 10          | -1 HAB par coups qu’il porte                                           |         |
+|=   220  | Émissaire de la Mort                                                 |=  8           |=  6          | -1 HAB par coups qu’il porte                                           | 130     |
+|=   223  | Cassandra                                                            |=  9           |= 10          |                                                                        |         |
+|=   230  | Pieuvre de Vase                                                      |=  8           |=  9          |                                                                        |         |
+|=   232  | Louve blanche                                                        |=  8           |=  9          |                                                                        |         |
+|=   234  | Gardienne du Temple                                                  |=  6           |=  8          |                                                                        |         |
+|=   245  | Premier Voleur ## Second Voleur                                      |=  6 ## 7      |=  7 ## 6     |                                                                        |         |
+|=   265  | Tyutchev                                                             |= 10           |= 12          |                                                                        |         |
+|=   220  | Émissaire de la Mort (pris par surprise)                             |=  8           |=  4          | -1 HAB par coups qu’il porte                                           | 130     |
+|=   274  | Goule                                                                |=  7           |=  8          |                                                                        | 274     |
+|=   282  | Premier Orque ## Deuxième Orque ## Chef Orque                        |=  5 ## 5 ## 7 |=  6 ## 4 ## 7|                                                                        |         |
+|=   286  | Premier Voleur ## Deuxième Voleur                                    |=  6 ## 5      |=  7 ## 6     |                                                                        |         |
+|=   288  | Moine de la Mante Écarlate                                           |=  9           |=  8          |                                                                        |         |
+|=   297  | Poursuivant Invisible (esprit de la Mort)                            |=  9           |=  8          |                                                                        |         |
+|=   311  | Moine de la Mante Écarlate                                           |=  9           |=  8          |                                                                        |         |
+|=   313  | Griffon                                                              |=  8           |= 14          |                                                                        | 313     |
+|=   319  | Saule Bizarre                                                        |=  8           |= 12          |                                                                        |         |
+|=   342  | Tyutchev                                                             |= 10           |= 12          |                                                                        |         |
+|=   348  | Poursuivant Invisible (esprit de la Mort, ## recouvert de poussière) |=  7           |=  8          |                                                                        |         |
+|=   362  | Cheftaine ## Elvira                                                  |=  8 ## 6      |= 10 ##  8    | Assomme si sa Force d’Attaque est >= 10                                |         |
+|=   364  | Premier Voleur ## Deuxième Voleur                                    |=  6 ## 5      |=  7 ##  6    |                                                                        |         |
+|=   368  | Tyutchev ## Cassandra                                                |= 10 ## 9      |= 12 ## 10    | Cassandra a une Épée du froid qui inflige 3 blessures au lieu de 2. |         |
+|=   387  | Momie                                                                |=  9           |= 10          |                                                                        | 352     |
+|=   395  | Momie                                                                |=  8           |= 10          |                                                                        | 352     |
+
+{{.center}}[[Retour au sommaire->sommaire]]
+
+## III. Le monde d’Orbus
+
+### III.A. Créatures
+
+#### III.A.1. Envoyés de la Mort
+
+La Mort a de nombreux sbires qui feront tout pour récupérer le précieux Talisman :
+
+| Chapitre | Nom                                                               | Habilité | Endurance | Spécial                      | Dessin |
+|---------------------------------------------------------------------------------------------------------------------------------------------|
+|=  81     | Laquais de la Mort                                                |=  7      |=  7       | -1 HAB par coups qu’il porte | 104    |
+|=  91     | Chevalier de la Mort                                              |= 10      |= 15       |                              |  91    |
+|=  96     | Laquais de la Mort                                                |=  7      |=  5       | -1 HAB par coups qu’il porte | 104    |
+|= 208     | Poursuivant Invisible (esprit de la Mort)                         |=  9      |=  8       |                              |        |
+|= 219     | Spectre                                                           |=  9      |= 10       | -1 HAB par coups qu’il porte |        |
+|= 220     | Émissaire de la Mort                                              |=  8      |=  6       | -1 HAB par coups qu’il porte | 130    |
+|= 220     | Émissaire de la Mort (pris par surprise)                          |=  8      |=  4       | -1 HAB par coups qu’il porte | 130    |
+|= 297     | Poursuivant Invisible (esprit de la Mort)                         |=  9      |=  8       |                              |        |
+|= 348     | Poursuivant Invisible (esprit de la Mort, recouvert de poussière) |=  7      |=  8       |                              |        |
+
+{{.center}}[[Retour au sommaire->sommaire]]
+
+### III.B. Lieux
+
+#### III.B.1. Lieux où l’action se passe
+
+* Le joueur passe brièvement par le {{#jardin .l Jardin des Dieux}} où on lui confie sa mission.
+* Majoritairement à {{#griseguilde .l Griseguilde}} dont la première mention est au chapitre ^^268^^. C’est la Cité du savoir avec de nombreux étudiants et savants.
+  * Griseguilde est une ville qui contient l’{{#auberge1 .l Auberge du Dragon Rouge}}, repère malfamé et louche de malandrins en tout genre.
+  * Elle possède aussi de nombreux temples dont :
+    * le {{#temple1 .l Temple de Kyrinla la Cruelle}},
+    * le {{#temple2 .l Temple de La Mère de Toutes Choses}},
+    * le {{#temple3 .l Temple de la Mort}}, un grand bâtiment de style gothique ^^144^^. Il dispose bien sûr d’un {{.l cimetière}}.
+  * Il y a aussi l’{{#auberge2 .l Auberge de la Breloque d’Argent}}.
+  * On entre dans la ville par des portes, dont la {{#porte .l Porte de la Lande}}.
+  * Cachée au sein de la ville, il y a aussi une {{#guilde .l Guilde des Voleurs}}.
+  * La ville comporte bien sûr de nombreuses rues :
+    * Rue du Magasin
+    * Rue Dupont
+    * Rue du Guet
+    * Rue des Sept Péchés
+    * Rue d’Argent
+    * Allée du Commerce (où se situe une bouche d’égout piégée menant à la Guilde des Voleurs)
+    * Rue du Cordonnier
+    * Rue du Marchand
+    * Rue du Carrosse
+    * Promenade du Bateleur
+    * Rue du Charme (trou à charbon menant à la Guilde des Voleurs)
+* Le joueur débarque au début de l’aventure dans les {{#abysses .l Abysses}}.
+* Entre les Abysses et Griseguilde, le joueur s’aventure dans les {{#landes .l Landes}}. Il y trouvera peut-être le {{#bocage .l Bocage Sacré}} où réside {{.p Wodeman}}.
+* Le joueur finit l’aventure sur le {{#mont .l Mont de l’Étoile}}.
+
+#### III.B.2. Lieux seulement évoqués
+
+* La {{#cité .l Cité des Runes de la Malédiction}} ^^322, 100^^ : lieu où a été forgé le Talisman de la Mort.
+* {{#serakub .l Serakub}} ^^322^^
+* Les {{#tours .l Tours de l’Augure}} ^^322^^
+
+{{.center}}[[Retour au sommaire->sommaire]]
+
+### III.C. Personnages et organisations
+
+$ {{#alambic Alambic}} ^^394^^
+    Un alchimiste qui a sa boutique à Griseguilde. Ses articles sont "à surprises".
+
+$ {{#apo Apothécus}}
+    On le rencontre au chapitre ^^128^^ et son nom est révélé au chapitre ^^98^^. C’est un habitant de Griseguilde, un historien, qui s’avèrera un allié précieux. Il vous donne une {{.a rose de jade}} et un {{.a anneau +1 HAB}}.
+
+$ {{#croisés Les Croisés}} ^^13^^
+    Un groupe chargé par les {{.o Maîtres de la Tradition de Serakub}} de récupérer le Talisman de la Mort dans les profondeurs de l’Abyme. Lorsque le joueur les rencontre, il n’en reste plus que quatre. Il est composé de {{.p la Dame de Mailles}} et de trois hommes : un Paladin, un Sorcier, et un Prêtre.
+
+$ {{#esse Essedéhaif}} ^^209^^
+    Le Maître de la Guilde des Voleurs.
+
+$ {{#fauconna Fauconna}}
+    Grande Prêtresse de Kyrinla la Cruelle. Elle est un adversaire qui cherche à mettre la main sur le Talisman. Elle est également cheffe des Amazones et en cela Commandante du Guet. Le joueur la tue au cours de l’aventure, mais elle revient le hanter sous la forme d’un esprit.
+
+Les différents combats contre Fauconna et son esprit que l'on rencontre après :
+
+| Chapitre | Nom                | Habilité | Endurance | Spécial | Dessin  |
+|--------------------------------------------------------------------------|
+|=  31     | Fauconna           |=  9      |=  6       |         | 78, 222 |
+|=  50     | Fauconna           |= 12      |= 14       |         | 78, 222 |
+|=  59     | Fauconna (blessée) |= 12      |=  6       |         | 78, 222 |
+|=  76     | Fauconna           |= 12      |= 14       |         | 78, 222 |
+|=  87     | Fauconna           |= 12      |= 14       |         | 78, 222 |
+|= 116     | Esprit de Fauconna |= 10      |= 12       |         | 300     |
+
+$ {{#lillantha Lillantha, prêtresse de La Mère de Toutes Choses}}
+    Ele est l’opposé de Fauconna. Elle est amie avec {{.p Wodeman}}.
+
+$ {{#maîtres Les Maîtres de la Tradition de Serakub}}
+    Personnages qui œuvrent pour le Bien.
+
+$ {{#morto Mortophile}} ^^144^^
+    (son nom signifie //qui aime la mort//) infirme adorateur de la Mort. Il habite dans une maison qui a un accès vers le temple de la Mort et vous attaque à l’aide de son familier, un Crâne Volant ^^144^^.
+
+$ {{#roi Roi Sans Chair}} ^^100^^
+    Chef des Laquais de la Mort, il a mis en sécurité le Talisman dans les profondeurs de l’Abyme.
+
+$ {{#somnus Somnus}} ^^97^^
+    Le Grand Prêtre du {{.l Temple de la Mort}}.
+
+$ {{#cassandra Tyutchev et Cassandra}}
+    Un duo de voleurs impitoyables qui cherchent à obtenir le Talisman. Ils sont accompagnés de !!Thaum!!, un mage, lors de leur seconde rencontre avec le joueur. Cassandra possède une {{.o Épée du froid}} qui inflige 3 blessures au lieu de 2.
+
+Les différents combats contre Tyutchev et Cassandra :
+
+| Chapitre | Nom                   | Habilité | Endurance | Spécial | Dessin  |
+|--------------------------------------------------------------------------|
+|= 210     | Tyutchev ## Cassandra |= 10 ## 9 |= 12 ## 10 |         |         |
+|= 223     | Cassandra             |=  9      |= 10       |         |         |
+|= 265     | Tyutchev              |= 10      |= 12       |         |         |
+|= 342     | Tyutchev              |= 10      |= 12       |         |         |
+|= 368     | Tyutchev ## Cassandra |= 10 ## 9 |= 12 ## 10 |         |         |
+
+$ {{#wodeman Wodeman et Crinière de Neige}}
+    Druide Gardien du {{.l Bocage Sacré}} où il réside. Il a pour amie la louve blanche !!Crinière de Neige!!.
+
+### III.D. Artefacts
+
+$ {{#amulette Amulette de Corne de Licorne}}
+    Obtenue au ^^49^^. Utile au ^^105^^, au ^^87^^ elle vous donne {{.j +2 HAB}} pour un combat seulement.
+
+$ {{#anneaup1 Anneau +1 HAB}} ^^98^^
+    Donné par {{.p Apothécus}}.
+
+$ {{#anneauregen Anneau de Régénération dit Anneau de Fauconna}} ^^54^^
+    {{.j +6 END}}. Perd tout pouvoir magique lorsque vous sortez du Temple et est volé pour le Moine au ^^366^^.
+
+$ {{#cotte Cotte de mailles magiques}} ^^117^^
+    Armure magique {{.j +1 HAB}} donnée par {{.p Lillantha}}.
+
+$ {{#ecailles Écailles de Dragon}} ^^324^^
+    Avec la {{.a Gomme d’Ambre}} cela permet de constituer un bouclier magique contre le Dragon Rouge.
+
+$ {{#elixir Élixir de vie}} ^^372^^
+    Vendu par {{.p Alambic}} pour 12 pièces d’or. {{.j END}} = {{.j END}} initiale + 2.
+
+$ {{#fetiche Fétiche maudit d’impolitesse majeure}} ^^32^^
+    Ce fétiche maudit fait prononcer des jurons et des paroles outrageantes à son porteur, malgré sa volonté !
+
+$ {{#gomme Gomme d’Ambre}} ^^110^^
+    Permet de coller les écailles de dragon entre elles pour faire un bouclier magique. Donnée par le chef des {{.c Hommes Pourceaux}}. !!Nécessaire pour finir le livre-jeu \!!!
+
+$ {{#lance Lance Fléau des Dragons}} ^^371, 395^^
+    Arme magique conçue pour tuer les dragons. Sert aux ^^34, 58^^.
+
+$ {{#livregriseguilde Livre de Griseguilde Revisitée}}
+    Livre fourmillant d’informations sur Griseguilde.
+
+$ {{#livreinfortune Livre de l’infortune}} ^^262^^
+    Livre maudit qui fait perdre {{.j 1 CHA}} à tout lecteur.
+
+$ {{#onguent Onguent de Peau d’écorce}} ^^372^^
+    Vendu par {{.p Alambic}} pour 7 pièces d’or. {{.j -2 END}}.
+
+$ {{#parchemin Parchemin de la douleur}}
+    Obtenu au ^^176^^, il affaiblit sa cible. Utile au ^^105^^.
+
+$ {{#pierre Pierre de Fortune/Chance}} ^^372^^
+    Vendue par {{.p Alambic}} pour 10 pièces d’or. {{.j +1 CHA}}.
+
+$ {{#plume Plume de Rock}} ^^84^^
+    Plume magique de Rock permettant d’atterrir en douceur au ^^227^^.
+
+$ {{#pommedor Pomme d’or}} ^^54^^
+    Donnée par {{.p Wodeman}}, elle permet de regagner {{.j +4 END}}.
+
+$ {{#rosedejade Rose de jade}} ^^98^^
+    Symbole que vous donne {{.p Apothécus}} pour vérifier qu’il s’agit bien de vous et pas d’un {{.c Changeur de Formes}}.
+
+$ {{#saintepee Sainte Épée}} ^^193^^, ^^62^^
+    Épée magique {{.j +1 HAB}} donnée par l’esprit du Paladin.
+
+$ {{#seve Sève de Saule}} ^^161^^
+    Redonne {{.j +4 END}}.
+
+$ {{#vapeurs Vapeurs de vélocité}} ^^372^^
+    Vendues par {{.p Alambic}} pour 10 pièces d’or. Utile au ^^105^^ mais elle s’avère une arnaque complète : il s’agit d’une fiole vide au ^^76^^.
+
+{{.center}}[[Retour au sommaire->sommaire]]
+
+## Annexes
+
+### 1. Historique
+
+* Première publication de ce guide : le !!20 janvier 2015!!.
+* Deuxième publication de ce guide : le !!11 mars 2024!!.
+
+{{.center}}[[Retour au sommaire->sommaire]]
 
 {{end}}
 {{end}}
