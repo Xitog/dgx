@@ -22,32 +22,32 @@ Un langage de script simple et concis avec support pour l'orienté objet.
 
 + Introduction
 + Noyau du langage
-+ + Installation
-+ + Premier programme
-+ + Commentaires
-+ + Constantes et variables
-+ + Expressions et instructions
+  + Installation
+  + Premier programme
+  + Commentaires
+  + Constantes et variables
+  + Expressions et instructions
 + Types de base
-+ + Booléen
-+ + Entier et réel
-+ + Chaîne
-+ + Liste
-+ + Dictionnaire
+  + Booléen
+  + Entier et réel
+  + Chaîne
+  + Liste
+  + Dictionnaire
 + Contrôle du flux
-+ + Séquence
-+ + Sélection
-+ + Boucle
+  + Séquence
+  + Sélection
+  + Boucle
 + Fonctions et procédures
-+ Classes et objets
-+ Gestion des erreurs
-+ Bibliothèque standard
+  Classes et objets
+  Gestion des erreurs
+  Bibliothèque standard
 + + Console
-+ + Fichiers
-+ + Système d'exploitation
+  + Fichiers
+  + Système d'exploitation
 + Implémentations et interfaces
-+ + Ash/Python
-+ + Ash/JavaScript
-+ + Ash/C
+  + Ash/Python
+  + Ash/JavaScript
+  + Ash/C
 
 ## Introduction
 
@@ -64,8 +64,8 @@ ash.exe pipo.ash
 ash.ex -i pipo.ash
 * Via l'exécution d'un script, stocké dans un fichier .ash, qu'on transpile en Python à l'aide de ash.exe. On exécute ensuite le script Python produit à l'aide de l'interpréteur Python.
 
-ash.exe -transpy pipo.ash
-python pipo.py
+@@ ash.exe -transpy pipo.ash
+@@ python pipo.py
 
 Les arguments sont stockés dans une liste. 0 est le nom du script. En nég, les options préalables. En pos, les options du script.
 
@@ -74,7 +74,8 @@ Les arguments sont stockés dans une liste. 0 est le nom du script. En nég, les
 La tradition veut qu'on affiche "Bonjour le monde !" sur la sortie standard. Pour cela, il faut lancer l'interpréteur interactif
 ash.exe
 Puis tapez :
-writeln("Hello World!")
+
+@@ writeln("Hello World!")
 
 Une autre tradition est le calcul d'une factorielle. Ouvrez un fichier texte, enregistrez-le sous le nom de fact.ash puis tapez dedans :
 

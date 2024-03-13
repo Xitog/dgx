@@ -7,6 +7,8 @@
 !require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
 
 !css h2 { border-bottom: 1px solid #CEC498; margin-top: 60px; }
+!css table tbody tr:nth-child(odd) { background-color: #F5F5F5; }
+!css table tbody tr:nth-child(2n) { background-color: #FFFFFF; }
 !css p.center {text-align: center;}
 !css dt {color: #b9b088; font-size: 16px;}
 !css dd {color: black; font-size: 14px;}
@@ -36,9 +38,11 @@
     * [[I.B.2. Dessins intermédiaires->#]]
 * [[II. Le jeu->#]]
   * [[II.A. Description des personnages->#]]
-    * [[II.A.1. Équipement de base->#]]
-    * [[II.A.2. Classes->#]]
-    * [[II.A.3. Races->#]]
+    * [[II.A.1. Caractéristiques->#]]
+    * [[II.A.2. Équipement->#]]
+    * [[II.A.3. Classes->#]]
+    * [[II.A.4. Races->#]]
+    * [[II.A.5. Compétences->#]]
   * [[II.B. Résolution des combats->#]]
   * [[II.C. Tous les combats->#]]
 * [[III. Le monde d’Orbus->#]]
@@ -223,11 +227,13 @@ Il y a 18 illustrations qui occupent une pleine page dans l'édition utilisée, 
 
 ### II.A. Description des personnages
 
-| Caractéristique | Score initial/max | Abréviation         | Description                       |
-|-----------------------------------------------------------------------------------------------|
-| Habilité        |  D6 +  6          | {{.j HAB}}          | Adresse au combat                 |
-| Endurance       | 2D6 + 12          | {{.j END}}          | Force, résistance et point de vie |
-| Chance          |  D6 +  6          | {{.j CHA}}          | Chance                            |
+#### II.A.1. Caractéristiques
+
+| Nom       | Score initial/max | Abréviation         | Description                       |
+|-----------------------------------------------------------------------------------------|
+| Habilité  |  D6 +  6          | {{.j HAB}}          | Adresse au combat                 |
+| Endurance | 2D6 + 12          | {{.j END}}          | Force, résistance et point de vie |
+| Chance    |  D6 +  6          | {{.j CHA}}          | Chance                            |
 
 Ces caractéristiques varieront au cours de l'aventure mais vous devez toujours garder en mémoire leurs valeurs initiales.
 
@@ -237,7 +243,11 @@ Cela rend les objects magiques qui augmentent une caractéristique peu intéress
 
 En anglais, ces trois caractéristiques sont appelées //Skill//, //Stamina// et //Luck//.
 
-#### II.A.1. Équipement de base
+#### II.A.2. Équipement
+
+Vous trouverez différents objets au cours de votre aventure.
+
+Au départ de celle-ci, vous disposez déjà d'un utile équipement de base :
 
 * Provisions pour 10 repas. Repas possible seulement si proposé par le livre. 1 repas = +4 {{.j END}}.
 * Épée, armure de cuir, sac à dos.
@@ -251,15 +261,19 @@ La version anglaise ne donne qu'une mesure (= utilisation) par bouteille.
 
 **Une seule arme peut être utilisée à la fois.**
 
-#### II.A.2. Classes
+#### II.A.3. Classes
 
 Le système de jeu n’utilise pas de //classes//, néanmoins dans les Abysses, les classes de //Paladin//, //Sorcier//, //Prêtre// sont évoquées.
 
-#### II.A.3. Races
+#### II.A.4. Races
 
 Le joueur ne peut-être qu’humain, mais d’autres races sont évoquées dans le jeu : //Ogre//, //Troll//, //Elfe noir//, //Orque// ainsi que les mystérieux //{{.c Changeur de Formes}}// ^^98^^.
 
 {{.center}}[[Retour au sommaire->sommaire]]
+
+#### II.A.5. Compétences
+
+Le système de jeu n'utilise pas de //compétences//. Seules les trois caractéristiques et votre réflexion serviront à faire progresser l'aventure.
 
 ### II.B. Résolution des combats
 

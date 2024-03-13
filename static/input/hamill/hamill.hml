@@ -106,15 +106,15 @@ Ceci est un texte avec une partie cachée : {{.spoiler Dark Vador est le père d
 
 ## Détails
 
-* Ecrire @@{{xxx -> yyy}}@@ pour ouvrir une courte note. On peut mettre un id et une classe avant xxx avec @@#id@@ et @@.class@@.
-* Ecrire @@{{xxx}}@@ pour ouvrir une longue note. mettre un id et une classe avant xxx avec @@#id@@ et @@.class@@.
-* Ecrire @@{{end}}@@ pour fermer une longue note, on peut rappeler l'id et la classe mais cela n'a pas de signification pour Hamill.
+* Ecrire @@<<xxx -> yyy>>@@ pour ouvrir une courte note. On peut mettre un id et une classe avant xxx avec @@#id@@ et @@.class@@.
+* Ecrire @@<<xxx>>@@ pour ouvrir une longue note. mettre un id et une classe avant xxx avec @@#id@@ et @@.class@@.
+* Ecrire @@<<end>>@@ pour fermer une longue note, on peut rappeler l'id et la classe mais cela n'a pas de signification pour Hamill.
 
 !css details {margin-bottom: 1em; background-color: #EDEDED;}
 !css details[open] {padding-bottom: 0.5em;}
 !css summary {margin-bottom: 0.5em; color: black; font-size: 16px; user-select: none; border: 1px solid darkgrey; background-color: white;}
 
->><<Courte note -> Ceci est une courte note.>>
+>><<Courte note \-> Ceci est une courte note.>>
 
 <<Courte note -> Ceci est une courte note.>>
 
@@ -220,11 +220,11 @@ On peut également préciser un colspan avec #cVALEUR# par exemple : @@#c3#@@ et
 ## Liens
 
 * On utilise les crochets
-* La première forme dite ''directe'' est @@[> URL]@@ ou @@[> REF]@@. L'URL ou la REF sera affichée
-* La seconde forme dite ''nommée'' s'écrit @@[ nom affiché -> URL ]@@ ou @@[ nom affiché -> REF ]@@
+* La première forme dite ''directe'' est @@[[URL]]@@, @@[[REF]]@@, @@[#ID]@@. L'URL, la REF ou l'identifiant sera affichée
+* La seconde forme dite ''nommée'' s'écrit @@[[ nom affiché -> URL | REF | #ID ]]@@ ou @@[ nom affiché -> REF ]@@
 * Une URL commence par @@http://@@ ou @@https://@@
-* Une REF est définie par une ligne de la forme @@[code]: http://...@@
-* Une forme spéciale de la nommée est si REF est seulement @@#@@ comme @@[ nom affiché -> # ]@@ : il essaye de faire sur le nom affiché transformé ou, si l'ancre n'existe pas, le nom affiché directement
+* Une REF est définie par une ligne de la forme @@::code:: http://...@@
+* Une forme spéciale de la nommée est si REF est seulement @@#@@ comme @@[[] nom affiché -> # ]]@@ : Hamill essaye alors de faire sur le nom affiché transformé ou, si l'ancre n'existe pas, le nom affiché directement
 * Les titres sont automatiquement transformés en ancre en remplaçant les espaces par - et en les mettant en minuscules : ainsi **Les jeux** devient **les_jeux**
 
 ## Images

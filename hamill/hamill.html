@@ -218,9 +218,9 @@ Ceci est un texte avec une partie cachée : {{.spoiler Dark Vador est le père d
 <p>Ceci est un texte avec une partie cachée : <span class="spoiler">Dark Vador est le père de Luke</span>. Pour ne pas spoiler.</p>
 <h2 id="détails">Détails</h2>
 <ul>
-  <li>Ecrire <code>{{xxx -> yyy}}</code> pour ouvrir une courte note. On peut mettre un id et une classe avant xxx avec <code>#id</code> et <code>.class</code>.</li>
-  <li>Ecrire <code>{{xxx}}</code> pour ouvrir une longue note. mettre un id et une classe avant xxx avec <code>#id</code> et <code>.class</code>.</li>
-  <li>Ecrire <code>{{end}}</code> pour fermer une longue note, on peut rappeler l'id et la classe mais cela n'a pas de signification pour Hamill.</li>
+  <li>Ecrire <code><<xxx -> yyy>></code> pour ouvrir une courte note. On peut mettre un id et une classe avant xxx avec <code>#id</code> et <code>.class</code>.</li>
+  <li>Ecrire <code><<xxx>></code> pour ouvrir une longue note. mettre un id et une classe avant xxx avec <code>#id</code> et <code>.class</code>.</li>
+  <li>Ecrire <code><<end>></code> pour fermer une longue note, on peut rappeler l'id et la classe mais cela n'a pas de signification pour Hamill.</li>
 </ul>
 <blockquote>
 &lt;&lt;Courte note -&gt; Ceci est une courte note.&gt;&gt;<br>
@@ -316,17 +316,17 @@ def function(par1, par2):<br>
 <p>On peut également préciser un colspan avec #cVALEUR# par exemple : <code>#c3#</code> et combiner avec centrer <code>=#c3#</code> :</p>
 <table>
 <tr><th>Colonne 1</th><th>Colonne 2</th><th>Colonne 3</th></tr>
-<tr><td style="text-align: center">#c3# Centré et colspan=3    </td></tr>
+<tr><td style="text-align: center" colspan="3"> Centré et colspan=3    </td></tr>
 </table>
 <p><b>LIMITATION : pas de listes dans un tableau pour l'instant</b> :</p>
 <h2 id="liens">Liens</h2>
 <ul>
   <li>On utilise les crochets</li>
-  <li>La première forme dite <i>directe</i> est <code>[> URL]</code> ou <code>[> REF]</code>. L'URL ou la REF sera affichée</li>
-  <li>La seconde forme dite <i>nommée</i> s'écrit <code>[ nom affiché -> URL ]</code> ou <code>[ nom affiché -> REF ]</code></li>
+  <li>La première forme dite <i>directe</i> est <code>[[URL]]</code>, <code>[[REF]]</code>, <code>[#ID]</code>. L'URL, la REF ou l'identifiant sera affichée</li>
+  <li>La seconde forme dite <i>nommée</i> s'écrit <code>[[ nom affiché -> URL | REF | #ID ]]</code> ou <code>[ nom affiché -> REF ]</code></li>
   <li>Une URL commence par <code>http://</code> ou <code>https://</code></li>
-  <li>Une REF est définie par une ligne de la forme <code>[code]: http://...</code></li>
-  <li>Une forme spéciale de la nommée est si REF est seulement <code>#</code> comme <code>[ nom affiché -> # ]</code> : il essaye de faire sur le nom affiché transformé ou, si l'ancre n'existe pas, le nom affiché directement</li>
+  <li>Une REF est définie par une ligne de la forme <code>::code:: http://...</code></li>
+  <li>Une forme spéciale de la nommée est si REF est seulement <code>#</code> comme <code>[[] nom affiché -> # ]]</code> : Hamill essaye alors de faire sur le nom affiché transformé ou, si l'ancre n'existe pas, le nom affiché directement</li>
   <li>Les titres sont automatiquement transformés en ancre en remplaçant les espaces par - et en les mettant en minuscules : ainsi <b>Les jeux</b> devient <b>les_jeux</b></li>
 </ul>
 <h2 id="images">Images</h2>

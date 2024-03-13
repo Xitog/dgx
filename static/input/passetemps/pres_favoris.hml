@@ -25,11 +25,11 @@ Cette page présente 65 films cultes, dont 32 archicultes en **gras**, ainsi que
 
 ## Sommaire
 
-% [Films->#]
-% % [Récurrences->#]
-% % [Liste des films->#]
-% [Livres->#]
-% [Musiques->#]
++ [[Films->#]]
+  + [[Récurrences->#]]
+  + [[Liste des films->#]]
++ [[Livres->#]]
++ [[Musiques->#]]
 
 ## Films
 
@@ -140,9 +140,9 @@ On note quelques récurrences intéressantes parmi mes films cultes :
 
 ## Livres
 
-* De Michael Crichton : [Jurassic Park->https://fr.wikipedia.org/wiki/Jurassic_Park_(roman)] (1990 us, 1992 fr)
-* De Stefan Zweig : [Le Monde d'hier->https://fr.wikipedia.org/wiki/Le_Monde_d%27hier._Souvenirs_d%27un_Europ%C3%A9en] (1942)
-* De Maupassant : [Bel-Ami->https://fr.wikipedia.org/wiki/Bel-Ami] (1885)
+* De Michael Crichton : [[Jurassic Park->https://fr.wikipedia.org/wiki/Jurassic_Park_(roman)]] (1990 us, 1992 fr)
+* De Stefan Zweig : [[Le Monde d'hier->https://fr.wikipedia.org/wiki/Le_Monde_d%27hier._Souvenirs_d%27un_Europ%C3%A9en]] (1942)
+* De Maupassant : [[Bel-Ami->https://fr.wikipedia.org/wiki/Bel-Ami]] (1885)
 
 ## Musiques
 

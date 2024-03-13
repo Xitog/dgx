@@ -1,0 +1,49 @@
+!const TITLE=Le Compagnon du Sorcier
+!const LANG=fr
+!const ICON=https://xitog.github.io/dgx/img/favicon.ico
+!require https://xitog.github.io/dgx/css/simplex.bootstrap.css
+!require https://xitog.github.io/dgx/css/palatino.css
+!require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+!require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+
+!css h2 { border-bottom: 1px solid #CEC498; margin-top: 60px; }
+!css table tbody tr:nth-child(odd) { background-color: #F5F5F5; }
+!css table tbody tr:nth-child(2n) { background-color: #FFFFFF; }
+!css p.center {text-align: center;}
+!css dt {color: #b9b088; font-size: 16px;}
+!css dd {color: black; font-size: 14px;}
+!css span.p { color: green; background-color: #99cc99; border: 1px solid green; padding-right: 4px; padding-left: 4px; }
+!css span.c { color: orange; background-color: #ffedcc; border: 1px solid orange; padding-right: 4px; padding-left: 4px; }
+!css span.a { color: #551A8B; background-color: #ccbadc; border: 1px solid #551A8B; padding-right: 4px; padding-left: 4px; }
+!css span.l { color: grey; background-color: #d8d8d8; border: 1px solid grey; padding-right: 4px; padding-left: 4px; }
+!css span.j { color: blue; background-color: #CCDEFF; border: 1px solid blue; padding-right: 4px; padding-left: 4px; }
+
+{{#main .container}}
+
+!include menu.html
+
+{{#content-div}}
+
+# Le Compagnon du Sorcier
+
+//Damien Gouteux//, 2024 pour la première édition.
+
+## Sommaire
+
+* [[Mentions légales->#]]
+* [[I. Le livre->#]]
+  * [[I.A. Description->#]]
+
+## Mentions légales
+
+!!Tous les droits de l’édition française du //Sorcier de la Montagne de Feu// sont détenus par les Éditions Gallimard!!. Ce compagnon n’est en aucun cas un remplacement de l’œuvre originale mais se propose d’aider les joueurs dans leur quête et de prolonger le plaisir de se plonger dans ce //Livre dont vous êtes le héros//.
+
+!!Le Compagnon du  Sorcier!! est protégé par le droit d’auteur. La reproduction de tout ou partie en est interdite sur tout support. Ce droit s’applique également à la carte des chapitres qui l’accompagne.
+
+Pour toute suggestion, remarque ou erreur repérée, vous pouvez me contacter à damien POINT gouteux AROBASE gmail POINT com.
+
+{{.center}}[[Retour au sommaire->sommaire]]
+
+## I. Le livre
+
+### I.A. Description

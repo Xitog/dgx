@@ -19,9 +19,9 @@
 
 {{#content-div}}
 
-    {{#footer}}
-        {{#footer-content}} [[Jouer à mon projet de RTS->https://xitog.github.io/dgx/rts/rts.html]]
-    {{end}}
+{{#footer}}
+    {{#footer-content}} [[Jouer à mon projet de RTS->https://xitog.github.io/dgx/rts/rts.html]]
+{{end}}
 
 {{end}}
 

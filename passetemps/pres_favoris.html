@@ -1,6 +1,7 @@
+<!DOCTYPE HTML>
 <html lang="fr">
 <head>
-  <meta charset=utf-8>
+  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Favoris</title>
@@ -8,23 +9,17 @@
   <link rel="shortcut icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
   <link href="https://xitog.github.io/dgx/css/simplex.bootstrap.css" rel="stylesheet">
   <link href="https://xitog.github.io/dgx/css/palatino.css" rel="stylesheet">
-<style type="text/css">
-ul.root { list-style-type: none; }
-</style>
-<style type="text/css">
-button.tree { background-color:#7892c2; border:1px solid #4e6096; display:inline-block; cursor:pointer; color:#ffffff; font-family:Arial; font-size:10px; padding:0px 4px; text-decoration:none; height: 16px; width: 16px; margin-right: 1em; }
-</style>
-<style type="text/css">
-button.tree:hover { background-color:#476e9e; }
-</style>
-<style type="text/css">
-button.tree:active { position:relative; top:1px; }
-</style>
-</head>
-<body>
+  <style type="text/css">
+    ul.root { list-style-type: none; }
+    button.tree { background-color:#7892c2; border:1px solid #4e6096; display:inline-block; cursor:pointer; color:#ffffff; font-family:Arial; font-size:10px; padding:0px 4px; text-decoration:none; height: 16px; width: 16px; margin-right: 1em; }
+    button.tree:hover { background-color:#476e9e; }
+    button.tree:active { position:relative; top:1px; }
+  </style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
   <script src="pres_favoris.js"></script>
+</head>
+<body>
 <div id="main" class="container">
       <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
@@ -66,18 +61,20 @@ button.tree:active { position:relative; top:1px; }
               <li class="dropdown">
                 <a id="Informatique" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Informatique <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Projets</li>
+                  <li><a href="https://xitog.github.io/dgx/ash/index.html">Ash</a></li>
+                  <li><a href="https://xitog.github.io/dgx/hamill/index.html">Hamill</a></li>
+                  <li class="divider"></li>
                   <li class="dropdown-header">Programmation</li>
                   <li><a href="https://xitog.github.io/dgx/informatique/syntaxes.html">Syntaxes comparées</a></li>
                   <li><a href="https://xitog.github.io/dgx/informatique/python.html">Aide-mémoire Python</a></li>
                   <li><a href="https://xitog.github.io/dgx/informatique/ruby.html">Aide-mémoire Ruby</a></li>
                   <li><a href="https://xitog.github.io/dgx/informatique/lua.html">Aide-mémoire Lua</a></li>
                   <li><a href="https://xitog.github.io/dgx/informatique/ruby_guide.html">Guide Ruby</a></li>
-                  <li><a href="https://xitog.github.io/dgx/informatique/ash_guide.html">Guide Ash</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Modélisation</li>
                   <li><a href="https://xitog.github.io/dgx/informatique/bnf.html">Aide-mémoire BNF et EBNF</a></li>
                   <li><a href="https://xitog.github.io/dgx/informatique/json.html">Aide-mémoire JSON</a></li>
-                  <li><a href="https://xitog.github.io/dgx/informatique/hamill.html">Aide-mémoire Hamill</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Autres</li>
                   <li><a href="https://xitog.github.io/dgx/informatique/version_control.html">Gestion de versions</a></li>
@@ -98,12 +95,17 @@ button.tree:active { position:relative; top:1px; }
               <li class="dropdown">
                 <a id="Jeux" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Passe-temps <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li class="dropdown-header">Présentations générales</i></li>
+                  <li class="dropdown-header">Projets</li>
+                  <li><a href="https://xitog.github.io/dgx/teddy/index.html">Éditeur de carte</a></li>
+                  <li><a href="https://xitog.github.io/dgx/rts/index.html">Jouer à mon RTS</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/project_fps.html">Jouer à mon FPS</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Présentations générales</li>
                   <li><a href="https://xitog.github.io/dgx/passetemps/pres_jeux.html">Les jeux</a></li>
                   <li><a href="https://xitog.github.io/dgx/passetemps/pres_jeuxvideo.html">Les jeux vidéo</a></li>
                   <li><a href="https://xitog.github.io/dgx/passetemps/pres_favoris.html">Favoris artistiques</a></li>
                   <li class="divider"></li>
-                  <li class="dropdown-header">Jeux de rôles</i></li>
+                  <li class="dropdown-header">Jeux de rôles</li>
                   <li><a href="https://xitog.github.io/dgx/passetemps/systemes_rpg.html">Systèmes des RPG</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Livres-jeux</li>
@@ -114,37 +116,31 @@ button.tree:active { position:relative; top:1px; }
                   <li><a href="https://xitog.github.io/dgx/passetemps/history_rts.html">Les enfants de Dune : les RTS</a></li>
                   <li><a href="https://xitog.github.io/dgx/passetemps/history_fps.html">Les enfants de Doom : les FPS</a></li>
                   <li class="divider"></li>
-                  <li class="dropdown-header">Techniques des jeux vidéo</i></li>
-                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_raycasting_fr.html">Le raycasting : la 2.5D</a>
+                  <li class="dropdown-header">Techniques des jeux vidéo</li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_raycasting_fr.html">Le raycasting : la 2.5D</a></li>
                   <li><a href="https://xitog.github.io/dgx/passetemps/tech_transitions.html">Cartes et transitions</a></li>
                   <li><a href="https://xitog.github.io/dgx/passetemps/tech_dialogues.html">Dialogues</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdown-header">Jeux vidéo et outils maison</i></li>
-                  <li><a href="https://xitog.github.io/dgx/passetemps/project_teddy.html">Éditeur de carte</a></li>
-                  <li><a href="https://xitog.github.io/dgx/passetemps/project_rts.html">Jouer à mon RTS</a></li>
-                  <li><a href="https://xitog.github.io/dgx/passetemps/project_fps.html">Jouer à mon FPS</a></li>
                 </ul>
               </li>
               <li class="dropdown">
                 <a id="Autres" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Autres <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li class="dropdown-header">Musique</li>
+                  <li class="dropdown-header">Applications</li>
                   <li><a href="https://xitog.github.io/dgx/concerts_classiques/index.html">Concerts classiques</a></li>
-                  <li><a href="https://xitog.github.io/dgx/favoris/musiques.html">Musiques favorites</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Collections</li>
                   <li><a href="https://xitog.github.io/dgx/data/outil_collections.html#prenoms">Prénoms</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Liens</li>
                   <li><a href="https://xitog.github.io/dgx/plan.html">Plan du site</a></li>
-                  <li><a href="https://xitog.github.io/dgx/liens.html">Barre de liens</a></li>
-                  <li><a href="https://xitog.github.io/dgx/liste_liens.html">Collection de liens</a></li>
+                  <li><a href="https://xitog.github.io/dgx/liens.html">Liste de liens</a></li>
                 </ul>
               </li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
+
 <div id="content-div">
 <h1 id="favoris">Favoris</h1>
 <hr>
@@ -166,7 +162,7 @@ button.tree:active { position:relative; top:1px; }
 <table>
 <tr><th> Propriétés                            </th><th> Total </th><th> dont archicultes </th><th> Remarques                                                                                                    </th></tr>
 <tr><td> Films réalisés par John McTiernan     </td><td>     5 </td><td>                5 </td><td> Predator, Le 13<sup>e</sup> guerrier, Piège de cristal, Une journée en enfer et À la poursuite d'Octobre Rouge      </td></tr>
-<tr><td> Films réalisés par Paul Verhoeven     </td><td>     3 </td><td>                3 </td><td> Robocop, Starship Troopers et Total Recall                                                                   </td></tr>
+<tr><td> Films réalisés par Paul Verh&oelig;ven     </td><td>     3 </td><td>                3 </td><td> Robocop, Starship Troopers et Total Recall                                                                   </td></tr>
 <tr><td> Films réalisés par James Cameron      </td><td>     3 </td><td>                2 </td><td> Terminator et Aliens ainsi que Terminator 2                                                                  </td></tr>
 <tr><td> Musique composée par Basil Poledouris </td><td>     4 </td><td>                4 </td><td> Robocop, Starship Troopers, Conan le Barbare et À la poursuite d'Octobre Rouge                               </td></tr>
 <tr><td> Musique composée par John Williams    </td><td>     4 </td><td>                3 </td><td> Star Wars, Jurassic Park et Indiana Jones et la dernière croisade ainsi que La guerre des mondes             </td></tr>
@@ -238,23 +234,23 @@ button.tree:active { position:relative; top:1px; }
 <tr><td>*</td><td> <b>Moulin Rouge!</b>                                                             </td><td>  2001 </td><td> Comédie musicale   </td><td> Baz Luhrmann        </td><td> Craig Armstrong                                      </td></tr>
 <tr><td>*</td><td> <b>(Le) nom de la rose / The Name of the Rose</b>                                </td><td>  1986 </td><td> Historique         </td><td> Jean-Jacques Annaud </td><td> James Horner                                         </td></tr>
 <tr><td> </td><td> Oblivion                                                                      </td><td>  2013 </td><td> Science-Fiction    </td><td> Joseph Kosinski     </td><td> Anthony Gonzalez, Joseph Trapanese                   </td></tr>
-<tr><td> </td><td> Outland... Loin de la Terre / Outland                                         </td><td>  1981 </td><td> Science-Fiction    </td><td> Peter Hyams         </td><td> Jerry Goldsmith                                      </td></tr>
+<tr><td> </td><td> Outland… Loin de la Terre / Outland                                         </td><td>  1981 </td><td> Science-Fiction    </td><td> Peter Hyams         </td><td> Jerry Goldsmith                                      </td></tr>
 <tr><td> </td><td> Papy fait de la résistance                                                    </td><td>  1983 </td><td> Comédie            </td><td> Jean-Marie Poiré    </td><td>                                                      </td></tr>
 <tr><td>*</td><td> <b>(Les) Parapluies de Cherbourg</b>                                             </td><td>  1964 </td><td> Comédie musicale   </td><td> Jacques Demy        </td><td> Michel Legrand                                       </td></tr>
 <tr><td>*</td><td> <b>Predator</b>                                                                  </td><td>  1987 </td><td> Science-Fiction    </td><td> John McTiernan      </td><td> Alan Silvestri                                       </td></tr>
 <tr><td> </td><td> Rambo / First Blood                                                           </td><td>  1982 </td><td> Guerre             </td><td> Ted Kotcheff        </td><td> Jerry Goldsmith                                      </td></tr>
 <tr><td>*</td><td> <b>Ran</b> (乱)                                                                  </td><td>  1985 </td><td> Historique         </td><td> Akira Kurosawa      </td><td> Tōru Takemitsu                                       </td></tr>
-<tr><td>*</td><td> <b>Robocop</b>                                                                   </td><td>  1987 </td><td> Science-Fiction    </td><td> Paul Verhoeven      </td><td> Basil Poledouris                                     </td></tr>
+<tr><td>*</td><td> <b>Robocop</b>                                                                   </td><td>  1987 </td><td> Science-Fiction    </td><td> Paul Verh&oelig;ven      </td><td> Basil Poledouris                                     </td></tr>
 <tr><td> </td><td> Rogue One                                                                     </td><td>  2016 </td><td> Space-Opera        </td><td> Gareth Edwards      </td><td> Michael Giacchino                                    </td></tr>
 <tr><td> </td><td> Samsara                                                                       </td><td>  2011 </td><td> Documentaire       </td><td> Ron Fricke          </td><td> Michael Stearns, Lisa Gerrard, Marcello de Francisci </td></tr>
 <tr><td> </td><td> Speed                                                                         </td><td>  1994 </td><td> Thriller           </td><td> Jan de Bont         </td><td> Mark Mancina                                         </td></tr>
-<tr><td>*</td><td> <b>Starship Troopers</b>                                                         </td><td>  1997 </td><td> Science-Fiction    </td><td> Paul Verhoeven      </td><td> Basil Poledouris                                     </td></tr>
+<tr><td>*</td><td> <b>Starship Troopers</b>                                                         </td><td>  1997 </td><td> Science-Fiction    </td><td> Paul Verh&oelig;ven      </td><td> Basil Poledouris                                     </td></tr>
 <tr><td> </td><td> Star Trek                                                                     </td><td>  2009 </td><td> Space-Opera        </td><td> J. J. Abrams        </td><td> Michael Giacchino                                    </td></tr>
 <tr><td> </td><td> Star Trek: Into Darkness                                                      </td><td>  2013 </td><td> Space-Opera        </td><td> J. J. Abrams        </td><td> Michael Giacchino                                    </td></tr>
 <tr><td>*</td><td> <b>Star wars: Un nouvel espoir / A new hope</b>                                  </td><td>  1977 </td><td> Space-Opera        </td><td> Georges Lucas       </td><td> John Williams                                        </td></tr>
 <tr><td>*</td><td> <b>Terminator</b>                                                                </td><td>  1984 </td><td> Science-Fiction    </td><td> James Cameron       </td><td> Brad Fiedel                                          </td></tr>
 <tr><td> </td><td> Terminator 2                                                                  </td><td>  1991 </td><td> Science-Fiction    </td><td> James Cameron       </td><td> Brad Fiedel                                          </td></tr>
-<tr><td> </td><td> Total Recall                                                                  </td><td>  1990 </td><td> Science-Fiction    </td><td> Paul Verhoeven      </td><td> Jerry Goldsmith                                      </td></tr>
+<tr><td> </td><td> Total Recall                                                                  </td><td>  1990 </td><td> Science-Fiction    </td><td> Paul Verh&oelig;ven      </td><td> Jerry Goldsmith                                      </td></tr>
 <tr><td>*</td><td> <b>(Le) Treizième Guerrier / The 13th Warrior</b>                                </td><td>  1999 </td><td> Fantastique        </td><td> John McTiernan      </td><td> Jerry Goldsmith                                      </td></tr>
 <tr><td> </td><td> Tron                                                                          </td><td>  1982 </td><td> Science-Fiction    </td><td> Steven Lisberger    </td><td> Wendy Carlos                                         </td></tr>
 <tr><td>*</td><td> <b>Tron: L'Héritage / Legacy</b>                                                 </td><td>  2010 </td><td> Science-Fiction    </td><td> Joseph Kosinski     </td><td> Daft Punk                                            </td></tr>
@@ -275,13 +271,15 @@ button.tree:active { position:relative; top:1px; }
 <script>document.body.onload = main;</script>
 <button onclick="hide_all();">Tout masquer</button> <button onclick="show_all();">Tout montrer</button>
 <div id="trees">
-    <h3>Par genre</h3>
-    <ul class="root" id="t1"></ul>
-    <h3>Par compositeur ou interprète</h3>
-    <ul class="root" id="t2"></ul>
-    <h3>Par année</h3>
-    <ul class="root" id="t3"></ul>
+<h3>Par genre</h3>
+<ul class="root" id="t1"></ul>
+<h3>Par compositeur ou interprète</h3>
+<ul class="root" id="t2"></ul>
+<h3>Par année</h3>
+<ul class="root" id="t3"></ul>
 </div>
 </div>
 </div>
-</body>
+
+  </body>
+</html>
