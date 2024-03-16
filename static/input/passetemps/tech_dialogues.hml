@@ -8,7 +8,7 @@
 
 !css i { color: blue; }
 !css code {color: #006FDD; border: 1px solid rgb(225, 228, 229); padding-left: 3px; padding-right: 5px; }
-!css form { padding: 2 px; font-size: 14px; color: black; }
+!css form { padding: 2 px; font-size: 14px; color: black; margin-bottom: 14px;}
 !css div#entry { border: 1px #CCCCCC black; background: #EEEEEE; padding: 10px; }
 !css div#entry a {font-size: 14px; cursor: pointer;}
 !css div#footer p { text-align: center; font-size: 14px; color: #CCCCCC; margin: 10px; }
@@ -24,11 +24,11 @@
 
 ## Sommaire
 
-* [I. Un système de dialogues->#]
-* [II. Modélisation des dialogues en arbre->#]
-* [III. Séparation de la structure et des données->#]
-* [IV. Internationalisation->#]
-* [V. Exemple de parcours->#]
+* [[I. Un système de dialogues->#]]
+* [[II. Modélisation des dialogues en arbre->#]]
+* [[III. Séparation de la structure et des données->#]]
+* [[IV. Internationalisation->#]]
+* [[V. Exemple de parcours->#]]
 
 ## I. Un système de dialogues
 
@@ -45,25 +45,25 @@ La première étape est de séparer la structure des dialogues, les enchaînemen
 
 Exemple d'arbre de dialogue avec texte, le joueur incarne un inquisiteur chargé de trouver une certaine Siriah Anrir, qui réussirait des miracles à l'aide d'arts sombres. Pour cela, il se rend dans le village où elle serait située et entrepend un villageois :
 
-* Bonjour, étranger, que puis-je pour vous ?
-% % ''Je cherche Siriah Anrir, où puis la trouver ?''
-* * * Je ne connais pas cette Dame.
-* * * \[Charisme > 14] Pourquoi voulez-vous rencontrer notre Dame ?
-% % % % ''\[Intelligence > 14] (mensonge) On m'a vanté ses pouvoirs et j'aurais aimé être béni.''
-* * * * * \[Charisme > 16] Très bien, son temple est sous la maison communale.
-* * * * * Elle viendra à vous quand vous serez prêt. Bonne journée.
-% % % % ''Je suis ici pour enquêter sur ses agissements.''
-* * * * * Je n'ai rien à vous dire. Bonne journée.
-% % ''Je désire rencontrer le chef du village.''
-* * * La bourgmestre a disparu depuis trois nuits. Tout le village est très inquiet. Pourriez-vous nous aider à la retrouver ?
-% % % % ''Je vais voir ce que je peux faire.''
-* * * * * Merci Messire !
-% % % % ''(désolé) Je suis désolé mais je ne peux pas vous aider.''
-* * * * * Cela ne fait rien. Bonne route étranger.
-% % % % ''(méprisant) Cela ne m'intéresse pas.''
-% % ''J'ai besoin de soin.''
-* * * Vous trouverez le shaman dans sa hutte, à la lisière des bois.
-* * * * ''Merci, au revoir.''
++ Bonjour, étranger, que puis-je pour vous ?
+  + ''Je cherche Siriah Anrir, où puis la trouver ?''
+    + Je ne connais pas cette Dame.
+    + \[Charisme > 14] Pourquoi voulez-vous rencontrer notre Dame ?
+      + ''\[Intelligence > 14] (mensonge) On m'a vanté ses pouvoirs et j'aurais aimé être béni.''
+        + \[Charisme > 16] Très bien, son temple est sous la maison communale.
+        + Elle viendra à vous quand vous serez prêt. Bonne journée.
+      + R1 : ''Je suis ici pour enquêter sur ses agissements.''
+        + Je n'ai rien à vous dire. Bonne journée.
+  + ''Je désire rencontrer le chef du village.''
+    + La bourgmestre a disparu depuis trois nuits. Tout le village est très inquiet. Pourriez-vous nous aider à la retrouver ?
+      + ''Je vais voir ce que je peux faire.''
+        + Merci Messire !
+      + ''(désolé) Je suis désolé mais je ne peux pas vous aider.''
+        + Cela ne fait rien. Bonne route étranger.
+      + ''(méprisant) Cela ne m'intéresse pas.''
+  + ''J'ai besoin de soin.''
+    + Vous trouverez le shaman dans sa hutte, à la lisière des bois.
+      + ''Merci, au revoir.''
 
 On voit que la structure de données applicable ici est **un arbre**.
 
@@ -90,125 +90,125 @@ Chaque option contient :
 
 On peut transformer ainsi notre dialogue, le chiffre entre parenthèses indique son numéro de référence, les conditions sont entre crochets, et le type d'objet (nœud simple, nœud choix, texte, option, embranchement) est indiqué entre accolades, nous le reconstruisons ainsi :
 
-* **[#Nœud n°1]** {choix}
-* * {texte} (1) Bonjour, étranger, que puis-je pour vous ?
-* * {options}
-* * * {option}
-* * * * {condition} aucune
-* * * * {texte} ''(2) Je cherche Siriah Anrir, où puis la trouver ?''
-* * * * {embranchements}
-* * * * * {embranchement}
-* * * * * * {condition} \[Charisme <= 14] 
-* * * * * * {suite} va à [nœud n°1-1->#]
-* * * * * {embranchement}
-* * * * * * {condition} \[Charisme > 14]
-* * * * * * {suite} va à [nœud n°1-2->#]
-* * * {option}
-* * * * {condition} aucune
-* * * * {texte} ''(3) Je désire rencontrer le chef du village.''
-* * * * {embranchements}
-* * * * * {embranchement}
-* * * * * * {condition} aucune
-* * * * * * {suite} va à [nœud n°1-3->#]
-* * * {option}
-* * * * {condition} aucune
-* * * * {texte} ''(4) J'ai besoin de soin.''
-* * * * {embranchements}
-* * * * * {embranchement}
-* * * * * * {condition} aucune
-* * * * * * {suite} va à [nœud n°1-4->#]
-* **[#Nœud n°1-1]** {simple}
-* * {action} aucune
-* * {texte} (5) Je ne connais pas cette Dame.
-* * {embranchements}
-* * * {embranchement}
-* * * * {condition} aucune
-* * * * {suite} [fin du dialogue->#]
-* **[#Nœud n°1-2]** {choix}
-* * {texte} (6) Pourquoi voulez-vous rencontrer notre Dame ?
-* * {options}
-* * * {option}
-* * * * {condition} \[Intelligence > 14]
-* * * * {texte} ''(7) (mensonge) On m'a vanté ses pouvoirs et j'aurais aimé être béni.''
-* * * * {embranchements}
-* * * * * {embranchement}
-* * * * * * {condition} \[Charisme > 16]
-* * * * * * {suite} va à [nœud n°1-2-1->#]
-* * * * * {embranchement}
-* * * * * * {condition} aucune
-* * * * * * {suite} va à [nœud n°1-2-2->#]
-* * * {option}
-* * * * {condition} aucune
-* * * * {texte} ''(8) Je suis ici pour enquêter sur ses agissements.''
-* * * * {embranchements}
-* * * * * {embranchement}
-* * * * * * {condition} aucune
-* * * * * * {suite} va à [nœud n°1-2-3->#]
-* **[#Nœud n°1-2-1]** {simple}
-* * {action} ajouter temple sur la carte
-* * {texte} (9) Très bien, son temple est sous la maison communale.
-* * {embranchements}
-* * * {embranchement}
-* * * * {condition} aucune
-* * * * {suite} [fin du dialogue->#]
-* **[#Nœud n°1-2-2]** {simple}
-* * {action} aucune
-* * {texte} (10) Elle viendra à vous quand vous serez prêt. Bonne journée.
-* * {embranchements}
-* * * {embranchement}
-* * * * {condition} aucune
-* * * * {suite} [fin du dialogue->#]
-* **[#Nœud n°1-2-3]** {simple}
-* * {action} aucune
-* * {texte} (11) Je n'ai rien à vous dire. Bonne journée.
-* * {embranchements}
-* * * {embranchement}
-* * * * {condition} aucune
-* * * * {suite} [fin du dialogue->#]
-* **[#Nœud n°1-3]** {choix}
-* * {texte} (12) La bourgmestre a disparu depuis trois nuits. Tout le village est très inquiet. Pourriez-vous nous aider à la retrouver ?
-* * {options}
-* * * {option}
-* * * * {condition} aucune
-* * * * {texte} ''(13) Je vais voir ce que je peux faire.''
-* * * * {embranchements}
-* * * * * {embranchement}
-* * * * * * {condition} aucune
-* * * * * * {suite} va à [nœud n°1-3-1->#]
-* * * {option}
-* * * * {texte} ''(14) (désolé) Je suis désolé mais je ne peux pas vous aider.''
-* * * * {embranchements}
-* * * * * {embranchement}
-* * * * * * {condition} aucune
-* * * * * * {suite} va à [nœud n°1-3-2->#]
-* * * {option}
-* * * * {texte} ''(15) (méprisant) Cela ne m'intéresse pas.''
-* * * * {embranchements}
-* * * * * {embranchement}
-* * * * * * {condition} aucune
-* * * * * * {suite} [fin du dialogue->#]
-* **[#Nœud n°1-3-1]** {simple}
-* * {action} ajouter quête "retrouver le bourgmestre" au journal
-* * {texte} (16) Merci Messire !
-* * {embranchements}
-* * * {embranchement}
-* * * * {condition} aucune
-* * * * {suite} [fin du dialogue->#]
-* **[#Nœud n°1-3-2]** {simple}
-* * {action} ajouter au journal la mention "le bourgmestre a disparu"
-* * {texte} (17) Cela ne fait rien. Bonne route étranger.
-* * {embranchements}
-* * * {embranchement}
-* * * * {condition} aucune
-* * * * {suite} [fin du dialogue->#]
-* **[#Nœud n°1-4]** {simple}
-* * {action} ajouter la hutte du shaman sur la carte
-* * {texte} (18) Vous trouverez le shaman dans sa hutte, à la lisière des bois.
-* * {embranchements}
-* * * {embranchement}
-* * * * {condition} aucune
-* * * * {suite} [fin du dialogue->#]
-* **[#Fin du dialogue]**
+* **{{#n1 Nœud n°1}}** {choix}
+  * {texte} (1) Bonjour, étranger, que puis-je pour vous ?
+  * {options}
+    * {option}
+      * {condition} aucune
+      * {texte} ''(2) Je cherche Siriah Anrir, où puis la trouver ?''
+      * {embranchements}
+        * {embranchement}
+          * {condition} [Charisme <= 14]
+          * {suite} va à [[nœud n°1-1->#n11]]
+        * {embranchement}
+          * {condition} [Charisme > 14]
+          * {suite} va à [[nœud n°1-2->#n12]]
+    * {option}
+      * {condition} aucune
+      * {texte} ''(3) Je désire rencontrer le chef du village.''
+      * {embranchements}
+        * {embranchement}
+          * {condition} aucune
+          * {suite} va à [[nœud n°1-3->#n13]]
+    * {option}
+      * {condition} aucune
+      * {texte} ''(4) J'ai besoin de soin.''
+      * {embranchements}
+        * {embranchement}
+          * {condition} aucune
+          * {suite} va à [[nœud n°1-4->#n14]]
+* **{{#n11 Nœud n°1-1}}** {simple}
+  * {action} aucune
+  * {texte} (5) Je ne connais pas cette Dame.
+  * {embranchements}
+    * {embranchement}
+      * {condition} aucune
+      * {suite} [[fin du dialogue->#fin]]
+* **{{#n12 Nœud n°1-2}}** {choix}
+  * {texte} (6) Pourquoi voulez-vous rencontrer notre Dame ?
+  * {options}
+    * {option}
+      * {condition} [Intelligence > 14]
+      * {texte} ''(7) (mensonge) On m'a vanté ses pouvoirs et j'aurais aimé être béni.''
+      * {embranchements}
+        * {embranchement}
+          * {condition} [Charisme > 16]
+          * {suite} va à [[nœud n°1-2-1->#121]]
+        * {embranchement}
+          * {condition} aucune
+          * {suite} va à [[nœud n°1-2-2->#n122]]
+    * {option}
+      * {condition} aucune
+      * {texte} ''(8) Je suis ici pour enquêter sur ses agissements.''
+      * {embranchements}
+        * {embranchement}
+          * {condition} aucune
+          * {suite} va à [[nœud n°1-2-3->#n123]]
+* **{{#n121 Nœud n°1-2-1}}** {simple}
+  * {action} ajouter temple sur la carte
+  * {texte} (9) Très bien, son temple est sous la maison communale.
+  * {embranchements}
+    * {embranchement}
+      * {condition} aucune
+      * {suite} [[fin du dialogue->#fin]]
+* **{{#n122 Nœud n°1-2-2}}** {simple}
+  * {action} aucune
+  * {texte} (10) Elle viendra à vous quand vous serez prêt. Bonne journée.
+  * {embranchements}
+    * {embranchement}
+      * {condition} aucune
+      * {suite} [[fin du dialogue->#fin]]
+* **{{#n123 Nœud n°1-2-3}}** {simple}
+  * {action} aucune
+  * {texte} (11) Je n'ai rien à vous dire. Bonne journée.
+  * {embranchements}
+    * {embranchement}
+      * {condition} aucune
+      * {suite} [[fin du dialogue->#fin]]
+* **{{#n13 Nœud n°1-3}}** {choix}
+  * {texte} (12) La bourgmestre a disparu depuis trois nuits. Tout le village est très inquiet. Pourriez-vous nous aider à la retrouver ?
+  * {options}
+    * {option}
+      * {condition} aucune
+      * {texte} ''(13) Je vais voir ce que je peux faire.''
+      * {embranchements}
+        * {embranchement}
+          * {condition} aucune
+          * {suite} va à [[nœud n°1-3-1->#n131]]
+    * {option}
+      * {texte} ''(14) (désolé) Je suis désolé mais je ne peux pas vous aider.''
+      * {embranchements}
+        * {embranchement}
+          * {condition} aucune
+          * {suite} va à [[nœud n°1-3-2->#n132]]
+    * {option}
+      * {texte} ''(15) (méprisant) Cela ne m'intéresse pas.''
+      * {embranchements}
+        * {embranchement}
+          * {condition} aucune
+          * {suite} [[fin du dialogue->#fin]]
+* **{{#n131 Nœud n°1-3-1}}** {simple}
+  * {action} ajouter quête "retrouver le bourgmestre" au journal
+  * {texte} (16) Merci Messire !
+  * {embranchements}
+    * {embranchement}
+      * {condition} aucune
+      * {suite} [[fin du dialogue->#fin]]
+* **{{#n132 Nœud n°1-3-2}}** {simple}
+  * {action} ajouter au journal la mention "le bourgmestre a disparu"
+  * {texte} (17) Cela ne fait rien. Bonne route étranger.
+  * {embranchements}
+    * {embranchement}
+      * {condition} aucune
+      * {suite} [[fin du dialogue->#fin]]
+* **{{#n14 Nœud n°1-4}}** {simple}
+  * {action} ajouter la hutte du shaman sur la carte
+  * {texte} (18) Vous trouverez le shaman dans sa hutte, à la lisière des bois.
+  * {embranchements}
+    * {embranchement}
+      * {condition} aucune
+      * {suite} [[fin du dialogue->#fin]]
+* **{{#fin Fin du dialogue}}**
 
 ### IV. Internationalisation
 
@@ -216,9 +216,9 @@ Ce système de dialogue doit être pensé pour être facilement internationalisa
 
 On peut extraire de la partie précédente le texte de la structure des dialogues pour ne garder que son identifiant. On stocke ensuite dans un fichier texte, XML, JSON ou binaire des couples associant une clé, auquel correspond une ou plusieurs références, et un texte :
 
-% Bonjour, étranger, que puis-je pour vous ?
-% Je cherche Siriah Anrir, où puis la trouver ?
-% ...
++ Bonjour, étranger, que puis-je pour vous ?
++ Je cherche Siriah Anrir, où puis la trouver ?
++ ...
 
 Cette division facilite grandement cette étape : la structure de l'arbre ne change pas d'une langue à l'autre, seuls les lignes de textes changent. Il suffit de faire traduire la ressource contenant toutes les répliques pour traduire le jeu. Il faut néanmoins faire attention à :
 

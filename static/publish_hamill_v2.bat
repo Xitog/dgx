@@ -1,0 +1,1 @@
+node ..\..\hamill\hamilljs\hamill.mjs -p .\hamill.config.json

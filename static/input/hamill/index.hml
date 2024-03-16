@@ -33,10 +33,11 @@
 !css     color: black;
 !css }
 !css #footer {
-!css    width: 100%;
+!css     width: 100%;
+!css     padding-top: 50px;
 !css }
 !css #footer-content {
-!css    text-align: center;
+!css     text-align: center;
 !css }
 
 !html <script type="module">
@@ -60,7 +61,7 @@
 !html     console.clear();
 !html     let code = document.getElementById("code");
 !html     let text = code.value;
-!html     let doc = Hamill.process_string(text);
+!html     let doc = Hamill.process(text);
 !html     let output = document.getElementById("output");
 !html     output.innerHTML = doc.to_html() + "<pre>" + doc.to_s() + "</pre>";
 !html }
