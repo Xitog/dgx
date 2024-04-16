@@ -48,9 +48,10 @@
   + [[StarCraft 2: Wings of Liberty->#]]
   + [[Call of Duty: Ghosts->#]]
   + [[Cultic->#]]
+  + [[Gun Godz->#]]
 * [[La musique de jeux vidéo->#]]
 * [[Chronologie->#]]
-  * [[2024 (4)->#]]
+  * [[2024 (5)->#]]
   * [[2023 (9)->#]]
   * [[2022 (8)->#]]
   * [[2021 (6)->#]]
@@ -756,6 +757,42 @@ Dès le lancement du jeu la **musique** nous prend pour ne plus nous lâcher. El
 ::cultic_1:: https://www.mobygames.com/game/193446/cultic-chapter-one/
 ::cultic_2:: https://cultic.fandom.com/wiki/Cultic_Wiki
 
+### Gun Godz
+
+**Vlambeer**, ''2013 (joué en 2024)'' - 16 avril 2024
+
+Gun Godz est un petit jeu de type rétro-shooter développé par Vlambeer pour être offert aux contributeurs du crowfunding pour le site Venus Patrol (disparu depuis) de Brandon Boyer en 2011. Il sera mis gratuitement à la disposition de tous en2013 avant de sortir sur Steam en 2019.
+
+L’**histoire** nous place dans la peau d’un héros anonyme détenu dans un hôtel, "le seul bâtiment de Vénus", par le propriétaire des lieux. Ce propriétaire est également le dirigeant d'une maison de disque produisant du rap vénusien, qui constitue entièrement la bande son du jeu. Et enfin, il s’avère aussi qu’il est tout simplement le dieu des armes.
+
+Notre héros devra combattre ses sbires à travers la prison dudit hôtel, le vaste réseau d’égouts et de caves dessous, avant de traverser ses halls majestueux pour finir par un combat final sur le toit de l’immeuble face au dieu lui-même. Dans un entretien à Game Developer Magazine, les créateurs du studio, Rami Ismail, business et programmation, et Jan Willem Nijman, design, expliquent avoir fait ce jeu en réaction à la montée de la violence qu’ils observaient autour d’eux. Après un premier prototype de roguelike en vue de dessus et plusieurs essais, ils optent pour une formule très proche de celle du hit d’Id software de 1992, Wolfenstein 3D.
+
+C’est ce qui est intéressant dans Gun Godz : le **gameplay** de ce vénérable ancêtre est recréé dans sa forme la plus pure, minimaliste et parfaite : des monstres, des armes, de la vitesse, un niveau et un joueur. Cette épure permet de comprendre rétrospectivement le génie de Wolfenstein 3D : il offrait déjà ce même type de gameplay simple d’accès, rapide, primitif, immersif, loin d’un Ultima Underworld tout aussi immersif mais bien plus cérébral et lent. Il lui manquait simplement le contrôle du regard à la souris dont dispose Gun Godz.
+
+Les murs sont de trois types : un mur plein, une porte, qui s’ouvre automatiquement quand le joueur s’en approche, au contraire de Wolfenstein 3d, et des grilles qui ploquent le mouvement mais pas les balles, autant celles des ennemis que celles du joueur. Des munitions et des soins comme objets, avec quelques barils explosifs pour corser les choses, jonchent les 12 niveaux. Ils sont organisés en épisode de 3 avec un niveau bonus déblocable si on amasse assez de triangles. Ceux-ci sont collectés en les cherchant dans les niveaux ou par nos performances notées à la fin de chaque niveau.
+
+Toute l’intelligence du gameplay est d’avancer sans s’exposer aux lignes de vue des adversaires. Et le **design des niveaux** est très bien fait : il évite d'être trop labyrinthique et on se fait parfois surprendre par un angle qu’on n’a pas repéré et les balles fusent, voire une rocket qui nous met directement au tapis. Il faut avoir de bons réflexes car les ennemis sont peu endurants mais peuvent faire très mal. Les tirs alternent entre hitscan, où le projectile à une vitesse infinie et on est touché immédiatement, et projectiles plus lents que l’on peut éviter en slalomant.
+
+Le jeu introduit ses éléments peu à peu en complexifiant l’expérience, dans la grande tradition vidéoludique, ce qui permet de mieux apprécier le gameplay. Mention spéciale aux niveaux secrets qui proposent à chaque fois un défi qui amène à jouer encore plus avec les règles pour se dépasser : dans le premier, il faut économiser toutes nos balles et ne jamais tirer par erreur, ni trop tôt, ni trop tard, dans le second, il faut faire un peu de contrôle des foules pour gérer la masse impressionnante d’ennemis à détruire.
+
+Les graphismes de Paul Veer sont réussis : le jeu dispose de sa propre identité visuelle. Ses ennemis ne sont pas originaux dans leurs fonctionnements, il y a l’ennemi à flingue, celui à pompe, l’autre à roquette, l’inévitable qui fait très mal uniquement au corps à corps, mais ils ont un style nouveau, étrange, indéfinissable. Certains ressemblent à des nounours, d’autres à des taupes, des tyrannœils de D&D ou un yéti féroce. Les deux boss sont plus originaux et pour le premier il faudra faire aussi marcher son cerveau (un peu).
+
+Les textures rendent bien, mention spéciale aux tonneaux de Wine Heaven. Chaque épisode à son set qui lui confère une identité propre : parpaings gris et squelettes crucifiés pour la prison, rouille pour les égouts envahis d’une eau verdâtre, marrons pour la cave, tapis rouge, lustres et murs blancs pour les halls. On reste dans l’esthétique de Wolfenstein 3d : les murs ne forment que des angles à 90°, ils ont tous une longueur qui est un multiple d’une constante, et ils n’ont qu’une seule hauteur. Toutefois, plafonds et sols sont aussi texturés et ont a même droit à une skybox pour l’affrontement final en guise de ciel.
+
+La **musique** de Kozilek est cet étrange rap vénusien qui nous accueille dès le menu et nous accompagne au long de nos pérégrinations. Elle parvient même à transmettre de l’émotion à la toute fin. Les **effets sonores** de Doseone sont très bien faits et donnent du punch aux différentes armes : pistolet, fusil à pompe, mitrailleuse (qui démarre instantanément) et lance-roquette.
+
+**Techniquement**, il n’y a rien à dire : c’est propre et sa tourne sans problème sur nos machines. Graphismes, musiques, sensations tirées des interactions, et même cette histoire tirée par les cheveux réussissent à créer une **ambiance** : Gun Godz réussit ainsi à marquer ses joueurs. Je l’ai terminé en **deux petites heures**, mais il s’agit d’un jeu gratuit, qui condense une expérience. Si vous voulez débloquer tous les niveaux secrets en obtenant tous les triangles, il vous en faudra un peu plus.
+
+**En définitive**, Gun Godz n’apporte pas grand-chose de nouveau, si ce n’est une direction artistique très originale, mais son gameplay épuré est une nouvelle occasion de refaire notre déclaration d’amour à ce style et de comprendre pourquoi on l’aime, en définitive.
+
+* Gun Godz sur [[Mobygames->gun_godz_1]], [[fandom->gun_godz_2]], [[gamasutra->gun_godz_3]], [[long play->gun_godz_4]], [[steamdb->gun_godz_5]]
+
+::gun_godz_1:: https://www.mobygames.com/game/80907/gun-godz/
+::gun_godz_2:: https://gun-godz.fandom.com/wiki/Gun_Godz_Wiki
+::gun_godz_3:: https://www.gamedeveloper.com/design/postmortem-vlambeer-s-i-gun-godz-i-
+::gun_godz_4:: https://www.youtube.com/watch?v=QKNRvHLZTCc
+::gun_godz_5:: https://steamdb.info/app/522940/
+
 !rem Ce dont-il faut parler :
 
 !rem 01 Présentation générale (qui, quoi, quand)
@@ -797,27 +834,28 @@ Un jeu déjà terminé dont on termine pour la première fois son remaster ne co
 
 Je considère @@Heart of the Swarm@@ et @@Legacy of the Void@@ comme des jeux à part entière et non des extensions de @@Wing of Liberty@@.
 
-## 2024 (4)
+## 2024 (5)
 
-### CoD: Black Ops, **Cultic**, SC2: Heart of the Swarm, **SC2: Legacy of the Void**
+### CoD: Black Ops, **Cultic**, SC2: Heart of the Swarm, **SC2: Legacy of the Void**, **Gun Godz**
 
-* 4 jeux finis
+* 5 jeux finis
 * Par nouveauté :
-  * 2 jeux terminés pour la première fois (1^^er^^ run) : Cultic, SC2: Legacy of the Void
+  * 3 jeux terminés pour la première fois (1^^er^^ run) : Cultic, SC2: Legacy of the Void, Gun Godz
   * 2 jeux refaits : CoD: Black Ops, SC2: Heart of the Swarm
 * Par années :
-  * 3 jeux des 10 : CoD: Black Ops, SC2: Heart of the Swarm, SC2: Legacy of the Void
+  * 4 jeux des 10 : CoD: Black Ops, SC2: Heart of the Swarm, SC2: Legacy of the Void, Gun Godz
   * 1 jeu des 20 : Cultic
 * Par types :
-  * 2 FPS : CoD: Black Ops, Cultic
+  * 3 FPS : CoD: Black Ops, Cultic, Gun Godz
   * 2 RTS : SC2: Heart of the Swarm, SC2: Legacy of the Void
 * Par plateformes :
-  * 2 sur Steam
+  * 3 sur Steam
   * 2 sur Battle.net (SC2: Heart of the Swarm, SC2: Legacy of the Void)
 * Non finis : aucun
 
 | Mois            | Machine | Store | Run   | S  | Genre   | Ext | Jeu                                        | Année | Version | Commentaire                     |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Mars            | Shodan  | Steam | **1** |  2 | FPS     |     | **Gun Godz**                               | 2013  |         |                                 |
 | Mars            | Elspeth | B.Net | **1** |  6 | RTS     | Ext | **StarCraft 2: Nova Covert Ops**           | 2016  |         |                                 |
 | Mars            | Elspeth | B.Net | **1** | 16 | RTS     |     | **StarCraft 2: Legacy of the Void**        | 2015  |         |                                 |
 | Février         | Elspeth | B.Net | 2     | 15 | RTS     |     | StarCraft 2: Heart of the Swarm            | 2013  |         |                                 |
