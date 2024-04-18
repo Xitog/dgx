@@ -25,6 +25,10 @@
             "Ash"
         ],
         [
+            "./input/ash/index.hml",
+            "../ash/"
+        ],
+        [
             "./input/ash/ash_guide.hml",
             "../ash/"
         ],

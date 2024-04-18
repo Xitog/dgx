@@ -1,0 +1,67 @@
+!const TITLE=Ash Live
+!const LANG=fr
+!const ICON=https://xitog.github.io/dgx/img/favicon.ico
+!require https://xitog.github.io/dgx/css/simplex.bootstrap.css
+!require https://xitog.github.io/dgx/css/palatino.css
+!require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+!require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+
+!require ./ash.css
+
+!require ./lexer.mjs
+!require ./parser.mjs
+!require ./interpreter.mjs
+!require ./transpiler.mjs
+!require ./ash.mjs
+
+{{#main .container}}
+
+  !include menu.html
+
+  {{#content-div}}
+
+    {{#sub}}
+
+      # Ash
+
+      !html            <form id="main_form" name="main">
+      !html                <fieldset id="fieldset_expr">
+      !html                    <legend id="expr_legend">Enter your code</legend>
+      !html                    <input id="button_clear" type="button" value="Clear" />
+      !html                    <input id="code_input" type="text" size="60" placeholder="Enter your code here" />
+      !html                    <textarea id="code_textarea" name="code" rows="5" cols="60" autofocus
+      !html                        placeholder="Enter your code here" spellcheck="false" required autocomplete="false"
+      !html                        wrap="off"></textarea>
+      !html                    <input id="button_run" type="button" value="Run" disabled />
+      !html                </fieldset>
+      !html            </form>
+      !html            <canvas id="screen"></canvas>
+
+      {{#ast}}
+      {{end}}
+      {{#console}}
+      {{end}}
+
+      !html            <button id="options_button">Options</button>
+
+      {{#option_panel}}
+
+        !html                <fieldset>
+        !html                    <legend>Options</legend>
+        !html                    <label for="input_multilines">Multilines</label>
+        !html                    <input id="input_multilines" name="mode" type="checkbox" />
+        !html                    <label for="input_ast">Show AST</label>
+        !html                    <input id="input_ast" name="ast" type="checkbox" />
+        !html                    <label for="input_debug">Debug</label>
+        !html                    <input id="input_debug" name="debug" type="checkbox" />
+        !html                </fieldset>
+
+      {{end}}
+    {{end}}
+  {{end}}
+  {{#version}}
+  {{end}}
+  {{#footer}}
+    {{#info}}[[Source->https://github.com/Xitog/ash]] | [[Docs->https://xitog.github.io/dgx/ash/ash_guide.html]]
+  {{end}}
+{{end}}
