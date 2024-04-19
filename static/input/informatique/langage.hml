@@ -103,3 +103,7 @@ Sources :
 * [[https://wiki.c2.com/?PostfixNotation]]
 * [[https://en.wikipedia.org/wiki/Recursive_descent_parser]]
 * [[https://web.archive.org/web/20210217021532/http://web.eecs.utk.edu/~azh/blog/teenytinycompiler1.html]]
+* [[Crafting Interpreters->https://craftinginterpreters.com/]] : un livre très bien fait qui explique tout
+* [[Let's build an interpreter->https://ruslanspivak.com/lsbasi-part1/]] : un très bon tutoriel
+* [[How to write a transpiler->https://tomassetti.me/how-to-write-a-transpiler/]] : un focus sur la transpilation
+* [[Tiny JS->https://github.com/gfwilliams/tiny-js]] : un exemple de compilateur javascript en C
