@@ -1,0 +1,104 @@
+!const TITLE=JSON
+!const LANG=fr
+!const ICON=https://xitog.github.io/dgx/img/favicon.ico
+!require https://xitog.github.io/dgx/css/simplex.bootstrap.css
+!require https://xitog.github.io/dgx/css/palatino.css
+!require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+!require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+
+{{#main .container}}
+
+!include menu.html
+
+{{#content-div}}
+
+# Langage
+---
+
+Quelques notes sur l'analyse lexicale, l'analyse syntaxique et les langages de programmation.
+
+Création : le 19 avril 2024 | Dernière mise-à-jour : le 19 avril 2024
+
+Auteur : Damien Gouteux | Type : Fiche | Sujet : langage, programmation, informatique
+
+## Sommaire
+
+* [[Analyse lexicale->#]]
+* [[Analyse syntaxique->#]]
+
+## Analyse lexicale
+
+Toute analyse d’un langage commence par l’identification de ses unités minimales à partir d’un flux de caratères. Pour un langage naturel, comme le français, cela équivaut à identifier les mots à partir d’un flux de lettres. Un langage de programmation utilise, en plus des lettres, des chiffres, des opérateurs mathématiques comme “+” ou “-”, ou encore des séparateurs comme “,” ou “(“. Ces caractèrent forment des identifiants comme @@compteur@@, des nombres comme @@567@@ ou des opérateurs comme @@==@@. Nous savons très bien distinguer un identifiant comme “compteur”, de l’opérateur “+” ou du chiffre du “5”, même sans espaces, dans la commande @@compteur + 5@@ ou @@compteur+5@@.
+
+Pour donner cette capacité à l’ordinateur, il faut écrire un analyseur lexical ou lexeur (lexer ou tokenizer en anglais). Un lexeur va transformer un flux de caractères en une liste d'unités minimales ou jetons (appelé token en anglais). Chaque jeton possède une valeur, qui est la suite de caractères qui le composent, et un type. Les différents types sont définis par le langage. La plupart des langages de programmation définissent par exemple les types suivants :
+
+* le type entier, dont les valeurs sont uniquement constituées de chiffres : @@15@@,
+* le type chaîne de caractères, dont les valeurs sont encadrées par des guillemets doubles et peuvent contenir à l'intérieur de ceux-ci n'importe quel caractère : @@"23abc 56"@@,
+* le type identifiant, dont les valeurs commencent toujours par une lettre et qui peuvent ensuite comporter des chiffres ou des lettres : @@abc25@@,
+* le type opérateur, qui peuvent avoir plusieurs valeurs comme @@=@@, @@<@@, @@+@@,
+* le type booléen, représenté par @@false@@ et @@true@@,
+* un type un peu particulier, le type vide, qui est représenté par @@null@@ ou @@nil@@.
+
+Le lexer s'appuie sur la définition des différents types et leurs valeurs possibles pour effectuer le découpage du flux de caractères en une liste de jetons ayant chacun une valeur et un type. Ainsi la suite : @@5 abc25 "23 abc 56" true@@ sera transformée en la suite de jetons (valeur, type) :
+
+* (5, entier)
+* (abc25, identifiant)
+* ("23abc 56", chaîne de caractères)
+* (true, booléen)
+
+## Analyse syntaxique
+
+### La gestion de la priorité des opérateurs
+
+Un défi bien connu d’écrire un parseur est la priorité des opérateurs. En effet, @@2 + 3 * 4@@ doit avoir pour résultat 14 et non 20, on exécute d’abord la multiplication (3*4), puis l’addition. Or, si notre parseur lit de gauche à droite les jetons, il lire d’abord l’addition puis la multiplication.
+
+Une première solution historique était de s’affranchir de la notation mathématique la plus courante en en adoptant une avec un opérateur préfixé @@(+ 2 * 3 4)@@ qu’on appelle la notation polonaise. Lisp utilise cette forme. Une autre solution est d’utiliser obligatoirement des parenthèses : @@2 + (3 * 4)@@ pour peu que le parseur soit capable de s’en débrouiller. Une troisième et dernière solution est d’utiliser la notation polonaise inversée, donc avec les opérateurs postfixés mais qui oblige également à écrire les opérations dans l’ordre correspondant à la priorité mathématique : @@3 4 * 2 +@@. Forth est un langage qui utilise cette dernière notation.
+Aucune de ces solutions ne nous semble très convaincantes et les créateurs de langages ont essayé de permettre aux programmeurs de s’exprimer naturellement. Certains générateurs de parseurs proposent de constituer un tableau de priorité : la multiplication sera indiquée avec une priorité plus forte que l’addition. Mais on peut simplement s’en sortir en écrivant les règles de grammaire d’une certaine façon. Au lieu d’écrire cette grammaire au format EBNF qui n’indique pas la priorité :
+
+@@
+@@ EXPRESSION = EXPRESSION ["+" | "*"] EXPRESSION
+@@            | NOMBRE
+@@
+
+On récrit la précédente règle sous la forme de quatre règles avec comme règle de départ R1 :
+
+@@
+@@ R1. EXPRESSION = ADDITION
+@@ R2. ADDITION = TERME { "+" TERME }
+@@ R3. TERME = FACTEUR { "*" FACTEUR }
+@@ R4. FACTEUR = NOMBRE
+@@
+
+Légende : { } indique 0 ou plus, "x" indique un terminal, X = indique une définition de règle, | indique une alternative.
+
+En écrivant ainsi notre grammaire, on indique la priorité de la multiplication sur l’addition. Ainsi notre suite de jetons initiales sera interprétée ainsi :
+
++ On essaye de catégoriser le premier jeton, 2 : on déploie R1, R2, R3 puis R4 qui est validée c’est un NOMBRE (R1, R2, R3, R4)
++ On remonte à R3, on essaye de voir s’il est suivi de "*", non, mais comme c’est optionnel R3 est validée quand même (R1, R2, R3)
++ On remonte à R2, on essaye de voir s’il est suivi d’une "+", oui, alors on va essayer de valider le second TERME de R2
++ On déploie R3, puis R4 est validée en effet, 3 est un NOMBRE (R1, R2, R32, R42)
++ Et c’est là que la magie opère : en remontant à R3, on remarque que 3 est bien suivi de "*" donc on va chercher à valider son FACTEUR.
++ On déploie R43 qui est validée, 4 est un NOMBRE (R1, R2, R32, R43)
++ On remonte à R32 qui est validée entièrement
++ On remonte à R2 (étape 3) avec 3 * 4 comme second TERME
++ On remonte à R1 et on obtient notre arbre correct :
+
+Arbre syntaxique :
+* EXPRESSION
+  * ADDITION "+"
+    * TERME
+      * FACTEUR
+        * NOMBRE 2
+    * TERME "*"
+      * FACTEUR
+        * NOMBRE 3
+      * FACTEUR
+        * NOMBRE 4
+
+La traduction de notre grammaire à 4 règles en un parseur récursif descendant se fait naturellement avec des fonctions récursives (une pour chaque règle) et permet de construire des arbres respectant la priorité des opérateurs. Il suffit de bien penser sa grammaire au préalable.
+
+Sources :
+* [[https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form]]
+* [[https://wiki.c2.com/?PolishNotation]]
+* [[https://wiki.c2.com/?PostfixNotation]]
+* [[https://en.wikipedia.org/wiki/Recursive_descent_parser]]

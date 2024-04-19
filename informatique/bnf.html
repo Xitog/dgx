@@ -1,6 +1,7 @@
+<!DOCTYPE HTML>
 <html lang="fr">
 <head>
-  <meta charset=utf-8>
+  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BNF</title>
@@ -8,25 +9,17 @@
   <link rel="shortcut icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
   <link href="https://xitog.github.io/dgx/css/simplex.bootstrap.css" rel="stylesheet">
   <link href="https://xitog.github.io/dgx/css/palatino.css" rel="stylesheet">
-<style type="text/css">
-body, div, p, span, li, a {font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13px;}
-</style>
-<style type="text/css">
-p {text-align: justify;}
-</style>
-<style type="text/css">
-code, code span, pre, pre span {font-family: "Courier New"; font-size: 13px;}
-</style>
-<style type="text/css">
-b {color: #777777;}
-</style>
-<style type="text/css">
-i b {color: #FF0000;}
-</style>
-</head>
-<body>
+  <style type="text/css">
+    body, div, p, span, li, a {font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13px;}
+    p {text-align: justify;}
+    code, code span, pre, pre span {font-family: "Courier New"; font-size: 13px;}
+    b {color: #777777;}
+    i b {color: #FF0000;}
+  </style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
 <div id="main" class="container">
       <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
@@ -68,18 +61,20 @@ i b {color: #FF0000;}
               <li class="dropdown">
                 <a id="Informatique" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Informatique <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Projets</li>
+                  <li><a href="https://xitog.github.io/dgx/ash/index.html">Ash</a></li>
+                  <li><a href="https://xitog.github.io/dgx/hamill/index.html">Hamill</a></li>
+                  <li class="divider"></li>
                   <li class="dropdown-header">Programmation</li>
                   <li><a href="https://xitog.github.io/dgx/informatique/syntaxes.html">Syntaxes comparées</a></li>
                   <li><a href="https://xitog.github.io/dgx/informatique/python.html">Aide-mémoire Python</a></li>
                   <li><a href="https://xitog.github.io/dgx/informatique/ruby.html">Aide-mémoire Ruby</a></li>
                   <li><a href="https://xitog.github.io/dgx/informatique/lua.html">Aide-mémoire Lua</a></li>
                   <li><a href="https://xitog.github.io/dgx/informatique/ruby_guide.html">Guide Ruby</a></li>
-                  <li><a href="https://xitog.github.io/dgx/informatique/ash_guide.html">Guide Ash</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Modélisation</li>
                   <li><a href="https://xitog.github.io/dgx/informatique/bnf.html">Aide-mémoire BNF et EBNF</a></li>
                   <li><a href="https://xitog.github.io/dgx/informatique/json.html">Aide-mémoire JSON</a></li>
-                  <li><a href="https://xitog.github.io/dgx/informatique/hamill.html">Aide-mémoire Hamill</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Autres</li>
                   <li><a href="https://xitog.github.io/dgx/informatique/version_control.html">Gestion de versions</a></li>
@@ -100,12 +95,17 @@ i b {color: #FF0000;}
               <li class="dropdown">
                 <a id="Jeux" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Passe-temps <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li class="dropdown-header">Présentations générales</i></li>
+                  <li class="dropdown-header">Projets</li>
+                  <li><a href="https://xitog.github.io/dgx/teddy/index.html">Éditeur de carte</a></li>
+                  <li><a href="https://xitog.github.io/dgx/rts/index.html">Jouer à mon RTS</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/project_fps.html">Jouer à mon FPS</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Présentations générales</li>
                   <li><a href="https://xitog.github.io/dgx/passetemps/pres_jeux.html">Les jeux</a></li>
                   <li><a href="https://xitog.github.io/dgx/passetemps/pres_jeuxvideo.html">Les jeux vidéo</a></li>
                   <li><a href="https://xitog.github.io/dgx/passetemps/pres_favoris.html">Favoris artistiques</a></li>
                   <li class="divider"></li>
-                  <li class="dropdown-header">Jeux de rôles</i></li>
+                  <li class="dropdown-header">Jeux de rôles</li>
                   <li><a href="https://xitog.github.io/dgx/passetemps/systemes_rpg.html">Systèmes des RPG</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Livres-jeux</li>
@@ -116,37 +116,31 @@ i b {color: #FF0000;}
                   <li><a href="https://xitog.github.io/dgx/passetemps/history_rts.html">Les enfants de Dune : les RTS</a></li>
                   <li><a href="https://xitog.github.io/dgx/passetemps/history_fps.html">Les enfants de Doom : les FPS</a></li>
                   <li class="divider"></li>
-                  <li class="dropdown-header">Techniques des jeux vidéo</i></li>
-                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_raycasting_fr.html">Le raycasting : la 2.5D</a>
+                  <li class="dropdown-header">Techniques des jeux vidéo</li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_raycasting_fr.html">Le raycasting : la 2.5D</a></li>
                   <li><a href="https://xitog.github.io/dgx/passetemps/tech_transitions.html">Cartes et transitions</a></li>
                   <li><a href="https://xitog.github.io/dgx/passetemps/tech_dialogues.html">Dialogues</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdown-header">Jeux vidéo et outils maison</i></li>
-                  <li><a href="https://xitog.github.io/dgx/passetemps/project_teddy.html">Éditeur de carte</a></li>
-                  <li><a href="https://xitog.github.io/dgx/passetemps/project_rts.html">Jouer à mon RTS</a></li>
-                  <li><a href="https://xitog.github.io/dgx/passetemps/project_fps.html">Jouer à mon FPS</a></li>
                 </ul>
               </li>
               <li class="dropdown">
                 <a id="Autres" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Autres <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li class="dropdown-header">Musique</li>
+                  <li class="dropdown-header">Applications</li>
                   <li><a href="https://xitog.github.io/dgx/concerts_classiques/index.html">Concerts classiques</a></li>
-                  <li><a href="https://xitog.github.io/dgx/favoris/musiques.html">Musiques favorites</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Collections</li>
                   <li><a href="https://xitog.github.io/dgx/data/outil_collections.html#prenoms">Prénoms</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Liens</li>
                   <li><a href="https://xitog.github.io/dgx/plan.html">Plan du site</a></li>
-                  <li><a href="https://xitog.github.io/dgx/liens.html">Barre de liens</a></li>
-                  <li><a href="https://xitog.github.io/dgx/liste_liens.html">Collection de liens</a></li>
+                  <li><a href="https://xitog.github.io/dgx/liens.html">Liste de liens</a></li>
                 </ul>
               </li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
+
 <div id="content-div">
 <h1 id="modèles-et-langages">Modèles et langages</h1>
 <hr>
@@ -158,7 +152,7 @@ i b {color: #FF0000;}
   <li><a href="#4.-les-langages-de-patrons">Les langages de patrons</a></li>
 </ol>
 <h2 id="1.-description-générale">1. Description générale</h2>
-<p><img src="https://xitog.github.io/dgx/img/Modelisation.svg"></img></p>
+<p><img src="https://xitog.github.io/dgx/img/Modelisation.svg"/></p>
 <ul>
   <li>Des <b>données</b> sont décrites | exprimées | modélisées | représentées par un <b>modèle</b>, celui s'écrit dans un <b>langage</b> qui peut être <i>textuel</i> ou <i>graphique</i>.</li>
   <li>Un langage obéit | respecte des <b>règles</b>, sa <b>grammaire</b>, appelée aussi <b>métamodèle</b>.</li>
@@ -170,28 +164,28 @@ i b {color: #FF0000;}
     </ul>
   </li>
   <li>La grammaire, l'ensemble de règles, est elle-même décrite | exprimée | modélisée | représentée par un modèle, appelée <b>métamodèle</b>, celui s'écrit dans un langage appelée <b>métalangage</b>.</li>
-  <li>Un métalangage est décrit par un métamétamodèle que respecte le métamodèle, on peut ainsi boucler à l'infini...</li>
+  <li>Un métalangage est décrit par un métamétamodèle que respecte le métamodèle, on peut ainsi boucler à l'infini…</li>
   <li>Mais généralement le métamodèle et le métalangage sont <b>réflexifs</b> : le métalangage est décrit par le métamodèle, sans ajouter un niveau supplémentaire.</li>
 </ul>
 <h2 id="2.-la-notation-backus-naur-form-(bnf)">2. La notation Backus-Naur Form (BNF)</h2>
 <ul>
   <li>La notation <b>Backus-Naur Form (BNF)</b> est un métalangage utilisé pour les décrire les langages de programmation.
     <ul>
-      <li>Elle utilise deux types de symboles : les <code><span class="bnf-string">&quot;terminaux&quot;</span></code> et les <code><span class="bnf-keyword">&lt;non-terminaux&gt;</span></code>.</li>
+      <li>Elle utilise deux types de symboles : les <code><span class="bnf-string" title="token n°0 : string">"terminaux"</span></code> et les <code><span class="bnf-keyword" title="token n°0 : keyword">&lt;non-terminaux&gt;</span></code>.</li>
       <li>Les terminaux sont un ou plusieurs caractères entre guillemets doubles ou simples.</li>
-      <li>La chaîne vide est symbolisée par <code><span class="bnf-string">&quot;&quot;</span></code> ou <code><span class="bnf-string">&#x27;&#x27;</span></code>.</li>
+      <li>La chaîne vide est symbolisée par <code><span class="bnf-string" title="token n°0 : string">""</span></code> ou <code><span class="bnf-string" title="token n°0 : string">''</span></code>.</li>
       <li>Les non-terminaux sont un ou plusieurs caractères entre les signes inférieur et supérieur.</li>
-      <li>Elle est constituée de règles notées : <code><span class="bnf-keyword">&lt;non-terminal&gt;</span><span class="bnf-blank"> </span><span class="bnf-operator">::=</span><span class="bnf-blank"> </span><span class="bnf-identifier">expansion</span></code></li>
+      <li>Elle est constituée de règles notées : <code><span class="bnf-keyword" title="token n°0 : keyword">&lt;non-terminal&gt;</span> <span class="bnf-operator" title="token n°2 : operator">::=</span> <span class="bnf-identifier" title="token n°4 : identifier">expansion</span></code></li>
       <li>Il doit y avoir <b>une règle par ligne</b>.</li>
       <li>Une expansion est consituée de terminaux et non-terminaux arrangée en :
         <ul>
-          <li><b>Suite</b> par simple juxtaposition : <code><span class="bnf-string">&quot;abc&quot;</span><span class="bnf-blank"> </span><span class="bnf-string">&quot;def&quot;</span></code></li>
-          <li><b>Choix</b> avec le symbole <code><span class="bnf-operator">|</span></code> : <code><span class="bnf-string">&quot;abc&quot;</span><span class="bnf-blank"> </span><span class="bnf-operator">|</span><span class="bnf-blank"> </span><span class="bnf-string">&quot;def&quot;</span></code></li>
+          <li><b>Suite</b> par simple juxtaposition : <code><span class="bnf-string" title="token n°0 : string">"abc"</span> <span class="bnf-string" title="token n°2 : string">"def"</span></code></li>
+          <li><b>Choix</b> avec le symbole <code><span class="bnf-operator" title="token n°0 : operator">|</span></code> : <code><span class="bnf-string" title="token n°0 : string">"abc"</span> <span class="bnf-operator" title="token n°2 : operator">|</span> <span class="bnf-string" title="token n°4 : string">"def"</span></code></li>
         </ul>
-      </li>
+  </li>
     </ul>
   </li>
-  <li>La suite est <b>prioritaire</b> par rapport au choix : <code><span class="bnf-string">&quot;abc&quot;</span><span class="bnf-blank"> </span><span class="bnf-string">&quot;def&quot;</span><span class="bnf-blank"> </span><span class="bnf-operator">|</span><span class="bnf-blank"> </span><span class="bnf-string">&quot;ghi&quot;</span></code> doit se lire :
+  <li>La suite est <b>prioritaire</b> par rapport au choix : <code><span class="bnf-string" title="token n°0 : string">"abc"</span> <span class="bnf-string" title="token n°2 : string">"def"</span> <span class="bnf-operator" title="token n°4 : operator">|</span> <span class="bnf-string" title="token n°6 : string">"ghi"</span></code> doit se lire :
     <ul>
       <li>Soit "abc" suivi obligatoirement de "def"</li>
       <li>Soit "ghi"</li>
@@ -202,60 +196,60 @@ i b {color: #FF0000;}
     <ul>
       <li>Pour représenter "abc" suivi de "def" ou "ghi" :
         <ul>
-          <li><code><span class="bnf-keyword">&lt;règle 1&gt;</span><span class="bnf-blank"> </span><span class="bnf-operator">::=</span><span class="bnf-blank"> </span><span class="bnf-string">&quot;abc&quot;</span><span class="bnf-blank"> </span><span class="bnf-keyword">&lt;règle 2&gt;</span></code></li>
-          <li><code><span class="bnf-keyword">&lt;règle 2&gt;</span><span class="bnf-blank"> </span><span class="bnf-operator">::=</span><span class="bnf-blank"> </span><span class="bnf-string">&quot;def&quot;</span><span class="bnf-blank"> </span><span class="bnf-operator">|</span><span class="bnf-blank"> </span><span class="bnf-string">&quot;ghi&quot;</span></code></li>
+          <li><code><span class="bnf-keyword" title="token n°0 : keyword">&lt;règle 1&gt;</span> <span class="bnf-operator" title="token n°2 : operator">::=</span> <span class="bnf-string" title="token n°4 : string">"abc"</span> <span class="bnf-keyword" title="token n°6 : keyword">&lt;règle 2&gt;</span></code></li>
+          <li><code><span class="bnf-keyword" title="token n°0 : keyword">&lt;règle 2&gt;</span> <span class="bnf-operator" title="token n°2 : operator">::=</span> <span class="bnf-string" title="token n°4 : string">"def"</span> <span class="bnf-operator" title="token n°6 : operator">|</span> <span class="bnf-string" title="token n°8 : string">"ghi"</span></code></li>
         </ul>
-      </li>
+  </li>
     </ul>
   </li>
-  <li>L'expression d'une possible <b>répétition</b> se fait en combinant la suite, le choix et une définition <b>récursive</b> dans : <code><span class="bnf-keyword">&lt;suite&gt;</span><span class="bnf-blank"> </span><span class="bnf-operator">::=</span><span class="bnf-blank"> </span><span class="bnf-keyword">&lt;item&gt;</span><span class="bnf-blank"> </span><span class="bnf-operator">|</span><span class="bnf-blank"> </span><span class="bnf-keyword">&lt;item&gt;</span><span class="bnf-blank"> </span><span class="bnf-keyword">&lt;suite&gt;</span></code></li>
+  <li>L'expression d'une possible <b>répétition</b> se fait en combinant la suite, le choix et une définition <b>récursive</b> dans : <code><span class="bnf-keyword" title="token n°0 : keyword">&lt;suite&gt;</span> <span class="bnf-operator" title="token n°2 : operator">::=</span> <span class="bnf-keyword" title="token n°4 : keyword">&lt;item&gt;</span> <span class="bnf-operator" title="token n°6 : operator">|</span> <span class="bnf-keyword" title="token n°8 : keyword">&lt;item&gt;</span> <span class="bnf-keyword" title="token n°10 : keyword">&lt;suite&gt;</span></code></li>
   <li>On peut décrire BNF en BNF, le métalangage est <b>réflexif</b>. Ci-dessous, le modèle de la BNF en BNF, avec des commentaires (lignes qui commencent par #) :</li>
 </ul>
-<pre class="code">
-<span class="bnf-blank">  </span><span class="bnf-comment"># Une syntaxe correcte contient au moins une règle
-</span><span class="bnf-blank">  </span><span class="bnf-keyword">&lt;syntaxe&gt;</span><span class="bnf-blank">               </span><span class="bnf-operator">::=</span><span class="bnf-blank">     </span><span class="bnf-keyword">&lt;règle&gt;</span><span class="bnf-blank"> </span><span class="bnf-operator">|</span><span class="bnf-blank"> </span><span class="bnf-keyword">&lt;règle syntaxe&gt;</span><span class="bnf-newline">
-</span><span class="bnf-blank">  </span><span class="bnf-comment"># Définition d&#x27;une règle par ligne
-</span><span class="bnf-blank">  </span><span class="bnf-keyword">&lt;règle&gt;</span><span class="bnf-blank">                 </span><span class="bnf-operator">::=</span><span class="bnf-blank">     </span><span class="bnf-string">&quot;&lt;&quot;</span><span class="bnf-keyword">&lt;nom&gt;</span><span class="bnf-string">&quot;&gt;&quot;</span><span class="bnf-blank"> </span><span class="bnf-string">&quot;::=&quot;</span><span class="bnf-blank"> </span><span class="bnf-keyword">&lt;expansion&gt;</span><span class="bnf-blank"> </span><span class="bnf-string">&quot;NEW_LINE&quot;</span><span class="bnf-newline">
-</span><span class="bnf-blank">  </span><span class="bnf-comment"># Définition d&#x27;un nom de non-terminal
-</span><span class="bnf-blank">  </span><span class="bnf-keyword">&lt;nom&gt;</span><span class="bnf-blank">                   </span><span class="bnf-operator">::=</span><span class="bnf-blank">     </span><span class="bnf-keyword">&lt;lettre&gt;</span><span class="bnf-blank"> </span><span class="bnf-operator">|</span><span class="bnf-blank"> </span><span class="bnf-keyword">&lt;nom&gt;</span><span class="bnf-blank"> </span><span class="bnf-keyword">&lt;lettreplus&gt;</span><span class="bnf-newline">
-</span><span class="bnf-blank">  </span><span class="bnf-keyword">&lt;lettre&gt;</span><span class="bnf-blank">                </span><span class="bnf-operator">::=</span><span class="bnf-blank">     </span><span class="bnf-string">&quot;a&quot;</span><span class="bnf-blank"> </span><span class="bnf-operator">|</span><span class="bnf-blank"> </span><span class="bnf-string">&quot;b&quot;</span><span class="bnf-blank"> </span><span class="bnf-operator">...</span><span class="bnf-newline">
-</span><span class="bnf-blank">  </span><span class="bnf-keyword">&lt;lettreplus&gt;</span><span class="bnf-blank">            </span><span class="bnf-operator">::=</span><span class="bnf-blank">     </span><span class="bnf-keyword">&lt;lettre&gt;</span><span class="bnf-blank"> </span><span class="bnf-operator">|</span><span class="bnf-blank"> </span><span class="bnf-keyword">&lt;digit&gt;</span><span class="bnf-blank"> </span><span class="bnf-operator">|</span><span class="bnf-blank"> </span><span class="bnf-string">&quot;-&quot;</span><span class="bnf-newline">
-</span><span class="bnf-blank">  </span><span class="bnf-keyword">&lt;digit&gt;</span><span class="bnf-blank">                 </span><span class="bnf-operator">::=</span><span class="bnf-blank">     </span><span class="bnf-string">&quot;0&quot;</span><span class="bnf-operator">|</span><span class="bnf-string">&quot;1&quot;</span><span class="bnf-operator">|</span><span class="bnf-string">&quot;2&quot;</span><span class="bnf-operator">|</span><span class="bnf-string">&quot;3&quot;</span><span class="bnf-operator">|</span><span class="bnf-string">&quot;4&quot;</span><span class="bnf-operator">|</span><span class="bnf-string">&quot;5&quot;</span><span class="bnf-operator">|</span><span class="bnf-string">&quot;6&quot;</span><span class="bnf-operator">|</span><span class="bnf-string">&quot;7&quot;</span><span class="bnf-operator">|</span><span class="bnf-string">&quot;8&quot;</span><span class="bnf-operator">|</span><span class="bnf-string">&quot;9&quot;</span><span class="bnf-newline">
-</span><span class="bnf-blank">  </span><span class="bnf-comment"># Suite ou choix
-</span><span class="bnf-blank">  </span><span class="bnf-keyword">&lt;expansion&gt;</span><span class="bnf-blank">             </span><span class="bnf-operator">::=</span><span class="bnf-blank">     </span><span class="bnf-keyword">&lt;suite&gt;</span><span class="bnf-blank"> </span><span class="bnf-operator">|</span><span class="bnf-blank"> </span><span class="bnf-keyword">&lt;suite&gt;</span><span class="bnf-blank"> </span><span class="bnf-string">&quot;|&quot;</span><span class="bnf-blank"> </span><span class="bnf-keyword">&lt;expansion&gt;</span><span class="bnf-newline">
-</span><span class="bnf-blank">  </span><span class="bnf-comment"># Suite
-</span><span class="bnf-blank">  </span><span class="bnf-keyword">&lt;suite&gt;</span><span class="bnf-blank">                 </span><span class="bnf-operator">::=</span><span class="bnf-blank">     </span><span class="bnf-keyword">&lt;symbole&gt;</span><span class="bnf-blank"> </span><span class="bnf-operator">|</span><span class="bnf-blank"> </span><span class="bnf-keyword">&lt;symbole&gt;</span><span class="bnf-blank"> </span><span class="bnf-keyword">&lt;suite&gt;</span><span class="bnf-newline">
-</span><span class="bnf-blank">  </span><span class="bnf-keyword">&lt;symbole&gt;</span><span class="bnf-blank">               </span><span class="bnf-operator">::=</span><span class="bnf-blank">     </span><span class="bnf-keyword">&lt;terminal&gt;</span><span class="bnf-blank"> </span><span class="bnf-operator">|</span><span class="bnf-blank"> </span><span class="bnf-keyword">&lt;non-terminal&gt;</span><span class="bnf-newline">
-</span><span class="bnf-blank">  </span><span class="bnf-comment"># Symbole non-terminal
-</span><span class="bnf-blank">  </span><span class="bnf-keyword">&lt;non-terminal&gt;</span><span class="bnf-blank">          </span><span class="bnf-operator">::=</span><span class="bnf-blank">     </span><span class="bnf-string">&quot;&lt;&quot;</span><span class="bnf-identifier">nom</span><span class="bnf-string">&quot;&gt;&quot;</span><span class="bnf-newline">
-</span><span class="bnf-blank">  </span><span class="bnf-comment"># Symbole terminal
-</span><span class="bnf-blank">  </span><span class="bnf-keyword">&lt;terminal&gt;</span><span class="bnf-blank">              </span><span class="bnf-operator">::=</span><span class="bnf-blank">     </span><span class="bnf-string">&#x27;&quot;&#x27;</span><span class="bnf-keyword">&lt;texteDouble&gt;</span><span class="bnf-string">&#x27;&quot;&#x27;</span><span class="bnf-blank"> </span><span class="bnf-operator">|</span><span class="bnf-blank"> </span><span class="bnf-string">&#x27;&quot;&#x27;</span><span class="bnf-keyword">&lt;texteSimple&gt;</span><span class="bnf-string">&#x27;&quot;&#x27;</span><span class="bnf-newline">
-</span><span class="bnf-blank">  </span><span class="bnf-keyword">&lt;texteDouble&gt;</span><span class="bnf-blank">           </span><span class="bnf-operator">::=</span><span class="bnf-blank">     </span><span class="bnf-string">&quot;&quot;</span><span class="bnf-blank"> </span><span class="bnf-operator">|</span><span class="bnf-blank"> </span><span class="bnf-keyword">&lt;caractèreTexteDouble&gt;</span><span class="bnf-blank"> </span><span class="bnf-keyword">&lt;texte&gt;</span><span class="bnf-newline">
-</span><span class="bnf-blank">  </span><span class="bnf-keyword">&lt;caractèreTexteDouble&gt;</span><span class="bnf-blank">  </span><span class="bnf-operator">::=</span><span class="bnf-blank">     </span><span class="bnf-keyword">&lt;lettre&gt;</span><span class="bnf-blank"> </span><span class="bnf-operator">|</span><span class="bnf-blank"> </span><span class="bnf-keyword">&lt;digit&gt;</span><span class="bnf-blank"> </span><span class="bnf-operator">|</span><span class="bnf-blank"> </span><span class="bnf-keyword">&lt;autres&gt;</span><span class="bnf-blank"> </span><span class="bnf-operator">|</span><span class="bnf-blank"> </span><span class="bnf-string">&quot;&#x27;&quot;</span><span class="bnf-newline">
-</span><span class="bnf-blank">  </span><span class="bnf-comment"># Il peut y avoir &#x27; dedans car délimité par &quot;
-</span><span class="bnf-blank">  </span><span class="bnf-keyword">&lt;texteSimple&gt;</span><span class="bnf-blank">           </span><span class="bnf-operator">::=</span><span class="bnf-blank">     </span><span class="bnf-string">&quot;&quot;</span><span class="bnf-blank"> </span><span class="bnf-operator">|</span><span class="bnf-blank"> </span><span class="bnf-keyword">&lt;caractèreTexteSimple&gt;</span><span class="bnf-blank"> </span><span class="bnf-keyword">&lt;texte&gt;</span><span class="bnf-newline">
-</span><span class="bnf-blank">  </span><span class="bnf-comment"># Il peut y avoir &quot; dedans car délimité par &#x27;
-</span><span class="bnf-blank">  </span><span class="bnf-keyword">&lt;caractèreTexteSimple&gt;</span><span class="bnf-blank">  </span><span class="bnf-operator">::=</span><span class="bnf-blank">     </span><span class="bnf-keyword">&lt;lettre&gt;</span><span class="bnf-blank"> </span><span class="bnf-operator">|</span><span class="bnf-blank"> </span><span class="bnf-keyword">&lt;digit&gt;</span><span class="bnf-blank"> </span><span class="bnf-operator">|</span><span class="bnf-blank"> </span><span class="bnf-keyword">&lt;autres&gt;</span><span class="bnf-blank"> </span><span class="bnf-operator">|</span><span class="bnf-blank"> </span><span class="bnf-string">&#x27;&quot;&#x27;</span><span class="bnf-newline">
-</span><span class="bnf-blank">  </span><span class="bnf-keyword">&lt;autres&gt;</span><span class="bnf-blank">                </span><span class="bnf-operator">::=</span><span class="bnf-blank">     </span><span class="bnf-string">&quot;-&quot;</span><span class="bnf-blank"> </span><span class="bnf-operator">|</span><span class="bnf-blank"> </span><span class="bnf-string">&quot;_&quot;</span><span class="bnf-blank"> </span><span class="bnf-operator">|</span><span class="bnf-blank"> </span><span class="bnf-operator">...</span><span class="bnf-blank">     </span><span class="bnf-newline">
-</span><span class="bnf-blank">  </span><span class="bnf-comment"># Pour simplifier, on a pas offert les possibilités :
-</span><span class="bnf-blank">  </span><span class="bnf-comment"># - d&#x27;avoir des lignes vides,
-</span><span class="bnf-blank">  </span><span class="bnf-comment"># - de mettre des espaces.
+<pre>
+  <span class="bnf-comment" title="token n°1 : comment"># Une syntaxe correcte contient au moins une règle
+</span>  <span class="bnf-keyword" title="token n°3 : keyword">&lt;syntaxe&gt;</span>               <span class="bnf-operator" title="token n°5 : operator">::=</span>     <span class="bnf-keyword" title="token n°7 : keyword">&lt;règle&gt;</span> <span class="bnf-operator" title="token n°9 : operator">|</span> <span class="bnf-keyword" title="token n°11 : keyword">&lt;règle syntaxe&gt;</span><span class="bnf-newline" title="token n°12 : newline">
+</span>  <span class="bnf-comment" title="token n°14 : comment"># Définition d'une règle par ligne
+</span>  <span class="bnf-keyword" title="token n°16 : keyword">&lt;règle&gt;</span>                 <span class="bnf-operator" title="token n°18 : operator">::=</span>     <span class="bnf-string" title="token n°20 : string">"&lt;"</span><span class="bnf-keyword" title="token n°21 : keyword">&lt;nom&gt;</span><span class="bnf-string" title="token n°22 : string">"&gt;"</span> <span class="bnf-string" title="token n°24 : string">"::="</span> <span class="bnf-keyword" title="token n°26 : keyword">&lt;expansion&gt;</span> <span class="bnf-string" title="token n°28 : string">"NEW_LINE"</span><span class="bnf-newline" title="token n°29 : newline">
+</span>  <span class="bnf-comment" title="token n°31 : comment"># Définition d'un nom de non-terminal
+</span>  <span class="bnf-keyword" title="token n°33 : keyword">&lt;nom&gt;</span>                   <span class="bnf-operator" title="token n°35 : operator">::=</span>     <span class="bnf-keyword" title="token n°37 : keyword">&lt;lettre&gt;</span> <span class="bnf-operator" title="token n°39 : operator">|</span> <span class="bnf-keyword" title="token n°41 : keyword">&lt;nom&gt;</span> <span class="bnf-keyword" title="token n°43 : keyword">&lt;lettreplus&gt;</span><span class="bnf-newline" title="token n°44 : newline">
+</span>  <span class="bnf-keyword" title="token n°46 : keyword">&lt;lettre&gt;</span>                <span class="bnf-operator" title="token n°48 : operator">::=</span>     <span class="bnf-string" title="token n°50 : string">"a"</span> <span class="bnf-operator" title="token n°52 : operator">|</span> <span class="bnf-string" title="token n°54 : string">"b"</span> <span class="bnf-operator" title="token n°56 : operator">...</span><span class="bnf-newline" title="token n°57 : newline">
+</span>  <span class="bnf-keyword" title="token n°59 : keyword">&lt;lettreplus&gt;</span>            <span class="bnf-operator" title="token n°61 : operator">::=</span>     <span class="bnf-keyword" title="token n°63 : keyword">&lt;lettre&gt;</span> <span class="bnf-operator" title="token n°65 : operator">|</span> <span class="bnf-keyword" title="token n°67 : keyword">&lt;digit&gt;</span> <span class="bnf-operator" title="token n°69 : operator">|</span> <span class="bnf-string" title="token n°71 : string">"-"</span><span class="bnf-newline" title="token n°72 : newline">
+</span>  <span class="bnf-keyword" title="token n°74 : keyword">&lt;digit&gt;</span>                 <span class="bnf-operator" title="token n°76 : operator">::=</span>     <span class="bnf-string" title="token n°78 : string">"0"</span><span class="bnf-operator" title="token n°79 : operator">|</span><span class="bnf-string" title="token n°80 : string">"1"</span><span class="bnf-operator" title="token n°81 : operator">|</span><span class="bnf-string" title="token n°82 : string">"2"</span><span class="bnf-operator" title="token n°83 : operator">|</span><span class="bnf-string" title="token n°84 : string">"3"</span><span class="bnf-operator" title="token n°85 : operator">|</span><span class="bnf-string" title="token n°86 : string">"4"</span><span class="bnf-operator" title="token n°87 : operator">|</span><span class="bnf-string" title="token n°88 : string">"5"</span><span class="bnf-operator" title="token n°89 : operator">|</span><span class="bnf-string" title="token n°90 : string">"6"</span><span class="bnf-operator" title="token n°91 : operator">|</span><span class="bnf-string" title="token n°92 : string">"7"</span><span class="bnf-operator" title="token n°93 : operator">|</span><span class="bnf-string" title="token n°94 : string">"8"</span><span class="bnf-operator" title="token n°95 : operator">|</span><span class="bnf-string" title="token n°96 : string">"9"</span><span class="bnf-newline" title="token n°97 : newline">
+</span>  <span class="bnf-comment" title="token n°99 : comment"># Suite ou choix
+</span>  <span class="bnf-keyword" title="token n°101 : keyword">&lt;expansion&gt;</span>             <span class="bnf-operator" title="token n°103 : operator">::=</span>     <span class="bnf-keyword" title="token n°105 : keyword">&lt;suite&gt;</span> <span class="bnf-operator" title="token n°107 : operator">|</span> <span class="bnf-keyword" title="token n°109 : keyword">&lt;suite&gt;</span> <span class="bnf-string" title="token n°111 : string">"|"</span> <span class="bnf-keyword" title="token n°113 : keyword">&lt;expansion&gt;</span><span class="bnf-newline" title="token n°114 : newline">
+</span>  <span class="bnf-comment" title="token n°116 : comment"># Suite
+</span>  <span class="bnf-keyword" title="token n°118 : keyword">&lt;suite&gt;</span>                 <span class="bnf-operator" title="token n°120 : operator">::=</span>     <span class="bnf-keyword" title="token n°122 : keyword">&lt;symbole&gt;</span> <span class="bnf-operator" title="token n°124 : operator">|</span> <span class="bnf-keyword" title="token n°126 : keyword">&lt;symbole&gt;</span> <span class="bnf-keyword" title="token n°128 : keyword">&lt;suite&gt;</span><span class="bnf-newline" title="token n°129 : newline">
+</span>  <span class="bnf-keyword" title="token n°131 : keyword">&lt;symbole&gt;</span>               <span class="bnf-operator" title="token n°133 : operator">::=</span>     <span class="bnf-keyword" title="token n°135 : keyword">&lt;terminal&gt;</span> <span class="bnf-operator" title="token n°137 : operator">|</span> <span class="bnf-keyword" title="token n°139 : keyword">&lt;non-terminal&gt;</span><span class="bnf-newline" title="token n°140 : newline">
+</span>  <span class="bnf-comment" title="token n°142 : comment"># Symbole non-terminal
+</span>  <span class="bnf-keyword" title="token n°144 : keyword">&lt;non-terminal&gt;</span>          <span class="bnf-operator" title="token n°146 : operator">::=</span>     <span class="bnf-string" title="token n°148 : string">"&lt;"</span><span class="bnf-identifier" title="token n°149 : identifier">nom</span><span class="bnf-string" title="token n°150 : string">"&gt;"</span><span class="bnf-newline" title="token n°151 : newline">
+</span>  <span class="bnf-comment" title="token n°153 : comment"># Symbole terminal
+</span>  <span class="bnf-keyword" title="token n°155 : keyword">&lt;terminal&gt;</span>              <span class="bnf-operator" title="token n°157 : operator">::=</span>     <span class="bnf-string" title="token n°159 : string">'"'</span><span class="bnf-keyword" title="token n°160 : keyword">&lt;texteDouble&gt;</span><span class="bnf-string" title="token n°161 : string">'"'</span> <span class="bnf-operator" title="token n°163 : operator">|</span> <span class="bnf-string" title="token n°165 : string">'"'</span><span class="bnf-keyword" title="token n°166 : keyword">&lt;texteSimple&gt;</span><span class="bnf-string" title="token n°167 : string">'"'</span><span class="bnf-newline" title="token n°168 : newline">
+</span>  <span class="bnf-keyword" title="token n°170 : keyword">&lt;texteDouble&gt;</span>           <span class="bnf-operator" title="token n°172 : operator">::=</span>     <span class="bnf-string" title="token n°174 : string">""</span> <span class="bnf-operator" title="token n°176 : operator">|</span> <span class="bnf-keyword" title="token n°178 : keyword">&lt;caractèreTexteDouble&gt;</span> <span class="bnf-keyword" title="token n°180 : keyword">&lt;texte&gt;</span><span class="bnf-newline" title="token n°181 : newline">
+</span>  <span class="bnf-keyword" title="token n°183 : keyword">&lt;caractèreTexteDouble&gt;</span>  <span class="bnf-operator" title="token n°185 : operator">::=</span>     <span class="bnf-keyword" title="token n°187 : keyword">&lt;lettre&gt;</span> <span class="bnf-operator" title="token n°189 : operator">|</span> <span class="bnf-keyword" title="token n°191 : keyword">&lt;digit&gt;</span> <span class="bnf-operator" title="token n°193 : operator">|</span> <span class="bnf-keyword" title="token n°195 : keyword">&lt;autres&gt;</span> <span class="bnf-operator" title="token n°197 : operator">|</span> <span class="bnf-string" title="token n°199 : string">"'"</span><span class="bnf-newline" title="token n°200 : newline">
+</span>  <span class="bnf-comment" title="token n°202 : comment"># Il peut y avoir ' dedans car délimité par "
+</span>  <span class="bnf-keyword" title="token n°204 : keyword">&lt;texteSimple&gt;</span>           <span class="bnf-operator" title="token n°206 : operator">::=</span>     <span class="bnf-string" title="token n°208 : string">""</span> <span class="bnf-operator" title="token n°210 : operator">|</span> <span class="bnf-keyword" title="token n°212 : keyword">&lt;caractèreTexteSimple&gt;</span> <span class="bnf-keyword" title="token n°214 : keyword">&lt;texte&gt;</span><span class="bnf-newline" title="token n°215 : newline">
+</span>  <span class="bnf-comment" title="token n°217 : comment"># Il peut y avoir " dedans car délimité par '
+</span>  <span class="bnf-keyword" title="token n°219 : keyword">&lt;caractèreTexteSimple&gt;</span>  <span class="bnf-operator" title="token n°221 : operator">::=</span>     <span class="bnf-keyword" title="token n°223 : keyword">&lt;lettre&gt;</span> <span class="bnf-operator" title="token n°225 : operator">|</span> <span class="bnf-keyword" title="token n°227 : keyword">&lt;digit&gt;</span> <span class="bnf-operator" title="token n°229 : operator">|</span> <span class="bnf-keyword" title="token n°231 : keyword">&lt;autres&gt;</span> <span class="bnf-operator" title="token n°233 : operator">|</span> <span class="bnf-string" title="token n°235 : string">'"'</span><span class="bnf-newline" title="token n°236 : newline">
+</span>  <span class="bnf-keyword" title="token n°238 : keyword">&lt;autres&gt;</span>                <span class="bnf-operator" title="token n°240 : operator">::=</span>     <span class="bnf-string" title="token n°242 : string">"-"</span> <span class="bnf-operator" title="token n°244 : operator">|</span> <span class="bnf-string" title="token n°246 : string">"_"</span> <span class="bnf-operator" title="token n°248 : operator">|</span> <span class="bnf-operator" title="token n°250 : operator">...</span><span class="bnf-newline" title="token n°251 : newline">
+</span>  <span class="bnf-comment" title="token n°253 : comment"># Pour simplifier, on a pas offert les possibilités :
+</span>  <span class="bnf-comment" title="token n°255 : comment"># - d'avoir des lignes vides,
+</span>  <span class="bnf-comment" title="token n°257 : comment"># - de mettre des espaces.
 </span></pre>
 <h2 id="3.-la-notation-extended-backus-naur-form-(ebnf)">3. La notation Extended Backus-Naur Form (EBNF)</h2>
 <ul>
   <li>La notation <b>Extended Backus-Naur Form (EBNF)</b> étend la BNF en y ajoutant la répétition. Ils existent plusieurs variantes.</li>
   <li>Dans la variante définie par l'ISO, les changements sont :
     <ul>
-      <li>Le symbole <code><span class="bnf-operator">::=</span></code> est remplacé par <code><span class="bnf-operator">=</span></code></li>
-      <li>Une règle doit être terminée par un <code><span class="bnf-separator">;</span></code></li>
-      <li>La suite est marquée par une <code><span class="bnf-separator">,</span></code></li>
-      <li>L'optionalité (0 ou 1) est marquée par <code><span class="bnf-separator">[</span><span class="bnf-blank"> </span><span class="bnf-operator">...</span><span class="bnf-blank"> </span><span class="bnf-separator">]</span></code></li>
-      <li>La répétition (0 ou n) est marquée par <code><span class="bnf-separator">{</span><span class="bnf-blank"> </span><span class="bnf-operator">...</span><span class="bnf-blank"> </span><span class="bnf-separator">}</span></code></li>
-      <li>La répétition avec un élément obligatoire (1 ou n) est marquée par <code><span class="bnf-separator">{</span><span class="bnf-blank"> </span><span class="bnf-operator">...</span><span class="bnf-blank"> </span><span class="bnf-separator">}</span><span class="bnf-operator">-</span></code></li>
+      <li>Le symbole <code><span class="bnf-operator" title="token n°0 : operator">::=</span></code> est remplacé par <code><span class="bnf-operator" title="token n°0 : operator">=</span></code></li>
+      <li>Une règle doit être terminée par un <code><span class="bnf-separator" title="token n°0 : separator">;</span></code></li>
+      <li>La suite est marquée par une <code><span class="bnf-separator" title="token n°0 : separator">,</span></code></li>
+      <li>L'optionalité (0 ou 1) est marquée par <code><span class="bnf-separator" title="token n°0 : separator">[</span> <span class="bnf-operator" title="token n°2 : operator">...</span> <span class="bnf-separator" title="token n°4 : separator">]</span></code></li>
+      <li>La répétition (0 ou n) est marquée par <code><span class="bnf-separator" title="token n°0 : separator">{</span> <span class="bnf-operator" title="token n°2 : operator">...</span> <span class="bnf-separator" title="token n°4 : separator">}</span></code></li>
+      <li>La répétition avec un élément obligatoire (1 ou n) est marquée par <code><span class="bnf-separator" title="token n°0 : separator">{</span> <span class="bnf-operator" title="token n°2 : operator">...</span> <span class="bnf-separator" title="token n°4 : separator">}</span><span class="bnf-operator" title="token n°5 : operator">-</span></code></li>
     </ul>
   </li>
   <li>Il existe également Augmented BNF (ABNF) et XBNF qui étendent la BNF. Elles sont fonctionnellement très proches de l'EBNF.</li>
-  <li>L'optionalité est parfois exprimée par le suffixe <code><span class="bnf-operator">?</span></code>, la répétition (0, n) par <code><span class="bnf-operator">*</span></code> (étoile de Kleene) et la répétition (1, n) par <code><span class="bnf-operator">+</span></code>.</li>
+  <li>L'optionalité est parfois exprimée par le suffixe <code><span class="bnf-operator" title="token n°0 : operator">?</span></code>, la répétition (0, n) par <code><span class="bnf-operator" title="token n°0 : operator">*</span></code> (étoile de Kleene) et la répétition (1, n) par <code><span class="bnf-operator" title="token n°0 : operator">+</span></code>.</li>
   <li>Liens :
     <ul>
       <li><a href="https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form">Backus-Naur form sur Wikipedia (anglais)</a></li>
@@ -266,9 +260,11 @@ i b {color: #FF0000;}
   </li>
 </ul>
 <h2 id="4.-les-langages-de-patrons">4. Les langages de patrons</h2>
-<p>Les langages de patrons sont utilisés pour décrire un patron. Un patron décrit un ensemble de modèles qui peuvent ensuite être capturés ou générés par ce patron. Par exemple, le patron « A B? C », où A, B et C sont des éléments et ? désigne un élément optionnel, décrit les séquences <code><span class="bnf-identifier">A</span><span class="bnf-blank"> </span><span class="bnf-identifier">C</span></code> et <code><span class="bnf-identifier">A</span><span class="bnf-blank"> </span><span class="bnf-identifier">B</span><span class="bnf-blank"> </span><span class="bnf-identifier">C</span></code>.</p>
-<p>Mon premier langage de patron, pour mon mémoire de master 1 en traitement automatique des langues, ne gérait pas la répétition mais l'optionnalité (à l'aide de <code><span class="bnf-operator">?</span></code>), le choix (à l'aide de <code><span class="bnf-separator">[</span><span class="bnf-blank"> </span><span class="bnf-identifier">A</span><span class="bnf-blank"> </span><span class="bnf-identifier">B</span><span class="bnf-blank"> </span><span class="bnf-separator">]</span></code>) et la sous-séquence (à l'aide de <code><span class="bnf-separator">(</span><span class="bnf-blank"> </span><span class="bnf-identifier">A</span><span class="bnf-blank"> </span><span class="bnf-identifier">B</span><span class="bnf-blank"> </span><span class="bnf-separator">)</span></code>. Ainsi on pouvait faire un choix entre un élément ou une sous-séquence : <code><span class="bnf-separator">[</span><span class="bnf-blank"> </span><span class="bnf-separator">(</span><span class="bnf-identifier">A</span><span class="bnf-blank"> </span><span class="bnf-identifier">B</span><span class="bnf-separator">)</span><span class="bnf-blank"> </span><span class="bnf-identifier">C</span><span class="bnf-blank"> </span><span class="bnf-separator">]</span><span class="bnf-blank"> </span><span class="bnf-identifier">D</span></code> décrit les séquences <code><span class="bnf-identifier">A</span><span class="bnf-blank"> </span><span class="bnf-identifier">B</span><span class="bnf-blank"> </span><span class="bnf-identifier">D</span></code> et <code><span class="bnf-identifier">C</span><span class="bnf-blank"> </span><span class="bnf-identifier">D</span></code>. Techniquement, ma façon de les gérer était très bourrine : je dépliais le patron, stockant toutes les séquences qu'il générait dans une liste. Je comparais ensuite une nouvelle séquence avec les séquences générées et si une correspondait, c'est que le patron la capturait. Si plusieurs séquences correspondaient, la plus longue était choisie.</p>
-<p>Mon second langage de patrons a été développé le 27 octobre 2018 pour un lexer de langage. Il reprend ceux de regex. Il propose, comme le premier, le choix et l'optionnalité avec les mêmes symboles, mais perd les sous-séquences et rajoute la répétition (à l'aide de <code><span class="bnf-operator">+</span></code> pour répéter de 1 à n fois et <code><span class="bnf-operator">*</span></code> pour répéter de 0 à n fois). Il propose des caractères spéciaux de classes de caractères, <code><span class="text-normal">#</span></code> pour les chiffres, <code><span class="bnf-operator">@</span></code> pour les lettres et <code><span class="bnf-operator">$</span></code> pour les lettres, les chiffres et <code><span class="bnf-operator">_</span></code>. De plus les caractères spéciaux peuvent être échappés à l'aide également de l'antislash.</p>
+<p>Les langages de patrons sont utilisés pour décrire un patron. Un patron décrit un ensemble de modèles qui peuvent ensuite être capturés ou générés par ce patron. Par exemple, le patron « A B? C », où A, B et C sont des éléments et ? désigne un élément optionnel, décrit les séquences <code><span class="bnf-identifier" title="token n°0 : identifier">A</span> <span class="bnf-identifier" title="token n°2 : identifier">C</span></code> et <code><span class="bnf-identifier" title="token n°0 : identifier">A</span> <span class="bnf-identifier" title="token n°2 : identifier">B</span> <span class="bnf-identifier" title="token n°4 : identifier">C</span></code>.</p>
+<p>Mon premier langage de patron, pour mon mémoire de master 1 en traitement automatique des langues, ne gérait pas la répétition mais l'optionnalité (à l'aide de <code><span class="bnf-operator" title="token n°0 : operator">?</span></code>), le choix (à l'aide de <code><span class="bnf-separator" title="token n°0 : separator">[</span> <span class="bnf-identifier" title="token n°2 : identifier">A</span> <span class="bnf-identifier" title="token n°4 : identifier">B</span> <span class="bnf-separator" title="token n°6 : separator">]</span></code>) et la sous-séquence (à l'aide de <code><span class="bnf-separator" title="token n°0 : separator">(</span> <span class="bnf-identifier" title="token n°2 : identifier">A</span> <span class="bnf-identifier" title="token n°4 : identifier">B</span> <span class="bnf-separator" title="token n°6 : separator">)</span></code>. Ainsi on pouvait faire un choix entre un élément ou une sous-séquence : <code><span class="bnf-separator" title="token n°0 : separator">[</span> <span class="bnf-separator" title="token n°2 : separator">(</span><span class="bnf-identifier" title="token n°3 : identifier">A</span> <span class="bnf-identifier" title="token n°5 : identifier">B</span><span class="bnf-separator" title="token n°6 : separator">)</span> <span class="bnf-identifier" title="token n°8 : identifier">C</span> <span class="bnf-separator" title="token n°10 : separator">]</span> <span class="bnf-identifier" title="token n°12 : identifier">D</span></code> décrit les séquences <code><span class="bnf-identifier" title="token n°0 : identifier">A</span> <span class="bnf-identifier" title="token n°2 : identifier">B</span> <span class="bnf-identifier" title="token n°4 : identifier">D</span></code> et <code><span class="bnf-identifier" title="token n°0 : identifier">C</span> <span class="bnf-identifier" title="token n°2 : identifier">D</span></code>. Techniquement, ma façon de les gérer était très bourrine : je dépliais le patron, stockant toutes les séquences qu'il générait dans une liste. Je comparais ensuite une nouvelle séquence avec les séquences générées et si une correspondait, c'est que le patron la capturait. Si plusieurs séquences correspondaient, la plus longue était choisie.</p>
+<p>Mon second langage de patrons a été développé le 27 octobre 2018 pour un lexer de langage. Il reprend ceux de regex. Il propose, comme le premier, le choix et l'optionnalité avec les mêmes symboles, mais perd les sous-séquences et rajoute la répétition (à l'aide de <code><span class="bnf-operator" title="token n°0 : operator">+</span></code> pour répéter de 1 à n fois et <code><span class="bnf-operator" title="token n°0 : operator">*</span></code> pour répéter de 0 à n fois). Il propose des caractères spéciaux de classes de caractères, <code><span class="text-normal" title="token n°0 : normal">#</span></code> pour les chiffres, <code><span class="text-normal" title="token n°0 : normal">@</span></code> pour les lettres et <code><span class="bnf-operator" title="token n°0 : operator">$</span></code> pour les lettres, les chiffres et <code><span class="bnf-operator" title="token n°0 : operator">_</span></code>. De plus les caractères spéciaux peuvent être échappés à l'aide également de l'antislash.</p>
 </div>
 </div>
-</body>
+
+  </body>
+</html>

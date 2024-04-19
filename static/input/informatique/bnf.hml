@@ -25,21 +25,21 @@
 
 ## Sommaire
 
-+ [Description générale->1.-description-générale]
-+ [La notation Backus-Naur Form (BNF)->2.-la-notation-backus-naur-form-(BNF)]
-+ [La notation Extended Backus-Naur Form (EBNF)->3.-la-notation-extended-backus-naur-form-(EBNF)]
-+ [Les langages de patrons->4.-les-langages-de-patrons]
++ [[Description générale->1.-description-générale]]
++ [[La notation Backus-Naur Form (BNF)->2.-la-notation-backus-naur-form-(bnf)]]
++ [[La notation Extended Backus-Naur Form (EBNF)->3.-la-notation-extended-backus-naur-form-(ebnf)]]
++ [[Les langages de patrons->4.-les-langages-de-patrons]]
 
 ## 1. Description générale
 
-[!https://xitog.github.io/dgx/img/Modelisation.svg]
+((https://xitog.github.io/dgx/img/Modelisation.svg))
 
 * Des **données** sont décrites | exprimées | modélisées | représentées par un **modèle**, celui s'écrit dans un **langage** qui peut être ''textuel'' ou ''graphique''.
 * Un langage obéit | respecte des **règles**, sa **grammaire**, appelée aussi **métamodèle**.
 * On dit qu'une grammaire | un métamodèle **décrit** un langage, l'ensemble des possibilités correctes.
 * On peut **tester | vérifier** si un modèle obéit | respectent les règles :
-* * Si oui, le modèle est **grammatical | correct**, comme la phrase ''Les chats sont beaux''.
-* * Si non, le modèle est **agrammatical | incorrect**, comme la phrase ''**l**es chats**_** **est** beaux.''
+  * Si oui, le modèle est **grammatical | correct**, comme la phrase ''Les chats sont beaux''.
+  * Si non, le modèle est **agrammatical | incorrect**, comme la phrase ''**l**es chats**_** **est** beaux.''
 * La grammaire, l'ensemble de règles, est elle-même décrite | exprimée | modélisée | représentée par un modèle, appelée **métamodèle**, celui s'écrit dans un langage appelée **métalangage**.
 * Un métalangage est décrit par un métamétamodèle que respecte le métamodèle, on peut ainsi boucler à l'infini...
 * Mais généralement le métamodèle et le métalangage sont **réflexifs** : le métalangage est décrit par le métamodèle, sans ajouter un niveau supplémentaire.
@@ -47,23 +47,23 @@
 ## 2. La notation Backus-Naur Form (BNF)
 
 * La notation **Backus-Naur Form (BNF)** est un métalangage utilisé pour les décrire les langages de programmation.
-* * Elle utilise deux types de symboles : les @@"terminaux"@@ et les @@<non-terminaux>@@.
-* * Les terminaux sont un ou plusieurs caractères entre guillemets doubles ou simples.
-* * La chaîne vide est symbolisée par @@""@@ ou @@''@@.
-* * Les non-terminaux sont un ou plusieurs caractères entre les signes inférieur et supérieur.
-* * Elle est constituée de règles notées : @@<non-terminal> ::= expansion@@
-* * Il doit y avoir **une règle par ligne**.
-* * Une expansion est consituée de terminaux et non-terminaux arrangée en :
-* * * **Suite** par simple juxtaposition : @@"abc" "def"@@
-* * * **Choix** avec le symbole @@|@@ : @@"abc" | "def"@@
+  * Elle utilise deux types de symboles : les @@"terminaux"@@ et les @@<non-terminaux>@@.
+  * Les terminaux sont un ou plusieurs caractères entre guillemets doubles ou simples.
+  * La chaîne vide est symbolisée par @@""@@ ou @@''@@.
+  * Les non-terminaux sont un ou plusieurs caractères entre les signes inférieur et supérieur.
+  * Elle est constituée de règles notées : @@<non-terminal> ::= expansion@@
+  * Il doit y avoir **une règle par ligne**.
+  * Une expansion est consituée de terminaux et non-terminaux arrangée en :
+    * **Suite** par simple juxtaposition : @@"abc" "def"@@
+    * **Choix** avec le symbole @@|@@ : @@"abc" | "def"@@
 * La suite est **prioritaire** par rapport au choix : @@"abc" "def" | "ghi"@@ doit se lire :
-* * Soit "abc" suivi obligatoirement de "def"
-* * Soit "ghi"
-* * Et non "abc" suivi de "def" ou "ghi".
+  * Soit "abc" suivi obligatoirement de "def"
+  * Soit "ghi"
+  * Et non "abc" suivi de "def" ou "ghi".
 * Il n'y a pas de moyen de **modifier la priorité** en BNF, il faut passer par une règle car l'expansion est moins prioritaire que le choix :
-* * Pour représenter "abc" suivi de "def" ou "ghi" :
-* * * @@<règle 1> ::= "abc" <règle 2>@@
-* * * @@<règle 2> ::= "def" | "ghi"@@
+  * Pour représenter "abc" suivi de "def" ou "ghi" :
+    * @@<règle 1> ::= "abc" <règle 2>@@
+    * @@<règle 2> ::= "def" | "ghi"@@
 * L'expression d'une possible **répétition** se fait en combinant la suite, le choix et une définition **récursive** dans : @@<suite> ::= <item> | <item> <suite>@@
 * On peut décrire BNF en BNF, le métalangage est **réflexif**. Ci-dessous, le modèle de la BNF en BNF, avec des commentaires (lignes qui commencent par #) :
 
@@ -92,7 +92,7 @@
 @@  <texteSimple>           ::=     "" | <caractèreTexteSimple> <texte>
 @@  # Il peut y avoir " dedans car délimité par '
 @@  <caractèreTexteSimple>  ::=     <lettre> | <digit> | <autres> | '"'
-@@  <autres>                ::=     "-" | "_" | ...     
+@@  <autres>                ::=     "-" | "_" | ...
 @@  # Pour simplifier, on a pas offert les possibilités :
 @@  # - d'avoir des lignes vides,
 @@  # - de mettre des espaces.
@@ -101,19 +101,19 @@
 
 * La notation **Extended Backus-Naur Form (EBNF)** étend la BNF en y ajoutant la répétition. Ils existent plusieurs variantes.
 * Dans la variante définie par l'ISO, les changements sont :
-* * Le symbole @@::=@@ est remplacé par @@=@@
-* * Une règle doit être terminée par un @@;@@
-* * La suite est marquée par une @@,@@
-* * L'optionalité (0 ou 1) est marquée par @@[ ... ]@@
-* * La répétition (0 ou n) est marquée par @@{ ... }@@
-* * La répétition avec un élément obligatoire (1 ou n) est marquée par @@{ ... }-@@
+  * Le symbole @@::=@@ est remplacé par @@=@@
+  * Une règle doit être terminée par un @@;@@
+  * La suite est marquée par une @@,@@
+  * L'optionalité (0 ou 1) est marquée par @@[ ... ]@@
+  * La répétition (0 ou n) est marquée par @@{ ... }@@
+  * La répétition avec un élément obligatoire (1 ou n) est marquée par @@{ ... }-@@
 * Il existe également Augmented BNF (ABNF) et XBNF qui étendent la BNF. Elles sont fonctionnellement très proches de l'EBNF.
 * L'optionalité est parfois exprimée par le suffixe @@?@@, la répétition (0, n) par @@*@@ (étoile de Kleene) et la répétition (1, n) par @@+@@.
 * Liens :
-* * [Backus-Naur form sur Wikipedia (anglais)->https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form]
-* * [Extended Backus-Naur form sur Wikipedia (anglais)->https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form]
-* * [Variantes de BNF et d'EBNF par Pete Jinks->http://www.cs.man.ac.uk/~pjj/bnf/ebnf.html]
-* * [Site sur BNF et EBNF par Matt Might->http://matt.might.net/articles/grammars-bnf-ebnf/]
+  * [[Backus-Naur form sur Wikipedia (anglais)->https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form]]
+  * [[Extended Backus-Naur form sur Wikipedia (anglais)->https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form]]
+  * [[Variantes de BNF et d'EBNF par Pete Jinks->http://www.cs.man.ac.uk/~pjj/bnf/ebnf.html]]
+  * [[Site sur BNF et EBNF par Matt Might->http://matt.might.net/articles/grammars-bnf-ebnf/]]
 
 ## 4. Les langages de patrons
 
@@ -121,7 +121,7 @@ Les langages de patrons sont utilisés pour décrire un patron. Un patron décri
 
 Mon premier langage de patron, pour mon mémoire de master 1 en traitement automatique des langues, ne gérait pas la répétition mais l'optionnalité (à l'aide de @@?@@), le choix (à l'aide de @@[ A B ]@@) et la sous-séquence (à l'aide de @@( A B )@@. Ainsi on pouvait faire un choix entre un élément ou une sous-séquence : @@[ (A B) C ] D@@ décrit les séquences @@A B D@@ et @@C D@@. Techniquement, ma façon de les gérer était très bourrine : je dépliais le patron, stockant toutes les séquences qu'il générait dans une liste. Je comparais ensuite une nouvelle séquence avec les séquences générées et si une correspondait, c'est que le patron la capturait. Si plusieurs séquences correspondaient, la plus longue était choisie.
 
-Mon second langage de patrons a été développé le 27 octobre 2018 pour un lexer de langage. Il reprend ceux de regex. Il propose, comme le premier, le choix et l'optionnalité avec les mêmes symboles, mais perd les sous-séquences et rajoute la répétition (à l'aide de @@+@@ pour répéter de 1 à n fois et @@*@@ pour répéter de 0 à n fois). Il propose des caractères spéciaux de classes de caractères, @@text #@@ pour les chiffres, @@\@@@ pour les lettres et @@$@@ pour les lettres, les chiffres et @@_@@. De plus les caractères spéciaux peuvent être échappés à l'aide également de l'antislash.
+Mon second langage de patrons a été développé le 27 octobre 2018 pour un lexer de langage. Il reprend ceux de regex. Il propose, comme le premier, le choix et l'optionnalité avec les mêmes symboles, mais perd les sous-séquences et rajoute la répétition (à l'aide de @@+@@ pour répéter de 1 à n fois et @@*@@ pour répéter de 0 à n fois). Il propose des caractères spéciaux de classes de caractères, @@text #@@ pour les chiffres, @@text \@@@ pour les lettres et @@$@@ pour les lettres, les chiffres et @@_@@. De plus les caractères spéciaux peuvent être échappés à l'aide également de l'antislash.
 
 {{end}}
 {{end}}
