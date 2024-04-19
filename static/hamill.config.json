@@ -58,6 +58,22 @@
         ],
         [
             "comment",
+            "Informatique"
+        ],
+        [
+            "./input/informatique/bnf.hml",
+            "../informatique/"
+        ],
+        [
+            "./input/informatique/json.hml",
+            "../informatique/"
+        ],
+        [
+            "./input/informatique/langage.hml",
+            "../informatique/"
+        ],
+        [
+            "comment",
             "Passetemps"
         ],
         [
