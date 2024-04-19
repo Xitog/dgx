@@ -168,25 +168,25 @@
   <li><a href="#spécial">Spécial</a></li>
 </ul>
 <h2 id="commentaires">Commentaires</h2>
-<p>On peut faire des commentaires en mettant <code>!rem</code> ou <code>§§</code> en début de ligne, toute la ligne est alors en commentaire.</p>
+<p>On peut faire des commentaires en mettant <code><span class="hamill-normal" title="token n°0 : normal">!rem</span></code> ou <code><span class="hamill-normal" title="token n°0 : normal">§§</span></code> en début de ligne, toute la ligne est alors en commentaire.</p>
 <blockquote>
 !rem Ceci est un commentaire<br>
 §§ Ceci est un autre commentaire<br>
 </blockquote>
-<p>Une ligne entièrement en commentaire sera exportée en l'HTML si la variable <code>EXPORT_COMMENT</code> est à <code>true</code>.</p>
+<p>Une ligne entièrement en commentaire sera exportée en l'HTML si la variable <code><span class="hamill-normal" title="token n°0 : normal">EXPORT_COMMENT</span></code> est à <code><span class="hamill-normal" title="token n°0 : normal">true</span></code>.</p>
 <!-- Ceci est un commentaire il sera exporté en HTML -->
-<p>On peut faire une ligne horizontale avec une ligne constituée uniquement de <code>-</code> d'une longueur supérieure ou égale à 3.</p>
+<p>On peut faire une ligne horizontale avec une ligne constituée uniquement de <code><span class="hamill-normal" title="token n°0 : normal">-</span></code> d'une longueur supérieure ou égale à 3.</p>
 <blockquote>
 ---<br>
 </blockquote>
 <hr>
-<p>On peut forcer un retour à la ligne avec <code>##</code> entouré d'un espace avant et après et pas en début de ligne (sinon c'est un titre) :</p>
+<p>On peut forcer un retour à la ligne avec <code><span class="hamill-title" title="token n°0 : title">##</span></code> entouré d'un espace avant et après et pas en début de ligne (sinon c'est un titre) :</p>
 <blockquote>
 ceci est un retour ## à la ligne.<br>
 </blockquote>
 <p>ceci est un retour<br>à la ligne.</p>
 <h2 id="titres">Titres</h2>
-<p>On met en début de ligne un nombre de <code>#</code> correspondant au niveau du titre que l'on veut.</p>
+<p>On met en début de ligne un nombre de <code><span class="hamill-title" title="token n°0 : title">#</span></code> correspondant au niveau du titre que l'on veut.</p>
 <blockquote>
 ### Titre de niveau 3<br>
 </blockquote>
@@ -200,15 +200,15 @@ ceci est un retour ## à la ligne.<br>
   <li>__<u>souligné</u>__ : pour souligner</li>
   <li>^^<sup>exposant</sup>^^ : pour mettre en exposant</li>
   <li>%%<sub>indice</sub>%% : pour mettre en indice</li>
-  <li>Pour échapper un caractère spécial, utilisez <code>\</code></li>
+  <li>Pour échapper un caractère spécial, utilisez <code><span class="hamill-normal" title="token n°0 : normal">\</span></code></li>
 </ul>
 <h2 id="div,-p-et-span">Div, p et span</h2>
 <ul>
-  <li><code>{{#id .class}}</code> : sur une ligne, seule, permet de définir une div avec un id et/ou une classe.</li>
-  <li><code>{{begin}}</code> : sur une ligne, pour ouvrir une div sans id ni classe.</li>
-  <li><code>{{end}}</code> : sur une ligne, seule, permet de fermer une div ouverte.</li>
-  <li><code>{{#id .class}} content</code> : dans un paragraphe, permet de spécifier l'id et/ou la classe du paragraphe.</li>
-  <li><code>{{#id .class content}}</code> : dans un paragraphe, permet de spécifier un span avec un id et/ou une classe.</li>
+  <li><code><span class="hamill-markup" title="token n°0 : markup">{{#id .class}}</span></code> : sur une ligne, seule, permet de définir une div avec un id et/ou une classe.</li>
+  <li><code><span class="hamill-markup" title="token n°0 : markup">{{begin}}</span></code> : sur une ligne, pour ouvrir une div sans id ni classe.</li>
+  <li><code><span class="hamill-markup" title="token n°0 : markup">{{end}}</span></code> : sur une ligne, seule, permet de fermer une div ouverte.</li>
+  <li><code><span class="hamill-markup" title="token n°0 : markup">{{#id .class}}</span><span class="hamill-normal" title="token n°1 : normal"> content</span></code> : dans un paragraphe, permet de spécifier l'id et/ou la classe du paragraphe.</li>
+  <li><code><span class="hamill-markup" title="token n°0 : markup">{{#id .class content}}</span></code> : dans un paragraphe, permet de spécifier un span avec un id et/ou une classe.</li>
 </ul>
 <blockquote>
 !css span.spoiler {background: black; user-select: none;}<br>
@@ -218,9 +218,9 @@ Ceci est un texte avec une partie cachée : {{.spoiler Dark Vador est le père d
 <p>Ceci est un texte avec une partie cachée : <span class="spoiler">Dark Vador est le père de Luke</span>. Pour ne pas spoiler.</p>
 <h2 id="détails">Détails</h2>
 <ul>
-  <li>Ecrire <code><<xxx -> yyy>></code> pour ouvrir une courte note. On peut mettre un id et une classe avant xxx avec <code>#id</code> et <code>.class</code>.</li>
-  <li>Ecrire <code><<xxx>></code> pour ouvrir une longue note. mettre un id et une classe avant xxx avec <code>#id</code> et <code>.class</code>.</li>
-  <li>Ecrire <code><<end>></code> pour fermer une longue note, on peut rappeler l'id et la classe mais cela n'a pas de signification pour Hamill.</li>
+  <li>Ecrire <code><span class="hamill-normal" title="token n°0 : normal">&lt;<xxx -&gt; yyy>></span></code> pour ouvrir une courte note. On peut mettre un id et une classe avant xxx avec <code><span class="hamill-title" title="token n°0 : title">#id</span></code> et <code><span class="hamill-normal" title="token n°0 : normal">.class</span></code>.</li>
+  <li>Ecrire <code><span class="hamill-normal" title="token n°0 : normal">&lt;<xxx&gt;></span></code> pour ouvrir une longue note. mettre un id et une classe avant xxx avec <code><span class="hamill-title" title="token n°0 : title">#id</span></code> et <code><span class="hamill-normal" title="token n°0 : normal">.class</span></code>.</li>
+  <li>Ecrire <code><span class="hamill-normal" title="token n°0 : normal">&lt;<end&gt;></span></code> pour fermer une longue note, on peut rappeler l'id et la classe mais cela n'a pas de signification pour Hamill.</li>
 </ul>
 <blockquote>
 &lt;&lt;Courte note -&gt; Ceci est une courte note.&gt;&gt;<br>
@@ -239,9 +239,9 @@ Ceci est un texte avec une partie cachée : {{.spoiler Dark Vador est le père d
 </ul>
 </details>
 <h2 id="code">Code</h2>
-<p>On utilise <code>@@pour du code inline@@</code>. Hamill dispose d'un colorisateur syntaxique pour Python et JSON, on précise ainsi : <code>@@python def function(par1, par2)@@</code>.</p>
+<p>On utilise <code><span class="hamill-normal" title="token n°0 : normal">@@pour du code inline@@</span></code>. Hamill dispose d'un colorisateur syntaxique pour Python et JSON, on précise ainsi : <code><span class="hamill-normal" title="token n°0 : normal">@@python def function(par1, par2)@@</span></code>.</p>
 <p>Pour un bloc de code, il y a deux solutions :</p>
-<p>On peut faire une ligne avec seulement <code>@@</code> suivi éventuellement du langage qu'on souhaite puis des lignes avec <code>@@</code> au début jusqu'à une ligne ne comportant que <code>@@</code>. Ainsi :</p>
+<p>On peut faire une ligne avec seulement <code><span class="hamill-normal" title="token n°0 : normal">@@</span></code> suivi éventuellement du langage qu'on souhaite puis des lignes avec <code><span class="hamill-normal" title="token n°0 : normal">@@</span></code> au début jusqu'à une ligne ne comportant que <code><span class="hamill-normal" title="token n°0 : normal">@@</span></code>. Ainsi :</p>
 <blockquote>
 @@python<br>
 @@# Ceci est un commentaire<br>
@@ -256,7 +256,7 @@ Ceci est un texte avec une partie cachée : {{.spoiler Dark Vador est le père d
 </span>    <span class="python-keyword" title="token n°13 : keyword">return</span> <span class="python-string" title="token n°15 : string">"Ceci est une fonction"</span><span class="python-newline" title="token n°16 : newline">
 </span><span class="python-newline" title="token n°17 : newline">
 </span></pre>
-<p>On peut également faire une ligne avec seulement <code>@@@</code> suivi éventuellement du langage qu'on souhaite puis des lignes <u>sans rien</u> jusqu'à une ligne ne comportant que <code>@@@</code>. Ainsi :</p>
+<p>On peut également faire une ligne avec seulement <code><span class="hamill-normal" title="token n°0 : normal">@@@</span></code> suivi éventuellement du langage qu'on souhaite puis des lignes <u>sans rien</u> jusqu'à une ligne ne comportant que <code><span class="hamill-normal" title="token n°0 : normal">@@@</span></code>. Ainsi :</p>
 <blockquote>
 @@@python<br>
 # Ceci est un commentaire<br>
@@ -272,15 +272,15 @@ def function(par1, par2):<br>
 </span></pre>
 <h2 id="listes">Listes</h2>
 <ul>
-  <li><code>*</code> pour une liste non numérotée</li>
+  <li><code></code> pour une liste non numérotée</li>
 </ul>
 <ol>
-  <li><code>+</code> pour une liste numérotée, item 1/2</li>
-  <li><code>+</code> item 2/2</li>
+  <li><code><span class="hamill-normal" title="token n°0 : normal">+</span></code> pour une liste numérotée, item 1/2</li>
+  <li><code><span class="hamill-normal" title="token n°0 : normal">+</span></code> item 2/2</li>
 </ol>
 <ol reversed>
-  <li><code>-</code> pour une liste numérotée inversée, item 1/2</li>
-  <li><code>-</code> item 2/2</li>
+  <li><code><span class="hamill-normal" title="token n°0 : normal">-</span></code> pour une liste numérotée inversée, item 1/2</li>
+  <li><code><span class="hamill-normal" title="token n°0 : normal">-</span></code> item 2/2</li>
 </ol>
 <h2 id="listes-de-définition">Listes de définition</h2>
 <ul>
@@ -296,8 +296,8 @@ def function(par1, par2):<br>
 </dl>
 <h2 id="tables">Tables</h2>
 <ul>
-  <li>Un tableau s'écrit ainsi : <code>|col1|col2|col3|</code></li>
-  <li>La ligne de titre doit être la première et séparée des autres par une ligne de tirets : <code>|----|</code></li>
+  <li>Un tableau s'écrit ainsi : <code><span class="hamill-table_line_start" title="token n°0 : table_line_start"></span><span class="hamill-normal" title="token n°1 : normal">col1</span><span class="hamill-table" title="token n°2 : table">|</span><span class="hamill-normal" title="token n°3 : normal">col2</span><span class="hamill-table" title="token n°4 : table">|</span><span class="hamill-normal" title="token n°5 : normal">col3</span><span class="hamill-table_line_end" title="token n°6 : table_line_end"></span></code></li>
+  <li>La ligne de titre doit être la première et séparée des autres par une ligne de tirets : <code><span class="hamill-table_header_line" title="token n°0 : table_header_line">|----|</span></code></li>
 </ul>
 <table>
 <tr><th>Ceci</th><th>est</th><th>un  </th><th>tableau    </th></tr>
@@ -308,12 +308,12 @@ def function(par1, par2):<br>
 <tr><th><sup>Ceci</sup>                                                    </th><th><b>est</b></th><th><u>un</u>            </th><th><i>tableau</i>                                  </th></tr>
 <tr><td>Il <img src="https://xitog.github.io/dgx/img/background-green.png"/> </td><td>est    </td><td><s>beau</s> différent</td><td>ce <a href="https://xitog.github.io/dgx/">tableau</a>.</td></tr>
 </table>
-<p>On peut également centré une case en faisant suivre la colonne ouvrante par <code>=</code> et d'aligner à droite avec <code>></code> :</p>
+<p>On peut également centré une case en faisant suivre la colonne ouvrante par <code><span class="hamill-normal" title="token n°0 : normal">=</span></code> et d'aligner à droite avec <code><span class="hamill-normal" title="token n°0 : normal">&gt;</span></code> :</p>
 <table>
 <tr><th>A gauche et aussi très long </th><th style="text-align: center"> Centré  </th><th style="text-align: right"> A droite                  </th></tr>
 <tr><td style="text-align: right"> A droite                  </td><td style="text-align: center"> Centré  </td><td>A gauche et aussi très long </td></tr>
 </table>
-<p>On peut également préciser un colspan avec #cVALEUR# par exemple : <code>#c3#</code> et combiner avec centrer <code>=#c3#</code> :</p>
+<p>On peut également préciser un colspan avec #cVALEUR# par exemple : <code><span class="hamill-title" title="token n°0 : title">#c3#</span></code> et combiner avec centrer <code><span class="hamill-normal" title="token n°0 : normal">=#c3#</span></code> :</p>
 <table>
 <tr><th>Colonne 1</th><th>Colonne 2</th><th>Colonne 3</th></tr>
 <tr><td style="text-align: center" colspan="3"> Centré et colspan=3    </td></tr>
@@ -322,53 +322,53 @@ def function(par1, par2):<br>
 <h2 id="liens">Liens</h2>
 <ul>
   <li>On utilise les crochets</li>
-  <li>La première forme dite <i>directe</i> est <code>[[URL]]</code>, <code>[[REF]]</code>, <code>[#ID]</code>. L'URL, la REF ou l'identifiant sera affichée</li>
-  <li>La seconde forme dite <i>nommée</i> s'écrit <code>[[ nom affiché -> URL | REF | #ID ]]</code> ou <code>[ nom affiché -> REF ]</code></li>
-  <li>Une URL commence par <code>http://</code> ou <code>https://</code></li>
-  <li>Une REF est définie par une ligne de la forme <code>::code:: http://...</code></li>
-  <li>Une forme spéciale de la nommée est si REF est seulement <code>#</code> comme <code>[[] nom affiché -> # ]]</code> : Hamill essaye alors de faire sur le nom affiché transformé ou, si l'ancre n'existe pas, le nom affiché directement</li>
+  <li>La première forme dite <i>directe</i> est <code><span class="hamill-other" title="token n°0 : other">[</span><span class="hamill-other" title="token n°1 : other">[</span><span class="hamill-normal" title="token n°2 : normal">URL]]</span></code>, <code><span class="hamill-other" title="token n°0 : other">[</span><span class="hamill-other" title="token n°1 : other">[</span><span class="hamill-normal" title="token n°2 : normal">REF]]</span></code>, <code><span class="hamill-other" title="token n°0 : other">[</span><span class="hamill-title" title="token n°1 : title">#ID]</span></code>. L'URL, la REF ou l'identifiant sera affichée</li>
+  <li>La seconde forme dite <i>nommée</i> s'écrit <code><span class="hamill-other" title="token n°0 : other">[</span><span class="hamill-other" title="token n°1 : other">[</span><span class="hamill-normal" title="token n°2 : normal"> nom affiché -&gt; URL </span><span class="hamill-table" title="token n°3 : table">|</span><span class="hamill-normal" title="token n°4 : normal"> REF </span><span class="hamill-table" title="token n°5 : table">|</span><span class="hamill-normal" title="token n°6 : normal"> #ID ]]</span></code> ou <code><span class="hamill-other" title="token n°0 : other">[</span><span class="hamill-normal" title="token n°1 : normal"> nom affiché -&gt; REF ]</span></code></li>
+  <li>Une URL commence par <code><span class="hamill-url" title="token n°0 : url">http://</span></code> ou <code><span class="hamill-url" title="token n°0 : url">https://</span></code></li>
+  <li>Une REF est définie par une ligne de la forme <code><span class="hamill-label" title="token n°0 : label">::code:: </span><span class="hamill-url" title="token n°1 : url">http://...</span></code></li>
+  <li>Une forme spéciale de la nommée est si REF est seulement <code><span class="hamill-title" title="token n°0 : title">#</span></code> comme <code><span class="hamill-link" title="token n°0 : link">[[]</span><span class="hamill-normal" title="token n°1 : normal"> nom affiché -&gt; # ]]</span></code> : Hamill essaye alors de faire sur le nom affiché transformé ou, si l'ancre n'existe pas, le nom affiché directement</li>
   <li>Les titres sont automatiquement transformés en ancre en remplaçant les espaces par - et en les mettant en minuscules : ainsi <b>Les jeux</b> devient <b>les_jeux</b></li>
 </ul>
 <h2 id="images">Images</h2>
 <ul>
-  <li>On utilise des parenthèses <code>((url))</code> comme : <code>((mon_image.png))</code></li>
-  <li>On peut définir un répertoire par défaut où les images seront prises avec la variable <code>DEFAULT_FIND_IMAGE</code></li>
+  <li>On utilise des parenthèses <code><span class="hamill-normal" title="token n°0 : normal">((url))</span></code> comme : <code><span class="hamill-normal" title="token n°0 : normal">((mon_image.png))</span></code></li>
+  <li>On peut définir un répertoire par défaut où les images seront prises avec la variable <code><span class="hamill-normal" title="token n°0 : normal">DEFAULT_FIND_IMAGE</span></code></li>
 </ul>
 <h2 id="constantes">Constantes</h2>
-<p>On peut définir des constantes en mettant <code>!const</code> en début de ligne. Les constantes peuvent être définies n'importe où dans le document et plusieurs fois mais <b><u>seule la dernière valeur définie est prise en compte</u></b>.</p>
+<p>On peut définir des constantes en mettant <code><span class="hamill-normal" title="token n°0 : normal">!const</span></code> en début de ligne. Les constantes peuvent être définies n'importe où dans le document et plusieurs fois mais <b><u>seule la dernière valeur définie est prise en compte</u></b>.</p>
 <ul>
-  <li><code>!const TITLE=titre</code> pour définir le titre de la page</li>
-  <li><code>!const ICON=icon</code> pour définir une icône pour la page</li>
-  <li><code>!const LANG=lang</code> pour définir la langue utilisée dans la page</li>
-  <li><code>!const ENCODING=encoding</code> pour définir la langue utilisée dans la page, par défaut utf-8</li>
-  <li><code>!const BODY_CLASS=classe</code> pour définir la classe du body</li>
-  <li><code>!const BODY_ID=id</code> pour définir l'id du body</li>
+  <li><code><span class="hamill-const" title="token n°0 : const">!const TITLE=titre</span></code> pour définir le titre de la page</li>
+  <li><code><span class="hamill-const" title="token n°0 : const">!const ICON=icon</span></code> pour définir une icône pour la page</li>
+  <li><code><span class="hamill-const" title="token n°0 : const">!const LANG=lang</span></code> pour définir la langue utilisée dans la page</li>
+  <li><code><span class="hamill-const" title="token n°0 : const">!const ENCODING=encoding</span></code> pour définir la langue utilisée dans la page, par défaut utf-8</li>
+  <li><code><span class="hamill-const" title="token n°0 : const">!const BODY_CLASS=classe</span></code> pour définir la classe du body</li>
+  <li><code><span class="hamill-const" title="token n°0 : const">!const BODY_ID=id</span></code> pour définir l'id du body</li>
 </ul>
 <h2 id="variables">Variables</h2>
-<p>On peut définir des variables en mettant <code>!var</code> en début de ligne. On peut changer sa valeur en la redéfinissant dans le document plusieurs fois. Au contraire des constantes, les variables sont lues au fur et à mesure de l'émission du HTML.</p>
+<p>On peut définir des variables en mettant <code><span class="hamill-normal" title="token n°0 : normal">!var</span></code> en début de ligne. On peut changer sa valeur en la redéfinissant dans le document plusieurs fois. Au contraire des constantes, les variables sont lues au fur et à mesure de l'émission du HTML.</p>
 <ul>
-  <li><code>!var EXPORT_COMMENT=true/false</code> spécifie si les commentaires seront exportés en HTML ou pas</li>
-  <li><code>!var PARAGRAPH_DEFINITION=true/false</code> spécifie si les dd doivent être mis dans des balises p</li>
-  <li><code>!var DEFAULT_CODE=python/json</code> définit la coloration syntaxique par défaut du code (text par défaut)</li>
-  <li><code>!var NEXT_PAR_ID=ids</code> spécifie l'id du <b>prochain</b> paragraphe</li>
-  <li><code>!var NEXT_PAR_CLASS=cls</code> spécifie la classe du <b>prochain</b> paragraphe</li>
-  <li><code>!var NEXT_TAB_ID=ids</code> spécifie l'id du <b>prochain</b> tableau</li>
-  <li><code>!var NEXT_TAB_CLASS=cls</code> spécifie la classe du <b>prochain</b> tableau</li>
-  <li><code>!var DEFAULT_PAR_CLASS=cls</code> spécifie la classe par défaut de <b>tous les paragraphes qui suivent</b></li>
-  <li><code>!var DEFAULT_TAB_CLASS=cls</code> spécifie la classe par défaut de <b>tous les tableaux qui suivent</b></li>
-  <li><code>!var DEFAULT_FIND_IMAGE=path</code> spécifie un répertoire où aller chercher les images par défaut</li>
+  <li><code><span class="hamill-var" title="token n°0 : var">!var EXPORT_COMMENT=true/false</span></code> spécifie si les commentaires seront exportés en HTML ou pas</li>
+  <li><code><span class="hamill-var" title="token n°0 : var">!var PARAGRAPH_DEFINITION=true/false</span></code> spécifie si les dd doivent être mis dans des balises p</li>
+  <li><code><span class="hamill-var" title="token n°0 : var">!var DEFAULT_CODE=python/json</span></code> définit la coloration syntaxique par défaut du code (text par défaut)</li>
+  <li><code><span class="hamill-var" title="token n°0 : var">!var NEXT_PAR_ID=ids</span></code> spécifie l'id du <b>prochain</b> paragraphe</li>
+  <li><code><span class="hamill-var" title="token n°0 : var">!var NEXT_PAR_CLASS=cls</span></code> spécifie la classe du <b>prochain</b> paragraphe</li>
+  <li><code><span class="hamill-var" title="token n°0 : var">!var NEXT_TAB_ID=ids</span></code> spécifie l'id du <b>prochain</b> tableau</li>
+  <li><code><span class="hamill-var" title="token n°0 : var">!var NEXT_TAB_CLASS=cls</span></code> spécifie la classe du <b>prochain</b> tableau</li>
+  <li><code><span class="hamill-var" title="token n°0 : var">!var DEFAULT_PAR_CLASS=cls</span></code> spécifie la classe par défaut de <b>tous les paragraphes qui suivent</b></li>
+  <li><code><span class="hamill-var" title="token n°0 : var">!var DEFAULT_TAB_CLASS=cls</span></code> spécifie la classe par défaut de <b>tous les tableaux qui suivent</b></li>
+  <li><code><span class="hamill-var" title="token n°0 : var">!var DEFAULT_FIND_IMAGE=path</span></code> spécifie un répertoire où aller chercher les images par défaut</li>
 </ul>
 <h2 id="inclusion-de-fichier-html">Inclusion de fichier HTML</h2>
-<p>On peut inclure un fichier HTML avec <code>!include</code> en début de ligne. Le contenu du fichier sera copié directement le document produit.</p>
+<p>On peut inclure un fichier HTML avec <code><span class="hamill-normal" title="token n°0 : normal">!include</span></code> en début de ligne. Le contenu du fichier sera copié directement le document produit.</p>
 <h2 id="liens-vers-un-fichier-css-ou-javascript">Liens vers un fichier CSS ou JavaScript</h2>
-<p>On peut lier notre document à fichier CSS ou JavaScript avec la commande <code>!require</code> en début de ligne.</p>
+<p>On peut lier notre document à fichier CSS ou JavaScript avec la commande <code><span class="hamill-normal" title="token n°0 : normal">!require</span></code> en début de ligne.</p>
 <p>Le lien vers un fichier CSS requis est <b>automatiquement</b> placé dans la tête du document HTML.</p>
-<p>Le lien vers un fichier JavaScript requis est placé là ou se trouve le <code>!require</code>.</p>
+<p>Le lien vers un fichier JavaScript requis est placé là ou se trouve le <code><span class="hamill-normal" title="token n°0 : normal">!require</span></code>.</p>
 <p><b>LIMITATION : Hamill ne peut pas mettre un lien vers un fichier JavaScript dans la tête pour l'instant</b>.</p>
 <h2 id="spécial">Spécial</h2>
 <ul>
-  <li><code>!css css-code</code> permet de rajouter du code css</li>
-  <li><code>!html html-code</code> permet de rajouter du code html</li>
+  <li><code><span class="hamill-css" title="token n°0 : css">!css css-code</span></code> permet de rajouter du code css</li>
+  <li><code><span class="hamill-html" title="token n°0 : html">!html html-code</span></code> permet de rajouter du code html</li>
 </ul>
 </div>
 </div>
