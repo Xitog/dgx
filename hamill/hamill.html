@@ -288,7 +288,7 @@ def function(par1, par2):<br>
 </ul>
 <blockquote>
  $ cuirassier<br>
-     soldat à cheval lourdement équipé<br>
+    soldat à cheval lourdement équipé<br>
 </blockquote>
 <dl>
 <dt>cuirassier</dt>
@@ -318,7 +318,7 @@ def function(par1, par2):<br>
 <tr><th>Colonne 1</th><th>Colonne 2</th><th>Colonne 3</th></tr>
 <tr><td style="text-align: center" colspan="3"> Centré et colspan=3    </td></tr>
 </table>
-<p><b>LIMITATION : pas de listes dans un tableau pour l'instant</b> :</p>
+<p><b>LIMITATION : pas de listes dans un tableau</b> :</p>
 <h2 id="liens">Liens</h2>
 <ul>
   <li>On utilise les crochets</li>
@@ -335,7 +335,8 @@ def function(par1, par2):<br>
   <li>On peut définir un répertoire par défaut où les images seront prises avec la variable <code><span class="hamill-normal" title="token n°0 : normal">DEFAULT_FIND_IMAGE</span></code></li>
 </ul>
 <h2 id="constantes">Constantes</h2>
-<p>On peut définir des constantes en mettant <code><span class="hamill-normal" title="token n°0 : normal">!const</span></code> en début de ligne. Les constantes peuvent être définies n'importe où dans le document et plusieurs fois mais <b><u>seule la dernière valeur définie est prise en compte</u></b>.</p>
+<p>On peut définir des constantes en mettant <code><span class="hamill-normal" title="token n°0 : normal">!const</span></code> en début de ligne. Les constantes peuvent être définies n'importe où dans le document mais une seule fois.</p>
+<p>Certaines constantes sont prédéclarées mais sans valeur, on peut donc les définir une fois encore :</p>
 <ul>
   <li><code><span class="hamill-const" title="token n°0 : const">!const TITLE=titre</span></code> pour définir le titre de la page</li>
   <li><code><span class="hamill-const" title="token n°0 : const">!const ICON=icon</span></code> pour définir une icône pour la page</li>
@@ -344,14 +345,18 @@ def function(par1, par2):<br>
   <li><code><span class="hamill-const" title="token n°0 : const">!const BODY_CLASS=classe</span></code> pour définir la classe du body</li>
   <li><code><span class="hamill-const" title="token n°0 : const">!const BODY_ID=id</span></code> pour définir l'id du body</li>
 </ul>
+<p>Certaines constantes sont prédéclarées avec une valeur, on ne peut donc pas les redéfinir :</p>
+<ul>
+  <li><code><span class="hamill-const" title="token n°0 : const">!const VERSION</span></code> la version de Hamill utilisée</li>
+  <li><code><span class="hamill-const" title="token n°0 : const">!const NOW</span></code> affiche dans une chaîne le jour, le mois et l'année au format : mercredi 24 avril 2024.</li>
+</ul>
+<p>Pour l'affichage du jour dans la semaine, seuls l'anglais et le français sont gérés en fonction de la constante <code><span class="hamill-normal" title="token n°0 : normal">LANG</span></code>.</p>
 <h2 id="variables">Variables</h2>
-<p>On peut définir des variables en mettant <code><span class="hamill-normal" title="token n°0 : normal">!var</span></code> en début de ligne. On peut changer sa valeur en la redéfinissant dans le document plusieurs fois. Au contraire des constantes, les variables sont lues au fur et à mesure de l'émission du HTML.</p>
+<p>On peut définir des variables en mettant <code><span class="hamill-normal" title="token n°0 : normal">!var</span></code> en début de ligne. On peut changer la valeur d'une variable en la redéfinissant dans le document autant de fois que l'on veut.</p>
 <ul>
   <li><code><span class="hamill-var" title="token n°0 : var">!var EXPORT_COMMENT=true/false</span></code> spécifie si les commentaires seront exportés en HTML ou pas</li>
-  <li><code><span class="hamill-var" title="token n°0 : var">!var PARAGRAPH_DEFINITION=true/false</span></code> spécifie si les dd doivent être mis dans des balises p</li>
+  <li><code><span class="hamill-var" title="token n°0 : var">!var PARAGRAPH_DEFINITION=true/false</span></code> spécifie si les dd des listes de définitions doivent être mis dans des balises p</li>
   <li><code><span class="hamill-var" title="token n°0 : var">!var DEFAULT_CODE=python/json</span></code> définit la coloration syntaxique par défaut du code (text par défaut)</li>
-  <li><code><span class="hamill-var" title="token n°0 : var">!var NEXT_PAR_ID=ids</span></code> spécifie l'id du <b>prochain</b> paragraphe</li>
-  <li><code><span class="hamill-var" title="token n°0 : var">!var NEXT_PAR_CLASS=cls</span></code> spécifie la classe du <b>prochain</b> paragraphe</li>
   <li><code><span class="hamill-var" title="token n°0 : var">!var NEXT_TAB_ID=ids</span></code> spécifie l'id du <b>prochain</b> tableau</li>
   <li><code><span class="hamill-var" title="token n°0 : var">!var NEXT_TAB_CLASS=cls</span></code> spécifie la classe du <b>prochain</b> tableau</li>
   <li><code><span class="hamill-var" title="token n°0 : var">!var DEFAULT_PAR_CLASS=cls</span></code> spécifie la classe par défaut de <b>tous les paragraphes qui suivent</b></li>
@@ -362,9 +367,8 @@ def function(par1, par2):<br>
 <p>On peut inclure un fichier HTML avec <code><span class="hamill-normal" title="token n°0 : normal">!include</span></code> en début de ligne. Le contenu du fichier sera copié directement le document produit.</p>
 <h2 id="liens-vers-un-fichier-css-ou-javascript">Liens vers un fichier CSS ou JavaScript</h2>
 <p>On peut lier notre document à fichier CSS ou JavaScript avec la commande <code><span class="hamill-normal" title="token n°0 : normal">!require</span></code> en début de ligne.</p>
-<p>Le lien vers un fichier CSS requis est <b>automatiquement</b> placé dans la tête du document HTML.</p>
-<p>Le lien vers un fichier JavaScript requis est placé là ou se trouve le <code><span class="hamill-normal" title="token n°0 : normal">!require</span></code>.</p>
-<p><b>LIMITATION : Hamill ne peut pas mettre un lien vers un fichier JavaScript dans la tête pour l'instant</b>.</p>
+<p>Le lien vers un fichier CSS (.css) requis est <b>automatiquement</b> placé dans la tête du document HTML.</p>
+<p>Le lien vers un fichier JavaScript (.js ou .mjs) requis est <b>automatiquement</b> placé dans la tête du document HTML.</p>
 <h2 id="spécial">Spécial</h2>
 <ul>
   <li><code><span class="hamill-css" title="token n°0 : css">!css css-code</span></code> permet de rajouter du code css</li>
