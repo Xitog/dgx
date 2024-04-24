@@ -181,10 +181,10 @@ def function(par1, par2):
 * $ indique une liste de définition. On fait suivre directement la définition en la précédant d'espaces.
 
 >> $ cuirassier
->>     soldat à cheval lourdement équipé
+>>    soldat à cheval lourdement équipé
 
 $ cuirassier
-     soldat à cheval lourdement équipé
+    soldat à cheval lourdement équipé
 
 ## Tables
 
@@ -197,11 +197,11 @@ $ cuirassier
 
 On peut mettre bien sûr des modificateurs de textes, des liens ou une image dans un tableau.
 
-!var DEFAULT_FIND_IMAGE=..\img\
+!var DEFAULT_FIND_IMAGE=https://xitog.github.io/dgx/img
 
 |^^Ceci^^                                                    |**est**|__un__            |''tableau''                                  |
 |-------------------------------------------------------------------------------------------------------------------------------------|
-|Il ((https://xitog.github.io/dgx/img/background-green.png)) |est    |--beau-- différent|ce [[tableau->https://xitog.github.io/dgx/]].|
+|Il ((background-green.png)) |est    |--beau-- différent|ce [[tableau->https://xitog.github.io/dgx/]].|
 
 On peut également centré une case en faisant suivre la colonne ouvrante par @@=@@ et d'aligner à droite avec @@>@@ :
 
@@ -215,7 +215,7 @@ On peut également préciser un colspan avec #cVALEUR# par exemple : @@#c3#@@ et
 |-----------------------------|
 |=#c3# Centré et colspan=3    |
 
-**LIMITATION : pas de listes dans un tableau pour l'instant** :
+**LIMITATION : pas de listes dans un tableau** :
 
 ## Liens
 
@@ -234,7 +234,9 @@ On peut également préciser un colspan avec #cVALEUR# par exemple : @@#c3#@@ et
 
 ## Constantes
 
-On peut définir des constantes en mettant @@!const@@ en début de ligne. Les constantes peuvent être définies n'importe où dans le document et plusieurs fois mais **__seule la dernière valeur définie est prise en compte__**.
+On peut définir des constantes en mettant @@!const@@ en début de ligne. Les constantes peuvent être définies n'importe où dans le document mais une seule fois.
+
+Certaines constantes sont prédéclarées mais sans valeur, on peut donc les définir une fois encore :
 
 * @@!const TITLE=titre@@ pour définir le titre de la page
 * @@!const ICON=icon@@ pour définir une icône pour la page
@@ -243,15 +245,20 @@ On peut définir des constantes en mettant @@!const@@ en début de ligne. Les co
 * @@!const BODY_CLASS=classe@@ pour définir la classe du body
 * @@!const BODY_ID=id@@ pour définir l'id du body
 
+Certaines constantes sont prédéclarées avec une valeur, on ne peut donc pas les redéfinir :
+
+* @@!const VERSION@@ la version de Hamill utilisée
+* @@!const NOW@@ affiche dans une chaîne le jour, le mois et l'année au format : mercredi 24 avril 2024.
+
+Pour l'affichage du jour dans la semaine, seuls l'anglais et le français sont gérés en fonction de la constante @@LANG@@.
+
 ## Variables
 
-On peut définir des variables en mettant @@!var@@ en début de ligne. On peut changer sa valeur en la redéfinissant dans le document plusieurs fois. Au contraire des constantes, les variables sont lues au fur et à mesure de l'émission du HTML.
+On peut définir des variables en mettant @@!var@@ en début de ligne. On peut changer la valeur d'une variable en la redéfinissant dans le document autant de fois que l'on veut.
 
 * @@!var EXPORT_COMMENT=true/false@@ spécifie si les commentaires seront exportés en HTML ou pas
-* @@!var PARAGRAPH_DEFINITION=true/false@@ spécifie si les dd doivent être mis dans des balises p
+* @@!var PARAGRAPH_DEFINITION=true/false@@ spécifie si les dd des listes de définitions doivent être mis dans des balises p
 * @@!var DEFAULT_CODE=python/json@@ définit la coloration syntaxique par défaut du code (text par défaut)
-* @@!var NEXT_PAR_ID=ids@@ spécifie l'id du **prochain** paragraphe
-* @@!var NEXT_PAR_CLASS=cls@@ spécifie la classe du **prochain** paragraphe
 * @@!var NEXT_TAB_ID=ids@@ spécifie l'id du **prochain** tableau
 * @@!var NEXT_TAB_CLASS=cls@@ spécifie la classe du **prochain** tableau
 * @@!var DEFAULT_PAR_CLASS=cls@@ spécifie la classe par défaut de **tous les paragraphes qui suivent**
@@ -266,11 +273,9 @@ On peut inclure un fichier HTML avec @@!include@@ en début de ligne. Le contenu
 
 On peut lier notre document à fichier CSS ou JavaScript avec la commande @@!require@@ en début de ligne.
 
-Le lien vers un fichier CSS requis est **automatiquement** placé dans la tête du document HTML.
+Le lien vers un fichier CSS (.css) requis est **automatiquement** placé dans la tête du document HTML.
 
-Le lien vers un fichier JavaScript requis est placé là ou se trouve le @@!require@@.
-
-**LIMITATION : Hamill ne peut pas mettre un lien vers un fichier JavaScript dans la tête pour l'instant**.
+Le lien vers un fichier JavaScript (.js ou .mjs) requis est **automatiquement** placé dans la tête du document HTML.
 
 ## Spécial
 
