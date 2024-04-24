@@ -258,7 +258,7 @@ On peut définir des variables en mettant @@!var@@ en début de ligne. On peut c
 
 * @@!var EXPORT_COMMENT=true/false@@ spécifie si les commentaires seront exportés en HTML ou pas
 * @@!var PARAGRAPH_DEFINITION=true/false@@ spécifie si les dd des listes de définitions doivent être mis dans des balises p
-* @@!var DEFAULT_CODE=python/json@@ définit la coloration syntaxique par défaut du code (text par défaut)
+* @@!var DEFAULT_CODE=python/json@@ définit la coloration syntaxique par défaut du code (aucune par défaut)
 * @@!var NEXT_TAB_ID=ids@@ spécifie l'id du **prochain** tableau
 * @@!var NEXT_TAB_CLASS=cls@@ spécifie la classe du **prochain** tableau
 * @@!var DEFAULT_PAR_CLASS=cls@@ spécifie la classe par défaut de **tous les paragraphes qui suivent**
