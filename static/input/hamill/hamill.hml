@@ -265,6 +265,8 @@ On peut définir des variables en mettant @@!var@@ en début de ligne. On peut c
 * @@!var DEFAULT_TAB_CLASS=cls@@ spécifie la classe par défaut de **tous les tableaux qui suivent**
 * @@!var DEFAULT_FIND_IMAGE=path@@ spécifie un répertoire où aller chercher les images par défaut
 
+Si @@NEXT_TAB_CLASS@@ et @@DEFAULT_TAB_CLASS@@ sont définies, c'est la valeur de @@NEXT_TAB_CLASS@@ qui sera prise en compte.
+
 ## Inclusion de fichier HTML
 
 On peut inclure un fichier HTML avec @@!include@@ en début de ligne. Le contenu du fichier sera copié directement le document produit.
