@@ -133,7 +133,7 @@ On peut transformer ainsi notre dialogue, le chiffre entre parenthèses indique 
       * {embranchements}
         * {embranchement}
           * {condition} [Charisme > 16]
-          * {suite} va à [[nœud n°1-2-1->#121]]
+          * {suite} va à [[nœud n°1-2-1->#n121]]
         * {embranchement}
           * {condition} aucune
           * {suite} va à [[nœud n°1-2-2->#n122]]

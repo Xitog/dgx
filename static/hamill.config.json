@@ -58,6 +58,18 @@
         ],
         [
             "comment",
+            "Histoire"
+        ],
+        [
+            "./input/histoire/methode.hml",
+            "../histoire/"
+        ],
+        [
+            "./input/histoire/france19eme.hml",
+            "../histoire/"
+        ],
+        [
+            "comment",
             "Informatique"
         ],
         [
