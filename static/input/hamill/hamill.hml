@@ -6,6 +6,7 @@
 !require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
 !require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
 !css blockquote {font-size: 12px; font-family: Menlo, Monaco, Consolas, "Courier New", monospace;}
+!css details > summary {cursor: pointer;}
 
 !var DEFAULT_CODE=hamill
 
@@ -20,12 +21,17 @@
 
 Ce document décrit le langage **Hamill**. Comme [[Markdown->#]], [[Textile->#]], [[AsciiDoc->#]] ou [[reStructuredText->#]], c'est un [[langage de balisage léger->#]] pour écrire de la documentation dans un fichier texte, directement lisible sans transformation, mais pouvant également être transformé en HTML.
 
-[[Le code source du projet est diposnible sur GitHub sous licence MIT->https://github.com/Xitog/hamill]].
+Hamill existe depuis 2020, il est actuellement à sa version 2 depuis 2022 et dispose de deux implémentations : une en [[JavaScript avec NodeJS->https://nodejs.org/en]] et l'autre en [[Python 3->https://www.python.org/]].
+
+[[Le code source du projet et une documentation en anglais sont disponibles sur GitHub->https://github.com/Xitog/hamill]].
 
 [[Vous pouvez l'essayer directement en ligne->https://xitog.github.io/dgx/hamill/index.html]]
 
+La version actuelle est la version 2.0.5. Hamill est publié sous licence MIT.
+
 ## Sommaire
 
+* [[Utilisation->#]]
 * [[Commentaires->#]]
 * [[Titres->#]]
 * [[Modification de texte->#]]
@@ -42,6 +48,50 @@ Ce document décrit le langage **Hamill**. Comme [[Markdown->#]], [[Textile->#]]
 * [[Inclusion de fichier HTML->#]]
 * [[Liens vers un fichier CSS ou JavaScript->#]]
 * [[Spécial->#]]
+
+## Utilisation
+
+Hamill vient la sous la forme de deux scripts : hamill et weyland (extension .mjs pour la version JavaScript et .py pour la version Python). Weyland s'occupe de l'analyse lexicale et syntaxique des différents langages, et Hamill de la transformation du fichier Hamill (extension .hml) en un document composé de plusieurs nœuds. Ce document est ensuite traduit en HTML. Pour cela, il faut utiliser Hamill en ligne de commande :
+
+@@@text
+node.exe hamill.mjs
+python.exe hamill.py
+@@@
+
+Par défaut, il affichera le menu d'aide qui détaille les différentes commandes disponibles.
+
+@@@text
+Running Hamill v2.0.5
+---
+> Use hamill.mjs --process (or -p) <input config filepath> to convert the HML file to HTML
+  The file must be an object {} with a key named targets with an array value of pairs :
+            ["inputFile", "outputDir"]
+> Use hamill.mjs --tests (or -t) to launch all the tests (99).
+> Use hamill.mjs --eval (or -e) to run a read-eval-print-loop from hml to html
+> Use hamill.mjs --help (or -h) to display this message
+@@@
+
+* @@--process ou -p@@ : permet de lancer la traduction d'un ou plusieurs fichiers hamill en HTML. Il faut préciser le chemin d'un fichier de config.
+* @@--tests ou -t@@ : lance la suite de tests
+* @@--eval ou -e@@ : pour lancer une invite de commande pour entrer du hamill et voir directement le résultat traduit en HTML. Utile pour faire des tests.
+* @@--help ou -h@@ : pour afficher ce message (comportement par défaut)
+
+Le fichier de configuration est un fichier JSON qui a un objet pour racine. Cet objet doit avoir une clé targets qui est une liste de paires, le premier élément indiquant le fichier hamill cible, le second élément indiquant le répertoire où mettre le résultat de la transformation en HTML. Le résultat portera le même nom de fichier que le fichier hamill cible, sauf que son extension sera .html au lien de .hml. Si le premier élément est la chaîne "comment", cette paire sera ignorée.
+
+@@@json
+{
+    "targets": [
+        [
+            "comment",
+            "Pages racines"
+        ],
+        [
+            "./input/index.hml",
+            "../"
+        ]
+    ]
+}
+@@@
 
 ## Commentaires
 
