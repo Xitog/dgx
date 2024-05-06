@@ -7,6 +7,8 @@
 !require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
 !css blockquote {font-size: 12px; font-family: Menlo, Monaco, Consolas, "Courier New", monospace;}
 !css details > summary {cursor: pointer;}
+!css pre.mockupblockquote { border-left: 8px solid #ACAEB0; padding-left: 5px; background-color: #EDEDED; border-radius: 0;}
+!css span.hamill-special {color: black;}
 
 !var DEFAULT_CODE=hamill
 
@@ -19,20 +21,31 @@
 # Hamill
 ---
 
-Ce document décrit le langage **Hamill**. Comme [[Markdown->#]], [[Textile->#]], [[AsciiDoc->#]] ou [[reStructuredText->#]], c'est un [[langage de balisage léger->#]] pour écrire de la documentation dans un fichier texte, directement lisible sans transformation, mais pouvant également être transformé en HTML.
+Ce document en français décrit le langage **Hamill**. [[English documentation is available here->https://xitog.github.io/dgx/hamill/hamill_en.html]].
 
-Hamill existe depuis 2020, il est actuellement à sa version 2 depuis 2022 et dispose de deux implémentations : une en [[JavaScript avec NodeJS->https://nodejs.org/en]] et l'autre en [[Python 3->https://www.python.org/]].
+Hamill est un [[langage de balisage léger->#]] comme [[Markdown->#]], [[Textile->#]], [[AsciiDoc->#]] ou [[reStructuredText->#]], pour écrire de la documentation dans un fichier texte avec des informations de **structure** (titres, divisions, paragraphes) et de **formatages** (gras, italique...).
 
-[[Le code source du projet et une documentation en anglais sont disponibles sur GitHub->https://github.com/Xitog/hamill]].
+Sa syntaxe légère rend plus facilement la lecture directe du fichier texte par rapport à un fichier HTML. Hamill fournit toutefois un outil pour transformer un fichier Hamill (extension @@.hml@@) en fichier HTML (extension @@.html@@)
+
+Sa syntaxe est à la fois plus facile et plus complète que celle du [[Markdown originel->https://daringfireball.net/projects/markdown/syntax]] de 2004.
+
+Hamill existe depuis 2020, il est actuellement à sa version 2 depuis 2022 et dispose de deux implémentations qui produisent le même résultat :
+
+* celle en [[JavaScript avec NodeJS->https://nodejs.org/en]] est hébergée sur NPM : [[Hamill JS->https://www.npmjs.com/package/hamill]],
+* celle en en [[Python 3->https://www.python.org/]] est hébergée sur PYPI : [[Hamill PY->https://pypi.org/project/hamill/]].
+
+[[Le code source du projet est disponible sur GitHub->https://github.com/Xitog/hamill]].
 
 [[Vous pouvez l'essayer directement en ligne->https://xitog.github.io/dgx/hamill/index.html]]
 
 La version actuelle est la version 2.0.5. Hamill est publié sous licence MIT.
 
+Damien Gouteux 2020-2024
+
 ## Sommaire
 
 * [[Utilisation->#]]
-* [[Commentaires->#]]
+* [[Commentaires, HR et BR->#]]
 * [[Titres->#]]
 * [[Modification de texte->#]]
 * [[Div, p et span->#]]
@@ -93,7 +106,7 @@ Le fichier de configuration est un fichier JSON qui a un objet pour racine. Cet 
 }
 @@@
 
-## Commentaires
+## Commentaires, HR et BR
 
 On peut faire des commentaires en mettant @@!rem@@ ou @@§§@@ en début de ligne, toute la ligne est alors en commentaire.
 
@@ -230,10 +243,14 @@ def function(par1, par2):
 
 * $ indique une liste de définition. On fait suivre directement la définition en la précédant d'espaces.
 
->> $ cuirassier
->>    soldat à cheval lourdement équipé
+!var NEXT_CODE_CLASS=mockupblockquote
 
-$ cuirassier
+@@@hamill
+$ Cuirassier
+    soldat à cheval lourdement équipé
+@@@
+
+$ Cuirassier
     soldat à cheval lourdement équipé
 
 ## Tables
@@ -265,7 +282,7 @@ On peut également préciser un colspan avec #cVALEUR# par exemple : @@#c3#@@ et
 |-----------------------------|
 |=#c3# Centré et colspan=3    |
 
-**LIMITATION : pas de listes dans un tableau** :
+**LIMITATION : pas de listes dans un tableau**
 
 ## Liens
 
@@ -274,8 +291,8 @@ On peut également préciser un colspan avec #cVALEUR# par exemple : @@#c3#@@ et
 * La seconde forme dite ''nommée'' s'écrit @@[[ nom affiché -> URL | REF | #ID ]]@@ ou @@[ nom affiché -> REF ]@@
 * Une URL commence par @@http://@@ ou @@https://@@
 * Une REF est définie par une ligne de la forme @@::code:: http://...@@
-* Une forme spéciale de la nommée est si REF est seulement @@#@@ comme @@[[] nom affiché -> # ]]@@ : Hamill essaye alors de faire sur le nom affiché transformé ou, si l'ancre n'existe pas, le nom affiché directement
-* Les titres sont automatiquement transformés en ancre en remplaçant les espaces par - et en les mettant en minuscules : ainsi **Les jeux** devient **les_jeux**
+* Une forme spéciale de la nommée est si REF est seulement @@#@@ comme @@[[ nom affiché -> # ]]@@ : Hamill essaye alors de faire sur le nom affiché transformé ou, si l'ancre n'existe pas, le nom affiché directement
+* Les titres sont automatiquement transformés en ancre en remplaçant les espaces par - et en les mettant en minuscules : ainsi **Les jeux** devient **les-jeux**
 
 ## Images
 
@@ -314,6 +331,8 @@ On peut définir des variables en mettant @@!var@@ en début de ligne. On peut c
 * @@!var DEFAULT_PAR_CLASS=cls@@ spécifie la classe par défaut de **tous les paragraphes qui suivent**
 * @@!var DEFAULT_TAB_CLASS=cls@@ spécifie la classe par défaut de **tous les tableaux qui suivent**
 * @@!var DEFAULT_FIND_IMAGE=path@@ spécifie un répertoire où aller chercher les images par défaut
+* @@!var NEXT_CODE_ID=ids@@ spécifie l'id du **prochain** bloc de code
+* @@!var NEXT_CODE_CLASS=cls@@ spécifie la classe du **prochain** bloc de code
 
 Si @@NEXT_TAB_CLASS@@ et @@DEFAULT_TAB_CLASS@@ sont définies, c'est la valeur de @@NEXT_TAB_CLASS@@ qui sera prise en compte.
 

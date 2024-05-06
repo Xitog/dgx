@@ -1,0 +1,366 @@
+!const TITLE=Hamill
+!const LANG=en
+!const ICON=https://xitog.github.io/dgx/img/favicon.ico
+!require https://xitog.github.io/dgx/css/simplex.bootstrap.css
+!require https://xitog.github.io/dgx/css/palatino.css
+!require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+!require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+!css blockquote {font-size: 12px; font-family: Menlo, Monaco, Consolas, "Courier New", monospace;}
+!css details > summary {cursor: pointer;}
+!css pre.mockupblockquote { border-left: 8px solid #ACAEB0; padding-left: 5px; background-color: #EDEDED; border-radius: 0;}
+!css span.hamill-special {color: black;}
+
+!var DEFAULT_CODE=hamill
+
+{{#main .container}}
+
+!include menu.html
+
+{{#content-div}}
+
+# Hamill
+---
+
+This document describes in English the **Hamill** language. [[La documentation en français est disponible ici->https://xitog.github.io/dgx/hamill/hamill.html]].
+
+Hamill is a  [[lightweight markup language->lml]] like [[Markdown->#]], [[Textile->#]], [[AsciiDoc->#]] or [[reStructuredText->#]], to write documentation in a text file with **structure** information (headings, divisions, paragraphs) and **formatting** (bold, italics...).
+
+Its lightweight syntax makes it easier to read the text file directly than the corresponding HTML file. Hamill does, however, provide a tool for transforming a Hamill file (extension @@.hml@@) into an HTML file (extension @@.html@@).
+
+Its syntax is both easier and more complete than that of the [[original Markdown->https://daringfireball.net/projects/markdown/syntax]] from 2004.
+
+Hamill has been around since 2020, is currently at version 2 since 2022 and has two implementations that produce the same result:
+
+* the one in [[JavaScript with NodeJS->https://nodejs.org/en]] is hosted by NPM: [[Hamill JS->https://www.npmjs.com/package/hamill]],
+* the one in [[Python 3->https://www.python.org/]] is hosted on PYPI: [[Hamill PY->https://pypi.org/project/hamill/]].
+
+[[The project's source code is available on GitHub->https://github.com/Xitog/hamill]].
+
+[[You can try it directly online->https://xitog.github.io/dgx/hamill/index.html]]
+
+The current version is 2.0.5. Hamill is released under the MIT license.
+
+Damien Gouteux 2020-2024
+
+This page has been translated from French to English with the help of [[DeepL Translator->https://www.deepl.com/translator]].
+
+## Contents
+
+* [[Use->#]]
+* [[Comments, HR and BR->#]]
+* [[Titles->#]]
+* [[Text formatting->#]]
+* [[Div, p and span->#]]
+* [[Details->#]]
+* [[Code->#]]
+* [[Lists->#]]
+* [[Definition lists->#]]
+* [[Tables->#]]
+* [[Links->#]]
+* [[Images->#]]
+* [[Constants->#]]
+* [[Variables->#]]
+* [[Including HTML files->#]]
+* [[Linking to a CSS or JavaScript file->#]]
+* [[Special->#]]
+
+## Use
+
+Hamill comes in the form of two scripts: hamill and weyland (extension .mjs for the JavaScript version and .py for the Python version). Weyland handles the lexical and syntactic analysis of the various languages, while Hamill transforms the Hamill file (.hml extension) into a document made up of several nodes. This document is then translated into HTML. To do this, Hamill is used on the command line:
+
+@@@text
+node.exe hamill.mjs
+python.exe hamill.py
+@@@
+
+By default, it will display the help menu detailing the various commands available.
+
+@@@text
+Running Hamill v2.0.5
+---
+> Use hamill.mjs --process (or -p) <input config filepath> to convert the HML file to HTML
+  The file must be an object {} with a key named targets with an array value of pairs :
+            ["inputFile", "outputDir"]
+> Use hamill.mjs --tests (or -t) to launch all the tests (99).
+> Use hamill.mjs --eval (or -e) to run a read-eval-print-loop from hml to html
+> Use hamill.mjs --help (or -h) to display this message
+@@@
+
+* @@--process or -p@@: launches the translation of one or more hamill files into HTML. You must specify the path to a config file.
+* @@--tests or -t@@: launches the test suite.
+* @@--eval or -e@@: to launch a command prompt to enter hamill and see the result translated directly into HTML. Useful for testing.
+* @@--help or -h@@: to display this message (default behavior)
+
+The configuration file is a JSON file with an object as its root. This object must have a targets key which is a list of pairs, the first element indicating the target hamill file, the second element indicating the directory where to put the result of the transformation into HTML. The result will have the same filename as the target hamill file, except that its extension will be .html instead of .hml. If the first element is the string "comment", this pair will be ignored.
+
+@@@json
+{
+    "targets": [
+        [
+            "comment",
+            "Root pages"
+        ],
+        [
+            "./input/index.hml",
+            "../"
+        ]
+    ]
+}
+@@@
+
+## Comments, HR and BR
+
+Comments can be made by putting @@!rem@@ or @@§§@@ at the beginning of the line, and the entire line is then a comment.
+
+>>!rem This is a comment
+>>§§ This is another comment
+
+A line that is entirely a comment will be exported as HTML if the @@EXPORT_COMMENT@@ variable is set to @@true@@.
+
+§§ This is a comment and will not be exported
+
+!var EXPORT_COMMENT=true
+
+§§ This is a comment it will be exported as HTML
+
+A horizontal line can be made with a line consisting only of @@-@@ of length greater than or equal to 3.
+
+>>---
+
+---
+
+
+You can force a line break with @@##@@ surrounded by a space before and after it, and not at the beginning of the line (otherwise it's a title):
+
+>>this is a line break ##.
+
+this is a line break ##.
+
+## Titles
+
+A number of @@#@@ is placed at the beginning of the line, corresponding to the level of the title you want.
+
+>>### Level 3 title
+
+## Text formatting
+
+* \*\***bold**\*\*: to make bold (tag ''b'')
+* \!\!!!bold!!\!\! for bold (tag ''strong'')
+* \'\'''italic''\'\': to italicize (tag ''i'')
+* \/\///italic//\/\/: to italicize (tag ''em'')
+* \-\---stroke--\-\-: to strike through
+* \_\___underlined__\_\_: to underline
+* \^\^^^exponent^^\^\^: to put in superscript
+* \%\%%%index%%\%\%: to set an index
+* To escape a special character, use @@\\@@.
+
+# Div, p and span
+
+* @@{{#id .class}}@@: on a single line, to define a div with an id and/or a class.
+* @@{{begin}}@@: on one line, to open a div without id or class.
+* @@{{end}}@@: on one line, to close an open div.
+* @@{{#id .class}} content@@: in a paragraph, specifies the paragraph id and/or class.
+* @@{{#id .class content}}@@: in a paragraph, specifies a span with an id and/or class.
+
+>>!css span.spoiler {background: black; user-select: none;}
+>>!css span.spoiler:active {background: lightgrey; user-select: none;}
+>>This is text with a hidden part: {{.spoiler Darth Vader is Luke's father}}. To avoid spoilers.
+
+!css span.spoiler {background: black; user-select: none;}
+!css span.spoiler:active {background: lightgrey; user-select: none;}
+This is a text with a hidden part: {{.spoiler Darth Vader is Luke's father}}. To avoid spoilers.
+
+## Details
+
+* Write @@<<xxx -> yyy>>@@ to open a short note. You can put an id and a class before xxx with @@#id@@ and @@.class@@.
+* Write @@<<xxx>>@@ to open a long note. put an id and a class before xxx with @@#id@@ and @@.class@@.
+* Write @@<<end>>@@ to close a long note. You can call up the id and class, but this has no meaning for Hamill.
+
+!css details {margin-bottom: 1em; background-color: #EDEDED;}
+!css details[open] {padding-bottom: 0.5em;}
+!css summary {margin-bottom: 0.5em; color: black; font-size: 16px; user-select: none; border: 1px solid darkgrey; background-color: white;}
+
+>><<This is a short note.
+
+<<Short note -> This is a short note.
+
+>><<Long note
+>>* This is a long note
+>>* With Hamill in it ##
+>><<end>>
+
+<<Long note>>
+* This is a long note
+* With Hamill in it
+<<end>>
+
+## Code
+
+We use @@\@\@for inline code\@\@@@. Hamill has a syntax colorizer for Python and JSON, so we specify : @@\@\@python def function(par1, par2)\@\@@@.
+
+For a block of code, there are two solutions:
+
+You can start with a line containing only @@\@\@@@, followed by the language you want, and then continue with lines containing @@\@\@@@ at the beginning, up to a line containing only @@\@\@@@. For example:
+
+>>@@python
+>>@@# This is a comment
+>>@@def function(par1, par2):
+>>@@ return "This is a function"
+>>@@
+
+Gives :
+
+@@python
+@@# This is a comment
+@@def function(par1, par2):
+@@ return "This is a function"
+@@
+
+You can also make a line with only @@\@\@\@@@ followed by the language you want, then __lines with nothing__ up to a line with only @@\@\@\@@@. For example:
+
+>>@@python
+>># This is a comment
+>>def function(par1, par2):
+>> return "This is a function"
+>>@@@
+
+Gives :
+
+@@@python
+# This is a comment
+def function(par1, par2):
+    return "This is a function"
+@@@
+
+## Lists
+
+* @@*@@ for an unnumbered list
+
++ @@+@@ for a numbered list, item 1/2
++ @@+@@ item 2/2
+
+- @@-@@ for an inverted numbered list, item 1/2
+- @@-@@ item 2/2
+
+## Definition lists
+
+* $ indicates a definition list. The definition is followed directly by spaces.
+
+!var NEXT_CODE_CLASS=mockupblockquote
+
+@@@hamill
+Cuirassier
+    heavily equipped mounted soldier
+@@@
+
+$ Cuirassier
+    heavily equipped mounted soldier
+
+## Tables
+
+* A table is written as follows: @@|col1|col2|col3|@@
+* The title line must be the first and separated from the others by a line of dashes: @@|----|@@
+
+|This|is    |a  |table      |
+|----|------|---|-----------|
+|My  |table |is |pretty     |
+
+You can, of course, add text modifiers, links or an image to an array.
+
+!var DEFAULT_FIND_IMAGE=https://xitog.github.io/dgx/img
+
+|^^This^^                    |**is**| __a__               |''table''                                                                  |
+|-------------------------------------------------------------------------------------------------------------------------------------|
+|It ((background-green.png)) |is    |a --pretty--different| [[table->https://xitog.github.io/dgx/]].                                  |
+
+You can also center a box by following the opening column with @@=@@ and right-aligning with @@>@@ :
+
+|Left and also very long |= Centered |> Right                        |
+|--------------------------------------------------------------------|
+|> Right                 |= Centered |Left and also very long        |
+
+You can also specify a colspan with #cVALUE# for example: @@#c3#@@ and combine with centering @@=#c3#@@ :
+
+|Column 1|Column 2|Column 3|
+|-----------------------------|
+|=#c3# Centered and colspan=3 |
+
+**LIMITATION: no lists in a table**
+
+## Links
+
+* We use square brackets
+* The first "direct" form is @@[[URL]]@@, @@[[REF]]@@, @@[#ID]@@. The URL, REF or ID will be displayed.
+* The second form, called "named", is written @@[[ displayed name -> URL | REF | #ID ]]@@ or @@[ displayed name -> REF ]@@.
+* A URL begins with @@http://@@ or @@https://@@.
+* A REF is defined by a line of the form @@::code:: http://...@@
+* A special form of the named is if REF is only @@#@@ as @@[[ displayed name -> # ]]@@: Hamill then tries to do on the transformed displayed name or, if the anchor doesn't exist, the displayed name directly.
+* Titles are automatically transformed into anchors by replacing spaces with - and lower-casing them: thus **The Games** becomes **the-games**.
+
+## Images
+
+* We use parentheses @@((url))@@ like : @@((my_image.png))@@
+* You can define a default directory where images will be taken with the variable @@DEFAULT_FIND_IMAGE@@.
+
+## Constants
+
+Constants can be defined by putting @@!const@@ at the beginning of the line. Constants can be defined anywhere in the document, but only once.
+
+Some constants are predefined but have no value, so they can be defined once again:
+
+* @@!const TITLE=title@@ to define the page title
+* @@!const ICON=icon@@ to define an icon for the page
+* @@!const LANG=lang@@ to define the language used in the page
+* @@!const ENCODING=encoding@@ to define the language used in the page, default is utf-8
+* @@!const BODY_CLASS=class@@ to define the body class
+* @@!const BODY_ID=id@@ to define body id
+
+Some constants are predefined with a value, so cannot be redefined:
+
+* @@!const VERSION@@ the Hamill version used
+* @@!const NOW@@ displays the day, month and year in a string in the format: Wednesday April 24, 2024.
+
+For the display of the day in the week, only English and French are managed according to the @@LANG@@ constant.
+
+## Variables
+
+Variables can be defined by putting @@!var@@ at the beginning of the line. You can change the value of a variable by redefining it in the document as many times as you like.
+
+* @@!var EXPORT_COMMENT=true/false@@ specifies whether comments will be exported as HTML or not
+* @@!var PARAGRAPH_DEFINITION=true/false@@ specifies whether definition list dd's should be set in p tags
+* @@!var DEFAULT_CODE=python/json@@ sets the default syntax highlighting of the code (none by default)
+* @@!var NEXT_TAB_ID=ids@@ specifies the id of the **next** array
+* @@!var NEXT_TAB_CLASS=cls@@ specifies the class of the **next** array
+* @@!var DEFAULT_PAR_CLASS=cls@@ specifies the default class of **all following paragraphs**
+* @@!var DEFAULT_TAB_CLASS=cls@@ specifies the default class for **all subsequent tables**
+* @@!var DEFAULT_FIND_IMAGE=path@@ specifies a directory in which to fetch default images
+* @@!var NEXT_CODE_ID=ids@@ specifies the id of the **next** code block
+* @@!var NEXT_CODE_CLASS=cls@@ specifies the class of the **next** code block
+
+If @@NEXT_TAB_CLASS@@ and @@DEFAULT_TAB_CLASS@@ are defined, the value of @@NEXT_TAB_CLASS@@ will be used.
+
+## Including HTML files
+
+You can include an HTML file with @@!include@@ at the beginning of the line. The content of the file will be copied directly into the document.
+
+## Linking to a CSS or JavaScript file
+
+We can link our document to a CSS or JavaScript file with the @@!require@@ command at the beginning of the line.
+
+The link to a required CSS (.css) file is **automatically** placed at the head of the HTML document.
+
+The link to a required JavaScript file (.js or .mjs) is **automatically** placed at the top of the HTML document.
+
+## Special
+
+* @@!css css-code@@ allows you to add css code
+* @@!html html-code@@ adds html code
+
+::markdown:: https://en.wikipedia.org/wiki/Markdown
+::textile:: https://en.wikipedia.org/wiki/Textile_(markup_language)
+::asciidoc:: http://asciidoc.org/
+::restructuredtext:: https://docutils.sourceforge.io/rst.html
+::lml:: https://en.wikipedia.org/wiki/Lightweight_markup_language
+
+{{end}}
+{{end}}

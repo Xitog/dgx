@@ -1,0 +1,437 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hamill</title>
+  <link rel="icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
+  <link href="https://xitog.github.io/dgx/css/simplex.bootstrap.css" rel="stylesheet">
+  <link href="https://xitog.github.io/dgx/css/palatino.css" rel="stylesheet">
+  <style type="text/css">
+    blockquote {font-size: 12px; font-family: Menlo, Monaco, Consolas, "Courier New", monospace;}
+    details > summary {cursor: pointer;}
+    pre.mockupblockquote { border-left: 8px solid #ACAEB0; padding-left: 5px; background-color: #EDEDED; border-radius: 0;}
+    span.hamill-special {color: black;}
+    span.spoiler {background: black; user-select: none;}
+    span.spoiler:active {background: lightgrey; user-select: none;}
+    details {margin-bottom: 1em; background-color: #EDEDED;}
+    details[open] {padding-bottom: 0.5em;}
+    summary {margin-bottom: 0.5em; color: black; font-size: 16px; user-select: none; border: 1px solid darkgrey; background-color: white;}
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="main" class="container">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+             <a class="navbar-brand" href="#">Menu</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li id="Accueil"><a href="https://xitog.github.io/dgx/index.html">Accueil</a></li>
+              <li id="Blog"><a href="https://xitog.github.io/dgx/blog.html">Blog</a></li>
+              <li class="dropdown">
+                <a id="Langues" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Langues <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                <li class="dropdown-header">Français</li>
+                  <li><a href="https://xitog.github.io/dgx/francais/fiche_api_fr.html">Fiche sur les phonèmes du français</a></li>
+                  <li><a href="https://xitog.github.io/dgx/francais/outil_stats_fr.html">Outil d'analyse textuelle</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Italien</li>
+                  <li><a href="https://xitog.github.io/dgx/italien/beatrice.html">Beatrice : grammaire</a></li>
+                  <li><a href="https://xitog.github.io/dgx/italien/jeu_conjugaison.html">Jeu sur la conjugaison</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Anglais</li>
+                  <li><a href="https://xitog.github.io/dgx/anglais/jeu_vocabulaire.html">Jeu sur le vocabulaire</a></li>
+                  <li><a href="https://xitog.github.io/dgx/anglais/verbes.html">Verbes fréquents</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Interlingua</li>
+                  <li><a href="https://xitog.github.io/dgx/interlingua/conjugueur.html">Conjugueur</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Linguistique</li>
+                  <li><a href="https://xitog.github.io/dgx/linguistique/informations.html">Informations générales</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Informatique" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Informatique <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Projets</li>
+                  <li><a href="https://xitog.github.io/dgx/ash/index.html">Ash</a></li>
+                  <li><a href="https://xitog.github.io/dgx/hamill/index.html">Hamill</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Programmation</li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/syntaxes.html">Syntaxes comparées</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/python.html">Aide-mémoire Python</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/ruby.html">Aide-mémoire Ruby</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/lua.html">Aide-mémoire Lua</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/ruby_guide.html">Guide Ruby</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Modélisation</li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/bnf.html">Aide-mémoire BNF et EBNF</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/json.html">Aide-mémoire JSON</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Autres</li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/version_control.html">Gestion de versions</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/tools_langs.html">Logiciels utiles et autres langages</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Histoire" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Histoire <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Méthode</li>
+                  <li><a href="https://xitog.github.io/dgx/histoire/methode.html">Généralités</a></li>
+                  <li><a href="https://xitog.github.io/dgx/histoire/bibliographie.html">Bibliographie</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Aide-mémoires</li>
+                  <li><a href="https://xitog.github.io/dgx/histoire/france19eme.html">France au XIX<sup>e</sup></a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Jeux" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Passe-temps <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Projets</li>
+                  <li><a href="https://xitog.github.io/dgx/teddy/index.html">Éditeur de carte</a></li>
+                  <li><a href="https://xitog.github.io/dgx/rts/index.html">Jouer à mon RTS</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/project_fps.html">Jouer à mon FPS</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Présentations générales</li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/pres_jeux.html">Les jeux</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/pres_jeuxvideo.html">Les jeux vidéo</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/pres_favoris.html">Favoris artistiques</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Jeux de rôles</li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/systemes_rpg.html">Systèmes des RPG</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Livres-jeux</li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/compagnon_talisman.html">Le Compagnon du Talisman</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/compagnon_sorcier.html">Le Compagnon du Sorcier</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Histoire des jeux vidéo</li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/history_rts.html">Les enfants de Dune : les RTS</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/history_fps.html">Les enfants de Doom : les FPS</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Techniques des jeux vidéo</li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_raycasting_fr.html">Le raycasting : la 2.5D</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_transitions.html">Cartes et transitions</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_dialogues.html">Dialogues</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Autres" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Autres <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Applications</li>
+                  <li><a href="https://xitog.github.io/dgx/concerts_classiques/index.html">Concerts classiques</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Collections</li>
+                  <li><a href="https://xitog.github.io/dgx/data/outil_collections.html#prenoms">Prénoms</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Liens</li>
+                  <li><a href="https://xitog.github.io/dgx/plan.html">Plan du site</a></li>
+                  <li><a href="https://xitog.github.io/dgx/liens.html">Liste de liens</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+<div id="content-div">
+<h1 id="hamill">Hamill</h1>
+<hr>
+<p>This document describes in English the <b>Hamill</b> language. <a href="https://xitog.github.io/dgx/hamill/hamill.html">La documentation en français est disponible ici</a>.</p>
+<p>Hamill is a  <a href="https://en.wikipedia.org/wiki/Lightweight_markup_language">lightweight markup language</a> like <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>, <a href="https://en.wikipedia.org/wiki/Textile_(markup_language)">Textile</a>, <a href="http://asciidoc.org/">AsciiDoc</a> or <a href="https://docutils.sourceforge.io/rst.html">reStructuredText</a>, to write documentation in a text file with <b>structure</b> information (headings, divisions, paragraphs) and <b>formatting</b> (bold, italics…).</p>
+<p>Its lightweight syntax makes it easier to read the text file directly than the corresponding HTML file. Hamill d&oelig;s, however, provide a tool for transforming a Hamill file (extension <code><span class="hamill-normal" title="token n°0 : normal">.hml</span></code>) into an HTML file (extension <code><span class="hamill-normal" title="token n°0 : normal">.html</span></code>).</p>
+<p>Its syntax is both easier and more complete than that of the <a href="https://daringfireball.net/projects/markdown/syntax">original Markdown</a> from 2004.</p>
+<p>Hamill has been around since 2020, is currently at version 2 since 2022 and has two implementations that produce the same result:</p>
+<ul>
+  <li>the one in <a href="https://nodejs.org/en">JavaScript with NodeJS</a> is hosted by NPM: <a href="https://www.npmjs.com/package/hamill">Hamill JS</a>,</li>
+  <li>the one in <a href="https://www.python.org/">Python 3</a> is hosted on PYPI: <a href="https://pypi.org/project/hamill/">Hamill PY</a>.</li>
+</ul>
+<p><a href="https://github.com/Xitog/hamill">The project's source code is available on GitHub</a>.</p>
+<p><a href="https://xitog.github.io/dgx/hamill/index.html">You can try it directly online</a></p>
+<p>The current version is 2.0.5. Hamill is released under the MIT license.</p>
+<p>Damien Gouteux 2020-2024</p>
+<p>This page has been translated from French to English with the help of <a href="https://www.deepl.com/translator">DeepL Translator</a>.</p>
+<h2 id="contents">Contents</h2>
+<ul>
+  <li><a href="#use">Use</a></li>
+  <li><a href="#comments,-hr-and-br">Comments, HR and BR</a></li>
+  <li><a href="#titles">Titles</a></li>
+  <li><a href="#text-formatting">Text formatting</a></li>
+  <li><a href="#div,-p-and-span">Div, p and span</a></li>
+  <li><a href="#details">Details</a></li>
+  <li><a href="#code">Code</a></li>
+  <li><a href="#lists">Lists</a></li>
+  <li><a href="#definition-lists">Definition lists</a></li>
+  <li><a href="#tables">Tables</a></li>
+  <li><a href="#links">Links</a></li>
+  <li><a href="#images">Images</a></li>
+  <li><a href="#constants">Constants</a></li>
+  <li><a href="#variables">Variables</a></li>
+  <li><a href="#including-html-files">Including HTML files</a></li>
+  <li><a href="#linking-to-a-css-or-javascript-file">Linking to a CSS or JavaScript file</a></li>
+  <li><a href="#special">Special</a></li>
+</ul>
+<h2 id="use">Use</h2>
+<p>Hamill comes in the form of two scripts: hamill and weyland (extension .mjs for the JavaScript version and .py for the Python version). Weyland handles the lexical and syntactic analysis of the various languages, while Hamill transforms the Hamill file (.hml extension) into a document made up of several nodes. This document is then translated into HTML. To do this, Hamill is used on the command line:</p>
+<pre>
+<span class="text-normal" title="token n°0 : normal">node.exe</span> <span class="text-normal" title="token n°2 : normal">hamill.mjs</span><span class="text-newline" title="token n°3 : newline">
+</span><span class="text-normal" title="token n°4 : normal">python.exe</span> <span class="text-normal" title="token n°6 : normal">hamill.py</span><span class="text-newline" title="token n°7 : newline">
+</span></pre>
+<p>By default, it will display the help menu detailing the various commands available.</p>
+<pre>
+<span class="text-normal" title="token n°0 : normal">Running</span> <span class="text-normal" title="token n°2 : normal">Hamill</span> <span class="text-normal" title="token n°4 : normal">v2.0.5</span><span class="text-newline" title="token n°5 : newline">
+</span><span class="text-normal" title="token n°6 : normal">---</span><span class="text-newline" title="token n°7 : newline">
+</span><span class="text-normal" title="token n°8 : normal">&gt;</span> <span class="text-normal" title="token n°10 : normal">Use</span> <span class="text-normal" title="token n°12 : normal">hamill.mjs</span> <span class="text-normal" title="token n°14 : normal">--process</span> <span class="text-normal" title="token n°16 : normal">(or</span> <span class="text-normal" title="token n°18 : normal">-p)</span> <span class="text-normal" title="token n°20 : normal">&lt;input</span> <span class="text-normal" title="token n°22 : normal">config</span> <span class="text-normal" title="token n°24 : normal">filepath&gt;</span> <span class="text-normal" title="token n°26 : normal">to</span> <span class="text-normal" title="token n°28 : normal">convert</span> <span class="text-normal" title="token n°30 : normal">the</span> <span class="text-normal" title="token n°32 : normal">HML</span> <span class="text-normal" title="token n°34 : normal">file</span> <span class="text-normal" title="token n°36 : normal">to</span> <span class="text-normal" title="token n°38 : normal">HTML</span><span class="text-newline" title="token n°39 : newline">
+</span>  <span class="text-normal" title="token n°41 : normal">The</span> <span class="text-normal" title="token n°43 : normal">file</span> <span class="text-normal" title="token n°45 : normal">must</span> <span class="text-normal" title="token n°47 : normal">be</span> <span class="text-normal" title="token n°49 : normal">an</span> <span class="text-normal" title="token n°51 : normal">object</span> <span class="text-normal" title="token n°53 : normal">{}</span> <span class="text-normal" title="token n°55 : normal">with</span> <span class="text-normal" title="token n°57 : normal">a</span> <span class="text-normal" title="token n°59 : normal">key</span> <span class="text-normal" title="token n°61 : normal">named</span> <span class="text-normal" title="token n°63 : normal">targets</span> <span class="text-normal" title="token n°65 : normal">with</span> <span class="text-normal" title="token n°67 : normal">an</span> <span class="text-normal" title="token n°69 : normal">array</span> <span class="text-normal" title="token n°71 : normal">value</span> <span class="text-normal" title="token n°73 : normal">of</span> <span class="text-normal" title="token n°75 : normal">pairs</span> <span class="text-normal" title="token n°77 : normal">:</span><span class="text-newline" title="token n°78 : newline">
+</span>            <span class="text-normal" title="token n°80 : normal">["inputFile",</span> <span class="text-normal" title="token n°82 : normal">"outputDir"]</span><span class="text-newline" title="token n°83 : newline">
+</span><span class="text-normal" title="token n°84 : normal">&gt;</span> <span class="text-normal" title="token n°86 : normal">Use</span> <span class="text-normal" title="token n°88 : normal">hamill.mjs</span> <span class="text-normal" title="token n°90 : normal">--tests</span> <span class="text-normal" title="token n°92 : normal">(or</span> <span class="text-normal" title="token n°94 : normal">-t)</span> <span class="text-normal" title="token n°96 : normal">to</span> <span class="text-normal" title="token n°98 : normal">launch</span> <span class="text-normal" title="token n°100 : normal">all</span> <span class="text-normal" title="token n°102 : normal">the</span> <span class="text-normal" title="token n°104 : normal">tests</span> <span class="text-normal" title="token n°106 : normal">(99).</span><span class="text-newline" title="token n°107 : newline">
+</span><span class="text-normal" title="token n°108 : normal">&gt;</span> <span class="text-normal" title="token n°110 : normal">Use</span> <span class="text-normal" title="token n°112 : normal">hamill.mjs</span> <span class="text-normal" title="token n°114 : normal">--eval</span> <span class="text-normal" title="token n°116 : normal">(or</span> <span class="text-normal" title="token n°118 : normal">-e)</span> <span class="text-normal" title="token n°120 : normal">to</span> <span class="text-normal" title="token n°122 : normal">run</span> <span class="text-normal" title="token n°124 : normal">a</span> <span class="text-normal" title="token n°126 : normal">read-eval-print-loop</span> <span class="text-normal" title="token n°128 : normal">from</span> <span class="text-normal" title="token n°130 : normal">hml</span> <span class="text-normal" title="token n°132 : normal">to</span> <span class="text-normal" title="token n°134 : normal">html</span><span class="text-newline" title="token n°135 : newline">
+</span><span class="text-normal" title="token n°136 : normal">&gt;</span> <span class="text-normal" title="token n°138 : normal">Use</span> <span class="text-normal" title="token n°140 : normal">hamill.mjs</span> <span class="text-normal" title="token n°142 : normal">--help</span> <span class="text-normal" title="token n°144 : normal">(or</span> <span class="text-normal" title="token n°146 : normal">-h)</span> <span class="text-normal" title="token n°148 : normal">to</span> <span class="text-normal" title="token n°150 : normal">display</span> <span class="text-normal" title="token n°152 : normal">this</span> <span class="text-normal" title="token n°154 : normal">message</span><span class="text-newline" title="token n°155 : newline">
+</span></pre>
+<ul>
+  <li><code><span class="hamill-normal" title="token n°0 : normal">--process or -p</span></code>: launches the translation of one or more hamill files into HTML. You must specify the path to a config file.</li>
+  <li><code><span class="hamill-normal" title="token n°0 : normal">--tests or -t</span></code>: launches the test suite.</li>
+  <li><code><span class="hamill-normal" title="token n°0 : normal">--eval or -e</span></code>: to launch a command prompt to enter hamill and see the result translated directly into HTML. Useful for testing.</li>
+  <li><code><span class="hamill-normal" title="token n°0 : normal">--help or -h</span></code>: to display this message (default behavior)</li>
+</ul>
+<p>The configuration file is a JSON file with an object as its root. This object must have a targets key which is a list of pairs, the first element indicating the target hamill file, the second element indicating the directory where to put the result of the transformation into HTML. The result will have the same filename as the target hamill file, except that its extension will be .html instead of .hml. If the first element is the string "comment", this pair will be ignored.</p>
+<pre>
+<span class="json-separator" title="token n°0 : separator">{</span><span class="json-newline" title="token n°1 : newline">
+</span>    <span class="json-string" title="token n°3 : string">"targets"</span><span class="json-separator" title="token n°4 : separator">:</span> <span class="json-separator" title="token n°6 : separator">[</span><span class="json-newline" title="token n°7 : newline">
+</span>        <span class="json-separator" title="token n°9 : separator">[</span><span class="json-newline" title="token n°10 : newline">
+</span>            <span class="json-string" title="token n°12 : string">"comment"</span><span class="json-separator" title="token n°13 : separator">,</span><span class="json-newline" title="token n°14 : newline">
+</span>            <span class="json-string" title="token n°16 : string">"Root pages"</span><span class="json-newline" title="token n°17 : newline">
+</span>        <span class="json-separator" title="token n°19 : separator">]</span><span class="json-separator" title="token n°20 : separator">,</span><span class="json-newline" title="token n°21 : newline">
+</span>        <span class="json-separator" title="token n°23 : separator">[</span><span class="json-newline" title="token n°24 : newline">
+</span>            <span class="json-string" title="token n°26 : string">"./input/index.hml"</span><span class="json-separator" title="token n°27 : separator">,</span><span class="json-newline" title="token n°28 : newline">
+</span>            <span class="json-string" title="token n°30 : string">"../"</span><span class="json-newline" title="token n°31 : newline">
+</span>        <span class="json-separator" title="token n°33 : separator">]</span><span class="json-newline" title="token n°34 : newline">
+</span>    <span class="json-separator" title="token n°36 : separator">]</span><span class="json-newline" title="token n°37 : newline">
+</span><span class="json-separator" title="token n°38 : separator">}</span><span class="json-newline" title="token n°39 : newline">
+</span></pre>
+<h2 id="comments,-hr-and-br">Comments, HR and BR</h2>
+<p>Comments can be made by putting <code><span class="hamill-comment" title="token n°0 : comment">!rem</span></code> or <code><span class="hamill-normal" title="token n°0 : normal">§§</span></code> at the beginning of the line, and the entire line is then a comment.</p>
+<blockquote>
+!rem This is a comment<br>
+§§ This is another comment<br>
+</blockquote>
+<p>A line that is entirely a comment will be exported as HTML if the <code><span class="hamill-normal" title="token n°0 : normal">EXPORT_COMMENT</span></code> variable is set to <code><span class="hamill-normal" title="token n°0 : normal">true</span></code>.</p>
+<!-- This is a comment it will be exported as HTML -->
+<p>A horizontal line can be made with a line consisting only of <code><span class="hamill-normal" title="token n°0 : normal">-</span></code> of length greater than or equal to 3.</p>
+<blockquote>
+---<br>
+</blockquote>
+<hr>
+<p>You can force a line break with <code><span class="hamill-title" title="token n°0 : title">##</span></code> surrounded by a space before and after it, and not at the beginning of the line (otherwise it's a title):</p>
+<blockquote>
+this is a line break ##.<br>
+</blockquote>
+<p>this is a line break<br>.</p>
+<h2 id="titles">Titles</h2>
+<p>A number of <code><span class="hamill-title" title="token n°0 : title">#</span></code> is placed at the beginning of the line, corresponding to the level of the title you want.</p>
+<blockquote>
+### Level 3 title<br>
+</blockquote>
+<h2 id="text-formatting">Text formatting</h2>
+<ul>
+  <li>**<b>bold</b>**: to make bold (tag <i>b</i>)</li>
+  <li>!!<strong>bold</strong>!! for bold (tag <i>strong</i>)</li>
+  <li>''<i>italic</i>'': to italicize (tag <i>i</i>)</li>
+  <li>//<em>italic</em>//: to italicize (tag <i>em</i>)</li>
+  <li>--<s>stroke</s>--: to strike through</li>
+  <li>__<u>underlined</u>__: to underline</li>
+  <li>^^<sup>exponent</sup>^^: to put in superscript</li>
+  <li>%%<sub>index</sub>%%: to set an index</li>
+  <li>To escape a special character, use <code><span class="hamill-normal" title="token n°0 : normal">\</span></code>.</li>
+</ul>
+<h1 id="div,-p-and-span">Div, p and span</h1>
+<ul>
+  <li><code><span class="hamill-markup" title="token n°0 : markup">{{#id .class}}</span></code>: on a single line, to define a div with an id and/or a class.</li>
+  <li><code><span class="hamill-markup" title="token n°0 : markup">{{begin}}</span></code>: on one line, to open a div without id or class.</li>
+  <li><code><span class="hamill-markup" title="token n°0 : markup">{{end}}</span></code>: on one line, to close an open div.</li>
+  <li><code><span class="hamill-markup" title="token n°0 : markup">{{#id .class}}</span><span class="hamill-normal" title="token n°1 : normal"> content</span></code>: in a paragraph, specifies the paragraph id and/or class.</li>
+  <li><code><span class="hamill-markup" title="token n°0 : markup">{{#id .class content}}</span></code>: in a paragraph, specifies a span with an id and/or class.</li>
+</ul>
+<blockquote>
+!css span.spoiler {background: black; user-select: none;}<br>
+!css span.spoiler:active {background: lightgrey; user-select: none;}<br>
+This is text with a hidden part: {{.spoiler Darth Vader is Luke's father}}. To avoid spoilers.<br>
+</blockquote>
+<p>This is a text with a hidden part: <span class="spoiler">Darth Vader is Luke's father</span>. To avoid spoilers.</p>
+<h2 id="details">Details</h2>
+<ul>
+  <li>Write <code><span class="hamill-normal" title="token n°0 : normal">&lt;&lt;xxx -&gt; yyy&gt;&gt;</span></code> to open a short note. You can put an id and a class before xxx with <code><span class="hamill-title" title="token n°0 : title">#id</span></code> and <code><span class="hamill-normal" title="token n°0 : normal">.class</span></code>.</li>
+  <li>Write <code><span class="hamill-normal" title="token n°0 : normal">&lt;&lt;xxx&gt;&gt;</span></code> to open a long note. put an id and a class before xxx with <code><span class="hamill-title" title="token n°0 : title">#id</span></code> and <code><span class="hamill-normal" title="token n°0 : normal">.class</span></code>.</li>
+  <li>Write <code><span class="hamill-normal" title="token n°0 : normal">&lt;&lt;end&gt;&gt;</span></code> to close a long note. You can call up the id and class, but this has no meaning for Hamill.</li>
+</ul>
+<blockquote>
+&lt;&lt;This is a short note.<br>
+</blockquote>
+<p>&lt;&lt;Short note &ShortRightArrow; This is a short note.</p>
+<blockquote>
+&lt;&lt;Long note<br>
+* This is a long note<br>
+* With Hamill in it ##<br>
+&lt;&lt;end&gt;&gt;<br>
+</blockquote>
+<details><summary>Long note</summary>
+<ul>
+  <li>This is a long note</li>
+  <li>With Hamill in it</li>
+</ul>
+</details>
+<h2 id="code">Code</h2>
+<p>We use <code><span class="hamill-normal" title="token n°0 : normal">@@for inline code@@</span></code>. Hamill has a syntax colorizer for Python and JSON, so we specify : <code><span class="hamill-normal" title="token n°0 : normal">@@python def function(par1, par2)@@</span></code>.</p>
+<p>For a block of code, there are two solutions:</p>
+<p>You can start with a line containing only <code><span class="hamill-normal" title="token n°0 : normal">@@</span></code>, followed by the language you want, and then continue with lines containing <code><span class="hamill-normal" title="token n°0 : normal">@@</span></code> at the beginning, up to a line containing only <code><span class="hamill-normal" title="token n°0 : normal">@@</span></code>. For example:</p>
+<blockquote>
+@@python<br>
+@@# This is a comment<br>
+@@def function(par1, par2):<br>
+@@ return "This is a function"<br>
+@@<br>
+</blockquote>
+<p>Gives :</p>
+<pre>
+<span class="python-comment" title="token n°0 : comment"># This is a comment
+</span><span class="python-keyword" title="token n°1 : keyword">def</span> <span class="python-identifier" title="token n°3 : identifier">function</span><span class="python-separator" title="token n°4 : separator">(</span><span class="python-identifier" title="token n°5 : identifier">par1</span><span class="python-separator" title="token n°6 : separator">,</span> <span class="python-identifier" title="token n°8 : identifier">par2</span><span class="python-separator" title="token n°9 : separator">)</span><span class="python-operator" title="token n°10 : operator">:</span><span class="python-newline" title="token n°11 : newline">
+</span> <span class="python-keyword" title="token n°13 : keyword">return</span> <span class="python-string" title="token n°15 : string">"This is a function"</span><span class="python-newline" title="token n°16 : newline">
+</span><span class="python-newline" title="token n°17 : newline">
+</span></pre>
+<p>You can also make a line with only <code><span class="hamill-normal" title="token n°0 : normal">@@@</span></code> followed by the language you want, then <u>lines with nothing</u> up to a line with only <code><span class="hamill-normal" title="token n°0 : normal">@@@</span></code>. For example:</p>
+<blockquote>
+@@python<br>
+# This is a comment<br>
+def function(par1, par2):<br>
+ return "This is a function"<br>
+@@@<br>
+</blockquote>
+<p>Gives :</p>
+<pre>
+<span class="python-comment" title="token n°0 : comment"># This is a comment
+</span><span class="python-keyword" title="token n°1 : keyword">def</span> <span class="python-identifier" title="token n°3 : identifier">function</span><span class="python-separator" title="token n°4 : separator">(</span><span class="python-identifier" title="token n°5 : identifier">par1</span><span class="python-separator" title="token n°6 : separator">,</span> <span class="python-identifier" title="token n°8 : identifier">par2</span><span class="python-separator" title="token n°9 : separator">)</span><span class="python-operator" title="token n°10 : operator">:</span><span class="python-newline" title="token n°11 : newline">
+</span>    <span class="python-keyword" title="token n°13 : keyword">return</span> <span class="python-string" title="token n°15 : string">"This is a function"</span><span class="python-newline" title="token n°16 : newline">
+</span></pre>
+<h2 id="lists">Lists</h2>
+<ul>
+  <li><code><span class="hamill-special" title="token n°0 : special">*</span></code> for an unnumbered list</li>
+</ul>
+<ol>
+  <li><code><span class="hamill-normal" title="token n°0 : normal">+</span></code> for a numbered list, item 1/2</li>
+  <li><code><span class="hamill-normal" title="token n°0 : normal">+</span></code> item 2/2</li>
+</ol>
+<ol reversed>
+  <li><code><span class="hamill-normal" title="token n°0 : normal">-</span></code> for an inverted numbered list, item 1/2</li>
+  <li><code><span class="hamill-normal" title="token n°0 : normal">-</span></code> item 2/2</li>
+</ol>
+<h2 id="definition-lists">Definition lists</h2>
+<ul>
+  <li>$ indicates a definition list. The definition is followed directly by spaces.</li>
+</ul>
+<pre class="mockupblockquote">
+<span class="hamill-normal" title="token n°0 : normal">Cuirassier</span><span class="hamill-newline" title="token n°1 : newline">
+</span><span class="hamill-normal" title="token n°2 : normal">    heavily equipped mounted soldier</span><span class="hamill-newline" title="token n°3 : newline">
+</span></pre>
+<dl>
+<dt>Cuirassier</dt>
+<dd>heavily equipped mounted soldier</dd>
+</dl>
+<h2 id="tables">Tables</h2>
+<ul>
+  <li>A table is written as follows: <code><span class="hamill-table" title="token n°0 : table">|</span><span class="hamill-normal" title="token n°1 : normal">col1</span><span class="hamill-table" title="token n°2 : table">|</span><span class="hamill-normal" title="token n°3 : normal">col2</span><span class="hamill-table" title="token n°4 : table">|</span><span class="hamill-normal" title="token n°5 : normal">col3</span><span class="hamill-table" title="token n°6 : table">|</span></code></li>
+  <li>The title line must be the first and separated from the others by a line of dashes: <code><span class="hamill-table_header_line" title="token n°0 : table_header_line">|----|</span></code></li>
+</ul>
+<table>
+<tr><th>This</th><th>is    </th><th>a  </th><th>table      </th></tr>
+<tr><td>My  </td><td>table </td><td>is </td><td>pretty     </td></tr>
+</table>
+<p>You can, of course, add text modifiers, links or an image to an array.</p>
+<table>
+<tr><th><sup>This</sup>                    </th><th><b>is</b></th><th> <u>a</u>               </th><th><i>table</i>                                                                  </th></tr>
+<tr><td>It <img src="https://xitog.github.io/dgx/img/background-green.png"/> </td><td>is    </td><td>a <s>pretty</s>different</td><td> <a href="https://xitog.github.io/dgx/">table</a>.                                  </td></tr>
+</table>
+<p>You can also center a box by following the opening column with <code><span class="hamill-normal" title="token n°0 : normal">=</span></code> and right-aligning with <code><span class="hamill-normal" title="token n°0 : normal">&gt;</span></code> :</p>
+<table>
+<tr><th>Left and also very long </th><th style="text-align: center"> Centered </th><th style="text-align: right"> Right                        </th></tr>
+<tr><td style="text-align: right"> Right                 </td><td style="text-align: center"> Centered </td><td>Left and also very long        </td></tr>
+</table>
+<p>You can also specify a colspan with #cVALUE# for example: <code><span class="hamill-title" title="token n°0 : title">#c3#</span></code> and combine with centering <code><span class="hamill-normal" title="token n°0 : normal">=#c3#</span></code> :</p>
+<table>
+<tr><th>Column 1</th><th>Column 2</th><th>Column 3</th></tr>
+<tr><td style="text-align: center" colspan="3"> Centered and colspan=3 </td></tr>
+</table>
+<p><b>LIMITATION: no lists in a table</b></p>
+<h2 id="links">Links</h2>
+<ul>
+  <li>We use square brackets</li>
+  <li>The first "direct" form is <code><span class="hamill-other" title="token n°0 : other">[</span><span class="hamill-other" title="token n°1 : other">[</span><span class="hamill-normal" title="token n°2 : normal">URL]]</span></code>, <code><span class="hamill-other" title="token n°0 : other">[</span><span class="hamill-other" title="token n°1 : other">[</span><span class="hamill-normal" title="token n°2 : normal">REF]]</span></code>, <code><span class="hamill-other" title="token n°0 : other">[</span><span class="hamill-title" title="token n°1 : title">#ID]</span></code>. The URL, REF or ID will be displayed.</li>
+  <li>The second form, called "named", is written <code><span class="hamill-other" title="token n°0 : other">[</span><span class="hamill-other" title="token n°1 : other">[</span><span class="hamill-normal" title="token n°2 : normal"> displayed name -&gt; URL </span><span class="hamill-table" title="token n°3 : table">|</span><span class="hamill-normal" title="token n°4 : normal"> REF </span><span class="hamill-table" title="token n°5 : table">|</span><span class="hamill-normal" title="token n°6 : normal"> #ID ]]</span></code> or <code><span class="hamill-other" title="token n°0 : other">[</span><span class="hamill-normal" title="token n°1 : normal"> displayed name -&gt; REF ]</span></code>.</li>
+  <li>A URL begins with <code><span class="hamill-url" title="token n°0 : url">http://</span></code> or <code><span class="hamill-url" title="token n°0 : url">https://</span></code>.</li>
+  <li>A REF is defined by a line of the form <code><span class="hamill-label" title="token n°0 : label">::code:: </span><span class="hamill-url" title="token n°1 : url">http://...</span></code></li>
+  <li>A special form of the named is if REF is only <code><span class="hamill-title" title="token n°0 : title">#</span></code> as <code><span class="hamill-other" title="token n°0 : other">[</span><span class="hamill-other" title="token n°1 : other">[</span><span class="hamill-normal" title="token n°2 : normal"> displayed name -&gt; # ]]</span></code>: Hamill then tries to do on the transformed displayed name or, if the anchor d&oelig;sn't exist, the displayed name directly.</li>
+  <li>Titles are automatically transformed into anchors by replacing spaces with - and lower-casing them: thus <b>The Games</b> becomes <b>the-games</b>.</li>
+</ul>
+<h2 id="images">Images</h2>
+<ul>
+  <li>We use parentheses <code><span class="hamill-normal" title="token n°0 : normal">((url))</span></code> like : <code><span class="hamill-normal" title="token n°0 : normal">((my_image.png))</span></code></li>
+  <li>You can define a default directory where images will be taken with the variable <code><span class="hamill-normal" title="token n°0 : normal">DEFAULT_FIND_IMAGE</span></code>.</li>
+</ul>
+<h2 id="constants">Constants</h2>
+<p>Constants can be defined by putting <code><span class="hamill-normal" title="token n°0 : normal">!const</span></code> at the beginning of the line. Constants can be defined anywhere in the document, but only once.</p>
+<p>Some constants are predefined but have no value, so they can be defined once again:</p>
+<ul>
+  <li><code><span class="hamill-const" title="token n°0 : const">!const TITLE=title</span></code> to define the page title</li>
+  <li><code><span class="hamill-const" title="token n°0 : const">!const ICON=icon</span></code> to define an icon for the page</li>
+  <li><code><span class="hamill-const" title="token n°0 : const">!const LANG=lang</span></code> to define the language used in the page</li>
+  <li><code><span class="hamill-const" title="token n°0 : const">!const ENCODING=encoding</span></code> to define the language used in the page, default is utf-8</li>
+  <li><code><span class="hamill-const" title="token n°0 : const">!const BODY_CLASS=class</span></code> to define the body class</li>
+  <li><code><span class="hamill-const" title="token n°0 : const">!const BODY_ID=id</span></code> to define body id</li>
+</ul>
+<p>Some constants are predefined with a value, so cannot be redefined:</p>
+<ul>
+  <li><code><span class="hamill-const" title="token n°0 : const">!const VERSION</span></code> the Hamill version used</li>
+  <li><code><span class="hamill-const" title="token n°0 : const">!const NOW</span></code> displays the day, month and year in a string in the format: Wednesday April 24, 2024.</li>
+</ul>
+<p>For the display of the day in the week, only English and French are managed according to the <code><span class="hamill-normal" title="token n°0 : normal">LANG</span></code> constant.</p>
+<h2 id="variables">Variables</h2>
+<p>Variables can be defined by putting <code><span class="hamill-normal" title="token n°0 : normal">!var</span></code> at the beginning of the line. You can change the value of a variable by redefining it in the document as many times as you like.</p>
+<ul>
+  <li><code><span class="hamill-var" title="token n°0 : var">!var EXPORT_COMMENT=true/false</span></code> specifies whether comments will be exported as HTML or not</li>
+  <li><code><span class="hamill-var" title="token n°0 : var">!var PARAGRAPH_DEFINITION=true/false</span></code> specifies whether definition list dd's should be set in p tags</li>
+  <li><code><span class="hamill-var" title="token n°0 : var">!var DEFAULT_CODE=python/json</span></code> sets the default syntax highlighting of the code (none by default)</li>
+  <li><code><span class="hamill-var" title="token n°0 : var">!var NEXT_TAB_ID=ids</span></code> specifies the id of the <b>next</b> array</li>
+  <li><code><span class="hamill-var" title="token n°0 : var">!var NEXT_TAB_CLASS=cls</span></code> specifies the class of the <b>next</b> array</li>
+  <li><code><span class="hamill-var" title="token n°0 : var">!var DEFAULT_PAR_CLASS=cls</span></code> specifies the default class of <b>all following paragraphs</b></li>
+  <li><code><span class="hamill-var" title="token n°0 : var">!var DEFAULT_TAB_CLASS=cls</span></code> specifies the default class for <b>all subsequent tables</b></li>
+  <li><code><span class="hamill-var" title="token n°0 : var">!var DEFAULT_FIND_IMAGE=path</span></code> specifies a directory in which to fetch default images</li>
+  <li><code><span class="hamill-var" title="token n°0 : var">!var NEXT_CODE_ID=ids</span></code> specifies the id of the <b>next</b> code block</li>
+  <li><code><span class="hamill-var" title="token n°0 : var">!var NEXT_CODE_CLASS=cls</span></code> specifies the class of the <b>next</b> code block</li>
+</ul>
+<p>If <code><span class="hamill-normal" title="token n°0 : normal">NEXT_TAB_CLASS</span></code> and <code><span class="hamill-normal" title="token n°0 : normal">DEFAULT_TAB_CLASS</span></code> are defined, the value of <code><span class="hamill-normal" title="token n°0 : normal">NEXT_TAB_CLASS</span></code> will be used.</p>
+<h2 id="including-html-files">Including HTML files</h2>
+<p>You can include an HTML file with <code><span class="hamill-normal" title="token n°0 : normal">!include</span></code> at the beginning of the line. The content of the file will be copied directly into the document.</p>
+<h2 id="linking-to-a-css-or-javascript-file">Linking to a CSS or JavaScript file</h2>
+<p>We can link our document to a CSS or JavaScript file with the <code><span class="hamill-normal" title="token n°0 : normal">!require</span></code> command at the beginning of the line.</p>
+<p>The link to a required CSS (.css) file is <b>automatically</b> placed at the head of the HTML document.</p>
+<p>The link to a required JavaScript file (.js or .mjs) is <b>automatically</b> placed at the top of the HTML document.</p>
+<h2 id="special">Special</h2>
+<ul>
+  <li><code><span class="hamill-css" title="token n°0 : css">!css css-code</span></code> allows you to add css code</li>
+  <li><code><span class="hamill-html" title="token n°0 : html">!html html-code</span></code> adds html code</li>
+</ul>
+</div>
+</div>
+
+  </body>
+</html>

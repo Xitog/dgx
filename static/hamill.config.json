@@ -45,6 +45,10 @@
             "../hamill/"
         ],
         [
+            "./input/hamill/hamill_en.hml",
+            "../hamill/"
+        ],
+        [
             "./input/hamill/tests.hml",
             "../hamill/"
         ],
