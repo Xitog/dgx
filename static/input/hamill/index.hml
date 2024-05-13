@@ -2,7 +2,7 @@
 !const LANG=fr
 !const ICON=https://xitog.github.io/dgx/img/favicon.ico
 !require https://xitog.github.io/dgx/css/simplex.bootstrap.css
-!require https://xitog.github.io/dgx/css/flashy.css
+!require https://xitog.github.io/dgx/css/palatino.css
 !require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
 !require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
 
@@ -77,6 +77,7 @@
 {{#content-div}}
 
     # Hamill
+    ---
 
     Entrer du code hamill à gauche pour produire de l'HTML à droite en cliquant sur ''Parse''.
 
@@ -100,7 +101,7 @@
     {{end}}
 
     {{#footer}}
-        {{#footer-content}} [[Documentation interne->https://xitog.github.io/dgx/hamill/hamill.html]] & [[Documentation et code source sous git->https://github.com/Xitog/hamill]]
+        {{#footer-content}} [[Documentation française->https://xitog.github.io/dgx/hamill/hamill.html]] | [[English documentation->https://xitog.github.io/dgx/hamill/hamill_en.html]] | [[Code source ^^github^^->https://github.com/Xitog/hamill]]
     {{end}}
 {{end}}
 
