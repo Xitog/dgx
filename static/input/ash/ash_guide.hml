@@ -24,11 +24,13 @@ Un langage de script simple et concis avec support pour l'orienté objet.
 
 + Introduction
 + Noyau du langage
-  + Installation
-  + Premier programme
-  + Commentaires
-  + Constantes et variables
-  + Expressions et instructions
+  + [[1.1 Installation->#]]
+  + [[1.2 Premiers programmes->#]]
+  + [[1.3 Commentaires->#]]
+  + [[1.4 Mots-clés->#]]
+  + [[1.5 Constantes et variables->#]]
+  + [[1.6 Expressions et opérateurs->#]]
+  + [[1.7 Instructions et mots-clés->#]]
 + Types de base
   + Booléen
   + Entier et réel
@@ -50,6 +52,35 @@ Un langage de script simple et concis avec support pour l'orienté objet.
   + Ash/Python
   + Ash/JavaScript
   + Ash/C
+
+§§ Historique
+
+§§ 07/06/2023
+§§ - J'enlève tous les labels (break, next et boucle)
+§§ - J'abandonne le [while CONDITION] pour le for
+§§ - J'enlève le do/loop et le do/until loop
+§§ - Idée du 05/06/2023 de C# : if o is Class c then
+§§ - Idée du ??? : fusion des exceptions avec le flux normal : on enlève try/catch/except/raise/throw
+§§ 01/08/2023
+§§ - Fusionner le flux normal avec celui des exceptions. Vu le 25/08 que CLU fait ainsi
+§§ 11/05/2023
+§§ - do action loop chand to do action loop [label]
+§§ - fun[ction] ID (P1 [T1], P2 [T2]) TYPE changed to fun[ction] ID (P1 [T1], P2 [T2] [> TYPE])
+§§ - throw change to raise
+§§ - Added literals for list, dict, array, boolean, integer, number, str, obj, nil
+§§ 05/05/2023 d'après une révision du 02/05/2023
+§§ - if CONDITION => ACTION changed to ACTION if CONDITION
+§§ - EXPRESSION if CONDITION else EXPRESSION added
+§§ - loop changed to loop [label]
+§§ - until CONDITION loop changed to until CONDITION loop [label]
+§§ - break [break] changed to break [label]
+§§ - next changed to next [label]
+§§ - fun[ction] ID (P1 [T1], P2 [T2]) TYPE alternate fun[ction] ID (P1 [T1], P2 [T2] -> TYPE)
+§§ - throw added
+§§ - catch ID [TYPE] changed to catch [ID] TYPE
+§§ 14/12/2022
+§§ - import (FILEPATH | ID) [ > ID1, ID2 ] alternate require
+§§ 25/10/2022
 
 ## Introduction
 
@@ -89,7 +120,7 @@ fun fact(nb : int)
     elif nb > 0 then
         return nb * fact(nb - 1)
     else
-        raise Exception("Invalid number")
+        return Exception("Invalid number")
     end
 end
 nb = input('enter a number:')
@@ -104,9 +135,47 @@ writeln(fact(nb))
 ]] end of multi line
 @@@
 
-### 1.4 Constantes et variables
+### 1.4 Mots-clés
 
-nom de variable : (@/_A-Za-z)(0-9A-Za-z)
+Ash utilise 27 mots-clés.
+
+| var    | const   |        |      |     |
+| if     | then    | elif   | else | end |
+| while  | do      | loop   | for  | in  |
+| break  | next    |        |      |     |
+| fun    | pro     | return |      |     |
+| and    | or      | not    |      |     |
+| class  | static  | is     |      |     |
+| import |         |        |      |     |
+| true   | false   | nil    |      |     |
+
+### 1.5 Constantes et variables
+
+Pour déclarer une variable, il faut utiliser cette syntaxe :
+
+@@@ash
+[var] ID [: TYPE] = EXPR
+@@@
+
+Il est recommandé de commencer une variable par une minuscule et d'utiliser un "_" pour séparer les mots.
+
+@@@ash
+var age_personne : nat = 25
+@@@
+
+Pour déclarer une constante de référence, il faut utiliser cette syntaxe :
+
+@@@ash
+const ID [: TYPE]  = EXPR
+@@@
+
+Il est recommandé de commencer une constante par une majuscule.
+
+@@@ash
+const PI : num = 3.14
+@@@
+
+nom de variable : (_A-Za-z)(0-9A-Za-z)
 
 _ is for dummy variable or the last expression. utf-8 variable are supported.
 
@@ -126,11 +195,73 @@ writeln(tst)  --> 2
 
 A variable is automatically cleaned after its containing scope is destroy (function or prog body).
 
-### 1.5 Expressions et instructions
+§§ Typage : avec ou sans : ?
+
+### 1.6 Expressions et opérateurs
+
+Une expression est forcément évaluable à une valeur avec un type :
+
+@@@ash
+5 + 2
+@@@
+
+Cette expression donne 7, de type nat.
+
+Une expression est composée d'opérateur et d'opérande.
+
+Certains opérateurs sont binaires (= 2 opérandes) ou unaire (= 1 opérante).
+
+**Il n'y a pas d'opérateur postfixe en Ash.**
+
+Une expression peut être composée de sous-expression :
+
+exp op exp
+op exp
 
 Séparateurs d'expression : \n, ;
 
+Liste des opérateurs :
+
+| Priorité | Opérateurs                     | Description                                       |
+|-----------------------------------------------------------------------------------------------|
+| 1        | >                              | extraction d'import, type de retour des fonctions |
+| 1        | <                              | héritage                                          |
+| 1        | =                              | affectation                                       |
+| 7        | +=, -=, *=, \**=, /=, \//=, %= | affectation combinée                              |
+| 7        | +, -, *, \**, /, \//, %        | mathématiques                                     |
+| 1        | .                              | call                                              |
+| 6        | ==, !=, >, >=, <=, <           | comparaison                                       |
+| 3        | and or not                     | booléen                                           |
+| 2        | << >>                          | binaire                                           |
+|          | #                              | longueur d'une séquence                           |
+|          | $                              | conversion en chaînes de caractères               |
+|          | ${x}                           | interpolation dans les chaînes de caractères      |
+
+§§ exp if cond else exp
+§§ [exp for id in exp if cond] ou [for id in exp if cond return exp]
+
+### 1.7 Instructions et mots-clés
+
+Au contaire d'une expression, une instruction ne renvoit pas de valeur.
+
 ## 2. Types de base
+
+Ash utilise 9 types de données de base :
+
+| Nom          | Type                   | Littéral           |
+|------------------------------------------------------------|
+| Booléen      | Boolean, boolean, bool | true false         |
+| Entier       | Integer, integer, int  | 25 -25             |
+| Naturel      | Natural, natural, nat  | 25                 |
+| Nombre       | Number, number, num    | 2.5 -2.5           |
+| Chaîne       | String, string, str    | "bonjour"          |
+| Tableau      | Array, array           | {val1, val2, val3} |
+| Liste        | List, list             | [val1, val2, val3] |
+| Dictionnaire | Dict, dict             | {key: value}       |
+| Valeur nulle | Nil, nil               | nil                |
+
+§§ On évite Table pour Dictionnaire car c'est trop proche de Tableau.
+§§ Dans les dict : ou = ?
 
 ### 2.1 Booléen
 
@@ -157,15 +288,126 @@ a = 1 + 4 2    -- ceci n'est pas valide en ash
 
 ### 3.2 Sélection
 
+@@@ash
+if CONDITION then
+    ACTION
+[elsif CONDITION then
+    ACTION]*
+[else
+    ACTION]
+end
+@@@
+
+§§ ACTION if CONDITION
+§§ EXPRESSION if CONDITION else EXPRESSION
+
 ### 3.3 Boucle
+
+@@@ash
+while CONDITION do
+    ACTION
+loop
+
+for ID1[, ID2] in ITERABLE [if CONDITION] do
+    ACTION
+loop
+
+break
+next
+@@@
+
+§§ [label] do ACTION until CONDITION loop [label]
+§§ [label] do ACTION loop [label]
+§§ Label : |label| ou :label:
+§§ J'abandonne la notion de label
+§§ J'abandonne la notion de break break (break all loops)
+§§ Je garde le loop pour finir
+§§ J'abandonne le [while CONDITION] pour le for
 
 ## 4. Fonctions et procédures
 
+@@@ash
+fun[ction] ID (P1 [: T1], P2 [: T2]) [: TYPE]
+    ACTION
+end
+
+pro[cedure] ID (P1 [: T1], P2 [: T2])
+    ACTION
+end
+
+return [EXPR]
+@@@
+
+§§ J'abandonne le [> TYPE] à l'intérieur des parenthèses pour un classique :
+§§ Pas de retour multiple
+§§ Je rajoute un : pour le type
+
 ## 5. Classes et objets
+
+@@@ash
+
+class ID [< SUPER]
+    [static const, static var, var] ID = EXPR
+    [static] fun or pro
+    pro init(@a int, b int)
+        @b = b
+    end
+end
+
+a = ID.new(param)
+
+class Point          object (fixed fields)/obj
+   x int
+   y int
+end
+@attr -- instance attribute
+$attr -- class attribute (en Ruby pour global et @@ pour class)
+
+if o is Class c then
+   -- vous pouvez utiliser c dans ce bloc
+end
+
+static class Order < String -- no instance <=> enum
+    static Move = "Move"
+    static Wait = "Wait"
+    static Attack = "Attack"
+    static Follow = "Follow"
+end
+@@@
+
+§§ on n'utilise pas enum
 
 ## 6. Gestion des erreurs
 
+@@@ash
+return EXCEPTION
+
+fun div(a : num, b : num) : num
+    if b == 0 then
+        return DivByZeroException
+    else
+        return a / b
+    end
+end
+
+div(5, 0)
+if DivByZeroException then
+    writeln("An exception has been catched")
+end
+
+@@@
+
+§§ on fusionne la gestion des erreurs et la gestion standard. Donc on aura return au lieu de raise/throw.
+§§ de même on capture avec un if (EXCEPTION)
+§§ donc pas de catch [ID] TYPE end
+
 ## 7. Bibliothèque standard
+
+@@@ash
+ID [module] = import (FILEPATH | ID) [ > ID1, ID2 ]
+
+module ID -- (en tête de fichier, pas de fin) (plutôt que package ou namespace)
+@@@
 
 ### 7.1 Console
 
@@ -180,6 +422,16 @@ a = 1 + 4 2    -- ceci n'est pas valide en ash
 ### 8.2 Ash/JavaScript
 
 ### 8.3 Ash/C
+
+### 8.4 Ash/PHP
+
+### 8.5 Ash/Lua
+
+### 9. Liste des éléments du langage
+
+| Type        | Eléments        |
+|-------------------------------|
+| Séparateurs | ( ) [ ] { } , ; |
 
 {{end}}
 {{end}}
