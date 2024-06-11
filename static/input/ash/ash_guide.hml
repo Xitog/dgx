@@ -117,7 +117,7 @@ Une autre tradition est le calcul d'une factorielle. Ouvrez un fichier texte, en
 fun fact(nb : int)
     if nb == 0 then
         return 1
-    elif nb > 0 then
+    elsif nb > 0 then
         return nb * fact(nb - 1)
     else
         return Exception("Invalid number")
@@ -140,7 +140,7 @@ writeln(fact(nb))
 Ash utilise 27 mots-clés.
 
 | var    | const   |        |      |     |
-| if     | then    | elif   | else | end |
+| if     | then    | elsif  | else | end |
 | while  | do      | loop   | for  | in  |
 | break  | next    |        |      |     |
 | fun    | pro     | return |      |     |
