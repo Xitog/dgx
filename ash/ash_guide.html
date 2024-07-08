@@ -9,6 +9,13 @@
   <link rel="shortcut icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
   <link href="https://xitog.github.io/dgx/css/simplex.bootstrap.css" rel="stylesheet">
   <link href="https://xitog.github.io/dgx/css/palatino.css" rel="stylesheet">
+  <style type="text/css">
+    details { border: 1px solid #5bc0de; cursor: pointer; margin-bottom: 0.5em; background-color: #F9F9F9;}
+    summary { color: #F9F9F9; background-color: #5bc0de;}
+    details summary:before { content: "+"; margin-right: 6px;}
+    details[open] summary:before { content: "-"; margin-right: 6px;}
+    details div { padding: 5px; }
+  </style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </head>
@@ -170,12 +177,16 @@
       <li>Boucle</li>
     </ol>
   </li>
-  <li>Fonctions et procédures</li>
-</ol>
-<p>Classes et objets<br>
-Gestion des erreurs<br>
-Bibliothèque standard</p>
-<ol>
+  <li>Sous-programmes
+    <ol>
+      <li>Fonctions</li>
+      <li>Procédures</li>
+      <li>Getters</li>
+    </ol>
+  </li>
+  <li>Classes et objets</li>
+  <li>Gestion des erreurs</li>
+  <li>Bibliothèque standard</li>
   <li>+ Console
     <ol>
       <li>Fichiers</li>
@@ -211,6 +222,13 @@ ash.ex -i pipo.ash</p>
  python pipo.py
 </pre>
 <p>Les arguments sont stockés dans une liste. 0 est le nom du script. En nég, les options préalables. En pos, les options du script.</p>
+<details><summary>Note de design</summary>
+<div>
+<p><i>Ces encadrés exposent des décisions de design.</i></p>
+<p>La syntaxe de Ash s'inspire des langages <i>Lua</i>, <i>Ruby</i> et <i>Pascal</i>.<br>
+Les langages <i>JavaScript</i> et <i>Python</i> sont également des inspirations pour leur fonctionnement et leur bibliothèque de base.</p>
+</div>
+</details>
 <h3 id="1.2-premiers-programmes">1.2 Premiers programmes</h3>
 <p>La tradition veut qu'on affiche "Bonjour le monde !" sur la sortie standard. Pour cela, il faut lancer l'interpréteur interactif<br>
 ash.exe<br>
@@ -224,7 +242,7 @@ Puis tapez :</p>
 </span><span class="text-normal" title="token n°8 : normal">fun</span> <span class="text-normal" title="token n°10 : normal">fact(nb</span> <span class="text-normal" title="token n°12 : normal">:</span> <span class="text-normal" title="token n°14 : normal">int)</span><span class="text-newline" title="token n°15 : newline">
 </span>    <span class="text-normal" title="token n°17 : normal">if</span> <span class="text-normal" title="token n°19 : normal">nb</span> <span class="text-normal" title="token n°21 : normal">==</span> <span class="text-normal" title="token n°23 : normal">0</span> <span class="text-normal" title="token n°25 : normal">then</span><span class="text-newline" title="token n°26 : newline">
 </span>        <span class="text-normal" title="token n°28 : normal">return</span> <span class="text-normal" title="token n°30 : normal">1</span><span class="text-newline" title="token n°31 : newline">
-</span>    <span class="text-normal" title="token n°33 : normal">elif</span> <span class="text-normal" title="token n°35 : normal">nb</span> <span class="text-normal" title="token n°37 : normal">&gt;</span> <span class="text-normal" title="token n°39 : normal">0</span> <span class="text-normal" title="token n°41 : normal">then</span><span class="text-newline" title="token n°42 : newline">
+</span>    <span class="text-normal" title="token n°33 : normal">elsif</span> <span class="text-normal" title="token n°35 : normal">nb</span> <span class="text-normal" title="token n°37 : normal">&gt;</span> <span class="text-normal" title="token n°39 : normal">0</span> <span class="text-normal" title="token n°41 : normal">then</span><span class="text-newline" title="token n°42 : newline">
 </span>        <span class="text-normal" title="token n°44 : normal">return</span> <span class="text-normal" title="token n°46 : normal">nb</span> <span class="text-normal" title="token n°48 : normal">*</span> <span class="text-normal" title="token n°50 : normal">fact(nb</span> <span class="text-normal" title="token n°52 : normal">-</span> <span class="text-normal" title="token n°54 : normal">1)</span><span class="text-newline" title="token n°55 : newline">
 </span>    <span class="text-normal" title="token n°57 : normal">else</span><span class="text-newline" title="token n°58 : newline">
 </span>        <span class="text-normal" title="token n°60 : normal">return</span> <span class="text-normal" title="token n°62 : normal">Exception("Invalid</span> <span class="text-normal" title="token n°64 : normal">number")</span><span class="text-newline" title="token n°65 : newline">
@@ -234,6 +252,13 @@ Puis tapez :</p>
 </span><span class="text-normal" title="token n°81 : normal">writeln(fact(nb))</span><span class="text-newline" title="token n°82 : newline">
 </span></pre>
 <h3 id="1.3-commentaires">1.3 Commentaires</h3>
+<p>Les commentaires monolignes commençent par <code><span class="ash-comment" title="token n°0 : comment">--</span></code> (comme Lua et SQL)</p>
+<p>Les commentaires multilignes commençent par <code><span class="ash-comment" title="token n°0 : comment">--[[</span></code> et finissent par <code><span class="ash-comment" title="token n°0 : comment">--]]</span></code> (comme Lua)</p>
+<details><summary>Note de design</summary>
+<div>
+<p>Cela permet de conserver <code><span class="ash-operator" title="token n°0 : operator">//</span></code> (C, JavaScript) et <code><span class="ash-operator" title="token n°0 : operator">#</span></code> (Ruby, Python) comme opérateurs de intdiv et longueur respectivement.</p>
+</div>
+</details>
 <pre>
 <span class="text-normal" title="token n°0 : normal">--</span> <span class="text-normal" title="token n°2 : normal">comment</span><span class="text-newline" title="token n°3 : newline">
 </span><span class="text-normal" title="token n°4 : normal">--[[</span> <span class="text-normal" title="token n°6 : normal">start</span> <span class="text-normal" title="token n°8 : normal">of</span> <span class="text-normal" title="token n°10 : normal">multi</span> <span class="text-normal" title="token n°12 : normal">line</span><span class="text-newline" title="token n°13 : newline">
@@ -243,7 +268,7 @@ Puis tapez :</p>
 <p>Ash utilise 27 mots-clés.</p>
 <table>
 <tr><td> var    </td><td> const   </td><td>        </td><td>      </td><td>     </td></tr>
-<tr><td> if     </td><td> then    </td><td> elif   </td><td> else </td><td> end </td></tr>
+<tr><td> if     </td><td> then    </td><td> elsif  </td><td> else </td><td> end </td></tr>
 <tr><td> while  </td><td> do      </td><td> loop   </td><td> for  </td><td> in  </td></tr>
 <tr><td> break  </td><td> next    </td><td>        </td><td>      </td><td>     </td></tr>
 <tr><td> fun    </td><td> pro     </td><td> return </td><td>      </td><td>     </td></tr>
@@ -255,19 +280,19 @@ Puis tapez :</p>
 <h3 id="1.5-constantes-et-variables">1.5 Constantes et variables</h3>
 <p>Pour déclarer une variable, il faut utiliser cette syntaxe :</p>
 <pre>
-<span class="ash-separator" title="token n°0 : separator">[</span><span class="ash-keyword" title="token n°1 : keyword">var</span><span class="ash-separator" title="token n°2 : separator">]</span> <span class="ash-identifier" title="token n°4 : identifier">ID</span> <span class="ash-separator" title="token n°6 : separator">[</span><span class="ash-type" title="token n°7 : type">:</span> <span class="ash-identifier" title="token n°9 : identifier">TYPE</span><span class="ash-separator" title="token n°10 : separator">]</span> <span class="ash-affectation" title="token n°12 : affectation">=</span> <span class="ash-identifier" title="token n°14 : identifier">EXPR</span><span class="ash-newline" title="token n°15 : newline">
+<span class="ash-separator" title="token n°0 : separator">[</span><span class="ash-keyword" title="token n°1 : keyword">var</span><span class="ash-separator" title="token n°2 : separator">]</span> <span class="ash-identifier" title="token n°4 : identifier">ID</span> <span class="ash-separator" title="token n°6 : separator">[</span><span class="ash-separator" title="token n°7 : separator">:</span> <span class="ash-identifier" title="token n°9 : identifier">TYPE</span><span class="ash-separator" title="token n°10 : separator">]</span> <span class="ash-operator" title="token n°12 : operator">=</span> <span class="ash-identifier" title="token n°14 : identifier">EXPR</span><span class="ash-newline" title="token n°15 : newline">
 </span></pre>
 <p>Il est recommandé de commencer une variable par une minuscule et d'utiliser un "_" pour séparer les mots.</p>
 <pre>
-<span class="ash-keyword" title="token n°0 : keyword">var</span> <span class="ash-identifier" title="token n°2 : identifier">age_personne</span> <span class="ash-type" title="token n°4 : type">:</span> <span class="ash-identifier" title="token n°6 : identifier">nat</span> <span class="ash-affectation" title="token n°8 : affectation">=</span> <span class="ash-integer" title="token n°10 : integer">25</span><span class="ash-newline" title="token n°11 : newline">
+<span class="ash-keyword" title="token n°0 : keyword">var</span> <span class="ash-identifier" title="token n°2 : identifier">age_personne</span> <span class="ash-separator" title="token n°4 : separator">:</span> <span class="ash-identifier" title="token n°6 : identifier">nat</span> <span class="ash-operator" title="token n°8 : operator">=</span> <span class="ash-number" title="token n°10 : number">25</span><span class="ash-newline" title="token n°11 : newline">
 </span></pre>
 <p>Pour déclarer une constante de référence, il faut utiliser cette syntaxe :</p>
 <pre>
-<span class="ash-keyword" title="token n°0 : keyword">const</span> <span class="ash-identifier" title="token n°2 : identifier">ID</span> <span class="ash-separator" title="token n°4 : separator">[</span><span class="ash-type" title="token n°5 : type">:</span> <span class="ash-identifier" title="token n°7 : identifier">TYPE</span><span class="ash-separator" title="token n°8 : separator">]</span>  <span class="ash-affectation" title="token n°10 : affectation">=</span> <span class="ash-identifier" title="token n°12 : identifier">EXPR</span><span class="ash-newline" title="token n°13 : newline">
+<span class="ash-keyword" title="token n°0 : keyword">const</span> <span class="ash-identifier" title="token n°2 : identifier">ID</span> <span class="ash-separator" title="token n°4 : separator">[</span><span class="ash-separator" title="token n°5 : separator">:</span> <span class="ash-identifier" title="token n°7 : identifier">TYPE</span><span class="ash-separator" title="token n°8 : separator">]</span>  <span class="ash-operator" title="token n°10 : operator">=</span> <span class="ash-identifier" title="token n°12 : identifier">EXPR</span><span class="ash-newline" title="token n°13 : newline">
 </span></pre>
 <p>Il est recommandé de commencer une constante par une majuscule.</p>
 <pre>
-<span class="ash-keyword" title="token n°0 : keyword">const</span> <span class="ash-identifier" title="token n°2 : identifier">PI</span> <span class="ash-type" title="token n°4 : type">:</span> <span class="ash-identifier" title="token n°6 : identifier">num</span> <span class="ash-affectation" title="token n°8 : affectation">=</span> <span class="ash-number" title="token n°10 : number">3.14</span><span class="ash-newline" title="token n°11 : newline">
+<span class="ash-keyword" title="token n°0 : keyword">const</span> <span class="ash-identifier" title="token n°2 : identifier">PI</span> <span class="ash-separator" title="token n°4 : separator">:</span> <span class="ash-identifier" title="token n°6 : identifier">num</span> <span class="ash-operator" title="token n°8 : operator">=</span> <span class="ash-number" title="token n°10 : number">3.14</span><span class="ash-newline" title="token n°11 : newline">
 </span></pre>
 <p>nom de variable : (_A-Za-z)(0-9A-Za-z)</p>
 <p>_ is for dummy variable or the last expression. utf-8 variable are supported.</p>
@@ -286,7 +311,7 @@ Puis tapez :</p>
 <h3 id="1.6-expressions-et-opérateurs">1.6 Expressions et opérateurs</h3>
 <p>Une expression est forcément évaluable à une valeur avec un type :</p>
 <pre>
-<span class="ash-integer" title="token n°0 : integer">5</span> <span class="ash-operator" title="token n°2 : operator">+</span> <span class="ash-integer" title="token n°4 : integer">2</span><span class="ash-newline" title="token n°5 : newline">
+<span class="ash-number" title="token n°0 : number">5</span> <span class="ash-operator" title="token n°2 : operator">+</span> <span class="ash-number" title="token n°4 : number">2</span><span class="ash-newline" title="token n°5 : newline">
 </span></pre>
 <p>Cette expression donne 7, de type nat.</p>
 <p>Une expression est composée d'opérateur et d'opérande.</p>
@@ -332,6 +357,24 @@ op exp</p>
 <h3 id="2.2-entier-et-réel">2.2 Entier et réel</h3>
 <h3 id="2.3-chaîne">2.3 Chaîne</h3>
 <h3 id="2.4-liste">2.4 Liste</h3>
+<table>
+<tr><th> Signature                                        </th></tr>
+<tr><td> pro flatten()                                    </td></tr>
+<tr><td> pro pop, shift() : any                           </td></tr>
+<tr><td> pro insert(index : int, value : any)             </td></tr>
+<tr><td> pro add, append, push(value : any)               </td></tr>
+<tr><td> get first : any                                  </td></tr>
+<tr><td> get last : any                                   </td></tr>
+<tr><td> fun find, index(value : any) : nat               </td></tr>
+<tr><td> fun find_all(value : any) : [int]                </td></tr>
+<tr><td> fun include?, has? contains?(value : any) : bool </td></tr>
+<tr><td> get min : any                                    </td></tr>
+<tr><td> get max : any                                    </td></tr>
+<tr><td> get length, count, size : nat                    </td></tr>
+<tr><td> pro sort()                                       </td></tr>
+<tr><td> pro reverse()                                    </td></tr>
+<tr><td> pro uniq()                                       </td></tr>
+</table>
 <h3 id="2.5-dictionnaire">2.5 Dictionnaire</h3>
 <h2 id="3.-contrôle-du-flux">3. Contrôle du flux</h2>
 <h3 id="3.1-séquence">3.1 Séquence</h3>
@@ -358,69 +401,80 @@ op exp</p>
 </span>    <span class="ash-identifier" title="token n°7 : identifier">ACTION</span><span class="ash-newline" title="token n°8 : newline">
 </span><span class="ash-keyword" title="token n°9 : keyword">loop</span><span class="ash-newline" title="token n°10 : newline">
 </span><span class="ash-newline" title="token n°11 : newline">
-</span><span class="ash-keyword" title="token n°12 : keyword">for</span> <span class="ash-identifier" title="token n°14 : identifier">ID1</span><span class="ash-separator" title="token n°15 : separator">[</span><span class="ash-separator" title="token n°16 : separator">,</span> <span class="ash-identifier" title="token n°18 : identifier">ID2</span><span class="ash-separator" title="token n°19 : separator">]</span> <span class="ash-identifier" title="token n°21 : identifier">in</span> <span class="ash-identifier" title="token n°23 : identifier">ITERABLE</span> <span class="ash-separator" title="token n°25 : separator">[</span><span class="ash-keyword" title="token n°26 : keyword">if</span> <span class="ash-identifier" title="token n°28 : identifier">CONDITION</span><span class="ash-separator" title="token n°29 : separator">]</span> <span class="ash-keyword" title="token n°31 : keyword">do</span><span class="ash-newline" title="token n°32 : newline">
+</span><span class="ash-keyword" title="token n°12 : keyword">for</span> <span class="ash-identifier" title="token n°14 : identifier">ID1</span><span class="ash-separator" title="token n°15 : separator">[</span><span class="ash-separator" title="token n°16 : separator">,</span> <span class="ash-identifier" title="token n°18 : identifier">ID2</span><span class="ash-separator" title="token n°19 : separator">]</span> <span class="ash-keyword" title="token n°21 : keyword">in</span> <span class="ash-identifier" title="token n°23 : identifier">ITERABLE</span> <span class="ash-separator" title="token n°25 : separator">[</span><span class="ash-keyword" title="token n°26 : keyword">if</span> <span class="ash-identifier" title="token n°28 : identifier">CONDITION</span><span class="ash-separator" title="token n°29 : separator">]</span> <span class="ash-keyword" title="token n°31 : keyword">do</span><span class="ash-newline" title="token n°32 : newline">
 </span>    <span class="ash-identifier" title="token n°34 : identifier">ACTION</span><span class="ash-newline" title="token n°35 : newline">
 </span><span class="ash-keyword" title="token n°36 : keyword">loop</span><span class="ash-newline" title="token n°37 : newline">
 </span><span class="ash-newline" title="token n°38 : newline">
 </span><span class="ash-keyword" title="token n°39 : keyword">break</span><span class="ash-newline" title="token n°40 : newline">
 </span><span class="ash-keyword" title="token n°41 : keyword">next</span><span class="ash-newline" title="token n°42 : newline">
 </span></pre>
-<h2 id="4.-fonctions-et-procédures">4. Fonctions et procédures</h2>
+<h2 id="4.-sous-programmes">4. Sous-programmes</h2>
+<h3 id="4.1-fonctions">4.1 Fonctions</h3>
 <pre>
-<span class="ash-keyword" title="token n°0 : keyword">fun</span><span class="ash-separator" title="token n°1 : separator">[</span><span class="ash-identifier" title="token n°2 : identifier">ction</span><span class="ash-separator" title="token n°3 : separator">]</span> <span class="ash-identifier" title="token n°5 : identifier">ID</span> <span class="ash-separator" title="token n°7 : separator">(</span><span class="ash-identifier" title="token n°8 : identifier">P1</span> <span class="ash-separator" title="token n°10 : separator">[</span><span class="ash-type" title="token n°11 : type">:</span> <span class="ash-identifier" title="token n°13 : identifier">T1</span><span class="ash-separator" title="token n°14 : separator">]</span><span class="ash-separator" title="token n°15 : separator">,</span> <span class="ash-identifier" title="token n°17 : identifier">P2</span> <span class="ash-separator" title="token n°19 : separator">[</span><span class="ash-type" title="token n°20 : type">:</span> <span class="ash-identifier" title="token n°22 : identifier">T2</span><span class="ash-separator" title="token n°23 : separator">]</span><span class="ash-separator" title="token n°24 : separator">)</span> <span class="ash-separator" title="token n°26 : separator">[</span><span class="ash-type" title="token n°27 : type">:</span> <span class="ash-identifier" title="token n°29 : identifier">TYPE</span><span class="ash-separator" title="token n°30 : separator">]</span><span class="ash-newline" title="token n°31 : newline">
+<span class="ash-keyword" title="token n°0 : keyword">fun</span><span class="ash-separator" title="token n°1 : separator">[</span><span class="ash-identifier" title="token n°2 : identifier">ction</span><span class="ash-separator" title="token n°3 : separator">]</span> <span class="ash-identifier" title="token n°5 : identifier">ID</span> <span class="ash-separator" title="token n°7 : separator">(</span><span class="ash-identifier" title="token n°8 : identifier">P1</span> <span class="ash-separator" title="token n°10 : separator">[</span><span class="ash-separator" title="token n°11 : separator">:</span> <span class="ash-identifier" title="token n°13 : identifier">T1</span><span class="ash-separator" title="token n°14 : separator">]</span><span class="ash-separator" title="token n°15 : separator">,</span> <span class="ash-identifier" title="token n°17 : identifier">P2</span> <span class="ash-separator" title="token n°19 : separator">[</span><span class="ash-separator" title="token n°20 : separator">:</span> <span class="ash-identifier" title="token n°22 : identifier">T2</span><span class="ash-separator" title="token n°23 : separator">]</span><span class="ash-separator" title="token n°24 : separator">)</span> <span class="ash-separator" title="token n°26 : separator">[</span><span class="ash-separator" title="token n°27 : separator">:</span> <span class="ash-identifier" title="token n°29 : identifier">TYPE</span><span class="ash-separator" title="token n°30 : separator">]</span><span class="ash-newline" title="token n°31 : newline">
 </span>    <span class="ash-identifier" title="token n°33 : identifier">ACTION</span><span class="ash-newline" title="token n°34 : newline">
-</span><span class="ash-keyword" title="token n°35 : keyword">end</span><span class="ash-newline" title="token n°36 : newline">
-</span><span class="ash-newline" title="token n°37 : newline">
-</span><span class="ash-keyword" title="token n°38 : keyword">pro</span><span class="ash-separator" title="token n°39 : separator">[</span><span class="ash-identifier" title="token n°40 : identifier">cedure</span><span class="ash-separator" title="token n°41 : separator">]</span> <span class="ash-identifier" title="token n°43 : identifier">ID</span> <span class="ash-separator" title="token n°45 : separator">(</span><span class="ash-identifier" title="token n°46 : identifier">P1</span> <span class="ash-separator" title="token n°48 : separator">[</span><span class="ash-type" title="token n°49 : type">:</span> <span class="ash-identifier" title="token n°51 : identifier">T1</span><span class="ash-separator" title="token n°52 : separator">]</span><span class="ash-separator" title="token n°53 : separator">,</span> <span class="ash-identifier" title="token n°55 : identifier">P2</span> <span class="ash-separator" title="token n°57 : separator">[</span><span class="ash-type" title="token n°58 : type">:</span> <span class="ash-identifier" title="token n°60 : identifier">T2</span><span class="ash-separator" title="token n°61 : separator">]</span><span class="ash-separator" title="token n°62 : separator">)</span><span class="ash-newline" title="token n°63 : newline">
-</span>    <span class="ash-identifier" title="token n°65 : identifier">ACTION</span><span class="ash-newline" title="token n°66 : newline">
-</span><span class="ash-keyword" title="token n°67 : keyword">end</span><span class="ash-newline" title="token n°68 : newline">
-</span><span class="ash-newline" title="token n°69 : newline">
-</span><span class="ash-keyword" title="token n°70 : keyword">return</span> <span class="ash-separator" title="token n°72 : separator">[</span><span class="ash-identifier" title="token n°73 : identifier">EXPR</span><span class="ash-separator" title="token n°74 : separator">]</span><span class="ash-newline" title="token n°75 : newline">
+</span>    <span class="ash-keyword" title="token n°36 : keyword">return</span> <span class="ash-identifier" title="token n°38 : identifier">EXPR</span><span class="ash-newline" title="token n°39 : newline">
+</span><span class="ash-keyword" title="token n°40 : keyword">end</span><span class="ash-newline" title="token n°41 : newline">
+</span></pre>
+<h3 id="4.2-procédures">4.2 Procédures</h3>
+<pre>
+<span class="ash-keyword" title="token n°0 : keyword">pro</span><span class="ash-separator" title="token n°1 : separator">[</span><span class="ash-identifier" title="token n°2 : identifier">cedure</span><span class="ash-separator" title="token n°3 : separator">]</span> <span class="ash-identifier" title="token n°5 : identifier">ID</span> <span class="ash-separator" title="token n°7 : separator">(</span><span class="ash-identifier" title="token n°8 : identifier">P1</span> <span class="ash-separator" title="token n°10 : separator">[</span><span class="ash-separator" title="token n°11 : separator">:</span> <span class="ash-identifier" title="token n°13 : identifier">T1</span><span class="ash-separator" title="token n°14 : separator">]</span><span class="ash-separator" title="token n°15 : separator">,</span> <span class="ash-identifier" title="token n°17 : identifier">P2</span> <span class="ash-separator" title="token n°19 : separator">[</span><span class="ash-separator" title="token n°20 : separator">:</span> <span class="ash-identifier" title="token n°22 : identifier">T2</span><span class="ash-separator" title="token n°23 : separator">]</span><span class="ash-separator" title="token n°24 : separator">)</span><span class="ash-newline" title="token n°25 : newline">
+</span>    <span class="ash-identifier" title="token n°27 : identifier">ACTION</span><span class="ash-newline" title="token n°28 : newline">
+</span>    <span class="ash-keyword" title="token n°30 : keyword">return</span><span class="ash-newline" title="token n°31 : newline">
+</span><span class="ash-keyword" title="token n°32 : keyword">end</span><span class="ash-newline" title="token n°33 : newline">
+</span></pre>
+<h3 id="4.3-getters">4.3 Getters</h3>
+<p>Un getter est une fonction qui ne prend pas de paramètres. Elle sert à retourner des valeurs qui sont calculées. On évitera de mettre des calculs trop importants dans un getter.</p>
+<pre>
+<span class="ash-keyword" title="token n°0 : keyword">get</span> <span class="ash-identifier" title="token n°2 : identifier">ID</span> <span class="ash-separator" title="token n°4 : separator">:</span> <span class="ash-identifier" title="token n°6 : identifier">TYPE</span><span class="ash-newline" title="token n°7 : newline">
+</span>    <span class="ash-identifier" title="token n°9 : identifier">ACTION</span><span class="ash-newline" title="token n°10 : newline">
+</span>    <span class="ash-keyword" title="token n°12 : keyword">return</span> <span class="ash-identifier" title="token n°14 : identifier">EXPR</span><span class="ash-newline" title="token n°15 : newline">
+</span><span class="ash-keyword" title="token n°16 : keyword">end</span><span class="ash-newline" title="token n°17 : newline">
 </span></pre>
 <h2 id="5.-classes-et-objets">5. Classes et objets</h2>
 <pre>
 <span class="ash-newline" title="token n°0 : newline">
 </span><span class="ash-keyword" title="token n°1 : keyword">class</span> <span class="ash-identifier" title="token n°3 : identifier">ID</span> <span class="ash-separator" title="token n°5 : separator">[</span><span class="ash-operator" title="token n°6 : operator">&lt;</span> <span class="ash-identifier" title="token n°8 : identifier">SUPER</span><span class="ash-separator" title="token n°9 : separator">]</span><span class="ash-newline" title="token n°10 : newline">
-</span>    <span class="ash-separator" title="token n°12 : separator">[</span><span class="ash-identifier" title="token n°13 : identifier">static</span> <span class="ash-keyword" title="token n°15 : keyword">const</span><span class="ash-separator" title="token n°16 : separator">,</span> <span class="ash-identifier" title="token n°18 : identifier">static</span> <span class="ash-keyword" title="token n°20 : keyword">var</span><span class="ash-separator" title="token n°21 : separator">,</span> <span class="ash-keyword" title="token n°23 : keyword">var</span><span class="ash-separator" title="token n°24 : separator">]</span> <span class="ash-identifier" title="token n°26 : identifier">ID</span> <span class="ash-affectation" title="token n°28 : affectation">=</span> <span class="ash-identifier" title="token n°30 : identifier">EXPR</span><span class="ash-newline" title="token n°31 : newline">
-</span>    <span class="ash-separator" title="token n°33 : separator">[</span><span class="ash-identifier" title="token n°34 : identifier">static</span><span class="ash-separator" title="token n°35 : separator">]</span> <span class="ash-keyword" title="token n°37 : keyword">fun</span> <span class="ash-identifier" title="token n°39 : identifier">or</span> <span class="ash-keyword" title="token n°41 : keyword">pro</span><span class="ash-newline" title="token n°42 : newline">
+</span>    <span class="ash-separator" title="token n°12 : separator">[</span><span class="ash-keyword" title="token n°13 : keyword">static</span> <span class="ash-keyword" title="token n°15 : keyword">const</span><span class="ash-separator" title="token n°16 : separator">,</span> <span class="ash-keyword" title="token n°18 : keyword">static</span> <span class="ash-keyword" title="token n°20 : keyword">var</span><span class="ash-separator" title="token n°21 : separator">,</span> <span class="ash-keyword" title="token n°23 : keyword">var</span><span class="ash-separator" title="token n°24 : separator">]</span> <span class="ash-identifier" title="token n°26 : identifier">ID</span> <span class="ash-operator" title="token n°28 : operator">=</span> <span class="ash-identifier" title="token n°30 : identifier">EXPR</span><span class="ash-newline" title="token n°31 : newline">
+</span>    <span class="ash-separator" title="token n°33 : separator">[</span><span class="ash-keyword" title="token n°34 : keyword">static</span><span class="ash-separator" title="token n°35 : separator">]</span> <span class="ash-keyword" title="token n°37 : keyword">fun</span> <span class="ash-keyword" title="token n°39 : keyword">or</span> <span class="ash-keyword" title="token n°41 : keyword">pro</span><span class="ash-newline" title="token n°42 : newline">
 </span>    <span class="ash-keyword" title="token n°44 : keyword">pro</span> <span class="ash-identifier" title="token n°46 : identifier">init</span><span class="ash-separator" title="token n°47 : separator">(</span><span class="ash-identifier" title="token n°48 : identifier">@a</span> <span class="ash-identifier" title="token n°50 : identifier">int</span><span class="ash-separator" title="token n°51 : separator">,</span> <span class="ash-identifier" title="token n°53 : identifier">b</span> <span class="ash-identifier" title="token n°55 : identifier">int</span><span class="ash-separator" title="token n°56 : separator">)</span><span class="ash-newline" title="token n°57 : newline">
-</span>        <span class="ash-identifier" title="token n°59 : identifier">@b</span> <span class="ash-affectation" title="token n°61 : affectation">=</span> <span class="ash-identifier" title="token n°63 : identifier">b</span><span class="ash-newline" title="token n°64 : newline">
+</span>        <span class="ash-identifier" title="token n°59 : identifier">@b</span> <span class="ash-operator" title="token n°61 : operator">=</span> <span class="ash-identifier" title="token n°63 : identifier">b</span><span class="ash-newline" title="token n°64 : newline">
 </span>    <span class="ash-keyword" title="token n°66 : keyword">end</span><span class="ash-newline" title="token n°67 : newline">
 </span><span class="ash-keyword" title="token n°68 : keyword">end</span><span class="ash-newline" title="token n°69 : newline">
 </span><span class="ash-newline" title="token n°70 : newline">
-</span><span class="ash-identifier" title="token n°71 : identifier">a</span> <span class="ash-affectation" title="token n°73 : affectation">=</span> <span class="ash-identifier" title="token n°75 : identifier">ID</span><span class="ash-operator" title="token n°76 : operator">.</span><span class="ash-identifier" title="token n°77 : identifier">new</span><span class="ash-separator" title="token n°78 : separator">(</span><span class="ash-identifier" title="token n°79 : identifier">param</span><span class="ash-separator" title="token n°80 : separator">)</span><span class="ash-newline" title="token n°81 : newline">
+</span><span class="ash-identifier" title="token n°71 : identifier">a</span> <span class="ash-operator" title="token n°73 : operator">=</span> <span class="ash-identifier" title="token n°75 : identifier">ID</span><span class="ash-operator" title="token n°76 : operator">.</span><span class="ash-identifier" title="token n°77 : identifier">new</span><span class="ash-separator" title="token n°78 : separator">(</span><span class="ash-identifier" title="token n°79 : identifier">param</span><span class="ash-separator" title="token n°80 : separator">)</span><span class="ash-newline" title="token n°81 : newline">
 </span><span class="ash-newline" title="token n°82 : newline">
 </span><span class="ash-keyword" title="token n°83 : keyword">class</span> <span class="ash-identifier" title="token n°85 : identifier">Point</span>          <span class="ash-identifier" title="token n°87 : identifier">object</span> <span class="ash-separator" title="token n°89 : separator">(</span><span class="ash-identifier" title="token n°90 : identifier">fixed</span> <span class="ash-identifier" title="token n°92 : identifier">fields</span><span class="ash-separator" title="token n°93 : separator">)</span><span class="ash-operator" title="token n°94 : operator">/</span><span class="ash-identifier" title="token n°95 : identifier">obj</span><span class="ash-newline" title="token n°96 : newline">
 </span>   <span class="ash-identifier" title="token n°98 : identifier">x</span> <span class="ash-identifier" title="token n°100 : identifier">int</span><span class="ash-newline" title="token n°101 : newline">
 </span>   <span class="ash-identifier" title="token n°103 : identifier">y</span> <span class="ash-identifier" title="token n°105 : identifier">int</span><span class="ash-newline" title="token n°106 : newline">
 </span><span class="ash-keyword" title="token n°107 : keyword">end</span><span class="ash-newline" title="token n°108 : newline">
 </span><span class="ash-identifier" title="token n°109 : identifier">@attr</span> <span class="ash-comment" title="token n°111 : comment">-- instance attribute</span><span class="ash-newline" title="token n°112 : newline">
-</span><span class="ash-identifier" title="token n°113 : identifier">$attr</span> <span class="ash-comment" title="token n°115 : comment">-- class attribute (en Ruby pour global et @@ pour class)</span><span class="ash-newline" title="token n°116 : newline">
-</span><span class="ash-newline" title="token n°117 : newline">
-</span><span class="ash-keyword" title="token n°118 : keyword">if</span> <span class="ash-identifier" title="token n°120 : identifier">o</span> <span class="ash-identifier" title="token n°122 : identifier">is</span> <span class="ash-identifier" title="token n°124 : identifier">Class</span> <span class="ash-identifier" title="token n°126 : identifier">c</span> <span class="ash-keyword" title="token n°128 : keyword">then</span><span class="ash-newline" title="token n°129 : newline">
-</span>   <span class="ash-comment" title="token n°131 : comment">-- vous pouvez utiliser c dans ce bloc</span><span class="ash-newline" title="token n°132 : newline">
-</span><span class="ash-keyword" title="token n°133 : keyword">end</span><span class="ash-newline" title="token n°134 : newline">
-</span><span class="ash-newline" title="token n°135 : newline">
-</span><span class="ash-identifier" title="token n°136 : identifier">static</span> <span class="ash-keyword" title="token n°138 : keyword">class</span> <span class="ash-identifier" title="token n°140 : identifier">Order</span> <span class="ash-operator" title="token n°142 : operator">&lt;</span> <span class="ash-identifier" title="token n°144 : identifier">String</span> <span class="ash-comment" title="token n°146 : comment">-- no instance &lt;=&gt; enum</span><span class="ash-newline" title="token n°147 : newline">
-</span>    <span class="ash-identifier" title="token n°149 : identifier">static</span> <span class="ash-identifier" title="token n°151 : identifier">Move</span> <span class="ash-affectation" title="token n°153 : affectation">=</span> <span class="ash-string" title="token n°155 : string">"Move"</span><span class="ash-newline" title="token n°156 : newline">
-</span>    <span class="ash-identifier" title="token n°158 : identifier">static</span> <span class="ash-identifier" title="token n°160 : identifier">Wait</span> <span class="ash-affectation" title="token n°162 : affectation">=</span> <span class="ash-string" title="token n°164 : string">"Wait"</span><span class="ash-newline" title="token n°165 : newline">
-</span>    <span class="ash-identifier" title="token n°167 : identifier">static</span> <span class="ash-identifier" title="token n°169 : identifier">Attack</span> <span class="ash-affectation" title="token n°171 : affectation">=</span> <span class="ash-string" title="token n°173 : string">"Attack"</span><span class="ash-newline" title="token n°174 : newline">
-</span>    <span class="ash-identifier" title="token n°176 : identifier">static</span> <span class="ash-identifier" title="token n°178 : identifier">Follow</span> <span class="ash-affectation" title="token n°180 : affectation">=</span> <span class="ash-string" title="token n°182 : string">"Follow"</span><span class="ash-newline" title="token n°183 : newline">
-</span><span class="ash-keyword" title="token n°184 : keyword">end</span><span class="ash-newline" title="token n°185 : newline">
+</span><span class="ash-operator" title="token n°113 : operator">$attr -- class attribute (en Ruby pour global et @@ pour class)
+
+if o is Class c then
+   -- vous pouvez utiliser c dans ce bloc
+end
+
+static class Order &lt; String -- no instance &lt;=&gt; enum
+    static Move = "Move"
+    static Wait = "Wait"
+    static Attack = "Attack"
+    static Follow = "Follow"
+end
 </span></pre>
 <h2 id="6.-gestion-des-erreurs">6. Gestion des erreurs</h2>
 <pre>
 <span class="ash-keyword" title="token n°0 : keyword">return</span> <span class="ash-identifier" title="token n°2 : identifier">EXCEPTION</span><span class="ash-newline" title="token n°3 : newline">
 </span><span class="ash-newline" title="token n°4 : newline">
-</span><span class="ash-keyword" title="token n°5 : keyword">fun</span> <span class="ash-identifier" title="token n°7 : identifier">div</span><span class="ash-separator" title="token n°8 : separator">(</span><span class="ash-identifier" title="token n°9 : identifier">a</span> <span class="ash-type" title="token n°11 : type">:</span> <span class="ash-identifier" title="token n°13 : identifier">num</span><span class="ash-separator" title="token n°14 : separator">,</span> <span class="ash-identifier" title="token n°16 : identifier">b</span> <span class="ash-type" title="token n°18 : type">:</span> <span class="ash-identifier" title="token n°20 : identifier">num</span><span class="ash-separator" title="token n°21 : separator">)</span> <span class="ash-type" title="token n°23 : type">:</span> <span class="ash-identifier" title="token n°25 : identifier">num</span><span class="ash-newline" title="token n°26 : newline">
-</span>    <span class="ash-keyword" title="token n°28 : keyword">if</span> <span class="ash-identifier" title="token n°30 : identifier">b</span> <span class="ash-operator" title="token n°32 : operator">==</span> <span class="ash-integer" title="token n°34 : integer">0</span> <span class="ash-keyword" title="token n°36 : keyword">then</span><span class="ash-newline" title="token n°37 : newline">
+</span><span class="ash-keyword" title="token n°5 : keyword">fun</span> <span class="ash-identifier" title="token n°7 : identifier">div</span><span class="ash-separator" title="token n°8 : separator">(</span><span class="ash-identifier" title="token n°9 : identifier">a</span> <span class="ash-separator" title="token n°11 : separator">:</span> <span class="ash-identifier" title="token n°13 : identifier">num</span><span class="ash-separator" title="token n°14 : separator">,</span> <span class="ash-identifier" title="token n°16 : identifier">b</span> <span class="ash-separator" title="token n°18 : separator">:</span> <span class="ash-identifier" title="token n°20 : identifier">num</span><span class="ash-separator" title="token n°21 : separator">)</span> <span class="ash-separator" title="token n°23 : separator">:</span> <span class="ash-identifier" title="token n°25 : identifier">num</span><span class="ash-newline" title="token n°26 : newline">
+</span>    <span class="ash-keyword" title="token n°28 : keyword">if</span> <span class="ash-identifier" title="token n°30 : identifier">b</span> <span class="ash-operator" title="token n°32 : operator">==</span> <span class="ash-number" title="token n°34 : number">0</span> <span class="ash-keyword" title="token n°36 : keyword">then</span><span class="ash-newline" title="token n°37 : newline">
 </span>        <span class="ash-keyword" title="token n°39 : keyword">return</span> <span class="ash-identifier" title="token n°41 : identifier">DivByZeroException</span><span class="ash-newline" title="token n°42 : newline">
 </span>    <span class="ash-keyword" title="token n°44 : keyword">else</span><span class="ash-newline" title="token n°45 : newline">
 </span>        <span class="ash-keyword" title="token n°47 : keyword">return</span> <span class="ash-identifier" title="token n°49 : identifier">a</span> <span class="ash-operator" title="token n°51 : operator">/</span> <span class="ash-identifier" title="token n°53 : identifier">b</span><span class="ash-newline" title="token n°54 : newline">
 </span>    <span class="ash-keyword" title="token n°56 : keyword">end</span><span class="ash-newline" title="token n°57 : newline">
 </span><span class="ash-keyword" title="token n°58 : keyword">end</span><span class="ash-newline" title="token n°59 : newline">
 </span><span class="ash-newline" title="token n°60 : newline">
-</span><span class="ash-identifier" title="token n°61 : identifier">div</span><span class="ash-separator" title="token n°62 : separator">(</span><span class="ash-integer" title="token n°63 : integer">5</span><span class="ash-separator" title="token n°64 : separator">,</span> <span class="ash-integer" title="token n°66 : integer">0</span><span class="ash-separator" title="token n°67 : separator">)</span><span class="ash-newline" title="token n°68 : newline">
+</span><span class="ash-identifier" title="token n°61 : identifier">div</span><span class="ash-separator" title="token n°62 : separator">(</span><span class="ash-number" title="token n°63 : number">5</span><span class="ash-separator" title="token n°64 : separator">,</span> <span class="ash-number" title="token n°66 : number">0</span><span class="ash-separator" title="token n°67 : separator">)</span><span class="ash-newline" title="token n°68 : newline">
 </span><span class="ash-keyword" title="token n°69 : keyword">if</span> <span class="ash-identifier" title="token n°71 : identifier">DivByZeroException</span> <span class="ash-keyword" title="token n°73 : keyword">then</span><span class="ash-newline" title="token n°74 : newline">
 </span>    <span class="ash-special" title="token n°76 : special">writeln</span><span class="ash-separator" title="token n°77 : separator">(</span><span class="ash-string" title="token n°78 : string">"An exception has been catched"</span><span class="ash-separator" title="token n°79 : separator">)</span><span class="ash-newline" title="token n°80 : newline">
 </span><span class="ash-keyword" title="token n°81 : keyword">end</span><span class="ash-newline" title="token n°82 : newline">
@@ -428,7 +482,7 @@ op exp</p>
 </span></pre>
 <h2 id="7.-bibliothèque-standard">7. Bibliothèque standard</h2>
 <pre>
-<span class="ash-identifier" title="token n°0 : identifier">ID</span> <span class="ash-separator" title="token n°2 : separator">[</span><span class="ash-identifier" title="token n°3 : identifier">module</span><span class="ash-separator" title="token n°4 : separator">]</span> <span class="ash-affectation" title="token n°6 : affectation">=</span> <span class="ash-keyword" title="token n°8 : keyword">import</span> <span class="ash-separator" title="token n°10 : separator">(</span><span class="ash-identifier" title="token n°11 : identifier">FILEPATH</span> <span class="ash-operator" title="token n°13 : operator">|</span> <span class="ash-identifier" title="token n°15 : identifier">ID</span><span class="ash-separator" title="token n°16 : separator">)</span> <span class="ash-separator" title="token n°18 : separator">[</span> <span class="ash-operator" title="token n°20 : operator">&gt;</span> <span class="ash-identifier" title="token n°22 : identifier">ID1</span><span class="ash-separator" title="token n°23 : separator">,</span> <span class="ash-identifier" title="token n°25 : identifier">ID2</span> <span class="ash-separator" title="token n°27 : separator">]</span><span class="ash-newline" title="token n°28 : newline">
+<span class="ash-identifier" title="token n°0 : identifier">ID</span> <span class="ash-separator" title="token n°2 : separator">[</span><span class="ash-identifier" title="token n°3 : identifier">module</span><span class="ash-separator" title="token n°4 : separator">]</span> <span class="ash-operator" title="token n°6 : operator">=</span> <span class="ash-keyword" title="token n°8 : keyword">import</span> <span class="ash-separator" title="token n°10 : separator">(</span><span class="ash-identifier" title="token n°11 : identifier">FILEPATH</span> <span class="ash-operator" title="token n°13 : operator">|</span> <span class="ash-identifier" title="token n°15 : identifier">ID</span><span class="ash-separator" title="token n°16 : separator">)</span> <span class="ash-separator" title="token n°18 : separator">[</span> <span class="ash-operator" title="token n°20 : operator">&gt;</span> <span class="ash-identifier" title="token n°22 : identifier">ID1</span><span class="ash-separator" title="token n°23 : separator">,</span> <span class="ash-identifier" title="token n°25 : identifier">ID2</span> <span class="ash-separator" title="token n°27 : separator">]</span><span class="ash-newline" title="token n°28 : newline">
 </span><span class="ash-newline" title="token n°29 : newline">
 </span><span class="ash-identifier" title="token n°30 : identifier">module</span> <span class="ash-identifier" title="token n°32 : identifier">ID</span> <span class="ash-comment" title="token n°34 : comment">-- (en tête de fichier, pas de fin) (plutôt que package ou namespace)</span><span class="ash-newline" title="token n°35 : newline">
 </span></pre>

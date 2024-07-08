@@ -209,7 +209,7 @@ class Map {
 class Order {
 }
 
-class Move extends Order {        
+class Move extends Order {
     constructor(row, col) {
         super();
         this.row = row;
@@ -394,7 +394,7 @@ class Group {
                         done: false
                     };
                 } else {
-                    this.index = 0; 
+                    this.index = 0;
                     return {
                         done: true
                     };
@@ -668,14 +668,12 @@ class Menu {
             if (!camera.selected.is_building) {
                 ctx.drawImage(textures['Move'], this.x, this.y);
                 ctx.drawImage(textures['Attack'], this.x + 32, this.y);
-            } else {
-                if (camera.selected.first.type == 'barrack') {
+            } else if (camera.selected.first.type == 'barrack') {
                     ctx.strokeStyle = 'rgb(0, 128, 0)';
                     ctx.strokeRect(this.x, this.y + 32, this.width / 2, 1);
                     ctx.drawImage(textures['CreateSoldier'], this.x, this.y + 32);
                     ctx.drawImage(textures['CreateScout'], this.x + 32, this.y + 32);
                     ctx.drawImage(textures['CreateBuilder'], this.x + 64, this.y + 32);
-                }
             }
             // Info on unit
             if (camera.selected.length == 1 && camera.selected.first instanceof UnitCreator) {
@@ -941,7 +939,7 @@ function draw() {
             ctx.strokeStyle = 'rgb(255, 255, 255)';
             ctx.strokeRect(Math.min(mouse_start_col - camera.col * 32, mouse_col),
                            Math.min(mouse_start_row - camera.row * 32, mouse_row - camera.row),
-                           Math.abs(mouse_start_col - camera.col * 32 - mouse_col), 
+                           Math.abs(mouse_start_col - camera.col * 32 - mouse_col),
                            Math.abs(mouse_start_row - camera.row * 32 - mouse_row));
             //console.log(mouse_start_col, mouse_start_row, mouse_col, mouse_row);
         }
@@ -1149,7 +1147,7 @@ function transition_one(trow, tcol, content) {
             }
         }
     }
-    let cal = [center, 0, 
+    let cal = [center, 0,
                0, 0, 0, 0,
                0, 0, 0, 0];
     let O = 1;

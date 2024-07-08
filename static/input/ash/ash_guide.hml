@@ -7,7 +7,11 @@
 !require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
 
 §§ https://www.color-hex.com/color-palette/5452
-!css details { border: 1px solid #5bc0de; padding: 5px; cursor: pointer; margin-bottom: 0.5em; background-color: #F9F9F9;}
+!css details { border: 1px solid #5bc0de; cursor: pointer; margin-bottom: 0.5em; background-color: #F9F9F9;}
+!css summary { color: #F9F9F9; background-color: #5bc0de;}
+!css details summary:before { content: "+"; margin-right: 6px;}
+!css details[open] summary:before { content: "-"; margin-right: 6px;}
+!css details div { padding: 5px; }
 
 !var DEFAULT_CODE=ash
 
@@ -111,10 +115,12 @@ ash.ex -i pipo.ash
 Les arguments sont stockés dans une liste. 0 est le nom du script. En nég, les options préalables. En pos, les options du script.
 
 <<Note de design>>
+{{begin}}
 ''Ces encadrés exposent des décisions de design.''
 
 La syntaxe de Ash s'inspire des langages ''Lua'', ''Ruby'' et ''Pascal''.
 Les langages ''JavaScript'' et ''Python'' sont également des inspirations pour leur fonctionnement et leur bibliothèque de base.
+{{end}}
 <<end>>
 
 ### 1.2 Premiers programmes
@@ -149,7 +155,9 @@ Les commentaires monolignes commençent par @@--@@ (comme Lua et SQL)
 Les commentaires multilignes commençent par @@--[[@@ et finissent par @@--]]@@ (comme Lua)
 
 <<Note de design>>
+{{begin}}
 Cela permet de conserver @@//@@ (C, JavaScript) et @@#@@ (Ruby, Python) comme opérateurs de intdiv et longueur respectivement.
+{{end}}
 <<end>>
 
 @@@text
