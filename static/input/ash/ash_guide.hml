@@ -6,6 +6,9 @@
 !require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
 !require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
 
+§§ https://www.color-hex.com/color-palette/5452
+!css details { border: 1px solid #5bc0de; padding: 5px; cursor: pointer; margin-bottom: 0.5em; background-color: #F9F9F9;}
+
 !var DEFAULT_CODE=ash
 
 {{#main .container}}
@@ -41,10 +44,13 @@ Un langage de script simple et concis avec support pour l'orienté objet.
   + Séquence
   + Sélection
   + Boucle
-+ Fonctions et procédures
-  Classes et objets
-  Gestion des erreurs
-  Bibliothèque standard
++ Sous-programmes
+  + Fonctions
+  + Procédures
+  + Getters
++ Classes et objets
++ Gestion des erreurs
++ Bibliothèque standard
 + + Console
   + Fichiers
   + Système d'exploitation
@@ -54,6 +60,8 @@ Un langage de script simple et concis avec support pour l'orienté objet.
   + Ash/C
 
 §§ Historique
+
+§§ Début de fusion du fichier design.txt dont la dernière révision remonte au 11 mai 2021
 
 §§ 07/06/2023
 §§ - J'enlève tous les labels (break, next et boucle)
@@ -102,6 +110,13 @@ ash.ex -i pipo.ash
 
 Les arguments sont stockés dans une liste. 0 est le nom du script. En nég, les options préalables. En pos, les options du script.
 
+<<Note de design>>
+''Ces encadrés exposent des décisions de design.''
+
+La syntaxe de Ash s'inspire des langages ''Lua'', ''Ruby'' et ''Pascal''.
+Les langages ''JavaScript'' et ''Python'' sont également des inspirations pour leur fonctionnement et leur bibliothèque de base.
+<<end>>
+
 ### 1.2 Premiers programmes
 
 La tradition veut qu'on affiche "Bonjour le monde !" sur la sortie standard. Pour cela, il faut lancer l'interpréteur interactif
@@ -128,6 +143,14 @@ writeln(fact(nb))
 @@@
 
 ### 1.3 Commentaires
+
+Les commentaires monolignes commençent par @@--@@ (comme Lua et SQL)
+
+Les commentaires multilignes commençent par @@--[[@@ et finissent par @@--]]@@ (comme Lua)
+
+<<Note de design>>
+Cela permet de conserver @@//@@ (C, JavaScript) et @@#@@ (Ruby, Python) comme opérateurs de intdiv et longueur respectivement.
+<<end>>
 
 @@@text
 -- comment
@@ -271,6 +294,27 @@ Ash utilise 9 types de données de base :
 
 ### 2.4 Liste
 
+| Signature                                        |
+|--------------------------------------------------|
+| pro flatten()                                    |
+| pro pop, shift() : any                           |
+| pro insert(index : int, value : any)             |
+| pro add, append, push(value : any)               |
+| get first : any                                  |
+| get last : any                                   |
+| fun find, index(value : any) : nat               |
+| fun find_all(value : any) : [int]                |
+| fun include?, has? contains?(value : any) : bool |
+| get min : any                                    |
+| get max : any                                    |
+| get length, count, size : nat                    |
+| pro sort()                                       |
+| pro reverse()                                    |
+| pro uniq()                                       |
+
+§§ Abandons de push_front/back
+§§ Il faut choisir entre include?, includes, includes?
+
 ### 2.5 Dictionnaire
 
 ## 3. Contrôle du flux
@@ -324,18 +368,35 @@ next
 §§ Je garde le loop pour finir
 §§ J'abandonne le [while CONDITION] pour le for
 
-## 4. Fonctions et procédures
+## 4. Sous-programmes
+
+### 4.1 Fonctions
 
 @@@ash
 fun[ction] ID (P1 [: T1], P2 [: T2]) [: TYPE]
     ACTION
+    return EXPR
 end
+@@@
 
+### 4.2 Procédures
+
+@@@ash
 pro[cedure] ID (P1 [: T1], P2 [: T2])
     ACTION
+    return
 end
+@@@
 
-return [EXPR]
+### 4.3 Getters
+
+Un getter est une fonction qui ne prend pas de paramètres. Elle sert à retourner des valeurs qui sont calculées. On évitera de mettre des calculs trop importants dans un getter.
+
+@@@ash
+get ID : TYPE
+    ACTION
+    return EXPR
+end
 @@@
 
 §§ J'abandonne le [> TYPE] à l'intérieur des parenthèses pour un classique :
