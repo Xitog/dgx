@@ -44,32 +44,32 @@ function load_map(dic) {
     if ("name" in dic) {
         name = dic["name"];
     } else {
-        throw "Incorrect map format: no name provided";
+        throw Error("Incorrect map format: no name provided");
     }
     if ("content" in dic) {
         content = dic["content"];
     } else {
-        throw "Incorrect map format: no content provided";
+        throw Error("Incorrect map format: no content provided");
     }
     if ("height" in dic) {
         height = dic["height"];
         if (height != content.length) {
-            throw "Incoherent number of rows: " + height + " declared vs " + content.length;
+            throw Error("Incoherent number of rows: " + height + " declared vs " + content.length);
         } else if (height == 0) {
-            throw "Empty map with 0 height";
+            throw Error("Empty map with 0 height");
         }
     } else {
-        throw "Incorrect map format: no height provided";
+        throw Error("Incorrect map format: no height provided");
     }
     if ("width" in dic) {
         width = dic["width"];
         if (width != content[0].length) {
-            throw "Incoherent number of columns: " + width + " declared vs " + content[0].length;
+            throw Error("Incoherent number of columns: " + width + " declared vs " + content[0].length);
         } else if (width == 0) {
-            throw "Empty map with 0 width";
+            throw Error("Empty map with 0 width");
         }
     } else {
-        throw "Incorrect map format: no width provided";
+        throw Error("Incorrect map format: no width provided");
     }
     if ("triggers" in dic) {
         triggers = dic["triggers"];
@@ -81,14 +81,14 @@ function load_map(dic) {
                 if (c[0] === 'ControlUnits') {
                     conditions.push(new ControlUnits(c[0], c[1], c[2], c[3], c[4], c[5]));
                 } else {
-                    throw "Unknown condition : " + c[0];
+                    throw Error("Unknown condition : " + c[0]);
                 }
             }
             for (let a of trig.actions) {
                 if (a[0] === 'Victory') {
                     actions.push(new Victory(a[0], a[1], a[2]));
                 } else {
-                    throw "Unknown action :" + a[0];
+                    throw Error("Unknown action :" + a[0]);
                 }
             }
             triggers_oo.push(new Trigger(conditions, actions));
@@ -276,7 +276,7 @@ class Unit {
         this.life = UNIT_DEFINITIONS[this.type]['max_life'];
         this.available_orders = UNIT_DEFINITIONS[this.type]['available_orders'];
         if (!UNIT_DEFINITIONS['all'].includes(this.type)) {
-            throw "Unknown type for Unit";
+            throw Error(`Unknown type ${this.type} for Unit`);
         }
         if (UNIT_DEFINITIONS['buildings'].includes(this.type)) {
             this.order_start_row_mod = UNIT_DEFINITIONS[this.type]['order_start_row_mod'];
@@ -480,6 +480,10 @@ class UnitCreator extends Building {
                 this.player.energy -= UNIT_DEFINITIONS['soldier']['cost']['energy'];
                 this.player.matter -= UNIT_DEFINITIONS['soldier']['cost']['matter'];
                 this.order(new CreateSoldier(), true);
+            } else if (row == 1 && col == 1) {
+                this.player.energy -= UNIT_DEFINITIONS['scout']['cost']['energy'];
+                this.player.matter -= UNIT_DEFINITIONS['scout']['cost']['matter'];
+                this.order(new CreateScout(), true);
             }
         }
     }
@@ -500,21 +504,18 @@ class UnitCreator extends Building {
         if (this.creation_orders.length > 0) {
             let o = this.creation_orders[0];
             if (this.creation_counter == -1) { // Ready to create, taking the order into account
-                if (o instanceof CreateSoldier) {
-                    this.creation_counter = UNIT_DEFINITIONS['soldier']['creation_time'];
-                }
+                this.creation_counter = UNIT_DEFINITIONS[o.creation]['creation_time'];
             } else if (this.creation_counter > 0) { // Order taken into account, creating...
                 this.creation_counter -= 1;
             } else if (this.creation_counter == 0) { // Creation finished
-                if (o instanceof CreateSoldier) {
-                    let u = new Unit(this.player, 'soldier', this.row + this.order_start_row_mod, this.col + this.order_start_col_mod);
-                    u.orders = Array.from(this.orders);
-                    this.creation_orders.shift();
-                    this.creation_counter = -1;
-                }
+                console.log(o.creation);
+                let u = new Unit(this.player, o.creation, this.row + this.order_start_row_mod, this.col + this.order_start_col_mod);
+                u.orders = Array.from(this.orders);
+                this.creation_orders.shift();
+                this.creation_counter = -1;
             }
         } else if (this.creation_counter == 0) {
-            throw "Incorrect state for UnitCreator: creation_counter at 0 and no order, what to create?";
+            throw Error("Incorrect state for UnitCreator: creation_counter at 0 and no order, what to create?");
         }
     }
 }
@@ -544,6 +545,23 @@ class Player {
         this.col = col;
         this.energy = 0;
         this.matter = 0;
+    }
+}
+
+class Application {
+    constructor() {
+        this.game = new Game("A lost cause", MAPS["E1M1"]);
+
+        this.game.create_player('Sarah', 'rgb(0, 128, 255)', 0, 0);
+        this.game.create_player('Tom', 'rgb(255, 127, 39)', 2, 2);
+        this.game.create_unit('Sarah', 'soldier', 5, 5);
+        this.game.create_unit('Sarah', 'soldier', 5, 6);
+        this.game.create_unit('Tom', 'soldier', 10, 6);
+        this.game.create_building('Sarah', 'barrack', 17, 18);
+        this.game.create_building('Sarah', 'generator', 23, 16);
+        this.game.create_building('Sarah', 'factory', 18, 5);
+
+        this.camera = new Camera(this.game.players['Sarah']);
     }
 }
 
@@ -602,6 +620,10 @@ class Game {
 // Graphisme
 //-----------------------------------------------------------------------
 
+var app = null;
+var camera = null;
+var game = null;
+
 var textures = {};
 
 var screen = null;
@@ -629,6 +651,9 @@ function load() {
 }
 
 function start() {
+    app = new Application();
+    camera = app.camera;
+    game = app.game;
     screen = document.getElementById('screen');
     screen.onmousemove = on_mouse_move;
     screen.onmousedown = on_mouse_down;
@@ -682,6 +707,17 @@ class Menu {
                 ctx.fillText('Orders: ' + camera.selected.first.orders.length, this.x + 170, this.y + 10);
                 ctx.fillText('Creation orders: ' + camera.selected.first.creation_orders.length, this.x + 170, this.y + 20);
                 ctx.fillText('Counter: ' + camera.selected.first.creation_counter, this.x + 170, this.y + 30);
+                // Order in progress
+                if (camera.selected.first.creation_orders.length > 0) {
+                    let count = 0;
+                    for (const o of camera.selected.first.creation_orders) {
+                        ctx.drawImage(textures[o.gid], this.x + 160 + count * 32, this.y + 32);
+                        count += 1;
+                        if (count === 5) {
+                            break;
+                        }
+                    }
+                }
             }
         }
     }
@@ -744,7 +780,7 @@ class Minimap {
                         ctx.fillRect(x, y, this.size, this.size);
                         break;
                     default:
-                        throw "Center not defined";
+                        throw Error("Center not defined");
                 }
                 row += 1;
             }
@@ -970,8 +1006,8 @@ const KEY_I = 73;         // Show/hide square info
 
 // Global var
 
-var clicked = false;
-var iTimer;
+let clicked = false;
+let iTimer;
 
 // Functions
 
