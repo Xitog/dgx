@@ -1,6 +1,6 @@
 {
-	"buildings": ["barrack", "factory", "generator", "extractor"],
 	"soldier": {
+    "type": "unit",
 		"speed": 3,
 		"width": 1,
 		"height": 1,
@@ -15,6 +15,7 @@
 		}
 	},
 	"scout": {
+    "type": "unit",
 		"speed": 4,
 		"width": 1,
 		"height": 1,
@@ -29,6 +30,7 @@
 		}
 	},
 	"barrack": {
+    "type": "building",
 		"speed": 0,
 		"width": 3,
 		"height": 3,
@@ -50,6 +52,7 @@
 		}
 	},
 	"factory": {
+    "type": "building",
 		"speed": 0,
 		"width": 3,
 		"height": 3,
@@ -71,6 +74,7 @@
 		}
 	},
 	"generator": {
+    "type": "building",
 		"speed": 100,
 		"width": 1,
 		"height": 1,
@@ -86,6 +90,7 @@
 		}
 	},
 	"extractor": {
+    "type": "building",
 		"speed": 100,
 		"width": 1,
 		"height": 1,
