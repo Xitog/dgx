@@ -26,9 +26,9 @@ const MAP_MAX_ROW = 32;
 const ENERGY_INCREASE_BY_TURN = 20;
 const MATTER_INCREASE_BY_TURN = 10;
 
-var MAPS = {};
-var UNIT_DEFINITIONS = {};
-var IDUnit = 0;
+let MAPS = {};
+let UNIT_DEFINITIONS = {};
+let IDUnit = 0;
 
 //-----------------------------------------------------------------------
 // Core : Data model
@@ -94,7 +94,7 @@ function load_map(dic) {
             triggers_oo.push(new Trigger(conditions, actions));
         }
     } else {
-        throw "Incorrect map format: no triggers provided";
+        throw Error("Incorrect map format: no triggers provided");
     }
     let res = make_transition(content); // return content et passable (pass) matrixes
     return new Map(name, res[0], res[1], width, height, triggers_oo);
@@ -316,14 +316,14 @@ class Unit {
         } else if (o.col < this.col) {
             new_col -= 1;
         }
-        if (game.units[new_row][new_col] != 0 || !game.pass[new_row][new_col]) {
-            if (game.units[new_row][this.col] == 0 && game.pass[new_row][this.col]) {
+        if (!game.empty(new_row, new_col)) {
+            if (game.empty(new_row, this.col)) {
                 new_col = this.col;
-            } else if (game.units[this.row][new_col] == 0 && game.pass[this.row][new_col]) {
+            } else if (game.empty(this.row, new_col)) {
                 new_row = this.row;
             }
         }
-        if (game.units[new_row][new_col] == 0 && game.pass[new_row][new_col]) {
+        if (game.empty(new_row, new_col)) {
             console.log('cleaning', this.row, this.col);
             game.units[this.row][this.col] = 0;
             this.row = new_row;
@@ -369,7 +369,7 @@ class Group {
         if (this.content.length > 0) {
             return this.content[0];
         } else {
-            throw "Content empty";
+            throw Error("Content empty");
         }
     }
 
@@ -418,11 +418,10 @@ class Group {
         }
         if (this.content.length > 0) {
             // rules
-            // if we are building, we only add if u is building, of same type, of our player
-            if (this.is_building && u instanceof Building && this.content[0].type == u.type && u.player == this.player) {
-                this.content.push(u);
-                // if we are not building, we only add if u is not a building, of our player, and we are a friendly group
-            } else if (!this.is_building && !(u instanceof Building) && u.player == this.player && this.is_friendly) {
+            // 1. if we are building, we only add if u is building, of same type, of our player
+            // 2. if we are not building, we only add if u is not a building, of our player, and we are a friendly group
+            if ((this.is_building && u instanceof Building && this.content[0].type == u.type && u.player == this.player)
+                || (!this.is_building && !(u instanceof Building) && u.player == this.player && this.is_friendly)) {
                 this.content.push(u);
             }
         } else {
@@ -472,6 +471,7 @@ class UnitCreator extends Building {
     constructor(player, type, row, col) {
         super(player, type, row, col);
         this.creation_orders = [];
+        this.delivery_positions = UNIT_DEFINITIONS[this.type]["delivery_positions"];
     }
 
     menu_order(row, col) {
@@ -509,10 +509,26 @@ class UnitCreator extends Building {
                 this.creation_counter -= 1;
             } else if (this.creation_counter == 0) { // Creation finished
                 console.log(o.creation);
-                let u = new Unit(this.player, o.creation, this.row + this.order_start_row_mod, this.col + this.order_start_col_mod);
-                u.orders = Array.from(this.orders);
-                this.creation_orders.shift();
-                this.creation_counter = -1;
+                // Choosing a place where to deliver the new unit
+                let nx;
+                let ny;
+                let found = false;
+                for (const p of this.delivery_positions) {
+                    nx = this.col + p[0];
+                    ny = this.row + p[1];
+                    if (game.empty(nx, ny)) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (found) {
+                    let u = new Unit(this.player, o.creation, ny, nx);
+                    u.orders = Array.from(this.orders);
+                    this.creation_orders.shift();
+                    this.creation_counter = -1;
+                } else {
+                    console.log("Impossible to create unit: delivery positions are full");
+                }
             }
         } else if (this.creation_counter == 0) {
             throw Error("Incorrect state for UnitCreator: creation_counter at 0 and no order, what to create?");
@@ -580,10 +596,14 @@ class Game {
         this.triggers = map.triggers;
         for (let row = 0; row < MAP_MAX_ROW; row++) {
             this.units[row] = [];
-            for (let col=0; col < MAP_MAX_COL; col++) {
+            for (let col = 0; col < MAP_MAX_COL; col++) {
                 this.units[row][col] = 0;
             }
         }
+    }
+
+    empty(x, y) {
+        return this.units[y][x] == 0 && this.pass[y][x];
     }
 
     create_player(name, color, row, col) {
@@ -620,25 +640,25 @@ class Game {
 // Graphisme
 //-----------------------------------------------------------------------
 
-var app = null;
-var camera = null;
-var game = null;
+let app = null;
+let camera = null;
+let game = null;
 
-var textures = {};
+let textures = {};
 
-var screen = null;
+let screen = null;
 
-var mouse_map_col = -1;
-var mouse_map_row = -1;
-var mouse_col = -1;
-var mouse_row = -1;
-var mouse_start_col = -1;
-var mouse_start_row = -1;
+let mouse_map_col = -1;
+let mouse_map_row = -1;
+let mouse_col = -1;
+let mouse_row = -1;
+let mouse_start_col = -1;
+let mouse_start_row = -1;
 
-var scroll_left = false;
-var scroll_right = false;
-var scroll_up = false;
-var scroll_down = false;
+let scroll_left = false;
+let scroll_right = false;
+let scroll_up = false;
+let scroll_down = false;
 
 //-----------------------------------------------------------------------
 // Core functions : load, start, run, update, draw
@@ -650,7 +670,33 @@ function load() {
     }
 }
 
-function start() {
+async function getGameDefiniton() {
+    const url = "https://xitog.github.io/dgx/rts/game.json";
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+        }
+        const json = await response.json();
+        console.log(json);
+        return json;
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
+async function start() {
+    UNIT_DEFINITIONS = await getGameDefiniton();
+    UNIT_DEFINITIONS['all'] = Object.keys(UNIT_DEFINITIONS);
+    UNIT_DEFINITIONS['buildings'] = [];
+    for (const [k, v] of Object.entries(UNIT_DEFINITIONS)) {
+        if (v['type'] === 'building') {
+            UNIT_DEFINITIONS['buildings'].push(k);
+        }
+    }
+    console.log(UNIT_DEFINITIONS);
+    console.log("OK");
+
     app = new Application();
     camera = app.camera;
     game = app.game;
@@ -694,11 +740,11 @@ class Menu {
                 ctx.drawImage(textures['Move'], this.x, this.y);
                 ctx.drawImage(textures['Attack'], this.x + 32, this.y);
             } else if (camera.selected.first.type == 'barrack') {
-                    ctx.strokeStyle = 'rgb(0, 128, 0)';
-                    ctx.strokeRect(this.x, this.y + 32, this.width / 2, 1);
-                    ctx.drawImage(textures['CreateSoldier'], this.x, this.y + 32);
-                    ctx.drawImage(textures['CreateScout'], this.x + 32, this.y + 32);
-                    ctx.drawImage(textures['CreateBuilder'], this.x + 64, this.y + 32);
+                ctx.strokeStyle = 'rgb(0, 128, 0)';
+                ctx.strokeRect(this.x, this.y + 32, this.width / 2, 1);
+                ctx.drawImage(textures['CreateSoldier'], this.x, this.y + 32);
+                ctx.drawImage(textures['CreateScout'], this.x + 32, this.y + 32);
+                ctx.drawImage(textures['CreateBuilder'], this.x + 64, this.y + 32);
             }
             // Info on unit
             if (camera.selected.length == 1 && camera.selected.first instanceof UnitCreator) {
@@ -789,7 +835,7 @@ class Minimap {
         }
         ctx.strokeStyle = 'rgb(255, 242, 0)';
         ctx.beginPath();
-        ctx.rect(this.x, this.y, this.size*32, this.size*32);
+        ctx.rect(this.x, this.y, this.size * 32, this.size * 32);
         ctx.stroke();
     }
 }
@@ -855,7 +901,7 @@ function draw_element(ctx, e) {
     } else if (e instanceof Unit) {
         draw_unit(ctx, e);
     } else {
-        console.log('Type unknown:', typeof(e), e.constructor.name);
+        console.log('Type unknown:', typeof (e), e.constructor.name);
     }
 }
 
@@ -920,8 +966,8 @@ function draw() {
                 try {
                     ctx.drawImage(textures[img], col * 32, row * 32);
                 } catch (e) {
-                    console.log("Image=", img, "Type=", typeof(img), "Exception=", e);
-                    throw "End";
+                    console.log("Image=", img, "Type=", typeof (img), "Exception=", e);
+                    throw Error("End");
                 }
                 let u = game.units[r][c];
                 if (u != 0) {
@@ -974,10 +1020,9 @@ function draw() {
         if (clicked) {
             ctx.strokeStyle = 'rgb(255, 255, 255)';
             ctx.strokeRect(Math.min(mouse_start_col - camera.col * 32, mouse_col),
-                           Math.min(mouse_start_row - camera.row * 32, mouse_row - camera.row),
-                           Math.abs(mouse_start_col - camera.col * 32 - mouse_col),
-                           Math.abs(mouse_start_row - camera.row * 32 - mouse_row));
-            //console.log(mouse_start_col, mouse_start_row, mouse_col, mouse_row);
+                Math.min(mouse_start_row - camera.row * 32, mouse_row - camera.row),
+                Math.abs(mouse_start_col - camera.col * 32 - mouse_col),
+                Math.abs(mouse_start_row - camera.row * 32 - mouse_row));
         }
         // Info on player
         ctx.font = '10px arial';
@@ -1012,7 +1057,6 @@ let iTimer;
 // Functions
 
 function on_mouse_move(event) {
-    event = event || window.event;
     // Mouse coordinates
     let screenRect = screen.getBoundingClientRect();
     mouse_col = event.pageX - screenRect.left;
@@ -1087,12 +1131,11 @@ function on_mouse_right_click(event) {
     if (camera.menu.inside(mouse_col, mouse_row) && camera.gui) {
         return false;
     }
-    event = window.event || event;
     console.log("Right click");
     for (let u of camera.selected) {
         if (u.player == camera.player) {
             console.log("Sending order move to unit", u.id, 'to', 'row', mouse_map_row, 'col', mouse_map_col);
-            if (u.available_orders.includes(Move)) {
+            if (u.available_orders.includes("Move")) {
                 u.order(new Move(mouse_map_row, mouse_map_col), event.ctrlKey);
             }
         }
@@ -1101,7 +1144,6 @@ function on_mouse_right_click(event) {
 }
 
 function on_key_up(event) {
-    event = window.event || event;
     if (event.keyCode == KEY_UP) {
         scroll_up = false;
     } else if (event.keyCode == KEY_DOWN) {
@@ -1123,8 +1165,7 @@ function on_key_up(event) {
     }
 }
 
-function on_key_down(event){
-    event = window.event || event;
+function on_key_down(event) {
     if (event.keyCode == KEY_UP) {
         scroll_up = true;
     } else if (event.keyCode == KEY_DOWN) {
@@ -1143,15 +1184,15 @@ function on_key_down(event){
 // Transition system
 //-----------------------------------------------------------------------
 
-var modified = {
-    "0" : [1],
-    "1" : [2],
-    "2" : [],
-    "3" : [],
+let modified = {
+    "0": [1],
+    "1": [2],
+    "2": [],
+    "3": [],
 };
 
-var trans_matrix = [];
-var pass_matrix = [];
+let trans_matrix = [];
+let pass_matrix = [];
 
 function transition_one(trow, tcol, content) {
     let calc = 0;
@@ -1168,7 +1209,7 @@ function transition_one(trow, tcol, content) {
                         // Check IF opposed is NOT defined AND if the other texture encountered modifies the center
                         if (!opposed && modified[center].includes(content[row][col])) {
                             opposed = content[row][col];
-                        // Check IF opposed is defined AND if the other texture is different from the opposed
+                            // Check IF opposed is defined AND if the other texture is different from the opposed
                         } else if (opposed && opposed != content[row][col] && modified[center].includes(content[row][col])) {
                             console.log("Surrounded by two different textures, aborting at ", row, col, "opp=", opposed, "found=", content[row][col], "me=", center);
                             break outerloop;
@@ -1184,8 +1225,8 @@ function transition_one(trow, tcol, content) {
         }
     }
     let cal = [center, 0,
-               0, 0, 0, 0,
-               0, 0, 0, 0];
+        0, 0, 0, 0,
+        0, 0, 0, 0];
     let O = 1;
     let N = 2 + 0;
     let E = 2 + 1;
@@ -1223,14 +1264,14 @@ function make_transition(content) {
     for (let row = 0; row < MAP_MAX_ROW; row++) {
         trans_matrix[row] = [];
         pass_matrix[row] = [];
-        for (let col=0; col < MAP_MAX_COL; col++) {
+        for (let col = 0; col < MAP_MAX_COL; col++) {
             trans_matrix[row][col] = '3000000000';
             pass_matrix[row][col] = false;
-      }
+        }
     }
     // Do transitions
-    for (let row=0; row < MAP_MAX_ROW; row++) {
-        for (let col=0; col < MAP_MAX_COL; col++) {
+    for (let row = 0; row < MAP_MAX_ROW; row++) {
+        for (let col = 0; col < MAP_MAX_COL; col++) {
             transition_one(row, col, content);
         }
     }
