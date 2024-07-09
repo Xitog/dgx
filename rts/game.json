@@ -1,5 +1,4 @@
 {
-	"all": ["barrack", "factory", "generator", "extractor", "soldier", "scout"],
 	"buildings": ["barrack", "factory", "generator", "extractor"],
 	"soldier": {
 		"speed": 3,
