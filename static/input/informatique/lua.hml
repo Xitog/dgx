@@ -8,18 +8,18 @@
 
 !html <link href="https://fonts.googleapis.com/css2?family=Inconsolata" rel="stylesheet">
 
-!css p code span.type,             pre.code span.type               { color: purple;  }
-!css p code span.lua-identifier,   pre.code span.lua-identifier     { color: black;   }
-!css p code span.lua-operator,     pre.code span.lua-operator       { color: black;   }
-!css p code span.lua-separator,    pre.code span.lua-separator      { color: black;   }
-!css p code span.lua-special,      pre.code span.lua-special        { color: purple;  }
-!css p code span.lua-nil,          pre.code span.lua-nil            { color: #1479cc; }
-!css p code span.lua-boolean,      pre.code span.lua-boolean        { color: #1479cc; }
-!css p code span.lua-number,       pre.code span.lua-number         { color: red;     }
-!css p code span.lua-comment,      pre.code span.lua-comment        { color: grey; font-style: italic; }
-!css p code span.lua-line_comment, pre.code span.lua-line_comment   { color: grey; font-style: italic; }
-!css p code span.lua-string,       pre.code span.lua-string         { color: orange;  }
-!css p code span.lua-keyword,      pre.code span.lua-keyword        { color: #1479cc; }
+!css p code span.type,             pre span.type               { color: purple;  }
+!css p code span.lua-identifier,   pre span.lua-identifier     { color: black;   }
+!css p code span.lua-operator,     pre span.lua-operator       { color: black;   }
+!css p code span.lua-separator,    pre span.lua-separator      { color: black;   }
+!css p code span.lua-special,      pre span.lua-special        { color: purple;  }
+!css p code span.lua-nil,          pre span.lua-nil            { color: #1479cc; }
+!css p code span.lua-boolean,      pre span.lua-boolean        { color: #1479cc; }
+!css p code span.lua-number,       pre span.lua-number         { color: red;     }
+!css p code span.lua-comment,      pre span.lua-comment        { color: grey; font-style: italic; }
+!css p code span.lua-line_comment, pre span.lua-line_comment   { color: grey; font-style: italic; }
+!css p code span.lua-string,       pre span.lua-string         { color: orange;  }
+!css p code span.lua-keyword,      pre span.lua-keyword        { color: #1479cc; }
 
 !var DEFAULT_CODE=lua
 
@@ -159,7 +159,11 @@ then  true  until while
 
 ## 1.7 Commentaires
 
-Commentaires en Lua : @@-- mon commentaire jusqu'à la fin de la ligne@@
+Commentaires en Lua :
+
+@@@lua
+-- mon commentaire jusqu'à la fin de la ligne
+@@@
 
 Commentaires sur plusieurs lignes :
 
@@ -179,7 +183,11 @@ a = 5
 
 Il n'y a pas de constantes en Lua : une variable peut référencer ensuite une autre valeur, du même type ou d'un autre.
 
-Une variable peut être déclarée constante avec l'attribut const : @@local stone <const> = 42@@
+Une variable peut être déclarée constante avec l'attribut const :
+
+@@@lua
+local stone <const> = 42
+@@@
 
 {{end}}
 

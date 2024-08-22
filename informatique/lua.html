@@ -10,18 +10,18 @@
   <link href="https://xitog.github.io/dgx/css/simplex.bootstrap.css" rel="stylesheet">
   <link href="https://xitog.github.io/dgx/css/flashy.css" rel="stylesheet">
   <style type="text/css">
-    p code span.type,             pre.code span.type               { color: purple;  }
-    p code span.lua-identifier,   pre.code span.lua-identifier     { color: black;   }
-    p code span.lua-operator,     pre.code span.lua-operator       { color: black;   }
-    p code span.lua-separator,    pre.code span.lua-separator      { color: black;   }
-    p code span.lua-special,      pre.code span.lua-special        { color: purple;  }
-    p code span.lua-nil,          pre.code span.lua-nil            { color: #1479cc; }
-    p code span.lua-boolean,      pre.code span.lua-boolean        { color: #1479cc; }
-    p code span.lua-number,       pre.code span.lua-number         { color: red;     }
-    p code span.lua-comment,      pre.code span.lua-comment        { color: grey; font-style: italic; }
-    p code span.lua-line_comment, pre.code span.lua-line_comment   { color: grey; font-style: italic; }
-    p code span.lua-string,       pre.code span.lua-string         { color: orange;  }
-    p code span.lua-keyword,      pre.code span.lua-keyword        { color: #1479cc; }
+    p code span.type,             pre span.type               { color: purple;  }
+    p code span.lua-identifier,   pre span.lua-identifier     { color: black;   }
+    p code span.lua-operator,     pre span.lua-operator       { color: black;   }
+    p code span.lua-separator,    pre span.lua-separator      { color: black;   }
+    p code span.lua-special,      pre span.lua-special        { color: purple;  }
+    p code span.lua-nil,          pre span.lua-nil            { color: #1479cc; }
+    p code span.lua-boolean,      pre span.lua-boolean        { color: #1479cc; }
+    p code span.lua-number,       pre span.lua-number         { color: red;     }
+    p code span.lua-comment,      pre span.lua-comment        { color: grey; font-style: italic; }
+    p code span.lua-line_comment, pre span.lua-line_comment   { color: grey; font-style: italic; }
+    p code span.lua-string,       pre span.lua-string         { color: orange;  }
+    p code span.lua-keyword,      pre span.lua-keyword        { color: #1479cc; }
   </style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
@@ -294,7 +294,10 @@
 </span><span class="lua-keyword" title="token n°36 : keyword">then</span>  <span class="lua-boolean" title="token n°38 : boolean">true</span>  <span class="lua-keyword" title="token n°40 : keyword">until</span> <span class="lua-keyword" title="token n°42 : keyword">while</span><span class="lua-newline" title="token n°43 : newline">
 </span></pre>
 <h2 id="1.7-commentaires">1.7 Commentaires</h2>
-<p>Commentaires en Lua : <code><span class="lua-comment" title="token n°0 : comment">-- mon commentaire jusqu'à la fin de la ligne</span></code></p>
+<p>Commentaires en Lua :</p>
+<pre>
+<span class="lua-comment" title="token n°0 : comment">-- mon commentaire jusqu'à la fin de la ligne
+</span></pre>
 <p>Commentaires sur plusieurs lignes :</p>
 <pre>
 <span class="lua-comment" title="token n°0 : comment">--[[
@@ -307,7 +310,10 @@
 <span class="lua-identifier" title="token n°0 : identifier">a</span> <span class="lua-operator" title="token n°2 : operator">=</span> <span class="lua-number" title="token n°4 : number">5</span><span class="lua-newline" title="token n°5 : newline">
 </span></pre>
 <p>Il n'y a pas de constantes en Lua : une variable peut référencer ensuite une autre valeur, du même type ou d'un autre.</p>
-<p>Une variable peut être déclarée constante avec l'attribut const : <code><span class="lua-keyword" title="token n°0 : keyword">local</span> <span class="lua-identifier" title="token n°2 : identifier">stone</span> <span class="lua-operator" title="token n°4 : operator">&lt;</span><span class="lua-identifier" title="token n°5 : identifier">const</span><span class="lua-operator" title="token n°6 : operator">&gt;</span> <span class="lua-operator" title="token n°8 : operator">=</span> <span class="lua-number" title="token n°10 : number">42</span></code></p>
+<p>Une variable peut être déclarée constante avec l'attribut const :</p>
+<pre>
+<span class="lua-keyword" title="token n°0 : keyword">local</span> <span class="lua-identifier" title="token n°2 : identifier">stone</span> <span class="lua-operator" title="token n°4 : operator">&lt;</span><span class="lua-identifier" title="token n°5 : identifier">const</span><span class="lua-operator" title="token n°6 : operator">&gt;</span> <span class="lua-operator" title="token n°8 : operator">=</span> <span class="lua-number" title="token n°10 : number">42</span><span class="lua-newline" title="token n°11 : newline">
+</span></pre>
 </div>
 </div>
 <h1 id="2.-types-de-base-(8)">2. Types de base (8)</h1>
