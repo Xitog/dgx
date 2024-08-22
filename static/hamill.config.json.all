@@ -1,120 +1,135 @@
 {
     "targets": [
-        [
-            "comment",
-            "Pages racines"
-        ],
-        [
-            "./input/index.hml",
-            "../"
-        ],
-        [
-            "./input/blog.hml",
-            "../"
-        ],
-        [
-            "./input/plan.hml",
-            "../"
-        ],
-        [
-            "./input/liens.hml",
-            "../"
-        ],
-        [
-            "comment",
-            "Ash"
-        ],
-        [
-            "./input/ash/index.hml",
-            "../ash/"
-        ],
-        [
-            "./input/ash/ash_guide.hml",
-            "../ash/"
-        ],
-        [
-            "comment",
-            "Hamill"
-        ],
-        [
-            "./input/hamill/index.hml",
-            "../hamill/"
-        ],
-        [
-            "./input/hamill/hamill.hml",
-            "../hamill/"
-        ],
-        [
-            "./input/hamill/hamill_en.hml",
-            "../hamill/"
-        ],
-        [
-            "./input/hamill/tests.hml",
-            "../hamill/"
-        ],
-        [
-            "comment",
-            "RTS"
-        ],
-        [
-            "./input/rts/index.hml",
-            "../rts/"
-        ],
-        [
-            "comment",
-            "Histoire"
-        ],
-        [
-            "./input/histoire/methode.hml",
-            "../histoire/"
-        ],
-        [
-            "./input/histoire/france19eme.hml",
-            "../histoire/"
-        ],
-        [
-            "comment",
-            "Informatique"
-        ],
-        [
-            "./input/informatique/bnf.hml",
-            "../informatique/"
-        ],
-        [
-            "./input/informatique/json.hml",
-            "../informatique/"
-        ],
-        [
-            "./input/informatique/langage.hml",
-            "../informatique/"
-        ],
-        [
-            "comment",
-            "Passetemps"
-        ],
-        [
-            "./input/passetemps/pres_jeuxvideo.hml",
-            "../passetemps/"
-        ],
-        [
-            "./input/passetemps/systemes_rpg.hml",
-            "../passetemps/"
-        ],
-        [
-            "./input/passetemps/compagnon_talisman.hml",
-            "../passetemps/"
-        ],
-        [
-            "./input/passetemps/compagnon_sorcier.hml",
-            "../passetemps/"
-        ],
-        [
-            "./input/passetemps/pres_favoris.hml",
-            "../passetemps/"
-        ],
-        [
-            "./input/passetemps/tech_dialogues.hml",
-            "../passetemps/"
-        ]
+        {
+            "comment": "Pages racines"
+        },
+        {
+            "do": true,
+            "source": "./input/index.hml",
+            "destination": "../"
+        },
+        {
+            "do": true,
+            "source": "./input/blog.hml",
+            "destination": "../"
+        },
+        {
+            "do": true,
+            "source": "./input/plan.hml",
+            "destination": "../"
+        },
+        {
+            "do": true,
+            "source": "./input/liens.hml",
+            "destination": "../"
+        },
+        {
+            "comment": "Ash"
+        },
+        {
+            "do": true,
+            "source": "./input/ash/index.hml",
+            "destination": "../ash/"
+        },
+        {
+            "do": true,
+            "source": "./input/ash/ash_guide.hml",
+            "destination": "../ash/"
+        },
+        {
+            "comment": "Hamill"
+        },
+        {
+            "do": true,
+            "source": "./input/hamill/index.hml",
+            "destination": "../hamill/"
+        },
+        {
+            "do": true,
+            "source": "./input/hamill/hamill.hml",
+            "destination": "../hamill/"
+        },
+        {
+            "do": true,
+            "source": "./input/hamill/hamill_en.hml",
+            "destination": "../hamill/"
+        },
+        {
+            "do": true,
+            "source": "./input/hamill/tests.hml",
+            "destination": "../hamill/"
+        },
+        {
+            "comment": "RTS"
+        },
+        {
+            "do": true,
+            "source": "./input/rts/index.hml",
+            "destination": "../rts/"
+        },
+        {
+            "comment": "Histoire"
+        },
+        {
+            "do": true,
+            "source": "./input/histoire/methode.hml",
+            "destination": "../histoire/"
+        },
+        {
+            "do": true,
+            "source": "./input/histoire/france19eme.hml",
+            "destination": "../histoire/"
+        },
+        {
+            "comment": "Informatique"
+        },
+        {
+            "do": true,
+            "source": "./input/informatique/bnf.hml",
+            "destination": "../informatique/"
+        },
+        {
+            "do": true,
+            "source": "./input/informatique/json.hml",
+            "destination": "../informatique/"
+        },
+        {
+            "do": true,
+            "source": "./input/informatique/langage.hml",
+            "destination": "../informatique/"
+        },
+        {
+            "comment": "Passetemps"
+        },
+        {
+            "do": true,
+            "source": "./input/passetemps/pres_jeuxvideo.hml",
+            "destination": "../passetemps/"
+        },
+        {
+            "do": true,
+            "source": "./input/passetemps/systemes_rpg.hml",
+            "destination": "../passetemps/"
+        },
+        {
+            "do": true,
+            "source": "./input/passetemps/compagnon_talisman.hml",
+            "destination": "../passetemps/"
+        },
+        {
+            "do": true,
+            "source": "./input/passetemps/compagnon_sorcier.hml",
+            "destination": "../passetemps/"
+        },
+        {
+            "do": true,
+            "source": "./input/passetemps/pres_favoris.hml",
+            "destination": "../passetemps/"
+        },
+        {
+            "do": true,
+            "source": "./input/passetemps/tech_dialogues.hml",
+            "destination": "../passetemps/"
+        }
     ]
 }

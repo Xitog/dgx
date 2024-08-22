@@ -38,7 +38,7 @@ Hamill has been around since 2020, is currently at version 2 since 2022 and has 
 
 [[You can try it directly online->https://xitog.github.io/dgx/hamill/index.html]]
 
-The current version is 2.0.5. Hamill is released under the MIT license.
+The current version is 2.0.6. Hamill is released under the MIT license.
 
 Damien Gouteux 2020-2024
 
@@ -76,7 +76,7 @@ python.exe hamill.py
 By default, it will display the help menu detailing the various commands available.
 
 @@@text
-Running Hamill v2.0.5
+Running Hamill v2.0.6
 ---
 > Use hamill.mjs --process (or -p) <input config filepath> to convert the HML file to HTML
   The file must be an object {} with a key named targets with an array value of pairs :
@@ -91,18 +91,28 @@ Running Hamill v2.0.5
 * @@--eval or -e@@: to launch a command prompt to enter hamill and see the result translated directly into HTML. Useful for testing.
 * @@--help or -h@@: to display this message (default behavior)
 
-The configuration file is a JSON file with an object as its root. This object must have a targets key which is a list of pairs, the first element indicating the target hamill file, the second element indicating the directory where to put the result of the transformation into HTML. The result will have the same filename as the target hamill file, except that its extension will be .html instead of .hml. If the first element is the string "comment", this pair will be ignored.
+The configuration file is a JSON file with an object as its root. This object must have a targets key which is a list of objects. Each object must have:
+
+* a property @@do@@ indicating if the target must be dealed with or not,
+* a property @@source@@ indicating the target hamill file,
+* a property @@destination@@ indicating the directory where to put the result of the transformation into HTML.
+
+**or**
+
+* a single property @@comment@@ indicating a comment.
+
+The result will have the same filename as the target hamill file, except that its extension will be .html instead of .hml.
 
 @@@json
 {
     "targets": [
+        {
+            "comment": "Pages racines"
+        },
         [
-            "comment",
-            "Root pages"
-        ],
-        [
-            "./input/index.hml",
-            "../"
+            "do": true,
+            "source": "./input/index.hml",
+            "destination": "../"
         ]
     ]
 }

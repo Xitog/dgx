@@ -159,7 +159,7 @@
 </ul>
 <p><a href="https://github.com/Xitog/hamill">The project's source code is available on GitHub</a>.</p>
 <p><a href="https://xitog.github.io/dgx/hamill/index.html">You can try it directly online</a></p>
-<p>The current version is 2.0.5. Hamill is released under the MIT license.</p>
+<p>The current version is 2.0.6. Hamill is released under the MIT license.</p>
 <p>Damien Gouteux 2020-2024</p>
 <p>This page has been translated from French to English with the help of <a href="https://www.deepl.com/translator">DeepL Translator</a>.</p>
 <h2 id="contents">Contents</h2>
@@ -190,7 +190,7 @@
 </span></pre>
 <p>By default, it will display the help menu detailing the various commands available.</p>
 <pre>
-<span class="text-normal" title="token n°0 : normal">Running</span> <span class="text-normal" title="token n°2 : normal">Hamill</span> <span class="text-normal" title="token n°4 : normal">v2.0.5</span><span class="text-newline" title="token n°5 : newline">
+<span class="text-normal" title="token n°0 : normal">Running</span> <span class="text-normal" title="token n°2 : normal">Hamill</span> <span class="text-normal" title="token n°4 : normal">v2.0.6</span><span class="text-newline" title="token n°5 : newline">
 </span><span class="text-normal" title="token n°6 : normal">---</span><span class="text-newline" title="token n°7 : newline">
 </span><span class="text-normal" title="token n°8 : normal">&gt;</span> <span class="text-normal" title="token n°10 : normal">Use</span> <span class="text-normal" title="token n°12 : normal">hamill.mjs</span> <span class="text-normal" title="token n°14 : normal">--process</span> <span class="text-normal" title="token n°16 : normal">(or</span> <span class="text-normal" title="token n°18 : normal">-p)</span> <span class="text-normal" title="token n°20 : normal">&lt;input</span> <span class="text-normal" title="token n°22 : normal">config</span> <span class="text-normal" title="token n°24 : normal">filepath&gt;</span> <span class="text-normal" title="token n°26 : normal">to</span> <span class="text-normal" title="token n°28 : normal">convert</span> <span class="text-normal" title="token n°30 : normal">the</span> <span class="text-normal" title="token n°32 : normal">HML</span> <span class="text-normal" title="token n°34 : normal">file</span> <span class="text-normal" title="token n°36 : normal">to</span> <span class="text-normal" title="token n°38 : normal">HTML</span><span class="text-newline" title="token n°39 : newline">
 </span>  <span class="text-normal" title="token n°41 : normal">The</span> <span class="text-normal" title="token n°43 : normal">file</span> <span class="text-normal" title="token n°45 : normal">must</span> <span class="text-normal" title="token n°47 : normal">be</span> <span class="text-normal" title="token n°49 : normal">an</span> <span class="text-normal" title="token n°51 : normal">object</span> <span class="text-normal" title="token n°53 : normal">{}</span> <span class="text-normal" title="token n°55 : normal">with</span> <span class="text-normal" title="token n°57 : normal">a</span> <span class="text-normal" title="token n°59 : normal">key</span> <span class="text-normal" title="token n°61 : normal">named</span> <span class="text-normal" title="token n°63 : normal">targets</span> <span class="text-normal" title="token n°65 : normal">with</span> <span class="text-normal" title="token n°67 : normal">an</span> <span class="text-normal" title="token n°69 : normal">array</span> <span class="text-normal" title="token n°71 : normal">value</span> <span class="text-normal" title="token n°73 : normal">of</span> <span class="text-normal" title="token n°75 : normal">pairs</span> <span class="text-normal" title="token n°77 : normal">:</span><span class="text-newline" title="token n°78 : newline">
@@ -205,20 +205,30 @@
   <li><code><span class="hamill-normal" title="token n°0 : normal">--eval or -e</span></code>: to launch a command prompt to enter hamill and see the result translated directly into HTML. Useful for testing.</li>
   <li><code><span class="hamill-normal" title="token n°0 : normal">--help or -h</span></code>: to display this message (default behavior)</li>
 </ul>
-<p>The configuration file is a JSON file with an object as its root. This object must have a targets key which is a list of pairs, the first element indicating the target hamill file, the second element indicating the directory where to put the result of the transformation into HTML. The result will have the same filename as the target hamill file, except that its extension will be .html instead of .hml. If the first element is the string "comment", this pair will be ignored.</p>
+<p>The configuration file is a JSON file with an object as its root. This object must have a targets key which is a list of objects. Each object must have:</p>
+<ul>
+  <li>a property <code><span class="hamill-normal" title="token n°0 : normal">do</span></code> indicating if the target must be dealed with or not,</li>
+  <li>a property <code><span class="hamill-normal" title="token n°0 : normal">source</span></code> indicating the target hamill file,</li>
+  <li>a property <code><span class="hamill-normal" title="token n°0 : normal">destination</span></code> indicating the directory where to put the result of the transformation into HTML.</li>
+</ul>
+<p><b>or</b></p>
+<ul>
+  <li>a single property <code><span class="hamill-normal" title="token n°0 : normal">comment</span></code> indicating a comment.</li>
+</ul>
+<p>The result will have the same filename as the target hamill file, except that its extension will be .html instead of .hml.</p>
 <pre>
 <span class="json-separator" title="token n°0 : separator">{</span><span class="json-newline" title="token n°1 : newline">
 </span>    <span class="json-string" title="token n°3 : string">"targets"</span><span class="json-separator" title="token n°4 : separator">:</span> <span class="json-separator" title="token n°6 : separator">[</span><span class="json-newline" title="token n°7 : newline">
-</span>        <span class="json-separator" title="token n°9 : separator">[</span><span class="json-newline" title="token n°10 : newline">
-</span>            <span class="json-string" title="token n°12 : string">"comment"</span><span class="json-separator" title="token n°13 : separator">,</span><span class="json-newline" title="token n°14 : newline">
-</span>            <span class="json-string" title="token n°16 : string">"Root pages"</span><span class="json-newline" title="token n°17 : newline">
-</span>        <span class="json-separator" title="token n°19 : separator">]</span><span class="json-separator" title="token n°20 : separator">,</span><span class="json-newline" title="token n°21 : newline">
-</span>        <span class="json-separator" title="token n°23 : separator">[</span><span class="json-newline" title="token n°24 : newline">
-</span>            <span class="json-string" title="token n°26 : string">"./input/index.hml"</span><span class="json-separator" title="token n°27 : separator">,</span><span class="json-newline" title="token n°28 : newline">
-</span>            <span class="json-string" title="token n°30 : string">"../"</span><span class="json-newline" title="token n°31 : newline">
-</span>        <span class="json-separator" title="token n°33 : separator">]</span><span class="json-newline" title="token n°34 : newline">
-</span>    <span class="json-separator" title="token n°36 : separator">]</span><span class="json-newline" title="token n°37 : newline">
-</span><span class="json-separator" title="token n°38 : separator">}</span><span class="json-newline" title="token n°39 : newline">
+</span>        <span class="json-separator" title="token n°9 : separator">{</span><span class="json-newline" title="token n°10 : newline">
+</span>            <span class="json-string" title="token n°12 : string">"comment"</span><span class="json-separator" title="token n°13 : separator">:</span> <span class="json-string" title="token n°15 : string">"Pages racines"</span><span class="json-newline" title="token n°16 : newline">
+</span>        <span class="json-separator" title="token n°18 : separator">}</span><span class="json-separator" title="token n°19 : separator">,</span><span class="json-newline" title="token n°20 : newline">
+</span>        <span class="json-separator" title="token n°22 : separator">[</span><span class="json-newline" title="token n°23 : newline">
+</span>            <span class="json-string" title="token n°25 : string">"do"</span><span class="json-separator" title="token n°26 : separator">:</span> <span class="json-boolean" title="token n°28 : boolean">true</span><span class="json-separator" title="token n°29 : separator">,</span><span class="json-newline" title="token n°30 : newline">
+</span>            <span class="json-string" title="token n°32 : string">"source"</span><span class="json-separator" title="token n°33 : separator">:</span> <span class="json-string" title="token n°35 : string">"./input/index.hml"</span><span class="json-separator" title="token n°36 : separator">,</span><span class="json-newline" title="token n°37 : newline">
+</span>            <span class="json-string" title="token n°39 : string">"destination"</span><span class="json-separator" title="token n°40 : separator">:</span> <span class="json-string" title="token n°42 : string">"../"</span><span class="json-newline" title="token n°43 : newline">
+</span>        <span class="json-separator" title="token n°45 : separator">]</span><span class="json-newline" title="token n°46 : newline">
+</span>    <span class="json-separator" title="token n°48 : separator">]</span><span class="json-newline" title="token n°49 : newline">
+</span><span class="json-separator" title="token n°50 : separator">}</span><span class="json-newline" title="token n°51 : newline">
 </span></pre>
 <h2 id="comments,-hr-and-br">Comments, HR and BR</h2>
 <p>Comments can be made by putting <code><span class="hamill-comment" title="token n°0 : comment">!rem</span></code> or <code><span class="hamill-normal" title="token n°0 : normal">§§</span></code> at the beginning of the line, and the entire line is then a comment.</p>

@@ -29,13 +29,67 @@
 
 {{#content-div}}
 
+# Sommaire
+
+* [[1. Bases du langage->#]]
+  * [[1.1 Description->#]]
+  * [[1.2 Historique et influences->#]]
+  * [[1.3 Désavantages->#]]
+  * [[1.4 Utilisations->#]]
+  * [[1.5 Premiers pas->#]]
+  * [[1.6 Mots réservés (22)->#]]
+  * [[1.7 Commentaires->#]]
+  * [[1.8 Variables->#]]
+* [[2. Types de base (8)->#]]
+  * [[2.1 nil->#]]
+  * [[2.2 Booléens : boolean->#]]
+  * [[2.3 Nombres : number->#]]
+  * [[2.4 Chaînes de caractères : string->#]]
+  * [[2.5 Fonctions : function->#]]
+  * [[2.6 Données utilisateurs : userdata->#]]
+  * [[2.7 Processus légers : thread->#]]
+  * [[2.8 Tables : table->#]]
+* [[3. Opérateurs->#]]
+  * [[3.1 Liste des opérateurs->#]]
+  * [[3.2 Précédence des opérateurs->#]]
+* [[4. Contrôle du flux->#]]
+  * [[4.1 Séquence->#]]
+  * [[4.2 Conditions->#]]
+  * [[4.3 Répétitions->#]]
+* [[5. Fonctions->#]]
+  * [[5.1 Définition->#]]
+  * [[5.2 Appel->#]]
+  * [[5.3 Closure->#]]
+* [[6. Gestion des exceptions et multifichiers->#]]
+  * [[6.1 Appels protégés->#]]
+  * [[6.2 Multifichiers->#]]
+* [[7. Bibliothèque de base->#]]
+  * [[7.1 Sortie et entrée console->#]]
+  * [[7.2 Nombres->#]]
+  * [[7.3 Chaînes de caractères->#]]
+  * [[7.4 Tables->#]]
+  * [[7.5 Fichiers->#]]
+* [[8. Recettes->#]]
+  * [[8.1 Programmation orientée objet (POO)->#]]
+    * [[8.1.1 Définir un type->#]]
+    * [[8.1.2 Instancier et appeler une méthode->#]]
+  * [[8.2 Recettes pour LÖVE->#]]
+    * [[8.2.1 Afficher la console->#]]
+    * [[8.2.2 Faire une fonction principale->#]]
+* [[9. Liens web->#]]
+  * [[9.1 Généraux->#]]
+  * [[9.2 Bibliothèques->#]]
+  * [[9.3 Interpréteurs->#]]
+  * [[9.4 Langages liés->#]]
+  * [[9.5 Outils->#]]
+
 # 1. Bases du langage
 
 {{.row}}
 
 {{.column}}
 
-## Description
+## 1.1 Description
 
 Lua, lune en portugais, est un langage de script, gratuit, concis et simple :
 
@@ -44,30 +98,30 @@ Lua, lune en portugais, est un langage de script, gratuit, concis et simple :
 
 La version actuelle (janvier 2022) est la version 5.4 disponible selon les termes de la licence MIT. Ses fichiers portent l'extension @@text .lua@@.
 
-## Historique et influences
+## 1.2 Historique et influences
 
-Lua a été développé au Brésil à partir de 1993 par Roberto Ierusalimschy, Waldemar Celes et Luiz Henrique de Figueiredo au sein du groupe de recherche ''Computer Graphics Technology Group'' ([TeCGraf->https://www.tecgraf.puc-rio.br/] ^^[pt, en]^^), de l'université pontificale catholique de Rio de Janeiro avec l'aide du géant industriel [Petrobras->http://www.petrobras.com.br/en/] ^^[en]^^.
+Lua a été développé au Brésil à partir de 1993 par Roberto Ierusalimschy, Waldemar Celes et Luiz Henrique de Figueiredo au sein du groupe de recherche ''Computer Graphics Technology Group'' ([[TeCGraf->https://www.tecgraf.puc-rio.br/]] ^^[pt, en]^^), de l'université pontificale catholique de Rio de Janeiro avec l'aide du géant industriel [[Petrobras->http://www.petrobras.com.br/en/]] ^^[en]^^.
 
-Sa syntaxe emprunte au langage Modula, un langage développé dans les années 70 en Suisse par Niklaus Wirth, le créateur de Pascal. Elle présente des similarités avec le langage de script Ruby mais sans sa partie orientée objet.
+Sa syntaxe emprunte au langage Modula, un langage développé dans les années 70 en Suisse par Niklaus Wirth, le créateur de Pascal. Elle présente également des similarités avec le langage de script Ruby mais sans sa partie orientée objet.
 
-## Désavantages
+## 1.3 Désavantages
 
 * Absence de mécanisme d'orientation objet de base,
 * Danger de pouvoir concaténer deux expressions à la suite, car il n'y a ni séparateur, ni terminateur : @@3+5 2@@ est valide en Lua !
 * Une bibliothèque standard minimaliste où il manque beaucoup de choses mais de taille réduite
 * Il n'y a pas de mot clé @@python continue@@ pour avancer une boucle d'une itération
-* @@lua in@@ ne s'utilise qu'avec pairs ou ipairs dans un @@lua for@@
+* @@lua in@@ ne s'utilise qu'avec les fonctions @@pairs@@ ou @@ipairs@@ dans un @@lua for@@
 * Opérateur de différence est @@~=@@ au lieu du standard de facto @@python !=@@
 * Opérateur de puissance est @@^@@ au lieu de @@**@@
 * Pas d'opérateurs combinés : @@python += -= *= /=@@
 * Aucune vérification du nombre de paramètres des fonctions
 * Aucune déclaration de type possible
 * Fusion des types int et float en {{.type number}}
-* Fusion du concept de liste et de dictionnaire en celui de table
+* Fusion du concept de liste et de dictionnaire en celui de {{.type table}}
 * Difficulté à connaître la longueur d'une liste et à s'assurer de la continuité de ses index
-* On ne peut pas différencier une clé existante avec sa valeur à nil et une clé qui n'existe pas
-* Les clés de type {{.type string}} doivent être entourées de guillemets @@['key'] = val@@
-* Pas moyen de déclarer des constantes
+* On ne peut pas différencier une clé existante avec sa valeur à nil d'une clé qui n'existe pas
+* Les clés de type {{.type string}} doivent être entourées de crochets @@{ ['key'] = val }@@
+* --Aucun moyen de déclarer des constantes-- : Depuis Lua >= 5.4 on peut avec une syntaxe horrible : @@local stone <const> = 42@@
 * Toute variable sans @@local@@ est globale même dans les fonctions
 * Conversion automatique des chaînes en nombres
 
@@ -75,7 +129,7 @@ Sa syntaxe emprunte au langage Modula, un langage développé dans les années 7
 
 {{.column}}
 
-## Utilisations
+## 1.4 Utilisations
 
 Lua peut être utilisé de deux façons :
 
@@ -86,7 +140,7 @@ L'interpréteur n'interprète pas directement le script mais le compile en bytec
 
 Lua est utilisée de façon embarquée dans de nombreux applications, en particulier des jeux vidéo. On peut citer le lecteur multimédia VLC et le jeu vidéo World of Warcraft.
 
-## Bonjour le monde !
+## 1.5 Premiers pas
 
 La tradition veut que l'on commence par écrire "Bonjour le monde !" sur la sortie standard (console) lorsque l'on découvre un nouveau langage de programmation.
 
@@ -95,7 +149,7 @@ La tradition veut que l'on commence par écrire "Bonjour le monde !" sur la sort
 print("Bonjour le monde !")
 @@@
 
-## Mots réservés (22)
+## 1.6 Mots réservés (22)
 
 @@@lua
 and   break do    else  elseif end false for    function
@@ -103,7 +157,7 @@ goto  if    in    local nil    not or    repeat return
 then  true  until while
 @@@
 
-## Commentaires
+## 1.7 Commentaires
 
 Commentaires en Lua : @@-- mon commentaire jusqu'à la fin de la ligne@@
 
@@ -115,7 +169,7 @@ Commentaires sur plusieurs lignes :
 --]]
 @@@
 
-## Variables
+## 1.8 Variables
 
 Une variable est une référence vers une valeur. Une valeur a un type, pas la variable. L'exemple suivant établie une référence entre la variable a et la valeur 5 de type {{.type number}}.
 
@@ -124,6 +178,8 @@ a = 5
 @@@
 
 Il n'y a pas de constantes en Lua : une variable peut référencer ensuite une autre valeur, du même type ou d'un autre.
+
+Une variable peut être déclarée constante avec l'attribut const : @@local stone <const> = 42@@
 
 {{end}}
 
@@ -137,21 +193,21 @@ Il n'y a pas de constantes en Lua : une variable peut référencer ensuite une a
 
 En Lua, il y a **8** types de base.
 
-## nil
+## 2.1 nil
 
 Le type {{.type nil}} n'a qu'une seule valeur, @@nil@@.
 
-## Booléens : boolean
+## 2.2 Booléens : boolean
 
 Le type {{.type boolean}} a deux valeurs, @@true@@ et @@false@@.
 
 Les valeurs @@nil@@ et @@false@@ sont les deux seules valeurs qui sont considérées comme fausse par les tests. Toutes les autres valeurs, y compris @@0@@ et la chaîne vide @@""@@ sont vraies.
 
-## Nombres : number
+## 2.3 Nombres : number
 
 Le type {{.type number}} a pour valeurs les entiers et les réels (ou flottants). Les conversions de l'un vers l'autre type sont automatiques. Par défaut, entiers et réels sont stockés sur 64 bits et selon la norme IEEE 754 pour les réels.
 
-## Chaînes de caractères : string
+## 2.4 Chaînes de caractères : string
 
 Le type {{.type string}} unifie les caractères et les chaînes de caractères. Lua peut stocker les chaînes en UTF-8 mais ne sait pas comment les gérer.
 
@@ -161,19 +217,19 @@ Les chaînes sont **immutables** en Lua.
 
 {{.column}}
 
-## Fonctions : function
+## 2.5 Fonctions : function
 
 Le type {{.type function}} sera plus étudié dans le chapitre suivant. Il s'agit de bloc de code écrit en Lua ou en C.
 
-## Données utilisateurs : userdata
+## 2.6 Données utilisateurs : userdata
 
 Le type {{.type userdata}} permet de stocker des données binaires venant du code C avec lequel lua s'interface.
 
-## Processus légers : thread
+## 2.7 Processus légers : thread
 
 Lua utilise le type {{.type thread}} pour ses coroutines. Ce type est indépendant des threads du système d'exploitation.
 
-## Tables : table
+## 2.8 Tables : table
 
 Lua a fusionné les listes et les tables associatives (ou dictionnaires) dans le type table : une clé désigne une valeur.
 
@@ -195,7 +251,7 @@ print(t.k1) -- Accès avec sucre syntaxique
 
 {{.column}}
 
-## Opérateurs
+## 3.1 Liste des opérateurs
 
 ### Opérateurs arithmétiques
 
@@ -256,7 +312,7 @@ Les opérateurs n'évaluent la deuxième opérande que si nécessaire.
 
 **Attention : une table peut avoir des trous, dans ce cas la bordure n'indique pas la longueur de la table**.
 
-### Précédence des opérateurs
+## 3.2 Précédence des opérateurs
 
 | Niveau | Opérateur                |
 |-----------------------------------|
@@ -283,11 +339,11 @@ Les opérateurs n'évaluent la deuxième opérande que si nécessaire.
 
 {{.column}}
 
-## Séquence
+## 4.1 Séquence
 
 En Lua, le symbole pour terminer les instructions est @@;@@ mais il est totalement optionnel. Ce code est donc valide : @@a = 5 b = 6@@
 
-## Conditions
+## 4.2 Conditions
 
 Pour qu'une partie du code ne soit exécutée que si une condition est vrai, on utilisera @@if@@ :
 
@@ -303,7 +359,7 @@ end
 
 Sont considérées fausses les valeurs @@false@@ et @@nil@@. Toutes les autres valeurs sont vraies (dont @@{} "" 0@@).
 
-## Répétitions
+## 4.3 Répétitions
 
 Boucle qui s'exécute ''tant que'' la condition est vraie avec @@while@@ :
 
@@ -367,7 +423,7 @@ Il n'y a pas de mot-clé ''continue'' ou ''next'' en Lua pour passer à l'itéra
 
 {{.column}}
 
-## Définition
+## 5.1 Définition
 
 @@@lua
 function id ( parametres )
@@ -393,87 +449,166 @@ Le mot-clé @@return@@ permet de retourner une expression.
 
 {{.column}}
 
-## Appel
+## 5.2 Appel
 
 Pour appeler une fonction on utilise @@f(p1, p2, p3)@@.
 
-Le sucre syntaxique @@a:f(p)@@ est équivalent à f(a, p).
-
 On peut omettre les parenthèses si il y a un argument de type {{.type string}} ou {{.type table}}.
 
-## Closure
+## 5.3 Closure
 
 {{end}}
 
 {{end}}
 
-# 6. Gestion des exceptions
+# 6. Gestion des exceptions et multifichiers
 
-## Appels protégés
+Il n'y a pas à proprement parler d'exception en Lua. On peut toutefois faire des appels protégés pour gérer les erreurs.
+
+## 6.1 Appels protégés
+
+## 6.2 Multifichiers
+
+Pour appeler du code lua écrit dans un autre fichier, il faut faire dans le fichier appelant :
+
+@@@
+local id = require(string)
+@@@
+
+La string doit correspondr au nom du fichier __sans__ le .lua.
 
 # 7. Bibliothèque de base
 
-## Sortie et entrée console
+## 7.1 Sortie et entrée console
 
 @@@lua
 print("Hello World!")
 @@@
 
-## Nombres
+## 7.2 Nombres
 
-## Chaînes de caractères
+## 7.3 Chaînes de caractères
 
-## Tables
+Avoir le premier caractère d'une chaîne s : @@string.sub(s, 1, 1)@@
 
-## Fichiers
+Pour tester si une chaîne est un nombre, on essaye de le convertir avec : @@tonumber(n)@@. Si on veut tester si une chaine est un entier, on essaye de la convertir avec : @@tonumber(n ,base)@@ (lua >=5.2). Dans les deux cas, la fonction renverra nil si elle ne peut pas.
 
-# 8. Sites web
+@@@
+print(tonumber("2.4")) -- retourne 2.4
+print(tonumber("2.4", 10)) -- retourne nil
+print(tonumber("2", 10)) --retourne 2
+@@@
+
+## 7.4 Tables
+
+Pour savoir si une table contient une valeur, il faut la parcourir (!) avec un @@for@@ :
+
+@@@
+a = {1,2,3,4,5,6}
+searched = 3
+for index, value in ipairs(a) do
+  if value == searched then
+    print("found", searched, "at", index)
+    break
+  end
+end
+@@@
+
+Contient : il faut parcourir avec un for index, value in ipairs(tab) et faire value == searched
+
+## 7.5 Fichiers
+
+# 8. Recettes
+
+## 8.1 Programmation orientée objet (POO)
+
+### 8.1.1 Définir un type
+
+@@@lua
+local Type = {}
+function Type:new()
+    return setmetatable({}, {__index = Type})
+end
+function Type:method(params)
+    cod
+end
+@@@
+
+### 8.1.2 Instancier et appeler une méthode
+
+@@@lua
+local t = Type.new()
+t.method(t, param)
+t:method(param)
+@@@
+
+Le double point @@:@@ est un sucre syntaxique pour éviter de passer en premier paramètre l'instance.
+
+## 8.2 Recettes pour LÖVE
+
+### 8.2.1 Afficher la console
+
++ Faire un fichier conf.lua dans le répertoire du jeu
++ Faire une fonction love.conf(t)
++ Faire dans le corps de la fonction t.console = true
+
+### 8.2.2 Faire une fonction principale
+
++ Faire un fichier main.lua dans le répertoire du jeu. Love ne lance qu’un répertoire ou un fichier packagé .love
++ Faire une fonction love.load()
++ Mettre le code dedans dont love.window.setTitle(string)
+
+# 9. Liens web
 
 {{.row}}
 
 {{.column}}
 
-## Généraux
+## 9.1 Généraux
 
-* [Site officiel du langage->https://www.lua.org], avec la distribution standard (interpréteur officiel + bibliothèque standard)
-* La première édition, un peu datée, du livre électronique ''[Programming in Lua->https://www.lua.org/pil/contents.html]'' (ou PIL) introduit Lua avec de nombreux exemples.
-* Le [wiki des utilisateurs->http://lua-users.org/wiki/] de Lua
-* [Lua binaries->http://luabinaries.sourceforge.net/], distributions de Lua pour différents systèmes d'exploitation
-* Page de [Wikipédia sur Lua->https://en.wikipedia.org/wiki/Lua_(programming_language)]
-* Boutique officielle [Zazzle->https://www.zazzle.com/Lua_Store] pour supporter Lua via l'achat de goodies
+* [[Site officiel du langage->https://www.lua.org]], avec la distribution standard (interpréteur officiel + bibliothèque standard)
+* La première édition, un peu datée, du livre électronique ''[[Programming in Lua->https://www.lua.org/pil/contents.html]]'' (ou PIL) introduit Lua avec de nombreux exemples.
+* Le [[wiki des utilisateurs->http://lua-users.org/wiki/]] de Lua
+* [[Lua binaries->http://luabinaries.sourceforge.net/]], distributions de Lua pour différents systèmes d'exploitation
+* Page de [[Wikipédia sur Lua->https://en.wikipedia.org/wiki/Lua_(programming_language)]]
+* Boutique officielle [[Zazzle->https://www.zazzle.com/Lua_Store]] pour supporter Lua via l'achat de goodies
 
-## Bibliothèques
+## 9.2 Bibliothèques
 
-* [LuaRocks->https://luarocks.org/], gestionnaire de bibliothèques
-* [Penlight->http://stevedonovan.github.io/Penlight/api/index.html], une librairie fondamentale
-* [LPEG->http://www.inf.puc-rio.br/~roberto/lpeg/] pour du parsing
-* [IUP->http://webserver2.tecgraf.puc-rio.br/iup/] pour les interfaces graphiques
+* [[LuaRocks->https://luarocks.org/]], gestionnaire de bibliothèques
+* [[Penlight->http://stevedonovan.github.io/Penlight/api/index.html]], une librairie fondamentale
+* [[LPEG->http://www.inf.puc-rio.br/~roberto/lpeg/]] pour du parsing
+* [[IUP->http://webserver2.tecgraf.puc-rio.br/iup/]] pour les interfaces graphiques
 
 {{end}}
 
 {{.column}}
 
-## Interpréteurs
+## 9.3 Interpréteurs
 
-* [Löve->https://love2d.org/], VM Lua mettant à disposition une bibliothèque pour faire des jeux
-* [REPL.it->https://repl.it/languages/lua] interpréteur en ligne
-* [MoonSharp->http://www.moonsharp.org/] interpréteur en C# pour .Net, Mono et Unity
-* [Moonshine->http://moonshinejs.org/] interpréteur et VM en JavaScript
+* [[Intepréteur en ligne One Compiler->https://onecompiler.com/lua/]]
+* [[Löve->https://love2d.org/]], VM Lua mettant à disposition une bibliothèque pour faire des jeux
+* [[REPL.it->https://repl.it/languages/lua]] interpréteur en ligne
+* [[MoonSharp->http://www.moonsharp.org/]] interpréteur en C# pour .Net, Mono et Unity
+* [[Moonshine->http://moonshinejs.org/]] interpréteur et VM en JavaScript
 
-## Langages liés
+## 9.4 Langages liés
 
-* [Teal->https://github.com/teal-language/tl] surlangage avec des types.
-* [MoonScript->https://moonscript.org/] un langage qui transpile en Lua.
+* [[Teal->https://github.com/teal-language/tl]] surlangage avec des types.
+* [[MoonScript->https://moonscript.org/]] un langage qui transpile en Lua.
+* [[Titan->https://github.com/titan-lang/titan]] un langage ''statically-typed, ahead-of-time compiled'' mais surtout abandonné
+* [[Pallene->https://github.com/pallene-lang/pallene]] un langage ''statically typed and ahead-of-time compiled'', fork de Titan
+* [[Terra->https://terralang.org/]] ''statically-typed, compiled language with manual memory management and low-level system programming language that is embedded in and meta-programmed by the Lua programming language''
 
-## Outils
+## 9.5 Outils
 
-* [ZeroBrane Studio->https://studio.zerobrane.com/] un IDE léger, gratuit, simple et efficace
- 
+* [[ZeroBrane Studio->https://studio.zerobrane.com/]] un IDE léger, gratuit, simple et efficace
+
 {{end}}
 
 {{end}}
 
-{{.sign}} Damien Gouteux Aide-mémoire Lua v0.1 2017-2021
+{{.sign}} Damien Gouteux Aide-mémoire Lua v0.1 2017-2024
 
 {{end}}
 {{end}}

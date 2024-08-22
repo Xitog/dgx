@@ -38,7 +38,7 @@ Hamill existe depuis 2020, il est actuellement à sa version 2 depuis 2022 et di
 
 [[Vous pouvez l'essayer directement en ligne->https://xitog.github.io/dgx/hamill/index.html]]
 
-La version actuelle est la version 2.0.5. Hamill est publié sous licence MIT.
+La version actuelle est la version 2.0.6. Hamill est publié sous licence MIT.
 
 Damien Gouteux 2020-2024
 
@@ -74,7 +74,7 @@ python.exe hamill.py
 Par défaut, il affichera le menu d'aide qui détaille les différentes commandes disponibles.
 
 @@@text
-Running Hamill v2.0.5
+Running Hamill v2.0.6
 ---
 > Use hamill.mjs --process (or -p) <input config filepath> to convert the HML file to HTML
   The file must be an object {} with a key named targets with an array value of pairs :
@@ -89,18 +89,28 @@ Running Hamill v2.0.5
 * @@--eval ou -e@@ : pour lancer une invite de commande pour entrer du hamill et voir directement le résultat traduit en HTML. Utile pour faire des tests.
 * @@--help ou -h@@ : pour afficher ce message (comportement par défaut)
 
-Le fichier de configuration est un fichier JSON qui a un objet pour racine. Cet objet doit avoir une clé targets qui est une liste de paires, le premier élément indiquant le fichier hamill cible, le second élément indiquant le répertoire où mettre le résultat de la transformation en HTML. Le résultat portera le même nom de fichier que le fichier hamill cible, sauf que son extension sera .html au lien de .hml. Si le premier élément est la chaîne "comment", cette paire sera ignorée.
+Le fichier de configuration est un fichier JSON qui a un objet pour racine. Cet objet doit avoir une clé targets qui est une liste d'objets. Chaque objet doit avoir :
+
+* une propriété @@do@@ pour indiquer si la cible doit être traitée ou non,
+* une propriété @@source@@ indiquant le fichier hamill cible,
+* une propriété @@destination@@ indiquant le répertoire où mettre le résultat de la transformation en HTML.
+
+**ou**
+
+* une seule propriété @@comment@@ pour indiquer un commentaire.
+
+Le résultat portera le même nom de fichier que le fichier hamill cible, sauf que son extension sera .html au lien de .hml.
 
 @@@json
 {
     "targets": [
+        {
+            "comment": "Pages racines"
+        },
         [
-            "comment",
-            "Pages racines"
-        ],
-        [
-            "./input/index.hml",
-            "../"
+            "do": true,
+            "source": "./input/index.hml",
+            "destination": "../"
         ]
     ]
 }

@@ -1,8 +1,27 @@
 {
     "targets": [
-        [
-            "./input/ash/ash_guide.hml",
-            "../ash/"
-        ]
+        {
+            "comment": "Ceci est un commentaire"
+        },
+        {
+            "do": false,
+            "source": "./input/ash/ash_guide.hml",
+            "destination": "../ash/"
+        },
+        {
+            "do": true,
+            "source": "./input/informatique/lua.hml",
+            "destination": "../informatique/"
+        },
+        {
+            "do": true,
+            "source": "./input/hamill/hamill.hml",
+            "destination": "../hamill/"
+        },
+        {
+            "do": true,
+            "source": "./input/hamill/hamill_en.hml",
+            "destination": "../hamill/"
+        }
     ]
 }

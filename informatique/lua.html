@@ -1,6 +1,7 @@
+<!DOCTYPE HTML>
 <html lang="fr">
 <head>
-  <meta charset=utf-8>
+  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Aide-mémoire Lua</title>
@@ -8,46 +9,24 @@
   <link rel="shortcut icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
   <link href="https://xitog.github.io/dgx/css/simplex.bootstrap.css" rel="stylesheet">
   <link href="https://xitog.github.io/dgx/css/flashy.css" rel="stylesheet">
-<style type="text/css">
-p code span.type,             pre.code span.type               { color: purple;  }
-</style>
-<style type="text/css">
-p code span.lua-identifier,   pre.code span.lua-identifier     { color: black;   }
-</style>
-<style type="text/css">
-p code span.lua-operator,     pre.code span.lua-operator       { color: black;   }
-</style>
-<style type="text/css">
-p code span.lua-separator,    pre.code span.lua-separator      { color: black;   }
-</style>
-<style type="text/css">
-p code span.lua-special,      pre.code span.lua-special        { color: purple;  }
-</style>
-<style type="text/css">
-p code span.lua-nil,          pre.code span.lua-nil            { color: #1479cc; }
-</style>
-<style type="text/css">
-p code span.lua-boolean,      pre.code span.lua-boolean        { color: #1479cc; }
-</style>
-<style type="text/css">
-p code span.lua-number,       pre.code span.lua-number         { color: red;     }
-</style>
-<style type="text/css">
-p code span.lua-comment,      pre.code span.lua-comment        { color: grey; font-style: italic; }
-</style>
-<style type="text/css">
-p code span.lua-line_comment, pre.code span.lua-line_comment   { color: grey; font-style: italic; }
-</style>
-<style type="text/css">
-p code span.lua-string,       pre.code span.lua-string         { color: orange;  }
-</style>
-<style type="text/css">
-p code span.lua-keyword,      pre.code span.lua-keyword        { color: #1479cc; }
-</style>
-</head>
-<body>
+  <style type="text/css">
+    p code span.type,             pre.code span.type               { color: purple;  }
+    p code span.lua-identifier,   pre.code span.lua-identifier     { color: black;   }
+    p code span.lua-operator,     pre.code span.lua-operator       { color: black;   }
+    p code span.lua-separator,    pre.code span.lua-separator      { color: black;   }
+    p code span.lua-special,      pre.code span.lua-special        { color: purple;  }
+    p code span.lua-nil,          pre.code span.lua-nil            { color: #1479cc; }
+    p code span.lua-boolean,      pre.code span.lua-boolean        { color: #1479cc; }
+    p code span.lua-number,       pre.code span.lua-number         { color: red;     }
+    p code span.lua-comment,      pre.code span.lua-comment        { color: grey; font-style: italic; }
+    p code span.lua-line_comment, pre.code span.lua-line_comment   { color: grey; font-style: italic; }
+    p code span.lua-string,       pre.code span.lua-string         { color: orange;  }
+    p code span.lua-keyword,      pre.code span.lua-keyword        { color: #1479cc; }
+  </style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
 <link href="https://fonts.googleapis.com/css2?family=Inconsolata" rel="stylesheet">
 <div id="main" class="container">
       <nav class="navbar navbar-default" role="navigation">
@@ -90,18 +69,20 @@ p code span.lua-keyword,      pre.code span.lua-keyword        { color: #1479cc;
               <li class="dropdown">
                 <a id="Informatique" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Informatique <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Projets</li>
+                  <li><a href="https://xitog.github.io/dgx/ash/index.html">Ash</a></li>
+                  <li><a href="https://xitog.github.io/dgx/hamill/index.html">Hamill</a></li>
+                  <li class="divider"></li>
                   <li class="dropdown-header">Programmation</li>
                   <li><a href="https://xitog.github.io/dgx/informatique/syntaxes.html">Syntaxes comparées</a></li>
                   <li><a href="https://xitog.github.io/dgx/informatique/python.html">Aide-mémoire Python</a></li>
                   <li><a href="https://xitog.github.io/dgx/informatique/ruby.html">Aide-mémoire Ruby</a></li>
                   <li><a href="https://xitog.github.io/dgx/informatique/lua.html">Aide-mémoire Lua</a></li>
                   <li><a href="https://xitog.github.io/dgx/informatique/ruby_guide.html">Guide Ruby</a></li>
-                  <li><a href="https://xitog.github.io/dgx/informatique/ash_guide.html">Guide Ash</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Modélisation</li>
                   <li><a href="https://xitog.github.io/dgx/informatique/bnf.html">Aide-mémoire BNF et EBNF</a></li>
                   <li><a href="https://xitog.github.io/dgx/informatique/json.html">Aide-mémoire JSON</a></li>
-                  <li><a href="https://xitog.github.io/dgx/informatique/hamill.html">Aide-mémoire Hamill</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Autres</li>
                   <li><a href="https://xitog.github.io/dgx/informatique/version_control.html">Gestion de versions</a></li>
@@ -122,12 +103,17 @@ p code span.lua-keyword,      pre.code span.lua-keyword        { color: #1479cc;
               <li class="dropdown">
                 <a id="Jeux" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Passe-temps <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li class="dropdown-header">Présentations générales</i></li>
+                  <li class="dropdown-header">Projets</li>
+                  <li><a href="https://xitog.github.io/dgx/teddy/index.html">Éditeur de carte</a></li>
+                  <li><a href="https://xitog.github.io/dgx/rts/index.html">Jouer à mon RTS</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/project_fps.html">Jouer à mon FPS</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Présentations générales</li>
                   <li><a href="https://xitog.github.io/dgx/passetemps/pres_jeux.html">Les jeux</a></li>
                   <li><a href="https://xitog.github.io/dgx/passetemps/pres_jeuxvideo.html">Les jeux vidéo</a></li>
                   <li><a href="https://xitog.github.io/dgx/passetemps/pres_favoris.html">Favoris artistiques</a></li>
                   <li class="divider"></li>
-                  <li class="dropdown-header">Jeux de rôles</i></li>
+                  <li class="dropdown-header">Jeux de rôles</li>
                   <li><a href="https://xitog.github.io/dgx/passetemps/systemes_rpg.html">Systèmes des RPG</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Livres-jeux</li>
@@ -138,75 +124,156 @@ p code span.lua-keyword,      pre.code span.lua-keyword        { color: #1479cc;
                   <li><a href="https://xitog.github.io/dgx/passetemps/history_rts.html">Les enfants de Dune : les RTS</a></li>
                   <li><a href="https://xitog.github.io/dgx/passetemps/history_fps.html">Les enfants de Doom : les FPS</a></li>
                   <li class="divider"></li>
-                  <li class="dropdown-header">Techniques des jeux vidéo</i></li>
-                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_raycasting_fr.html">Le raycasting : la 2.5D</a>
+                  <li class="dropdown-header">Techniques des jeux vidéo</li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_raycasting_fr.html">Le raycasting : la 2.5D</a></li>
                   <li><a href="https://xitog.github.io/dgx/passetemps/tech_transitions.html">Cartes et transitions</a></li>
                   <li><a href="https://xitog.github.io/dgx/passetemps/tech_dialogues.html">Dialogues</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdown-header">Jeux vidéo et outils maison</i></li>
-                  <li><a href="https://xitog.github.io/dgx/passetemps/project_teddy.html">Éditeur de carte</a></li>
-                  <li><a href="https://xitog.github.io/dgx/passetemps/project_rts.html">Jouer à mon RTS</a></li>
-                  <li><a href="https://xitog.github.io/dgx/passetemps/project_fps.html">Jouer à mon FPS</a></li>
                 </ul>
               </li>
               <li class="dropdown">
                 <a id="Autres" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Autres <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li class="dropdown-header">Musique</li>
+                  <li class="dropdown-header">Applications</li>
                   <li><a href="https://xitog.github.io/dgx/concerts_classiques/index.html">Concerts classiques</a></li>
-                  <li><a href="https://xitog.github.io/dgx/favoris/musiques.html">Musiques favorites</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Collections</li>
                   <li><a href="https://xitog.github.io/dgx/data/outil_collections.html#prenoms">Prénoms</a></li>
                   <li class="divider"></li>
                   <li class="dropdown-header">Liens</li>
                   <li><a href="https://xitog.github.io/dgx/plan.html">Plan du site</a></li>
-                  <li><a href="https://xitog.github.io/dgx/liens.html">Barre de liens</a></li>
-                  <li><a href="https://xitog.github.io/dgx/liste_liens.html">Collection de liens</a></li>
+                  <li><a href="https://xitog.github.io/dgx/liens.html">Liste de liens</a></li>
                 </ul>
               </li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
+
 <div id="content-div">
+<h1 id="sommaire">Sommaire</h1>
+<ul>
+  <li><a href="#1.-bases-du-langage">1. Bases du langage</a>
+    <ul>
+      <li><a href="#1.1-description">1.1 Description</a></li>
+      <li><a href="#1.2-historique-et-influences">1.2 Historique et influences</a></li>
+      <li><a href="#1.3-désavantages">1.3 Désavantages</a></li>
+      <li><a href="#1.4-utilisations">1.4 Utilisations</a></li>
+      <li><a href="#1.5-premiers-pas">1.5 Premiers pas</a></li>
+      <li><a href="#1.6-mots-réservés-(22)">1.6 Mots réservés (22)</a></li>
+      <li><a href="#1.7-commentaires">1.7 Commentaires</a></li>
+      <li><a href="#1.8-variables">1.8 Variables</a></li>
+    </ul>
+  </li>
+  <li><a href="#2.-types-de-base-(8)">2. Types de base (8)</a>
+    <ul>
+      <li><a href="#2.1-nil">2.1 nil</a></li>
+      <li><a href="#2.2-booléens-:-boolean">2.2 Booléens : boolean</a></li>
+      <li><a href="#2.3-nombres-:-number">2.3 Nombres : number</a></li>
+      <li><a href="#2.4-chaînes-de-caractères-:-string">2.4 Chaînes de caractères : string</a></li>
+      <li><a href="#2.5-fonctions-:-function">2.5 Fonctions : function</a></li>
+      <li><a href="#2.6-données-utilisateurs-:-userdata">2.6 Données utilisateurs : userdata</a></li>
+      <li><a href="#2.7-processus-légers-:-thread">2.7 Processus légers : thread</a></li>
+      <li><a href="#2.8-tables-:-table">2.8 Tables : table</a></li>
+    </ul>
+  </li>
+  <li><a href="#3.-opérateurs">3. Opérateurs</a>
+    <ul>
+      <li><a href="#3.1-liste-des-opérateurs">3.1 Liste des opérateurs</a></li>
+      <li><a href="#3.2-précédence-des-opérateurs">3.2 Précédence des opérateurs</a></li>
+    </ul>
+  </li>
+  <li><a href="#4.-contrôle-du-flux">4. Contrôle du flux</a>
+    <ul>
+      <li><a href="#4.1-séquence">4.1 Séquence</a></li>
+      <li><a href="#4.2-conditions">4.2 Conditions</a></li>
+      <li><a href="#4.3-répétitions">4.3 Répétitions</a></li>
+    </ul>
+  </li>
+  <li><a href="#5.-fonctions">5. Fonctions</a>
+    <ul>
+      <li><a href="#5.1-définition">5.1 Définition</a></li>
+      <li><a href="#5.2-appel">5.2 Appel</a></li>
+      <li><a href="#5.3-closure">5.3 Closure</a></li>
+    </ul>
+  </li>
+  <li><a href="#6.-gestion-des-exceptions-et-multifichiers">6. Gestion des exceptions et multifichiers</a>
+    <ul>
+      <li><a href="#6.1-appels-protégés">6.1 Appels protégés</a></li>
+      <li><a href="#6.2-multifichiers">6.2 Multifichiers</a></li>
+    </ul>
+  </li>
+  <li><a href="#7.-bibliothèque-de-base">7. Bibliothèque de base</a>
+    <ul>
+      <li><a href="#7.1-sortie-et-entrée-console">7.1 Sortie et entrée console</a></li>
+      <li><a href="#7.2-nombres">7.2 Nombres</a></li>
+      <li><a href="#7.3-chaînes-de-caractères">7.3 Chaînes de caractères</a></li>
+      <li><a href="#7.4-tables">7.4 Tables</a></li>
+      <li><a href="#7.5-fichiers">7.5 Fichiers</a></li>
+    </ul>
+  </li>
+  <li><a href="#8.-recettes">8. Recettes</a>
+    <ul>
+      <li><a href="#8.1-programmation-orientée-objet-(poo)">8.1 Programmation orientée objet (POO)</a>
+        <ul>
+          <li><a href="#8.1.1-définir-un-type">8.1.1 Définir un type</a></li>
+          <li><a href="#8.1.2-instancier-et-appeler-une-méthode">8.1.2 Instancier et appeler une méthode</a></li>
+        </ul>
+  </li>
+      <li><a href="#8.2-recettes-pour-löve">8.2 Recettes pour LÖVE</a>
+        <ul>
+          <li><a href="#8.2.1-afficher-la-console">8.2.1 Afficher la console</a></li>
+          <li><a href="#8.2.2-faire-une-fonction-principale">8.2.2 Faire une fonction principale</a></li>
+        </ul>
+  </li>
+    </ul>
+  </li>
+  <li><a href="#9.-liens-web">9. Liens web</a>
+    <ul>
+      <li><a href="#9.1-généraux">9.1 Généraux</a></li>
+      <li><a href="#9.2-bibliothèques">9.2 Bibliothèques</a></li>
+      <li><a href="#9.3-interpréteurs">9.3 Interpréteurs</a></li>
+      <li><a href="#9.4-langages-liés">9.4 Langages liés</a></li>
+      <li><a href="#9.5-outils">9.5 Outils</a></li>
+    </ul>
+  </li>
+</ul>
 <h1 id="1.-bases-du-langage">1. Bases du langage</h1>
 <div class="row">
 <div class="column">
-<h2 id="description">Description</h2>
+<h2 id="1.1-description">1.1 Description</h2>
 <p>Lua, lune en portugais, est un langage de script, gratuit, concis et simple :</p>
 <ul>
   <li>Concis car le langage est assez petit aussi bien dans son nombre de mots-clés que les concepts qu'il met en jeu. Il n'y a par exemple qu'un type de données structurées, les tables, alors que de Python utilisent des tuples, des sets, des listes, des dictionnaires. L'orientation objet n'est pas supportée par des mots-clés dans le langage, il faut la reprogrammer à la main mais Lua offre des facilités pour développer les capacités du langage.</li>
   <li>Simple car Lua a une syntaxe assez standard et très permissive : on peut appeler une fonction sans respecter le nombre de paramètres demandés, on peut simplement concaténer deux expressions à la suite, il n'y pas de système de typage des variables.</li>
 </ul>
-<p>La version actuelle (janvier 2022) est la version 5.4 disponible selon les termes de la licence MIT. Ses fichiers portent l'extension <code><span class="text-normal">.lua</span></code>.</p>
-<h2 id="historique-et-influences">Historique et influences</h2>
+<p>La version actuelle (janvier 2022) est la version 5.4 disponible selon les termes de la licence MIT. Ses fichiers portent l'extension <code><span class="text-normal" title="token n°0 : normal">.lua</span></code>.</p>
+<h2 id="1.2-historique-et-influences">1.2 Historique et influences</h2>
 <p>Lua a été développé au Brésil à partir de 1993 par Roberto Ierusalimschy, Waldemar Celes et Luiz Henrique de Figueiredo au sein du groupe de recherche <i>Computer Graphics Technology Group</i> (<a href="https://www.tecgraf.puc-rio.br/">TeCGraf</a> <sup>[pt, en]</sup>), de l'université pontificale catholique de Rio de Janeiro avec l'aide du géant industriel <a href="http://www.petrobras.com.br/en/">Petrobras</a> <sup>[en]</sup>.</p>
-<p>Sa syntaxe emprunte au langage Modula, un langage développé dans les années 70 en Suisse par Niklaus Wirth, le créateur de Pascal. Elle présente des similarités avec le langage de script Ruby mais sans sa partie orientée objet.</p>
-<h2 id="désavantages">Désavantages</h2>
+<p>Sa syntaxe emprunte au langage Modula, un langage développé dans les années 70 en Suisse par Niklaus Wirth, le créateur de Pascal. Elle présente également des similarités avec le langage de script Ruby mais sans sa partie orientée objet.</p>
+<h2 id="1.3-désavantages">1.3 Désavantages</h2>
 <ul>
   <li>Absence de mécanisme d'orientation objet de base,</li>
-  <li>Danger de pouvoir concaténer deux expressions à la suite, car il n'y a ni séparateur, ni terminateur : <code><span class="lua-number">3</span><span class="lua-operator">+</span><span class="lua-number">5</span> <span class="lua-number">2</span></code> est valide en Lua !</li>
+  <li>Danger de pouvoir concaténer deux expressions à la suite, car il n'y a ni séparateur, ni terminateur : <code><span class="lua-number" title="token n°0 : number">3</span><span class="lua-operator" title="token n°1 : operator">+</span><span class="lua-number" title="token n°2 : number">5</span> <span class="lua-number" title="token n°4 : number">2</span></code> est valide en Lua !</li>
   <li>Une bibliothèque standard minimaliste où il manque beaucoup de choses mais de taille réduite</li>
-  <li>Il n'y a pas de mot clé <code><span class="python-keyword">continue</span></code> pour avancer une boucle d'une itération</li>
-  <li><code><span class="lua-keyword">in</span></code> ne s'utilise qu'avec pairs ou ipairs dans un <code><span class="lua-keyword">for</span></code></li>
-  <li>Opérateur de différence est <code><span class="lua-operator">~=</span></code> au lieu du standard de facto <code><span class="python-operator">!=</span></code></li>
-  <li>Opérateur de puissance est <code><span class="lua-operator">^</span></code> au lieu de <code><span class="lua-operator">*</span><span class="lua-operator">*</span></code></li>
-  <li>Pas d'opérateurs combinés : <code><span class="python-operator">+=</span> <span class="python-operator">-=</span> <span class="python-operator">*=</span> <span class="python-operator">/=</span></code></li>
+  <li>Il n'y a pas de mot clé <code><span class="python-keyword" title="token n°0 : keyword">continue</span></code> pour avancer une boucle d'une itération</li>
+  <li><code><span class="lua-keyword" title="token n°0 : keyword">in</span></code> ne s'utilise qu'avec les fonctions <code><span class="lua-special" title="token n°0 : special">pairs</span></code> ou <code><span class="lua-special" title="token n°0 : special">ipairs</span></code> dans un <code><span class="lua-keyword" title="token n°0 : keyword">for</span></code></li>
+  <li>Opérateur de différence est <code><span class="lua-operator" title="token n°0 : operator">~=</span></code> au lieu du standard de facto <code><span class="python-operator" title="token n°0 : operator">!=</span></code></li>
+  <li>Opérateur de puissance est <code><span class="lua-operator" title="token n°0 : operator">^</span></code> au lieu de <code><span class="lua-operator" title="token n°0 : operator">*</span><span class="lua-operator" title="token n°1 : operator">*</span></code></li>
+  <li>Pas d'opérateurs combinés : <code><span class="python-operator" title="token n°0 : operator">+=</span> <span class="python-operator" title="token n°2 : operator">-=</span> <span class="python-operator" title="token n°4 : operator">*=</span> <span class="python-operator" title="token n°6 : operator">/=</span></code></li>
   <li>Aucune vérification du nombre de paramètres des fonctions</li>
   <li>Aucune déclaration de type possible</li>
   <li>Fusion des types int et float en <span class="type">number</span></li>
-  <li>Fusion du concept de liste et de dictionnaire en celui de table</li>
+  <li>Fusion du concept de liste et de dictionnaire en celui de <span class="type">table</span></li>
   <li>Difficulté à connaître la longueur d'une liste et à s'assurer de la continuité de ses index</li>
-  <li>On ne peut pas différencier une clé existante avec sa valeur à nil et une clé qui n'existe pas</li>
-  <li>Les clés de type <span class="type">string</span> doivent être entourées de guillemets <code><span class="lua-separator">[</span><span class="lua-string">'key'</span><span class="lua-separator">]</span> <span class="lua-operator">=</span> <span class="lua-identifier">val</span></code></li>
-  <li>Pas moyen de déclarer des constantes</li>
-  <li>Toute variable sans <code><span class="lua-keyword">local</span></code> est globale même dans les fonctions</li>
+  <li>On ne peut pas différencier une clé existante avec sa valeur à nil d'une clé qui n'existe pas</li>
+  <li>Les clés de type <span class="type">string</span> doivent être entourées de crochets <code><span class="lua-separator" title="token n°0 : separator">{</span> <span class="lua-separator" title="token n°2 : separator">[</span><span class="lua-string" title="token n°3 : string">'key'</span><span class="lua-separator" title="token n°4 : separator">]</span> <span class="lua-operator" title="token n°6 : operator">=</span> <span class="lua-identifier" title="token n°8 : identifier">val</span> <span class="lua-separator" title="token n°10 : separator">}</span></code></li>
+  <li><s>Aucun moyen de déclarer des constantes</s> : Depuis Lua &GreaterSlantEqual; 5.4 on peut avec une syntaxe horrible : <code><span class="lua-keyword" title="token n°0 : keyword">local</span> <span class="lua-identifier" title="token n°2 : identifier">stone</span> <span class="lua-operator" title="token n°4 : operator">&lt;</span><span class="lua-identifier" title="token n°5 : identifier">const</span><span class="lua-operator" title="token n°6 : operator">&gt;</span> <span class="lua-operator" title="token n°8 : operator">=</span> <span class="lua-number" title="token n°10 : number">42</span></code></li>
+  <li>Toute variable sans <code><span class="lua-keyword" title="token n°0 : keyword">local</span></code> est globale même dans les fonctions</li>
   <li>Conversion automatique des chaînes en nombres</li>
 </ul>
 </div>
 <div class="column">
-<h2 id="utilisations">Utilisations</h2>
+<h2 id="1.4-utilisations">1.4 Utilisations</h2>
 <p>Lua peut être utilisé de deux façons :</p>
 <ul>
   <li>Via l'interpréteur en tant qu'API C embarqué dans une <b>application hôte</b>. il permet de piloter celle-ci via des scripts en utilisant les fonctions supplémentaires qu'elle met à leur disposition et les bibliothèques Lua. Sa concision fait qu'il ne prend pas trop de place dans l'application hôte. On parle alors de <b>langage d'extension</b> (<i>extension language</i>) ou <b>embarqué</b> (<i>embedded</i>).</li>
@@ -214,239 +281,297 @@ p code span.lua-keyword,      pre.code span.lua-keyword        { color: #1479cc;
 </ul>
 <p>L'interpréteur n'interprète pas directement le script mais le compile en bytecode et envoi celui-ci à la machine virtuelle Lua.</p>
 <p>Lua est utilisée de façon embarquée dans de nombreux applications, en particulier des jeux vidéo. On peut citer le lecteur multimédia VLC et le jeu vidéo World of Warcraft.</p>
-<h2 id="bonjour-le-monde-!">Bonjour le monde !</h2>
+<h2 id="1.5-premiers-pas">1.5 Premiers pas</h2>
 <p>La tradition veut que l'on commence par écrire "Bonjour le monde !" sur la sortie standard (console) lorsque l'on découvre un nouveau langage de programmation.</p>
-<pre class="code">
-<span class="lua-comment">-- Ceci est un commentaire jusqu'à la fin de la ligne
-</span><span class="lua-special">print</span><span class="lua-separator">(</span><span class="lua-string">"Bonjour le monde !"</span><span class="lua-separator">)</span><span class="lua-newline">
+<pre>
+<span class="lua-comment" title="token n°0 : comment">-- Ceci est un commentaire jusqu'à la fin de la ligne
+</span><span class="lua-special" title="token n°1 : special">print</span><span class="lua-separator" title="token n°2 : separator">(</span><span class="lua-string" title="token n°3 : string">"Bonjour le monde !"</span><span class="lua-separator" title="token n°4 : separator">)</span><span class="lua-newline" title="token n°5 : newline">
 </span></pre>
-<h2 id="mots-réservés-(22)">Mots réservés (22)</h2>
-<pre class="code">
-<span class="lua-keyword">and</span>   <span class="lua-keyword">break</span> <span class="lua-keyword">do</span>    <span class="lua-keyword">else</span>  <span class="lua-keyword">elseif</span> <span class="lua-keyword">end</span> <span class="lua-boolean">false</span> <span class="lua-keyword">for</span>    <span class="lua-keyword">function</span><span class="lua-newline">
-</span><span class="lua-keyword">goto</span>  <span class="lua-keyword">if</span>    <span class="lua-keyword">in</span>    <span class="lua-keyword">local</span> <span class="lua-nil">nil</span>    <span class="lua-keyword">not</span> <span class="lua-keyword">or</span>    <span class="lua-keyword">repeat</span> <span class="lua-keyword">return</span><span class="lua-newline">
-</span><span class="lua-keyword">then</span>  <span class="lua-boolean">true</span>  <span class="lua-keyword">until</span> <span class="lua-keyword">while</span><span class="lua-newline">
+<h2 id="1.6-mots-réservés-(22)">1.6 Mots réservés (22)</h2>
+<pre>
+<span class="lua-keyword" title="token n°0 : keyword">and</span>   <span class="lua-keyword" title="token n°2 : keyword">break</span> <span class="lua-keyword" title="token n°4 : keyword">do</span>    <span class="lua-keyword" title="token n°6 : keyword">else</span>  <span class="lua-keyword" title="token n°8 : keyword">elseif</span> <span class="lua-keyword" title="token n°10 : keyword">end</span> <span class="lua-boolean" title="token n°12 : boolean">false</span> <span class="lua-keyword" title="token n°14 : keyword">for</span>    <span class="lua-keyword" title="token n°16 : keyword">function</span><span class="lua-newline" title="token n°17 : newline">
+</span><span class="lua-keyword" title="token n°18 : keyword">goto</span>  <span class="lua-keyword" title="token n°20 : keyword">if</span>    <span class="lua-keyword" title="token n°22 : keyword">in</span>    <span class="lua-keyword" title="token n°24 : keyword">local</span> <span class="lua-nil" title="token n°26 : nil">nil</span>    <span class="lua-keyword" title="token n°28 : keyword">not</span> <span class="lua-keyword" title="token n°30 : keyword">or</span>    <span class="lua-keyword" title="token n°32 : keyword">repeat</span> <span class="lua-keyword" title="token n°34 : keyword">return</span><span class="lua-newline" title="token n°35 : newline">
+</span><span class="lua-keyword" title="token n°36 : keyword">then</span>  <span class="lua-boolean" title="token n°38 : boolean">true</span>  <span class="lua-keyword" title="token n°40 : keyword">until</span> <span class="lua-keyword" title="token n°42 : keyword">while</span><span class="lua-newline" title="token n°43 : newline">
 </span></pre>
-<h2 id="commentaires">Commentaires</h2>
-<p>Commentaires en Lua : <code><span class="lua-comment">-- mon commentaire jusqu'à la fin de la ligne</span></code></p>
+<h2 id="1.7-commentaires">1.7 Commentaires</h2>
+<p>Commentaires en Lua : <code><span class="lua-comment" title="token n°0 : comment">-- mon commentaire jusqu'à la fin de la ligne</span></code></p>
 <p>Commentaires sur plusieurs lignes :</p>
-<pre class="code">
-<span class="lua-comment">--[[
+<pre>
+<span class="lua-comment" title="token n°0 : comment">--[[
     vos lignes
 --]]
 </span></pre>
-<h2 id="variables">Variables</h2>
+<h2 id="1.8-variables">1.8 Variables</h2>
 <p>Une variable est une référence vers une valeur. Une valeur a un type, pas la variable. L'exemple suivant établie une référence entre la variable a et la valeur 5 de type <span class="type">number</span>.</p>
-<pre class="code">
-<span class="lua-identifier">a</span> <span class="lua-operator">=</span> <span class="lua-number">5</span><span class="lua-newline">
+<pre>
+<span class="lua-identifier" title="token n°0 : identifier">a</span> <span class="lua-operator" title="token n°2 : operator">=</span> <span class="lua-number" title="token n°4 : number">5</span><span class="lua-newline" title="token n°5 : newline">
 </span></pre>
 <p>Il n'y a pas de constantes en Lua : une variable peut référencer ensuite une autre valeur, du même type ou d'un autre.</p>
+<p>Une variable peut être déclarée constante avec l'attribut const : <code><span class="lua-keyword" title="token n°0 : keyword">local</span> <span class="lua-identifier" title="token n°2 : identifier">stone</span> <span class="lua-operator" title="token n°4 : operator">&lt;</span><span class="lua-identifier" title="token n°5 : identifier">const</span><span class="lua-operator" title="token n°6 : operator">&gt;</span> <span class="lua-operator" title="token n°8 : operator">=</span> <span class="lua-number" title="token n°10 : number">42</span></code></p>
 </div>
 </div>
 <h1 id="2.-types-de-base-(8)">2. Types de base (8)</h1>
 <div class="row">
 <div class="column">
 <p>En Lua, il y a <b>8</b> types de base.</p>
-<h2 id="nil">nil</h2>
-<p>Le type <span class="type">nil</span> n'a qu'une seule valeur, <code><span class="lua-nil">nil</span></code>.</p>
-<h2 id="booléens-:-boolean">Booléens : boolean</h2>
-<p>Le type <span class="type">boolean</span> a deux valeurs, <code><span class="lua-boolean">true</span></code> et <code><span class="lua-boolean">false</span></code>.</p>
-<p>Les valeurs <code><span class="lua-nil">nil</span></code> et <code><span class="lua-boolean">false</span></code> sont les deux seules valeurs qui sont considérées comme fausse par les tests. Toutes les autres valeurs, y compris <code><span class="lua-number">0</span></code> et la chaîne vide <code><span class="lua-string">""</span></code> sont vraies.</p>
-<h2 id="nombres-:-number">Nombres : number</h2>
+<h2 id="2.1-nil">2.1 nil</h2>
+<p>Le type <span class="type">nil</span> n'a qu'une seule valeur, <code><span class="lua-nil" title="token n°0 : nil">nil</span></code>.</p>
+<h2 id="2.2-booléens-:-boolean">2.2 Booléens : boolean</h2>
+<p>Le type <span class="type">boolean</span> a deux valeurs, <code><span class="lua-boolean" title="token n°0 : boolean">true</span></code> et <code><span class="lua-boolean" title="token n°0 : boolean">false</span></code>.</p>
+<p>Les valeurs <code><span class="lua-nil" title="token n°0 : nil">nil</span></code> et <code><span class="lua-boolean" title="token n°0 : boolean">false</span></code> sont les deux seules valeurs qui sont considérées comme fausse par les tests. Toutes les autres valeurs, y compris <code><span class="lua-number" title="token n°0 : number">0</span></code> et la chaîne vide <code><span class="lua-string" title="token n°0 : string">""</span></code> sont vraies.</p>
+<h2 id="2.3-nombres-:-number">2.3 Nombres : number</h2>
 <p>Le type <span class="type">number</span> a pour valeurs les entiers et les réels (ou flottants). Les conversions de l'un vers l'autre type sont automatiques. Par défaut, entiers et réels sont stockés sur 64 bits et selon la norme IEEE 754 pour les réels.</p>
-<h2 id="chaînes-de-caractères-:-string">Chaînes de caractères : string</h2>
+<h2 id="2.4-chaînes-de-caractères-:-string">2.4 Chaînes de caractères : string</h2>
 <p>Le type <span class="type">string</span> unifie les caractères et les chaînes de caractères. Lua peut stocker les chaînes en UTF-8 mais ne sait pas comment les gérer.</p>
 <p>Les chaînes sont <b>immutables</b> en Lua.</p>
 </div>
 <div class="column">
-<h2 id="fonctions-:-function">Fonctions : function</h2>
+<h2 id="2.5-fonctions-:-function">2.5 Fonctions : function</h2>
 <p>Le type <span class="type">function</span> sera plus étudié dans le chapitre suivant. Il s'agit de bloc de code écrit en Lua ou en C.</p>
-<h2 id="données-utilisateurs-:-userdata">Données utilisateurs : userdata</h2>
+<h2 id="2.6-données-utilisateurs-:-userdata">2.6 Données utilisateurs : userdata</h2>
 <p>Le type <span class="type">userdata</span> permet de stocker des données binaires venant du code C avec lequel lua s'interface.</p>
-<h2 id="processus-légers-:-thread">Processus légers : thread</h2>
+<h2 id="2.7-processus-légers-:-thread">2.7 Processus légers : thread</h2>
 <p>Lua utilise le type <span class="type">thread</span> pour ses coroutines. Ce type est indépendant des threads du système d'exploitation.</p>
-<h2 id="tables-:-table">Tables : table</h2>
+<h2 id="2.8-tables-:-table">2.8 Tables : table</h2>
 <p>Lua a fusionné les listes et les tables associatives (ou dictionnaires) dans le type table : une clé désigne une valeur.</p>
-<p>Une clé ne peut avoir pour valeur <code><span class="lua-nil">nil</span></code> ou <code><span class="lua-identifier">NaN</span></code>.</p>
-<pre class="code">
-<span class="lua-identifier">t</span> <span class="lua-operator">=</span> <span class="lua-separator">{</span> <span class="lua-separator">[</span><span class="lua-string">"k1"</span><span class="lua-separator">]</span> <span class="lua-operator">=</span> <span class="lua-number">5</span><span class="lua-separator">,</span> <span class="lua-separator">[</span><span class="lua-string">"k2"</span><span class="lua-separator">]</span> <span class="lua-operator">=</span> <span class="lua-string">"v"</span><span class="lua-separator">,</span> <span class="lua-separator">[</span><span class="lua-number">4</span><span class="lua-separator">]</span> <span class="lua-operator">=</span> <span class="lua-number">6</span> <span class="lua-separator">}</span> <span class="lua-comment">-- Définition
-</span><span class="lua-special">print</span><span class="lua-separator">(</span><span class="lua-identifier">t</span><span class="lua-separator">[</span><span class="lua-string">"k1"</span><span class="lua-separator">]</span><span class="lua-separator">)</span> <span class="lua-comment">-- Accès
-</span><span class="lua-special">print</span><span class="lua-separator">(</span><span class="lua-identifier">t</span><span class="lua-operator">.</span><span class="lua-identifier">k1</span><span class="lua-separator">)</span> <span class="lua-comment">-- Accès avec sucre syntaxique
+<p>Une clé ne peut avoir pour valeur <code><span class="lua-nil" title="token n°0 : nil">nil</span></code> ou <code><span class="lua-identifier" title="token n°0 : identifier">NaN</span></code>.</p>
+<pre>
+<span class="lua-identifier" title="token n°0 : identifier">t</span> <span class="lua-operator" title="token n°2 : operator">=</span> <span class="lua-separator" title="token n°4 : separator">{</span> <span class="lua-separator" title="token n°6 : separator">[</span><span class="lua-string" title="token n°7 : string">"k1"</span><span class="lua-separator" title="token n°8 : separator">]</span> <span class="lua-operator" title="token n°10 : operator">=</span> <span class="lua-number" title="token n°12 : number">5</span><span class="lua-separator" title="token n°13 : separator">,</span> <span class="lua-separator" title="token n°15 : separator">[</span><span class="lua-string" title="token n°16 : string">"k2"</span><span class="lua-separator" title="token n°17 : separator">]</span> <span class="lua-operator" title="token n°19 : operator">=</span> <span class="lua-string" title="token n°21 : string">"v"</span><span class="lua-separator" title="token n°22 : separator">,</span> <span class="lua-separator" title="token n°24 : separator">[</span><span class="lua-number" title="token n°25 : number">4</span><span class="lua-separator" title="token n°26 : separator">]</span> <span class="lua-operator" title="token n°28 : operator">=</span> <span class="lua-number" title="token n°30 : number">6</span> <span class="lua-separator" title="token n°32 : separator">}</span> <span class="lua-comment" title="token n°34 : comment">-- Définition
+</span><span class="lua-special" title="token n°35 : special">print</span><span class="lua-separator" title="token n°36 : separator">(</span><span class="lua-identifier" title="token n°37 : identifier">t</span><span class="lua-separator" title="token n°38 : separator">[</span><span class="lua-string" title="token n°39 : string">"k1"</span><span class="lua-separator" title="token n°40 : separator">]</span><span class="lua-separator" title="token n°41 : separator">)</span> <span class="lua-comment" title="token n°43 : comment">-- Accès
+</span><span class="lua-special" title="token n°44 : special">print</span><span class="lua-separator" title="token n°45 : separator">(</span><span class="lua-identifier" title="token n°46 : identifier">t</span><span class="lua-operator" title="token n°47 : operator">.</span><span class="lua-identifier" title="token n°48 : identifier">k1</span><span class="lua-separator" title="token n°49 : separator">)</span> <span class="lua-comment" title="token n°51 : comment">-- Accès avec sucre syntaxique
 </span></pre>
 </div>
 </div>
 <h1 id="3.-opérateurs">3. Opérateurs</h1>
 <div class="row">
 <div class="column">
-<h2 id="opérateurs">Opérateurs</h2>
+<h2 id="3.1-liste-des-opérateurs">3.1 Liste des opérateurs</h2>
 <h3 id="opérateurs-arithmétiques">Opérateurs arithmétiques</h3>
 <ul>
-  <li><code><span class="lua-operator">+</span></code> addition</li>
-  <li><code><span class="lua-operator">-</span></code> binaire soustraction</li>
-  <li><code><span class="lua-operator">*</span></code> multiplication</li>
-  <li><code><span class="lua-operator">/</span></code> division (converti en float)</li>
-  <li><code><span class="lua-operator">/</span><span class="lua-operator">/</span></code> division entière</li>
-  <li><code><span class="lua-operator">%</span></code> modulo</li>
-  <li><code><span class="lua-operator">^</span></code> puissance (converti en float)</li>
-  <li><code><span class="lua-operator">-</span></code> <i>unaire</i> signe négatif</li>
+  <li><code><span class="lua-operator" title="token n°0 : operator">+</span></code> addition</li>
+  <li><code><span class="lua-operator" title="token n°0 : operator">-</span></code> binaire soustraction</li>
+  <li><code><span class="lua-operator" title="token n°0 : operator">*</span></code> multiplication</li>
+  <li><code><span class="lua-operator" title="token n°0 : operator">/</span></code> division (converti en float)</li>
+  <li><code><span class="lua-operator" title="token n°0 : operator">/</span><span class="lua-operator" title="token n°1 : operator">/</span></code> division entière</li>
+  <li><code><span class="lua-operator" title="token n°0 : operator">%</span></code> modulo</li>
+  <li><code><span class="lua-operator" title="token n°0 : operator">^</span></code> puissance (converti en float)</li>
+  <li><code><span class="lua-operator" title="token n°0 : operator">-</span></code> <i>unaire</i> signe négatif</li>
 </ul>
 <h3 id="opérateurs-de-comparaisons">Opérateurs de comparaisons</h3>
 <ul>
-  <li><code><span class="lua-operator">==</span></code> égalité</li>
-  <li><code><span class="lua-operator">~=</span></code> inégalité</li>
-  <li><code><span class="lua-operator">&lt;</span></code> inférieur à</li>
-  <li><code><span class="lua-operator">&gt;</span></code> supérieur à</li>
-  <li><code><span class="lua-operator">&lt;=</span></code> inférieur ou égal à</li>
-  <li><code><span class="lua-operator">&gt;=</span></code> supérieur ou égal à</li>
+  <li><code><span class="lua-operator" title="token n°0 : operator">==</span></code> égalité</li>
+  <li><code><span class="lua-operator" title="token n°0 : operator">~=</span></code> inégalité</li>
+  <li><code><span class="lua-operator" title="token n°0 : operator">&lt;</span></code> inférieur à</li>
+  <li><code><span class="lua-operator" title="token n°0 : operator">&gt;</span></code> supérieur à</li>
+  <li><code><span class="lua-operator" title="token n°0 : operator">&lt;=</span></code> inférieur ou égal à</li>
+  <li><code><span class="lua-operator" title="token n°0 : operator">&gt;=</span></code> supérieur ou égal à</li>
 </ul>
-<p>Si les types sont différents, l'égalité renverra toujours <code><span class="lua-boolean">false</span></code>.</p>
+<p>Si les types sont différents, l'égalité renverra toujours <code><span class="lua-boolean" title="token n°0 : boolean">false</span></code>.</p>
 <h3 id="opérateurs-booléens">Opérateurs booléens</h3>
 <ul>
-  <li><code><span class="lua-operator">&amp;</span></code> et</li>
-  <li><code><span class="lua-operator">|</span></code> ou</li>
-  <li><code><span class="lua-operator">~</span></code> binaire ou exclusif</li>
-  <li><code><span class="lua-operator">&gt;&gt;</span></code> décalage à droite (rempli avec des zéros)</li>
-  <li><code><span class="lua-operator">&lt;&lt;</span></code> décalage à gauche (rempli avec des zéros)</li>
-  <li><code><span class="lua-operator">~</span></code> <i>unaire</i> non</li>
+  <li><code><span class="lua-operator" title="token n°0 : operator">&amp;</span></code> et</li>
+  <li><code><span class="lua-operator" title="token n°0 : operator">|</span></code> ou</li>
+  <li><code><span class="lua-operator" title="token n°0 : operator">~</span></code> binaire ou exclusif</li>
+  <li><code><span class="lua-operator" title="token n°0 : operator">&gt;&gt;</span></code> décalage à droite (rempli avec des zéros)</li>
+  <li><code><span class="lua-operator" title="token n°0 : operator">&lt;&lt;</span></code> décalage à gauche (rempli avec des zéros)</li>
+  <li><code><span class="lua-operator" title="token n°0 : operator">~</span></code> <i>unaire</i> non</li>
 </ul>
 </div>
 <div class="column">
 <h3 id="opérateurs-logiques">Opérateurs logiques</h3>
 <ul>
-  <li><code><span class="lua-keyword">or</span></code> ou</li>
-  <li><code><span class="lua-keyword">and</span></code> et</li>
-  <li><code><span class="lua-keyword">not</span></code> <i>unaire</i> non</li>
+  <li><code><span class="lua-keyword" title="token n°0 : keyword">or</span></code> ou</li>
+  <li><code><span class="lua-keyword" title="token n°0 : keyword">and</span></code> et</li>
+  <li><code><span class="lua-keyword" title="token n°0 : keyword">not</span></code> <i>unaire</i> non</li>
 </ul>
-<p><b>Tout est faux en Lua sauf <code><span class="lua-boolean">false</span></code> et <code><span class="lua-nil">nil</span></code>.</b></p>
+<p><b>Tout est faux en Lua sauf <code><span class="lua-boolean" title="token n°0 : boolean">false</span></code> et <code><span class="lua-nil" title="token n°0 : nil">nil</span></code>.</b></p>
 <table>
 <tr><th>Opérateur </th><th> Opé 1      </th><th> Opé 2       </th><th> Retour </th></tr>
-<tr><td align="center"> and     </td><td> false, nil </td><td> non évaluée </td><td> opé 1  </td></tr>
-<tr><td align="center"> and     </td><td> autre      </td><td> évaluée     </td><td> opé 2  </td></tr>
-<tr><td align="center"> or      </td><td> autre      </td><td> non évaluée </td><td> opé 1  </td></tr>
-<tr><td align="center"> or      </td><td> false, nil </td><td> évaluée     </td><td> opé 2  </td></tr>
+<tr><td style="text-align: center"> and     </td><td> false, nil </td><td> non évaluée </td><td> opé 1  </td></tr>
+<tr><td style="text-align: center"> and     </td><td> autre      </td><td> évaluée     </td><td> opé 2  </td></tr>
+<tr><td style="text-align: center"> or      </td><td> autre      </td><td> non évaluée </td><td> opé 1  </td></tr>
+<tr><td style="text-align: center"> or      </td><td> false, nil </td><td> évaluée     </td><td> opé 2  </td></tr>
 </table>
 <p>Les opérateurs n'évaluent la deuxième opérande que si nécessaire.</p>
 <h3 id="autres-opérateurs">Autres opérateurs</h3>
 <ul>
-  <li><code><span class="lua-operator">..</span></code> concaténation avec conversion</li>
-  <li><code><span class="lua-operator">#</span></code> longueur des chaînes ou bordure des tables</li>
+  <li><code><span class="lua-operator" title="token n°0 : operator">..</span></code> concaténation avec conversion</li>
+  <li><code><span class="lua-operator" title="token n°0 : operator">#</span></code> longueur des chaînes ou bordure des tables</li>
 </ul>
 <p><b>Attention : une table peut avoir des trous, dans ce cas la bordure n'indique pas la longueur de la table</b>.</p>
-<h3 id="précédence-des-opérateurs">Précédence des opérateurs</h3>
+<h2 id="3.2-précédence-des-opérateurs">3.2 Précédence des opérateurs</h2>
 <table>
 <tr><th> Niveau </th><th> Opérateur                </th></tr>
-<tr><td align="center"> 1     </td><td align="center"> <code><span class="lua-operator">^</span></code>                   </td></tr>
-<tr><td align="center"> 2     </td><td align="center"> unaires : <code><span class="lua-keyword">not</span> <span class="lua-operator">#</span> <span class="lua-operator">-</span> <span class="lua-operator">~</span></code> </td></tr>
-<tr><td align="center"> 3     </td><td align="center"> <code><span class="lua-operator">*</span> <span class="lua-operator">/</span> <span class="lua-operator">/</span><span class="lua-operator">/</span> <span class="lua-operator">%</span></code>            </td></tr>
-<tr><td align="center"> 4     </td><td align="center"> <code><span class="lua-operator">+</span> <span class="lua-operator">-</span></code>                 </td></tr>
-<tr><td align="center"> 5     </td><td align="center"> <code><span class="lua-operator">..</span></code>                  </td></tr>
-<tr><td align="center"> 6     </td><td align="center"> <code><span class="lua-operator">&lt;&lt;</span> <span class="lua-operator">&gt;&gt;</span></code>               </td></tr>
-<tr><td align="center"> 7     </td><td align="center"> <code><span class="lua-operator">&amp;</span></code>                   </td></tr>
-<tr><td align="center"> 8     </td><td align="center"> <code><span class="lua-operator">~</span></code>                   </td></tr>
-<tr><td align="center"> 9     </td><td align="center"> <code><span class="lua-operator">|</span></code>                  </td></tr>
-<tr><td align="center"> 10    </td><td align="center"> <code><span class="lua-operator">&lt;</span> <span class="lua-operator">&gt;</span> <span class="lua-operator">&lt;=</span> <span class="lua-operator">&gt;=</span> <span class="lua-operator">~=</span> <span class="lua-operator">==</span></code>     </td></tr>
-<tr><td align="center"> 11    </td><td align="center"> <code><span class="lua-keyword">and</span></code>                 </td></tr>
-<tr><td align="center"> 12    </td><td align="center"> <code><span class="lua-keyword">or</span></code>                  </td></tr>
+<tr><td style="text-align: center"> 1     </td><td style="text-align: center"> <code><span class="lua-operator" title="token n°0 : operator">^</span></code>                   </td></tr>
+<tr><td style="text-align: center"> 2     </td><td style="text-align: center"> unaires : <code><span class="lua-keyword" title="token n°0 : keyword">not</span> <span class="lua-operator" title="token n°2 : operator">#</span> <span class="lua-operator" title="token n°4 : operator">-</span> <span class="lua-operator" title="token n°6 : operator">~</span></code> </td></tr>
+<tr><td style="text-align: center"> 3     </td><td style="text-align: center"> <code><span class="lua-operator" title="token n°0 : operator">*</span> <span class="lua-operator" title="token n°2 : operator">/</span> <span class="lua-operator" title="token n°4 : operator">/</span><span class="lua-operator" title="token n°5 : operator">/</span> <span class="lua-operator" title="token n°7 : operator">%</span></code>            </td></tr>
+<tr><td style="text-align: center"> 4     </td><td style="text-align: center"> <code><span class="lua-operator" title="token n°0 : operator">+</span> <span class="lua-operator" title="token n°2 : operator">-</span></code>                 </td></tr>
+<tr><td style="text-align: center"> 5     </td><td style="text-align: center"> <code><span class="lua-operator" title="token n°0 : operator">..</span></code>                  </td></tr>
+<tr><td style="text-align: center"> 6     </td><td style="text-align: center"> <code><span class="lua-operator" title="token n°0 : operator">&lt;&lt;</span> <span class="lua-operator" title="token n°2 : operator">&gt;&gt;</span></code>               </td></tr>
+<tr><td style="text-align: center"> 7     </td><td style="text-align: center"> <code><span class="lua-operator" title="token n°0 : operator">&amp;</span></code>                   </td></tr>
+<tr><td style="text-align: center"> 8     </td><td style="text-align: center"> <code><span class="lua-operator" title="token n°0 : operator">~</span></code>                   </td></tr>
+<tr><td style="text-align: center"> 9     </td><td style="text-align: center"> <code><span class="lua-operator" title="token n°0 : operator">|</span></code>                  </td></tr>
+<tr><td style="text-align: center"> 10    </td><td style="text-align: center"> <code><span class="lua-operator" title="token n°0 : operator">&lt;</span> <span class="lua-operator" title="token n°2 : operator">&gt;</span> <span class="lua-operator" title="token n°4 : operator">&lt;=</span> <span class="lua-operator" title="token n°6 : operator">&gt;=</span> <span class="lua-operator" title="token n°8 : operator">~=</span> <span class="lua-operator" title="token n°10 : operator">==</span></code>     </td></tr>
+<tr><td style="text-align: center"> 11    </td><td style="text-align: center"> <code><span class="lua-keyword" title="token n°0 : keyword">and</span></code>                 </td></tr>
+<tr><td style="text-align: center"> 12    </td><td style="text-align: center"> <code><span class="lua-keyword" title="token n°0 : keyword">or</span></code>                  </td></tr>
 </table>
 </div>
 </div>
 <h1 id="4.-contrôle-du-flux">4. Contrôle du flux</h1>
 <div class="row">
 <div class="column">
-<h2 id="séquence">Séquence</h2>
-<p>En Lua, le symbole pour terminer les instructions est <code><span class="lua-separator">;</span></code> mais il est totalement optionnel. Ce code est donc valide : <code><span class="lua-identifier">a</span> <span class="lua-operator">=</span> <span class="lua-number">5</span> <span class="lua-identifier">b</span> <span class="lua-operator">=</span> <span class="lua-number">6</span></code></p>
-<h2 id="conditions">Conditions</h2>
-<p>Pour qu'une partie du code ne soit exécutée que si une condition est vrai, on utilisera <code><span class="lua-keyword">if</span></code> :</p>
-<pre class="code">
-<span class="lua-keyword">if</span> <span class="lua-identifier">condition</span> <span class="lua-keyword">then</span><span class="lua-newline">
-</span>    <span class="lua-identifier">actions</span><span class="lua-newline">
-</span><span class="lua-separator">[</span> <span class="lua-keyword">elseif</span> <span class="lua-identifier">condition</span> <span class="lua-keyword">then</span><span class="lua-newline">
-</span>    <span class="lua-identifier">actions</span> <span class="lua-separator">]</span> <span class="lua-operator">*</span><span class="lua-newline">
-</span><span class="lua-separator">[</span> <span class="lua-keyword">else</span><span class="lua-newline">
-</span>    <span class="lua-identifier">actions</span> <span class="lua-separator">]</span> <span class="lua-special">?</span><span class="lua-newline">
-</span><span class="lua-keyword">end</span><span class="lua-newline">
+<h2 id="4.1-séquence">4.1 Séquence</h2>
+<p>En Lua, le symbole pour terminer les instructions est <code><span class="lua-separator" title="token n°0 : separator">;</span></code> mais il est totalement optionnel. Ce code est donc valide : <code><span class="lua-identifier" title="token n°0 : identifier">a</span> <span class="lua-operator" title="token n°2 : operator">=</span> <span class="lua-number" title="token n°4 : number">5</span> <span class="lua-identifier" title="token n°6 : identifier">b</span> <span class="lua-operator" title="token n°8 : operator">=</span> <span class="lua-number" title="token n°10 : number">6</span></code></p>
+<h2 id="4.2-conditions">4.2 Conditions</h2>
+<p>Pour qu'une partie du code ne soit exécutée que si une condition est vrai, on utilisera <code><span class="lua-keyword" title="token n°0 : keyword">if</span></code> :</p>
+<pre>
+<span class="lua-keyword" title="token n°0 : keyword">if</span> <span class="lua-identifier" title="token n°2 : identifier">condition</span> <span class="lua-keyword" title="token n°4 : keyword">then</span><span class="lua-newline" title="token n°5 : newline">
+</span>    <span class="lua-identifier" title="token n°7 : identifier">actions</span><span class="lua-newline" title="token n°8 : newline">
+</span><span class="lua-separator" title="token n°9 : separator">[</span> <span class="lua-keyword" title="token n°11 : keyword">elseif</span> <span class="lua-identifier" title="token n°13 : identifier">condition</span> <span class="lua-keyword" title="token n°15 : keyword">then</span><span class="lua-newline" title="token n°16 : newline">
+</span>    <span class="lua-identifier" title="token n°18 : identifier">actions</span> <span class="lua-separator" title="token n°20 : separator">]</span> <span class="lua-operator" title="token n°22 : operator">*</span><span class="lua-newline" title="token n°23 : newline">
+</span><span class="lua-separator" title="token n°24 : separator">[</span> <span class="lua-keyword" title="token n°26 : keyword">else</span><span class="lua-newline" title="token n°27 : newline">
+</span>    <span class="lua-identifier" title="token n°29 : identifier">actions</span> <span class="lua-separator" title="token n°31 : separator">]</span> <span class="lua-special" title="token n°33 : special">?</span><span class="lua-newline" title="token n°34 : newline">
+</span><span class="lua-keyword" title="token n°35 : keyword">end</span><span class="lua-newline" title="token n°36 : newline">
 </span></pre>
-<p>Sont considérées fausses les valeurs <code><span class="lua-boolean">false</span></code> et <code><span class="lua-nil">nil</span></code>. Toutes les autres valeurs sont vraies (dont <code><span class="lua-separator">{</span><span class="lua-separator">}</span> <span class="lua-string">""</span> <span class="lua-number">0</span></code>).</p>
-<h2 id="répétitions">Répétitions</h2>
-<p>Boucle qui s'exécute <i>tant que</i> la condition est vraie avec <code><span class="lua-keyword">while</span></code> :</p>
-<pre class="code">
-<span class="lua-keyword">while</span> <span class="lua-identifier">condition</span> <span class="lua-keyword">do</span><span class="lua-newline">
-</span>    <span class="lua-identifier">actions</span><span class="lua-newline">
-</span><span class="lua-keyword">end</span><span class="lua-newline">
+<p>Sont considérées fausses les valeurs <code><span class="lua-boolean" title="token n°0 : boolean">false</span></code> et <code><span class="lua-nil" title="token n°0 : nil">nil</span></code>. Toutes les autres valeurs sont vraies (dont <code><span class="lua-separator" title="token n°0 : separator">{</span><span class="lua-separator" title="token n°1 : separator">}</span> <span class="lua-string" title="token n°3 : string">""</span> <span class="lua-number" title="token n°5 : number">0</span></code>).</p>
+<h2 id="4.3-répétitions">4.3 Répétitions</h2>
+<p>Boucle qui s'exécute <i>tant que</i> la condition est vraie avec <code><span class="lua-keyword" title="token n°0 : keyword">while</span></code> :</p>
+<pre>
+<span class="lua-keyword" title="token n°0 : keyword">while</span> <span class="lua-identifier" title="token n°2 : identifier">condition</span> <span class="lua-keyword" title="token n°4 : keyword">do</span><span class="lua-newline" title="token n°5 : newline">
+</span>    <span class="lua-identifier" title="token n°7 : identifier">actions</span><span class="lua-newline" title="token n°8 : newline">
+</span><span class="lua-keyword" title="token n°9 : keyword">end</span><span class="lua-newline" title="token n°10 : newline">
 </span></pre>
 <p>Le corps de la boucle (ses actions) sera exécuté entre 0 et n fois.</p>
 </div>
 <div class="column">
-<p>Avec <code><span class="lua-keyword">repeat</span></code>, le corps de la boucle sera exécuté au moins une fois car la condition est testée après :</p>
-<pre class="code">
-<span class="lua-keyword">repeat</span><span class="lua-newline">
-</span>    <span class="lua-identifier">actions</span><span class="lua-newline">
-</span><span class="lua-keyword">until</span> <span class="lua-identifier">condition</span><span class="lua-newline">
+<p>Avec <code><span class="lua-keyword" title="token n°0 : keyword">repeat</span></code>, le corps de la boucle sera exécuté au moins une fois car la condition est testée après :</p>
+<pre>
+<span class="lua-keyword" title="token n°0 : keyword">repeat</span><span class="lua-newline" title="token n°1 : newline">
+</span>    <span class="lua-identifier" title="token n°3 : identifier">actions</span><span class="lua-newline" title="token n°4 : newline">
+</span><span class="lua-keyword" title="token n°5 : keyword">until</span> <span class="lua-identifier" title="token n°7 : identifier">condition</span><span class="lua-newline" title="token n°8 : newline">
 </span></pre>
-<p>Autre grand classique des boucles, <code><span class="lua-keyword">for</span></code> qui peut-être utilisé avec un intervalle numérique :</p>
-<pre class="code">
-<span class="lua-keyword">for</span> <span class="lua-identifier">identifiant</span> <span class="lua-operator">=</span> <span class="lua-identifier">debut</span><span class="lua-separator">,</span> <span class="lua-identifier">fin</span> <span class="lua-separator">[</span> <span class="lua-separator">,</span> <span class="lua-identifier">pas</span> <span class="lua-separator">]</span> <span class="lua-keyword">do</span><span class="lua-newline">
-</span>    <span class="lua-identifier">actions</span><span class="lua-newline">
-</span><span class="lua-keyword">end</span><span class="lua-newline">
+<p>Autre grand classique des boucles, <code><span class="lua-keyword" title="token n°0 : keyword">for</span></code> qui peut-être utilisé avec un intervalle numérique :</p>
+<pre>
+<span class="lua-keyword" title="token n°0 : keyword">for</span> <span class="lua-identifier" title="token n°2 : identifier">identifiant</span> <span class="lua-operator" title="token n°4 : operator">=</span> <span class="lua-identifier" title="token n°6 : identifier">debut</span><span class="lua-separator" title="token n°7 : separator">,</span> <span class="lua-identifier" title="token n°9 : identifier">fin</span> <span class="lua-separator" title="token n°11 : separator">[</span> <span class="lua-separator" title="token n°13 : separator">,</span> <span class="lua-identifier" title="token n°15 : identifier">pas</span> <span class="lua-separator" title="token n°17 : separator">]</span> <span class="lua-keyword" title="token n°19 : keyword">do</span><span class="lua-newline" title="token n°20 : newline">
+</span>    <span class="lua-identifier" title="token n°22 : identifier">actions</span><span class="lua-newline" title="token n°23 : newline">
+</span><span class="lua-keyword" title="token n°24 : keyword">end</span><span class="lua-newline" title="token n°25 : newline">
 </span></pre>
 <p>Par défaut le pas est égal à 1 (si fin &lt; début, la boucle ne s'exécutera pas une seule fois).</p>
 <p>Ou avec une table indexée par des nombres :</p>
-<pre class="code">
-<span class="lua-keyword">for</span> <span class="lua-identifier">indice</span><span class="lua-separator">,</span> <span class="lua-identifier">valeur</span> <span class="lua-keyword">in</span> <span class="lua-special">ipairs</span><span class="lua-separator">(</span><span class="lua-identifier">table</span><span class="lua-separator">)</span> <span class="lua-keyword">do</span><span class="lua-newline">
-</span>    <span class="lua-identifier">actions</span><span class="lua-newline">
-</span><span class="lua-keyword">end</span><span class="lua-newline">
+<pre>
+<span class="lua-keyword" title="token n°0 : keyword">for</span> <span class="lua-identifier" title="token n°2 : identifier">indice</span><span class="lua-separator" title="token n°3 : separator">,</span> <span class="lua-identifier" title="token n°5 : identifier">valeur</span> <span class="lua-keyword" title="token n°7 : keyword">in</span> <span class="lua-special" title="token n°9 : special">ipairs</span><span class="lua-separator" title="token n°10 : separator">(</span><span class="lua-identifier" title="token n°11 : identifier">table</span><span class="lua-separator" title="token n°12 : separator">)</span> <span class="lua-keyword" title="token n°14 : keyword">do</span><span class="lua-newline" title="token n°15 : newline">
+</span>    <span class="lua-identifier" title="token n°17 : identifier">actions</span><span class="lua-newline" title="token n°18 : newline">
+</span><span class="lua-keyword" title="token n°19 : keyword">end</span><span class="lua-newline" title="token n°20 : newline">
 </span></pre>
 <p>Ou avec une table indexée par des chaînes :</p>
-<pre class="code">
-<span class="lua-keyword">for</span> <span class="lua-identifier">cle</span><span class="lua-separator">,</span> <span class="lua-identifier">valeur</span> <span class="lua-keyword">in</span> <span class="lua-special">pairs</span><span class="lua-separator">(</span><span class="lua-identifier">table</span><span class="lua-separator">)</span> <span class="lua-keyword">do</span><span class="lua-newline">
-</span>    <span class="lua-identifier">actions</span><span class="lua-newline">
-</span><span class="lua-keyword">end</span><span class="lua-newline">
+<pre>
+<span class="lua-keyword" title="token n°0 : keyword">for</span> <span class="lua-identifier" title="token n°2 : identifier">cle</span><span class="lua-separator" title="token n°3 : separator">,</span> <span class="lua-identifier" title="token n°5 : identifier">valeur</span> <span class="lua-keyword" title="token n°7 : keyword">in</span> <span class="lua-special" title="token n°9 : special">pairs</span><span class="lua-separator" title="token n°10 : separator">(</span><span class="lua-identifier" title="token n°11 : identifier">table</span><span class="lua-separator" title="token n°12 : separator">)</span> <span class="lua-keyword" title="token n°14 : keyword">do</span><span class="lua-newline" title="token n°15 : newline">
+</span>    <span class="lua-identifier" title="token n°17 : identifier">actions</span><span class="lua-newline" title="token n°18 : newline">
+</span><span class="lua-keyword" title="token n°19 : keyword">end</span><span class="lua-newline" title="token n°20 : newline">
 </span></pre>
-<p>Dans les trois cas, on peut utiliser le mot-clé <code><span class="lua-keyword">break</span></code> pour sortir de la boucle.</p>
+<p>Dans les trois cas, on peut utiliser le mot-clé <code><span class="lua-keyword" title="token n°0 : keyword">break</span></code> pour sortir de la boucle.</p>
 <p>Il n'y a pas de mot-clé <i>continue</i> ou <i>next</i> en Lua pour passer à l'itération suivante.</p>
 </div>
 </div>
 <h1 id="5.-fonctions">5. Fonctions</h1>
 <div class="row">
 <div class="column">
-<h2 id="définition">Définition</h2>
-<pre class="code">
-<span class="lua-keyword">function</span> <span class="lua-identifier">id</span> <span class="lua-separator">(</span> <span class="lua-identifier">parametres</span> <span class="lua-separator">)</span><span class="lua-newline">
-</span>    <span class="lua-identifier">corps</span><span class="lua-newline">
-</span><span class="lua-keyword">end</span><span class="lua-newline">
+<h2 id="5.1-définition">5.1 Définition</h2>
+<pre>
+<span class="lua-keyword" title="token n°0 : keyword">function</span> <span class="lua-identifier" title="token n°2 : identifier">id</span> <span class="lua-separator" title="token n°4 : separator">(</span> <span class="lua-identifier" title="token n°6 : identifier">parametres</span> <span class="lua-separator" title="token n°8 : separator">)</span><span class="lua-newline" title="token n°9 : newline">
+</span>    <span class="lua-identifier" title="token n°11 : identifier">corps</span><span class="lua-newline" title="token n°12 : newline">
+</span><span class="lua-keyword" title="token n°13 : keyword">end</span><span class="lua-newline" title="token n°14 : newline">
 </span></pre>
 <p>Il s'agit d'un sucre syntaxique pour :</p>
-<pre class="code">
-<span class="lua-identifier">id</span> <span class="lua-operator">=</span> <span class="lua-keyword">function</span> <span class="lua-separator">(</span> <span class="lua-identifier">parametres</span> <span class="lua-separator">)</span><span class="lua-newline">
-</span>    <span class="lua-identifier">corps</span><span class="lua-newline">
-</span><span class="lua-keyword">end</span><span class="lua-newline">
+<pre>
+<span class="lua-identifier" title="token n°0 : identifier">id</span> <span class="lua-operator" title="token n°2 : operator">=</span> <span class="lua-keyword" title="token n°4 : keyword">function</span> <span class="lua-separator" title="token n°6 : separator">(</span> <span class="lua-identifier" title="token n°8 : identifier">parametres</span> <span class="lua-separator" title="token n°10 : separator">)</span><span class="lua-newline" title="token n°11 : newline">
+</span>    <span class="lua-identifier" title="token n°13 : identifier">corps</span><span class="lua-newline" title="token n°14 : newline">
+</span><span class="lua-keyword" title="token n°15 : keyword">end</span><span class="lua-newline" title="token n°16 : newline">
 </span></pre>
 <p>Les paramètres sont séparés par des virgules.</p>
-<p>Le paramètre spécial <code><span class="lua-operator">..</span><span class="lua-operator">.</span></code> indique qu'il y a des paramètres supplémentaires. Ils seront accessibles dans la variable <code><span class="lua-operator">..</span><span class="lua-operator">.</span></code>.</p>
-<p>Le mot-clé <code><span class="lua-keyword">return</span></code> permet de retourner une expression.</p>
+<p>Le paramètre spécial <code><span class="lua-operator" title="token n°0 : operator">..</span><span class="lua-operator" title="token n°1 : operator">.</span></code> indique qu'il y a des paramètres supplémentaires. Ils seront accessibles dans la variable <code><span class="lua-operator" title="token n°0 : operator">..</span><span class="lua-operator" title="token n°1 : operator">.</span></code>.</p>
+<p>Le mot-clé <code><span class="lua-keyword" title="token n°0 : keyword">return</span></code> permet de retourner une expression.</p>
 </div>
 <div class="column">
-<h2 id="appel">Appel</h2>
-<p>Pour appeler une fonction on utilise <code><span class="lua-identifier">f</span><span class="lua-separator">(</span><span class="lua-identifier">p1</span><span class="lua-separator">,</span> <span class="lua-identifier">p2</span><span class="lua-separator">,</span> <span class="lua-identifier">p3</span><span class="lua-separator">)</span></code>.</p>
-<p>Le sucre syntaxique <code><span class="lua-identifier">a</span><span class="lua-operator">:</span><span class="lua-identifier">f</span><span class="lua-separator">(</span><span class="lua-identifier">p</span><span class="lua-separator">)</span></code> est équivalent à f(a, p).</p>
+<h2 id="5.2-appel">5.2 Appel</h2>
+<p>Pour appeler une fonction on utilise <code><span class="lua-identifier" title="token n°0 : identifier">f</span><span class="lua-separator" title="token n°1 : separator">(</span><span class="lua-identifier" title="token n°2 : identifier">p1</span><span class="lua-separator" title="token n°3 : separator">,</span> <span class="lua-identifier" title="token n°5 : identifier">p2</span><span class="lua-separator" title="token n°6 : separator">,</span> <span class="lua-identifier" title="token n°8 : identifier">p3</span><span class="lua-separator" title="token n°9 : separator">)</span></code>.</p>
 <p>On peut omettre les parenthèses si il y a un argument de type <span class="type">string</span> ou <span class="type">table</span>.</p>
-<h2 id="closure">Closure</h2>
+<h2 id="5.3-closure">5.3 Closure</h2>
 </div>
 </div>
-<h1 id="6.-gestion-des-exceptions">6. Gestion des exceptions</h1>
-<h2 id="appels-protégés">Appels protégés</h2>
-<h1 id="7.-bibliothèque-de-base">7. Bibliothèque de base</h1>
-<h2 id="sortie-et-entrée-console">Sortie et entrée console</h2>
-<pre class="code">
-<span class="lua-special">print</span><span class="lua-separator">(</span><span class="lua-string">"Hello World!"</span><span class="lua-separator">)</span><span class="lua-newline">
+<h1 id="6.-gestion-des-exceptions-et-multifichiers">6. Gestion des exceptions et multifichiers</h1>
+<p>Il n'y a pas à proprement parler d'exception en Lua. On peut toutefois faire des appels protégés pour gérer les erreurs.</p>
+<h2 id="6.1-appels-protégés">6.1 Appels protégés</h2>
+<h2 id="6.2-multifichiers">6.2 Multifichiers</h2>
+<p>Pour appeler du code lua écrit dans un autre fichier, il faut faire dans le fichier appelant :</p>
+<pre>
+<span class="lua-keyword" title="token n°0 : keyword">local</span> <span class="lua-identifier" title="token n°2 : identifier">id</span> <span class="lua-operator" title="token n°4 : operator">=</span> <span class="lua-identifier" title="token n°6 : identifier">require</span><span class="lua-separator" title="token n°7 : separator">(</span><span class="lua-identifier" title="token n°8 : identifier">string</span><span class="lua-separator" title="token n°9 : separator">)</span><span class="lua-newline" title="token n°10 : newline">
 </span></pre>
-<h2 id="nombres">Nombres</h2>
-<h2 id="chaînes-de-caractères">Chaînes de caractères</h2>
-<h2 id="tables">Tables</h2>
-<h2 id="fichiers">Fichiers</h2>
-<h1 id="8.-sites-web">8. Sites web</h1>
+<p>La string doit correspondr au nom du fichier <u>sans</u> le .lua.</p>
+<h1 id="7.-bibliothèque-de-base">7. Bibliothèque de base</h1>
+<h2 id="7.1-sortie-et-entrée-console">7.1 Sortie et entrée console</h2>
+<pre>
+<span class="lua-special" title="token n°0 : special">print</span><span class="lua-separator" title="token n°1 : separator">(</span><span class="lua-string" title="token n°2 : string">"Hello World!"</span><span class="lua-separator" title="token n°3 : separator">)</span><span class="lua-newline" title="token n°4 : newline">
+</span></pre>
+<h2 id="7.2-nombres">7.2 Nombres</h2>
+<h2 id="7.3-chaînes-de-caractères">7.3 Chaînes de caractères</h2>
+<p>Avoir le premier caractère d'une chaîne s : <code><span class="lua-identifier" title="token n°0 : identifier">string</span><span class="lua-operator" title="token n°1 : operator">.</span><span class="lua-identifier" title="token n°2 : identifier">sub</span><span class="lua-separator" title="token n°3 : separator">(</span><span class="lua-identifier" title="token n°4 : identifier">s</span><span class="lua-separator" title="token n°5 : separator">,</span> <span class="lua-number" title="token n°7 : number">1</span><span class="lua-separator" title="token n°8 : separator">,</span> <span class="lua-number" title="token n°10 : number">1</span><span class="lua-separator" title="token n°11 : separator">)</span></code></p>
+<p>Pour tester si une chaîne est un nombre, on essaye de le convertir avec : <code><span class="lua-identifier" title="token n°0 : identifier">tonumber</span><span class="lua-separator" title="token n°1 : separator">(</span><span class="lua-identifier" title="token n°2 : identifier">n</span><span class="lua-separator" title="token n°3 : separator">)</span></code>. Si on veut tester si une chaine est un entier, on essaye de la convertir avec : <code><span class="lua-identifier" title="token n°0 : identifier">tonumber</span><span class="lua-separator" title="token n°1 : separator">(</span><span class="lua-identifier" title="token n°2 : identifier">n</span> <span class="lua-separator" title="token n°4 : separator">,</span><span class="lua-identifier" title="token n°5 : identifier">base</span><span class="lua-separator" title="token n°6 : separator">)</span></code> (lua &GreaterSlantEqual;5.2). Dans les deux cas, la fonction renverra nil si elle ne peut pas.</p>
+<pre>
+<span class="lua-special" title="token n°0 : special">print</span><span class="lua-separator" title="token n°1 : separator">(</span><span class="lua-identifier" title="token n°2 : identifier">tonumber</span><span class="lua-separator" title="token n°3 : separator">(</span><span class="lua-string" title="token n°4 : string">"2.4"</span><span class="lua-separator" title="token n°5 : separator">)</span><span class="lua-separator" title="token n°6 : separator">)</span> <span class="lua-comment" title="token n°8 : comment">-- retourne 2.4
+</span><span class="lua-special" title="token n°9 : special">print</span><span class="lua-separator" title="token n°10 : separator">(</span><span class="lua-identifier" title="token n°11 : identifier">tonumber</span><span class="lua-separator" title="token n°12 : separator">(</span><span class="lua-string" title="token n°13 : string">"2.4"</span><span class="lua-separator" title="token n°14 : separator">,</span> <span class="lua-number" title="token n°16 : number">10</span><span class="lua-separator" title="token n°17 : separator">)</span><span class="lua-separator" title="token n°18 : separator">)</span> <span class="lua-comment" title="token n°20 : comment">-- retourne nil
+</span><span class="lua-special" title="token n°21 : special">print</span><span class="lua-separator" title="token n°22 : separator">(</span><span class="lua-identifier" title="token n°23 : identifier">tonumber</span><span class="lua-separator" title="token n°24 : separator">(</span><span class="lua-string" title="token n°25 : string">"2"</span><span class="lua-separator" title="token n°26 : separator">,</span> <span class="lua-number" title="token n°28 : number">10</span><span class="lua-separator" title="token n°29 : separator">)</span><span class="lua-separator" title="token n°30 : separator">)</span> <span class="lua-comment" title="token n°32 : comment">--retourne 2
+</span></pre>
+<h2 id="7.4-tables">7.4 Tables</h2>
+<p>Pour savoir si une table contient une valeur, il faut la parcourir (!) avec un <code><span class="lua-keyword" title="token n°0 : keyword">for</span></code> :</p>
+<pre>
+<span class="lua-identifier" title="token n°0 : identifier">a</span> <span class="lua-operator" title="token n°2 : operator">=</span> <span class="lua-separator" title="token n°4 : separator">{</span><span class="lua-number" title="token n°5 : number">1</span><span class="lua-separator" title="token n°6 : separator">,</span><span class="lua-number" title="token n°7 : number">2</span><span class="lua-separator" title="token n°8 : separator">,</span><span class="lua-number" title="token n°9 : number">3</span><span class="lua-separator" title="token n°10 : separator">,</span><span class="lua-number" title="token n°11 : number">4</span><span class="lua-separator" title="token n°12 : separator">,</span><span class="lua-number" title="token n°13 : number">5</span><span class="lua-separator" title="token n°14 : separator">,</span><span class="lua-number" title="token n°15 : number">6</span><span class="lua-separator" title="token n°16 : separator">}</span><span class="lua-newline" title="token n°17 : newline">
+</span><span class="lua-identifier" title="token n°18 : identifier">searched</span> <span class="lua-operator" title="token n°20 : operator">=</span> <span class="lua-number" title="token n°22 : number">3</span><span class="lua-newline" title="token n°23 : newline">
+</span><span class="lua-keyword" title="token n°24 : keyword">for</span> <span class="lua-identifier" title="token n°26 : identifier">index</span><span class="lua-separator" title="token n°27 : separator">,</span> <span class="lua-identifier" title="token n°29 : identifier">value</span> <span class="lua-keyword" title="token n°31 : keyword">in</span> <span class="lua-special" title="token n°33 : special">ipairs</span><span class="lua-separator" title="token n°34 : separator">(</span><span class="lua-identifier" title="token n°35 : identifier">a</span><span class="lua-separator" title="token n°36 : separator">)</span> <span class="lua-keyword" title="token n°38 : keyword">do</span><span class="lua-newline" title="token n°39 : newline">
+</span>  <span class="lua-keyword" title="token n°41 : keyword">if</span> <span class="lua-identifier" title="token n°43 : identifier">value</span> <span class="lua-operator" title="token n°45 : operator">==</span> <span class="lua-identifier" title="token n°47 : identifier">searched</span> <span class="lua-keyword" title="token n°49 : keyword">then</span><span class="lua-newline" title="token n°50 : newline">
+</span>    <span class="lua-special" title="token n°52 : special">print</span><span class="lua-separator" title="token n°53 : separator">(</span><span class="lua-string" title="token n°54 : string">"found"</span><span class="lua-separator" title="token n°55 : separator">,</span> <span class="lua-identifier" title="token n°57 : identifier">searched</span><span class="lua-separator" title="token n°58 : separator">,</span> <span class="lua-string" title="token n°60 : string">"at"</span><span class="lua-separator" title="token n°61 : separator">,</span> <span class="lua-identifier" title="token n°63 : identifier">index</span><span class="lua-separator" title="token n°64 : separator">)</span><span class="lua-newline" title="token n°65 : newline">
+</span>    <span class="lua-keyword" title="token n°67 : keyword">break</span><span class="lua-newline" title="token n°68 : newline">
+</span>  <span class="lua-keyword" title="token n°70 : keyword">end</span><span class="lua-newline" title="token n°71 : newline">
+</span><span class="lua-keyword" title="token n°72 : keyword">end</span><span class="lua-newline" title="token n°73 : newline">
+</span></pre>
+<p>Contient : il faut parcourir avec un for index, value in ipairs(tab) et faire value &Equal; searched</p>
+<h2 id="7.5-fichiers">7.5 Fichiers</h2>
+<h1 id="8.-recettes">8. Recettes</h1>
+<h2 id="8.1-programmation-orientée-objet-(poo)">8.1 Programmation orientée objet (POO)</h2>
+<h3 id="8.1.1-définir-un-type">8.1.1 Définir un type</h3>
+<pre>
+<span class="lua-keyword" title="token n°0 : keyword">local</span> <span class="lua-identifier" title="token n°2 : identifier">Type</span> <span class="lua-operator" title="token n°4 : operator">=</span> <span class="lua-separator" title="token n°6 : separator">{</span><span class="lua-separator" title="token n°7 : separator">}</span><span class="lua-newline" title="token n°8 : newline">
+</span><span class="lua-keyword" title="token n°9 : keyword">function</span> <span class="lua-identifier" title="token n°11 : identifier">Type</span><span class="lua-operator" title="token n°12 : operator">:</span><span class="lua-identifier" title="token n°13 : identifier">new</span><span class="lua-separator" title="token n°14 : separator">(</span><span class="lua-separator" title="token n°15 : separator">)</span><span class="lua-newline" title="token n°16 : newline">
+</span>    <span class="lua-keyword" title="token n°18 : keyword">return</span> <span class="lua-identifier" title="token n°20 : identifier">setmetatable</span><span class="lua-separator" title="token n°21 : separator">(</span><span class="lua-separator" title="token n°22 : separator">{</span><span class="lua-separator" title="token n°23 : separator">}</span><span class="lua-separator" title="token n°24 : separator">,</span> <span class="lua-separator" title="token n°26 : separator">{</span><span class="lua-identifier" title="token n°27 : identifier">__index</span> <span class="lua-operator" title="token n°29 : operator">=</span> <span class="lua-identifier" title="token n°31 : identifier">Type</span><span class="lua-separator" title="token n°32 : separator">}</span><span class="lua-separator" title="token n°33 : separator">)</span><span class="lua-newline" title="token n°34 : newline">
+</span><span class="lua-keyword" title="token n°35 : keyword">end</span><span class="lua-newline" title="token n°36 : newline">
+</span><span class="lua-keyword" title="token n°37 : keyword">function</span> <span class="lua-identifier" title="token n°39 : identifier">Type</span><span class="lua-operator" title="token n°40 : operator">:</span><span class="lua-identifier" title="token n°41 : identifier">method</span><span class="lua-separator" title="token n°42 : separator">(</span><span class="lua-identifier" title="token n°43 : identifier">params</span><span class="lua-separator" title="token n°44 : separator">)</span><span class="lua-newline" title="token n°45 : newline">
+</span>    <span class="lua-identifier" title="token n°47 : identifier">cod</span><span class="lua-newline" title="token n°48 : newline">
+</span><span class="lua-keyword" title="token n°49 : keyword">end</span><span class="lua-newline" title="token n°50 : newline">
+</span></pre>
+<h3 id="8.1.2-instancier-et-appeler-une-méthode">8.1.2 Instancier et appeler une méthode</h3>
+<pre>
+<span class="lua-keyword" title="token n°0 : keyword">local</span> <span class="lua-identifier" title="token n°2 : identifier">t</span> <span class="lua-operator" title="token n°4 : operator">=</span> <span class="lua-identifier" title="token n°6 : identifier">Type</span><span class="lua-operator" title="token n°7 : operator">.</span><span class="lua-identifier" title="token n°8 : identifier">new</span><span class="lua-separator" title="token n°9 : separator">(</span><span class="lua-separator" title="token n°10 : separator">)</span><span class="lua-newline" title="token n°11 : newline">
+</span><span class="lua-identifier" title="token n°12 : identifier">t</span><span class="lua-operator" title="token n°13 : operator">.</span><span class="lua-identifier" title="token n°14 : identifier">method</span><span class="lua-separator" title="token n°15 : separator">(</span><span class="lua-identifier" title="token n°16 : identifier">t</span><span class="lua-separator" title="token n°17 : separator">,</span> <span class="lua-identifier" title="token n°19 : identifier">param</span><span class="lua-separator" title="token n°20 : separator">)</span><span class="lua-newline" title="token n°21 : newline">
+</span><span class="lua-identifier" title="token n°22 : identifier">t</span><span class="lua-operator" title="token n°23 : operator">:</span><span class="lua-identifier" title="token n°24 : identifier">method</span><span class="lua-separator" title="token n°25 : separator">(</span><span class="lua-identifier" title="token n°26 : identifier">param</span><span class="lua-separator" title="token n°27 : separator">)</span><span class="lua-newline" title="token n°28 : newline">
+</span></pre>
+<p>Le double point <code><span class="lua-operator" title="token n°0 : operator">:</span></code> est un sucre syntaxique pour éviter de passer en premier paramètre l'instance.</p>
+<h2 id="8.2-recettes-pour-löve">8.2 Recettes pour LÖVE</h2>
+<h3 id="8.2.1-afficher-la-console">8.2.1 Afficher la console</h3>
+<ol>
+  <li>Faire un fichier conf.lua dans le répertoire du jeu</li>
+  <li>Faire une fonction love.conf(t)</li>
+  <li>Faire dans le corps de la fonction t.console = true</li>
+</ol>
+<h3 id="8.2.2-faire-une-fonction-principale">8.2.2 Faire une fonction principale</h3>
+<ol>
+  <li>Faire un fichier main.lua dans le répertoire du jeu. Love ne lance qu’un répertoire ou un fichier packagé .love</li>
+  <li>Faire une fonction love.load()</li>
+  <li>Mettre le code dedans dont love.window.setTitle(string)</li>
+</ol>
+<h1 id="9.-liens-web">9. Liens web</h1>
 <div class="row">
 <div class="column">
-<h2 id="généraux">Généraux</h2>
+<h2 id="9.1-généraux">9.1 Généraux</h2>
 <ul>
   <li><a href="https://www.lua.org">Site officiel du langage</a>, avec la distribution standard (interpréteur officiel + bibliothèque standard)</li>
   <li>La première édition, un peu datée, du livre électronique <i><a href="https://www.lua.org/pil/contents.html">Programming in Lua</a></i> (ou PIL) introduit Lua avec de nombreux exemples.</li>
@@ -455,7 +580,7 @@ p code span.lua-keyword,      pre.code span.lua-keyword        { color: #1479cc;
   <li>Page de <a href="https://en.wikipedia.org/wiki/Lua_(programming_language)">Wikipédia sur Lua</a></li>
   <li>Boutique officielle <a href="https://www.zazzle.com/Lua_Store">Zazzle</a> pour supporter Lua via l'achat de goodies</li>
 </ul>
-<h2 id="bibliothèques">Bibliothèques</h2>
+<h2 id="9.2-bibliothèques">9.2 Bibliothèques</h2>
 <ul>
   <li><a href="https://luarocks.org/">LuaRocks</a>, gestionnaire de bibliothèques</li>
   <li><a href="http://stevedonovan.github.io/Penlight/api/index.html">Penlight</a>, une librairie fondamentale</li>
@@ -464,25 +589,31 @@ p code span.lua-keyword,      pre.code span.lua-keyword        { color: #1479cc;
 </ul>
 </div>
 <div class="column">
-<h2 id="interpréteurs">Interpréteurs</h2>
+<h2 id="9.3-interpréteurs">9.3 Interpréteurs</h2>
 <ul>
+  <li><a href="https://onecompiler.com/lua/">Intepréteur en ligne One Compiler</a></li>
   <li><a href="https://love2d.org/">Löve</a>, VM Lua mettant à disposition une bibliothèque pour faire des jeux</li>
   <li><a href="https://repl.it/languages/lua">REPL.it</a> interpréteur en ligne</li>
   <li><a href="http://www.moonsharp.org/">MoonSharp</a> interpréteur en C# pour .Net, Mono et Unity</li>
   <li><a href="http://moonshinejs.org/">Moonshine</a> interpréteur et VM en JavaScript</li>
 </ul>
-<h2 id="langages-liés">Langages liés</h2>
+<h2 id="9.4-langages-liés">9.4 Langages liés</h2>
 <ul>
   <li><a href="https://github.com/teal-language/tl">Teal</a> surlangage avec des types.</li>
   <li><a href="https://moonscript.org/">MoonScript</a> un langage qui transpile en Lua.</li>
+  <li><a href="https://github.com/titan-lang/titan">Titan</a> un langage <i>statically-typed, ahead-of-time compiled</i> mais surtout abandonné</li>
+  <li><a href="https://github.com/pallene-lang/pallene">Pallene</a> un langage <i>statically typed and ahead-of-time compiled</i>, fork de Titan</li>
+  <li><a href="https://terralang.org/">Terra</a> <i>statically-typed, compiled language with manual memory management and low-level system programming language that is embedded in and meta-programmed by the Lua programming language</i></li>
 </ul>
-<h2 id="outils">Outils</h2>
+<h2 id="9.5-outils">9.5 Outils</h2>
 <ul>
   <li><a href="https://studio.zerobrane.com/">ZeroBrane Studio</a> un IDE léger, gratuit, simple et efficace</li>
 </ul>
 </div>
 </div>
-<p class="sign">Damien Gouteux Aide-mémoire Lua v0.1 2017-2021</p>
+<p class="sign"> Damien Gouteux Aide-mémoire Lua v0.1 2017-2024</p>
 </div>
 </div>
-</body>
+
+  </body>
+</html>
