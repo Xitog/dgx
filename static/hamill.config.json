@@ -4,22 +4,22 @@
             "comment": "Ceci est un commentaire"
         },
         {
-            "do": false,
+            "do": true,
             "source": "./input/ash/ash_guide.hml",
             "destination": "../ash/"
         },
         {
-            "do": true,
+            "do": false,
             "source": "./input/informatique/lua.hml",
             "destination": "../informatique/"
         },
         {
-            "do": true,
+            "do": false,
             "source": "./input/hamill/hamill.hml",
             "destination": "../hamill/"
         },
         {
-            "do": true,
+            "do": false,
             "source": "./input/hamill/hamill_en.hml",
             "destination": "../hamill/"
         }

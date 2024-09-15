@@ -29,43 +29,52 @@ Un langage de script simple et concis avec support pour l'orienté objet.
 
 ## Sommaire
 
-+ Introduction
-+ Noyau du langage
-  + [[1.1 Installation->#]]
-  + [[1.2 Premiers programmes->#]]
-  + [[1.3 Commentaires->#]]
-  + [[1.4 Mots-clés->#]]
-  + [[1.5 Constantes et variables->#]]
-  + [[1.6 Expressions et opérateurs->#]]
-  + [[1.7 Instructions et mots-clés->#]]
-+ Types de base
-  + Booléen
-  + Entier et réel
-  + Chaîne
-  + Liste
-  + Dictionnaire
-+ Contrôle du flux
-  + Séquence
-  + Sélection
-  + Boucle
-+ Sous-programmes
-  + Fonctions
-  + Procédures
-  + Getters
-+ Classes et objets
-+ Gestion des erreurs
-+ Bibliothèque standard
-+ + Console
-  + Fichiers
-  + Système d'exploitation
-+ Implémentations et interfaces
-  + Ash/Python
-  + Ash/JavaScript
-  + Ash/C
+* Introduction
+* [[1. Noyau du langage->#]]
+  * [[1.1 Installation->#]]
+  * [[1.2 Identifiants, valeurs et littéraux->#]]
+  * [[1.3 Instructions et expressions->#]]
+  * [[1.4 Mots-clés->#]]
+  * [[1.5 Constantes et variables->#]]
+  * [[1.6 Types et opérateurs->#]]
+  * [[1.7 Un programme plus complexe->#]]
+  * [[1.8 Commentaires->#]]
+* [[2. Types de base et leurs opérateurs->#]]
+  * Booléen
+  * Entier et réel
+  * Chaîne
+  * Liste
+  * Dictionnaire
+* [[3. Instructions / Contrôle du flux->#]]
+  * Séquence
+  * Sélection
+  * Boucle
+* [[4. Sous-programmes->#]]
+  * Fonctions
+  * Procédures
+  * Getters
+* [[5. Classes et objets->#]]
+* [[6. Gestion des erreurs->#]]
+* [[7. Modules->#]]
+* [[8. Bibliothèque standard->#]]
+  * [[8.1 Noyau->#]]
+  * [[8.2 Console->#]]
+  * [[8.3 Fichiers->#]]
+  * [[8.4 Système d'exploitation->#]]
+* [[9. Implémentations et interfaces->#]]
+  * [[9.1 Ash/Python->#]]
+  * [[9.2 Ash/JavaScript->#]]
+  * [[9.3 Ash/C->#]]
+  * [[9.4 Ash/PHP->#]]
+  * [[9.5 Ash/Lua->#]]
+* [[10. Liste des éléments du langage->#]]
+* [[11. Eléments de style->#]]
 
 §§ Historique
 
+§§ 09-2024
 §§ Début de fusion du fichier design.txt dont la dernière révision remonte au 11 mai 2021
+§§ Je fusionne également un début de texte dans le journal
 
 §§ 07/06/2023
 §§ - J'enlève tous les labels (break, next et boucle)
@@ -96,6 +105,12 @@ Un langage de script simple et concis avec support pour l'orienté objet.
 
 ## Introduction
 
+Ce document décrit le langage de script **Ash**. Il se veut simple et concis.
+
+Vous trouverez dans ce document une présentation de ses fonctionnalités ainsi que des encarts expliquants les choix de design qui ont été fait. En effet, je pense que pour mieux comprendre un artefact généré par l'homme, qui résulte d'un ensemble de décisions, il vaut mieux savoir les raisons derrière celles-ci. On évoquera ainsi ce qui a été écarté et ce qui est envisagé comme évolution possible.
+
+Ash se veut toutefois un langage assez stable, en réaction à à la complexification et à l'accélération des différents langages de programmation qui se mettent à changer tous les ans, même les plus anciens, en ajoutant à chaque fois plus de fonctionnalités, de syntaxes, de façons différentes de faire la même chose. Toutefois, étant l'oeuvre d'une seule personne, il se peut que je n'implémente pas tout ce que je voulais, d'où les évolutions possibles mentionnées.
+
 ## 1. Noyau du langage
 
 ### 1.1 Installation
@@ -123,48 +138,58 @@ Les langages ''JavaScript'' et ''Python'' sont également des inspirations pour 
 {{end}}
 <<end>>
 
-### 1.2 Premiers programmes
+### 1.2 Identifiants, valeurs et littéraux
 
-La tradition veut qu'on affiche "Bonjour le monde !" sur la sortie standard. Pour cela, il faut lancer l'interpréteur interactif
-ash.exe
-Puis tapez :
+Comme premier programme lorsque l'on apprend un langage de programmation, la tradition veut qu'on affiche "Bonjour le monde !" sur la sortie standard. Pour cela, il faut lancer l'interpréteur interactif ash.exe puis taper :
 
+@@ash
 @@ writeln("Hello World!")
 
-Une autre tradition est le calcul d'une factorielle. Ouvrez un fichier texte, enregistrez-le sous le nom de fact.ash puis tapez dedans :
+Vous venez d'appeler une **fonction**, nommée writeln, avec un paramètre, la chaîne de caractère "Hello World!". En exécutant ce code, la chaîne sera affichée sur la sortie standard.
 
-@@@text
--- fonction factorielle récursive
-fun fact(nb : int)
-    if nb == 0 then
-        return 1
-    elsif nb > 0 then
-        return nb * fact(nb - 1)
-    else
-        return Exception("Invalid number")
-    end
-end
-nb = input('enter a number:')
-writeln(fact(nb))
+Ash est un langage de script qui fonctionne avec des **identifiants** et des **valeurs**. Un identifiant référence une valeur. Une valeur est exprimée directement dans un code source par un **littéral**. Pour déclarer un nouvel identifiant et la valeur qu'il référence, on utilise l'**opérateur** @@=@@ en mettant à gauche l'identifiant et à droite la valeur :
+
+@@@ash
+a = 5
 @@@
 
-### 1.3 Commentaires
+Ici @@a@@ est l'identifiant et @@5@@ le littéral qui désigne l'entier 5. De même, la chaîne "Hello World!" est un littéral de type chaîne de caractères. Un littéral est une constante, il n'est **pas modifiable**, qui possède un **type**. **Un littéral ne peut jamais apparaître à gauche de l'opérateur @@=@@.**
 
-Les commentaires monolignes commençent par @@--@@ (comme Lua et SQL)
+Plusieurs identifiants peuvent référencer la même valeur, dans le code ci-dessous les identifiants @@a@@, @@b@@ et @@c@@ référencent la même valeur :
 
-Les commentaires multilignes commençent par @@--[[@@ et finissent par @@--]]@@ (comme Lua)
-
-<<Note de design>>
-{{begin}}
-Cela permet de conserver @@//@@ (C, JavaScript) et @@#@@ (Ruby, Python) comme opérateurs de intdiv et longueur respectivement.
-{{end}}
-<<end>>
-
-@@@text
--- comment
---[[ start of multi line
-]] end of multi line
+@@@ash
+a = 5
+b = 5
+c = b -- équivalent à c = a
 @@@
+
+Un identifiant peut, au cours d'un programme, référencer différentes valeurs mais à un instant donné il n'en référencera toujours qu'une :
+
+@@@ash
+a = 5
+a = "Hello World"
+@@@
+
+Ash fait la différence entre les minuscules et les majuscules, il est sensible à la casse, ainsi @@a@@ et @@A@@ ne sont pas les mêmes identifiants.
+
+### 1.3 Instructions et expressions
+
+Un programme Ash est composé d'**instructions** et d'**expressions**.
+
+Seules les expressions peuvent être évalués : 2 + 3 est une expression qui peut être évaluée à l'entier 5.
+
+Un **bloc** est un ensemble composée d'instructions et/ou d'expressions. Un bloc n'est pas évaluable.
+
+Exemple de l'instruction @@while@@ :
+
+@@ash
+@@ while expression do
+@@     bloc
+@@ loop
+
+Cette instruction exécutera le bloc tant que l'expression entre le @@while@@ et le @@do@@ sera vraie.
+
+Une instruction utilise des **mots-clés** : ici, @@while@@, @@do@@ et @@loop@@.
 
 ### 1.4 Mots-clés
 
@@ -200,7 +225,9 @@ Pour déclarer une constante de référence, il faut utiliser cette syntaxe :
 const ID [: TYPE]  = EXPR
 @@@
 
-Il est recommandé de commencer une constante par une majuscule.
+Cela indique que l'identifiant @@ID@@ référencera **toujours** la valeur donnée par @@EXPR@@. Toutefois, cette valeur peut-être elle-même constante (comme le littéral @@5@@) ou modifiable.
+
+Il est recommandé d'écrire les constantes en majuscule.
 
 @@@ash
 const PI : num = 3.14
@@ -211,8 +238,6 @@ nom de variable : (_A-Za-z)(0-9A-Za-z)
 _ is for dummy variable or the last expression. utf-8 variable are supported.
 
 following word are reserved because they are keyword.
-
-Ash is case sensitive.
 
 @@@text
 defined?(tst) --> nil
@@ -228,7 +253,7 @@ A variable is automatically cleaned after its containing scope is destroy (funct
 
 §§ Typage : avec ou sans : ?
 
-### 1.6 Expressions et opérateurs
+### 1.6 Types et opérateurs
 
 Une expression est forcément évaluable à une valeur avec un type :
 
@@ -236,18 +261,21 @@ Une expression est forcément évaluable à une valeur avec un type :
 5 + 2
 @@@
 
-Cette expression donne 7, de type nat.
+Cette expression donne 7, de type nat pour les entiers naturels.
 
 Une expression est composée d'opérateur et d'opérande.
 
 Certains opérateurs sont binaires (= 2 opérandes) ou unaire (= 1 opérante).
 
+Certains opérateurs s'appliquent à certains types de valeurs.
+
 **Il n'y a pas d'opérateur postfixe en Ash.**
 
 Une expression peut être composée de sous-expression :
 
-exp op exp
-op exp
+@@ash
+@@exp op exp
+@@op exp
 
 Séparateurs d'expression : \n, ;
 
@@ -271,18 +299,51 @@ Liste des opérateurs :
 §§ exp if cond else exp
 §§ [exp for id in exp if cond] ou [for id in exp if cond return exp]
 
-### 1.7 Instructions et mots-clés
+### 1.7 Un programme plus complexe
 
-Au contaire d'une expression, une instruction ne renvoit pas de valeur.
+Une autre tradition est le calcul d'une factorielle. Ouvrez un fichier texte, enregistrez-le sous le nom de fact.ash puis tapez dedans :
 
-## 2. Types de base
+@@@text
+-- fonction factorielle récursive
+fun fact(nb : int)
+    if nb == 0 then
+        return 1
+    elsif nb > 0 then
+        return nb * fact(nb - 1)
+    else
+        return Exception("Invalid number")
+    end
+end
+nb = input('enter a number:')
+writeln(fact(nb))
+@@@
+
+### 1.8 Commentaires
+
+Les commentaires monolignes commençent par @@--@@ (comme Lua et SQL) et s'étendent jusqu'à la fin de la ligne.
+
+Les commentaires multilignes commençent par @@--[[@@ et finissent par @@--]]@@ (comme Lua)
+
+<<Note de design>>
+{{begin}}
+Cela permet de conserver @@//@@ (C, JavaScript) et @@#@@ (Ruby, Python) comme opérateurs de division entière et longueur respectivement.
+{{end}}
+<<end>>
+
+@@@text
+-- comment
+--[[ start of multi line
+]] end of multi line
+@@@
+
+## 2. Types de base et leurs opérateurs
 
 Ash utilise 9 types de données de base :
 
 | Nom          | Type                   | Littéral           |
 |------------------------------------------------------------|
 | Booléen      | Boolean, boolean, bool | true false         |
-| Entier       | Integer, integer, int  | 25 -25             |
+| Entier       | Integer, integer, int  | 25 -25 0b010 0xAB  |
 | Naturel      | Natural, natural, nat  | 25                 |
 | Nombre       | Number, number, num    | 2.5 -2.5           |
 | Chaîne       | String, string, str    | "bonjour"          |
@@ -293,6 +354,8 @@ Ash utilise 9 types de données de base :
 
 §§ On évite Table pour Dictionnaire car c'est trop proche de Tableau.
 §§ Dans les dict : ou = ?
+§§ Infinity et NaN
+§§ Autorisation du + unaire devant un nombre ?
 
 ### 2.1 Booléen
 
@@ -325,7 +388,7 @@ Ash utilise 9 types de données de base :
 
 ### 2.5 Dictionnaire
 
-## 3. Contrôle du flux
+## 3. Instructions / Contrôle du flux
 
 ### 3.1 Séquence
 
@@ -414,14 +477,32 @@ end
 ## 5. Classes et objets
 
 @@@ash
-
 class ID [< SUPER]
-    [static const, static var, var] ID = EXPR
+    [static const, static var, [var]] ID = EXPR
     [static] fun or pro
     pro init(@a int, b int)
         @b = b
     end
 end
+@@@
+
+Un attribut est une variable attachée à une instance particulière, on le préfixe par @ à l'intérieur des méthodes d'une classe. Lors de sa déclaration en dehors d'une fonction, on ne le préfixe pas :
+
+@@ash
+@@class personne
+@@    age : int
+@@    name : string
+@@    fun hello() : void
+@@        writeln("Bonjour, je suis ${@name} et j'ai ${@age} ans")
+@@    end
+@@end
+
+§§ ALT : @attr doivent être déclaré uniquement dans init
+§§ ALT : @@cls_attr
+
+@@@ash
+self
+super
 
 a = ID.new(param)
 
@@ -470,7 +551,33 @@ end
 §§ de même on capture avec un if (EXCEPTION)
 §§ donc pas de catch [ID] TYPE end
 
-## 7. Bibliothèque standard
+## 7. Modules
+
+@@ash
+@@ import SYMBOL[.SYMBOL] [include ELEM1[, ELEMi]]
+@@ import FILEPATH as SYMBOL [include ELEM1[, ELEMi]]
+
+Accès via symbol.membre
+
+Un fichier = un module
+
+Pour l'importer : require str ex :
+    - require "flat.ash"
+    - require "../flat.ash"
+
+@@@ash
+module ID < SUPER
+    -- pas d'instanciation !
+    -- permet de faire :
+    -- des classes statiques
+    -- des interfaces
+end
+@@@
+
+§§ ALT : require, include, use ID
+§§ ALT : import module ou include/extend pour importer dans une classe static ou d'instance
+
+## 8. Bibliothèque standard
 
 @@@ash
 ID [module] = import (FILEPATH | ID) [ > ID1, ID2 ]
@@ -478,29 +585,54 @@ ID [module] = import (FILEPATH | ID) [ > ID1, ID2 ]
 module ID -- (en tête de fichier, pas de fin) (plutôt que package ou namespace)
 @@@
 
-### 7.1 Console
+### 8.1 Noyau
 
-### 7.2 Fichiers
+Object
+    o.clone
+    o.methods
+    o.respond_to?
+    o.dump
+    o.load
+Hash
+    d.delete
+    d.find
+    d.keys
+    d.values
 
-### 7.3 Système d'exploitation
+### 8.2 Console
 
-## 8. Implémentations et interfaces
+writeln
+write
 
-### 8.1 Ash/Python
+§§ ALT : print, println, puts
 
-### 8.2 Ash/JavaScript
+### 8.3 Fichiers
 
-### 8.3 Ash/C
+### 8.4 Système d'exploitation
 
-### 8.4 Ash/PHP
+## 9. Implémentations et interfaces
 
-### 8.5 Ash/Lua
+### 9.1 Ash/Python
 
-### 9. Liste des éléments du langage
+### 9.2 Ash/JavaScript
+
+### 9.3 Ash/C
+
+### 9.4 Ash/PHP
+
+### 9.5 Ash/Lua
+
+### 10. Liste des éléments du langage
 
 | Type        | Eléments        |
 |-------------------------------|
 | Séparateurs | ( ) [ ] { } , ; |
+
+### 11. Eléments de style
+
++ snake_case pour les méthodes, les attributs et les variables,
++ PascalCase pour les classes,
++ MAJUSCULES pour les constantes.
 
 {{end}}
 {{end}}
