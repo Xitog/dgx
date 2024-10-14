@@ -262,6 +262,24 @@ Les langages <i>JavaScript</i> et <i>Python</i> sont également des inspirations
 </span><span class="ash-identifier" title="token n°6 : identifier">a</span> <span class="ash-operator" title="token n°8 : operator">=</span> <span class="ash-string" title="token n°10 : string">"Hello World"</span><span class="ash-newline" title="token n°11 : newline">
 </span></pre>
 <p>Ash fait la différence entre les minuscules et les majuscules, il est sensible à la casse, ainsi <code><span class="ash-identifier" title="token n°0 : identifier">a</span></code> et <code><span class="ash-identifier" title="token n°0 : identifier">A</span></code> ne sont pas les mêmes identifiants.</p>
+<p>Un identifiant peut être associé à un type lors de sa déclaration (= la première qu'on l'utilise). Dans ce cas, il ne pourra référencer que des valeurs de ce type. Pour cela on utilise l'opérateur <code><span class="ash-separator" title="token n°0 : separator">:</span></code> suivi du type :</p>
+<pre>
+<span class="ash-identifier" title="token n°0 : identifier">a</span> <span class="ash-separator" title="token n°2 : separator">:</span> <span class="ash-identifier" title="token n°4 : identifier">int</span> <span class="ash-operator" title="token n°6 : operator">=</span> <span class="ash-number" title="token n°8 : number">5</span><span class="ash-newline" title="token n°9 : newline">
+</span><span class="ash-identifier" title="token n°10 : identifier">a</span> <span class="ash-operator" title="token n°12 : operator">=</span> <span class="ash-number" title="token n°14 : number">8</span> <span class="ash-comment" title="token n°16 : comment">-- ok 8 est de type int</span><span class="ash-newline" title="token n°17 : newline">
+</span><span class="ash-identifier" title="token n°18 : identifier">a</span> <span class="ash-operator" title="token n°20 : operator">=</span> <span class="ash-string" title="token n°22 : string">"Hello World"</span> <span class="ash-comment" title="token n°24 : comment">-- déclenchera une erreur</span><span class="ash-newline" title="token n°25 : newline">
+</span></pre>
+<p>On peut obliger un identfiant à ne référencer qu'une seule valeur et ne pas pouvoir en changer lors de sa déclaration. Pour cela, on utilise le mot-clé <code><span class="ash-keyword" title="token n°0 : keyword">const</span></code>.</p>
+<pre>
+<span class="ash-keyword" title="token n°0 : keyword">const</span> <span class="ash-identifier" title="token n°2 : identifier">a</span> <span class="ash-separator" title="token n°4 : separator">:</span> <span class="ash-identifier" title="token n°6 : identifier">int</span> <span class="ash-operator" title="token n°8 : operator">=</span> <span class="ash-number" title="token n°10 : number">5</span> <span class="ash-comment" title="token n°12 : comment">-- on peut mettre le type</span><span class="ash-newline" title="token n°13 : newline">
+</span><span class="ash-keyword" title="token n°14 : keyword">const</span> <span class="ash-identifier" title="token n°16 : identifier">b</span> <span class="ash-operator" title="token n°18 : operator">=</span> <span class="ash-number" title="token n°20 : number">6</span> <span class="ash-comment" title="token n°22 : comment">-- mais sinon il sera déduit du type de l'expression à droite du =</span><span class="ash-newline" title="token n°23 : newline">
+</span><span class="ash-identifier" title="token n°24 : identifier">a</span> <span class="ash-operator" title="token n°26 : operator">=</span> <span class="ash-number" title="token n°28 : number">22</span> <span class="ash-comment" title="token n°30 : comment">-- erreur</span><span class="ash-newline" title="token n°31 : newline">
+</span><span class="ash-identifier" title="token n°32 : identifier">b</span> <span class="ash-operator" title="token n°34 : operator">=</span> <span class="ash-string" title="token n°36 : string">"abc"</span> <span class="ash-comment" title="token n°38 : comment">-- erreur</span><span class="ash-newline" title="token n°39 : newline">
+</span></pre>
+<p>Enfin, on peut déclarer un identifiant qui ne référence aucune valeur avec le mot-clé <code><span class="ash-nil" title="token n°0 : nil">nil</span></code> :</p>
+<pre>
+<span class="ash-identifier" title="token n°0 : identifier">i</span> <span class="ash-operator" title="token n°2 : operator">=</span> <span class="ash-nil" title="token n°4 : nil">nil</span><span class="ash-newline" title="token n°5 : newline">
+</span></pre>
+<p><b>On ne peut jamais utiliser un identifiant avant qu'il ne soit défini.</b></p>
 <h3 id="1.3-instructions-et-expressions">1.3 Instructions et expressions</h3>
 <p>Un programme Ash est composé d'<b>instructions</b> et d'<b>expressions</b>.</p>
 <p>Seules les expressions peuvent être évalués : 2 + 3 est une expression qui peut être évaluée à l'entier 5.</p>

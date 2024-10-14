@@ -5,6 +5,11 @@
         },
         {
             "do": true,
+            "source": "./input/passetemps/tech_ted.hml",
+            "destination": "../passetemps/"
+        },
+        {
+            "do": true,
             "source": "./input/ash/ash_guide.hml",
             "destination": "../ash/"
         },

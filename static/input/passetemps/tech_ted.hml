@@ -1,0 +1,62 @@
+!const TITLE=Format TED
+!const LANG=fr
+!const ICON=https://xitog.github.io/dgx/img/favicon.ico
+!require https://xitog.github.io/dgx/css/simplex.bootstrap.css
+!require https://xitog.github.io/dgx/css/flashy.css
+!require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+!require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+
+!html <link href="https://fonts.googleapis.com/css2?family=Inconsolata" rel="stylesheet">
+
+!css p code span.type,             pre span.type               { color: purple;  }
+!css p code span.lua-identifier,   pre span.lua-identifier     { color: black;   }
+!css p code span.lua-operator,     pre span.lua-operator       { color: black;   }
+!css p code span.lua-separator,    pre span.lua-separator      { color: black;   }
+!css p code span.lua-special,      pre span.lua-special        { color: purple;  }
+!css p code span.lua-nil,          pre span.lua-nil            { color: #1479cc; }
+!css p code span.lua-boolean,      pre span.lua-boolean        { color: #1479cc; }
+!css p code span.lua-number,       pre span.lua-number         { color: red;     }
+!css p code span.lua-comment,      pre span.lua-comment        { color: grey; font-style: italic; }
+!css p code span.lua-line_comment, pre span.lua-line_comment   { color: grey; font-style: italic; }
+!css p code span.lua-string,       pre span.lua-string         { color: orange;  }
+!css p code span.lua-keyword,      pre span.lua-keyword        { color: #1479cc; }
+
+!var DEFAULT_CODE=lua
+
+{{#main .container}}
+
+!include menu.html
+
+{{#content-div}}
+
+# Sommaire
+
+* [[1. Présentation->#]]
+* [[2. Fichier d'en-tête]]
+
+# 1. Présentation
+
+Wolfenstein 3D, développé par id Software, est un des premiers jeux de tir à la première personne (first person shooter en anglais ou FPS). Sa version shareware pour DOS est sortie le 5 mai 1992 et diffusée sur BBS. Même si ce n'est pas le premier FPS, même si ses graphismes sont rudimentaires, il se démarque par son gameplay nerveux et satisfaisant, et des exigences matérielles basses. Son impact sera immense, surpassé seulement par le jeu suivant d'id, Doom, sorti en 1993.
+
+Wolfenstein 3D utilise une technique connue sous le nom de raycasting. Le moteur du jeu (engine en anglais) envoie des rayons à partir de la position du joueur. Ces rayons rencontrent les murs et un calcul permet d'afficher ce que verrait le joueur à travers les yeux du personnage. Cette perspective, appelée parfois réalité virtuelle à l'époque, permet une immersion bien plus grande du joueur.
+
+Les murs sont texturés : au lieu d'être un aplat de couleur, ils sont revêtus de différentes textures qui représentent des briques, une affiche, des planches de bois... Mais l'astuce est que le niveau est une simple grille en 2D, à partir de laquelle le moteur, par calculs, donne une vision 3D. Le nom de 2.5D a parfois été utilisée pour ce type de moteur. Le niveau est aussi peuplée d'ennemis et d'objets représentés par des sprites, des images en 2D. Doom utilisera lui toujours un plan 2D mais avec des murs et non une grille.
+
+Le jeu était programmé en C avec de l'assembleur où le besoin de rapidité est le plus critique. Il affichait une glorieuse résolution de 320x200 en 256 couleurs en mode VGA. Les niveaux étaient fait à l'aide de l'outil Tile Editor (TEd) déjà utilisé pour les jeux de plateformes Commander Keen d'id. Ceux-ci utilisaient la grille pour représenter un niveau de profil, une tranche verticale.
+
+Nous nous proposons dans cette article d'explorer le format TEd version 5 utilisé par les différentes versions de Wolfenstein 3d, avec des différences. Les cartes sont stockées dans deux fichiers : un fichier d'en-têtes et un fichier de contenu proprement dit. Le fichier d'en-têtes est un découpage de celui de contenu, indiquant où commencent les niveaux.
+
+# 2. Fichier d'en-tête
+
+Le fichier d'en-tête est ainsi constitué :
+
+|= Emplacement |= Type                             |= Nombre |= Nom     |= Description           |
+|------------------------------------------------------------------------------------------------|
+|= 0           | @@Unsigned int 16 little endian@@ |= 1      | magic    | Témoin de compression  |
+|= 2 à ?       | @@Signed int 32 little endian@@   |= 100    | ptr      | Début de niveau        |
+|= 402         | @@?@@                             |= 1      | tileinfo | Propriétés des tuiles  |
+
+Wolfenstein n'utilise de tileinfo. Ce fichier est nommé @@maphead.wlX@@ où X indique le numéro d'épisode (de 1 à 6). Dans les jeux prédécents utilisant TEd, ces informations étaient parfois directement mises dans l'exécutable du jeu (fichier .exe).
+
+Le code pour le lire est assez simple :
+
