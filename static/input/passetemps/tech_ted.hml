@@ -32,7 +32,8 @@
 # Sommaire
 
 * [[1. Présentation->#]]
-* [[2. Fichier d'en-tête]]
+* [[2. Fichier d'en-tête->#]]
+* [[X. Sources->#]]
 
 # 1. Présentation
 
@@ -50,13 +51,20 @@ Nous nous proposons dans cette article d'explorer le format TEd version 5 utilis
 
 Le fichier d'en-tête est ainsi constitué :
 
-|= Emplacement |= Type                             |= Nombre |= Nom     |= Description           |
-|------------------------------------------------------------------------------------------------|
-|= 0           | @@Unsigned int 16 little endian@@ |= 1      | magic    | Témoin de compression  |
-|= 2 à ?       | @@Signed int 32 little endian@@   |= 100    | ptr      | Début de niveau        |
-|= 402         | @@?@@                             |= 1      | tileinfo | Propriétés des tuiles  |
+|= Emplacement |= Type                             |= Nombre |= Nom     |= Description                    |
+|---------------------------------------------------------------------------------------------------------|
+|= 0           | @@Unsigned int 16 little endian@@ |= 1      | magic    | Témoin de compression           |
+|= 2 à ?       | @@Unsigned int 32 little endian@@ |= 100    | ptr      | Début de niveau                 |
+|= 402         | @@?@@                             |= 1      | tileinfo | Propriétés des tuiles (ignoré)  |
 
 Wolfenstein n'utilise de tileinfo. Ce fichier est nommé @@maphead.wlX@@ où X indique le numéro d'épisode (de 1 à 6). Dans les jeux prédécents utilisant TEd, ces informations étaient parfois directement mises dans l'exécutable du jeu (fichier .exe).
 
 Le code pour le lire est assez simple :
 
+# X. Sources
+
+Je tiens à remercier les différentes personnes qui ont écrit des pages sur lesquelles j'ai pu m'appuyer pour rédiger les miennes :
+
+* [[''Game file specifications'' par **Victor Poupet**->https://vpoupet.github.io/wolfenstein/docs/files]]
+* [[''TED 5'' sur le wiki **Shikadi**->https://moddingwiki.shikadi.net/wiki/TED5]]
+* [[''GameMaps Format'' sur le wiki **Shikadi**->https://moddingwiki.shikadi.net/wiki/GameMaps_Format]]
