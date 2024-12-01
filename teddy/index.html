@@ -344,13 +344,15 @@
 				let actors = level.getPlane(1);
 				let height = level.height;
 				let width = level.width;
-
+				//let content = document.createElement("div");
 				let unfill = $("unfill").checked;
 				let options = {
 					'grid': $("grid").checked,
 				};
 				let object = $("object").checked;
-
+				//let info = document.createElement("h2");
+				//info.innerText = level.name + ` planes 0 and 1 (${width}x${height})`;
+				//content.appendChild(info);
 				let x = 0;
 				let y = 0;
 				for (let nb = 0; nb < walls.content.length; nb++) {
@@ -418,6 +420,7 @@
 
 		class Header {
 			constructor(file, data) {
+				console.log(data.constructor.name);
 				this.file = file;
 				this.total_nb_bytes = data.byteLength; // 402
 				this.nb_bytes = 0;
@@ -444,7 +447,7 @@
 					'Created US Time = ' + date.toLocaleString('us-US', { timeZone: 'America/Chicago' }) + "\n" +
 					'Created FR Time = ' + date.toLocaleString('fr-FR', { timeZone: 'Europe/Brussels' }) + "\n" +
 					'File size = ' + size + "\n";
-				s += `Magix hex = ${hex(this.magic)}\n`;
+				s += `Magic hex = ${hex(this.magic)}\n`;
 				s += `Number of bytes read = ${this.nb_bytes} / ${this.total_nb_bytes}\n`;
 				s += `Number of levels = ${this.ptr.length}\n`;
 				for (let i = 0; i < this.ptr.length; i++) {
@@ -481,7 +484,7 @@
 				let s = this.name;
 				if (this.planes.length === 3) {
 					s = "[Starts]            : " + this.planes[0].start + ", " + this.planes[1].start + ", " + this.planes[2].start + "\n" +
-						"[CompressedLenghts] : " + this.planes[0].length + ", " + this.planes[1].length + ", " + this.planes[2].length + "\n" +
+						"[CompressedLengths] : " + this.planes[0].length + ", " + this.planes[1].length + ", " + this.planes[2].length + "\n" +
 						"[ReadLengths]       : " + this.planes[0].content.length + ", " + this.planes[1].content.length + ", " + this.planes[2].content.length + "\n" +
 						"[Sizes]             : " + this.width + "x" + this.length + " (" + (64 * 64) + ")\n" +
 						"[Name]              : " + this.name;
@@ -533,7 +536,7 @@
 				level.height = new Uint16Array(data.slice(startLevel + 20, startLevel + 22))[0];
 				let dec = new TextDecoder();
 				level.name = dec.decode(data.slice(startLevel + 22, startLevel + 32));
-				let plane0 = this.rwle_expand(magic, data.slice(startPlane0, startPlane0 + lengthPlane0));
+				let plane0 = this.rwle_expand(magic, data.slice(startPlane0, startPlane0 + lengthPlane0), true);
 				let plane1 = this.rwle_expand(magic, data.slice(startPlane1, startPlane1 + lengthPlane1));
 				let plane2 = this.rwle_expand(magic, data.slice(startPlane2, startPlane2 + lengthPlane2));
 				level.planes.push(new Plane(startPlane0, lengthPlane0, plane0));
@@ -542,13 +545,18 @@
 				return level;
 			}
 
-			rwle_expand(magic, data) {
+			rwle_expand(magic, data, debug=false) {
 				let size = new Uint16Array(data.slice(0, 2))[0];
 				console.log("RWLE EXPAND SIZE = " + size);
 				let expanded = [];
 				let i = 2;
 				while (i < data.byteLength) {
 					let v = new Uint16Array(data.slice(i, i + 2))[0];
+					// debug info
+					if (debug) {
+					    console.log("index", i, "value", v, "is_magic?", v == magic);
+				    }
+					// end debug info
 					i += 2
 					if (v == magic) {
 						let count = new Uint16Array(data.slice(i, i + 2))[0];
@@ -803,6 +811,23 @@
 			data = null;
 			setVisibilityAndClear('bLoadTED', false);
 			displayOptions('controls_load_ted');
+
+			let div = document.getElementById("fileInput1");
+			console.log('>>>>> ', div);
+			let label = document.createElement('label');
+			label.setAttribute("for", "fileInput1");
+			label.innerText = "En-têtes :";
+			div.append(label);
+			let input = document.createElement('input');
+			input.setAttribute('type', 'file');
+			input.setAttribute('id', 'fileInput1');
+			input.addEventListener('onchange', xHandler);
+			div.append(input);
+		}
+
+		function xHandler() {
+			alert(this.files);
+			handleFiles(this.files, 'header');
 		}
 
 		function displayTEDPanel() {
@@ -910,6 +935,7 @@
 				console.log('Loading: ', o.id, o);
 				textures[o.id] = o;
 			}
+			displayLoadTEDOptions();
 		}
 
 		window.onload = load;
