@@ -493,6 +493,8 @@
 			}
 		}
 
+		let debug_first = false;
+
 		class LevelSet {
 			constructor(data, header) {
 				this.header = header;
@@ -536,7 +538,7 @@
 				level.height = new Uint16Array(data.slice(startLevel + 20, startLevel + 22))[0];
 				let dec = new TextDecoder();
 				level.name = dec.decode(data.slice(startLevel + 22, startLevel + 32));
-				let plane0 = this.rwle_expand(magic, data.slice(startPlane0, startPlane0 + lengthPlane0), true);
+				let plane0 = this.rwle_expand(magic, data.slice(startPlane0, startPlane0 + lengthPlane0));
 				let plane1 = this.rwle_expand(magic, data.slice(startPlane1, startPlane1 + lengthPlane1));
 				let plane2 = this.rwle_expand(magic, data.slice(startPlane2, startPlane2 + lengthPlane2));
 				level.planes.push(new Plane(startPlane0, lengthPlane0, plane0));
@@ -553,7 +555,7 @@
 				while (i < data.byteLength) {
 					let v = new Uint16Array(data.slice(i, i + 2))[0];
 					// debug info
-					if (debug) {
+					if (debug_first) {
 					    console.log("index", i, "value", v, "is_magic?", v == magic);
 				    }
 					// end debug info
@@ -568,6 +570,7 @@
 						expanded.push(v);
 					}
 				}
+				debug_first = false;
 				return expanded;
 			}
 
