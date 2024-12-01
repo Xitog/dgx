@@ -486,7 +486,7 @@
 					s = "[Starts]            : " + this.planes[0].start + ", " + this.planes[1].start + ", " + this.planes[2].start + "\n" +
 						"[CompressedLengths] : " + this.planes[0].length + ", " + this.planes[1].length + ", " + this.planes[2].length + "\n" +
 						"[ReadLengths]       : " + this.planes[0].content.length + ", " + this.planes[1].content.length + ", " + this.planes[2].content.length + "\n" +
-						"[Sizes]             : " + this.width + "x" + this.length + " (" + (64 * 64) + ")\n" +
+						"[Sizes]             : " + this.width + "x" + this.height + " (" + (this.width * this.height) + ")\n" +
 						"[Name]              : " + this.name;
 				}
 				return s;
