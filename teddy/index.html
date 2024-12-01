@@ -493,9 +493,9 @@
 			}
 		}
 
-		let debug_first = false;
-
 		class LevelSet {
+			static debug_first = true;
+
 			constructor(data, header) {
 				this.header = header;
 				let dec = new TextDecoder();
@@ -547,7 +547,7 @@
 				return level;
 			}
 
-			rwle_expand(magic, data, debug=false) {
+			rwle_expand(magic, data) {
 				let size = new Uint16Array(data.slice(0, 2))[0];
 				console.log("RWLE EXPAND SIZE = " + size);
 				let expanded = [];
@@ -555,7 +555,7 @@
 				while (i < data.byteLength) {
 					let v = new Uint16Array(data.slice(i, i + 2))[0];
 					// debug info
-					if (debug_first) {
+					if (LevelSet.debug_first) {
 					    console.log("index", i, "value", v, "is_magic?", v == magic);
 				    }
 					// end debug info
@@ -570,7 +570,7 @@
 						expanded.push(v);
 					}
 				}
-				debug_first = false;
+				LevelSet.debug_first = false;
 				return expanded;
 			}
 
