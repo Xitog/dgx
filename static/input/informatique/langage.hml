@@ -17,7 +17,7 @@
 
 Quelques notes sur l'analyse lexicale, l'analyse syntaxique et les langages de programmation.
 
-Création : le 19 avril 2024 | Dernière mise-à-jour : le 19 avril 2024
+Création : le 19 avril 2024 | Dernière mise-à-jour : le 12 janvier 2025
 
 Auteur : Damien Gouteux | Type : Fiche | Sujet : langage, programmation, informatique
 
@@ -28,16 +28,17 @@ Auteur : Damien Gouteux | Type : Fiche | Sujet : langage, programmation, informa
 
 ## Analyse lexicale
 
-Toute analyse d’un langage commence par l’identification de ses unités minimales à partir d’un flux de caratères. Pour un langage naturel, comme le français, cela équivaut à identifier les mots à partir d’un flux de lettres. Un langage de programmation utilise, en plus des lettres, des chiffres, des opérateurs mathématiques comme “+” ou “-”, ou encore des séparateurs comme “,” ou “(“. Ces caractèrent forment des identifiants comme @@compteur@@, des nombres comme @@567@@ ou des opérateurs comme @@==@@. Nous savons très bien distinguer un identifiant comme “compteur”, de l’opérateur “+” ou du chiffre du “5”, même sans espaces, dans la commande @@compteur + 5@@ ou @@compteur+5@@.
+Toute analyse d’un langage commence par l’identification de ses **unités minimales** (ou ''lexème'') à partir d’un flux de caratères. Pour un langage naturel, comme le français, cela équivaut à identifier les mots à partir d’un flux de lettres. Un langage de programmation utilise, en plus des lettres, des chiffres, des opérateurs mathématiques comme “+” ou “-”, ou encore des séparateurs comme “,” ou “(“. Ces caractèrent forment des identifiants comme @@compteur@@, des nombres comme @@567@@ ou des opérateurs comme @@==@@. Nous savons très bien distinguer un identifiant comme “compteur”, de l’opérateur “+” ou du chiffre du “5”, même sans espaces, comme dans la commande @@compteur + 5@@ ou @@compteur+5@@.
 
-Pour donner cette capacité à l’ordinateur, il faut écrire un analyseur lexical ou lexeur (lexer ou tokenizer en anglais). Un lexeur va transformer un flux de caractères en une liste d'unités minimales ou jetons (appelé token en anglais). Chaque jeton possède une valeur, qui est la suite de caractères qui le composent, et un type. Les différents types sont définis par le langage. La plupart des langages de programmation définissent par exemple les types suivants :
+Pour donner cette capacité à l’ordinateur, il faut écrire un analyseur lexical ou lexeur (''lexer'' ou ''tokenizer'' en anglais). Un lexeur va transformer un flux de caractères en une liste d'unités minimales, appelées spécifiquement en informatique **jetons** (''token'' en anglais). Chaque jeton possède une valeur, qui est la suite de caractères qui le composent, et un type. Les différents types sont définis par le langage. La plupart des langages de programmation définissent par exemple les types suivants :
 
-* le type entier, dont les valeurs sont uniquement constituées de chiffres : @@15@@,
-* le type chaîne de caractères, dont les valeurs sont encadrées par des guillemets doubles et peuvent contenir à l'intérieur de ceux-ci n'importe quel caractère : @@"23abc 56"@@,
-* le type identifiant, dont les valeurs commencent toujours par une lettre et qui peuvent ensuite comporter des chiffres ou des lettres : @@abc25@@,
-* le type opérateur, qui peuvent avoir plusieurs valeurs comme @@=@@, @@<@@, @@+@@,
-* le type booléen, représenté par @@false@@ et @@true@@,
-* un type un peu particulier, le type vide, qui est représenté par @@null@@ ou @@nil@@.
+* le type **entier** (''integer'', ''int''), dont les valeurs sont uniquement constituées de chiffres : @@15@@,
+* le type **réel** (''float'', ''flt'', ''real''), dont les valeurs sont composées de chiffres et d'un séparateur entre la partie entière et décimale, une virgule à la norme anglo-saxonne,
+* le type **chaîne de caractères** (''string'', ''str''), dont les valeurs sont encadrées par des guillemets doubles et peuvent contenir à l'intérieur de ceux-ci n'importe quel caractère : @@"23abc 56"@@,
+* le type **identifiant**, dont les valeurs commencent toujours par une lettre et qui peuvent ensuite comporter des chiffres ou des lettres : @@abc25@@,
+* le type **opérateur**, qui peuvent avoir plusieurs valeurs comme @@=@@, @@<@@, @@+@@,
+* le type **booléen**, représenté par @@false@@ et @@true@@,
+* un type un peu particulier, le type **vide**, qui est représenté par @@void@@, @@null@@ ou @@nil@@.
 
 Le lexer s'appuie sur la définition des différents types et leurs valeurs possibles pour effectuer le découpage du flux de caractères en une liste de jetons ayant chacun une valeur et un type. Ainsi la suite : @@5 abc25 "23 abc 56" true@@ sera transformée en la suite de jetons (valeur, type) :
 
@@ -45,6 +46,8 @@ Le lexer s'appuie sur la définition des différents types et leurs valeurs poss
 * (abc25, identifiant)
 * ("23abc 56", chaîne de caractères)
 * (true, booléen)
+
+Un défi est le lexing du flux @@25abc@@. Cela pourrait donner deux jetons : (25, entier) et (abc, identifiant). Mais de nombreux langages n'autorisent pas l'absence d'espace entre les deux et qualifie le flux comme fautif (ne respectant par les règles, ici lexicales, du langage).
 
 ## Analyse syntaxique
 

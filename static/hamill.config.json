@@ -5,6 +5,11 @@
         },
         {
             "do": true,
+            "source": "./input/liens.hml",
+            "destination": "../"
+        },
+        {
+            "do": true,
             "source": "./input/passetemps/tech_ted.hml",
             "destination": "../passetemps/"
         },
