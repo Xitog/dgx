@@ -15,6 +15,11 @@
         },
         {
             "do": true,
+            "source": "./input/passetemps/pres_jeuxvideo.hml",
+            "destination": "../passetemps/"
+        },
+        {
+            "do": true,
             "source": "./input/ash/ash_guide.hml",
             "destination": "../ash/"
         },

@@ -51,7 +51,7 @@
   + [[Gun Godz->#]]
 * [[La musique de jeux vidéo->#]]
 * [[Chronologie->#]]
-  * [[2024 (5)->#]]
+  * [[2024 (12)->#]]
   * [[2023 (9)->#]]
   * [[2022 (8)->#]]
   * [[2021 (6)->#]]
@@ -827,34 +827,44 @@ En dessous, leur liste avec :
 
 * **en gras** les jeux finis pour la première fois,
 * __en souligné__, les jeux pour lesquels j'ai rédigé une critique,
-* ^^en exposant^^ les versions jouées (history edition, definitive, edition, classic redux, remaster, remake ou l'année),
+* ^^en exposant^^ les versions jouées (history edition, definitive, enhanced edition, classic redux, remaster, remake et on met l'année dans Version),
 * on met dans les titres uniquement les jeux, pas leurs extensions, finis au cours de celle-ci.
+* On comptabilise le nombre de sessions pour terminer le jeu, pas le nombre total de sessions
 
 Un jeu déjà terminé dont on termine pour la première fois son remaster ne compte pas comme "terminé pour la première fois".  Ainsi, mon 1er run de Blood est sur la version //One Unit Whole Blood// et mon second est sur la version //Fresh supply//.
 
 Je considère @@Heart of the Swarm@@ et @@Legacy of the Void@@ comme des jeux à part entière et non des extensions de @@Wing of Liberty@@.
 
-## 2024 (5)
+## 2024 (12)
 
-### CoD: Black Ops, **Cultic**, SC2: Heart of the Swarm, **SC2: Legacy of the Void**, **Gun Godz**
+### CoD: Black Ops, **Cultic**, SC2: Heart of the Swarm, **SC2: Legacy of the Void**, **Gun Godz**, **CoD: Black Ops 2**, **Far Cry: New Dawn**, Dark Forces^^Remastered^^, **WH40K: Boltgun**, BG:^^EE^^, **Wolfenstein: TNO**, **CoD: Advanced Warfare**
 
-* 5 jeux finis
+* 12 jeux finis
 * Par nouveauté :
-  * 3 jeux terminés pour la première fois (1^^er^^ run) : Cultic, SC2: Legacy of the Void, Gun Godz
-  * 2 jeux refaits : CoD: Black Ops, SC2: Heart of the Swarm
+  * 8 jeux terminés pour la première fois (1^^er^^ run) : Cultic, SC2: Legacy of the Void, Gun Godz, CoD: Black Ops 2, Far Cry: New Dawn, WH40K: Boltgun, Wolfenstein:The New Order, CoD: Advanced Warfare
+  * 4 jeux refaits : CoD: Black Ops, SC2: Heart of the Swarm, Dark Forces Remastered, Baldur's Gate: EE
 * Par années :
-  * 4 jeux des 10 : CoD: Black Ops, SC2: Heart of the Swarm, SC2: Legacy of the Void, Gun Godz
-  * 1 jeu des 20 : Cultic
+  * 2 jeux des années 1990 : Dark Forces Remastered, Baldur's Gate: EE
+  * 7 jeux des années 2010 : CoD: Black Ops, SC2: Heart of the Swarm, SC2: Legacy of the Void, Gun Godz, CoD: Black Ops 2, Wolfenstein:The New Order, CoD: Advanced Warfare
+  * 3 jeux des années 2020 : Cultic, Far Cry: New Dawn, WH40K: Boltgun
 * Par types :
-  * 3 FPS : CoD: Black Ops, Cultic, Gun Godz
+  * 9 FPS : CoD: Black Ops, Cultic, Gun Godz, CoD: Black Ops 2, Far Cry: New Dawn, Dark Forces Remastered, WH40K: Boltgun, Wolfenstein:The New Order, CoD: Advanced Warfare
   * 2 RTS : SC2: Heart of the Swarm, SC2: Legacy of the Void
+  * 1 RPG : Baldur's Gate: EE
 * Par plateformes :
-  * 3 sur Steam
+  * 10 sur Steam
   * 2 sur Battle.net (SC2: Heart of the Swarm, SC2: Legacy of the Void)
-* Non finis : aucun
+* Non finis : Prodeus, Arthurian Legends, BG: Dragonspear, Terra Nil, AoE2:DE
 
 | Mois            | Machine | Store | Run   | S  | Genre   | Ext | Jeu                                        | Année | Version | Commentaire                     |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Octobre         | Shodan  | Steam | **1** |  6 | FPS     |     | **Call of Duty: Advanced Warfare**         | 2014  |         |                                 |
+| Octobre         | Shodan  | Steam | **1** |  5 | FPS     |     | **Wolfenstein: The New Order**             | 2014  |         | Choix de laisser le jeune vivre |
+| Septembre       | Shodan  | Steam | 6     | 44 | RPG     |     | **Baldur's Gate: Enhanced Edition**        | 1998  | 2012    | guerrier-clerc nain 20 con      |
+| Juin            | Shodan  | Steam | **1** | 10 | FPS     |     | **Warhammer 40 000: Boltgun**              | 2023  |         |                                 |
+| Mai             | Shodan  | Steam | 2     |  4 | FPS     |     | **Dark Forces Remastered**                 | 1995  | 2024    |                                 |
+| Mai             | Shodan  | Steam | **1** | 10 | FPS     |     | **Far Cry: New Dawn**                      | 2019  |         |                                 |
+| Avril           | Shodan  | Steam | **1** |  6 | FPS     |     | **Call of Duty: Black Ops 2**              | 2012  |         |                                 |
 | Mars            | Shodan  | Steam | **1** |  2 | FPS     |     | **Gun Godz**                               | 2013  |         |                                 |
 | Mars            | Elspeth | B.Net | **1** |  6 | RTS     | Ext | **StarCraft 2: Nova Covert Ops**           | 2016  |         |                                 |
 | Mars            | Elspeth | B.Net | **1** | 16 | RTS     |     | **StarCraft 2: Legacy of the Void**        | 2015  |         |                                 |
