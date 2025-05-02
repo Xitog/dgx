@@ -1,0 +1,131 @@
+!const TITLE=Aide-mémoire des sons du français
+!const LANG=fr
+!const ICON=https://xitog.github.io/dgx/img/favicon.ico
+!require https://xitog.github.io/dgx/css/simplex.bootstrap.css
+!require https://xitog.github.io/dgx/css/palatino.css
+!require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+!require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+
+!css h1, h2, p, dl, ul, ol, a, table, table th, table td {font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;}
+!css h1, h2 {font-weight: 300; color: #444444;}
+!css h1 {font-size: 30px;}
+!css h2 {font-size: 24px;}
+!css p, dl, dt, ul, ol {color: #777777; font-size: 14px;}
+!css a {color: #d9230f;}
+!css a:hover {background-color: #d9230f; color: white;}
+!css dl {border: 1px solid #eeeeee; border-radius: 10px; background-color: white; padding: 4px; padding-bottom: 12px;}
+!css dt {margin-top: 12px;}
+!css table, table th, table tr, table td {border: none; color: #777777;}
+!css table th {color: #444444; background-color: #eeeeee;}
+!css table tbody tr:nth-child(2), tr:nth-child(21), tr:nth-child(25), tr:nth-child(38) td {text-align: center; font-weight: bold; border-top: 1px solid #444444; border-bottom: 1px solid #444444; background-color: white;}
+
+{{#main .container}}
+
+!include menu.html
+
+{{#content-div}}
+
+# Fiche des phonèmes du français
+---
+
+Cette fiche expose les phonèmes du **français** et quelques unes de leurs graphies.
+
+Création : le 4 avril 2017 | Dernière mise-à-jour : le 20 juin 2017 | Conversion en HML : le 2 mai 2025 | Auteur : Damien Gouteux | Type : Fiche | Sujet : français, son, phone, phonème, phonétique
+
+## Sommaire
+
++ [[Définitions->1.-définitions]]
++ [[Table des 36+1 phonèmes du français->2.-table-des-36+1-phonèmes-du-français]]
++ [[Remarques->3.-remarques]]
++ [[Ne pas se tromper->4.-ne-pas-se-tromper]]
++ [[Distinguer->5.-distinguer]]
+
+## 1. Définitions
+
+$ Graphie ou Graphème
+    Représentation écrite d'un [[phonème->#def-phoneme]]. Un phonème peut avoir plusieurs graphèmes : /f/ peut s'écrire f ou ph en français. Un graphème peut correspondre à deux phonèmes : s peut correspondre à /s/ et /z/ par exemple, selon sa place dans le mot. Un graphème inclut également les consonnes muettes dans le cas d'un phonème voyelle. Ainsi /i/ peut avoir pour graphème : i comme dans pi, it comme dans salit, id comme dans nid...
+$ Phonème
+    {{#def-phoneme}} Plus petite unité distinctive des sons rapportés à la compréhension d'une langue. S'écrit entre / / avec les symboles de l'alphabet phonétique international (API). N'a d'existence que par rapport au système des phonèmes d'une langue. La science qui les étudit est la phonologie. ## __Exemple canonique en français__ : /ʁ/ qu'on entend dans rat. Le son [r] (un "r roulé") peut-être une réalisation du phonème /ʁ/, comme le son [ʁ] ("r standard" du français). Cela n'affecte pas la compréhension de la langue car aucun mot en français ne se distingue par une différence entre /ʁ/ et /r/ d'ailleurs /r/ n'est pas un phonème du français.
+$ Son ou Phone
+    Réalisation objective sonore d'un phonème. S'écrit entre [ ] avec les symboles de l'alphabet phonétique international (API). La science qui les étudit est la phonétique.
+$ Syllabe
+    Groupe de sons ''« prononcée en un accent et en un trait : d'une respiration »'', Guilhem Molinier, ''Las leys d’Amors'', 1356. Elle est consituée d'une **attaque**, une ou plusieurs consonnes, qui est optionnelle, d'un **noyau**, une voyelle, et d'une **coda**, une ou plusieurs consonnes, qui est optionnelle elle aussi. Noyau et coda forme la **rime**.
+$ Syllabe ouverte
+    {{#def-syllabe-ouverte}} Syllabe qui se finit par son noyau, elle ne possède pas de __coda__ : ou /**u**/, mais /m**ɛ**/, chaton /ʃ**a**.t**ɔ̃**/
+$ Syllabe fermée
+    Syllabe qui possède une ''coda'' : pair /pɛ**ʁ**/, dame /da**m**/
+
+|=#c3# Rappels                          |
+|---------------------------------------|
+|= Objet       |= Science   |= Écriture |
+| Phone ou son | Phonétique | / /       |
+| Phonème      | Phonologie	| [ ]       |
+
+## 2. Table des 36+1 phonèmes du français
+
+J'emploie la formule 36+1 car le phonème /ŋ/ n'est pas toujours attesté dans les textes.
+
+|= Phonème (selon API) |= Quelques graphies possibles |= Exemples                                                    |
+|--------------------------------------------------------------------------------------------------------------------|
+|=#c3# Les 17+1 consonnes du français                                                                                |
+| /b/                  | b                                     | un **b**é**b**é                                             |
+| /d/                  | d                                     | une **d**ame                                            |
+| /f/                  | f ## ph                               | une **f**emme ## une **ph**armacie                          |
+| /g/                  | g (devant a, o, u) ## gu              | une **g**are ## un **gu**é                                  |
+| /ʒ/                  | j (parfois) ## g (devant e, i, y)     | une **j**arretière ## la **g**ym                            |
+| /k/                  | c (devant a, o, u) ## k ## q ## qu    | un **c**afé ## un **k**oala ## une bur**q**a ## un **qu**ai         |
+| /l/                  | l                                     | un **l**adre                                            |
+| /m/                  | m                                     | une **m**ère                                            |
+| /n/                  | n                                     | une **n**o**nn**e                                           |
+| /p/                  | p                                     | un **p**ère                                             |
+| /ʁ/                  | r                                     | un **r**êve                                             |
+| /s/                  | s (lorsqu'il n'est pas entouré de 2 voyelles) ## c (devant e, i, y) | un **s**ac ## un **c**èdre    |
+| /t/                  | t                                     | une **t**aie                                            |
+| /v/                  | v ## w                                | un **v**agabond ## un **w**agon                            |
+| /z/                  | s (entre 2 voyalles) ## z             | un ha**s**ard ## un **z**èbre                               |
+| /ɲ/                  | gn                                    | un a**gn**eau                                           |
+| /ŋ/                  | ng                                    | un parki**ng**                                          |
+| /ʃ/                  | ch                                    | un **ch**at                                             |
+|=#c3# Les 3 semi-voyelles/semi-consonnes du français                                                                |
+| /j/                  | y ## i (parfois) ## ill               | un **y**ack ## une vie**ill**e                              |
+| /w/                  | ou (parfois) ## dans oi qui fait /wa/ | **ou**i ## n**oi**r                                         |
+| /ɥ/	               | u (parfois)                           | la n**u**it                                             |
+|=#c3# Les 12 voyelles orales du français                                                                            |
+| /a/                  | a                                     | une p**a**tte                                           |
+| /ɑ/                  | â                                     | un ch**â**teau                                          |
+| /ə/                  | e                                     | un ch**e**nil                                           |
+| /e/                  | é                                     | l'**é**t**é**                                               |
+| /ɛ/                  | è ## ê ## ë ## e ## ai^^1^^           | une **è**re ## un fr**ê**ne ## Rapha**ë**l ## Rapha**e**lle ## une p**ai**r ## m**ai**s^^1^^ |
+| /œ/                  | œu ## eu                              | un **œu**f ## la noirc**eu**r                               |
+| /ø/                  | œu ## eu                              | un n**œu**d ## **eu**x                                      |
+| /i/                  | i                                     | un n**i**d                                              |
+| /o/                  | o ## ô ## au                          | un s**o**t ## un h**ô**te ## un s**au**t                        |
+| /ɔ/                  | o                                     | une h**o**tte                                           |
+| /y/                  | u                                     | un m**u**r                                              |
+| /u/                  | ou	                                   | un c**ou**                                              |
+|=#c3# Les 4 voyelles nasales (~) du français                                                                        |
+| /ɑ̃/                  | an ## en                              | un **an** ## une d**en**t                                   |
+| /ɛ̃/                  | in                                    | un br**in**                                             |
+| /œ̃/                  | un                                    | br**un**                                                |
+| /ɔ̃/                  | on                                    | **on**                                                  |
+
+## 3. Remarques
+
++ À Toulouse, la graphie "ai" se prononce /e/ dans les [[syllabes ouvertes->#def-syllabe-ouverte]] plutôt que /ε/, exemple : "mais" /me/.
+
+## 4. Ne pas se tromper
+
+Les lettres utilisées par l'API diffèrent parfois de notre intuition en tant que locuteur du français. Merci de prendre garde à :
+
+* /y/ de "m**u**r" à ne pas confondre avec /j/ de "**y**ack"
+* /j/ de "**y**ack" à ne pas confondre avec /ʒ/ de "**j**eu"
+* /u/ de "**ou**" à ne pas confondre avec /y/ de "m**u**r"
+
+## 5. Distinguer
+
+* /ɑ/ de "ch**â**teau", "t**a**s", "p**â**te" et /a/ de "p**a**tte", "c**a**r"
+* /ɛ̃/ de "br**in**" et /œ̃/ de "br**un**"
+
+{{end}}
+
+{{end}}

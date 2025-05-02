@@ -5,6 +5,11 @@
         },
         {
             "do": true,
+            "source" : "./input/francais/fiche_api_fr.hml",
+            "destination": "../francais/"
+        },
+        {
+            "do": true,
             "source": "./input/liens.hml",
             "destination": "../"
         },
