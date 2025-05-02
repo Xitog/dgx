@@ -4,30 +4,29 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Format TED</title>
+  <title>Aide-mémoire des sons du français</title>
   <link rel="icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
   <link rel="shortcut icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
   <link href="https://xitog.github.io/dgx/css/simplex.bootstrap.css" rel="stylesheet">
-  <link href="https://xitog.github.io/dgx/css/flashy.css" rel="stylesheet">
+  <link href="https://xitog.github.io/dgx/css/palatino.css" rel="stylesheet">
   <style type="text/css">
-    p code span.type,             pre span.type               { color: purple;  }
-    p code span.lua-identifier,   pre span.lua-identifier     { color: black;   }
-    p code span.lua-operator,     pre span.lua-operator       { color: black;   }
-    p code span.lua-separator,    pre span.lua-separator      { color: black;   }
-    p code span.lua-special,      pre span.lua-special        { color: purple;  }
-    p code span.lua-nil,          pre span.lua-nil            { color: #1479cc; }
-    p code span.lua-boolean,      pre span.lua-boolean        { color: #1479cc; }
-    p code span.lua-number,       pre span.lua-number         { color: red;     }
-    p code span.lua-comment,      pre span.lua-comment        { color: grey; font-style: italic; }
-    p code span.lua-line_comment, pre span.lua-line_comment   { color: grey; font-style: italic; }
-    p code span.lua-string,       pre span.lua-string         { color: orange;  }
-    p code span.lua-keyword,      pre span.lua-keyword        { color: #1479cc; }
+    h1, h2, p, dl, ul, ol, a, table, table th, table td {font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;}
+    h1, h2 {font-weight: 300; color: #444444;}
+    h1 {font-size: 30px;}
+    h2 {font-size: 24px;}
+    p, dl, dt, ul, ol, li {color: #777777; font-size: 14px; font-weight: 200;}
+    a {color: #d9230f;}
+    a:hover {background-color: #d9230f; color: white;}
+    dl {border: 1px solid #eeeeee; border-radius: 10px; background-color: white; padding: 4px; padding-bottom: 12px;}
+    dt {margin-top: 12px; font-weight: bold;}
+    table, table th, table tr, table td {border: none; color: #777777;}
+    table th {color: #444444; background-color: #eeeeee;}
+    table tbody tr:nth-child(2), tr:nth-child(21), tr:nth-child(25), tr:nth-child(38) td {text-align: center; font-weight: bold; border-top: 1px solid #444444; border-bottom: 1px solid #444444; background-color: white;}
   </style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<link href="https://fonts.googleapis.com/css2?family=Inconsolata" rel="stylesheet">
 <div id="main" class="container">
       <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
@@ -151,35 +150,15 @@
       </nav>
 
 <div id="content-div">
-<h1 id="sommaire">Sommaire</h1>
-<ul>
-  <li><a href="#1.-présentation">1. Présentation</a></li>
-  <li><a href="#2.-fichier-d'en-tête">2. Fichier d'en-tête</a></li>
-  <li><a href="#x.-sources">X. Sources</a></li>
-</ul>
-<h1 id="1.-présentation">1. Présentation</h1>
-<p>Wolfenstein 3D, développé par id Software, est un des premiers jeux de tir à la première personne (first person shooter en anglais ou FPS). Sa version shareware pour DOS est sortie le 5 mai 1992 et diffusée sur BBS. Même si ce n'est pas le premier FPS, même si ses graphismes sont rudimentaires, il se démarque par son gameplay nerveux et satisfaisant, et des exigences matérielles basses. Son impact sera immense, surpassé seulement par le jeu suivant d'id, Doom, sorti en 1993.</p>
-<p>Wolfenstein 3D utilise une technique connue sous le nom de raycasting. Le moteur du jeu (engine en anglais) envoie des rayons à partir de la position du joueur. Ces rayons rencontrent les murs et un calcul permet d'afficher ce que verrait le joueur à travers les yeux du personnage. Cette perspective, appelée parfois réalité virtuelle à l'époque, permet une immersion bien plus grande du joueur.</p>
-<p>Les murs sont texturés : au lieu d'être un aplat de couleur, ils sont revêtus de différentes textures qui représentent des briques, une affiche, des planches de bois… Mais l'astuce est que le niveau est une simple grille en 2D, à partir de laquelle le moteur, par calculs, donne une vision 3D. Le nom de 2.5D a parfois été utilisée pour ce type de moteur. Le niveau est aussi peuplée d'ennemis et d'objets représentés par des sprites, des images en 2D. Doom utilisera lui toujours un plan 2D mais avec des murs et non une grille.</p>
-<p>Le jeu était programmé en C avec de l'assembleur où le besoin de rapidité est le plus critique. Il affichait une glorieuse résolution de 320x200 en 256 couleurs en mode VGA. Les niveaux étaient fait à l'aide de l'outil Tile Editor (TEd) déjà utilisé pour les jeux de plateformes Commander Keen d'id. Ceux-ci utilisaient la grille pour représenter un niveau de profil, une tranche verticale.</p>
-<p>Nous nous proposons dans cette article d'explorer le format TEd version 5 utilisé par les différentes versions de Wolfenstein 3d, avec des différences. Les cartes sont stockées dans deux fichiers : un fichier d'en-têtes et un fichier de contenu proprement dit. Le fichier d'en-têtes est un découpage de celui de contenu, indiquant où commencent les niveaux.</p>
-<h1 id="2.-fichier-d'en-tête">2. Fichier d'en-tête</h1>
-<p>Le fichier d'en-tête est ainsi constitué :</p>
-<table>
-<tr><th style="text-align: center"> Emplacement </th><th style="text-align: center"> Type                             </th><th style="text-align: center"> Nombre </th><th style="text-align: center"> Nom     </th><th style="text-align: center"> Description                    </th></tr>
-<tr><td style="text-align: center"> 0           </td><td> <code><span class="lua-identifier" title="token n°0 : identifier">Unsigned</span> <span class="lua-identifier" title="token n°2 : identifier">int</span> <span class="lua-number" title="token n°4 : number">16</span> <span class="lua-identifier" title="token n°6 : identifier">little</span> <span class="lua-identifier" title="token n°8 : identifier">endian</span></code> </td><td style="text-align: center"> 1      </td><td> magic    </td><td> Témoin de compression           </td></tr>
-<tr><td style="text-align: center"> 2 à ?       </td><td> <code><span class="lua-identifier" title="token n°0 : identifier">Unsigned</span> <span class="lua-identifier" title="token n°2 : identifier">int</span> <span class="lua-number" title="token n°4 : number">32</span> <span class="lua-identifier" title="token n°6 : identifier">little</span> <span class="lua-identifier" title="token n°8 : identifier">endian</span></code> </td><td style="text-align: center"> 100    </td><td> ptr      </td><td> Début de niveau                 </td></tr>
-<tr><td style="text-align: center"> 402         </td><td> <code><span class="lua-special" title="token n°0 : special">?</span></code>                             </td><td style="text-align: center"> 1      </td><td> tileinfo </td><td> Propriétés des tuiles (ignoré)  </td></tr>
-</table>
-<p>Wolfenstein n'utilise de tileinfo. Ce fichier est nommé <code><span class="lua-identifier" title="token n°0 : identifier">maphead</span><span class="lua-operator" title="token n°1 : operator">.</span><span class="lua-identifier" title="token n°2 : identifier">wlX</span></code> où X indique le numéro d'épisode (de 1 à 6). Dans les jeux prédécents utilisant TEd, ces informations étaient parfois directement mises dans l'exécutable du jeu (fichier .exe).</p>
-<p>Le code pour le lire est assez simple :</p>
-<h1 id="x.-sources">X. Sources</h1>
-<p>Je tiens à remercier les différentes personnes qui ont écrit des pages sur lesquelles j'ai pu m'appuyer pour rédiger les miennes :</p>
-<ul>
-  <li><a href="https://vpoupet.github.io/wolfenstein/docs/files"><i>Game file specifications</i> par <b>Victor Poupet</b></a></li>
-  <li><a href="https://moddingwiki.shikadi.net/wiki/TED5"><i>TED 5</i> sur le wiki <b>Shikadi</b></a></li>
-  <li><a href="https://moddingwiki.shikadi.net/wiki/GameMaps_Format"><i>GameMaps Format</i> sur le wiki <b>Shikadi</b></a></li>
-</ul>
+<h1 id="vocabulaire-de-mots-intéressants-du-français">Vocabulaire de mots intéressants du français</h1>
+<hr>
+<p><u>Note</u> : L'intérêt de chaque mot présent ici est purement subjectif.</p>
+<dl>
+<dt>A</dt>
+<dd>def</dd>
+</dl>
+</div>
+</div>
 
   </body>
 </html>

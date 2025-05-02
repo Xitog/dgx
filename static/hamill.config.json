@@ -1,52 +1,84 @@
 {
-    "targets": [
+	"targets": [
+		{
+			"comment": "Ceci est un commentaire"
+		},
+		{
+			"comment": "==================================== Racine ===================================="
+		},
+		{
+			"do": true,
+			"source": "./input/index.hml",
+			"destination": "../"
+		},
+		{
+			"do": true,
+			"source": "./input/blog.hml",
+			"destination": "../"
+		},
+		{
+			"do": true,
+			"source": "./input/liens.hml",
+			"destination": "../"
+		},
         {
-            "comment": "Ceci est un commentaire"
-        },
+			"do": true,
+			"source": "./input/plan.hml",
+			"destination": "../"
+		},
+		{
+			"comment": "==================================== Français ===================================="
+		},
+		{
+			"do": true,
+			"source": "./input/francais/fiche_api_fr.hml",
+			"destination": "../francais/"
+		},
+		{
+			"do": true,
+			"source": "./input/francais/vocabulaire_fr.hml",
+			"destination": "../francais/"
+		},
         {
-            "do": true,
-            "source" : "./input/francais/fiche_api_fr.hml",
-            "destination": "../francais/"
-        },
+			"comment": "==================================== Informatique ===================================="
+		},
         {
-            "do": true,
-            "source": "./input/liens.hml",
-            "destination": "../"
-        },
+			"do": true,
+			"source": "./input/ash/ash_guide.hml",
+			"destination": "../ash/"
+		},
+		{
+			"do": false,
+			"source": "./input/informatique/lua.hml",
+			"destination": "../informatique/"
+		},
+		{
+			"do": false,
+			"source": "./input/hamill/hamill.hml",
+			"destination": "../hamill/"
+		},
+		{
+			"do": false,
+			"source": "./input/hamill/hamill_en.hml",
+			"destination": "../hamill/"
+		},
         {
-            "do": true,
-            "source": "./input/passetemps/tech_ted.hml",
-            "destination": "../passetemps/"
-        },
-        {
-            "do": true,
-            "source": "./input/passetemps/pres_jeuxvideo.hml",
-            "destination": "../passetemps/"
-        },
-        {
-            "do": true,
-            "source": "./input/ash/ash_guide.hml",
-            "destination": "../ash/"
-        },
-        {
-            "do": true,
-            "source": "./input/passetemps/compagnon_sorcier.hml",
-            "destination": "../passetemps/"
-        },
-        {
-            "do": false,
-            "source": "./input/informatique/lua.hml",
-            "destination": "../informatique/"
-        },
-        {
-            "do": false,
-            "source": "./input/hamill/hamill.hml",
-            "destination": "../hamill/"
-        },
-        {
-            "do": false,
-            "source": "./input/hamill/hamill_en.hml",
-            "destination": "../hamill/"
-        }
-    ]
+			"comment": "==================================== Passe-temps ===================================="
+		},
+		{
+			"do": true,
+			"source": "./input/passetemps/tech_ted.hml",
+			"destination": "../passetemps/"
+		},
+		{
+			"do": true,
+			"source": "./input/passetemps/pres_jeuxvideo.hml",
+			"destination": "../passetemps/"
+		},
+		{
+			"do": true,
+			"source": "./input/passetemps/compagnon_sorcier.hml",
+			"destination": "../passetemps/"
+		}
+	]
 }

@@ -1,0 +1,38 @@
+!const TITLE=Aide-mémoire des sons du français
+!const LANG=fr
+!const ICON=https://xitog.github.io/dgx/img/favicon.ico
+!require https://xitog.github.io/dgx/css/simplex.bootstrap.css
+!require https://xitog.github.io/dgx/css/palatino.css
+!require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+!require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+
+!css h1, h2, p, dl, ul, ol, a, table, table th, table td {font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;}
+!css h1, h2 {font-weight: 300; color: #444444;}
+!css h1 {font-size: 30px;}
+!css h2 {font-size: 24px;}
+!css p, dl, dt, ul, ol, li {color: #777777; font-size: 14px; font-weight: 200;}
+!css a {color: #d9230f;}
+!css a:hover {background-color: #d9230f; color: white;}
+!css dl {border: 1px solid #eeeeee; border-radius: 10px; background-color: white; padding: 4px; padding-bottom: 12px;}
+!css dt {margin-top: 12px; font-weight: bold;}
+!css table, table th, table tr, table td {border: none; color: #777777;}
+!css table th {color: #444444; background-color: #eeeeee;}
+!css table tbody tr:nth-child(2), tr:nth-child(21), tr:nth-child(25), tr:nth-child(38) td {text-align: center; font-weight: bold; border-top: 1px solid #444444; border-bottom: 1px solid #444444; background-color: white;}
+
+{{#main .container}}
+
+!include menu.html
+
+{{#content-div}}
+
+# Vocabulaire de mots intéressants du français
+---
+
+__Note__ : L'intérêt de chaque mot présent ici est purement subjectif.
+
+$ A
+    def
+
+{{end}}
+
+{{end}}
