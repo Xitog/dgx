@@ -18,6 +18,9 @@
 !css table, table th, table tr, table td {border: none; color: #777777;}
 !css table th {color: #444444; background-color: #eeeeee;}
 !css table tbody tr:nth-child(2), tr:nth-child(21), tr:nth-child(25), tr:nth-child(38) td {text-align: center; font-weight: bold; border-top: 1px solid #444444; border-bottom: 1px solid #444444; background-color: white;}
+!css dd {padding-left: 2em;}
+!css .people {color: color: green;}
+!css .def {color:rgb(177, 30, 14);}
 
 {{#main .container}}
 
@@ -30,8 +33,8 @@
 
 __Note__ : L'intérêt de chaque mot présent ici est purement subjectif.
 
-$ A
-    def
+$ apodictique
+    ''D'après Wikipédia'' ## **Philosophie** : s'applique à une **proposition**, nuance sur sa vérité. ## Une proposition apodictique présente un caractère d'universalité et de nécessité absolue. Une proposition apodictique est __nécessairement vraie__. ## Imaginons un individu existant nommé Bob : ## - ''Bob est né'' ==> apodictique, c'est forcément vrai si Bob existe ## - ''Bob est né à Paris'' ==> n'est pas apodictique, il aurait pu naître ailleurs, ce n'est pas nécessairement vrai. Cette proposition est qualifié d'{{.def assertorique}} par {{.people Kant}}. ## - ''Bob est Bob'' ==> n'est pas apodictique, c'est plutôt une {{.def tautologie}}, on dit la même chose.
 
 {{end}}
 
