@@ -36,8 +36,23 @@ __Note__ : L'intérêt de chaque mot présent ici est purement subjectif.
 $ apodictique
     ''D'après Wikipédia'' ## **Philosophie** : s'applique à une **proposition**, nuance sur sa vérité. ## Une proposition apodictique présente un caractère d'universalité et de nécessité absolue. Une proposition apodictique est __nécessairement vraie__. ## Imaginons un individu existant nommé Bob : ## - ''Bob est né'' ==> apodictique, c'est forcément vrai si Bob existe ## - ''Bob est né à Paris'' ==> n'est pas apodictique, il aurait pu naître ailleurs, ce n'est pas nécessairement vrai. Cette proposition est qualifié d'{{.def assertorique}} par {{.people Kant}}. ## - ''Bob est Bob'' ==> n'est pas apodictique, c'est plutôt une {{.def tautologie}}, on dit la même chose.
 
+$ dialectique
+    Méthode de raisonnement pour chercher des connaissances en adoptant / examinant plusieurs positions distinctes voire opposées successivement. ## plan dialectique thèse - antithèse - synthèse  je pose, j'oppose et je compose ou dépasse l'opposition. ## dialectique matérialiste (Marx) voir Matérialisme dialectique
+
 $ docimologie
     ''CNRTL'' ## **Pédagogie** : science des épreuves, examens et concours. ## Étudie les systèmes de notation et de contrôle des connaissances et compétences.
+
+$ index
+    mis à l'index : pointé du doigt comme dérangeant. Référence à la liste maintenue par le Vatican des œuvres interdites à tout bon chrétien (index...)
+
+$ ontologie
+    ** Philosophie** : est l'étude de l'être en tant qu'être, c'est-à-dire l'étude des propriétés générales de tout ce qui est.
+
+$ philologie
+    Discipline visant à établir une édition critique d'un texte, le texte lui-même accompagné d'un ''apparat critique'' expliquant les choix opérés à partir de plusieurs versions manuscrites. Ne doit pas être confondu avec l'''appareil critique''  visant à l'éclairer et expliquer le texte.
+
+$ sémantique générale
+    Logique de pensée __non-aristotélicienne__, élaborée par Alfred Korzybski. Ouvrage majeur : Science and Sanity. Citation : la carte n'est pas le territoire. ## non-A (ou Ā) principal trait : le refus du verbe être (et des verbes d'états), remplacés par des verbes d'action, dans le __sens d'identification__. (~> définir c'est réduire) (~> le problème de __Bob est fumeur__ quand ? fréquence ?) Vulgarisé par le cycle de SF de Van Vogt traduit par Boris Vian : le joueur du Ā.
 
 {{end}}
 
