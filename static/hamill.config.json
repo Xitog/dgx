@@ -79,6 +79,11 @@
 			"do": true,
 			"source": "./input/passetemps/compagnon_sorcier.hml",
 			"destination": "../passetemps/"
+		},
+		{
+			"do": true,
+			"source": "./input/passetemps/tech_dialogues.hml",
+			"destination": "../passetemps/"
 		}
 	]
 }

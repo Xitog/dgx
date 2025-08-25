@@ -69,24 +69,37 @@ On voit que la structure de données applicable ici est **un arbre**.
 
 ## III. Séparation de la structure et des données
 
-On va séparer les données : d'un côté le texte, de l'autre la structure. Le texte sera indiqué par un simple identifiant numérique. La structure c'est l'arborescence des réponses, indiquant les enchaînements et les choix possibles. Elle est constituée de nœuds, chaque nœud peut être un nœud simple ou nœud de choix. Un nœud simple contient :
+On va séparer les données : d'un côté le texte, de l'autre la structure. Le texte sera indiqué par un simple identifiant numérique.
+
+La structure des données est l'arborescence des réponses, indiquant les enchaînements et les choix possibles.
+
+Elle est constituée de nœuds, chaque nœud peut être un nœud simple ou nœud de choix entre plusieurs réponses.
+
+Un **nœud de type simple** contient :
 
 * une éventuelle action (prendre ou donner un objet ou de l'argent, faire baisser ou monter la réputation, attaquer le joueur)
 * un texte
 * un ou plusieurs embranchements.
 
-Un embranchement est constitué d'une suite de conditions avec à chaque fois le nœud suivant si la condition est vraie. La première condition vraie détermine le nœud suivant.
+Un embranchement est constitué d'une suite et d'une éventuelle condition pour atteindre cette suite.
 
-Un nœud de choix contient :
+Parmi tous les embranchements définis, on prend **le premier embranchement dont la condition est vraie**.
+
+Un **nœud de type choix** contient :
 
 * un texte
-* au moins une option de réponse (s'il n'y en a qu'une cela permet de simuler une parole échangée).
+* une ou plusieurs options de réponse (s'il n'y en a qu'une cela permet de simuler une parole échangée).
 
-Chaque option contient :
+Chaque **option** contient :
 
 * une éventuelle condition pour que ce choix soit accessible
 * un texte
 * un ou plusieurs embranchements si ce choix est fait
+
+On peut donc conditionner __deux choses__ :
+
+* L'affichage d'une option dans un nœud choix, dans cet exemple on affiche l'option B si et seulement si X est vraie : (A, [if X] B, C)
+* La suite dans un embranchement, dans cet exemple si on choisit l'option C on va en F si Y est vraie et en G sinon : (A => D, [if X] B => E, C => [if Y] F, G)
 
 On peut transformer ainsi notre dialogue, le chiffre entre parenthèses indique son numéro de référence, les conditions sont entre crochets, et le type d'objet (nœud simple, nœud choix, texte, option, embranchement) est indiqué entre accolades, nous le reconstruisons ainsi :
 
@@ -236,6 +249,10 @@ Votre personnage :
 !html Intelligence <input type="text" id="int" name="int" required minlength="2" maxlength="2" size="2" value="10"/>
 
 !html Charisme <input type="text" id="chr" name="chr" required minlength="2" maxlength="2" size="2" value="10"/>
+
+!html Debug <input type="checkbox" id="debug" name="debug"/>
+
+!html <input type="button" id="but1" name="but1" onclick="start('n1');" value="Restart"/>
 
 !html </form>
 
