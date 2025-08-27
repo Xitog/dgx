@@ -30,23 +30,22 @@
 
 import { LANGUAGES, LEXERS } from "./weyland.mjs";
 
-let fs = null;
-if (
+const node =
     typeof process !== "undefined" &&
     process !== null &&
     typeof process?.version !== "undefined" &&
-    typeof process?.version === "string"
-) {
-    // Node code only
-    //import fs from 'fs';
-    fs = await import("fs");
-}
+    typeof process?.version === "string";
+
+const fs = node ? await import("fs") : null;
+const path = node ? await import("path") : null;
+const reader = node ? await import("readline-sync") : null;
+const argv = process.argv;
 
 //-----------------------------------------------------------------------------
 // Constants
 //-----------------------------------------------------------------------------
 
-const VERSION = '2.1';
+const VERSION = '2.0.6';
 
 //-----------------------------------------------------------------------------
 // Classes
@@ -80,7 +79,11 @@ class EmptyNode {
         }
         this.ids = ids;
         this.cls = cls;
+        if (this.ids !== null) {
+            this.document.register_id(this.ids);
+        }
     }
+
     toString() {
         return this.constructor.name;
     }
@@ -156,10 +159,13 @@ class Picture extends Node {
     to_html() {
         let cls = (this.cls === null) ? '' : ` class="${this.cls}"`;
         let ids = (this.ids === null) ? '' : ` id="${this.ids}"`;
+        let p = this.document.get_variable("DEFAULT_FIND_IMAGE", "");
+        let target = p == null || p == "" ? this.content : [p, this.content].join("/");
+
         if (this.text !== null) {
-            return `<figure><img${cls}${ids} src="${this.content}" alt="${this.text}"></img$><figcaption>${this.text}</figcaption></figure>`;
+            return `<figure><img${cls}${ids} src="${target}" alt="${this.text}"></img><figcaption>${this.text}</figcaption></figure>`;
         } else {
-            return `<img${cls}${ids} src="${this.content}"/>`;
+            return `<img${cls}${ids} src="${target}"/>`;
         }
     }
 }
@@ -173,14 +179,6 @@ class HR extends EmptyNode {
 class BR extends EmptyNode {
     to_html() {
         return "<br>";
-    }
-}
-
-class Span extends Node {
-    to_html() {
-        let cls = (this.cls === null) ? '' : ` class="${this.cls}"`;
-        let ids = (this.ids === null) ? '' : ` id="${this.ids}"`;
-        return `<span${ids}${cls}>${this.content}</span>`;
     }
 }
 
@@ -265,8 +263,8 @@ class EndDiv extends EmptyNode {
 }
 
 class Composite extends EmptyNode {
-    constructor(document, parent = null) {
-        super(document);
+    constructor(document, parent = null, ids = null, cls = null) {
+        super(document, ids, cls);
         this.children = [];
         this.parent = parent;
     }
@@ -309,7 +307,7 @@ class Composite extends EmptyNode {
     to_html(level = 0) {
         let s = "";
         for (const child of this.children) {
-            if (child instanceof List) {
+            if (child instanceof ElementList) {
                 s += "\n" + child.to_html(level);
             } else {
                 s += child.to_html();
@@ -320,8 +318,8 @@ class Composite extends EmptyNode {
 }
 
 class TextLine extends Composite {
-    constructor(document, children = []) {
-        super(document);
+    constructor(document, children = [], parent = null, ids = null, cls = null) {
+        super(document, parent, ids, cls);
         this.add_children(children);
     }
     to_html() {
@@ -329,7 +327,26 @@ class TextLine extends Composite {
     }
 }
 
-class List extends Composite {
+class Span extends TextLine {
+    constructor(document, children = [], parent = null, ids = null, cls = null) {
+        super(document, children, parent, ids, cls);
+    }
+
+    toString() {
+        let cls = (this.cls === null) ? '' : ` class="${this.cls}"`;
+        let ids = (this.ids === null) ? '' : ` id="${this.ids}"`;
+        return this.constructor.name + `${ids}${cls} (${this.children.length})`;
+    }
+
+    to_html() {
+        let cls = (this.cls === null) ? '' : ` class="${this.cls}"`;
+        let ids = (this.ids === null) ? '' : ` id="${this.ids}"`;
+        let content = this.document.string_to_html("", this.children); // New
+        return `<span${ids}${cls}>${content}</span>`;
+    }
+}
+
+class ElementList extends Composite {
     constructor(
         document,
         parent,
@@ -362,7 +379,7 @@ class List extends Composite {
         let s = start + "\n";
         for (const child of this.children) {
             s += "    ".repeat(level) + "  <li>";
-            if (child instanceof List) {
+            if (child instanceof ElementList) {
                 s += "\n" + child.to_html(level + 1) + "  </li>\n";
             } else if (
                 child instanceof Composite &&
@@ -382,6 +399,8 @@ class List extends Composite {
 // [[https://...]] display = url
 // [[display->label]] (you must define somewhere ::label:: https://)
 // [[display->https://...]]
+// [[display->#id]]
+// [[display->#]] forge un id à partir du display
 // http[s] can be omitted, but in this case the url should start by www.
 class Link extends EmptyNode {
     constructor(document, url, display = null) {
@@ -404,11 +423,17 @@ class Link extends EmptyNode {
             !url.startsWith("www.")
         ) {
             if (url === "#") {
-                url = this.document.get_label(
+                url = this.document.get_label_value(
                     this.document.make_anchor(display)
                 );
+            } else if (url.startsWith("#")) {
+                // it is an ID, check if it exists
+                if (!this.document.has_id(url.substring(1))) {
+                    console.log(this.document.ids.join("\n"));
+                    throw new Error(`Refering to an unknown id ${url.substring(1)}`);
+                }
             } else {
-                url = this.document.get_label(url);
+                url = this.document.get_label_value(url);
             }
         }
         if (display === undefined || display === null) {
@@ -449,24 +474,34 @@ class Code extends Node {
     }
 
     toString() {
-        let lang = (this.lang === null) ? "" : `:${this.lang}`;
+        let lang = this.lang == null ? this.document.get_variable("DEFAULT_CODE", "") : this.lang;
+        lang = lang === null || lang === "" ? "" : `:${lang}`;
         let inline = (this.inline) ? " inline" : "";
         return `Code${lang} { content: ${this.content}}${inline}`;
     }
 
     to_html() {
-        let output = "";
-        if (this.lang !== null && this.lang in LANGUAGES) {
-            output = LEXERS[this.lang].to_html(this.content, null, [
+        let output = this.content;
+        let lang = this.lang == null ? this.document.get_variable("DEFAULT_CODE", "") : this.lang;
+        if (lang !== null && lang !== "" && lang in LANGUAGES) {
+            output = LEXERS[lang].to_html(this.content, null, [
                 "blank",
             ]);
-        } else {
-            output = this.content;
         }
         if (this.inline) {
             return "<code>" + output + "</code>";
         } else {
-            return "<pre>\n" + output + "</pre>\n";
+            let i = this.document.get_variable("NEXT_CODE_ID", "");
+            let is = i != null && i != "" ? ` id="${i}"` : "";
+            if (i !== null) {
+                this.document.set_variable("NEXT_CODE_ID", null);
+            }
+            let c = this.document.get_variable("NEXT_CODE_CLASS", "");
+            let cs = c != null && c != "" ? ` class="${c}"` : "";
+            if (c !== null) {
+                this.document.set_variable("NEXT_CODE_CLASS", null);
+            }
+            return `<pre${is}${cs}>\n` + output + "</pre>\n";
         }
     }
 }
@@ -488,29 +523,26 @@ class SetVar extends EmptyNode {
         this.type = type;
         this.constant = constant;
     }
+
+    toString() {
+        return `${this.id} = ${this.value} (${this.type})`;
+    }
 }
-class Markup extends Node { }
 
 // Variable & document
 
 class Variable {
-    constructor(document, name, type, constant = false, value = null) {
+    constructor(document, name, type, value = null) {
         this.document = document;
         this.name = name;
         if (type !== "number" && type !== "string" && type !== "boolean") {
             throw new Error(`Unknown type ${type} for variable ${name}`);
         }
         this.type = type;
-        this.constant = constant;
         this.value = value;
     }
 
-    set_variable(value) {
-        if (this.value !== null && this.constant) {
-            throw new Error(
-                `Can't set the value of the already defined constant: ${this.name} of type ${this.type}`
-            );
-        }
+    set_value(value) {
         if (
             (isNaN(value) && this.type === "number") ||
             (typeof value === "string" && this.type !== "string") ||
@@ -535,62 +567,85 @@ class Variable {
     }
 }
 
+class Constant extends Variable {
+    constructor(document, name, type, value = null) {
+        super(document, name, type, value);
+    }
+
+    set_value(value) {
+        if (this.value === null) {
+            super.set_value(value);
+        } else {
+            throw new Error(
+                `Can't set the value of the already set constant : ${this.name} of type ${this.type}`
+            );
+        }
+    }
+}
+
 class Document {
     constructor(name = null) {
-        this.predefined_constants = [
-            "TITLE",
-            "ICON",
-            "LANG",
-            "ENCODING",
-            "BODY_CLASS",
-            "BODY_ID",
-            "VERSION",
-            "NOW",
-        ];
         this.name = name;
-        this.variables = {
-            VERSION: new Variable(
-                this,
-                "VERSION",
-                "string",
-                "true",
-                "Hamill 2.00"
-            ),
-            NOW: new Variable(this, "NOW", "string", "true", ""),
-            PARAGRAPH_DEFINITION: new Variable(
-                this,
-                "PARAGRAPH_DEFINITION",
-                "boolean",
-                false,
-                false
-            ),
-            EXPORT_COMMENT: new Variable(
-                this,
-                "EXPORT_COMMENT",
-                "boolean",
-                false,
-                false
-            ),
-            DEFAULT_CODE: new Variable(this, "DEFAULT_CODE", "string", "false"),
-        };
+        let variables = [
+            new Constant(this, "TITLE", "string"),
+            new Constant(this, "ICON", "string"),
+            new Constant(this, "LANG", "string"),
+            new Constant(this, "ENCODING", "string"),
+            new Constant(this, "VERSION", "string", `Hamill ${VERSION}`),
+            new Constant(this, "NOW", "string", ""),
+            new Variable(this, "PARAGRAPH_DEFINITION", "boolean", false),
+            new Variable(this, "EXPORT_COMMENT", "boolean", false),
+            new Variable(this, "DEFAULT_CODE", "string"),
+            new Constant(this, "BODY_CLASS", "string"),
+            new Constant(this, "BODY_ID", "string"),
+            new Variable(this, "NEXT_TABLE_CLASS", "string"),
+            new Variable(this, "NEXT_TABLE_ID", "string"),
+            new Variable(this, "DEFAULT_TABLE_CLASS", "string"),
+            new Variable(this, "DEFAULT_PARAGRAPH_CLASS", "string"),
+            new Variable(this, "DEFAULT_FIND_IMAGE", "string"),
+            new Variable(this, "NEXT_CODE_CLASS", "string"),
+            new Variable(this, "NEXT_CODE_ID", "string")
+        ];
+        this.variables = {};
+        for (const element of variables) {
+            this.variables[element.name] = element;
+        }
         this.required = [];
         this.css = [];
         this.labels = {};
         this.nodes = [];
+        this.ids = [];
+    }
+
+    register_id(id) {
+        if (this.ids.includes(id)) {
+            for (const i of this.ids) {
+                console.log(i);
+            }
+            throw new Error(`You are trying to define two elements with same id: ${id}`);
+        }
+        this.ids.push(id);
+    }
+
+    has_id(id) {
+        return this.ids.includes(id);
     }
 
     set_name(name) {
         this.name = name;
     }
 
-    to_html_file(output_directory) {
+    to_html_file(output_directory = "") {
         let parts = this.name.split("/");
         let outfilename = parts[parts.length - 1];
         outfilename =
             outfilename.substring(0, outfilename.lastIndexOf(".hml")) + ".html";
-        let sep =
-            output_directory[output_directory.length - 1] === "/" ? "" : "/";
-        let target = output_directory + sep + outfilename;
+        let target = "";
+        if (fs.existsSync(output_directory) && fs.lstatSync(output_directory)?.isDirectory()) {
+            target = output_directory + path.sep + outfilename;
+        } else {
+            target = outfilename;
+        }
         fs.writeFileSync(target, this.to_html(true)); // with header
         console.log("Outputting in:", target);
     }
@@ -601,14 +656,19 @@ class Document {
 
     set_variable(k, v, t = "string", c = false) {
         if (k in this.variables) {
-            this.variables[k].set_variable(v);
+            if (this.variables[k] instanceof Constant && !c) {
+                throw new Error(`You are trying to declare a variable which use the name of the constant ${k}`)
+            }
+            this.variables[k].set_value(v);
+        } else if (c) {
+            this.variables[k] = new Constant(this, k, t, v);
         } else {
-            this.variables[k] = new Variable(this, k, t, c, v);
+            this.variables[k] = new Variable(this, k, t, v);
         }
     }
 
     get_variable(k, default_value = null) {
-        if (k in this.variables) {
+        if (k in this.variables && this.variables[k].get_value() !== null) {
             return this.variables[k].get_value();
         } else if (default_value !== null) {
             return default_value;
@@ -644,12 +704,12 @@ class Document {
         return this.nodes[i];
     }
 
-    get_label(target) {
+    get_label_value(target) {
         if (!(target in this.labels)) {
             for (const label in this.labels) {
                 console.log(label);
             }
-            throw new Error("Label not found : " + target);
+            throw new Error("Label not found : |" + target + "|");
         }
         return this.labels[target];
     }
@@ -706,7 +766,7 @@ class Document {
             ) {
                 content += node.to_html();
             } else if (node instanceof Link) {
-                content += node.to_html(this);
+                content += node.to_html();
             } else if (node instanceof GetVar) {
                 content += this.get_variable(node.content);
             } else {
@@ -720,7 +780,84 @@ class Document {
     }
 
     safe(str) {
-        return str.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        let index = 0;
+        let word = '';
+        let specials = ["@", "(", "[", "{", "$", "*", "!", "'", "/", "_", "^", "%", "-", "#", "\\", "•"];
+        while (index < str.length) {
+            let char = str[index];
+            let next = index + 1 < str.length ? str[index + 1] : null;
+            let next_next = index + 2 < str.length ? str[index + 2] : null;
+            let prev = index - 1 >= 0 ? str[index - 1] : null;
+            // Glyphs - Trio
+            if (
+                char === "." &&
+                next === "." &&
+                next_next === "." &&
+                prev !== "\\"
+            ) {
+                word += "…";
+                index += 2;
+            } else if (
+                char === "=" &&
+                next === "=" &&
+                next_next === ">" &&
+                prev !== "\\"
+            ) {
+                word += "&DoubleRightArrow;"; // ==>
+                index += 2;
+            } else if (
+                char === "<" &&
+                next === "=" &&
+                next_next === "=" &&
+                prev !== "\\"
+            ) {
+                word += "&DoubleLeftArrow;"; // <==
+                index += 2;
+                // Glyphs - Duo
+            } else if (char === "-" && next === ">" && prev !== "\\") {
+                word += "&ShortRightArrow;"; // ->
+                index += 1;
+            } else if (char === "<" && next === "-" && prev !== "\\") {
+                word += "&ShortLeftArrow;"; // <-
+                index += 1;
+            } else if (char === "o" && next === "e" && prev !== "\\") {
+                word += "&oelig;"; // oe
+                index += 1;
+            } else if (char === "O" && next === "E" && prev !== "\\") {
+                word += "&OElig;"; // OE
+                index += 1;
+            } else if (char === "=" && next === "=" && prev !== "\\") {
+                word += "&Equal;"; // ==
+                index += 1;
+            } else if (char === "!" && next === "=" && prev !== "\\") {
+                word += "&NotEqual;"; // !=
+                index += 1;
+            } else if (char === ">" && next === "=" && prev !== "\\") {
+                word += "&GreaterSlantEqual;"; // >=
+                index += 1;
+            } else if (char === "<" && next === "=" && prev !== "\\") {
+                word += "&LessSlantEqual;"; // <=
+                index += 1;
+                // Glyph - solo
+            } else if (char === '&') {
+                word += '&amp;';
+            } else if (char === '<') {
+                word += '&lt;';
+            } else if (char === '>') {
+                word += '&gt;';
+                // Escaping
+            } else if (char === "\\" && specials.includes(next)) {
+                // Do nothing, this is an escaping slash
+                if (next === "\\") {
+                    word += "\\";
+                    index += 1;
+                }
+            } else {
+                word += char;
+            }
+            index += 1;
+        }
+        return word;
     }
 
     to_html(header = false, skip_error = false) {
@@ -758,19 +895,17 @@ class Document {
                 for (let req of this.required) {
                     if (req.endsWith(".js")) {
                         content += `  <script src="${req}"></script>\n`;
+                    } else if (req.endsWith(".mjs")) {
+                        content += `  <script type="module" src="${req}"></script>\n`;
                     }
                 }
             }
             content += "</head>\n";
-            let bclass = "";
-            let bid = "";
-            if (this.has_variable("BODY_ID")) {
-                bid = ' id="' + this.get_variable("BODY_ID") + '"';
-            }
-            if (this.has_variable("BODY_CLASS")) {
-                bclass = ' class="' + this.get_variable("BODY_CLASS") + '"';
-            }
-            content += `<body${bid}${bclass}>\n`;
+            let bid = this.get_variable("BODY_ID", "");
+            let sbid = bid != null && bid != "" ? ` id="${bid}"` : '';
+            let bclass = this.get_variable("BODY_CLASS", "");
+            let sbclass = bclass != null && bclass != "" ? ` class="${bclass}"` : '';
+            content += `<body${sbid}${sbclass}>\n`;
         }
         let first_text = true;
         let not_processed = 0;
@@ -815,13 +950,6 @@ class Document {
                     content += "<!--" + node.content + " -->\n";
                 }
             } else if (node instanceof SetVar) {
-                if (!node.constant) {
-                    if (this.predefined_constants.includes(node.id)) {
-                        throw new Error(
-                            `You cannot use ${node.id} for a variable because it is a predefined constant.`
-                        );
-                    }
-                }
                 this.set_variable(
                     node.id,
                     node.value,
@@ -836,7 +964,7 @@ class Document {
                 node instanceof EndDetail ||
                 node instanceof Detail ||
                 node instanceof RawHTML ||
-                node instanceof List ||
+                node instanceof ElementList ||
                 node instanceof Quote ||
                 node instanceof Code
             ) {
@@ -849,7 +977,7 @@ class Document {
                         nc > 0
                     ) {
                         throw new Error(
-                            "A paragraph indicator must always be at the start of a text line/"
+                            "A paragraph indicator must always be at the start of a text line"
                         );
                     }
                 }
@@ -860,10 +988,12 @@ class Document {
                         node.children.length > 0 &&
                         !(node.children[0] instanceof ParagraphIndicator)
                     ) {
-                        content += "<p>";
+                        let c = this.get_variable("DEFAULT_PARAGRAPH_CLASS", "");
+                        let cs = c != null && c != "" ? ` class="${c}"` : "";
+                        content += `<p${cs}>`;
                     }
                 } else {
-                    content += "<br>\n";
+                    content += "<br>\n"; // Chaque ligne donnera une ligne avec un retour à la ligne
                 }
                 content += node.to_html();
             } else if (node instanceof Definition) {
@@ -878,17 +1008,32 @@ class Document {
                     content += "<p>";
                 content = this.string_to_html(content, node.content);
                 if (this.get_variable("PARAGRAPH_DEFINITION") === true)
-                    content += "</p>\n";
+                    content += "</p>";
                 content += "</dd>\n";
             } else if (node instanceof Row) {
                 if (!in_table) {
                     in_table = true;
-                    content += "<table>\n";
+                    // Try to get a class. NEXT > DEFAULT
+                    let c = this.get_variable("NEXT_TABLE_CLASS", "");
+                    if (c === null || c == "") {
+                        c = this.get_variable("DEFAULT_TABLE_CLASS", "");
+                    } else {
+                        this.set_variable("NEXT_TABLE_CLASS", null); // reset if found
+                    }
+                    let cs = c != null && c !== "" ? ` class="${c}"` : "";
+                    // Try to get an id
+                    let i1 = this.get_variable("NEXT_TABLE_ID", "");
+                    if (i1 != null && i1 !== "") {
+                        this.set_variable("NEXT_TABLE_ID", null); // reset if found
+                    }
+                    let i1s = i1 != null && i1 != "" ? ` id="${i1}"` : "";
+                    content += `<table${i1s}${cs}>\n`;
                 }
                 content += "<tr>";
                 let delim = node.is_header ? "th" : "td";
                 for (let node_list of node.node_list_list) {
                     let center = "";
+                    let span = "";
                     if (
                         node_list.length > 0 &&
                         node_list[0] instanceof Node && // for content
@@ -896,7 +1041,7 @@ class Document {
                         node_list[0].content[0] === "="
                     ) {
                         node_list[0].content =
-                        node_list[0].content.substring(1);
+                            node_list[0].content.substring(1);
                         center = ' style="text-align: center"';
                     } else if (
                         node_list.length > 0 &&
@@ -905,10 +1050,38 @@ class Document {
                         node_list[0].content[0] === ">"
                     ) {
                         node_list[0].content =
-                        node_list[0].content.substring(1);
+                            node_list[0].content.substring(1);
                         center = ' style="text-align: right"';
                     }
-                    content += `<${delim}${center}>`;
+                    if (node_list.length > 0 &&
+                        node_list[0] instanceof Node &&
+                        node_list[0].content.length > 2 &&
+                        node_list[0].content[0] === "#"
+                    ) {
+                        if (node_list[0].content[1] === 'c') {
+                            span = ' colspan="';
+                        } else if (node_list[0].content[1] === 'r') {
+                            span = ' rowspan="';
+                        }
+                        if (span !== '') {
+                            let i = 2;
+                            let found = false;
+                            while (i < node_list[0].content.length) {
+                                if (node_list[0].content[i] === '#') {
+                                    found = true;
+                                    break;
+                                }
+                                i += 1;
+                            }
+                            if (!found) {
+                                span = '';
+                            } else {
+                                span += node_list[0].content.substring(2, i) + '"';
+                                node_list[0].content = node_list[0].content.substring(i + 1);
+                            }
+                        }
+                    }
+                    content += `<${delim}${center}${span}>`;
                     content = this.string_to_html(content, node_list);
                     content += `</${delim}>`;
                 }
@@ -943,6 +1116,9 @@ class Document {
         }
         if (in_code_block) {
             content += "</pre>\n";
+        }
+        if (in_def_list) {
+            content += "</dl>\n";
         }
         if (!first_text) {
             content += "</p>\n";
@@ -1019,228 +1195,19 @@ class Hamill {
         }
         if (data === null) {
             data = string_or_filename;
+            console.log('Raw string:');
+            console.log(data.replace(/\n/g, '\\n') + "\n");
             console.log(`Data read from string:`);
         }
-        // Check authorized characters
-        let filtered = "";
-        const authorized = [
-            "a",
-            "b",
-            "c",
-            "d",
-            "e",
-            "f",
-            "g",
-            "h",
-            "i",
-            "j",
-            "k",
-            "l",
-            "m",
-            "n",
-            "o",
-            "p",
-            "q",
-            "r",
-            "s",
-            "t",
-            "u",
-            "v",
-            "w",
-            "x",
-            "y",
-            "z",
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "F",
-            "G",
-            "H",
-            "I",
-            "J",
-            "K",
-            "L",
-            "M",
-            "N",
-            "O",
-            "P",
-            "Q",
-            "R",
-            "S",
-            "T",
-            "U",
-            "V",
-            "W",
-            "X",
-            "Y",
-            "Z",
-            "á",
-            "à",
-            "â",
-            "ä",
-            "é",
-            "è",
-            "ê",
-            "ë",
-            "í",
-            "ì",
-            "î",
-            "ï",
-            "ó",
-            "ò",
-            "ô",
-            "ö",
-            "ú",
-            "ù",
-            "û",
-            "ü",
-            "ý",
-            "ÿ",
-            "Á",
-            "À",
-            "Â",
-            "Ä",
-            "É",
-            "È",
-            "Ê",
-            "Ë",
-            "Í",
-            "Ì",
-            "Î",
-            "Ï",
-            "Ó",
-            "Ò",
-            "Ô",
-            "Ö",
-            "Ú",
-            "Ù",
-            "Û",
-            "Ü",
-            "Ý",
-            "ã",
-            "Ã",
-            "õ",
-            "Õ",
-            "œ",
-            "Œ",
-            "ß",
-            "ẞ",
-            "ñ",
-            "Ñ",
-            "ç",
-            "Ç",
-            " ",
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "½",
-            "¾",
-            "$",
-            "€",
-            "£",
-            "¥",
-            "₹",
-            "₽", // Common currency : dollar, euro, pound, yen, rupee, ruble
-            "+",
-            "-",
-            "*",
-            "/",
-            "%",
-            "^", // Common mathematical operators
-            ">",
-            "<",
-            "=",
-            "!",
-            "~", // Common comparison operators
-            "&",
-            "|",
-            "#", // Hamill images & titles, comment
-            '"',
-            "'",
-            "°",
-            "@",
-            "–", // Common various
-            "{",
-            "}",
-            "(",
-            ")",
-            "[",
-            "]", // Common opening/closing
-            ".",
-            ",",
-            ";",
-            ":",
-            "?",
-            "!",
-            "«",
-            "»",
-            "’",
-            "‘",
-            "“",
-            "”",
-            "…", // Common ponctuations
-            "\n",
-            "\t", // Common whitespaces \r is NOT AUTHORIZED
-            "❤", // Some love
-            "'",
-            "-",
-            "_",
-            "^",
-            "%",
-            "@",
-            "!",
-            "/", // Hamill text modifiers
-            "+",
-            "-",
-            "|", // Hamill lists
-            "{",
-            ".", // Hamill structure tags (div, p and span)
-            "\\", // Hamill escape
-            ">", // Hamill blocks
-            "$", // Hamill definition lists and display vars/consts
-            "/", // Hamill comments
-            "|",
-            "-", // Hamill tables
-            "[",
-            "-",
-            ">",
-            "]",
-            ":", // Hamill links and labels
-            "(",
-            "-",
-            ">",
-            ")",
-            ".",
-            "=", // Hamill define vars/consts
-            "§", // Hamill comments
-            "•", // Hamill list
-        ];
         data = data.replace(/\r\n/g, "\n");
         data = data.replace(/\r/g, "\n");
-        for (let char of data) {
-            // And removes multiple new lines
-            if (authorized.includes(char)) {
-                filtered += char;
-            } else {
-                throw new Error(`Unauthorized char: ${char}`);
-            }
-        }
         // Display raw lines
-        let lines = filtered.split("\n");
+        let lines = data.split("\n");
         for (let [index, line] of lines.entries()) {
             console.log(`    ${index + 1}. ${line.replace("\n", "<NL>")}`);
         }
         // Tag lines
-        let tagged = Hamill.tag_lines(filtered.split("\n"));
+        let tagged = Hamill.tag_lines(data.split("\n"));
         console.log("\nTagged Lines:");
         for (const [index, line] of tagged.entries()) {
             console.log(`    ${index + 1}. ${line}`);
@@ -1330,9 +1297,9 @@ class Hamill {
             } else if (trimmed.startsWith("!require ")) {
                 lines.push(new Line(trimmed, "require"));
             } else if (trimmed.startsWith("!css ")) {
-                lines.push(new Line(trimmed, "css"));
+                lines.push(new Line(value, "css"));
             } else if (trimmed.startsWith("!html")) {
-                lines.push(new Line(trimmed, "html"));
+                lines.push(new Line(value, "html"));
             } else if (
                 trimmed.startsWith("!rem") ||
                 trimmed.substring(0, 2) === "§§"
@@ -1395,6 +1362,33 @@ class Hamill {
             }
         }
         return lines;
+    }
+
+    static escaped_split(sep, str) {
+        let parts = [];
+        let part = "";
+        let index = 0;
+        while (index < str.length) {
+            let char = str[index];
+            let try_sep = str.substring(index, index + sep.length);
+            let next = (index + 1) < str.length ? str.substring(index + 1, index + 1 + sep.length) : "";
+            if (try_sep === sep) {
+                parts.push(part);
+                part = "";
+                index += sep.length - 1;
+
+            } else if (char === "\\" && next === sep) {
+                part += sep;
+                index += sep.length;
+            } else {
+                part += char;
+            }
+            index += 1;
+        }
+        if (part.length > 0) {
+            parts.push(part);
+        }
+        return parts;
     }
 
     // Take a list of tagged lines return a valid Hamill document
@@ -1496,7 +1490,7 @@ class Hamill {
                 case "unordered_list":
                     elem_is_unordered = true;
                     if (actual_list === null) {
-                        actual_list = new List(doc, null, false, false);
+                        actual_list = new ElementList(doc, null, false, false);
                         actual_level = 1;
                         starting_level = line.param;
                     }
@@ -1504,7 +1498,7 @@ class Hamill {
                 case "ordered_list":
                     if (line.type === "ordered_list") elem_is_ordered = true;
                     if (actual_list === null) {
-                        actual_list = new List(doc, null, true, false);
+                        actual_list = new ElementList(doc, null, true, false);
                         actual_level = 1;
                         starting_level = line.param;
                     }
@@ -1512,7 +1506,7 @@ class Hamill {
                 case "reverse_list":
                     if (line.type === "reverse_list") elem_is_reverse = true;
                     if (actual_list === null) {
-                        actual_list = new List(doc, null, true, true);
+                        actual_list = new ElementList(doc, null, true, true);
                         actual_level = 1;
                         starting_level = line.param;
                     }
@@ -1546,7 +1540,7 @@ class Hamill {
                         let c = new Composite(doc, actual_list); // create a new composite
                         c.add_child(last); // put the old last item in it
                         actual_list = actual_list.add_child(c); // link the new composite to the list
-                        let sub = new List(
+                        let sub = new ElementList(
                             doc,
                             c,
                             elem_is_ordered,
@@ -1562,7 +1556,7 @@ class Hamill {
                             actual_list = actual_list.get_parent();
                         }
                         actual_level -= 1;
-                        if (actual_list.constructor.name !== "List") {
+                        if (actual_list.constructor.name !== "ElementList") {
                             throw new Error(
                                 `List incoherency: last element is not a list but a ${actual_list.constructor.name}`
                             );
@@ -1579,12 +1573,12 @@ class Hamill {
                     doc.add_node(
                         new RawHTML(
                             doc,
-                            line.value.replace("!html ", "").trim()
+                            line.value.replace("!html ", "").trimEnd()
                         )
                     );
                     break;
                 case "css":
-                    text = line.value.replace("!css ", "").trim();
+                    text = line.value.replace("!css ", "").trimEnd();
                     doc.add_css(text);
                     break;
                 case "include":
@@ -1612,7 +1606,7 @@ class Hamill {
                     doc.add_node(new SetVar(doc, id, value, typeof value === "boolean" ? "boolean" : "string", false));
                     break;
                 case "label":
-                    value = line.value.replace(/::/, "").trim();
+                    value = line.value.replace(/::/, "").trim(); // Remove only the first
                     text = value.split("::");
                     doc.add_label(text[0].trim(), text[1].trim()); // label, url
                     break;
@@ -1698,7 +1692,7 @@ class Hamill {
                             i -= 1;
                         }
                     } else {
-                        let parts = content.split("|"); // Handle escape
+                        let parts = this.escaped_split("|", content); // Handle escape
                         let all_nodes = [];
                         for (let p of parts) {
                             let nodes = Hamill.parse_inner_string(doc, p);
@@ -1769,20 +1763,16 @@ class Hamill {
                     }
                     break;
                 case "code":
-                    res = {};
-                    res['class'] = null;
-                    res['id'] = null;
                     if (line.value === "@@@") {
                         free = true;
                         count += 1;
-                        res['text'] = null;
                     } else if (line.value.startsWith("@@@")) {
                         free = true;
-                        res = this.parse_inner_markup(line.value.substring(3));
+                        res = line.value.substring(3); // this.parse_inner_markup(
                         count += 1;
                     } else if (line.value.startsWith("@@")) {
-                        res = this.parse_inner_markup(line.value.substring(2));
-                        if (res['text'] in LANGUAGES) {
+                        res = line.value.substring(2);
+                        if (res in LANGUAGES) {
                             count += 1; // skip
                         }
                     }
@@ -1799,7 +1789,7 @@ class Hamill {
                         }
                         count += 1;
                     }
-                    doc.add_node(new Code(doc, nodeContent, res['class'], res['id'], res['text'], false)); // text is the language
+                    doc.add_node(new Code(doc, nodeContent, null, null, res, false)); // res is the language
                     if (count < lines.length && lines[count].type !== "code") {
                         count -= 1;
                     }
@@ -1875,7 +1865,6 @@ class Hamill {
             ["%", "%", "sub"],
             ["-", "-", "stroke"],
         ];
-        let specials = ["@", "(", "[", "{", "$", "*", "!", "'", "/", "_", "^", "%", "-", "#", "\\", "•"];
         let modes = {
             bold: false,
             strong: false,
@@ -1886,6 +1875,7 @@ class Hamill {
             sub: false,
             stroke: false,
         };
+        let text_modifier_stack = [];
 
         while (index < str.length) {
             let char = str[index];
@@ -1897,78 +1887,25 @@ class Hamill {
             if (
                 char === "#" &&
                 next === "#" &&
-                next_next === " " &&
                 prev !== "\\"
             ) {
                 if (word.length > 0) {
                     nodes.push(
-                        new Text(doc, word.substring(0, word.length - 1))
-                    ); // remove the last space
+                        new Text(doc, word.substring(0, word.length).trim())
+                    );
                     word = "";
                 }
                 nodes.push(new BR(doc));
-                index += 2;
+                index += 1; // set on the second #
+                // in case of a ## b, the first space is removed by trim() above
+                // and the second space by this :
+                if (index + 1 < str.length && str[index + 1] === ' ') {
+                    index += 1;
+                }
             } else if (char === "\\" && next === "\\" && next_next === "\\") {
                 // escape it
                 word += "\\\\";
                 index += 4;
-                // Glyphs - Trio
-            } else if (
-                char === "." &&
-                next === "." &&
-                next_next === "." &&
-                prev !== "\\"
-            ) {
-                word += "…";
-                index += 2;
-            } else if (
-                char === "=" &&
-                next === "=" &&
-                next_next === ">" &&
-                prev !== "\\"
-            ) {
-                word += "&DoubleRightArrow;"; // ==>
-                index += 2;
-            } else if (
-                char === "<" &&
-                next === "=" &&
-                next_next === "=" &&
-                prev !== "\\"
-            ) {
-                word += "&DoubleLeftArrow;"; // <==
-                index += 2;
-                // Glyphs - Duo
-            } else if (char === "-" && next === ">" && prev !== "\\") {
-                word += "&ShortRightArrow;"; // ->
-                index += 1;
-            } else if (char === "<" && next === "-" && prev !== "\\") {
-                word += "&ShortLeftArrow;"; // <-
-                index += 1;
-            } else if (char === "o" && next === "e" && prev !== "\\") {
-                word += "&oelig;"; // oe
-                index += 1;
-            } else if (char === "O" && next === "E" && prev !== "\\") {
-                word += "&OElig;"; // OE
-                index += 1;
-            } else if (char === "=" && next === "=" && prev !== "\\") {
-                word += "&Equal;"; // ==
-                index += 1;
-            } else if (char === "!" && next === "=" && prev !== "\\") {
-                word += "&NotEqual;"; // !=
-                index += 1;
-            } else if (char === ">" && next === "=" && prev !== "\\") {
-                word += "&GreaterSlantEqual;"; // >=
-                index += 1;
-            } else if (char === "<" && next === "=" && prev !== "\\") {
-                word += "&LessSlantEqual;"; // <=
-                index += 1;
-                // Escaping
-            } else if (char === "\\" && specials.includes(next)) {
-                // Do nothing, this is an escaping slash
-                if (next === "\\") {
-                    word += "\\";
-                    index += 1;
-                }
             }
             // Text Styles
             else {
@@ -2011,7 +1948,7 @@ class Hamill {
                             throw new Error(`Unclosed link in ${str}`);
                         }
                         let content = str.substring(index + 2, end);
-                        let parts = content.split("->");
+                        let parts = Hamill.escaped_split("->", content);
                         let display = null;
                         let url = null;
                         if (parts.length === 1) {
@@ -2022,6 +1959,8 @@ class Hamill {
                                 parts[0].trim()
                             );
                             url = parts[1].trim();
+                        } else if (parts.length > 2) {
+                            throw new Error(`Malformed link: ${content}`);
                         }
                         nodes.push(new Link(doc, url, display));
                         index = end + 1;
@@ -2036,7 +1975,8 @@ class Hamill {
                             nodes.push(
                                 new Span(
                                     doc,
-                                    res["text"],
+                                    Hamill.parse_inner_string(doc, res["text"]), // New
+                                    null,
                                     res["id"],
                                     res["class"]
                                 )
@@ -2071,16 +2011,23 @@ class Hamill {
                         let language = code_str.split(" ")[0];
                         if (language in LANGUAGES) {
                             lang = language;
-                            code_str = code_str.substring(language.length+1); // remove the language and one space
+                            code_str = code_str.substring(language.length + 1); // remove the language and one space
                         }
                         nodes.push(new Code(doc, Hamill.unescape_code(code_str), null, null, lang, true)); // unescape only @@ !
                         index = is_code_ok + 1; // will inc by 1 at the end of the loop
                     } else {
+                        // match with text modes
                         if (!modes[match]) {
                             modes[match] = true;
+                            text_modifier_stack.push([match, str]);
                             nodes.push(new Start(doc, match));
                         } else {
                             modes[match] = false;
+                            let last = text_modifier_stack.pop();
+                            let last_mode = last[0];
+                            if (last_mode != match) {
+                                throw new Error(`Incoherent stacking of the modifier: finishing ${match} but ${last_mode} should be closed first in ${last[1]}`);
+                            }
                             nodes.push(new Stop(doc, match));
                         }
                         index += 1;
@@ -2094,6 +2041,10 @@ class Hamill {
         }
         if (word.length > 0) {
             nodes.push(new Text(doc, word));
+        }
+        if (text_modifier_stack.length > 0) {
+            let last = text_modifier_stack.pop();
+            throw new Error(`Unclosed ${last[0]} text mode in ${last[1]}.`);
         }
         return nodes;
     }
@@ -2137,10 +2088,6 @@ class Hamill {
                 in_class = true;
                 cls = "";
                 continue;
-            } else if (c === ".") {
-                throw new Error(
-                    `Class or text already defined for this markup: ${content}`
-                );
             }
 
             if (
@@ -2154,10 +2101,6 @@ class Hamill {
                 in_ids = true;
                 ids = "";
                 continue;
-            } else if (c === "#") {
-                throw new Error(
-                    `ID or text alreay defined for this markup: ${content}`
-                );
             }
 
             if (c === " " && in_class) {
@@ -2200,11 +2143,336 @@ class Hamill {
     }
 }
 
-//-------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 // Functions
-//-------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 
-function tests(stop_on_first_error = false, stop_at = null) {
+let tests = [
+    // Comments, HR and BR
+    ["!rem This is a comment", ""],
+    ["§§ This is another comment", ""],
+    [
+        "!var EXPORT_COMMENT=true\n!rem This is a comment",
+        "<!-- This is a comment -->\n",
+    ],
+    [
+        "!var EXPORT_COMMENT=true\n§§ This is a comment",
+        "<!-- This is a comment -->\n",
+    ],
+    ["---", "<hr>\n"],
+    ["a ## b", "<p>a<br>b</p>\n"],
+    ["a ##", "<p>a<br></p>\n"],
+    ["a ##b ##", "<p>a<br>b<br></p>\n"],
+    ["livre : ##\nchanceux ##", "<p>livre :<br><br>\nchanceux<br></p>\n"],
+    // Titles
+    ["### Title 3", '<h3 id="title-3">Title 3</h3>\n'],
+    ["#Title 1", '<h1 id="title-1">Title 1</h1>\n'],
+    // Paragraph
+    ["a", "<p>a</p>\n"],
+    ["a\n\n\n", "<p>a</p>\n"],
+    ["a\nb\n\n", "<p>a<br>\nb</p>\n"],
+    // Text modifications
+    ["**bonjour**", "<p><b>bonjour</b></p>\n"],
+    ["''italic''", "<p><i>italic</i></p>\n"],
+    ["--strikethrough--", "<p><s>strikethrough</s></p>\n"],
+    ["__underline__", "<p><u>underline</u></p>\n"],
+    ["^^superscript^^", "<p><sup>superscript</sup></p>\n"],
+    ["%%subscript%%", "<p><sub>subscript</sub></p>\n"],
+    ["@@code@@", "<p><code>code</code></p>\n"],
+    ["!!ceci est strong!!", "<p><strong>ceci est strong</strong></p>\n"],
+    ["//ceci est emphase//", "<p><em>ceci est emphase</em></p>\n"],
+    // Escaping
+    ["\\**bonjour\\**", "<p>**bonjour**</p>\n"],
+    [
+        "@@code \\@@variable = '\\n' end@@",
+        "<p><code>code @@variable = '\\n' end</code></p>\n",
+    ],
+    // Div, p and span
+    ["{{#myid .myclass}}", '<div id="myid" class="myclass">\n'],
+    ["{{#myid}}", '<div id="myid">\n'],
+    ["{{.myclass}}", '<div class="myclass">\n'],
+    ["{{begin}}", "<div>\n"],
+    ["{{end}}", "</div>\n"],
+    [
+        "{{#myid .myclass}}content",
+        '<p id="myid" class="myclass">content</p>\n',
+    ],
+    [
+        "{{#myid}}content",
+        '<p id="myid">content</p>\n'],
+    [
+        "{{.myclass}}content",
+        '<p class="myclass">content</p>\n'],
+    [
+        "je suis {{#myid .myclass rouge}} et oui !",
+        '<p>je suis <span id="myid" class="myclass">rouge</span> et oui !</p>\n',
+    ],
+    [
+        "je suis {{#myid rouge}} et oui !",
+        '<p>je suis <span id="myid">rouge</span> et oui !</p>\n',
+    ],
+    [
+        "je suis {{.myclass rouge}} et oui !",
+        '<p>je suis <span class="myclass">rouge</span> et oui !</p>\n',
+    ],
+    [
+        "!var DEFAULT_PARAGRAPH_CLASS=zorba\nvive le rouge !",
+        '<p class="zorba">vive le rouge !</p>\n'
+    ],
+    // Details
+    [
+        "<<small -> petit>>",
+        "<details><summary>small</summary>petit</details>\n",
+    ],
+    [
+        "<<.reddetail small -> petit>>",
+        `<details class="reddetail"><summary>small</summary>petit</details>\n`,
+    ],
+    [
+        "<<#mydetail small -> petit>>",
+        `<details id="mydetail"><summary>small</summary>petit</details>\n`,
+    ],
+    [
+        "<<.reddetail #mydetail small -> petit>>",
+        `<details id="mydetail" class="reddetail"><summary>small</summary>petit</details>\n`,
+    ],
+    [
+        "<<big>>\n* This is very big!\n* Indeed\n<<end>>",
+        "<details><summary>big</summary>\n<ul>\n  <li>This is very big!</li>\n  <li>Indeed</li>\n</ul>\n</details>\n",
+    ],
+    [
+        "<<.mydetail big>>\n* This is very big!\n* Indeed\n<<end>>",
+        `<details class="mydetail"><summary>big</summary>\n<ul>\n  <li>This is very big!</li>\n  <li>Indeed</li>\n</ul>\n</details>\n`,
+    ],
+    [
+        "<<#reddetail big>>\n* This is very big!\n* Indeed\n<<end>>",
+        `<details id="reddetail"><summary>big</summary>\n<ul>\n  <li>This is very big!</li>\n  <li>Indeed</li>\n</ul>\n</details>\n`,
+    ],
+    [
+        "<<#reddetail .mydetail big>>\n* This is very big!\n* Indeed\n<<end>>",
+        `<details id="reddetail" class="mydetail"><summary>big</summary>\n<ul>\n  <li>This is very big!</li>\n  <li>Indeed</li>\n</ul>\n</details>\n`,
+    ],
+    // Code
+    [
+        "@@code@@",
+        "<p><code>code</code></p>\n"
+    ],
+    [
+        "Été @@2006@@ Mac, Intel, Mac OS X",
+        "<p>Été <code>2006</code> Mac, Intel, Mac OS X</p>\n"
+    ],
+    [
+        "Voici du code : @@if a == 5 then puts('hello 5') end@@",
+        "<p>Voici du code : <code>if a == 5 then puts('hello 5') end</code></p>\n",
+    ],
+    [
+        "Voici du code Ruby : @@ruby if a == 5 then puts('hello 5') end@@",
+        `<p>Voici du code Ruby : <code><span class="ruby-keyword" title="token n°0 : keyword">if</span> <span class="ruby-identifier" title="token n°2 : identifier">a</span> <span class="ruby-operator" title="token n°4 : operator">==</span> <span class="ruby-integer" title="token n°6 : integer">5</span> <span class="ruby-keyword" title="token n°8 : keyword">then</span> <span class="ruby-identifier" title="token n°10 : identifier">puts</span><span class="ruby-separator" title="token n°11 : separator">(</span><span class="ruby-string" title="token n°12 : string">'hello 5'</span><span class="ruby-separator" title="token n°13 : separator">)</span> <span class="ruby-keyword" title="token n°15 : keyword">end</span></code></p>\n`,
+    ],
+    [
+        "@@ruby\n@@if a == 5 then\n@@    puts('hello 5')\n@@end\n",
+        `<pre>
+<span class="ruby-keyword" title="token n°0 : keyword">if</span> <span class="ruby-identifier" title="token n°2 : identifier">a</span> <span class="ruby-operator" title="token n°4 : operator">==</span> <span class="ruby-integer" title="token n°6 : integer">5</span> <span class="ruby-keyword" title="token n°8 : keyword">then</span><span class="ruby-newline" title="token n°9 : newline">
+</span>    <span class="ruby-identifier" title="token n°11 : identifier">puts</span><span class="ruby-separator" title="token n°12 : separator">(</span><span class="ruby-string" title="token n°13 : string">'hello 5'</span><span class="ruby-separator" title="token n°14 : separator">)</span><span class="ruby-newline" title="token n°15 : newline">
+</span><span class="ruby-keyword" title="token n°16 : keyword">end</span><span class="ruby-newline" title="token n°17 : newline">
+</span></pre>\n`
+    ],
+    [
+        "@@@ruby\nif a == 5 then\n    puts('hello 5')\nend\n@@@\n",
+        `<pre>
+<span class="ruby-keyword" title="token n°0 : keyword">if</span> <span class="ruby-identifier" title="token n°2 : identifier">a</span> <span class="ruby-operator" title="token n°4 : operator">==</span> <span class="ruby-integer" title="token n°6 : integer">5</span> <span class="ruby-keyword" title="token n°8 : keyword">then</span><span class="ruby-newline" title="token n°9 : newline">
+</span>    <span class="ruby-identifier" title="token n°11 : identifier">puts</span><span class="ruby-separator" title="token n°12 : separator">(</span><span class="ruby-string" title="token n°13 : string">'hello 5'</span><span class="ruby-separator" title="token n°14 : separator">)</span><span class="ruby-newline" title="token n°15 : newline">
+</span><span class="ruby-keyword" title="token n°16 : keyword">end</span><span class="ruby-newline" title="token n°17 : newline">
+</span></pre>\n`
+    ],
+    // Quotes
+    [
+        ">>ceci est une quote\n>>qui s'étend sur une autre ligne\nText normal",
+        "<blockquote>\nceci est une quote<br>\nqui s'étend sur une autre ligne<br>\n</blockquote>\n<p>Text normal</p>\n"
+    ],
+    [
+        ">>>\nceci est une quote libre\nqui s'étend sur une autre ligne aussi\n>>>\nText normal",
+        "<blockquote>\nceci est une quote libre<br>\nqui s'étend sur une autre ligne aussi<br>\n</blockquote>\n<p>Text normal</p>\n"
+    ],
+    [
+        ">>>.redquote\nceci est une quote libre\nqui s'étend sur une autre ligne aussi\n>>>\nText normal",
+        `<blockquote class="redquote">\nceci est une quote libre<br>\nqui s'étend sur une autre ligne aussi<br>\n</blockquote>\n<p>Text normal</p>\n`
+    ],
+    [
+        ">>>#myquote\nceci est une quote libre\nqui s'étend sur une autre ligne aussi\n>>>\nText normal",
+        `<blockquote id="myquote">\nceci est une quote libre<br>\nqui s'étend sur une autre ligne aussi<br>\n</blockquote>\n<p>Text normal</p>\n`
+    ],
+    [
+        ">>>.redquote #myquote\nceci est une quote libre\nqui s'étend sur une autre ligne aussi\n>>>\nText normal",
+        `<blockquote id="myquote" class="redquote">\nceci est une quote libre<br>\nqui s'étend sur une autre ligne aussi<br>\n</blockquote>\n<p>Text normal</p>\n`
+    ],
+    [
+        ">>>.redquote #myquote OH NON DU TEXTE !\nceci est une quote libre\nqui s'étend sur une autre ligne aussi\n>>>\nText normal",
+        `<blockquote id="myquote" class="redquote">\nceci est une quote libre<br>\nqui s'étend sur une autre ligne aussi<br>\n</blockquote>\n<p>Text normal</p>\n`,
+        "A line starting a blockquote should only have a class or id indication not text"
+    ],
+    // Lists
+    [
+        "* Bloc1\n  * A\n  * B\n* Bloc2\n  * C",
+        "<ul>\n  <li>Bloc1\n    <ul>\n      <li>A</li>\n      <li>B</li>\n    </ul>\n  </li>\n  <li>Bloc2\n    <ul>\n      <li>C</li>\n    </ul>\n  </li>\n</ul>\n",
+    ],
+    ["  * A", "<ul>\n  <li>A</li>\n</ul>\n"],
+    // Definition lists
+    [
+        "$ alpha\nFirst letter of the greek alphabet",
+        "<dl>\n<dt>alpha</dt>\n<dd>First letter of the greek alphabet</dd>\n</dl>\n"
+    ],
+    [
+        "!var PARAGRAPH_DEFINITION=true\n$ alpha\nFirst letter of the greek alphabet",
+        "<dl>\n<dt>alpha</dt>\n<dd><p>First letter of the greek alphabet</p></dd>\n</dl>\n"
+    ],
+    // Tables
+    [
+        "|abc|def|",
+        "<table>\n<tr><td>abc</td><td>def</td></tr>\n</table>\n"
+    ],
+    [
+        "|abc|=def|",
+        `<table>\n<tr><td>abc</td><td style="text-align: center">def</td></tr>\n</table>\n`
+    ],
+    [
+        "|abc|>def|",
+        `<table>\n<tr><td>abc</td><td style="text-align: right">def</td></tr>\n</table>\n`
+    ],
+    [
+        "|abc|def\\|ghk|",
+        "<table>\n<tr><td>abc</td><td>def|ghk</td></tr>\n</table>\n"
+    ],
+    [
+        "!const DEFAULT_TABLE_CLASS=alpha\n|abc|def|",
+        '<table class="alpha">\n<tr><td>abc</td><td>def</td></tr>\n</table>\n'
+    ],
+    [
+        "!const DEFAULT_TABLE_CLASS=alpha\n!const NEXT_TABLE_CLASS=beta\n|abc|def|\n\n|ghi|jkl|",
+        '<table class="beta">\n<tr><td>abc</td><td>def</td></tr>\n</table>\n<table class="alpha">\n<tr><td>ghi</td><td>jkl</td></tr>\n</table>\n'
+    ],
+    // Links
+    [
+        "[[https://www.spotify.com/]]",
+        `<p><a href="https://www.spotify.com/">https://www.spotify.com/</a></p>\n`
+    ],
+    [
+        "[[Spotify->https://www.spotify.com/]]",
+        `<p><a href="https://www.spotify.com/">Spotify</a></p>\n`
+    ],
+    [
+        "[[Spotify->grotify]]\n::grotify:: https://www.spotify.com/",
+        `<p><a href="https://www.spotify.com/">Spotify</a></p>\n`
+    ],
+    [
+        "## Youhou\n[[Go to title->youhou]]",
+        `<h2 id="youhou">Youhou</h2>\n<p><a href="#youhou">Go to title</a></p>\n`
+    ],
+    [
+        "[[Ceci est un mauvais lien->",
+        "",
+        "Unclosed link in [[Ceci est un mauvais lien->",
+    ],
+    [
+        "{{#idp}} blablah\n\n[[#idp]]",
+        `<p id="idp"> blablah</p>\n<p><a href="#idp">#idp</a></p>\n`
+    ],
+    [
+        "[[Escaped \\-> link->https://www.spotify.com/]]",
+        `<p><a href="https://www.spotify.com/">Escaped &ShortRightArrow; link</a></p>\n`
+    ],
+    // Images
+    [
+        "((https://fr.wikipedia.org/wiki/%C3%89douard_Detaille#/media/Fichier:Carabinier_de_la_Garde_imp%C3%A9riale.jpg))",
+        `<p><img src="https://fr.wikipedia.org/wiki/%C3%89douard_Detaille#/media/Fichier:Carabinier_de_la_Garde_imp%C3%A9riale.jpg"/></p>\n`
+    ],
+    [
+        "!const DEFAULT_FIND_IMAGE=doyoureallybelieveafterlove\n((pipo.jpg))",
+        '<p><img src="doyoureallybelieveafterlove/pipo.jpg"/></p>\n'
+    ],
+    // Constants
+    ["!const NUMCONST = 25\n$$NUMCONST$$", "<p>25</p>\n"],
+    ["\\!const NOT A CONST", "<p>!const NOT A CONST</p>\n"],
+    [
+        "!const ALPHACONST = abcd\n!const ALPHACONST = efgh",
+        "",
+        "Can't set the value of the already set constant : ALPHACONST of type string",
+    ],
+    [
+        "$$VERSION$$",
+        `<p>Hamill ${VERSION}</p>\n`
+    ],
+    // Variables
+    ["!var NUMBER=5\n$$NUMBER$$", "<p>5</p>\n"],
+    [
+        "!var ALPHA=je suis un poulpe\n$$ALPHA$$",
+        "<p>je suis un poulpe</p>\n",
+    ],
+    ["!var BOOLEAN=true\n$$BOOLEAN$$", "<p>true</p>\n"],
+    [
+        "!var NUM=1\n$$NUM$$\n!var NUM=25\n$$NUM$$\n",
+        "<p>1</p>\n<p>25</p>\n",
+    ],
+    ["\\!var I AM NOT A VAR", "<p>!var I AM NOT A VAR</p>\n"],
+    ["$$UNKNOWNVAR$$", "", "Unknown variable: UNKNOWNVAR"],
+    [
+        "!var TITLE=ERROR",
+        "",
+        "You are trying to declare a variable which use the name of the constant TITLE",
+    ],
+    [
+        "!const TITLE = TRYING\n!const TITLE = TRYING TOO",
+        "",
+        "Can't set the value of the already set constant : TITLE of type string"
+    ],
+    // Inclusion of HTML files
+    ["!include include_test.html", "<h1>Hello World!</h1>\n"],
+    [
+        "\\!include I AM NOT AN INCLUDE",
+        "<p>!include I AM NOT AN INCLUDE</p>\n",
+    ],
+    // Links to CSS and JavaScript files
+    ["!require pipo.css", ""],
+    [
+        "\\!require I AM NOT A REQUIRE",
+        "<p>!require I AM NOT A REQUIRE</p>\n",
+    ],
+    // Raw HTML and CSS
+    ["!html <div>Hello</div>", "<div>Hello</div>\n"],
+    [
+        "\\!html <div>Hello</div>",
+        "<p>!html &lt;div&gt;Hello&lt;/div&gt;</p>\n",
+    ], // Error, the \ should be removed!
+    ["!css p { color: pink;}", ""],
+    // New feature
+    [
+        "**started but not finished",
+        "",
+        "Unclosed bold text mode in **started but not finished."
+    ],
+    [
+        "**started __first** closed wrong__",
+        "",
+        "Incoherent stacking of the modifier: finishing bold but underline should be closed first in **started __first** closed wrong__"
+    ],
+    // Défaut code
+    [
+        "!var DEFAULT_CODE=bnf\nYoupi j'aime bien les @@<règles>@@ !\n",
+        `<p>Youpi j'aime bien les <code><span class="bnf-keyword" title="token n°0 : keyword">&lt;règles&gt;</span></code> !</p>\n`
+    ],
+    // More tests
+    [
+        "* @@*@@ pour une liste non numérotée",
+        "<ul>\n  <li><code>*</code> pour une liste non numérotée</li>\n</ul>\n"
+    ],
+    // Défaut code class and id
+    [
+        "!var NEXT_CODE_CLASS=cls\n!var NEXT_CODE_ID=ids\n@@@\nhello\n@@@",
+        '<pre id="ids" class="cls">\nhello\n</pre>\n'
+    ]
+];
+
+function runAllTests(stop_on_first_error = false, stop_at = null) {
     console.log(
         "\n========================================================================"
     );
@@ -2212,234 +2480,8 @@ function tests(stop_on_first_error = false, stop_at = null) {
     console.log(
         "========================================================================"
     );
-    let test_suite = [
-        // Comments, HR and BR
-        ["!rem This is a comment", ""],
-        ["§§ This is another comment", ""],
-        [
-            "!var EXPORT_COMMENT=true\n!rem This is a comment",
-            "<!-- This is a comment -->\n",
-        ],
-        [
-            "!var EXPORT_COMMENT=true\n§§ This is a comment",
-            "<!-- This is a comment -->\n",
-        ],
-        ["---", "<hr>\n"],
-        ["a ## b", "<p>a<br>b</p>\n"],
-        // Titles
-        ["### Title 3", '<h3 id="title-3">Title 3</h3>\n'],
-        ["#Title 1", '<h1 id="title-1">Title 1</h1>\n'],
-        // Paragraph
-        ["a", "<p>a</p>\n"],
-        ["a\n\n\n", "<p>a</p>\n"],
-        ["a\nb\n\n", "<p>a<br>\nb</p>\n"],
-        // Text modifications
-        ["**bonjour**", "<p><b>bonjour</b></p>\n"],
-        ["''italic''", "<p><i>italic</i></p>\n"],
-        ["--strikethrough--", "<p><s>strikethrough</s></p>\n"],
-        ["__underline__", "<p><u>underline</u></p>\n"],
-        ["^^superscript^^", "<p><sup>superscript</sup></p>\n"],
-        ["%%subscript%%", "<p><sub>subscript</sub></p>\n"],
-        ["@@code@@", "<p><code>code</code></p>\n"],
-        ["!!ceci est strong!!", "<p><strong>ceci est strong</strong></p>\n"],
-        ["//ceci est emphase//", "<p><em>ceci est emphase</em></p>\n"],
-        // Escaping
-        ["\\**bonjour\\**", "<p>**bonjour**</p>\n"],
-        [
-            "@@code \\@@variable = '\\n' end@@",
-            "<p><code>code @@variable = '\\n' end</code></p>\n",
-        ],
-        // Div, p and span
-        ["{{#myid .myclass}}", '<div id="myid" class="myclass">\n'],
-        ["{{#myid}}", '<div id="myid">\n'],
-        ["{{.myclass}}", '<div class="myclass">\n'],
-        ["{{begin}}", "<div>\n"],
-        ["{{end}}", "</div>\n"],
-        [
-            "{{#myid .myclass}}content",
-            '<p id="myid" class="myclass">content</p>\n',
-        ],
-        [
-            "{{#myid}}content",
-            '<p id="myid">content</p>\n'],
-        [
-            "{{.myclass}}content",
-            '<p class="myclass">content</p>\n'],
-        [
-            "je suis {{#myid .myclass rouge}} et oui !",
-            '<p>je suis <span id="myid" class="myclass">rouge</span> et oui !</p>\n',
-        ],
-        [
-            "je suis {{#myid rouge}} et oui !",
-            '<p>je suis <span id="myid">rouge</span> et oui !</p>\n',
-        ],
-        [
-            "je suis {{.myclass rouge}} et oui !",
-            '<p>je suis <span class="myclass">rouge</span> et oui !</p>\n',
-        ],
-        // Details
-        [
-            "<<small -> petit>>",
-            "<details><summary>small</summary>petit</details>\n",
-        ],
-        [
-            "<<.reddetail small -> petit>>",
-            `<details class="reddetail"><summary>small</summary>petit</details>\n`,
-        ],
-        [
-            "<<#mydetail small -> petit>>",
-            `<details id="mydetail"><summary>small</summary>petit</details>\n`,
-        ],
-        [
-            "<<.reddetail #mydetail small -> petit>>",
-            `<details id="mydetail" class="reddetail"><summary>small</summary>petit</details>\n`,
-        ],
-        [
-            "<<big>>\n* This is very big!\n* Indeed\n<<end>>",
-            "<details><summary>big</summary>\n<ul>\n  <li>This is very big!</li>\n  <li>Indeed</li>\n</ul>\n</details>\n",
-        ],
-        [
-            "<<.mydetail big>>\n* This is very big!\n* Indeed\n<<end>>",
-            `<details class="mydetail"><summary>big</summary>\n<ul>\n  <li>This is very big!</li>\n  <li>Indeed</li>\n</ul>\n</details>\n`,
-        ],
-        [
-            "<<#reddetail big>>\n* This is very big!\n* Indeed\n<<end>>",
-            `<details id="reddetail"><summary>big</summary>\n<ul>\n  <li>This is very big!</li>\n  <li>Indeed</li>\n</ul>\n</details>\n`,
-        ],
-        [
-            "<<#reddetail .mydetail big>>\n* This is very big!\n* Indeed\n<<end>>",
-            `<details id="reddetail" class="mydetail"><summary>big</summary>\n<ul>\n  <li>This is very big!</li>\n  <li>Indeed</li>\n</ul>\n</details>\n`,
-        ],
-        // Code
-        [
-            "Voici du code : @@if a == 5 then puts('hello 5') end@@",
-            "<p>Voici du code : <code>if a == 5 then puts('hello 5') end</code></p>\n",
-        ],
-        [
-            "Voici du code Ruby : @@ruby if a == 5 then puts('hello 5') end@@",
-            `<p>Voici du code Ruby : <code><span class="ruby-keyword" title="token n°0 : keyword">if</span> <span class="ruby-identifier" title="token n°2 : identifier">a</span> <span class="ruby-operator" title="token n°4 : operator">==</span> <span class="ruby-integer" title="token n°6 : integer">5</span> <span class="ruby-keyword" title="token n°8 : keyword">then</span> <span class="ruby-identifier" title="token n°10 : identifier">puts</span><span class="ruby-separator" title="token n°11 : separator">(</span><span class="ruby-string" title="token n°12 : string">'hello 5'</span><span class="ruby-separator" title="token n°13 : separator">)</span> <span class="ruby-keyword" title="token n°15 : keyword">end</span></code></p>\n`,
-        ],
-        [
-            "@@ruby\n@@if a == 5 then\n@@    puts('hello 5')\n@@end\n",
-            `<pre>
-<span class="ruby-keyword" title="token n°0 : keyword">if</span> <span class="ruby-identifier" title="token n°2 : identifier">a</span> <span class="ruby-operator" title="token n°4 : operator">==</span> <span class="ruby-integer" title="token n°6 : integer">5</span> <span class="ruby-keyword" title="token n°8 : keyword">then</span><span class="ruby-newline" title="token n°9 : newline">
-</span>    <span class="ruby-identifier" title="token n°11 : identifier">puts</span><span class="ruby-separator" title="token n°12 : separator">(</span><span class="ruby-string" title="token n°13 : string">'hello 5'</span><span class="ruby-separator" title="token n°14 : separator">)</span><span class="ruby-newline" title="token n°15 : newline">
-</span><span class="ruby-keyword" title="token n°16 : keyword">end</span><span class="ruby-newline" title="token n°17 : newline">
-</span></pre>\n`
-        ],
-        [
-            "@@@ruby\nif a == 5 then\n    puts('hello 5')\nend\n@@@\n",
-            `<pre>
-<span class="ruby-keyword" title="token n°0 : keyword">if</span> <span class="ruby-identifier" title="token n°2 : identifier">a</span> <span class="ruby-operator" title="token n°4 : operator">==</span> <span class="ruby-integer" title="token n°6 : integer">5</span> <span class="ruby-keyword" title="token n°8 : keyword">then</span><span class="ruby-newline" title="token n°9 : newline">
-</span>    <span class="ruby-identifier" title="token n°11 : identifier">puts</span><span class="ruby-separator" title="token n°12 : separator">(</span><span class="ruby-string" title="token n°13 : string">'hello 5'</span><span class="ruby-separator" title="token n°14 : separator">)</span><span class="ruby-newline" title="token n°15 : newline">
-</span><span class="ruby-keyword" title="token n°16 : keyword">end</span><span class="ruby-newline" title="token n°17 : newline">
-</span></pre>\n`
-        ],
-        // Quotes
-        [
-            ">>ceci est une quote\n>>qui s'étend sur une autre ligne\nText normal",
-            "<blockquote>\nceci est une quote<br>\nqui s'étend sur une autre ligne<br>\n</blockquote>\n<p>Text normal</p>\n"
-        ],
-        [
-            ">>>\nceci est une quote libre\nqui s'étend sur une autre ligne aussi\n>>>\nText normal",
-            "<blockquote>\nceci est une quote libre<br>\nqui s'étend sur une autre ligne aussi<br>\n</blockquote>\n<p>Text normal</p>\n"
-        ],
-        [
-            ">>>.redquote\nceci est une quote libre\nqui s'étend sur une autre ligne aussi\n>>>\nText normal",
-            `<blockquote class="redquote">\nceci est une quote libre<br>\nqui s'étend sur une autre ligne aussi<br>\n</blockquote>\n<p>Text normal</p>\n`
-        ],
-        [
-            ">>>#myquote\nceci est une quote libre\nqui s'étend sur une autre ligne aussi\n>>>\nText normal",
-            `<blockquote id="myquote">\nceci est une quote libre<br>\nqui s'étend sur une autre ligne aussi<br>\n</blockquote>\n<p>Text normal</p>\n`
-        ],
-        [
-            ">>>.redquote #myquote\nceci est une quote libre\nqui s'étend sur une autre ligne aussi\n>>>\nText normal",
-            `<blockquote id="myquote" class="redquote">\nceci est une quote libre<br>\nqui s'étend sur une autre ligne aussi<br>\n</blockquote>\n<p>Text normal</p>\n`
-        ],
-        [
-            ">>>.redquote #myquote OH NON DU TEXTE !\nceci est une quote libre\nqui s'étend sur une autre ligne aussi\n>>>\nText normal",
-            `<blockquote id="myquote" class="redquote">\nceci est une quote libre<br>\nqui s'étend sur une autre ligne aussi<br>\n</blockquote>\n<p>Text normal</p>\n`,
-            "A line starting a blockquote should only have a class or id indication not text"
-        ],
-        // Lists
-        [
-            "* Bloc1\n  * A\n  * B\n* Bloc2\n  * C",
-            "<ul>\n  <li>Bloc1\n    <ul>\n      <li>A</li>\n      <li>B</li>\n    </ul>\n  </li>\n  <li>Bloc2\n    <ul>\n      <li>C</li>\n    </ul>\n  </li>\n</ul>\n",
-        ],
-        ["  * A", "<ul>\n  <li>A</li>\n</ul>\n"],
-        // Definition lists
-        // Tables
-        [
-            "|abc|def|",
-            "<table>\n<tr><td>abc</td><td>def</td></tr>\n</table>\n"
-        ],
-        [
-            "|abc|=def|",
-            `<table>\n<tr><td>abc</td><td style="text-align: center">def</td></tr>\n</table>\n`
-        ],
-        [
-            "|abc|>def|",
-            `<table>\n<tr><td>abc</td><td style="text-align: right">def</td></tr>\n</table>\n`
-        ],
-        // Links
-        [
-            "[[Ceci est un mauvais lien->",
-            "",
-            "Unclosed link in [[Ceci est un mauvais lien->",
-        ],
-        // Images
-        [
-            "((https://fr.wikipedia.org/wiki/%C3%89douard_Detaille#/media/Fichier:Carabinier_de_la_Garde_imp%C3%A9riale.jpg))",
-            `<p><img src="https://fr.wikipedia.org/wiki/%C3%89douard_Detaille#/media/Fichier:Carabinier_de_la_Garde_imp%C3%A9riale.jpg"/></p>\n`
-        ],
-        // Constants
-        ["!const NUMCONST = 25\n$$NUMCONST$$", "<p>25</p>\n"],
-        ["\\!const NOT A CONST", "<p>!const NOT A CONST</p>\n"],
-        [
-            "!const ALPHACONST = abcd\n!const ALPHACONST = efgh",
-            "",
-            "Can't set the value of the already defined constant: ALPHACONST of type string",
-        ],
-        // Variables
-        ["!var NUMBER=5\n$$NUMBER$$", "<p>5</p>\n"],
-        [
-            "!var ALPHA=je suis un poulpe\n$$ALPHA$$",
-            "<p>je suis un poulpe</p>\n",
-        ],
-        ["!var BOOLEAN=true\n$$BOOLEAN$$", "<p>true</p>\n"],
-        [
-            "!var NUM=1\n$$NUM$$\n!var NUM=25\n$$NUM$$\n",
-            "<p>1</p>\n<p>25</p>\n",
-        ],
-        ["\\!var I AM NOT A VAR", "<p>!var I AM NOT A VAR</p>\n"],
-        ["$$UNKNOWNVAR$$", "", "Unknown variable: UNKNOWNVAR"],
-        [
-            "!var TITLE=ERROR",
-            "",
-            "You cannot use TITLE for a variable because it is a predefined constant.",
-        ],
-        // Inclusion of HTML files
-        ["!include include_test.html", "<h1>Hello World!</h1>\n"],
-        [
-            "\\!include I AM NOT AN INCLUDE",
-            "<p>!include I AM NOT AN INCLUDE</p>\n",
-        ],
-        // Links to CSS and JavaScript files
-        ["!require pipo.css", ""],
-        [
-            "\\!require I AM NOT A REQUIRE",
-            "<p>!require I AM NOT A REQUIRE</p>\n",
-        ],
-        // Raw HTML and CSS
-        ["!html <div>Hello</div>", "<div>Hello</div>\n"],
-        [
-            "\\!html <div>Hello</div>",
-            "<p>!html &lt;div&gt;Hello&lt;/div&gt;</p>\n",
-        ], // Error, the \ should be removed!
-        ["!css p { color: pink;}", ""],
-    ];
     let nb_ok = 0;
-    for (let [index, t] of test_suite.entries()) {
+    for (let [index, t] of tests.entries()) {
         if (
             t === undefined ||
             t === null ||
@@ -2455,7 +2497,7 @@ function tests(stop_on_first_error = false, stop_at = null) {
         console.log(
             "-------------------------------------------------------------------------\n"
         );
-        if (test(t[0], t[1], t.length === 3 ? t[2] : null)) {
+        if (runTest(t[0], t[1], t.length === 3 ? t[2] : null)) {
             nb_ok += 1;
         } else if (stop_on_first_error) {
             throw new Error("Stopping on first error");
@@ -2465,15 +2507,10 @@ function tests(stop_on_first_error = false, stop_at = null) {
             break;
         }
     }
-    console.log(`\nTests ok : ${nb_ok} / ${test_suite.length}\n`);
-
-    //let doc = Hamill.process_string("* A\n* B [[http://www.gogol.com]]\n  + D\n  + E");
-    //let doc = Hamill.process_string("+ Été @@2006@@ Mac, Intel, Mac OS X");
-    //let doc = Hamill.process_string("@@Code@@");
-    //let doc = Hamill.process_string("Bonjour $$VERSION$$");
+    console.log(`\nTests ok : ${nb_ok} / ${tests.length}\n`);
 }
 
-function test(text, result, error = null) {
+function runTest(text, result, error = null) {
     try {
         let doc = Hamill.process(text);
         let output = doc.to_html();
@@ -2500,12 +2537,16 @@ function test(text, result, error = null) {
             console.log("Test Validated");
             return true;
         } else if (error !== null) {
+            console.log('-- Unexpected error:');
             console.log(e.message);
-            console.log(`Error, expected:\n${error}`);
+            console.log(e.stack);
+            console.log(`-- Another error was expected:\n${error}`);
             return false;
         } else {
-            console.log("Unexpected error:", e.message, e.stack);
-            console.log(`No error expected, expected:\n${result}`);
+            console.log("Unexpected error:");
+            console.log(e.message);
+            console.log(e.stack);
+            console.log(`-- No error expected, expected:\n${result}`);
             return false;
         }
     }
@@ -2515,66 +2556,83 @@ function test(text, result, error = null) {
 // Main
 //-------------------------------------------------------------------------------
 
+let do_test = false;
 const DEBUG = true;
+
 if (DEBUG) {
     console.log(`Running Hamill v${Hamill.version}`);
 }
-if (fs !== null) {
-    const do_test = true;
-    if (do_test) {
-        tests(true); //, 5);
-        Hamill.process("../../dgx/static/input/tests.hml").to_html_file(
-            "../../dgx/hamill/"
-        );
-        Hamill.process(
-            "../../dgx/static/input/hamill/hamill.hml"
-        ).to_html_file("../../dgx/hamill/");
+if (argv !== null) {
+    let message = "---\n";
+    message += "> Use hamill.mjs --process (or -p) <input config filepath> to convert the HML file to HTML\n";
+    message += "  The file must be an object {} with a key named targets with an array value of pairs :\n";
+    message += '            ["inputFile", "outputDir"]\n';
+    message += `> Use hamill.mjs --tests (or -t) to launch all the tests (${tests.length}).\n`;
+    message += `> Use hamill.mjs --eval (or -e) to run a read-eval-print-loop from hml to html\n`;
+    message += "> Use hamill.mjs --help (or -h) to display this message";
+    if (argv.length === 3) {
+        if (argv[2] === '--tests' || argv[2] === '-t') {
+            do_test = true;
+        } else if (argv[2] === "--eval" || argv[2] === '-e') {
+            console.log('---');
+            console.log('Type exit to quit');
+            let cmd = null;
+            while (cmd !== "exit") {
+                cmd = reader.question('> ');
+                if (cmd !== "exit") {
+                    let doc = Hamill.process(cmd);
+                    console.log(doc.to_html(false))
+                }
+            }
+        } else if (argv[2] === "--help" || argv[2] === "-h") {
+            console.log(message);
+        } else if (argv[2] === "--process" || argv[2] === "-p") {
+            console.log('You need to provide a configuration file')
+        } else {
+            console.log(`Unrecognized option(s). Type --help for help.`);
+        }
+    } else if (argv.length === 4) {
+        if (argv[2] === '--process' || argv[2] === '-p') {
+            let filepath = argv[3];
+            if (!fs.existsSync(filepath)) {
+                throw new Error(`Impossible to find a valid hamill config file at ${filepath}`);
+            }
+            let workingDir = path.dirname(filepath);
+            process.chdir(workingDir);
+            console.log(`Set current working directory: ${process.cwd()}`);
+            let raw = fs.readFileSync(filepath, "utf-8");
+            let config = JSON.parse(raw);
+            for (const target of config["targets"]) {
+                if (target.hasOwnProperty("do") && target.hasOwnProperty("source") && target.hasOwnProperty("destination")) {
+                    if (target["do"]) {
+                        let inputFile = target["source"];
+                        let targetOK = fs.existsSync(inputFile);
+                        if (!targetOK) {
+                            console.log(`${inputFile} is an invalid target. Aborting.`);
+                            process.exit();
+                        }
+                        let outputDir = target["destination"];
+                        Hamill.process(
+                            inputFile
+                        ).to_html_file(outputDir);
+                    }
+                } else if (target.hasOwnProperty("comment") && Object.keys(target).length === 1) {
+                    // Do nothing, this is a comment
+                } else {
+                    console.log('Malformed configuration file. Aborting.');
+                    process.exit();
+                }
+            }
+        } else {
+            console.log(`Unrecognized options. Type --help for help.`);
+        }
     } else {
-        console.log(
-            "------------------------------------------------------------------------"
-        );
-        console.log("Test de process_file (hamill)");
-        console.log(
-            "------------------------------------------------------------------------\n"
-        );
-
-        // Pages racines
-        Hamill.process("../../dgx/static/input/index.hml").to_html_file(
-            "../../dgx/"
-        );
-        Hamill.process("../../dgx/static/input/blog.hml").to_html_file(
-            "../../dgx/"
-        );
-        Hamill.process("../../dgx/static/input/plan.hml").to_html_file(
-            "../../dgx/"
-        );
-        Hamill.process("../../dgx/static/input/liens.hml").to_html_file(
-            "../../dgx/"
-        );
-        Hamill.process("../../dgx/static/input/tests.hml").to_html_file(
-            "../../dgx/"
-        );
-        // Passetemps
-        Hamill.process(
-            "../../dgx/static/input/passetemps/pres_jeuxvideo.hml"
-        ).to_html_file("../../dgx/passetemps/");
-        /* This is not code
-        //- RTS ---------------------------------------------------------------
-        Hamill.process(
-            "../../dgx/static/input/rts/index.hml"
-        ).to_html_file("../../dgx/rts/");
-        //- Ash ---------------------------------------------------------------
-        Hamill.process(
-            "../../dgx/static/input/ash/ash_guide.hml"
-        ).to_html_file("../../dgx/ash/");
-        //- Hamill ------------------------------------------------------------
-        Hamill.process(
-            "../../dgx/static/input/hamill/index.hml"
-        ).to_html_file("../../dgx/hamill/");
-        */
-        Hamill.process(
-            "../../dgx/static/input/hamill/hamill.hml"
-        ).to_html_file("../../dgx/hamill/");
+        console.log(message);
+    }
+}
+if (fs !== null) {
+    if (do_test) {
+        runAllTests(true); //, 5);
     }
 }
 
