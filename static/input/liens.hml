@@ -256,9 +256,9 @@ Une liste de liens vers des sites web très intéressants, une liste des technol
       * [[PHP Library Binaries->https://windows.php.net/downloads/pecl/releases/]]
     * [[Lua->https://www.lua.org/]]
       * Games
-        * ((https://xitog.github.io/dgx/img/icons/love-favicon-16x16.ico)) [[Löve->https://love2d.org/]]
+        * ((https://xitog.github.io/dgx/img/icons/love-favicon-16x16.png)) [[Löve->https://love2d.org/]]
       * Autres
-        * [[Teal->https://teal-language.org/]], statically-typed dialect
+        * ((https://xitog.github.io/dgx/img/icons/teal-favicon-16x16.png)) [[Teal->https://teal-language.org/]], statically-typed dialect
         * [[Penlight->https://stevedonovan.github.io/Penlight/api/manual/01-introduction.md.html]]
     * [[Pike->https://pike.lysator.liu.se/]]
     * [[Microsoft Visual C++ Redistributable->https://learn.microsoft.com/fr-fr/cpp/windows/latest-supported-vc-redist?view=msvc-170]]
