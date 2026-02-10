@@ -76,6 +76,11 @@
 			"destination": "../passetemps/"
 		},
 		{
+            "do": true,
+            "source": "./input/passetemps/pres_jv_chronologie.hml",
+            "destination": "../passetemps/"
+        },
+		{
 			"do": true,
 			"source": "./input/passetemps/compagnon_sorcier.hml",
 			"destination": "../passetemps/"
