@@ -1,0 +1,459 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chronologie JV</title>
+  <link rel="icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="https://xitog.github.io/dgx/img/favicon.ico" type="image/x-icon" />
+  <link href="https://xitog.github.io/dgx/css/simplex.bootstrap.css" rel="stylesheet">
+  <link href="https://xitog.github.io/dgx/css/palatino.css" rel="stylesheet">
+  <style type="text/css">
+    p { text-align: justify; }
+    td {color: black; font-size: 14px; }
+    table a {font-family: "Palatino Linotype", "Palatino"; font-size: 14px; }
+    code {color: #006FDD; border: 1px solid rgb(225, 228, 229); padding-left: 3px; padding-right: 5px;}
+    code span.number {color: #dd006f;}
+    .spoil {color: black; background-color: black;}
+    .spoil:hover {color: white;}
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="main" class="container">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+             <a class="navbar-brand" href="#">Menu</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li id="Accueil"><a href="https://xitog.github.io/dgx/index.html">Accueil</a></li>
+              <li id="Blog"><a href="https://xitog.github.io/dgx/blog.html">Blog</a></li>
+              <li class="dropdown">
+                <a id="Langues" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Langues <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                <li class="dropdown-header">Français</li>
+                  <li><a href="https://xitog.github.io/dgx/francais/fiche_api_fr.html">Fiche sur les phonèmes du français</a></li>
+                  <li><a href="https://xitog.github.io/dgx/francais/outil_stats_fr.html">Outil d'analyse textuelle</a></li>
+                  <li><a href="https://xitog.github.io/dgx/francais/vocabulaire_fr.html">Vocabulaire français</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Italien</li>
+                  <li><a href="https://xitog.github.io/dgx/italien/beatrice.html">Beatrice : grammaire</a></li>
+                  <li><a href="https://xitog.github.io/dgx/italien/jeu_conjugaison.html">Jeu sur la conjugaison</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Anglais</li>
+                  <li><a href="https://xitog.github.io/dgx/anglais/jeu_vocabulaire.html">Jeu sur le vocabulaire</a></li>
+                  <li><a href="https://xitog.github.io/dgx/anglais/verbes.html">Verbes fréquents</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Interlingua</li>
+                  <li><a href="https://xitog.github.io/dgx/interlingua/conjugueur.html">Conjugueur</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Linguistique</li>
+                  <li><a href="https://xitog.github.io/dgx/linguistique/informations.html">Informations générales</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Informatique" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Informatique <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Projets</li>
+                  <li><a href="https://xitog.github.io/dgx/ash/index.html">Ash</a></li>
+                  <li><a href="https://xitog.github.io/dgx/hamill/index.html">Hamill</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Programmation</li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/syntaxes.html">Syntaxes comparées</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/python.html">Aide-mémoire Python</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/ruby.html">Aide-mémoire Ruby</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/lua.html">Aide-mémoire Lua</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/ruby_guide.html">Guide Ruby</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Modélisation</li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/bnf.html">Aide-mémoire BNF et EBNF</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/json.html">Aide-mémoire JSON</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Autres</li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/version_control.html">Gestion de versions</a></li>
+                  <li><a href="https://xitog.github.io/dgx/informatique/tools_langs.html">Logiciels utiles et autres langages</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Histoire" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Histoire <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Méthode</li>
+                  <li><a href="https://xitog.github.io/dgx/histoire/methode.html">Généralités</a></li>
+                  <li><a href="https://xitog.github.io/dgx/histoire/bibliographie.html">Bibliographie</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Aide-mémoires</li>
+                  <li><a href="https://xitog.github.io/dgx/histoire/france19eme.html">France au XIX<sup>e</sup></a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Jeux" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Passe-temps <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Projets</li>
+                  <li><a href="https://xitog.github.io/dgx/teddy/index.html">Éditeur de carte</a></li>
+                  <li><a href="https://xitog.github.io/dgx/rts/index.html">Jouer à mon RTS</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/project_fps.html">Jouer à mon FPS</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Présentations générales</li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/pres_jeux.html">Les jeux</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/pres_jeuxvideo.html">Les jeux vidéo</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/pres_favoris.html">Favoris artistiques</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Jeux de rôles</li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/systemes_rpg.html">Systèmes des RPG</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Livres-jeux</li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/compagnon_talisman.html">Le Compagnon du Talisman</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/compagnon_sorcier.html">Le Compagnon du Sorcier</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Histoire des jeux vidéo</li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/history_rts.html">Les enfants de Dune : les RTS</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/history_fps.html">Les enfants de Doom : les FPS</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Techniques des jeux vidéo</li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_raycasting_fr.html">Le raycasting : la 2.5D</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_transitions.html">Cartes et transitions</a></li>
+                  <li><a href="https://xitog.github.io/dgx/passetemps/tech_dialogues.html">Dialogues</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a id="Autres" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Autres <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li class="dropdown-header">Applications</li>
+                  <li><a href="https://xitog.github.io/dgx/concerts_classiques/index.html">Concerts classiques</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Collections</li>
+                  <li><a href="https://xitog.github.io/dgx/data/outil_collections.html#prenoms">Prénoms</a></li>
+                  <li class="divider"></li>
+                  <li class="dropdown-header">Liens</li>
+                  <li><a href="https://xitog.github.io/dgx/plan.html">Plan du site</a></li>
+                  <li><a href="https://xitog.github.io/dgx/liens.html">Liste de liens</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+
+<div id="content-div">
+<h1 id="chronologie-des-jeux-vidéo-joués">Chronologie des jeux vidéo joués</h1>
+<ul>
+  <li><a href="#résumé">Résumé</a></li>
+  <li><a href="#au-fil-des-années">Au fil des années</a>
+    <ul>
+      <li><a href="#légende">Légende</a></li>
+      <li><a href="#2025-(8)">2025 (8)</a></li>
+      <li><a href="#2024-(12)">2024 (12)</a></li>
+      <li><a href="#2023-(9)">2023 (9)</a></li>
+      <li><a href="#2022-(8)">2022 (8)</a></li>
+      <li><a href="#2021-(6)">2021 (6)</a></li>
+    </ul>
+  </li>
+</ul>
+<h1 id="résumé">Résumé</h1>
+<table>
+<tr><th> Année </th><th> T </th><th> # </th><th> Nouveaux                                                                                                                                                          </th><th> # </th><th> Refaits                                                                                                 </th></tr>
+<tr><td> 2025  </td><td> 8 </td><td> 4 </td><td> <b>Dishonored</b>, <b>CoD: Black Ops: Cold War</b>, Forgive Me Father, Killing Time Resurrected                                                                         </td><td> 4 </td><td> <b>Fallout 3 GOTY</b>, Outlaws, <b>Far Cry 5</b>, F.E.A.R.                                                    </td></tr>
+<tr><td> 2024  </td><td>12 </td><td> 8 </td><td> <b>Cultic Ch1</b>, <b>SC2: Legacy of the Void</b>, Gun Godz, CoD: Black Ops 2, <b>Far Cry: New Dawn</b>, WH40K: Boltgun, Wolfenstein: The New Order, CoD: Advanced Warfare </td><td> 4 </td><td> <b>CoD: Black Ops</b>, SC2: Heart of the Swarm, <b>Dark Forces Remastered</b>, <b>Baldur's Gate: EE</b>          </td></tr>
+<tr><td> 2023  </td><td> 9 </td><td> 5 </td><td> <b>Far Cry 6</b>, LfD, <b>Age of Empire</b>, System Shock, Shadow Warrior                                                                                               </td><td> 4 </td><td> <b>Lionheart: Legacy of the Crusader</b>, <b>Diablo 2 Resurrected</b>, <b>SC2: Wings of Liberty</b>, CoD: Ghosts </td></tr>
+<tr><td> 2022  </td><td> 8 </td><td> 3 </td><td> Battlefront 2 (2017), Call of Duty: Infinite Warfare, <b>Fallout 1</b>                                                                                               </td><td> 5 </td><td> <b>Far Cry 4</b>, <b>Portal</b>, <b>Blood</b>, <b>Quake</b> et <b>Diablo 2 Resurrected</b>                             </td></tr>
+<tr><td> 2021  </td><td> 6 </td><td> 4 </td><td> Battlefront (2015), <b>Prey (2017)</b>, <b>Sacred</b>, <b>The Settlers 2: History Edition</b>                                                                              </td><td> 2 </td><td> <b>Dead Space</b>, <b>StarCraft Remastered</b>                                                                </td></tr>
+</table>
+<p>En <b>gras</b> les jeux cultes.</p>
+<h1 id="au-fil-des-années">Au fil des années</h1>
+<h2 id="légende">Légende</h2>
+<p>Dans cette page, les jeux joués sont présentés par <b>année</b>.</p>
+<p>Pour chaque année, on a entre parenthèse le nombre de jeux terminés (sans compter les extensions<sup>1</sup>).<br>
+Puis un sous-titre avec les jeux terminés (nouveaux en <b>gras</b> et refaits) (sans nommer les extensions<sup>1</sup>) au cours de celle-ci.<br>
+On note <sup>en exposant</sup> et en abrégé la version jouée (hd: history edition, de: definitive, ee: enhanced edition, cr: classic redux, rem: remaster, rem: remake, res: resurrected, GOTY)</p>
+<p>En dessous, un tableau contenat la liste des jeux joués (terminés + essayés) avec :</p>
+<ul>
+  <li>le mois où j'ai fini le jeu</li>
+  <li>la machine sur laquelle je l'ai fini (Elspeth, Shodan, TUF, Xerxès, Big PC, Joystick)</li>
+  <li>le store où j'ai le jeu (Steam, GOG, Battle.net)</li>
+  <li>le numéro de run<sup>2</sup> sur la version jouée / nombre de runs total pour ce jeu, toutes versions confondues</li>
+  <li>on comptabilise le nombre de sessions faites pour terminer le jeu, pas le nombre total de sessions</li>
+  <li>le genre (FPS, RPG, RTS, FPS-RPG, FPX, Arcade)</li>
+  <li>si c'est une extension</li>
+  <li>le nom du jeu
+    <ul>
+      <li><b>en gras</b> les jeux finis pour la première fois,</li>
+      <li><u>en souligné</u>, les jeux pour lesquels j'ai rédigé une critique,</li>
+    </ul>
+  </li>
+  <li>l'année de sortie de la version originale</li>
+  <li>l'année de sortie de la version sur laquelle j'ai jouée si différente de la version originale</li>
+  <li>un éventuel commentaire</li>
+</ul>
+<p>1: Je considère <code><span class="game-normal" title="token n°0 : normal">Heart of the Swarm</span></code> et <code><span class="game-normal" title="token n°0 : normal">Legacy of the Void</span></code> comme des jeux à part entière et non des extensions de <code><span class="game-normal" title="token n°0 : normal">Wing of Liberty</span></code>.<br>
+2: On différencie le nombre de run total et le nombre de run sur une version spécifique : R run actuel / runs totaux.<br>Ainsi, mon 1er run de Blood (R1/1) est sur la version <em>One Unit Whole Blood</em> et mon second (R1/2) est sur la version <em>Fresh supply</em>.</p>
+<h2 id="2025-(8)">2025 (8)</h2>
+<h3 id="dishonored,-cod:-black-ops:-cold-war,-forgive-me-father,-fallout-3goty,-outlaws,-killing-timeres,-far-cry-5,-f.e.a.r.">Dishonored, CoD: Black Ops: Cold War, Forgive Me Father, Fallout 3<sup>GOTY</sup>, Outlaws, Killing Time<sup>res</sup>, Far Cry 5, F.E.A.R.</h3>
+<ul>
+  <li>8 jeux finis</li>
+  <li>Par nouveauté :
+    <ul>
+      <li>4 jeux terminés pour la première fois (1<sup>er</sup> run) : Dishonored, CoD: Black Ops: Cold War, Forgive Me Father, Killing Time Resurrected</li>
+      <li>4 jeux refaits : Fallout 3 GOTY, Outlaws, Far Cry 5, F.E.A.R.</li>
+    </ul>
+  </li>
+  <li>Par années :
+    <ul>
+      <li>202x : 2 (Forgive Me Father, CoD: Black Ops: Cold War)</li>
+      <li>201x : 2 (Dishonored, Far Cry 5)</li>
+      <li>200x : 2 (F.E.A.R., Fallout 3)</li>
+      <li>199x : 2 (Killing Time Resurrected, Outlaws)</li>
+    </ul>
+  </li>
+  <li>Par types :
+    <ul>
+      <li>FPS : 6</li>
+      <li>RTS : 0</li>
+      <li>RPG : 1</li>
+      <li>FPS-RPG : 1</li>
+    </ul>
+  </li>
+  <li>Par plateformes :
+    <ul>
+      <li>8 sur Steam</li>
+    </ul>
+  </li>
+  <li>Non finis : Factorio (T2), Wolfenstein: The Old Blood (T1), R.O.T.T. Ludicrous Edition (T1 mais fini jeu original), Alyx (T1), Diablo IV (T1), Heretic Remastered (T1 mais fini jeu original), Dishonored 2 (T1), Far Cry 5: Lost On Mars (T1), Tempest Rising (T1), Mini Settlers (T1), Turok (T1), Supreme Commander</li>
+</ul>
+<table>
+<tr><th> Mois            </th><th> Machine </th><th> Store </th><th> Run   </th><th> S  </th><th> Genre   </th><th> Ext </th><th> Jeu                                        </th><th> Année </th><th> Version </th><th> Commentaire                      </th></tr>
+<tr><td> Octobre         </td><td> Elspeth </td><td> Steam </td><td> 2     </td><td> 17 </td><td> FPS     </td><td>     </td><td> Far Cry 5                                  </td><td> 2018  </td><td>         </td><td>                                  </td></tr>
+<tr><td> Septembre       </td><td> Elspeth </td><td> Steam </td><td> 2     </td><td>  6 </td><td> FPS     </td><td>     </td><td> F.E.A.R.                                   </td><td> 2005  </td><td>         </td><td>                                  </td></tr>
+<tr><td> Juillet         </td><td> Elspeth </td><td> Steam </td><td> 1     </td><td>  4 </td><td> FPS     </td><td>     </td><td> <b>Killing Time Resurrected</b>               </td><td> 1995  </td><td> 2024    </td><td>                                  </td></tr>
+<tr><td> Octobre         </td><td> Elspeth </td><td> Steam </td><td> 2     </td><td>  8 </td><td> FPS     </td><td>     </td><td> Outlaws                                    </td><td> 1997  </td><td>         </td><td>                                  </td></tr>
+<tr><td> Mai             </td><td> Elspeth </td><td> Steam </td><td> 2     </td><td> 23 </td><td> RPG     </td><td>     </td><td> Fallout 3 GOTY                             </td><td> 2008  </td><td> GOTY    </td><td> 23 sessions pour le jeu original </td></tr>
+<tr><td> Avril           </td><td> Elspeth </td><td> Steam </td><td> 1     </td><td>  8 </td><td> FPS     </td><td>     </td><td> <b>Forgive Me Father</b>                      </td><td> 2022  </td><td>         </td><td>                                  </td></tr>
+<tr><td> Mars            </td><td> Elspeth </td><td> Steam </td><td> 1     </td><td>  6 </td><td> FPS     </td><td>     </td><td> <b>Call of Duty: Black Ops: Cold War</b>      </td><td> 2020  </td><td>         </td><td>                                  </td></tr>
+<tr><td> Février         </td><td> Elspeth </td><td> Steam </td><td> 1     </td><td> 20 </td><td> FPS-RPG </td><td>     </td><td> <b>Dishonored</b>                             </td><td> 2012  </td><td>         </td><td>                                  </td></tr>
+</table>
+<h2 id="2024-(12)">2024 (12)</h2>
+<h3 id="cod:-black-ops,-cultic,-sc2:-heart-of-the-swarm,-sc2:-legacy-of-the-void,-gun-godz,-cod:-black-ops-2,-far-cry:-new-dawn,-dark-forcesremastered,-wh40k:-boltgun,-bgee,-wolfenstein:-tno,-cod:-advanced-warfare">CoD: Black Ops, <b>Cultic</b>, SC2: Heart of the Swarm, <b>SC2: Legacy of the Void</b>, <b>Gun Godz</b>, <b>CoD: Black Ops 2</b>, <b>Far Cry: New Dawn</b>, Dark Forces<sup>Remastered</sup>, <b>WH40K: Boltgun</b>, BG<sup>EE</sup>, <b>Wolfenstein: TNO</b>, <b>CoD: Advanced Warfare</b></h3>
+<ul>
+  <li>12 jeux finis</li>
+  <li>Par nouveauté :
+    <ul>
+      <li>8 jeux terminés pour la première fois (1<sup>er</sup> run) : Cultic, SC2: Legacy of the Void, Gun Godz, CoD: Black Ops 2, Far Cry: New Dawn, WH40K: Boltgun, Wolfenstein:The New Order, CoD: Advanced Warfare</li>
+      <li>4 jeux refaits : CoD: Black Ops, SC2: Heart of the Swarm, Dark Forces Remastered, Baldur's Gate: EE</li>
+    </ul>
+  </li>
+  <li>Par années :
+    <ul>
+      <li>199x : 2 (Dark Forces Remastered, Baldur's Gate: EE)</li>
+      <li>201x : 7 (CoD: Black Ops, SC2: Heart of the Swarm, SC2: Legacy of the Void, Gun Godz, CoD: Black Ops 2, Wolfenstein:The New Order, CoD: Advanced Warfare)</li>
+      <li>202x : 3 (Cultic, Far Cry: New Dawn, WH40K: Boltgun)</li>
+    </ul>
+  </li>
+  <li>Par types :
+    <ul>
+      <li>9 FPS : CoD: Black Ops, Cultic, Gun Godz, CoD: Black Ops 2, Far Cry: New Dawn, Dark Forces Remastered, WH40K: Boltgun, Wolfenstein:The New Order, CoD: Advanced Warfare</li>
+      <li>2 RTS : SC2: Heart of the Swarm, SC2: Legacy of the Void</li>
+      <li>1 RPG : Baldur's Gate: EE</li>
+    </ul>
+  </li>
+  <li>Par plateformes :
+    <ul>
+      <li>10 sur Steam</li>
+      <li>2 sur Battle.net (SC2: Heart of the Swarm, SC2: Legacy of the Void)</li>
+    </ul>
+  </li>
+  <li>Non finis : Prodeus, Arthurian Legends, BG: Dragonspear, Terra Nil, AoE2:DE</li>
+</ul>
+<table>
+<tr><th> Mois            </th><th> Machine </th><th> Store </th><th> Run   </th><th> S  </th><th> Genre   </th><th> Ext </th><th> Jeu                                        </th><th> Année </th><th> Version </th><th> Commentaire                     </th></tr>
+<tr><td> Octobre         </td><td> Elspeth </td><td> Steam </td><td> <b>1</b> </td><td>  6 </td><td> FPS     </td><td>     </td><td> <b>Call of Duty: Advanced Warfare</b>         </td><td> 2014  </td><td>         </td><td>                                 </td></tr>
+<tr><td> Octobre         </td><td> Elspeth </td><td> Steam </td><td> <b>1</b> </td><td>  5 </td><td> FPS     </td><td>     </td><td> <b>Wolfenstein: The New Order</b>             </td><td> 2014  </td><td>         </td><td> Choix de laisser le jeune vivre </td></tr>
+<tr><td> Septembre       </td><td> Elspeth </td><td> Steam </td><td> 6     </td><td> 44 </td><td> RPG     </td><td>     </td><td> <b>Baldur's Gate: Enhanced Edition</b>        </td><td> 1998  </td><td> 2012    </td><td> guerrier-clerc nain 20 con      </td></tr>
+<tr><td> Juin            </td><td> Elspeth </td><td> Steam </td><td> <b>1</b> </td><td> 10 </td><td> FPS     </td><td>     </td><td> <b>Warhammer 40 000: Boltgun</b>              </td><td> 2023  </td><td>         </td><td>                                 </td></tr>
+<tr><td> Mai             </td><td> Elspeth </td><td> Steam </td><td> 2     </td><td>  4 </td><td> FPS     </td><td>     </td><td> <b>Dark Forces Remastered</b>                 </td><td> 1995  </td><td> 2024    </td><td>                                 </td></tr>
+<tr><td> Mai             </td><td> Elspeth </td><td> Steam </td><td> <b>1</b> </td><td> 10 </td><td> FPS     </td><td>     </td><td> <b>Far Cry: New Dawn</b>                      </td><td> 2019  </td><td>         </td><td>                                 </td></tr>
+<tr><td> Avril           </td><td> Elspeth </td><td> Steam </td><td> <b>1</b> </td><td>  6 </td><td> FPS     </td><td>     </td><td> <b>Call of Duty: Black Ops 2</b>              </td><td> 2012  </td><td>         </td><td>                                 </td></tr>
+<tr><td> Mars            </td><td> Shodan  </td><td> Steam </td><td> <b>1</b> </td><td>  2 </td><td> FPS     </td><td>     </td><td> <b>Gun Godz</b>                               </td><td> 2013  </td><td>         </td><td>                                 </td></tr>
+<tr><td> Mars            </td><td> Elspeth </td><td> B.Net </td><td> <b>1</b> </td><td>  6 </td><td> RTS     </td><td> Ext </td><td> <b>StarCraft 2: Nova Covert Ops</b>           </td><td> 2016  </td><td>         </td><td>                                 </td></tr>
+<tr><td> Mars            </td><td> Elspeth </td><td> B.Net </td><td> <b>1</b> </td><td> 16 </td><td> RTS     </td><td>     </td><td> <b>StarCraft 2: Legacy of the Void</b>        </td><td> 2015  </td><td>         </td><td>                                 </td></tr>
+<tr><td> Février         </td><td> Elspeth </td><td> B.Net </td><td> 2     </td><td> 15 </td><td> RTS     </td><td>     </td><td> StarCraft 2: Heart of the Swarm            </td><td> 2013  </td><td>         </td><td>                                 </td></tr>
+<tr><td> Janvier         </td><td> Elspeth </td><td> Steam </td><td> <b>1</b> </td><td>  6 </td><td> FPS     </td><td>     </td><td> <b><u>Cultic: Chapter One</u></b>                </td><td> 2022  </td><td>         </td><td> +1 S pour Interlude             </td></tr>
+<tr><td> Janvier         </td><td> Elspeth </td><td> Steam </td><td> 3/4   </td><td>  2 </td><td> FPS     </td><td>     </td><td> Call of Duty: Black Ops                    </td><td> 2013  </td><td>         </td><td>                                 </td></tr>
+</table>
+<h2 id="2023-(9)">2023 (9)</h2>
+<h3 id="far-cry-6,-age-of-empiresde,-shadow-warriorcr,-system-shock2023,-diablo-2res,-lionheart,-cod:-ghosts,-sc2:-wings-of-liberty,-lfd"><b>Far Cry 6</b>, <b>Age of Empires</b><sup>de</sup>, <b>Shadow Warrior</b><sup>cr</sup>, <b>System Shock<sup>2023</sup></b>, Diablo 2<sup>res</sup>, Lionheart, CoD: Ghosts, SC2: Wings of Liberty, LfD</h3>
+<ul>
+  <li><b>9 jeux finis</b>, 4 extensions finies.</li>
+  <li>Par nouveauté :
+    <ul>
+      <li>5 jeux terminés pour la première fois (1<sup>er</sup> run) : Far Cry 6, LfD dont 3 déjà commencé : Age of Empire, System Shock, Shadow Warrior</li>
+      <li>4 jeux refaits : Lionheart: Legacy of the Crusader, Diablo 2, SC2: Wings of Liberty, CoD: Ghosts</li>
+    </ul>
+  </li>
+  <li>Par années (on compte l'année d'origine, pas celle de la réédition) :
+    <ul>
+      <li>199x : 3 (Age of Empire, Shadow Warrior, System Shock)</li>
+      <li>200x : 2 (Diablo 2, Lionheart: Legacy of the Crusader)</li>
+      <li>201x : 2 (CoD: Ghosts, SC2: Wings of Liberty, LfD)</li>
+      <li>202x : 2 (Far Cry 6, LfD)</li>
+    </ul>
+  </li>
+  <li>Par types :
+    <ul>
+      <li>3 FPS : Far Cry 6, Shadow Warrior, CoD: Ghosts</li>
+      <li>0 RPG</li>
+      <li>2 ARPG : Diablo 2<sup>res</sup>, Lionheart</li>
+      <li>1 FPX : LfD</li>
+      <li>2 RTS : Age of Empires<sup>de</sup>, SC2: Wings of Liberty</li>
+      <li>1 FPS-RPG : System Shock<sup>2023</sup></li>
+      <li>0 Gestion</li>
+    </ul>
+  </li>
+  <li>Par plateformes :
+    <ul>
+      <li>7 sur Steam</li>
+      <li>2 sur Battle.net (Diablo 2 et SC2: Wings of Liberty)</li>
+    </ul>
+  </li>
+  <li>Non finis : aucun</li>
+</ul>
+<table>
+<tr><th> Mois            </th><th> Machine </th><th> Store </th><th> Run   </th><th> S  </th><th> Genre   </th><th> Ext </th><th> Jeu                                    </th><th> Année </th><th> Version </th><th> Commentaire                     </th></tr>
+<tr><td> Décembre        </td><td> Elspeth </td><td> Steam </td><td> <b>1</b> </td><td>  2 </td><td> FPX     </td><td>     </td><td> Lust for Darkness                      </td><td> 2018  </td><td>         </td><td>                                 </td></tr>
+<tr><td> Décembre        </td><td> Elspeth </td><td> Steam </td><td> 2     </td><td>  2 </td><td> FPS     </td><td>     </td><td> <u>Call of Duty: Ghosts</u>               </td><td> 2013  </td><td>         </td><td>                                 </td></tr>
+<tr><td> Oct.-Déc.       </td><td> Elspeth </td><td> Steam </td><td> 2     </td><td> 16 </td><td> RTS     </td><td>     </td><td> <u>StarCraft 2: Wings of Liberty</u>      </td><td> 2010  </td><td>         </td><td>                                 </td></tr>
+<tr><td> Sept.-Oct.      </td><td> TUF/Els </td><td> Steam </td><td> 2     </td><td> 24 </td><td> ARPG    </td><td>     </td><td> <u>Lionheart: Legacy of the Crusader</u>  </td><td> 2003  </td><td>         </td><td>                                 </td></tr>
+<tr><td> Août-Sept.      </td><td> TUF     </td><td> Steam </td><td> <b>1</b> </td><td> 10 </td><td> FPS-RPG </td><td>     </td><td> <b>System Shock (2023)</b>                </td><td> 1994  </td><td>    2023 </td><td>                                 </td></tr>
+<tr><td> Mai-Juillet     </td><td> TUF     </td><td> Steam </td><td> <b>1</b> </td><td> 26 </td><td> FPS     </td><td>     </td><td> <u><b>Far Cry 6</b></u>                      </td><td> 2021  </td><td>         </td><td>                                 </td></tr>
+<tr><td> Avril-Juin      </td><td> TUF     </td><td> Steam </td><td> 1     </td><td>  3 </td><td> FPS     </td><td> Ext </td><td> <u>Twin Dragon</u>                        </td><td> 1998  </td><td>    2013 </td><td>                                 </td></tr>
+<tr><td> Mars-Avril      </td><td> TUF     </td><td> Steam </td><td> 1     </td><td>  5 </td><td> FPS     </td><td> Ext </td><td> <u>Wanton Destruction</u>                 </td><td> 2005  </td><td>    2013 </td><td>                                 </td></tr>
+<tr><td> Fév.-Avril      </td><td> TUF     </td><td> Steam </td><td> 1     </td><td> 16 </td><td> RTS     </td><td> Ext </td><td> Rise of Rome                           </td><td> 1998  </td><td>    2018 </td><td>                                 </td></tr>
+<tr><td> Jan.-Fév.       </td><td> TUF     </td><td> B.net </td><td> X+2   </td><td>  2 </td><td> ARPG    </td><td> Ext </td><td> Lord of Destruction                    </td><td> 2000  </td><td>    2021 </td><td> Paladin avec Lionel             </td></tr>
+<tr><td> Jan.-Fév.       </td><td> TUF     </td><td> B.net </td><td> X+2   </td><td>  6 </td><td> ARPG    </td><td>     </td><td> Diablo 2 Resurrected                   </td><td> 2000  </td><td>    2021 </td><td> Paladin avec Lionel             </td></tr>
+<tr><td> &lt;Nov.-Fév.      </td><td> TUF     </td><td> Steam </td><td> <b>1</b> </td><td> 13 </td><td> FPS     </td><td>     </td><td> <u><b>Shadow Warrior Classic Redux</b></u>   </td><td> 1997  </td><td>    2013 </td><td>                                 </td></tr>
+<tr><td> &lt;Nov.-Fév.      </td><td> TUF     </td><td> Steam </td><td> <b>1</b> </td><td> 23 </td><td> RTS     </td><td>     </td><td> <b>Age of Empire: Definitive Edition</b>  </td><td> 1997  </td><td>    2018 </td><td> Joué 1 fois en mars et mai 2022 </td></tr>
+</table>
+<h2 id="2022-(8)">2022 (8)</h2>
+<h3 id="farcry-4,-cod:iw,-bloodfs,-quakehd,-portal,-diablo-2res,-fallout-1,-battlefront-22017">FarCry 4, <b>CoD:IW</b>, Blood<sup>fs</sup>, Quake<sup>hd</sup>, Portal, Diablo 2<sup>res</sup>, <b>Fallout 1</b>, <b>Battlefront 2<sup>2017</sup></b></h3>
+<ul>
+  <li><b>8 jeux finis</b> dont 1 deux fois, 11 extensions finies dont 1 deux fois.</li>
+  <li>Par nouveautés :
+    <ul>
+      <li>3 jeux terminés pour la première fois (1<sup>er</sup> run) : Battlefront 2 (2017), Call of Duty: Infinite Warfare dont 1 déjà commencé : Fallout 1</li>
+      <li>5 jeux refaits : Far Cry 4, Portal dont 3 remasters : Blood, Quake et Diablo 2 Resurrected</li>
+      <li>Les 3 remasters étaient un premier run du remaster.</li>
+    </ul>
+  </li>
+  <li>Par années (on compte l'année d'origine, pas celle de la réédition) :
+    <ul>
+      <li>199x : 3 (Fallout 1, Quake, Blood)</li>
+      <li>200x : 1 (Diablo 2)</li>
+      <li>201x : 2 (SW Battlefront 2, Far Cry 4)</li>
+      <li>202x : 0</li>
+    </ul>
+  </li>
+  <li>Par types :
+    <ul>
+      <li>5 FPS : FarCry 4, CoD:IW, Blood, Quake, Battlefront 2<sup>2017</sup></li>
+      <li>1 RPG : Fallout 1</li>
+      <li>1 ARPG : Diablo 2<sup>res</sup></li>
+      <li>1 FPX : Portal</li>
+      <li>0 RTS</li>
+      <li>0 FPS-RPG</li>
+      <li>0 Gestion</li>
+    </ul>
+  </li>
+  <li>Par plateformes :
+    <ul>
+      <li>7 sur Steam</li>
+      <li>1 sur Battle.net (Diablo 2<sup>res</sup>)</li>
+    </ul>
+  </li>
+  <li>Non finis : Legend of Grimrock, Age of Empire: Defitive Edition, Shadow Warrior Classic Redux, Portal advance maps</li>
+</ul>
+<table>
+<tr><th> Mois            </th><th> Machine </th><th> Store </th><th> Run   </th><th> S  </th><th> Genre   </th><th> Ext </th><th> Jeu                                    </th><th> Année </th><th> Version </th><th> Commentaire             </th></tr>
+<tr><td> Décembre        </td><td> TUF     </td><td> Steam </td><td> 1     </td><td>  1 </td><td> FPS     </td><td> Ext </td><td> SW:Battlefront 2 (2017) Résurrection   </td><td> 2017  </td><td>    2019 </td><td> Celebration edition     </td></tr>
+<tr><td> Décembre        </td><td> TUF     </td><td> Steam </td><td> <b>1</b> </td><td>  1 </td><td> FPS     </td><td>     </td><td> <u><b>Star Wars Battlefront 2 (2017)</b></u> </td><td> 2017  </td><td>    2019 </td><td> Celebration edition     </td></tr>
+<tr><td> Sept.-Octobre   </td><td> TUF     </td><td> Steam </td><td> <b>1</b> </td><td> 11 </td><td> RPG     </td><td>     </td><td> <b>Fallout 1</b>                          </td><td> 1997  </td><td>         </td><td>                         </td></tr>
+<tr><td> Sept.-Octobre   </td><td> TUF     </td><td> B.net </td><td> X+1   </td><td>  2 </td><td> ARPG    </td><td> Ext </td><td> Lord of Destruction                    </td><td> 2000  </td><td>    2021 </td><td> Amazone                 </td></tr>
+<tr><td> Sept.-Octobre   </td><td> TUF     </td><td> B.net </td><td> X+1   </td><td>  4 </td><td> ARPG    </td><td>     </td><td> Diablo 2 Resurrected                   </td><td> 2000  </td><td>    2021 </td><td> Amazone                 </td></tr>
+<tr><td> Septembre       </td><td> TUF     </td><td> Steam </td><td> 1     </td><td>  1 </td><td> FPS     </td><td> Ext </td><td> Far Cry 4: Hurk Redemption             </td><td> 2015  </td><td>         </td><td>                         </td></tr>
+<tr><td> Septembre       </td><td> TUF     </td><td> Steam </td><td> 1     </td><td>  2 </td><td> FPS     </td><td> Ext </td><td> Far Cry 4: Valley of the Yetis         </td><td> 2015  </td><td>         </td><td>                         </td></tr>
+<tr><td> Janvier-Sept.   </td><td> TUF     </td><td> B.net </td><td> X     </td><td>  1 </td><td> ARPG    </td><td>     </td><td> Lord of Destruction                    </td><td> 2000  </td><td>    2021 </td><td> Sorcière                </td></tr>
+<tr><td> Janvier-Sept.   </td><td> TUF     </td><td> B.net </td><td> X     </td><td> 10 </td><td> ARPG    </td><td>     </td><td> Diablo 2 Resurrected                   </td><td> 2000  </td><td>    2021 </td><td> Sorcière (1er run Res.) </td></tr>
+<tr><td> Juillet         </td><td> TUF     </td><td> Steam </td><td> <b>1</b> </td><td>  5 </td><td> FPS     </td><td> Ext </td><td> Quake: Dimension of the Machine        </td><td> 2021  </td><td>         </td><td>                         </td></tr>
+<tr><td> Juillet         </td><td> TUF     </td><td> Steam </td><td> 2     </td><td>  2 </td><td> FPS     </td><td> Ext </td><td> Quake: Dimension of the Past           </td><td> 2016  </td><td>         </td><td>                         </td></tr>
+<tr><td> Juin            </td><td> TUF     </td><td> Steam </td><td> 2     </td><td>  2 </td><td> FPS     </td><td> Ext </td><td> Quake: Dissolution of Eternity         </td><td> 1997  </td><td>         </td><td>                         </td></tr>
+<tr><td> Mai-Août        </td><td> TUF     </td><td> Steam </td><td> 1     </td><td>  6 </td><td> FPS     </td><td> Ext </td><td> Far Cry 4: Escape from Durgesh         </td><td> 2015  </td><td>         </td><td>                         </td></tr>
+<tr><td> Mai             </td><td> TUF     </td><td> Steam </td><td> 2     </td><td>  2 </td><td> FPX     </td><td>     </td><td> Portal                                 </td><td> 2007  </td><td>         </td><td>                         </td></tr>
+<tr><td> Mai             </td><td> TUF     </td><td> Steam </td><td> 2     </td><td>  4 </td><td> FPS     </td><td> Ext </td><td> Quake: Scourge of Armagon              </td><td> 1997  </td><td>         </td><td>                         </td></tr>
+<tr><td> Mai             </td><td> TUF     </td><td> Steam </td><td> X     </td><td>  5 </td><td> FPS     </td><td>     </td><td> Quake                                  </td><td> 1996  </td><td>    2021 </td><td> (1er run Kex)           </td></tr>
+<tr><td> Mai             </td><td> TUF     </td><td> Steam </td><td> <b>1</b> </td><td>  3 </td><td> FPS     </td><td> Ext </td><td> Blood Cryptic Passage                  </td><td> 1997  </td><td>         </td><td>                         </td></tr>
+<tr><td> Mai             </td><td> TUF     </td><td> Steam </td><td> <b>1</b> </td><td>  2 </td><td> FPS     </td><td> Ext </td><td> Blood Plasma Pak                       </td><td> 1997  </td><td>         </td><td>                         </td></tr>
+<tr><td> Janvier-Avril   </td><td> TUF     </td><td> Steam </td><td> 2     </td><td> 11 </td><td> FPS     </td><td>     </td><td> <u>Blood: Fresh Supply</u>                </td><td> 1997  </td><td>    2019 </td><td> (1er run Kex)           </td></tr>
+<tr><td> Mars            </td><td> TUF     </td><td> Steam </td><td> <b>1</b> </td><td>  3 </td><td> FPS     </td><td>     </td><td> <b>Call of Duty: Infinite Warfare</b>     </td><td> 2016  </td><td>         </td><td> Diff ¾                  </td></tr>
+<tr><td> Janvier-Février </td><td> TUF     </td><td> Steam </td><td> 2     </td><td> 26 </td><td> FPS     </td><td>     </td><td> <u>Far Cry 4</u>                          </td><td> 2014  </td><td>         </td><td>                         </td></tr>
+</table>
+<h2 id="2021-(6)">2021 (6)</h2>
+<h3 id="dead-space,-settlers-2he,-prey-(2017),-sacred,-starcrafthd,-battlefront2015">Dead Space, <b>Settlers 2</b><sup>he</sup>, <b>Prey</b> (2017), <b>Sacred</b>, StarCraft<sup>hd</sup>, <b>Battlefront<sup>2015</sup></b></h3>
+<ul>
+  <li><b>6 jeux finis</b>, 1 extension finie.</li>
+  <li>Par nouveautés :
+    <ul>
+      <li>4 jeux terminés pour la première fois (1<sup>er</sup> run) : Battlefront (2015), Prey (2017) et 2 déjà commencés : Sacred, The Settlers 2: History Edition,</li>
+      <li>2 jeux refaits : Dead Space et 1 remasters : StarCraft Remastered,</li>
+      <li>Le remaster était un premier run du remaster.</li>
+    </ul>
+  </li>
+  <li>Par années (on compte l'année d'origine, pas celle de la réédition) :
+    <ul>
+      <li>199x : 2 (The Settlers 2, StarCraft)</li>
+      <li>200x : 1 (Sacred)</li>
+      <li>201x : 2 (SW: Battlefrond (2015), Prey (2017))</li>
+      <li>202x : 0</li>
+    </ul>
+  </li>
+  <li>Par types :
+    <ul>
+      <li>1 FPS</li>
+      <li>0 RPG</li>
+      <li>1 ARPG</li>
+      <li>1 FPX</li>
+      <li>1 RTS</li>
+      <li>1 FPS-RPG</li>
+      <li>1 Gestion</li>
+    </ul>
+  </li>
+  <li>Par plateformes :
+    <ul>
+      <li>4 sur Steam</li>
+      <li>1 sur Battle.net (StarCraft)</li>
+      <li>1 sur Ubi (Settlers 2)</li>
+    </ul>
+  </li>
+  <li>Non finis : Factorio</li>
+</ul>
+<table>
+<tr><th> Mois            </th><th> Machine </th><th> Store </th><th> Run   </th><th> S  </th><th> Genre   </th><th> Ext </th><th> Jeu                                        </th><th> Année </th><th> Version </th><th> Commentaire             </th></tr>
+<tr><td> Nov.-Décembre   </td><td> TUF     </td><td> Steam </td><td> 1     </td><td> ?  </td><td> FPS     </td><td>     </td><td> Star Wars: Battlefront (2015)              </td><td> 2015  </td><td>         </td><td> 1 session en Janvier 21 </td></tr>
+<tr><td> ?               </td><td> TUF     </td><td> B.net </td><td> 1     </td><td> ?  </td><td> RTS     </td><td> Ext </td><td> <u>Brood Wars Remastered</u>                  </td><td> 1998  </td><td>         </td><td>                         </td></tr>
+<tr><td> ?               </td><td> TUF     </td><td> B.net </td><td> 1     </td><td> ?  </td><td> RTS     </td><td>     </td><td> <u>StarCraft Remastered</u>                   </td><td> 1997  </td><td>    2017 </td><td> 1 essai précédent       </td></tr>
+<tr><td> Mars-?          </td><td> TUF     </td><td> Steam </td><td> 1     </td><td> ?  </td><td> ARPG    </td><td>     </td><td> <u>Sacred</u>                                 </td><td> 2004  </td><td>         </td><td> Elfe des bois           </td></tr>
+<tr><td> Mars-Avril      </td><td> TUF     </td><td> Steam </td><td> 1     </td><td> 16 </td><td> FPSRPG  </td><td>     </td><td> Prey (2017)                                </td><td> 2017  </td><td>         </td><td>                         </td></tr>
+<tr><td> Janvier-Mars    </td><td> TUF     </td><td> Ubi   </td><td> 1     </td><td> 35 </td><td> Gestion </td><td>     </td><td> <u>The Settlers 2: History Edition</u>        </td><td> 1996  </td><td>    2018 </td><td>                         </td></tr>
+<tr><td> Janvier-Février </td><td> TUF     </td><td> Steam </td><td> 2     </td><td> 16 </td><td> TPS     </td><td>     </td><td> <u>Dead Space</u>                             </td><td> 2008  </td><td>         </td><td>                         </td></tr>
+</table>
+</div>
+</div>
+
+  </body>
+</html>

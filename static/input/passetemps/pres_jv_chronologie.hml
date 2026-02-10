@@ -1,0 +1,280 @@
+
+!const TITLE=Chronologie JV
+!const LANG=fr
+!const ICON=https://xitog.github.io/dgx/img/favicon.ico
+!require https://xitog.github.io/dgx/css/simplex.bootstrap.css
+!require https://xitog.github.io/dgx/css/palatino.css
+!require https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+!require https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+
+!css p { text-align: justify; }
+!css td {color: black; font-size: 14px; }
+!css table a {font-family: "Palatino Linotype", "Palatino"; font-size: 14px; }
+!css code {color: #006FDD; border: 1px solid rgb(225, 228, 229); padding-left: 3px; padding-right: 5px;}
+!css code span.number {color: #dd006f;}
+!css .spoil {color: black; background-color: black;}
+!css .spoil:hover {color: white;}
+
+!var DEFAULT_CODE=game
+
+{{#main .container}}
+
+!include menu.html
+
+{{#content-div}}
+
+# Chronologie des jeux vidéo joués
+
+* [[Résumé->#]]
+* [[Au fil des années->#]]
+  * [[Légende->#]]
+  * [[2025 (8)->#]]
+  * [[2024 (12)->#]]
+  * [[2023 (9)->#]]
+  * [[2022 (8)->#]]
+  * [[2021 (6)->#]]
+
+# Résumé
+
+| Année | T | # | Nouveaux                                                                                                                                                          | # | Refaits                                                                                                 |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 2025  | 8 | 4 | **Dishonored**, **CoD: Black Ops: Cold War**, Forgive Me Father, Killing Time Resurrected                                                                         | 4 | **Fallout 3 GOTY**, Outlaws, **Far Cry 5**, F.E.A.R.                                                    |
+| 2024  |12 | 8 | **Cultic Ch1**, **SC2: Legacy of the Void**, Gun Godz, CoD: Black Ops 2, **Far Cry: New Dawn**, WH40K: Boltgun, Wolfenstein: The New Order, CoD: Advanced Warfare | 4 | **CoD: Black Ops**, SC2: Heart of the Swarm, **Dark Forces Remastered**, **Baldur's Gate: EE**          |
+| 2023  | 9 | 5 | **Far Cry 6**, LfD, **Age of Empire**, System Shock, Shadow Warrior                                                                                               | 4 | **Lionheart: Legacy of the Crusader**, **Diablo 2 Resurrected**, **SC2: Wings of Liberty**, CoD: Ghosts |
+| 2022  | 8 | 3 | Battlefront 2 (2017), Call of Duty: Infinite Warfare, **Fallout 1**                                                                                               | 5 | **Far Cry 4**, **Portal**, **Blood**, **Quake** et **Diablo 2 Resurrected**                             |
+| 2021  | 6 | 4 | Battlefront (2015), **Prey (2017)**, **Sacred**, **The Settlers 2: History Edition**                                                                              | 2 | **Dead Space**, **StarCraft Remastered**                                                                |
+
+En **gras** les jeux cultes.
+
+# Au fil des années
+
+## Légende
+
+Dans cette page, les jeux joués sont présentés par **année**.
+
+Pour chaque année, on a entre parenthèse le nombre de jeux terminés (sans compter les extensions^^1^^).
+Puis un sous-titre avec les jeux terminés (nouveaux en **gras** et refaits) (sans nommer les extensions^^1^^) au cours de celle-ci.
+On note ^^en exposant^^ et en abrégé la version jouée (hd: history edition, de: definitive, ee: enhanced edition, cr: classic redux, rem: remaster, rem: remake, res: resurrected, GOTY)
+
+En dessous, un tableau contenat la liste des jeux joués (terminés + essayés) avec :
+
+* le mois où j'ai fini le jeu
+* la machine sur laquelle je l'ai fini (Elspeth, Shodan, TUF, Xerxès, Big PC, Joystick)
+* le store où j'ai le jeu (Steam, GOG, Battle.net)
+* le numéro de run^^2^^ sur la version jouée / nombre de runs total pour ce jeu, toutes versions confondues
+* on comptabilise le nombre de sessions faites pour terminer le jeu, pas le nombre total de sessions
+* le genre (FPS, RPG, RTS, FPS-RPG, FPX, Arcade)
+* si c'est une extension
+* le nom du jeu
+  * **en gras** les jeux finis pour la première fois,
+  * __en souligné__, les jeux pour lesquels j'ai rédigé une critique,
+* l'année de sortie de la version originale
+* l'année de sortie de la version sur laquelle j'ai jouée si différente de la version originale
+* un éventuel commentaire
+
+1: Je considère @@Heart of the Swarm@@ et @@Legacy of the Void@@ comme des jeux à part entière et non des extensions de @@Wing of Liberty@@.
+2: On différencie le nombre de run total et le nombre de run sur une version spécifique : R run actuel / runs totaux.##Ainsi, mon 1er run de Blood (R1/1) est sur la version //One Unit Whole Blood// et mon second (R1/2) est sur la version //Fresh supply//.
+
+## 2025 (8)
+
+### Dishonored, CoD: Black Ops: Cold War, Forgive Me Father, Fallout 3^^GOTY^^, Outlaws, Killing Time^^res^^, Far Cry 5, F.E.A.R.
+
+* 8 jeux finis
+* Par nouveauté :
+  * 4 jeux terminés pour la première fois (1^^er^^ run) : Dishonored, CoD: Black Ops: Cold War, Forgive Me Father, Killing Time Resurrected
+  * 4 jeux refaits : Fallout 3 GOTY, Outlaws, Far Cry 5, F.E.A.R.
+* Par années :
+  * 202x : 2 (Forgive Me Father, CoD: Black Ops: Cold War)
+  * 201x : 2 (Dishonored, Far Cry 5)
+  * 200x : 2 (F.E.A.R., Fallout 3)
+  * 199x : 2 (Killing Time Resurrected, Outlaws)
+* Par types :
+  * FPS : 6
+  * RTS : 0
+  * RPG : 1
+  * FPS-RPG : 1
+* Par plateformes :
+  * 8 sur Steam
+* Non finis : Factorio (T2), Wolfenstein: The Old Blood (T1), R.O.T.T. Ludicrous Edition (T1 mais fini jeu original), Alyx (T1), Diablo IV (T1), Heretic Remastered (T1 mais fini jeu original), Dishonored 2 (T1), Far Cry 5: Lost On Mars (T1), Tempest Rising (T1), Mini Settlers (T1), Turok (T1), Supreme Commander
+
+| Mois            | Machine | Store | Run   | S  | Genre   | Ext | Jeu                                        | Année | Version | Commentaire                      |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Octobre         | Elspeth | Steam | 2     | 17 | FPS     |     | Far Cry 5                                  | 2018  |         |                                  |
+| Septembre       | Elspeth | Steam | 2     |  6 | FPS     |     | F.E.A.R.                                   | 2005  |         |                                  |
+| Juillet         | Elspeth | Steam | 1     |  4 | FPS     |     | **Killing Time Resurrected**               | 1995  | 2024    |                                  |
+| Octobre         | Elspeth | Steam | 2     |  8 | FPS     |     | Outlaws                                    | 1997  |         |                                  |
+| Mai             | Elspeth | Steam | 2     | 23 | RPG     |     | Fallout 3 GOTY                             | 2008  | GOTY    | 23 sessions pour le jeu original |
+| Avril           | Elspeth | Steam | 1     |  8 | FPS     |     | **Forgive Me Father**                      | 2022  |         |                                  |
+| Mars            | Elspeth | Steam | 1     |  6 | FPS     |     | **Call of Duty: Black Ops: Cold War**      | 2020  |         |                                  |
+| Février         | Elspeth | Steam | 1     | 20 | FPS-RPG |     | **Dishonored**                             | 2012  |         |                                  |
+
+## 2024 (12)
+
+### CoD: Black Ops, **Cultic**, SC2: Heart of the Swarm, **SC2: Legacy of the Void**, **Gun Godz**, **CoD: Black Ops 2**, **Far Cry: New Dawn**, Dark Forces^^Remastered^^, **WH40K: Boltgun**, BG^^EE^^, **Wolfenstein: TNO**, **CoD: Advanced Warfare**
+
+* 12 jeux finis
+* Par nouveauté :
+  * 8 jeux terminés pour la première fois (1^^er^^ run) : Cultic, SC2: Legacy of the Void, Gun Godz, CoD: Black Ops 2, Far Cry: New Dawn, WH40K: Boltgun, Wolfenstein:The New Order, CoD: Advanced Warfare
+  * 4 jeux refaits : CoD: Black Ops, SC2: Heart of the Swarm, Dark Forces Remastered, Baldur's Gate: EE
+* Par années :
+  * 199x : 2 (Dark Forces Remastered, Baldur's Gate: EE)
+  * 201x : 7 (CoD: Black Ops, SC2: Heart of the Swarm, SC2: Legacy of the Void, Gun Godz, CoD: Black Ops 2, Wolfenstein:The New Order, CoD: Advanced Warfare)
+  * 202x : 3 (Cultic, Far Cry: New Dawn, WH40K: Boltgun)
+* Par types :
+  * 9 FPS : CoD: Black Ops, Cultic, Gun Godz, CoD: Black Ops 2, Far Cry: New Dawn, Dark Forces Remastered, WH40K: Boltgun, Wolfenstein:The New Order, CoD: Advanced Warfare
+  * 2 RTS : SC2: Heart of the Swarm, SC2: Legacy of the Void
+  * 1 RPG : Baldur's Gate: EE
+* Par plateformes :
+  * 10 sur Steam
+  * 2 sur Battle.net (SC2: Heart of the Swarm, SC2: Legacy of the Void)
+* Non finis : Prodeus, Arthurian Legends, BG: Dragonspear, Terra Nil, AoE2:DE
+
+| Mois            | Machine | Store | Run   | S  | Genre   | Ext | Jeu                                        | Année | Version | Commentaire                     |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Octobre         | Elspeth | Steam | **1** |  6 | FPS     |     | **Call of Duty: Advanced Warfare**         | 2014  |         |                                 |
+| Octobre         | Elspeth | Steam | **1** |  5 | FPS     |     | **Wolfenstein: The New Order**             | 2014  |         | Choix de laisser le jeune vivre |
+| Septembre       | Elspeth | Steam | 6     | 44 | RPG     |     | **Baldur's Gate: Enhanced Edition**        | 1998  | 2012    | guerrier-clerc nain 20 con      |
+| Juin            | Elspeth | Steam | **1** | 10 | FPS     |     | **Warhammer 40 000: Boltgun**              | 2023  |         |                                 |
+| Mai             | Elspeth | Steam | 2     |  4 | FPS     |     | **Dark Forces Remastered**                 | 1995  | 2024    |                                 |
+| Mai             | Elspeth | Steam | **1** | 10 | FPS     |     | **Far Cry: New Dawn**                      | 2019  |         |                                 |
+| Avril           | Elspeth | Steam | **1** |  6 | FPS     |     | **Call of Duty: Black Ops 2**              | 2012  |         |                                 |
+| Mars            | Shodan  | Steam | **1** |  2 | FPS     |     | **Gun Godz**                               | 2013  |         |                                 |
+| Mars            | Elspeth | B.Net | **1** |  6 | RTS     | Ext | **StarCraft 2: Nova Covert Ops**           | 2016  |         |                                 |
+| Mars            | Elspeth | B.Net | **1** | 16 | RTS     |     | **StarCraft 2: Legacy of the Void**        | 2015  |         |                                 |
+| Février         | Elspeth | B.Net | 2     | 15 | RTS     |     | StarCraft 2: Heart of the Swarm            | 2013  |         |                                 |
+| Janvier         | Elspeth | Steam | **1** |  6 | FPS     |     | **__Cultic: Chapter One__**                | 2022  |         | +1 S pour Interlude             |
+| Janvier         | Elspeth | Steam | 3/4   |  2 | FPS     |     | Call of Duty: Black Ops                    | 2013  |         |                                 |
+
+## 2023 (9)
+
+### **Far Cry 6**, **Age of Empires**^^de^^, **Shadow Warrior**^^cr^^, **System Shock^^2023^^**, Diablo 2^^res^^, Lionheart, CoD: Ghosts, SC2: Wings of Liberty, LfD
+
+* **9 jeux finis**, 4 extensions finies.
+* Par nouveauté :
+  * 5 jeux terminés pour la première fois (1^^er^^ run) : Far Cry 6, LfD dont 3 déjà commencé : Age of Empire, System Shock, Shadow Warrior
+  * 4 jeux refaits : Lionheart: Legacy of the Crusader, Diablo 2, SC2: Wings of Liberty, CoD: Ghosts
+* Par années (on compte l'année d'origine, pas celle de la réédition) :
+  * 199x : 3 (Age of Empire, Shadow Warrior, System Shock)
+  * 200x : 2 (Diablo 2, Lionheart: Legacy of the Crusader)
+  * 201x : 2 (CoD: Ghosts, SC2: Wings of Liberty, LfD)
+  * 202x : 2 (Far Cry 6, LfD)
+* Par types :
+  * 3 FPS : Far Cry 6, Shadow Warrior, CoD: Ghosts
+  * 0 RPG
+  * 2 ARPG : Diablo 2^^res^^, Lionheart
+  * 1 FPX : LfD
+  * 2 RTS : Age of Empires^^de^^, SC2: Wings of Liberty
+  * 1 FPS-RPG : System Shock^^2023^^
+  * 0 Gestion
+* Par plateformes :
+  * 7 sur Steam
+  * 2 sur Battle.net (Diablo 2 et SC2: Wings of Liberty)
+* Non finis : aucun
+
+| Mois            | Machine | Store | Run   | S  | Genre   | Ext | Jeu                                    | Année | Version | Commentaire                     |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Décembre        | Elspeth | Steam | **1** |  2 | FPX     |     | Lust for Darkness                      | 2018  |         |                                 |
+| Décembre        | Elspeth | Steam | 2     |  2 | FPS     |     | __Call of Duty: Ghosts__               | 2013  |         |                                 |
+| Oct.-Déc.       | Elspeth | Steam | 2     | 16 | RTS     |     | __StarCraft 2: Wings of Liberty__      | 2010  |         |                                 |
+| Sept.-Oct.      | TUF/Els | Steam | 2     | 24 | ARPG    |     | __Lionheart: Legacy of the Crusader__  | 2003  |         |                                 |
+| Août-Sept.      | TUF     | Steam | **1** | 10 | FPS-RPG |     | **System Shock (2023)**                | 1994  |    2023 |                                 |
+| Mai-Juillet     | TUF     | Steam | **1** | 26 | FPS     |     | __**Far Cry 6**__                      | 2021  |         |                                 |
+| Avril-Juin      | TUF     | Steam | 1     |  3 | FPS     | Ext | __Twin Dragon__                        | 1998  |    2013 |                                 |
+| Mars-Avril      | TUF     | Steam | 1     |  5 | FPS     | Ext | __Wanton Destruction__                 | 2005  |    2013 |                                 |
+| Fév.-Avril      | TUF     | Steam | 1     | 16 | RTS     | Ext | Rise of Rome                           | 1998  |    2018 |                                 |
+| Jan.-Fév.       | TUF     | B.net | X+2   |  2 | ARPG    | Ext | Lord of Destruction                    | 2000  |    2021 | Paladin avec Lionel             |
+| Jan.-Fév.       | TUF     | B.net | X+2   |  6 | ARPG    |     | Diablo 2 Resurrected                   | 2000  |    2021 | Paladin avec Lionel             |
+| <Nov.-Fév.      | TUF     | Steam | **1** | 13 | FPS     |     | __**Shadow Warrior Classic Redux**__   | 1997  |    2013 |                                 |
+| <Nov.-Fév.      | TUF     | Steam | **1** | 23 | RTS     |     | **Age of Empire: Definitive Edition**  | 1997  |    2018 | Joué 1 fois en mars et mai 2022 |
+
+## 2022 (8)
+
+### FarCry 4, **CoD:IW**, Blood^^fs^^, Quake^^hd^^, Portal, Diablo 2^^res^^, **Fallout 1**, **Battlefront 2^^2017^^**
+
+* **8 jeux finis** dont 1 deux fois, 11 extensions finies dont 1 deux fois.
+* Par nouveautés :
+  * 3 jeux terminés pour la première fois (1^^er^^ run) : Battlefront 2 (2017), Call of Duty: Infinite Warfare dont 1 déjà commencé : Fallout 1
+  * 5 jeux refaits : Far Cry 4, Portal dont 3 remasters : Blood, Quake et Diablo 2 Resurrected
+  * Les 3 remasters étaient un premier run du remaster.
+* Par années (on compte l'année d'origine, pas celle de la réédition) :
+  * 199x : 3 (Fallout 1, Quake, Blood)
+  * 200x : 1 (Diablo 2)
+  * 201x : 2 (SW Battlefront 2, Far Cry 4)
+  * 202x : 0
+* Par types :
+  * 5 FPS : FarCry 4, CoD:IW, Blood, Quake, Battlefront 2^^2017^^
+  * 1 RPG : Fallout 1
+  * 1 ARPG : Diablo 2^^res^^
+  * 1 FPX : Portal
+  * 0 RTS
+  * 0 FPS-RPG
+  * 0 Gestion
+* Par plateformes :
+  * 7 sur Steam
+  * 1 sur Battle.net (Diablo 2^^res^^)
+* Non finis : Legend of Grimrock, Age of Empire: Defitive Edition, Shadow Warrior Classic Redux, Portal advance maps
+
+| Mois            | Machine | Store | Run   | S  | Genre   | Ext | Jeu                                    | Année | Version | Commentaire             |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Décembre        | TUF     | Steam | 1     |  1 | FPS     | Ext | SW:Battlefront 2 (2017) Résurrection   | 2017  |    2019 | Celebration edition     |
+| Décembre        | TUF     | Steam | **1** |  1 | FPS     |     | __**Star Wars Battlefront 2 (2017)**__ | 2017  |    2019 | Celebration edition     |
+| Sept.-Octobre   | TUF     | Steam | **1** | 11 | RPG     |     | **Fallout 1**                          | 1997  |         |                         |
+| Sept.-Octobre   | TUF     | B.net | X+1   |  2 | ARPG    | Ext | Lord of Destruction                    | 2000  |    2021 | Amazone                 |
+| Sept.-Octobre   | TUF     | B.net | X+1   |  4 | ARPG    |     | Diablo 2 Resurrected                   | 2000  |    2021 | Amazone                 |
+| Septembre       | TUF     | Steam | 1     |  1 | FPS     | Ext | Far Cry 4: Hurk Redemption             | 2015  |         |                         |
+| Septembre       | TUF     | Steam | 1     |  2 | FPS     | Ext | Far Cry 4: Valley of the Yetis         | 2015  |         |                         |
+| Janvier-Sept.   | TUF     | B.net | X     |  1 | ARPG    |     | Lord of Destruction                    | 2000  |    2021 | Sorcière                |
+| Janvier-Sept.   | TUF     | B.net | X     | 10 | ARPG    |     | Diablo 2 Resurrected                   | 2000  |    2021 | Sorcière (1er run Res.) |
+| Juillet         | TUF     | Steam | **1** |  5 | FPS     | Ext | Quake: Dimension of the Machine        | 2021  |         |                         |
+| Juillet         | TUF     | Steam | 2     |  2 | FPS     | Ext | Quake: Dimension of the Past           | 2016  |         |                         |
+| Juin            | TUF     | Steam | 2     |  2 | FPS     | Ext | Quake: Dissolution of Eternity         | 1997  |         |                         |
+| Mai-Août        | TUF     | Steam | 1     |  6 | FPS     | Ext | Far Cry 4: Escape from Durgesh         | 2015  |         |                         |
+| Mai             | TUF     | Steam | 2     |  2 | FPX     |     | Portal                                 | 2007  |         |                         |
+| Mai             | TUF     | Steam | 2     |  4 | FPS     | Ext | Quake: Scourge of Armagon              | 1997  |         |                         |
+| Mai             | TUF     | Steam | X     |  5 | FPS     |     | Quake                                  | 1996  |    2021 | (1er run Kex)           |
+| Mai             | TUF     | Steam | **1** |  3 | FPS     | Ext | Blood Cryptic Passage                  | 1997  |         |                         |
+| Mai             | TUF     | Steam | **1** |  2 | FPS     | Ext | Blood Plasma Pak                       | 1997  |         |                         |
+| Janvier-Avril   | TUF     | Steam | 2     | 11 | FPS     |     | __Blood: Fresh Supply__                | 1997  |    2019 | (1er run Kex)           |
+| Mars            | TUF     | Steam | **1** |  3 | FPS     |     | **Call of Duty: Infinite Warfare**     | 2016  |         | Diff ¾                  |
+| Janvier-Février | TUF     | Steam | 2     | 26 | FPS     |     | __Far Cry 4__                          | 2014  |         |                         |
+
+## 2021 (6)
+
+### Dead Space, **Settlers 2**^^he^^, **Prey** (2017), **Sacred**, StarCraft^^hd^^, **Battlefront^^2015^^**
+
+* **6 jeux finis**, 1 extension finie.
+* Par nouveautés :
+  * 4 jeux terminés pour la première fois (1^^er^^ run) : Battlefront (2015), Prey (2017) et 2 déjà commencés : Sacred, The Settlers 2: History Edition,
+  * 2 jeux refaits : Dead Space et 1 remasters : StarCraft Remastered,
+  * Le remaster était un premier run du remaster.
+* Par années (on compte l'année d'origine, pas celle de la réédition) :
+  * 199x : 2 (The Settlers 2, StarCraft)
+  * 200x : 1 (Sacred)
+  * 201x : 2 (SW: Battlefrond (2015), Prey (2017))
+  * 202x : 0
+* Par types :
+  * 1 FPS
+  * 0 RPG
+  * 1 ARPG
+  * 1 FPX
+  * 1 RTS
+  * 1 FPS-RPG
+  * 1 Gestion
+* Par plateformes :
+  * 4 sur Steam
+  * 1 sur Battle.net (StarCraft)
+  * 1 sur Ubi (Settlers 2)
+* Non finis : Factorio
+
+| Mois            | Machine | Store | Run   | S  | Genre   | Ext | Jeu                                        | Année | Version | Commentaire             |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Nov.-Décembre   | TUF     | Steam | 1     | ?  | FPS     |     | Star Wars: Battlefront (2015)              | 2015  |         | 1 session en Janvier 21 |
+| ?               | TUF     | B.net | 1     | ?  | RTS     | Ext | __Brood Wars Remastered__                  | 1998  |         |                         |
+| ?               | TUF     | B.net | 1     | ?  | RTS     |     | __StarCraft Remastered__                   | 1997  |    2017 | 1 essai précédent       |
+| Mars-?          | TUF     | Steam | 1     | ?  | ARPG    |     | __Sacred__                                 | 2004  |         | Elfe des bois           |
+| Mars-Avril      | TUF     | Steam | 1     | 16 | FPSRPG  |     | Prey (2017)                                | 2017  |         |                         |
+| Janvier-Mars    | TUF     | Ubi   | 1     | 35 | Gestion |     | __The Settlers 2: History Edition__        | 1996  |    2018 |                         |
+| Janvier-Février | TUF     | Steam | 2     | 16 | TPS     |     | __Dead Space__                             | 2008  |         |                         |
+
+{{end}}
+{{end}}
